@@ -174,7 +174,7 @@ img { max-width: 100%; }
 }
 .logo-hash { color: var(--saffron); }
 .logo-text { color: var(--navy); }
-.nav-logo-img { height: 46px; width: auto; display: block; }
+.nav-logo-img { height: clamp(66px, 5vw, 74px) !important; width: auto; display: block; }
 .footer-logo-img { height: 32px; width: auto; filter: brightness(0) invert(1); }
 
 /* partner placeholder badges */

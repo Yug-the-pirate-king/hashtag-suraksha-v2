@@ -110,7 +110,7 @@
 
     .cask-hero h1 {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: clamp(44px, 7vw, 88px);
+      font-size: clamp(38px, 6vw, 70px);
       font-weight: 900;
       line-height: 1.06;
       color: #0a0f20;
@@ -217,7 +217,7 @@
       display: flex; align-items: center; gap: 8px;
     }
     .cask-logo-img {
-      height: 32px; width: auto;
+      height: 44px; width: auto;
       object-fit: contain; object-position: center;
       transition: all 0.2s;
     }
@@ -1837,7 +1837,18 @@
   position: absolute; inset: 0; pointer-events: none; z-index: 0;
 }
 .cs2-tag-wrap {
-  position: absolute; top: 24px; left: 32px; z-index: 2;
+  margin-bottom: 15px;
+}
+[data-theme="light"] .cs2-kpi-row{
+   border: 1px solid rgba(0,0,0,0.08);
+}
+
+[data-theme="light"] .cs2-kpi-l {
+    color: rgb(0 0 0 / 45%);
+}
+
+[data-theme="light"] .cs2-kpi {
+    border-right: 1px solid rgba(0, 0, 0, 0.08);
 }
 .cs2-top-tag {
   display: inline-flex; align-items: center;
@@ -3760,9 +3771,9 @@
     <div class="cask-logo-strip cask-logo-strip-hero" style="position:absolute;bottom:0;left:0;right:0;width:100%;margin:0;z-index:5;border-radius:0;">
       <span class="cask-logo-strip-lbl">Built with</span>
       <div class="cask-logo-divider"></div>
-      <div class="cask-logo-item"><img src="assets/logo-certin.png" alt="CERT-In" class="cask-logo-img" style="height:28px" /></div>
+      <div class="cask-logo-item"><img src="assets/logo-certin.png" alt="CERT-In" class="cask-logo-img" /></div>
       <div class="cask-logo-divider"></div>
-      <div class="cask-logo-item"><img src="assets/logo-cyberbuddha.png" alt="Cyber Buddha" class="cask-logo-img" style="height:28px" /></div>
+      <div class="cask-logo-item"><img src="assets/logo-cyberbuddha.png" alt="Cyber Buddha" class="cask-logo-img" /></div>
     </div>
     <div class="cask-hero-bg" id="caskHeroBg"></div>
     <canvas id="hexWave" style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;pointer-events:none;display:block;"></canvas>
@@ -3882,11 +3893,10 @@
   <!-- ═══ PLATFORM PYRAMID ═══ -->
 <section class="cs2-section cs2-section-top">
   <div class="cs2-stars" id="cs2StarsTop"></div>
-  <div class="cs2-tag-wrap"><span class="cs2-top-tag">Key Features</span></div>
-
-  <div class="cs2-layout">
+    <div class="cs2-layout">
     <!-- LEFT -->
     <div class="cs2-left">
+      <div class="cs2-tag-wrap"><span class="cs2-top-tag">Key Features</span></div>
       <h2 class="cs2-h2">CASK Ecosystem</h2>
       <div class="cs2-gradient-text">
         <span class="cs2-gt-line">Everything</span>
@@ -6766,8 +6776,17 @@
     return clamp(mapR(p, dwellE, exitE, 1, 0.94), 0.94, 1);
   }
 
+  const htmlEt   = document.documentElement;
   var tick = false;
   function render() {
+
+    const current = htmlEt.getAttribute('data-theme');
+    var fallback_color = 'rgba(255,255,255,0.3)';
+
+    if ( current === 'light' ) {
+      fallback_color = 'rgba(10,15,32,0.38)';
+    }
+
     if (window.innerWidth < 640) { tick = false; return; }
     var rect = scene.getBoundingClientRect();
     var maxS = scene.offsetHeight - window.innerHeight;
@@ -6782,7 +6801,7 @@
     /* Label highlight — each grade owns one quarter of progress */
     var active = Math.min(Math.floor(prog * 4), 3);
     plbls.forEach(function(l, i) {
-      if (l) l.style.color = (i === active) ? ACCENTS[i] : 'rgba(255,255,255,0.3)';
+      if (l) l.style.color = (i === active) ? ACCENTS[i] : fallback_color;
     });
 
     /* Panel slide + scale */

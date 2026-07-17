@@ -124,7 +124,7 @@ button, a, [class*="-card"], [class*="-btn"], [class*="-chip"] {
   background: rgba(10,15,32,0.05) !important;
   border-color: rgba(10,15,32,0.10) !important;
 }
-[data-theme="light"] .cd4-wing strong { color: #0a0f20 !important; }
+[data-theme="light"] .cd4-wing strong { color: #0a0f20 !important; font-weight: normal; }
 [data-theme="light"] .cd4-wing small  { color: rgba(10,15,32,0.50) !important; }
 [data-theme="light"] .cd4-wing-active {
   background: rgba(0,120,80,0.07) !important;
@@ -237,7 +237,7 @@ button, a, [class*="-card"], [class*="-btn"], [class*="-chip"] {
   background: linear-gradient(to top, rgba(245,248,255,0.95) 40%, transparent) !important;
 }
 [data-theme="light"] .fyt-prog-track { background: rgba(10,15,32,0.10) !important; }
-[data-theme="light"] .fyt-prog-lbl   { color: rgba(10,15,32,0.38) !important; }
+
 
 /* ══ 8. MULTILINGUAL — One-row scrollable, smooth hover ════ */
 .cask-lang-cloud {
