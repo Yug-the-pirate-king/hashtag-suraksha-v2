@@ -1,0 +1,399 @@
+/* ═══════════════════════════════════════════════
+   OLYMPIAD.CSS — Cyber Olympiad Page
+   Futuristic overrides + countdown + prize tiers
+═══════════════════════════════════════════════ */
+
+/* ── Hero Override ── */
+.olympiad-hero {
+  background: var(--bg) !important;
+  padding: 140px 24px 100px !important;
+  position: relative;
+  overflow: hidden;
+}
+.olympiad-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 700px 500px at 50% 30%, rgba(255,107,26,0.15) 0%, transparent 60%),
+    radial-gradient(ellipse 400px 300px at 15% 80%, rgba(120,80,255,0.08) 0%, transparent 55%),
+    radial-gradient(ellipse 350px 300px at 85% 75%, rgba(0,210,200,0.07) 0%, transparent 55%);
+  pointer-events: none;
+}
+.olympiad-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 100%);
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 100%);
+  pointer-events: none;
+}
+
+.trophy-glow {
+  filter: drop-shadow(0 0 32px rgba(255,107,26,0.7)) !important;
+}
+.olympiad-hero h1 {
+  font-family: 'Playfair Display', serif !important;
+  color: var(--text-primary) !important;
+}
+.olympiad-hero h1 span {
+  background: linear-gradient(135deg, var(--accent-saffron), #FFB347);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.olympiad-hero p {
+  color: var(--text-secondary) !important;
+  font-family: 'DM Sans', sans-serif !important;
+}
+.olympiad-stats {
+  border-top-color: var(--border) !important;
+}
+.olympiad-stats .s .n {
+  font-family: 'Space Grotesk', sans-serif !important;
+  color: var(--accent-saffron) !important;
+}
+.olympiad-stats .s .l {
+  color: var(--text-secondary) !important;
+  font-family: 'DM Sans', sans-serif !important;
+}
+
+/* ── Countdown Timer ── */
+.countdown-section {
+  background: var(--bg) !important;
+  border-top: 1px solid var(--border);
+  padding: 80px 24px !important;
+  text-align: center;
+}
+.countdown-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent-saffron);
+  margin-bottom: 32px;
+  display: block;
+}
+.countdown-timer {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.countdown-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(40px, 7vw, 72px);
+  font-weight: 700;
+  color: var(--text-primary);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  width: 110px; height: 100px;
+  display: flex; align-items: center; justify-content: center;
+  line-height: 1;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.countdown-num::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-saffron), var(--accent-cyan));
+}
+.countdown-num.flip {
+  transform: rotateX(90deg);
+  opacity: 0.3;
+}
+.countdown-sep {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--accent-saffron);
+  line-height: 100px;
+  margin-top: 0;
+}
+.countdown-unit-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.countdown-deadline {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 12px;
+}
+
+/* ── Prize Tiers ── */
+.prizes-section {
+  background: var(--bg) !important;
+  border-top: 1px solid var(--border);
+  padding: 100px 24px !important;
+}
+.prizes-section h2 {
+  font-family: 'DM Serif Display', serif !important;
+  color: var(--text-primary) !important;
+  text-align: center;
+  font-size: clamp(28px, 4vw, 44px);
+  margin-bottom: 16px;
+}
+.prizes-section > p {
+  color: var(--text-secondary) !important;
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.prizes-grid {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.prize-tier {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 40px 28px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  cursor: default;
+}
+.prize-tier::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+}
+.prize-tier.gold::before   { background: linear-gradient(90deg, #FFD700, #FFA500); }
+.prize-tier.silver::before { background: linear-gradient(90deg, #C0C0C0, #A8A8A8); }
+.prize-tier.bronze::before { background: linear-gradient(90deg, #CD7F32, #A0522D); }
+.prize-tier:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 32px 60px rgba(0,0,0,0.35);
+}
+.prize-tier.gold   { border-color: rgba(255,215,0,0.25); }
+.prize-tier.silver { border-color: rgba(192,192,192,0.25); }
+.prize-tier.bronze { border-color: rgba(205,127,50,0.25); }
+
+.prize-medal {
+  font-size: 56px;
+  display: block;
+  margin-bottom: 16px;
+  filter: drop-shadow(0 4px 12px rgba(255,107,26,0.3));
+}
+.prize-rank {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+.prize-tier.gold   .prize-rank { color: #FFD700; }
+.prize-tier.silver .prize-rank { color: #C0C0C0; }
+.prize-tier.bronze .prize-rank { color: #CD7F32; }
+
+.prize-value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.prize-desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+.prize-perks {
+  list-style: none;
+  padding: 0; margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.prize-perks li {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-align: left;
+}
+.prize-perks li::before {
+  content: '✦';
+  color: var(--accent-saffron);
+  flex-shrink: 0;
+  font-size: 10px;
+}
+
+/* ── Tracks Section ── */
+.tracks-section {
+  background: var(--bg) !important;
+  border-top: 1px solid var(--border);
+  padding: 100px 24px !important;
+}
+.tracks-section h2 {
+  font-family: 'DM Serif Display', serif !important;
+  color: var(--text-primary) !important;
+}
+
+.track-card {
+  background: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 20px !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+.track-card:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 24px 48px rgba(0,0,0,0.3) !important;
+  border-color: rgba(255,107,26,0.3) !important;
+}
+.track-card h3, .track-name {
+  font-family: 'DM Serif Display', serif !important;
+  color: var(--text-primary) !important;
+}
+.track-card p, .track-desc { color: var(--text-secondary) !important; }
+.track-tag {
+  font-family: 'Space Grotesk', sans-serif !important;
+  background: rgba(255,107,26,0.12) !important;
+  color: var(--accent-saffron) !important;
+  border-color: rgba(255,107,26,0.25) !important;
+}
+
+/* ── Other Sections ── */
+.timeline-section, .eligibility-section, .how-section,
+.olympiad-cta-section, .faq-section {
+  background: var(--bg) !important;
+  border-top: 1px solid var(--border);
+}
+.timeline-section h2, .eligibility-section h2, .how-section h2,
+.olympiad-cta-section h2, .faq-section h2 {
+  font-family: 'DM Serif Display', serif !important;
+  color: var(--text-primary) !important;
+}
+.faq-item, .faq-question { color: var(--text-primary) !important; }
+.faq-answer { color: var(--text-secondary) !important; }
+
+/* ── Override hardcoded inline-style section backgrounds ── */
+/* Makes all old prize/journey/winners sections theme-aware */
+.prizes-section {
+  background: var(--bg) !important;
+}
+.prizes-section h2,
+.prizes-section .section-tag,
+.prizes-section .section-sub {
+  color: var(--text-primary) !important;
+}
+.journey-section {
+  background: var(--bg) !important;
+}
+.journey-section .section-title,
+.journey-section h2 {
+  color: var(--text-primary) !important;
+}
+.journey-step h4 { color: var(--text-primary) !important; }
+.journey-step p { color: var(--text-secondary) !important; }
+.journey-circle { border-color: var(--border) !important; }
+
+.winners-section { background: var(--bg) !important; }
+.winners-section .section-title { color: var(--text-primary) !important; }
+.winner-card {
+  background: var(--surface) !important;
+  border-left-color: var(--accent-saffron) !important;
+}
+.winner-card h4 { color: var(--text-primary) !important; }
+.winner-card p { color: var(--text-secondary) !important; }
+.winners-ticker::before { background: linear-gradient(to right, var(--bg), transparent) !important; }
+.winners-ticker::after  { background: linear-gradient(to left,  var(--bg), transparent) !important; }
+
+.enroll-section { background: var(--bg) !important; }
+
+/* Old prize cards (original design) */
+.prize-card {
+  background: var(--surface) !important;
+  border-color: var(--border) !important;
+}
+.prize-card h3 { color: var(--text-primary) !important; }
+.prize-list li { color: var(--text-secondary) !important; border-bottom-color: var(--border) !important; }
+
+/* ── Light Mode ── */
+[data-theme="light"] .olympiad-hero h1 { color: #0D1422 !important; }
+[data-theme="light"] .olympiad-hero p { color: #444 !important; }
+[data-theme="light"] .olympiad-hero::after {
+  background-image:
+    linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
+}
+/* Countdown */
+[data-theme="light"] .countdown-num {
+  background: white !important;
+  color: #0D1422 !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+/* New prize tiers */
+[data-theme="light"] .prize-tier {
+  background: white !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+[data-theme="light"] .prize-value { color: #0D1422 !important; }
+[data-theme="light"] .prize-desc,
+[data-theme="light"] .prize-perks li { color: #555 !important; }
+/* Gold/silver/bronze ranks need to be readable on white */
+[data-theme="light"] .prize-tier.gold   .prize-rank { color: #B8860B !important; }
+[data-theme="light"] .prize-tier.silver .prize-rank { color: #7A7A7A !important; }
+[data-theme="light"] .prize-tier.bronze .prize-rank { color: #8B4513 !important; }
+
+/* Track cards */
+[data-theme="light"] .track-card {
+  background: white !important;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06) !important;
+}
+[data-theme="light"] .track-card h3,
+[data-theme="light"] .track-name { color: #0D1422 !important; }
+[data-theme="light"] .track-card p,
+[data-theme="light"] .track-desc { color: #555 !important; }
+
+/* FAQ & other sections */
+[data-theme="light"] .faq-item,
+[data-theme="light"] .faq-question { color: #0D1422 !important; }
+[data-theme="light"] .faq-answer { color: #555 !important; }
+
+/* Section headings globally on olympiad page */
+[data-theme="light"] .section-title,
+[data-theme="light"] .tracks-section h2,
+[data-theme="light"] .timeline-section h2,
+[data-theme="light"] .eligibility-section h2,
+[data-theme="light"] .how-section h2,
+[data-theme="light"] .faq-section h2 { color: #0D1422 !important; }
+
+@media (max-width: 700px) {
+  .prizes-grid { grid-template-columns: 1fr; }
+  .countdown-num { width: 70px; height: 70px; font-size: 32px !important; border-radius: 12px; }
+  .countdown-sep { font-size: 32px; line-height: 70px; }
+}

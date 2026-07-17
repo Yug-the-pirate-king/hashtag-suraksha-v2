@@ -1,0 +1,349 @@
+/* ═══════════════════════════════════════════════
+   PLATFORM.CSS — AI Learning Platform Page
+   Futuristic overrides + interactive components
+═══════════════════════════════════════════════ */
+
+/* ── Hero Override ── */
+.platform-hero {
+  background: var(--bg) !important;
+  padding: 140px 24px 100px !important;
+  position: relative;
+  overflow: hidden;
+}
+.platform-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 700px 500px at 70% 30%, rgba(255,107,26,0.13) 0%, transparent 60%),
+    radial-gradient(ellipse 500px 400px at 20% 80%, rgba(0,210,200,0.09) 0%, transparent 60%);
+  pointer-events: none;
+}
+.platform-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+  pointer-events: none;
+}
+
+.platform-hero-tag {
+  background: rgba(255,107,26,0.15) !important;
+  color: var(--accent-saffron) !important;
+  border-color: rgba(255,107,26,0.3) !important;
+  font-family: 'Space Grotesk', sans-serif !important;
+}
+
+.platform-hero h1 {
+  font-family: 'Playfair Display', serif !important;
+  color: var(--text-primary) !important;
+}
+.platform-hero h1 span {
+  background: linear-gradient(135deg, var(--accent-saffron), #FFB347);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.platform-hero p {
+  color: var(--text-secondary) !important;
+  font-family: 'DM Sans', sans-serif !important;
+}
+
+/* ── Demo Section Override ── */
+.demo-section {
+  background: var(--bg) !important;
+  border-top: 1px solid var(--border);
+}
+.demo-text h2 {
+  font-family: 'DM Serif Display', serif !important;
+  color: var(--text-primary) !important;
+}
+.demo-text p { color: var(--text-secondary) !important; }
+
+/* ── Topic Chips (futuristic) ── */
+.topic-chip {
+  background: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text-secondary) !important;
+  font-family: 'Space Grotesk', sans-serif !important;
+  transition: all 0.25s ease !important;
+  position: relative;
+}
+/* Remove ::before gradient approach — text nodes sit below positioned pseudo-elements */
+.topic-chip::before { display: none !important; }
+
+.topic-chip:hover {
+  background: rgba(255,107,26,0.12) !important;
+  color: var(--accent-saffron) !important;
+  border-color: var(--accent-saffron) !important;
+  transform: translateY(-2px);
+}
+.topic-chip.active {
+  background: linear-gradient(135deg, var(--accent-saffron), var(--accent-cyan)) !important;
+  color: white !important;
+  border-color: transparent !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255,107,26,0.3) !important;
+}
+
+/* ── Chat Window Override ── */
+.full-chat-window {
+  background: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.4) !important;
+  border-radius: 20px !important;
+}
+
+/* ── Tier Cards (Interactive) ── */
+.tiers-section {
+  background: var(--bg) !important;
+  padding: 100px 24px !important;
+  border-top: 1px solid var(--border);
+}
+.tiers-section .section-title,
+.tiers-section h2 {
+  font-family: 'DM Serif Display', serif !important;
+  color: var(--text-primary) !important;
+}
+.tiers-section .section-subtitle,
+.tiers-section > p {
+  color: var(--text-secondary) !important;
+}
+
+.tier-card {
+  background: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 20px !important;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease !important;
+  cursor: pointer;
+}
+.tier-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-saffron), var(--accent-cyan));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.tier-card:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 32px 64px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,107,26,0.2) !important;
+}
+.tier-card:hover::before { opacity: 1; }
+
+.tier-badge {
+  font-family: 'Space Grotesk', sans-serif !important;
+  background: rgba(255,107,26,0.15) !important;
+  color: var(--accent-saffron) !important;
+  border-color: rgba(255,107,26,0.3) !important;
+}
+.tier-card h3, .tier-name {
+  font-family: 'DM Serif Display', serif !important;
+  color: var(--text-primary) !important;
+}
+.tier-desc, .tier-card p {
+  color: var(--text-secondary) !important;
+  font-family: 'DM Sans', sans-serif !important;
+}
+.tier-feature {
+  color: var(--text-secondary) !important;
+  font-family: 'DM Sans', sans-serif !important;
+}
+.tier-feature::before {
+  color: var(--accent-saffron) !important;
+}
+
+/* Featured tier glows */
+.tier-card.featured,
+.tier-card[data-featured="true"] {
+  border-color: rgba(255,107,26,0.4) !important;
+  background: linear-gradient(135deg, rgba(255,107,26,0.06), var(--surface)) !important;
+}
+.tier-card.featured::before,
+.tier-card[data-featured="true"]::before { opacity: 1; }
+
+/* ── Curriculum / Topics Section ── */
+.curriculum-section {
+  background: var(--bg-2, #090d15) !important;
+  border-top: 1px solid var(--border);
+  padding: 100px 24px !important;
+}
+.curriculum-section h2, .topics-section h2 {
+  font-family: 'DM Serif Display', serif !important;
+  color: var(--text-primary) !important;
+}
+
+/* Topic Tab Switcher */
+.topic-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 40px auto 48px;
+  max-width: 800px;
+}
+.topic-tab {
+  padding: 10px 22px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-secondary);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  letter-spacing: 0.02em;
+}
+.topic-tab:hover {
+  border-color: var(--accent-saffron);
+  color: var(--accent-saffron);
+}
+.topic-tab.active {
+  background: var(--accent-saffron);
+  border-color: var(--accent-saffron);
+  color: white;
+  box-shadow: 0 4px 16px rgba(255,107,26,0.35);
+}
+
+.topic-panel {
+  display: none;
+  max-width: 900px;
+  margin: 0 auto;
+  animation: fadeInUp 0.4s ease;
+}
+.topic-panel.active { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+
+.topic-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px 24px;
+  transition: all 0.3s ease;
+}
+.topic-item:hover {
+  border-color: rgba(255,107,26,0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+}
+.topic-item-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: rgba(255,107,26,0.12);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 16px;
+}
+.topic-item h4 {
+  font-family: 'DM Serif Display', serif;
+  color: var(--text-primary);
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+.topic-item p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── All other sections ── */
+.results-section, .how-section, .platform-cta-section {
+  background: var(--bg) !important;
+  border-top: 1px solid var(--border);
+}
+.results-section h2, .how-section h2, .platform-cta-section h2 {
+  font-family: 'DM Serif Display', serif !important;
+  color: var(--text-primary) !important;
+}
+.results-section p, .how-section p, .platform-cta-section p {
+  color: var(--text-secondary) !important;
+}
+
+/* ── Result Cards ── */
+.result-card, .step-card, .cert-card {
+  background: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 16px !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+.result-card:hover, .step-card:hover, .cert-card:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 24px 48px rgba(0,0,0,0.3) !important;
+}
+.result-card h3, .result-number, .cert-title {
+  font-family: 'Space Grotesk', sans-serif !important;
+  color: var(--text-primary) !important;
+}
+.result-card p, .step-desc, .cert-desc {
+  color: var(--text-secondary) !important;
+}
+
+/* ── Light Mode Overrides ── */
+[data-theme="light"] .platform-hero h1 { color: #0D1422 !important; }
+[data-theme="light"] .platform-hero p { color: #444 !important; }
+[data-theme="light"] .platform-hero::after {
+  background-image:
+    linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px);
+}
+/* All section headings */
+[data-theme="light"] .demo-section h2,
+[data-theme="light"] .demo-text h2,
+[data-theme="light"] .tiers-section h2,
+[data-theme="light"] .curriculum-section h2,
+[data-theme="light"] .results-section h2,
+[data-theme="light"] .how-section h2,
+[data-theme="light"] .platform-cta-section h2 { color: #0D1422 !important; }
+
+[data-theme="light"] .demo-text p,
+[data-theme="light"] .tiers-section p,
+[data-theme="light"] .results-section p,
+[data-theme="light"] .how-section p { color: #555 !important; }
+
+/* Tier cards */
+[data-theme="light"] .tier-card {
+  background: white !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08) !important;
+}
+[data-theme="light"] .tier-card:hover { box-shadow: 0 20px 48px rgba(0,0,0,0.14) !important; }
+[data-theme="light"] .tier-card h3 { color: #0D1422 !important; }
+[data-theme="light"] .tier-card p,
+[data-theme="light"] .tier-desc,
+[data-theme="light"] .tier-feature { color: #555 !important; }
+
+/* Topic tabs & items */
+[data-theme="light"] .topic-tab {
+  background: white !important;
+  color: #444 !important;
+  border-color: rgba(0,0,0,0.12) !important;
+}
+[data-theme="light"] .topic-tab.active {
+  color: white !important;
+  border-color: transparent !important;
+}
+[data-theme="light"] .topic-item { background: white !important; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+[data-theme="light"] .topic-item h4 { color: #0D1422 !important; }
+[data-theme="light"] .topic-item p { color: #555 !important; }
+
+/* Result/step/cert cards */
+[data-theme="light"] .result-card,
+[data-theme="light"] .step-card,
+[data-theme="light"] .cert-card { background: white !important; box-shadow: 0 2px 12px rgba(0,0,0,0.06) !important; }
+[data-theme="light"] .result-card h3,
+[data-theme="light"] .result-number,
+[data-theme="light"] .cert-title { color: #0D1422 !important; }
+[data-theme="light"] .result-card p,
+[data-theme="light"] .step-desc,
+[data-theme="light"] .cert-desc { color: #555 !important; }

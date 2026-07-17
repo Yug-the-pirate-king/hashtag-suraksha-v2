@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Partner With Us — Hashtag Suraksha</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="global.css" />
+  <style>
+    /* ═══════════════════════════════════════
+       PARTNER · Forest Green + Coral
+    ═══════════════════════════════════════ */
+    :root {
+      --bg:     #F0FAF6;
+      --surf:   #E4F4ED;
+      --card:   #FFFFFF;
+      --ink:    #0A1F16;
+      --mut:    #4A6658;
+      --bdr:    #C8E5D8;
+      --pri:    #065F46;
+      --pri2:   #047857;
+      --acc:    #EA5234;
+      --acc-s:  #FFF1EE;
+      --gold:   #B45309;
+      --gold-s: #FFFBEB;
+    }
+    [data-theme="dark"] {
+      --bg:     #060F0C;
+      --surf:   #0C1812;
+      --card:   #122018;
+      --ink:    #D4EDE0;
+      --mut:    #6A9980;
+      --bdr:    #1C3328;
+      --pri:    #34D399;
+      --pri2:   #6EE7B7;
+      --acc:    #FB7657;
+      --acc-s:  #2A0F08;
+      --gold:   #FCD34D;
+      --gold-s: #2A200A;
+    }
+    /* ── NAV ALWAYS WHITE ─────────────────── */
+    .nav,
+    [data-theme="dark"] .nav {
+      background: rgba(255,255,255,0.96) !important;
+      border-bottom: 1px solid #E2E8F0 !important;
+      backdrop-filter: blur(20px) !important;
+    }
+    [data-theme="dark"] .nav .nav-links li a { color: #1A1A2E !important; }
+    [data-theme="dark"] .nav .nav-links li a.active,
+    [data-theme="dark"] .nav .nav-links li a:hover { color: #065F46 !important; }
+    [data-theme="dark"] .nav-logo-img { filter: none !important; }
+    [data-theme="dark"] .theme-toggle-btn { color: #1A1A2E !important; }
+    [data-theme="dark"] .nav-cta { background: #065F46 !important; color: #fff !important; }
+    /* ── BASE ─────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Manrope', sans-serif; color: var(--ink); background: var(--bg); margin: 0; overflow-x: hidden; transition: background .3s, color .3s; }
+    a { text-decoration: none; }
+    /* ── SHARED ────────────────────────────── */
+    .ps { padding: 80px 48px; }
+    .pw { max-width: 1200px; margin: 0 auto; width: 100%; }
+    .s-white { background: #fff; }
+    [data-theme="dark"] .s-white { background: var(--surf); }
+    .s-bg { background: var(--bg); }
+    .s-surf { background: var(--surf); }
+    .s-dark { background: var(--pri); }
+    [data-theme="dark"] .s-dark { background: #0A1C14; border-top: 1px solid var(--bdr); }
+    .ey { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--acc); margin-bottom: 10px; }
+    .ey--g { color: var(--pri); }
+    [data-theme="dark"] .ey--g { color: var(--pri); }
+    .h2 { font-family: 'Outfit', sans-serif; font-size: clamp(26px,4vw,46px); font-weight: 900; line-height: 1.06; letter-spacing: -.025em; color: var(--pri); margin-bottom: 12px; }
+    [data-theme="dark"] .h2 { color: var(--ink); }
+    .h2--white { color: #fff; }
+    [data-theme="dark"] .h2--white { color: var(--ink); }
+    .sub { font-size: 16px; color: var(--mut); line-height: 1.75; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 28px; border-radius: 12px;
+      font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 700;
+      transition: all .2s; cursor: pointer; border: none;
+    }
+    .btn--pri { background: var(--pri); color: #fff; }
+    .btn--pri:hover { background: var(--pri2); transform: translateY(-1px); box-shadow: 0 8px 20px rgba(6,95,70,.3); }
+    .btn--acc { background: var(--acc); color: #fff; }
+    .btn--acc:hover { opacity: .88; transform: translateY(-1px); }
+    .btn--out { background: transparent; color: var(--pri); border: 2px solid var(--pri); }
+    [data-theme="dark"] .btn--out { color: var(--pri); border-color: var(--pri); }
+    .btn--out:hover { background: var(--pri); color: #fff; }
+    /* ── HERO ─────────────────────────────── */
+    .ph {
+      min-height: 94vh; padding: 140px 48px 88px;
+      background: #fff; display: flex; align-items: center;
+      position: relative; overflow: hidden;
+    }
+    [data-theme="dark"] .ph { background: var(--surf); }
+    /* Animated glow blob 1 */
+    .ph::before {
+      content: ''; position: absolute; right: -8%; top: -12%;
+      width: 64vw; height: 64vw; border-radius: 50%;
+      background: radial-gradient(circle, rgba(6,95,70,.07) 0%, transparent 60%);
+      animation: blobDrift 12s ease-in-out infinite;
+      pointer-events: none; z-index: 0;
+    }
+    /* Animated glow blob 2 */
+    .ph::after {
+      content: ''; position: absolute; left: -6%; bottom: -18%;
+      width: 44vw; height: 44vw; border-radius: 50%;
+      background: radial-gradient(circle, rgba(234,82,52,.05) 0%, transparent 65%);
+      animation: blobDrift 16s ease-in-out infinite reverse;
+      pointer-events: none; z-index: 0;
+    }
+    [data-theme="dark"] .ph::before { background: radial-gradient(circle, rgba(52,211,153,.05) 0%, transparent 60%); }
+    [data-theme="dark"] .ph::after  { background: radial-gradient(circle, rgba(251,118,87,.04) 0%, transparent 65%); }
+    @keyframes blobDrift {
+      0%,100% { transform: scale(1) translate(0,0); }
+      33%      { transform: scale(1.05) translate(1.5%,-1.5%); }
+      66%      { transform: scale(.97) translate(-1%,1%); }
+    }
+    /* Dot-grid texture */
+    .ph-grid {
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background-image: radial-gradient(circle, rgba(6,95,70,.07) 1.5px, transparent 1.5px);
+      background-size: 34px 34px;
+    }
+    [data-theme="dark"] .ph-grid { background-image: radial-gradient(circle, rgba(52,211,153,.05) 1.5px, transparent 1.5px); }
+    /* Vertical accent line */
+    .ph-vline {
+      position: absolute; right: 18%; top: 0; bottom: 0; width: 1px;
+      background: linear-gradient(180deg, transparent, rgba(6,95,70,.09) 40%, rgba(6,95,70,.09) 60%, transparent);
+      z-index: 0;
+    }
+    .ph-inner { max-width: 1200px; margin: 0 auto; width: 100%; position: relative; z-index: 1; }
+    .ph-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--acc); margin-bottom: 24px; }
+    .ph-eyebrow span { width: 28px; height: 2.5px; background: var(--acc); border-radius: 2px; }
+    .ph-h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(54px,8.5vw,100px);
+      font-weight: 900; line-height: .9; letter-spacing: -.04em;
+      color: var(--pri); margin-bottom: 28px;
+    }
+    [data-theme="dark"] .ph-h1 { color: var(--ink); }
+    .ph-h1 em { font-style: normal; color: var(--acc); display: block; }
+    .ph-h1 .h1-dim { color: var(--mut); display: block; font-size: clamp(32px,4.5vw,54px); }
+    [data-theme="dark"] .ph-h1 .h1-dim { color: var(--mut); }
+    .ph-lead { font-size: 17px; color: var(--mut); line-height: 1.8; max-width: 580px; margin-bottom: 36px; }
+    .ph-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 52px; }
+    /* Partner-type chips (no stats) */
+    .ph-chips { display: flex; gap: 10px; flex-wrap: wrap; }
+    .ph-chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--bg); border: 1.5px solid var(--bdr);
+      border-radius: 999px; padding: 10px 22px;
+      font-size: 13px; font-weight: 600; color: var(--mut);
+      transition: border-color .2s, color .2s, transform .2s;
+    }
+    .ph-chip:hover { border-color: var(--pri); color: var(--pri); transform: translateY(-2px); }
+    [data-theme="dark"] .ph-chip { background: var(--card); }
+    /* Staggered entrance */
+    .ph-eyebrow { animation: fadeUp .6s .05s ease both; }
+    .ph-h1      { animation: fadeUp .7s .15s ease both; }
+    .ph-lead    { animation: fadeUp .6s .25s ease both; }
+    .ph-actions { animation: fadeUp .6s .35s ease both; }
+    .ph-chips   { animation: fadeUp .6s .45s ease both; }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:none; } }
+
+    /* ── ABOUT #SURAKSHA ───────────────────── */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .about-left {}
+    .about-right {}
+    .about-desc { font-size: 15px; color: var(--mut); line-height: 1.85; margin-bottom: 22px; }
+    /* Impact pillars replacing the old quote box */
+    .about-pillars { display: flex; flex-direction: column; gap: 14px; }
+    .about-pillar {
+      display: flex; gap: 16px; align-items: flex-start;
+      background: var(--bg); border: 1.5px solid var(--bdr);
+      border-radius: 16px; padding: 18px 20px;
+      transition: border-color .2s, transform .2s;
+    }
+    .about-pillar:hover { border-color: var(--pri); transform: translateX(4px); }
+    [data-theme="dark"] .about-pillar { background: var(--card); }
+    .apl-icon {
+      width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; font-size: 20px;
+    }
+    .apl-icon--edu { background: #ECFDF5; }
+    .apl-icon--tech { background: #EEF2FF; }
+    .apl-icon--com  { background: #FFF7ED; }
+    [data-theme="dark"] .apl-icon--edu  { background: rgba(52,211,153,.1); }
+    [data-theme="dark"] .apl-icon--tech { background: rgba(99,102,241,.1); }
+    [data-theme="dark"] .apl-icon--com  { background: rgba(251,146,60,.1); }
+    .apl-body {}
+    .apl-title { font-family: 'Outfit', sans-serif; font-size: 15px; font-weight: 900; color: var(--ink); margin-bottom: 3px; }
+    .apl-desc  { font-size: 13px; color: var(--mut); line-height: 1.55; }
+    /* Stat highlight bar */
+    .about-statbar {
+      display: flex; gap: 0; margin-top: 10px;
+      background: var(--bg); border: 1.5px solid var(--bdr);
+      border-radius: 16px; overflow: hidden;
+    }
+    [data-theme="dark"] .about-statbar { background: var(--card); }
+    .asb-item { flex: 1; text-align: center; padding: 18px 12px; border-right: 1px solid var(--bdr); }
+    .asb-item:last-child { border-right: none; }
+    .asb-n { font-family: 'Outfit', sans-serif; font-size: 26px; font-weight: 900; color: var(--pri); line-height: 1; margin-bottom: 3px; }
+    .asb-l { font-size: 10px; font-weight: 700; color: var(--mut); text-transform: uppercase; letter-spacing: .06em; }
+
+    /* ── 5 VERTICALS ───────────────────────── */
+    .vert-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 14px; }
+    .vert-card {
+      background: var(--card); border: 1.5px solid var(--bdr);
+      border-radius: 18px; padding: 24px 18px;
+      text-align: center; position: relative; overflow: hidden;
+      transition: transform .2s, border-color .2s, box-shadow .2s;
+      display: flex; flex-direction: column; align-items: center;
+    }
+    .vert-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      border-radius: 18px 18px 0 0;
+    }
+    .vc--cask::before  { background: #4F46E5; }
+    .vc--sr::before    { background: #0891B2; }
+    .vc--ol::before    { background: #0C3D4A; }
+    .vc--ph::before    { background: #7C3AED; }
+    .vc--sl::before    { background: #B45309; }
+    .vert-card:hover { transform: translateY(-5px); box-shadow: 0 12px 32px rgba(6,95,70,.12); border-color: var(--pri); }
+    [data-theme="dark"] .vert-card:hover { box-shadow: 0 12px 32px rgba(0,0,0,.4); }
+    .vc-icon { font-size: 36px; margin-bottom: 14px; }
+    .vc-name { font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 900; color: var(--ink); margin-bottom: 6px; letter-spacing: .02em; }
+    .vc-tag { font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; margin-bottom: 10px; }
+    .vc-tag--cask  { background: #EEF2FF; color: #4338CA; }
+    .vc-tag--sr    { background: #E0F2FE; color: #0369A1; }
+    .vc-tag--ol    { background: #ECFDF5; color: #065F46; }
+    .vc-tag--ph    { background: #F5F3FF; color: #6D28D9; }
+    .vc-tag--sl    { background: #FFFBEB; color: #92400E; }
+    [data-theme="dark"] .vc-tag--cask  { background: rgba(99,102,241,.15); color: #A5B4FC; }
+    [data-theme="dark"] .vc-tag--sr    { background: rgba(8,145,178,.12); color: #22D3EE; }
+    [data-theme="dark"] .vc-tag--ol    { background: rgba(6,95,70,.2); color: #34D399; }
+    [data-theme="dark"] .vc-tag--ph    { background: rgba(124,58,237,.12); color: #C4B5FD; }
+    [data-theme="dark"] .vc-tag--sl    { background: rgba(180,83,9,.12); color: #FCD34D; }
+    .vc-desc { font-size: 12px; color: var(--mut); line-height: 1.6; }
+
+    /* ── USI SECTION ───────────────────────── */
+    .usi-wrap {
+      background: #fff; border: 2px solid var(--bdr);
+      border-radius: 28px; padding: 56px 56px 48px; position: relative; overflow: hidden;
+    }
+    [data-theme="dark"] .usi-wrap { background: var(--card); }
+    .usi-wrap::before {
+      content: ''; position: absolute; right: -80px; top: -80px;
+      width: 400px; height: 400px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(180,83,9,.05) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    [data-theme="dark"] .usi-wrap::before { background: radial-gradient(circle, rgba(252,211,77,.03) 0%, transparent 65%); }
+    /* Top: logo + badge row */
+    .usi-top { display: flex; align-items: center; gap: 28px; margin-bottom: 36px; position: relative; z-index: 1; }
+    .usi-logo-box {
+      background: var(--gold-s); border: 1.5px solid rgba(180,83,9,.2);
+      border-radius: 18px; padding: 14px 20px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    [data-theme="dark"] .usi-logo-box { background: var(--gold-s); border-color: rgba(252,211,77,.2); }
+    .usi-logo-box img { width: auto; display: block; max-width: 180px; }
+    .usi-top-right {}
+    .usi-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--gold-s); border: 1.5px solid rgba(180,83,9,.2);
+      border-radius: 999px; padding: 5px 14px; margin-bottom: 10px;
+    }
+    [data-theme="dark"] .usi-badge { border-color: rgba(252,211,77,.2); }
+    .usi-badge-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); animation: pulse 2s infinite; }
+    .usi-badge-text { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--gold); }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.9)} }
+    .usi-h2 { font-family: 'Outfit', sans-serif; font-size: clamp(22px,2.8vw,34px); font-weight: 900; color: var(--pri); line-height: 1.1; margin-bottom: 3px; }
+    [data-theme="dark"] .usi-h2 { color: var(--ink); }
+    .usi-h2 em { font-style: normal; color: var(--gold); }
+    .usi-founded { font-size: 12px; font-weight: 700; color: var(--mut); letter-spacing: .05em; text-transform: uppercase; }
+    /* Main body: 2 columns */
+    .usi-inner { display: grid; grid-template-columns: 1fr 1.1fr; gap: 48px; align-items: start; position: relative; z-index: 1; }
+    .usi-desc { font-size: 15px; color: var(--mut); line-height: 1.8; margin-bottom: 24px; }
+    /* Interactive accordion credentials */
+    .usi-acc { display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
+    .usi-acc-item {
+      border: 1.5px solid var(--bdr); border-radius: 14px; overflow: hidden;
+      transition: border-color .2s;
+    }
+    .usi-acc-item.open,
+    .usi-acc-item:hover { border-color: var(--gold); }
+    [data-theme="dark"] .usi-acc-item.open,
+    [data-theme="dark"] .usi-acc-item:hover { border-color: var(--gold); }
+    .usi-acc-hd {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 10px; padding: 14px 18px; cursor: pointer;
+      background: var(--bg); transition: background .2s;
+    }
+    .usi-acc-item.open .usi-acc-hd,
+    .usi-acc-hd:hover { background: var(--gold-s); }
+    [data-theme="dark"] .usi-acc-hd { background: var(--surf); }
+    [data-theme="dark"] .usi-acc-item.open .usi-acc-hd { background: var(--gold-s); }
+    .usi-acc-icon { font-size: 18px; flex-shrink: 0; }
+    .usi-acc-title { font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 800; color: var(--ink); flex: 1; }
+    .usi-acc-arr { font-size: 16px; color: var(--mut); transition: transform .25s; }
+    .usi-acc-item.open .usi-acc-arr { transform: rotate(90deg); color: var(--gold); }
+    .usi-acc-body {
+      max-height: 0; overflow: hidden; transition: max-height .3s ease, padding .3s ease;
+      font-size: 13px; color: var(--mut); line-height: 1.65; padding: 0 18px;
+      background: var(--card);
+    }
+    [data-theme="dark"] .usi-acc-body { background: var(--surf); }
+    .usi-acc-item.open .usi-acc-body { max-height: 200px; padding: 12px 18px 16px; }
+    .usi-link { font-size: 13px; font-weight: 700; color: var(--gold); display: inline-flex; align-items: center; gap: 5px; }
+    .usi-link:hover { opacity: .75; }
+    /* USI right panel */
+    .usi-right {}
+    .usi-quote-strip {
+      background: var(--gold-s); border: 1.5px solid rgba(180,83,9,.15);
+      border-left: 4px solid var(--gold);
+      border-radius: 0 14px 14px 0; padding: 20px 22px;
+      font-size: 15px; font-style: italic; color: var(--ink); line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    [data-theme="dark"] .usi-quote-strip { background: var(--gold-s); }
+    .usi-quote-strip cite { font-style: normal; font-size: 11px; color: var(--mut); display: block; margin-top: 8px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
+    .usi-stat-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+    .usi-sg {
+      background: var(--pri); border-radius: 14px; padding: 20px;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    [data-theme="dark"] .usi-sg { background: #0A2A1C; border: 1.5px solid var(--bdr); }
+    .usi-sg::after { content: ''; position: absolute; bottom: -16px; right: -16px; width: 70px; height: 70px; border-radius: 50%; background: rgba(255,255,255,.06); }
+    .usi-sg-n { font-family: 'Outfit', sans-serif; font-size: 26px; font-weight: 900; color: #fff; line-height: 1; margin-bottom: 4px; position: relative; z-index: 1; }
+    [data-theme="dark"] .usi-sg-n { color: var(--pri); }
+    .usi-sg-l { font-size: 10px; color: rgba(255,255,255,.55); font-weight: 600; position: relative; z-index: 1; }
+    [data-theme="dark"] .usi-sg-l { color: var(--mut); }
+    .usi-sg--gold { background: var(--gold-s); border: 1.5px solid rgba(180,83,9,.15); }
+    [data-theme="dark"] .usi-sg--gold { background: var(--gold-s); border-color: rgba(252,211,77,.12); }
+    .usi-sg--gold .usi-sg-n { color: var(--gold); }
+    .usi-sg--gold .usi-sg-l { color: var(--mut); }
+
+    /* ── IMPACT NUMBERS ────────────────────── */
+    .imp-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+    .imp-card {
+      background: var(--card); border: 1.5px solid var(--bdr);
+      border-radius: 20px; padding: 32px 24px; text-align: center;
+      position: relative; overflow: hidden; transition: border-color .2s, transform .2s;
+    }
+    .imp-card::before { content: ''; position: absolute; bottom: -30px; right: -30px; width: 120px; height: 120px; border-radius: 50%; background: rgba(6,95,70,.04); }
+    [data-theme="dark"] .imp-card::before { background: rgba(52,211,153,.03); }
+    .imp-card:hover { border-color: var(--pri); transform: translateY(-3px); }
+    .imp-icon { font-size: 32px; margin-bottom: 12px; }
+    .imp-n { font-family: 'Outfit', sans-serif; font-size: 40px; font-weight: 900; color: var(--pri); line-height: 1; margin-bottom: 4px; }
+    [data-theme="dark"] .imp-n { color: var(--pri); }
+    .imp-l { font-size: 13px; color: var(--mut); font-weight: 600; }
+
+    /* ── PARTNERSHIP MODELS ─────────────────── */
+    .pm-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
+    .pm-card {
+      background: var(--card); border: 1.5px solid var(--bdr);
+      border-radius: 20px; padding: 28px; overflow: hidden; position: relative;
+      transition: border-color .2s, transform .2s, box-shadow .2s;
+      display: flex; flex-direction: column;
+    }
+    .pm-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; border-radius: 20px 20px 0 0; }
+    .pm--school::before   { background: linear-gradient(90deg, #4F46E5, #7C3AED); }
+    .pm--corp::before     { background: linear-gradient(90deg, #065F46, #047857); }
+    .pm--gov::before      { background: linear-gradient(90deg, #B45309, #D97706); }
+    .pm--ngo::before      { background: linear-gradient(90deg, #0891B2, #0EA5E9); }
+    .pm-card:hover { border-color: var(--pri); transform: translateY(-3px); box-shadow: 0 12px 28px rgba(6,95,70,.1); }
+    [data-theme="dark"] .pm-card:hover { box-shadow: 0 12px 28px rgba(0,0,0,.4); }
+    .pm-icon { font-size: 32px; margin-bottom: 14px; }
+    .pm-title { font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 900; color: var(--ink); margin-bottom: 8px; }
+    .pm-desc { font-size: 14px; color: var(--mut); line-height: 1.7; margin-bottom: 18px; flex: 1; }
+    .pm-perks { display: flex; flex-direction: column; gap: 7px; margin-bottom: 20px; }
+    .pm-perk { display: flex; align-items: flex-start; gap: 9px; font-size: 13px; color: var(--mut); }
+    .pm-perk::before { content: '✓'; color: var(--pri); font-weight: 800; flex-shrink: 0; margin-top: 1px; }
+    [data-theme="dark"] .pm-perk::before { color: var(--pri); }
+    .pm-cta { display: inline-flex; align-items: center; gap: 5px; background: var(--pri); color: #fff; border-radius: 9px; padding: 10px 20px; font-size: 13px; font-weight: 700; transition: opacity .2s; align-self: flex-start; }
+    [data-theme="dark"] .pm-cta { background: var(--pri2); }
+    .pm-cta:hover { opacity: .85; }
+
+    /* ── HOW IT WORKS ──────────────────────── */
+    .hw-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; position: relative; }
+    .hw-grid::before { content: ''; position: absolute; top: 44px; left: calc(16.6% + 16px); right: calc(16.6% + 16px); height: 2px; background: repeating-linear-gradient(90deg, var(--bdr) 0, var(--bdr) 8px, transparent 8px, transparent 16px); z-index: 0; }
+    .hw-card {
+      background: var(--card); border: 1.5px solid var(--bdr);
+      border-radius: 20px; padding: 48px 36px; text-align: center;
+      position: relative; z-index: 1; transition: border-color .2s, transform .2s;
+    }
+    .hw-card:hover { border-color: var(--pri); transform: translateY(-3px); }
+    .hw-num {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--pri); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Outfit', sans-serif; font-size: 22px; font-weight: 900;
+      margin: 0 auto 18px;
+    }
+    [data-theme="dark"] .hw-num { background: var(--pri); color: #0A1F16; }
+    .hw-title { font-family: 'Outfit', sans-serif; font-size: 18px; font-weight: 900; color: var(--ink); margin-bottom: 10px; }
+    .hw-desc { font-size: 14px; color: var(--mut); line-height: 1.7; }
+
+    /* ── BENEFITS ──────────────────────────── */
+    .ben-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .ben-card {
+      background: var(--card); border: 1.5px solid var(--bdr);
+      border-radius: 16px; padding: 32px 28px; display: flex; gap: 20px;
+      transition: border-color .2s, transform .2s;
+    }
+    .ben-card:hover { border-color: var(--pri); }
+    .ben-icon { font-size: 26px; flex-shrink: 0; width: 48px; height: 48px; border-radius: 12px; background: var(--bg); display: flex; align-items: center; justify-content: center; }
+    [data-theme="dark"] .ben-icon { background: var(--surf); }
+    .ben-body { }
+    .ben-title { font-family: 'Outfit', sans-serif; font-size: 15px; font-weight: 800; color: var(--ink); margin-bottom: 4px; }
+    .ben-desc { font-size: 13px; color: var(--mut); line-height: 1.6; }
+
+    /* ── CTA / CONTACT ─────────────────────── */
+    .cta-sec {
+      background: var(--pri); padding: 88px 48px; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    [data-theme="dark"] .cta-sec { background: #0A1C14; border-top: 1px solid var(--bdr); }
+    .cta-sec::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,.03) 1px, transparent 1px); background-size: 40px 40px; pointer-events: none; }
+    .cta-inner { max-width: 720px; margin: 0 auto; position: relative; z-index: 1; }
+    .cta-h2 { font-family: 'Outfit', sans-serif; font-size: clamp(32px,5vw,56px); font-weight: 900; color: #fff; margin-bottom: 16px; line-height: 1.1; }
+    [data-theme="dark"] .cta-h2 { color: var(--ink); }
+    .cta-h2 em { font-style: normal; color: var(--acc); }
+    .cta-p { font-size: 16px; color: rgba(255,255,255,.6); line-height: 1.8; margin-bottom: 36px; }
+    [data-theme="dark"] .cta-p { color: var(--mut); }
+    .cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .cta-btn-main { background: var(--acc); color: #fff; padding: 16px 34px; border-radius: 12px; font-family: 'Manrope', sans-serif; font-size: 15px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px; transition: opacity .2s, transform .2s; }
+    .cta-btn-main:hover { opacity: .88; transform: translateY(-2px); }
+    .cta-btn-sec { background: rgba(255,255,255,.1); color: #fff; padding: 16px 34px; border-radius: 12px; font-family: 'Manrope', sans-serif; font-size: 15px; font-weight: 700; border: 1.5px solid rgba(255,255,255,.2); display: inline-flex; align-items: center; gap: 8px; transition: background .2s; }
+    [data-theme="dark"] .cta-btn-sec { background: var(--card); border-color: var(--bdr); color: var(--ink); }
+    .cta-btn-sec:hover { background: rgba(255,255,255,.2); }
+    [data-theme="dark"] .cta-btn-sec:hover { background: var(--surf); }
+    /* ── CTA FORM ─────────────────────────── */
+    .cta-form-wrap { margin-top: 28px; }
+    .cta-form {
+      display: none; text-align: left;
+      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14);
+      border-radius: 18px; padding: 28px 32px; max-width: 640px; margin: 0 auto;
+    }
+    [data-theme="dark"] .cta-form { background: var(--card); border-color: var(--bdr); }
+    .cta-form.open { display: block; animation: fadeUp .3s ease both; }
+    .cta-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    .cta-form-group { display: flex; flex-direction: column; gap: 6px; }
+    .cta-form-label { font-size: 11px; font-weight: 700; color: rgba(255,255,255,.5); text-transform: uppercase; letter-spacing: .07em; }
+    [data-theme="dark"] .cta-form-label { color: var(--mut); }
+    .cta-form-input, .cta-form-select {
+      background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.15);
+      color: #fff; border-radius: 10px; padding: 12px 16px;
+      font-size: 14px; font-family: 'Manrope', sans-serif; width: 100%; transition: border-color .2s;
+    }
+    [data-theme="dark"] .cta-form-input,
+    [data-theme="dark"] .cta-form-select { background: var(--surf); border-color: var(--bdr); color: var(--ink); }
+    .cta-form-input::placeholder { color: rgba(255,255,255,.3); }
+    [data-theme="dark"] .cta-form-input::placeholder { color: var(--mut); }
+    .cta-form-input:focus, .cta-form-select:focus { outline: none; border-color: rgba(255,255,255,.4); }
+    .cta-form-select option { background: #0A1F16; }
+    .cta-form-full { grid-column: 1 / -1; }
+    .cta-form-submit {
+      width: 100%; background: var(--acc); color: #fff; border: none;
+      border-radius: 10px; padding: 14px; font-size: 15px; font-weight: 700;
+      font-family: 'Manrope', sans-serif; cursor: pointer; margin-top: 10px;
+      transition: opacity .2s, transform .2s;
+    }
+    .cta-form-submit:hover { opacity: .88; transform: translateY(-1px); }
+    .cta-thanks {
+      display: none; text-align: center; padding: 28px 0 8px;
+      animation: fadeUp .4s ease both;
+    }
+    .cta-thanks.show { display: block; }
+    .cta-thanks-icon { font-size: 44px; margin-bottom: 10px; }
+    .cta-thanks-title { font-size: 20px; font-weight: 900; color: #fff; margin-bottom: 6px; font-family: 'Outfit', sans-serif; }
+    [data-theme="dark"] .cta-thanks-title { color: var(--ink); }
+    .cta-thanks-sub { font-size: 14px; color: rgba(255,255,255,.5); }
+    [data-theme="dark"] .cta-thanks-sub { color: var(--mut); }
+    @media(max-width:600px){ .cta-form-row { grid-template-columns: 1fr; } }
+
+    /* ── FOOTER (global) ───────────────────── */
+    .footer-grid {
+      display: grid; grid-template-columns: 1.2fr 1fr;
+      gap: 60px; padding-bottom: 48px;
+    }
+    .footer-logo-circle-link { display: inline-block; margin-bottom: 16px; }
+    .footer-logo-circle {
+      width: 72px; height: 72px; background: #fff; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      padding: 10px; box-shadow: 0 2px 12px rgba(0,0,0,.18);
+    }
+    .footer-logo-img {
+      width: 100% !important; height: 100% !important;
+      object-fit: contain !important; display: block !important; filter: none !important;
+    }
+    .footer-brand > p {
+      font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px;
+    }
+    .footer-partner-logos { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+    .footer-certin-logo {
+      height: 36px; width: auto; max-width: 200px; object-fit: contain;
+      background: #fff; border-radius: 6px; padding: 4px 8px;
+    }
+    .footer-links-group { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; }
+    .footer-col h5 {
+      font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+      color: var(--text-secondary); margin-bottom: 16px;
+    }
+    .footer-col a {
+      display: block; font-size: 13px; font-weight: 400;
+      color: var(--text-secondary); margin-bottom: 10px; transition: color .2s;
+    }
+    .footer-col a:hover { color: var(--primary); }
+    .footer-cta-link { color: var(--primary) !important; font-weight: 500 !important; }
+    @media(max-width:768px){
+      .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+      .footer-links-group { grid-template-columns: repeat(2,1fr); }
+    }
+    @media(max-width:480px){ .footer-links-group { grid-template-columns: 1fr; } }
+
+    /* ── REVEAL ────────────────────────────── */
+    .rev { opacity: 0; transform: translateY(18px); transition: opacity .5s ease, transform .5s ease; }
+    .rev.in { opacity: 1; transform: none; }
+    .d1{transition-delay:.1s} .d2{transition-delay:.2s} .d3{transition-delay:.3s} .d4{transition-delay:.4s}
+
+    /* ── RESPONSIVE ────────────────────────── */
+    @media(max-width:1020px){
+      .ph-inner { grid-template-columns: 1fr; gap: 40px; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .vert-grid { grid-template-columns: 1fr 1fr; }
+      .usi-top { flex-direction: column; align-items: flex-start; }
+      .usi-inner { grid-template-columns: 1fr; gap: 36px; }
+      .imp-grid { grid-template-columns: 1fr 1fr; }
+      .pm-grid { grid-template-columns: 1fr; }
+      .ben-grid { grid-template-columns: 1fr 1fr; }
+      .hw-grid { grid-template-columns: 1fr; }
+      .hw-grid::before { display: none; }
+      .ps { padding: 56px 24px; }
+      .ph { padding: 120px 24px 64px; }
+      .usi-wrap { padding: 36px 28px; }
+    }
+    @media(max-width:600px){
+      .vert-grid { grid-template-columns: 1fr; }
+      .imp-grid { grid-template-columns: 1fr 1fr; }
+      .ben-grid { grid-template-columns: 1fr; }
+      .usi-stat-grid { grid-template-columns: 1fr 1fr; }
+      .ph-chips { gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/logo-suraksha.svg" alt="Hashtag Suraksha" class="nav-logo-img" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="platform.html">CASK</a></li>
+        <li><a href="surakshak.html">Surakshak</a></li>
+        <li><a href="olympiad.html">Olympiad</a></li>
+        <li><a href="phishnchip.html">The Phish &amp; Chip Show</a></li>
+        <li><a href="slanglish.html">Slanglish</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="partner.html" class="active">Partner With Us</a></li>
+      </ul>
+      <div class="nav-right">
+        <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a href="surakshak.html" class="nav-cta">Join the Movement</a>
+      </div>
+      <button class="hamburger" id="hamburger">&#9776;</button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="platform.html">CASK</a>
+      <a href="surakshak.html">Surakshak</a>
+      <a href="olympiad.html">Olympiad</a>
+      <a href="phishnchip.html">The Phish &amp; Chip Show</a>
+      <a href="slanglish.html">Slanglish</a>
+      <a href="resources.html">Resources</a>
+      <a href="partner.html">Partner With Us</a>
+      <a href="surakshak.html" class="mobile-cta">Join the Movement</a>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="ph">
+    <div class="ph-grid"></div>
+    <div class="ph-vline"></div>
+    <div class="ph-inner">
+      <div class="ph-eyebrow"><span></span>Schools · Corporates · Governments · NGOs</div>
+      <h1 class="ph-h1">
+        Build a Safer<br/>
+        <em>India —</em>
+        <span class="h1-dim">Together.</span>
+      </h1>
+      <p class="ph-lead">India's most comprehensive youth cyber safety movement. Partner with us to bring cybersecurity awareness to millions of students, families, and communities across the country.</p>
+      <div class="ph-actions">
+        <a href="#contact" class="btn btn--acc">Become a Partner →</a>
+        <a href="#models" class="btn btn--out">Explore Models</a>
+      </div>
+      <div class="ph-chips">
+        <span class="ph-chip">🏫 Schools &amp; Colleges</span>
+        <span class="ph-chip">🏢 Corporates &amp; Industry</span>
+        <span class="ph-chip">🏛️ Government Bodies</span>
+        <span class="ph-chip">🌐 NGOs &amp; Media</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ABOUT #SURAKSHA ═══ -->
+  <section class="ps s-white" id="about">
+    <div class="pw">
+      <div class="about-grid rev">
+        <div class="about-left">
+          <span class="ey ey--g">What is Hashtag Suraksha?</span>
+          <h2 class="h2">Five verticals.<br/>One mission.</h2>
+          <p class="about-desc">Hashtag Suraksha is India's national youth cyber safety movement — built across five interconnected verticals that address every dimension of the challenge, from AI-powered learning to grassroots ambassadors, national competitions, podcasting, and vernacular content.</p>
+          <p class="about-desc">We reach students entirely for free. Partners make that possible — and in return get genuine reach, credibility, and a measurable stake in India's cyber-safe future.</p>
+          <a href="#verticals" class="btn btn--pri" style="margin-top:8px">See our 5 verticals →</a>
+        </div>
+        <div class="about-right d1">
+          <div class="about-pillars">
+            <div class="about-pillar">
+              <div class="apl-icon apl-icon--edu">🎓</div>
+              <div class="apl-body">
+                <div class="apl-title">Education &amp; Curriculum</div>
+                <div class="apl-desc">Structured cyber safety content delivered to students in Grades VI–XII through CASK AI and Surakshak ambassadors.</div>
+              </div>
+            </div>
+            <div class="about-pillar">
+              <div class="apl-icon apl-icon--tech">🤖</div>
+              <div class="apl-body">
+                <div class="apl-title">Technology at Scale</div>
+                <div class="apl-desc">CASK — our AI cyber safety assistant — gives students real-time threat recognition, reporting tools, and personalised guidance.</div>
+              </div>
+            </div>
+            <div class="about-pillar">
+              <div class="apl-icon apl-icon--com">🌐</div>
+              <div class="apl-body">
+                <div class="apl-title">Community &amp; Culture</div>
+                <div class="apl-desc">Slanglish and The Phish &amp; Chip Show make cyber safety speak the language Gen Z actually uses — campus-native, shareable, and culturally rooted.</div>
+              </div>
+            </div>
+          </div>
+          <div class="ph-chips" style="margin-top:14px;">
+            <span class="ph-chip">✅ Free for all students</span>
+            <span class="ph-chip">🎖️ USI-backed credibility</span>
+            <span class="ph-chip">🌍 Pan-India reach</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 5 VERTICALS ═══ -->
+  <section class="ps s-bg" id="verticals">
+    <div class="pw">
+      <div class="rev" style="text-align:center;margin-bottom:40px;">
+        <span class="ey">The Ecosystem</span>
+        <h2 class="h2">Five verticals. One mission.</h2>
+        <p class="sub" style="max-width:580px;margin:0 auto">Each vertical addresses a unique dimension of cyber safety — together they form India's most holistic digital literacy programme.</p>
+      </div>
+      <div class="vert-grid rev d1">
+        <!-- CASK -->
+        <div class="vert-card vc--cask">
+          <div class="vc-icon">🤖</div>
+          <div class="vc-name">CASK</div>
+          <div class="vc-tag vc-tag--cask">AI Platform</div>
+          <div class="vc-desc">AI cyber safety assistant for students. Identifies threats, teaches safe behaviours, and enables real-time reporting.</div>
+        </div>
+        <!-- Surakshak -->
+        <div class="vert-card vc--sr">
+          <div class="vc-icon">🛡️</div>
+          <div class="vc-name">Surakshak</div>
+          <div class="vc-tag vc-tag--sr">Ambassadors</div>
+          <div class="vc-desc">1,500+ trained student ambassadors delivering cyber safety awareness on campuses across India.</div>
+        </div>
+        <!-- Olympiad -->
+        <div class="vert-card vc--ol">
+          <div class="vc-icon">🏆</div>
+          <div class="vc-name">National Cyber Olympiad</div>
+          <div class="vc-tag vc-tag--ol">Competition</div>
+          <div class="vc-desc">India's first National Cyber Olympiad for Grades VI–XII. Tests threat recognition and digital decision-making.</div>
+        </div>
+        <!-- The Phish & Chip Show -->
+        <div class="vert-card vc--ph">
+          <div class="vc-icon">🎙️</div>
+          <div class="vc-name">The Phish &amp; Chip Show</div>
+          <div class="vc-tag vc-tag--ph">Podcast</div>
+          <div class="vc-desc">Gen Z cybersecurity podcast. Expert conversations on real threats, made snackable and shareable.</div>
+        </div>
+        <!-- Slanglish -->
+        <div class="vert-card vc--sl">
+          <div class="vc-icon">💬</div>
+          <div class="vc-name">Slanglish</div>
+          <div class="vc-tag vc-tag--sl">Language</div>
+          <div class="vc-desc">Cyber safety in the language India's youth actually speaks — local slang, vernacular, pop culture.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ USI ═══ -->
+  <section class="ps s-white" id="usi">
+    <div class="pw">
+      <div class="usi-wrap rev">
+
+        <!-- Logo + Title row -->
+        <div class="usi-top">
+          <div class="usi-logo-box">
+            <img src="assets/csr.png" alt="United Service Institution of India" style="height:110px;" />
+          </div>
+          <div class="usi-top-right">
+            <div class="usi-badge">
+              <div class="usi-badge-dot"></div>
+              <div class="usi-badge-text">Institutional Patron &amp; Anchor Partner</div>
+            </div>
+            <h2 class="usi-h2">United Service Institution of <em>India</em></h2>
+            <div class="usi-founded">Est. 1870 · New Delhi · India's Premier Tri-Service Defence Think Tank</div>
+          </div>
+        </div>
+
+        <!-- Full-width description + quote above two-column grid -->
+        <p class="usi-desc">The USI is India's oldest defence think tank — advising on national security, emerging technology, and cyber policy at the highest levels of government and the armed forces for over 154 years. As Hashtag Suraksha's institutional patron, USI lends that legacy directly to the mission of protecting India's youth online.</p>
+        <div class="usi-quote-strip" style="margin-bottom:28px;">
+          "National security begins with an aware citizenry. Cyber literacy is no longer optional — it is foundational."
+          <cite>— United Service Institution of India</cite>
+        </div>
+
+        <!-- Body: accordion left | aligned stat blocks right -->
+        <div class="usi-inner">
+          <div class="usi-left">
+            <div class="usi-acc" id="usiAcc">
+              <div class="usi-acc-item open">
+                <div class="usi-acc-hd" onclick="toggleAcc(this)">
+                  <span class="usi-acc-icon">🏛️</span>
+                  <span class="usi-acc-title">CETANB — Cyber &amp; AI Policy Centre</span>
+                  <span class="usi-acc-arr">›</span>
+                </div>
+                <div class="usi-acc-body">USI's Centre for Emerging Technology &amp; Atma Nirbhar Bharat drives research on cyber, AI, and strategic technology policy. Hashtag Suraksha's content and programmes are aligned with CETANB's findings and recommendations.</div>
+              </div>
+              <div class="usi-acc-item">
+                <div class="usi-acc-hd" onclick="toggleAcc(this)">
+                  <span class="usi-acc-icon">🔐</span>
+                  <span class="usi-acc-title">CCoE — Cyber Centre of Excellence</span>
+                  <span class="usi-acc-arr">›</span>
+                </div>
+                <div class="usi-acc-body">USI's Cyber Centre of Excellence operates nationwide awareness, capability-building, and first-responder programmes. Hashtag Suraksha's Surakshak and Olympiad verticals draw directly on CCoE's expertise and network.</div>
+              </div>
+              <div class="usi-acc-item">
+                <div class="usi-acc-hd" onclick="toggleAcc(this)">
+                  <span class="usi-acc-icon">🤝</span>
+                  <span class="usi-acc-title">Institutional Network &amp; Credibility</span>
+                  <span class="usi-acc-arr">›</span>
+                </div>
+                <div class="usi-acc-body">USI partners include CyberPeace Foundation, the NCC Cyber First Responder Programme, and India's leading defence and security institutions — giving Hashtag Suraksha unmatched institutional credibility.</div>
+              </div>
+              <div class="usi-acc-item">
+                <div class="usi-acc-hd" onclick="toggleAcc(this)">
+                  <span class="usi-acc-icon">📜</span>
+                  <span class="usi-acc-title">154 Years of National Service</span>
+                  <span class="usi-acc-arr">›</span>
+                </div>
+                <div class="usi-acc-body">Founded in 1870, USI has served India's national security interests across three services — Army, Navy, and Air Force — for over a century and a half. Partnering with Hashtag Suraksha connects your organisation to this legacy.</div>
+              </div>
+            </div>
+            <a href="https://usiofindia.org" target="_blank" rel="noopener" class="usi-link" style="margin-top:16px;display:inline-flex;">Visit usiofindia.org ↗</a>
+          </div>
+
+          <div class="usi-right d1">
+            <div class="usi-stat-grid">
+              <div class="usi-sg usi-sg--gold">
+                <div class="usi-sg-n">CETANB</div>
+                <div class="usi-sg-l">Cyber &amp; AI Policy Centre</div>
+              </div>
+              <div class="usi-sg usi-sg--gold">
+                <div class="usi-sg-n">CCoE</div>
+                <div class="usi-sg-l">Cyber Centre of Excellence</div>
+              </div>
+              <div class="usi-sg">
+                <div class="usi-sg-n">35+</div>
+                <div class="usi-sg-l">Institutional Partners &amp; Allies</div>
+              </div>
+              <div class="usi-sg">
+                <div class="usi-sg-n">154</div>
+                <div class="usi-sg-l">Years of National Service</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PARTNERSHIP MODELS ═══ -->
+  <section class="ps s-white" id="models">
+    <div class="pw">
+      <div class="rev" style="margin-bottom:40px">
+        <span class="ey">Partner Pathways</span>
+        <h2 class="h2">Find your partnership model</h2>
+        <p class="sub" style="max-width:580px">Every type of organisation can play a meaningful role in India's cyber safety movement.</p>
+      </div>
+      <div class="pm-grid rev d1">
+        <!-- Schools & Colleges -->
+        <div class="pm-card pm--school">
+          <div class="pm-icon">🏫</div>
+          <div class="pm-title">Schools &amp; Colleges</div>
+          <div class="pm-desc">Bring structured cyber safety education to your campus. We provide Surakshak ambassadors, CASK AI access, curriculum resources, and Olympiad participation — at zero cost.</div>
+          <div class="pm-perks">
+            <div class="pm-perk">Access to CASK AI platform for students</div>
+            <div class="pm-perk">Dedicated Surakshak ambassadors on campus</div>
+            <div class="pm-perk">Olympiad registration for all eligible students</div>
+            <div class="pm-perk">Free workshop delivery by trained experts</div>
+            <div class="pm-perk">USI-backed certification for participating students</div>
+          </div>
+          <a href="#contact" class="pm-cta">Partner as a School →</a>
+        </div>
+        <!-- Corporate -->
+        <div class="pm-card pm--corp">
+          <div class="pm-icon">🏢</div>
+          <div class="pm-title">Corporates &amp; Industry</div>
+          <div class="pm-desc">Support India's cyber-safe generation as a CSR partner or sponsor. Get brand visibility, co-branding opportunities, and direct access to an engaged youth audience.</div>
+          <div class="pm-perks">
+            <div class="pm-perk">CSR programme integration &amp; reporting</div>
+            <div class="pm-perk">Co-branding across all Hashtag Suraksha verticals</div>
+            <div class="pm-perk">Employee volunteer &amp; mentorship opportunities</div>
+            <div class="pm-perk">Olympiad category sponsorship</div>
+            <div class="pm-perk">Impact measurement &amp; annual impact report</div>
+          </div>
+          <a href="#contact" class="pm-cta">Partner as a Corporate →</a>
+        </div>
+        <!-- Government -->
+        <div class="pm-card pm--gov">
+          <div class="pm-icon">🏛️</div>
+          <div class="pm-title">Government &amp; Public Bodies</div>
+          <div class="pm-desc">Co-design and amplify cyber safety initiatives at a district, state, or national level. Leverage Hashtag Suraksha's on-ground network and USI's institutional credibility.</div>
+          <div class="pm-perks">
+            <div class="pm-perk">District/state-level programme rollout</div>
+            <div class="pm-perk">Policy research collaboration via USI CETANB</div>
+            <div class="pm-perk">Integration with existing digital literacy schemes</div>
+            <div class="pm-perk">Joint awareness campaigns &amp; press initiatives</div>
+          </div>
+          <a href="#contact" class="pm-cta">Partner as a Government Body →</a>
+        </div>
+        <!-- NGOs & Media -->
+        <div class="pm-card pm--ngo">
+          <div class="pm-icon">🌐</div>
+          <div class="pm-title">NGOs &amp; Media</div>
+          <div class="pm-desc">Amplify the mission through content, outreach, and advocacy. Partner with us as a media house, digital platform, or development organisation committed to youth empowerment.</div>
+          <div class="pm-perks">
+            <div class="pm-perk">Content partnership for The Phish &amp; Chip Show podcast</div>
+            <div class="pm-perk">Slanglish content co-creation &amp; distribution</div>
+            <div class="pm-perk">Community outreach via shared networks</div>
+            <div class="pm-perk">Co-authorship of research and awareness reports</div>
+          </div>
+          <a href="#contact" class="pm-cta">Partner as an NGO / Media →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BENEFITS ═══ -->
+  <section class="ps s-surf" id="benefits">
+    <div class="pw">
+      <div class="rev" style="text-align:center;margin-bottom:36px">
+        <span class="ey">Why Partner</span>
+        <h2 class="h2">What partners gain</h2>
+      </div>
+      <div class="ben-grid rev d1">
+        <div class="ben-card"><div class="ben-icon">🎖️</div><div class="ben-body"><div class="ben-title">USI-Backed Credibility</div><div class="ben-desc">Align your organisation with India's premier defence think tank and its 154-year legacy.</div></div></div>
+        <div class="ben-card"><div class="ben-icon">📣</div><div class="ben-body"><div class="ben-title">National Brand Visibility</div><div class="ben-desc">Co-branding across events, digital content, and communications reaching students in 28 states.</div></div></div>
+        <div class="ben-card"><div class="ben-icon">📊</div><div class="ben-body"><div class="ben-title">Measurable CSR Impact</div><div class="ben-desc">Detailed impact reporting and outcome data for compliance, reporting, and stakeholder communications.</div></div></div>
+        <div class="ben-card"><div class="ben-icon">🎓</div><div class="ben-body"><div class="ben-title">Talent Pipeline Access</div><div class="ben-desc">Direct access to India's most cyber-aware student community through Olympiad and Surakshak networks.</div></div></div>
+        <div class="ben-card"><div class="ben-icon">🤝</div><div class="ben-body"><div class="ben-title">Cross-Sector Network</div><div class="ben-desc">Join a growing coalition of schools, corporates, government bodies, and civil society organisations.</div></div></div>
+        <div class="ben-card"><div class="ben-icon">🛡️</div><div class="ben-body"><div class="ben-title">Mission-Driven Legacy</div><div class="ben-desc">Be part of building a generation of cyber-safe Indians — a legacy with generational impact.</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ HOW IT WORKS ═══ -->
+  <section class="ps s-white" id="how">
+    <div class="pw">
+      <div class="rev" style="text-align:center;margin-bottom:44px">
+        <span class="ey">The Process</span>
+        <h2 class="h2">How partnering works</h2>
+      </div>
+      <div class="hw-grid rev d1">
+        <div class="hw-card">
+          <div class="hw-num">1</div>
+          <div class="hw-title">Start the Conversation</div>
+          <div class="hw-desc">Reach out via the form below or email us directly. Tell us about your organisation and what you'd like to achieve. We'll respond within 48 hours.</div>
+        </div>
+        <div class="hw-card d1">
+          <div class="hw-num">2</div>
+          <div class="hw-title">Co-Design the Partnership</div>
+          <div class="hw-desc">We'll work together to identify the right verticals, programmes, and impact goals. Every partnership is tailored — not templated.</div>
+        </div>
+        <div class="hw-card d2">
+          <div class="hw-num">3</div>
+          <div class="hw-title">Launch &amp; Measure</div>
+          <div class="hw-desc">We deploy, you track. Every partner gets a dedicated point of contact, an impact dashboard, and regular progress updates.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA / CONTACT ═══ -->
+  <section class="cta-sec" id="contact">
+    <div class="cta-inner">
+      <div class="rev">
+        <h2 class="cta-h2">Ready to build a<br/>safer India <em>together?</em></h2>
+        <p class="cta-p">Whether you're a school, a corporate, a government body, or a civil society organisation — there's a place for you in the Hashtag Suraksha movement.</p>
+        <div class="cta-actions">
+          <a href="mailto:partner@suraksha.in" class="cta-btn-main">📧 Email Us to Partner</a>
+          <button class="cta-btn-sec" onclick="toggleCtaForm(this)">✍️ Give Your Details</button>
+        </div>
+        <div class="cta-form-wrap">
+          <div class="cta-form" id="ctaForm">
+            <div class="cta-form-row">
+              <div class="cta-form-group">
+                <label class="cta-form-label">Your Name</label>
+                <input type="text" class="cta-form-input" placeholder="Full name" id="cf-name" />
+              </div>
+              <div class="cta-form-group">
+                <label class="cta-form-label">Email Address</label>
+                <input type="email" class="cta-form-input" placeholder="you@organisation.com" id="cf-email" />
+              </div>
+            </div>
+            <div class="cta-form-row">
+              <div class="cta-form-group">
+                <label class="cta-form-label">Organisation</label>
+                <input type="text" class="cta-form-input" placeholder="School / Company / NGO..." id="cf-org" />
+              </div>
+              <div class="cta-form-group">
+                <label class="cta-form-label">Partner As</label>
+                <select class="cta-form-select" id="cf-type">
+                  <option value="">Select type...</option>
+                  <option>School or College</option>
+                  <option>Corporate / Industry</option>
+                  <option>Government Body</option>
+                  <option>NGO or Media</option>
+                </select>
+              </div>
+            </div>
+            <div class="cta-form-row">
+              <div class="cta-form-group cta-form-full">
+                <label class="cta-form-label">Tell us more (optional)</label>
+                <input type="text" class="cta-form-input" placeholder="Your goal, programme, or any context..." id="cf-msg" />
+              </div>
+            </div>
+            <button class="cta-form-submit" onclick="submitCtaForm()">Send Details →</button>
+          </div>
+          <div class="cta-thanks" id="ctaThanks">
+            <div class="cta-thanks-icon">🎉</div>
+            <div class="cta-thanks-title">Thank you!</div>
+            <div class="cta-thanks-sub">We'll be in touch within 48 hours.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="pw" style="padding-top:56px;">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo-circle-link">
+            <div class="footer-logo-circle">
+              <img src="assets/logo-suraksha.png" alt="Hashtag Suraksha" class="footer-logo-img" />
+            </div>
+          </a>
+          <p>India's national cybersecurity movement. A joint initiative of CERT-In and Cyber Buddha.</p>
+          <div class="footer-partner-logos">
+            <img src="assets/logo-certin.png" alt="MeitY &amp; CERT-In" class="footer-certin-logo" />
+          </div>
+          <div class="footer-socials">
+            <a href="https://www.facebook.com/hashtagsuraksha" target="_blank" rel="noopener">Facebook</a>
+            <a href="https://www.instagram.com/hashtag.suraksha" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://www.linkedin.com/company/hashtag-suraksha" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+        <div class="footer-links-group">
+          <div class="footer-col">
+            <h5>Ecosystem</h5>
+            <a href="platform.html">CASK</a>
+            <a href="surakshak.html">Surakshak</a>
+            <a href="olympiad.html">National Cyber Olympiad</a>
+            <a href="phishnchip.html">The Phish &amp; Chip Show</a>
+            <a href="slanglish.html">Slanglish</a>
+          </div>
+          <div class="footer-col">
+            <h5>Organisation</h5>
+            <a href="index.html#about">About</a>
+            <a href="resources.html">Resources</a>
+            <a href="partner.html">Partner With Us</a>
+            <a href="https://hashtagsuraksha.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
+            <a href="https://hashtagsuraksha.com/terms-of-use" target="_blank" rel="noopener">Terms of Use</a>
+          </div>
+          <div class="footer-col">
+            <h5>Contact</h5>
+            <a href="mailto:info@hashtagsuraksha.com">info@hashtagsuraksha.com</a>
+            <a href="partner.html" class="footer-cta-link">Become a Partner</a>
+            <a href="surakshak.html" class="footer-cta-link">Join Surakshak</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>2025 Hashtag Suraksha. All rights reserved. A CERT-In and Cyber Buddha initiative under MeitY, Government of India.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* Nav scroll */
+    var nav=document.getElementById('navbar');
+    window.addEventListener('scroll',function(){ nav.classList.toggle('scrolled',window.scrollY>40); });
+    /* Hamburger */
+    document.getElementById('hamburger').addEventListener('click',function(){ document.getElementById('mobileMenu').classList.toggle('open'); });
+    /* Reveal */
+    var io=new IntersectionObserver(function(e){ e.forEach(function(x){ if(x.isIntersecting){ x.target.classList.add('in'); io.unobserve(x.target); }}); },{threshold:.08});
+    document.querySelectorAll('.rev').forEach(function(el){ io.observe(el); });
+    /* Theme toggle */
+    document.getElementById('themeToggle').addEventListener('click',function(){
+      var h=document.documentElement;
+      h.setAttribute('data-theme', h.getAttribute('data-theme')==='dark'?'light':'dark');
+    });
+    /* USI accordion */
+    function toggleAcc(hd) {
+      var item = hd.parentElement;
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.usi-acc-item').forEach(function(el){ el.classList.remove('open'); });
+      if (!isOpen) item.classList.add('open');
+    }
+    /* CTA form toggle */
+    function toggleCtaForm(btn) {
+      var f = document.getElementById('ctaForm');
+      var isOpen = f.classList.toggle('open');
+      btn.textContent = isOpen ? '✕ Close Form' : '✍️ Give Your Details';
+    }
+    /* CTA form submit */
+    function submitCtaForm() {
+      var name = document.getElementById('cf-name').value.trim();
+      var email = document.getElementById('cf-email').value.trim();
+      var org = document.getElementById('cf-org').value.trim();
+      var type = document.getElementById('cf-type').value;
+      var msg = document.getElementById('cf-msg').value.trim();
+      if (!name || !email || !org) { alert('Please fill in your name, email, and organisation.'); return; }
+      var subject = 'Partnership Enquiry — ' + org;
+      var body = 'Name: ' + name + '\nEmail: ' + email + '\nOrganisation: ' + org + '\nPartner Type: ' + (type || 'Not specified') + '\nMessage: ' + (msg || '—');
+      window.location.href = 'mailto:partner@suraksha.in?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      document.getElementById('ctaForm').classList.remove('open');
+      document.getElementById('ctaThanks').classList.add('show');
+    }
+  </script>
+</body>
+</html>

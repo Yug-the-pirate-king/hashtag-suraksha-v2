@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Become a Surakshak — Hashtag Suraksha</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Serif+Display&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="global.css" />
+  <link rel="stylesheet" href="surakshak.css" />
+  <style>
+    .surakshak-hero {
+      background: linear-gradient(135deg, var(--navy-dark) 0%, #1e3a6e 60%, #1A3A6B 100%);
+      padding: 140px 24px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .surakshak-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 60%, rgba(255,153,51,0.15) 0%, transparent 50%),
+                  radial-gradient(ellipse at 70% 20%, rgba(19,136,8,0.1) 0%, transparent 50%);
+    }
+    .surakshak-hero .live-counter {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,153,51,0.15);
+      border: 1px solid rgba(255,153,51,0.3);
+      border-radius: 999px;
+      padding: 8px 20px;
+      margin-bottom: 24px;
+    }
+    .surakshak-hero .live-dot { width: 8px; height: 8px; background: var(--saffron); border-radius: 50%; animation: pulse 1.5s infinite; }
+    .surakshak-hero .live-counter span { font-size: 13px; font-weight: 600; color: var(--saffron); }
+    .surakshak-hero h1 {
+      font-family: 'Sora', sans-serif;
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 800;
+      color: white;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .surakshak-hero h1 span { color: var(--saffron); }
+    .surakshak-hero p { font-size: 18px; color: rgba(255,255,255,0.75); max-width: 580px; margin: 0 auto 40px; line-height: 1.7; }
+
+    /* ── FOMO FEED FULL ── */
+    .fomo-section { padding: 80px 24px; background: var(--navy-dark); }
+    .fomo-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .fomo-text h2 { font-family: 'Sora', sans-serif; font-size: clamp(28px, 4vw, 40px); font-weight: 800; color: white; line-height: 1.2; margin-bottom: 16px; }
+    .fomo-text h2 span { color: var(--saffron); }
+    .fomo-text p { color: rgba(255,255,255,0.65); font-size: 15px; line-height: 1.8; margin-bottom: 24px; }
+    .fomo-stats { display: flex; gap: 32px; margin-bottom: 32px; }
+    .fomo-stat { text-align: center; }
+    .fomo-stat .num { font-family: 'Sora', sans-serif; font-size: 32px; font-weight: 800; color: var(--saffron); }
+    .fomo-stat .lbl { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 4px; }
+    .big-feed {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .big-feed-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .big-feed-header .live-dot { width: 8px; height: 8px; background: #4CAF50; border-radius: 50%; animation: pulse 1.5s infinite; }
+    .big-feed-header span { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.8); }
+    .big-feed-list { padding: 8px 0; min-height: 300px; }
+    .big-feed-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      transition: background 0.2s;
+    }
+    .big-feed-item:hover { background: rgba(255,255,255,0.05); }
+    .feed-avatar {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--saffron), #e67e22);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .feed-body { flex: 1; }
+    .feed-body p { font-size: 13px; color: rgba(255,255,255,0.85); line-height: 1.5; margin: 0; }
+    .feed-body strong { color: white; }
+    .feed-time-small { font-size: 11px; color: rgba(255,255,255,0.4); margin-top: 4px; display: block; }
+
+    /* ── TIERS ── */
+    .tiers-section { padding: 80px 24px; background: white; }
+    .tiers-grid {
+      max-width: 1100px;
+      margin: 48px auto 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .tier-card {
+      border-radius: var(--radius-lg);
+      padding: 36px 24px;
+      text-align: center;
+      position: relative;
+      border: 2px solid var(--gray-200);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .tier-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .tier-card.tier-1 { border-color: #cd7f32; background: #fff8f3; }
+    .tier-card.tier-2 { border-color: #9e9e9e; background: #f9f9f9; }
+    .tier-card.tier-3 { border-color: var(--saffron); background: var(--saffron-light); }
+    .tier-card.tier-4 { border-color: var(--navy); background: #f0f4ff; }
+    .tier-badge { font-size: 48px; margin-bottom: 16px; }
+    .tier-card h3 { font-family: 'Sora', sans-serif; font-size: 18px; font-weight: 800; margin-bottom: 4px; }
+    .tier-card.tier-1 h3 { color: #7c4a1e; }
+    .tier-card.tier-2 h3 { color: #555; }
+    .tier-card.tier-3 h3 { color: #b86e00; }
+    .tier-card.tier-4 h3 { color: var(--navy); }
+    .tier-level { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray-500); margin-bottom: 16px; }
+    .tier-perks { list-style: none; display: flex; flex-direction: column; gap: 8px; text-align: left; }
+    .tier-perks li { font-size: 13px; color: var(--gray-700); display: flex; align-items: flex-start; gap: 8px; }
+    .tier-perks li::before { content: '→'; color: var(--saffron); font-weight: 700; flex-shrink: 0; }
+
+    /* ── WHAT SURAKSHAKS DO ── */
+    .do-section { padding: 80px 24px; background: var(--off-white); }
+    .do-grid {
+      max-width: 1100px;
+      margin: 48px auto 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .do-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 32px 24px;
+      border-bottom: 3px solid var(--saffron);
+    }
+    .do-icon { font-size: 32px; margin-bottom: 14px; }
+    .do-card h3 { font-family: 'Sora', sans-serif; font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .do-card p { font-size: 14px; color: var(--gray-500); line-height: 1.7; }
+
+    /* ── JOIN FORM ── */
+    .join-section {
+      padding: 80px 24px;
+      background: linear-gradient(135deg, var(--navy-dark), var(--navy));
+      text-align: center;
+    }
+    .join-box {
+      max-width: 560px;
+      margin: 0 auto;
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 48px;
+    }
+    .join-box h2 { font-family: 'Sora', sans-serif; font-size: 26px; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
+    .join-box p { color: var(--gray-500); font-size: 14px; margin-bottom: 28px; }
+    .form-group { margin-bottom: 16px; text-align: left; }
+    .form-group label { display: block; font-size: 13px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+    .form-group input, .form-group select {
+      width: 100%; border: 1.5px solid var(--gray-200); border-radius: 8px;
+      padding: 12px 14px; font-size: 14px; font-family: 'Inter', sans-serif; outline: none;
+    }
+    .form-group input:focus, .form-group select:focus { border-color: var(--navy); }
+    .join-submit {
+      width: 100%; padding: 16px; background: var(--saffron); color: white;
+      border: none; border-radius: 8px; font-family: 'Sora', sans-serif;
+      font-size: 16px; font-weight: 700; cursor: pointer; margin-top: 8px;
+    }
+
+    @media (max-width: 900px) {
+      .fomo-grid { grid-template-columns: 1fr; }
+      .tiers-grid { grid-template-columns: repeat(2, 1fr); }
+      .do-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .tiers-grid { grid-template-columns: 1fr; }
+    }
+    /* ── NAV ALWAYS WHITE ─────────────────── */
+    .nav,
+    [data-theme="dark"] .nav {
+      background: rgba(255,255,255,0.96) !important;
+      border-bottom: 1px solid #E2E8F0 !important;
+      backdrop-filter: blur(20px) !important;
+    }
+    [data-theme="dark"] .nav .nav-links li a { color: #1A1A2E !important; }
+    [data-theme="dark"] .nav .nav-links li a.active,
+    [data-theme="dark"] .nav .nav-links li a:hover { color: #0891B2 !important; }
+    [data-theme="dark"] .nav-logo-img { filter: none !important; }
+    [data-theme="dark"] .theme-toggle-btn { color: #1A1A2E !important; }
+    [data-theme="dark"] .nav-cta {
+      background: #1E1B4B !important; color: #fff !important;
+    }
+    /* ── FOOTER ────────────────────────────── */
+    .footer-grid { display:grid; grid-template-columns:1.2fr 1fr; gap:60px; padding-bottom:48px; }
+    .footer-logo-circle-link { display:inline-block; margin-bottom:16px; }
+    .footer-logo-circle { width:72px; height:72px; background:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; padding:10px; box-shadow:0 2px 12px rgba(0,0,0,.18); }
+    .footer-logo-img { width:100%!important; height:100%!important; object-fit:contain!important; display:block!important; filter:none!important; }
+    .footer-brand>p { font-size:14px; color:var(--text-secondary,rgba(255,255,255,.5)); line-height:1.7; margin-bottom:20px; }
+    .footer-partner-logos { display:flex; align-items:center; gap:16px; margin-bottom:20px; }
+    .footer-certin-logo { height:36px; width:auto; max-width:200px; object-fit:contain; background:#fff; border-radius:6px; padding:4px 8px; }
+    .footer-socials { display:flex; gap:16px; flex-wrap:wrap; }
+    .footer-socials a { font-size:13px; color:var(--text-secondary,rgba(255,255,255,.5)); transition:color .2s; }
+    .footer-socials a:hover { color:var(--acc,#0891B2); }
+    .footer-links-group { display:grid; grid-template-columns:repeat(3,1fr); gap:32px; }
+    .footer-col h5 { font-size:12px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--text-secondary,rgba(255,255,255,.5)); margin-bottom:16px; }
+    .footer-col a { display:block; font-size:13px; font-weight:400; color:var(--text-secondary,rgba(255,255,255,.5)); margin-bottom:10px; transition:color .2s; }
+    .footer-col a:hover { color:var(--acc,#0891B2); }
+    .footer-cta-link { color:var(--acc,#0891B2)!important; font-weight:500!important; }
+    .footer-bottom { border-top:1px solid var(--bdr,rgba(255,255,255,.1)); padding-top:24px; padding-bottom:24px; }
+    .footer-bottom p { font-size:12px; color:var(--text-secondary,rgba(255,255,255,.4)); }
+    @media(max-width:768px){ .footer-grid{grid-template-columns:1fr;gap:40px;} .footer-links-group{grid-template-columns:repeat(2,1fr);} }
+    @media(max-width:480px){ .footer-links-group{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+  <div id="cursorGlow" class="cursor-glow"></div>
+
+  <!-- NAV -->
+  <nav class="nav" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/logo-suraksha.svg" alt="Hashtag Suraksha" class="nav-logo-img" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="platform.html">CASK</a></li>
+        <li><a href="surakshak.html" class="active">Surakshak</a></li>
+        <li><a href="olympiad.html">Olympiad</a></li>
+        <li><a href="phishnchip.html">The Phish &amp; Chip Show</a></li>
+        <li><a href="slanglish.html">Slanglish</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="partner.html">Partner With Us</a></li>
+      </ul>
+      <div class="nav-right">
+        <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle theme">
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a href="surakshak.html" class="nav-cta">Join the Movement</a>
+      </div>
+      <button class="hamburger" id="hamburger">&#9776;</button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="platform.html">CASK</a>
+      <a href="surakshak.html">Surakshak</a>
+      <a href="olympiad.html">Olympiad</a>
+      <a href="phishnchip.html">The Phish &amp; Chip Show</a>
+      <a href="slanglish.html">Slanglish</a>
+      <a href="resources.html">Resources</a>
+      <a href="partner.html">Partner With Us</a>
+      <a href="surakshak.html" class="mobile-cta">Join the Movement</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="surakshak-hero">
+    <div style="position:relative;z-index:1">
+      <div class="live-counter">
+        <div class="live-dot"></div>
+        <span id="heroCount">2,847 Surakshaks active right now</span>
+      </div>
+      <h1>India's Cyber Safety<br />Leaders Are <span>Already Out There.</span></h1>
+      <p>While you're reading this, Surakshaks across India are running workshops, mentoring peers, and shaping the country's digital safety movement. Are you one of them?</p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+        <a href="#join" class="btn-primary">Join Them Now →</a>
+        <a href="#tiers" class="btn-ghost">See the Tiers ↓</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOMO LIVE FEED -->
+  <section class="fomo-section">
+    <div class="fomo-grid">
+      <div class="fomo-text">
+        <h2>Every Minute, A <span>Surakshak</span> Makes a Difference.</h2>
+        <p>The movement is live. Right now, students across every state in India are earning badges, running workshops, and building a cyber-safe nation. Your peers are already leading. Are you?</p>
+        <div class="fomo-stats">
+          <div class="fomo-stat">
+            <div class="num">40K+</div>
+            <div class="lbl">Surakshaks</div>
+          </div>
+          <div class="fomo-stat">
+            <div class="num">28</div>
+            <div class="lbl">States</div>
+          </div>
+          <div class="fomo-stat">
+            <div class="num">500+</div>
+            <div class="lbl">Workshops Run</div>
+          </div>
+        </div>
+        <a href="#join" class="btn-primary">Become a Surakshak →</a>
+      </div>
+      <div>
+        <div class="big-feed">
+          <div class="big-feed-header">
+            <div class="live-dot"></div>
+            <span>Live Activity Feed</span>
+          </div>
+          <div class="big-feed-list" id="bigFeed">
+            <div class="big-feed-item">
+              <div class="feed-avatar">🎓</div>
+              <div class="feed-body">
+                <p><strong>Meera Iyer</strong> from Bangalore just earned her Surakshak Captain badge</p>
+                <span class="feed-time-small">just now</span>
+              </div>
+            </div>
+            <div class="big-feed-item">
+              <div class="feed-avatar">⚡</div>
+              <div class="feed-body">
+                <p><strong>Rahul Verma</strong> from Lucknow ran a cyber safety workshop for 150 students</p>
+                <span class="feed-time-small">2 min ago</span>
+              </div>
+            </div>
+            <div class="big-feed-item">
+              <div class="feed-avatar">🏆</div>
+              <div class="feed-body">
+                <p><strong>Sneha Pillai</strong> from Trivandrum won the Kerala state Olympiad</p>
+                <span class="feed-time-small">5 min ago</span>
+              </div>
+            </div>
+            <div class="big-feed-item">
+              <div class="feed-avatar">🌟</div>
+              <div class="feed-body">
+                <p><strong>Aditya Kumar</strong> from Patna became a State Surakshak</p>
+                <span class="feed-time-small">9 min ago</span>
+              </div>
+            </div>
+            <div class="big-feed-item">
+              <div class="feed-avatar">📣</div>
+              <div class="feed-body">
+                <p><strong>Divya Sharma</strong> from Jaipur mentored 20 new Surakshaks this week</p>
+                <span class="feed-time-small">14 min ago</span>
+              </div>
+            </div>
+            <div class="big-feed-item">
+              <div class="feed-avatar">🎯</div>
+              <div class="feed-body">
+                <p><strong>Rohan Mehta</strong> from Surat completed all 9 AI learning modules</p>
+                <span class="feed-time-small">19 min ago</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIERS -->
+  <section class="tiers-section" id="tiers">
+    <div class="container">
+      <span class="section-tag center">The Program</span>
+      <h2 class="section-title center">Four Tiers. One Mission.</h2>
+      <p class="section-sub center">Start as a Surakshak. Rise to lead the nation.</p>
+      <div class="tiers-grid">
+        <div class="tier-card tier-1">
+          <div class="tier-badge">🛡️</div>
+          <h3>Surakshak</h3>
+          <div class="tier-level">Tier 1 — Entry</div>
+          <ul class="tier-perks">
+            <li>Complete AI curriculum modules</li>
+            <li>Earn digital Surakshak badge</li>
+            <li>Olympiad access</li>
+            <li>National Surakshak ID</li>
+          </ul>
+        </div>
+        <div class="tier-card tier-2">
+          <div class="tier-badge">⚡</div>
+          <h3>Surakshak Lead</h3>
+          <div class="tier-level">Tier 2 — Lead</div>
+          <ul class="tier-perks">
+            <li>All Tier 1 benefits</li>
+            <li>Run school workshops</li>
+            <li>Mentor junior Surakshaks</li>
+            <li>District recognition</li>
+          </ul>
+        </div>
+        <div class="tier-card tier-3">
+          <div class="tier-badge">🔥</div>
+          <h3>Surakshak Captain</h3>
+          <div class="tier-level">Tier 3 — Captain</div>
+          <ul class="tier-perks">
+            <li>All Tier 2 benefits</li>
+            <li>Lead campus chapter</li>
+            <li>State-level competitions</li>
+            <li>Speak at conclaves</li>
+          </ul>
+        </div>
+        <div class="tier-card tier-4">
+          <div class="tier-badge">🏅</div>
+          <h3>State Surakshak</h3>
+          <div class="tier-level">Tier 4 — Elite</div>
+          <ul class="tier-perks">
+            <li>All Tier 3 benefits</li>
+            <li>National conclave invitation</li>
+            <li>CERT-In recognition letter</li>
+            <li>Leadership mentorship</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT SURAKSHAKS DO -->
+  <section class="do-section">
+    <div class="container">
+      <span class="section-tag center">Your Role</span>
+      <h2 class="section-title center">What Surakshaks Actually Do</h2>
+      <div class="do-grid">
+        <div class="do-card">
+          <div class="do-icon">🎓</div>
+          <h3>Learn & Get Certified</h3>
+          <p>Complete the Suraksha AI curriculum — 9 modules covering every major cyber safety topic. Earn your Surakshak certification backed by CERT-In.</p>
+        </div>
+        <div class="do-card">
+          <div class="do-icon">📣</div>
+          <h3>Run Workshops</h3>
+          <p>Lead awareness sessions in your school and community. Surakshaks have reached over 5 lakh students through peer-led workshops across India.</p>
+        </div>
+        <div class="do-card">
+          <div class="do-icon">🤝</div>
+          <h3>Mentor Peers</h3>
+          <p>Guide newer Surakshaks through the program. Build your own network and establish a campus chapter at your school or college.</p>
+        </div>
+        <div class="do-card">
+          <div class="do-icon">🏆</div>
+          <h3>Compete Nationally</h3>
+          <p>Represent your school in the Cyber Olympiad — from school level all the way to the national finals with prizes and national recognition.</p>
+        </div>
+        <div class="do-card">
+          <div class="do-icon">📱</div>
+          <h3>Create Awareness Content</h3>
+          <p>Make reels, posters, and campaigns that spread cyber safety awareness. Top content gets amplified by CERT-In and MyGov to millions.</p>
+        </div>
+        <div class="do-card">
+          <div class="do-icon">🌟</div>
+          <h3>Speak & Lead</h3>
+          <p>Captains and State Surakshaks speak at national conclaves, represent India's student safety movement, and receive CERT-In recognition letters.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOIN FORM -->
+  <section class="join-section" id="join">
+    <div style="text-align:center;margin-bottom:40px">
+      <h2 style="font-family:'Sora',sans-serif;font-size:clamp(28px,4vw,40px);font-weight:800;color:white;margin-bottom:12px">Ready to Become a Surakshak?</h2>
+      <p style="color:rgba(255,255,255,0.65);font-size:16px">Join thousands of students leading India's cyber safety movement.</p>
+    </div>
+    <div class="join-box">
+      <h2>Join the Movement</h2>
+      <p>Free to join. Takes 2 minutes. Your badge arrives within 24 hours.</p>
+      <div class="form-group">
+        <label>Full Name *</label>
+        <input type="text" placeholder="Your full name" />
+      </div>
+      <div class="form-group">
+        <label>Email Address *</label>
+        <input type="email" placeholder="your@email.com" />
+      </div>
+      <div class="form-group">
+        <label>Mobile Number *</label>
+        <input type="tel" placeholder="+91 XXXXX XXXXX" />
+      </div>
+      <div class="form-group">
+        <label>School / College *</label>
+        <input type="text" placeholder="Your institution name" />
+      </div>
+      <div class="form-group">
+        <label>State *</label>
+        <select>
+          <option value="">Select your state</option>
+          <option>Andhra Pradesh</option><option>Assam</option><option>Bihar</option>
+          <option>Delhi</option><option>Gujarat</option><option>Haryana</option>
+          <option>Karnataka</option><option>Kerala</option><option>Madhya Pradesh</option>
+          <option>Maharashtra</option><option>Punjab</option><option>Rajasthan</option>
+          <option>Tamil Nadu</option><option>Telangana</option><option>Uttar Pradesh</option>
+          <option>West Bengal</option><option>Other</option>
+        </select>
+      </div>
+      <button class="join-submit" onclick="joinNow()">Become a Surakshak →</button>
+      <p style="font-size:12px;color:var(--gray-500);text-align:center;margin-top:12px">✓ Free · ✓ CERT-In backed · ✓ Earn national recognition</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="pw" style="padding-top:56px;">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo-circle-link">
+            <div class="footer-logo-circle">
+              <img src="assets/logo-suraksha.png" alt="Hashtag Suraksha" class="footer-logo-img" />
+            </div>
+          </a>
+          <p>India's national cybersecurity movement. A joint initiative of CERT-In and Cyber Buddha.</p>
+          <div class="footer-partner-logos">
+            <img src="assets/logo-certin.png" alt="MeitY &amp; CERT-In" class="footer-certin-logo" />
+          </div>
+          <div class="footer-socials">
+            <a href="https://www.facebook.com/hashtagsuraksha" target="_blank" rel="noopener">Facebook</a>
+            <a href="https://www.instagram.com/hashtag.suraksha" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://www.linkedin.com/company/hashtag-suraksha" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+        <div class="footer-links-group">
+          <div class="footer-col">
+            <h5>Ecosystem</h5>
+            <a href="platform.html">CASK</a>
+            <a href="surakshak.html">Surakshak</a>
+            <a href="olympiad.html">National Cyber Olympiad</a>
+            <a href="phishnchip.html">The Phish &amp; Chip Show</a>
+            <a href="slanglish.html">Slanglish</a>
+          </div>
+          <div class="footer-col">
+            <h5>Organisation</h5>
+            <a href="index.html#about">About</a>
+            <a href="resources.html">Resources</a>
+            <a href="partner.html">Partner With Us</a>
+            <a href="https://hashtagsuraksha.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
+            <a href="https://hashtagsuraksha.com/terms-of-use" target="_blank" rel="noopener">Terms of Use</a>
+          </div>
+          <div class="footer-col">
+            <h5>Contact</h5>
+            <a href="mailto:info@hashtagsuraksha.com">info@hashtagsuraksha.com</a>
+            <a href="partner.html" class="footer-cta-link">Become a Partner</a>
+            <a href="surakshak.html" class="footer-cta-link">Join Surakshak</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>2025 Hashtag Suraksha. All rights reserved. A CERT-In and Cyber Buddha initiative under MeitY, Government of India.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    // Animate hero counter
+    let count = 2847;
+    setInterval(() => {
+      count += Math.floor(Math.random() * 3);
+      document.getElementById('heroCount').textContent = count.toLocaleString('en-IN') + ' Surakshaks active right now';
+    }, 8000);
+
+    // Live big feed
+    const feedActivities = [
+      { emoji: '🎓', text: '<strong>Priya Reddy</strong> from Hyderabad completed her Surakshak badge' },
+      { emoji: '⚡', text: '<strong>Kabir Singh</strong> from Chandigarh ran a workshop for 200 students' },
+      { emoji: '🏆', text: '<strong>Ananya Das</strong> from Kolkata won the district Olympiad' },
+      { emoji: '🌟', text: '<strong>Arjun Nair</strong> from Kochi became a Surakshak Captain' },
+      { emoji: '📣', text: '<strong>Pooja Nair</strong> from Kochi spoke at the state conclave' },
+      { emoji: '🎯', text: '<strong>Vijay Rao</strong> from Chennai created a viral awareness reel' },
+      { emoji: '🤝', text: '<strong>Simran Kaur</strong> from Amritsar inducted 12 new Surakshaks' },
+      { emoji: '📱', text: '<strong>Dev Patel</strong> from Ahmedabad completed all 9 AI modules' },
+    ];
+
+    const times = ['just now', '1 min ago', '3 min ago', '6 min ago', '9 min ago', '14 min ago', '21 min ago'];
+
+    const bigFeed = document.getElementById('bigFeed');
+    setInterval(() => {
+      const act = feedActivities[Math.floor(Math.random() * feedActivities.length)];
+      const items = bigFeed.querySelectorAll('.big-feed-item');
+
+      // Update times
+      items.forEach((item, i) => {
+        const t = item.querySelector('.feed-time-small');
+        if (t && times[i + 1]) t.textContent = times[i + 1];
+      });
+
+      const div = document.createElement('div');
+      div.className = 'big-feed-item';
+      div.innerHTML = `<div class="feed-avatar">${act.emoji}</div><div class="feed-body"><p>${act.text}</p><span class="feed-time-small">just now</span></div>`;
+      div.style.opacity = '0';
+      bigFeed.insertBefore(div, bigFeed.firstChild);
+      requestAnimationFrame(() => { div.style.transition = 'opacity 0.5s'; div.style.opacity = '1'; });
+
+      const all = bigFeed.querySelectorAll('.big-feed-item');
+      if (all.length > 7) all[all.length - 1].remove();
+    }, 4000);
+
+    function joinNow() {
+      alert('Welcome to the movement! 🎉\n\nYou\'ll receive your Surakshak ID and first learning module within 24 hours.\n\nFor questions: Info@hashtagsuraksha.com');
+    }
+  </script>
+</body>
+</html>

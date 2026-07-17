@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resources — #Suraksha Cyber Safety Library</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="global.css" />
+  <style>
+    /* ═══════════════════════════════════════
+       RESOURCES · Deep Indigo + Cyan
+    ═══════════════════════════════════════ */
+    :root {
+      --bg:      #F2F4FF;
+      --surf:    #E8ECFF;
+      --card:    #FFFFFF;
+      --ink:     #14152A;
+      --mut:     #5A6080;
+      --bdr:     #DEE2F5;
+      --pri:     #1E1B4B;
+      --acc:     #0891B2;
+      --acc-s:   #E0F2FE;
+      --acc2:    #7C3AED;
+      --acc2-s:  #F3EEFF;
+    }
+    [data-theme="dark"] {
+      --bg:      #0C0D1C;
+      --surf:    #131528;
+      --card:    #1C1E35;
+      --ink:     #E4E6F8;
+      --mut:     #8890BC;
+      --bdr:     #252848;
+      --pri:     #A5B4FC;
+      --acc:     #22D3EE;
+      --acc-s:   #0C2030;
+      --acc2:    #C4B5FD;
+      --acc2-s:  #1E1530;
+    }
+    /* ── NAV ALWAYS WHITE ─────────────────── */
+    .nav,
+    [data-theme="dark"] .nav {
+      background: rgba(255,255,255,0.96) !important;
+      border-bottom: 1px solid #E2E8F0 !important;
+      backdrop-filter: blur(20px) !important;
+    }
+    [data-theme="dark"] .nav .nav-links li a { color: #1A1A2E !important; }
+    [data-theme="dark"] .nav .nav-links li a.active,
+    [data-theme="dark"] .nav .nav-links li a:hover { color: #0891B2 !important; }
+    [data-theme="dark"] .nav-logo-img { filter: none !important; }
+    [data-theme="dark"] .theme-toggle-btn { color: #1A1A2E !important; }
+    [data-theme="dark"] .nav-cta {
+      background: #1E1B4B !important; color: #fff !important;
+    }
+    /* ── RESET / BASE ─────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Manrope', sans-serif; color: var(--ink); background: var(--bg); margin: 0; overflow-x: hidden; transition: background .3s, color .3s; }
+    a { text-decoration: none; }
+    /* ── HERO ─────────────────────────────── */
+    .rh {
+      min-height: 72vh; padding: 130px 48px 80px;
+      background: #fff; display: flex; align-items: center;
+      position: relative; overflow: hidden;
+    }
+    [data-theme="dark"] .rh { background: var(--surf); }
+    /* Indigo blob */
+    .rh::before {
+      content: ''; position: absolute;
+      width: 700px; height: 700px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(30,27,75,.06) 0%, transparent 70%);
+      top: 50%; right: -100px; transform: translateY(-50%);
+      pointer-events: none;
+    }
+    [data-theme="dark"] .rh::before { background: radial-gradient(circle, rgba(165,180,252,.06) 0%, transparent 70%); }
+    /* Grid dot */
+    .rh::after {
+      content: ''; position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(30,27,75,.07) 1px, transparent 1px);
+      background-size: 32px 32px; pointer-events: none;
+    }
+    [data-theme="dark"] .rh::after {
+      background-image: radial-gradient(circle, rgba(165,180,252,.05) 1px, transparent 1px);
+    }
+    .rh-inner { max-width: 1200px; margin: 0 auto; width: 100%; position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .rh-left {}
+    .rh-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--acc); margin-bottom: 20px; }
+    .rh-eyebrow span { width: 20px; height: 2px; background: var(--acc); border-radius: 1px; }
+    .rh-h1 { font-family: 'Outfit', sans-serif; font-size: clamp(40px, 6vw, 72px); font-weight: 900; line-height: .96; letter-spacing: -.03em; color: var(--pri); margin-bottom: 20px; }
+    [data-theme="dark"] .rh-h1 { color: var(--ink); }
+    .rh-h1 em { font-style: normal; color: var(--acc); }
+    .rh-p { font-size: 16px; line-height: 1.8; color: var(--mut); max-width: 460px; margin-bottom: 32px; }
+    /* Search bar */
+    .rh-search { display: flex; gap: 0; background: var(--bg); border: 1.5px solid var(--bdr); border-radius: 12px; overflow: hidden; max-width: 440px; }
+    .rh-search input { flex: 1; border: none; background: none; padding: 13px 18px; font-family: 'Manrope', sans-serif; font-size: 14px; color: var(--ink); outline: none; }
+    .rh-search input::placeholder { color: var(--mut); }
+    .rh-search button { background: var(--pri); color: #fff; border: none; padding: 0 20px; font-size: 16px; cursor: pointer; transition: background .2s; }
+    [data-theme="dark"] .rh-search button { background: var(--acc); }
+    .rh-search button:hover { opacity: .88; }
+    /* Hero stats */
+    .rh-stats { display: flex; gap: 32px; margin-top: 36px; }
+    .rhs { }
+    .rhs-n { font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 900; color: var(--pri); }
+    [data-theme="dark"] .rhs-n { color: var(--acc); }
+    .rhs-l { font-size: 11px; color: var(--mut); font-weight: 600; margin-top: 2px; }
+    /* Hero right: category visual */
+    .rh-right { display: flex; flex-direction: column; gap: 12px; }
+    .rh-cat-pill {
+      display: flex; align-items: center; gap: 14px;
+      background: var(--bg); border: 1.5px solid var(--bdr);
+      border-radius: 14px; padding: 14px 20px;
+      transition: border-color .2s, transform .2s;
+    }
+    [data-theme="dark"] .rh-cat-pill { background: var(--card); }
+    .rh-cat-pill:hover { border-color: var(--acc); transform: translateX(6px); }
+    .rcp-icon { font-size: 22px; width: 44px; height: 44px; border-radius: 11px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .rcp-ic--g { background: #EEF2FF; }
+    .rcp-ic--t { background: #E0F2FE; }
+    .rcp-ic--v { background: #FDF2F8; }
+    .rcp-ic--w { background: #ECFDF5; }
+    .rcp-ic--r { background: #FEF9E0; }
+    [data-theme="dark"] .rcp-ic--g { background: #1E2040; }
+    [data-theme="dark"] .rcp-ic--t { background: #0A2030; }
+    [data-theme="dark"] .rcp-ic--v { background: #2A1525; }
+    [data-theme="dark"] .rcp-ic--w { background: #0A2018; }
+    [data-theme="dark"] .rcp-ic--r { background: #282010; }
+    .rcp-label { font-family: 'Outfit', sans-serif; font-size: 15px; font-weight: 800; color: var(--ink); }
+    .rcp-count { font-size: 12px; color: var(--mut); margin-top: 1px; }
+    .rcp-arrow { margin-left: auto; color: var(--mut); font-size: 16px; }
+
+    /* ── SHARED ────────────────────────────── */
+    .rs { padding: 80px 48px; }
+    .rs--white { background: #fff; }
+    [data-theme="dark"] .rs--white { background: var(--surf); }
+    .rs--bg { background: var(--bg); }
+    .rs--surf { background: var(--surf); }
+    .rw { max-width: 1200px; margin: 0 auto; width: 100%; }
+    .ey { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--acc); margin-bottom: 10px; }
+    .h2 { font-family: 'Outfit', sans-serif; font-size: clamp(24px,4vw,42px); font-weight: 900; line-height: 1.1; letter-spacing: -.025em; color: var(--pri); margin-bottom: 14px; }
+    [data-theme="dark"] .h2 { color: var(--ink); }
+
+    /* ── FILTER TABS ───────────────────────── */
+    .rf-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 40px; padding: 16px; background: var(--card); border: 1.5px solid var(--bdr); border-radius: 14px; }
+    .rf-tab {
+      background: none; border: 1.5px solid transparent; border-radius: 10px;
+      padding: 9px 20px; font-family: 'Manrope', sans-serif; font-size: 13px; font-weight: 700;
+      color: var(--mut); cursor: pointer; transition: all .2s;
+      display: flex; align-items: center; gap: 7px;
+    }
+    .rf-tab:hover { background: var(--surf); color: var(--ink); }
+    .rf-tab.active { background: var(--pri); color: #fff; border-color: var(--pri); }
+    [data-theme="dark"] .rf-tab.active { background: var(--acc); border-color: var(--acc); }
+    .rf-tab-count { background: rgba(255,255,255,.2); border-radius: 999px; padding: 1px 8px; font-size: 11px; }
+    .rf-tab:not(.active) .rf-tab-count { background: var(--bdr); color: var(--mut); }
+
+    /* ── RESOURCE GRID ─────────────────────── */
+    .res-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .res-card {
+      background: var(--card); border: 1.5px solid var(--bdr); border-radius: 18px;
+      overflow: hidden; transition: border-color .2s, box-shadow .2s, transform .2s;
+      display: flex; flex-direction: column;
+    }
+    .res-card:hover { border-color: var(--acc); box-shadow: 0 8px 28px rgba(8,145,178,.12); transform: translateY(-3px); }
+    [data-theme="dark"] .res-card:hover { box-shadow: 0 8px 28px rgba(34,211,238,.1); }
+    .rc-top { height: 140px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+    .rc-top--g { background: linear-gradient(135deg, #EEF2FF 0%, #E0E7FF 100%); }
+    .rc-top--t { background: linear-gradient(135deg, #E0F2FE 0%, #BAE6FD 100%); }
+    .rc-top--v { background: linear-gradient(135deg, #FDF4FF 0%, #FAE8FF 100%); }
+    .rc-top--w { background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%); }
+    .rc-top--r { background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%); }
+    [data-theme="dark"] .rc-top--g { background: linear-gradient(135deg, #1E2048 0%, #252860 100%); }
+    [data-theme="dark"] .rc-top--t { background: linear-gradient(135deg, #0A2030 0%, #0C2A40 100%); }
+    [data-theme="dark"] .rc-top--v { background: linear-gradient(135deg, #20152A 0%, #281A38 100%); }
+    [data-theme="dark"] .rc-top--w { background: linear-gradient(135deg, #0A2018 0%, #0C2820 100%); }
+    [data-theme="dark"] .rc-top--r { background: linear-gradient(135deg, #22180A 0%, #2A2010 100%); }
+    .rc-icon { font-size: 52px; z-index: 1; }
+    .rc-cat-tag {
+      position: absolute; top: 12px; left: 12px;
+      font-size: 10px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+      padding: 4px 12px; border-radius: 999px;
+    }
+    .rc-tag--g { background: #E0E7FF; color: #3730A3; }
+    .rc-tag--t { background: #BAE6FD; color: #075985; }
+    .rc-tag--v { background: #FAE8FF; color: #7E22CE; }
+    .rc-tag--w { background: #D1FAE5; color: #065F46; }
+    .rc-tag--r { background: #FEF3C7; color: #92400E; }
+    [data-theme="dark"] .rc-tag--g { background: rgba(165,180,252,.2); color: #A5B4FC; }
+    [data-theme="dark"] .rc-tag--t { background: rgba(34,211,238,.15); color: #22D3EE; }
+    [data-theme="dark"] .rc-tag--v { background: rgba(196,181,253,.15); color: #C4B5FD; }
+    [data-theme="dark"] .rc-tag--w { background: rgba(52,211,153,.15); color: #34D399; }
+    [data-theme="dark"] .rc-tag--r { background: rgba(251,191,36,.12); color: #FCD34D; }
+    .rc-body { padding: 22px 22px 20px; flex: 1; display: flex; flex-direction: column; }
+    .rc-title { font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 800; color: var(--ink); margin-bottom: 7px; line-height: 1.2; }
+    .rc-desc { font-size: 13px; color: var(--mut); line-height: 1.65; flex: 1; margin-bottom: 18px; }
+    .rc-foot { display: flex; align-items: center; justify-content: space-between; }
+    .rc-meta { font-size: 11px; color: var(--mut); font-weight: 600; }
+    .rc-cta {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: var(--pri); color: #fff;
+      border-radius: 8px; padding: 8px 16px; font-size: 12px; font-weight: 700;
+      transition: opacity .2s;
+    }
+    [data-theme="dark"] .rc-cta { background: var(--acc); }
+    .rc-cta:hover { opacity: .85; }
+    .rc-cta--outline {
+      background: transparent; color: var(--pri); border: 1.5px solid var(--bdr);
+    }
+    [data-theme="dark"] .rc-cta--outline { color: var(--acc); border-color: var(--bdr); }
+    .rc-cta--outline:hover { border-color: var(--acc); background: var(--acc-s); }
+
+    /* ── FEATURED STRIP ────────────────────── */
+    .feat-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 20px; margin-bottom: 48px; }
+    .feat-card {
+      background: var(--pri); border-radius: 20px; padding: 36px 30px;
+      color: #fff; position: relative; overflow: hidden;
+      transition: transform .2s, box-shadow .2s;
+    }
+    [data-theme="dark"] .feat-card { background: var(--card); border: 1.5px solid var(--bdr); }
+    .feat-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(30,27,75,.3); }
+    [data-theme="dark"] .feat-card:hover { box-shadow: 0 16px 40px rgba(0,0,0,.4); }
+    .feat-card::before { content: ''; position: absolute; bottom: -40px; right: -40px; width: 180px; height: 180px; border-radius: 50%; background: rgba(255,255,255,.05); }
+    .feat-card>*{ position: relative; z-index: 1; }
+    .fc-icon { font-size: 36px; margin-bottom: 16px; display: block; }
+    .fc-tag { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 8px; }
+    [data-theme="dark"] .fc-tag { color: var(--mut); }
+    .fc-title { font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 900; color: #fff; margin-bottom: 10px; line-height: 1.2; }
+    [data-theme="dark"] .fc-title { color: var(--ink); }
+    .fc-desc { font-size: 13px; color: rgba(255,255,255,.6); line-height: 1.65; margin-bottom: 22px; }
+    [data-theme="dark"] .fc-desc { color: var(--mut); }
+    .fc-cta {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,.15); color: #fff;
+      border-radius: 9px; padding: 10px 18px; font-size: 12px; font-weight: 700;
+      transition: background .2s;
+    }
+    [data-theme="dark"] .fc-cta { background: var(--acc); color: #fff; }
+    .fc-cta:hover { background: rgba(255,255,255,.25); }
+    [data-theme="dark"] .fc-cta:hover { opacity: .85; }
+    /* Secondary featured cards */
+    .feat-card--sm { background: var(--card); border: 1.5px solid var(--bdr); }
+    [data-theme="dark"] .feat-card--sm { background: var(--card); }
+    .feat-card--sm:hover { box-shadow: 0 8px 24px rgba(8,145,178,.12); }
+    .feat-card--sm .fc-tag { color: var(--acc); }
+    .feat-card--sm .fc-title { color: var(--pri); }
+    [data-theme="dark"] .feat-card--sm .fc-title { color: var(--ink); }
+    .feat-card--sm .fc-desc { color: var(--mut); }
+    .feat-card--sm .fc-cta { background: var(--pri); color: #fff; }
+    [data-theme="dark"] .feat-card--sm .fc-cta { background: var(--acc); }
+
+    /* ── VIDEO SECTION ─────────────────────── */
+    .vid-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .vid-card {
+      background: var(--card); border: 1.5px solid var(--bdr); border-radius: 18px;
+      overflow: hidden; transition: border-color .2s, transform .2s;
+    }
+    .vid-card:hover { border-color: var(--acc2); transform: translateY(-3px); }
+    .vid-thumb {
+      aspect-ratio: 16/9; background: var(--surf);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .vt--1 { background: linear-gradient(135deg, #1E1B4B 0%, #312E81 100%); }
+    .vt--2 { background: linear-gradient(135deg, #164E63 0%, #0C4A6E 100%); }
+    .vt--3 { background: linear-gradient(135deg, #581C87 0%, #4C1D95 100%); }
+    .vid-play {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: rgba(255,255,255,.2); border: 2px solid rgba(255,255,255,.4);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; color: #fff; padding-left: 4px;
+      transition: background .2s, transform .2s;
+    }
+    .vid-card:hover .vid-play { background: rgba(255,255,255,.35); transform: scale(1.1); }
+    .vid-dur { position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,.6); color: #fff; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 5px; }
+    .vid-body { padding: 18px; }
+    .vid-ep { font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--acc2); margin-bottom: 5px; }
+    .vid-title { font-family: 'Outfit', sans-serif; font-size: 15px; font-weight: 800; color: var(--ink); margin-bottom: 5px; }
+    .vid-sub { font-size: 12px; color: var(--mut); }
+
+    /* ── WORKSHOPS ─────────────────────────── */
+    .wk-list { display: flex; flex-direction: column; gap: 2px; }
+    .wk-item {
+      display: grid; grid-template-columns: 100px 1fr auto;
+      align-items: center; gap: 24px;
+      background: var(--card); border: 1.5px solid var(--bdr);
+      border-radius: 0; padding: 20px 24px;
+      transition: border-color .2s, background .2s;
+    }
+    .wk-item:first-child { border-radius: 14px 14px 0 0; }
+    .wk-item:last-child { border-radius: 0 0 14px 14px; }
+    .wk-item:not(:first-child) { border-top: none; }
+    .wk-item:hover { border-color: var(--acc); background: var(--acc-s); z-index: 1; }
+    [data-theme="dark"] .wk-item:hover { background: var(--acc-s); }
+    .wk-date { text-align: center; }
+    .wkd-m { font-family: 'Outfit', sans-serif; font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--acc); }
+    .wkd-d { font-family: 'Outfit', sans-serif; font-size: 30px; font-weight: 900; color: var(--pri); line-height: 1; }
+    [data-theme="dark"] .wkd-d { color: var(--ink); }
+    .wk-info {}
+    .wk-title { font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 800; color: var(--ink); margin-bottom: 4px; }
+    .wk-meta { font-size: 12px; color: var(--mut); }
+    .wk-cta {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: var(--pri); color: #fff;
+      border-radius: 9px; padding: 9px 18px; font-size: 12px; font-weight: 700;
+      white-space: nowrap; transition: opacity .2s;
+    }
+    [data-theme="dark"] .wk-cta { background: var(--acc); }
+    .wk-cta:hover { opacity: .85; }
+    .wk-badge { display: inline-block; background: #FEF3C7; color: #92400E; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 999px; margin-left: 8px; }
+    [data-theme="dark"] .wk-badge { background: rgba(251,191,36,.15); color: #FCD34D; }
+
+    /* ── NEWSLETTER CTA ────────────────────── */
+    .nl-section {
+      background: var(--pri); padding: 72px 48px; text-align: center;
+    }
+    [data-theme="dark"] .nl-section { background: var(--surf); }
+    .nl-section h2 { font-family: 'Outfit', sans-serif; font-size: clamp(28px,4vw,46px); font-weight: 900; color: #fff; margin-bottom: 12px; }
+    [data-theme="dark"] .nl-section h2 { color: var(--ink); }
+    .nl-section p { font-size: 15px; color: rgba(255,255,255,.6); margin-bottom: 32px; }
+    [data-theme="dark"] .nl-section p { color: var(--mut); }
+    .nl-form { display: flex; gap: 0; max-width: 440px; margin: 0 auto; border-radius: 12px; overflow: hidden; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); }
+    [data-theme="dark"] .nl-form { background: var(--card); border-color: var(--bdr); }
+    .nl-form input { flex: 1; border: none; background: none; padding: 13px 18px; font-family: 'Manrope', sans-serif; font-size: 14px; color: #fff; outline: none; }
+    [data-theme="dark"] .nl-form input { color: var(--ink); }
+    .nl-form input::placeholder { color: rgba(255,255,255,.5); }
+    [data-theme="dark"] .nl-form input::placeholder { color: var(--mut); }
+    .nl-form button { background: var(--acc); color: #fff; border: none; padding: 0 22px; font-family: 'Manrope', sans-serif; font-size: 13px; font-weight: 700; cursor: pointer; transition: opacity .2s; }
+    .nl-form button:hover { opacity: .88; }
+
+    /* ── FOOTER ────────────────────────────── */
+    .footer-grid { display:grid; grid-template-columns:1.2fr 1fr; gap:60px; padding-bottom:48px; }
+    .footer-logo-circle-link { display:inline-block; margin-bottom:16px; }
+    .footer-logo-circle { width:72px; height:72px; background:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; padding:10px; box-shadow:0 2px 12px rgba(0,0,0,.18); }
+    .footer-logo-img { width:100%!important; height:100%!important; object-fit:contain!important; display:block!important; filter:none!important; }
+    .footer-brand>p { font-size:14px; color:var(--text-secondary,rgba(255,255,255,.5)); line-height:1.7; margin-bottom:20px; }
+    .footer-partner-logos { display:flex; align-items:center; gap:16px; margin-bottom:20px; }
+    .footer-certin-logo { height:36px; width:auto; max-width:200px; object-fit:contain; background:#fff; border-radius:6px; padding:4px 8px; }
+    .footer-socials { display:flex; gap:16px; flex-wrap:wrap; }
+    .footer-socials a { font-size:13px; color:var(--text-secondary,rgba(255,255,255,.5)); transition:color .2s; }
+    .footer-socials a:hover { color:var(--acc,#0891B2); }
+    .footer-links-group { display:grid; grid-template-columns:repeat(3,1fr); gap:32px; }
+    .footer-col h5 { font-size:12px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--text-secondary,rgba(255,255,255,.5)); margin-bottom:16px; }
+    .footer-col a { display:block; font-size:13px; font-weight:400; color:var(--text-secondary,rgba(255,255,255,.5)); margin-bottom:10px; transition:color .2s; }
+    .footer-col a:hover { color:var(--acc,#0891B2); }
+    .footer-cta-link { color:var(--acc,#0891B2)!important; font-weight:500!important; }
+    .footer-bottom { border-top:1px solid var(--bdr,rgba(255,255,255,.1)); padding-top:24px; padding-bottom:24px; }
+    .footer-bottom p { font-size:12px; color:var(--text-secondary,rgba(255,255,255,.4)); }
+    @media(max-width:768px){ .footer-grid{grid-template-columns:1fr;gap:40px;} .footer-links-group{grid-template-columns:repeat(2,1fr);} }
+    @media(max-width:480px){ .footer-links-group{grid-template-columns:1fr;} }
+
+    /* ── REVEAL ────────────────────────────── */
+    .rev { opacity: 0; transform: translateY(18px); transition: opacity .5s ease, transform .5s ease; }
+    .rev.in { opacity: 1; transform: none; }
+    .d1 { transition-delay: .1s; } .d2 { transition-delay: .2s; } .d3 { transition-delay: .3s; }
+
+    /* ── RESPONSIVE ────────────────────────── */
+    @media(max-width:960px){
+      .rh { padding: 120px 24px 60px; }
+      .rh-inner { grid-template-columns: 1fr; gap: 40px; }
+      .feat-grid { grid-template-columns: 1fr; }
+      .res-grid { grid-template-columns: 1fr 1fr; }
+      .vid-grid { grid-template-columns: 1fr 1fr; }
+      .wk-item { grid-template-columns: 80px 1fr; }
+      .wk-cta { display: none; }
+      .rs { padding: 56px 24px; }
+    }
+    @media(max-width:600px){
+      .res-grid { grid-template-columns: 1fr; }
+      .vid-grid { grid-template-columns: 1fr; }
+      .rh-stats { flex-wrap: wrap; gap: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV — always white, exact index.html structure -->
+  <nav class="nav" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/logo-suraksha.svg" alt="#Suraksha" class="nav-logo-img" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="platform.html">CASK</a></li>
+        <li><a href="surakshak.html">Surakshak</a></li>
+        <li><a href="olympiad.html">Olympiad</a></li>
+        <li><a href="phishnchip.html">The Phish &amp; Chip Show</a></li>
+        <li><a href="slanglish.html">Slanglish</a></li>
+        <li><a href="resources.html" class="active">Resources</a></li>
+        <li><a href="partner.html">Partner With Us</a></li>
+      </ul>
+      <div class="nav-right">
+        <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a href="surakshak.html" class="nav-cta">Join the Movement</a>
+      </div>
+      <button class="hamburger" id="hamburger">&#9776;</button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="platform.html">CASK</a>
+      <a href="surakshak.html">Surakshak</a>
+      <a href="olympiad.html">Olympiad</a>
+      <a href="phishnchip.html">The Phish &amp; Chip Show</a>
+      <a href="slanglish.html">Slanglish</a>
+      <a href="resources.html">Resources</a>
+      <a href="partner.html">Partner With Us</a>
+      <a href="surakshak.html" class="mobile-cta">Join the Movement</a>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="rh">
+    <div class="rh-inner">
+      <div class="rh-left">
+        <div class="rh-eyebrow"><span></span>Free · Open Access · Always Updated</div>
+        <h1 class="rh-h1">Cyber Safety<br/><em>Resource</em><br/>Library</h1>
+        <p class="rh-p">Guides, toolkits, videos, and workshops to help students, parents, and schools navigate the digital world safely. No login needed.</p>
+        <div class="rh-search">
+          <input type="text" placeholder="Search guides, topics, toolkits…" id="searchInput" />
+          <button>🔍</button>
+        </div>
+        <div class="rh-stats">
+          <div class="rhs"><div class="rhs-n">40+</div><div class="rhs-l">Resources</div></div>
+          <div class="rhs"><div class="rhs-n">12K+</div><div class="rhs-l">Downloads</div></div>
+          <div class="rhs"><div class="rhs-n">Free</div><div class="rhs-l">Always</div></div>
+        </div>
+      </div>
+      <div class="rh-right">
+        <div class="rh-cat-pill" data-tab="guides" onclick="filterByCategory('guides')">
+          <div class="rcp-icon rcp-ic--g">📘</div>
+          <div><div class="rcp-label">Guides</div><div class="rcp-count">Safety handbooks · Awareness reports</div></div>
+          <div class="rcp-arrow">→</div>
+        </div>
+        <div class="rh-cat-pill" data-tab="toolkits" onclick="filterByCategory('toolkits')">
+          <div class="rcp-icon rcp-ic--t">🧰</div>
+          <div><div class="rcp-label">Toolkits</div><div class="rcp-count">Checklists · Printable reference cards</div></div>
+          <div class="rcp-arrow">→</div>
+        </div>
+        <div class="rh-cat-pill" data-tab="videos" onclick="filterByCategory('videos')">
+          <div class="rcp-icon rcp-ic--v">🎬</div>
+          <div><div class="rcp-label">Videos</div><div class="rcp-count">Tutorials · Explainers</div></div>
+          <div class="rcp-arrow">→</div>
+        </div>
+        <div class="rh-cat-pill" data-tab="workshops" onclick="filterByCategory('workshops')">
+          <div class="rcp-icon rcp-ic--w">🏫</div>
+          <div><div class="rcp-label">Workshops</div><div class="rcp-count">Live sessions · Registrations</div></div>
+          <div class="rcp-arrow">→</div>
+        </div>
+        <div class="rh-cat-pill" data-tab="research" onclick="filterByCategory('research')">
+          <div class="rcp-icon rcp-ic--r">📊</div>
+          <div><div class="rcp-label">Research</div><div class="rcp-count">Reports · Whitepapers</div></div>
+          <div class="rcp-arrow">→</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FEATURED RESOURCES ═══ -->
+  <section class="rs rs--white" id="featured">
+    <div class="rw">
+      <div class="rev" style="margin-bottom:32px">
+        <span class="ey">Editor's Pick</span>
+        <h2 class="h2">Start with these</h2>
+      </div>
+      <div class="feat-grid rev d1">
+        <!-- Primary featured -->
+        <div class="feat-card">
+          <span class="fc-icon">📘</span>
+          <div class="fc-tag">Guide · PDF · 28 pages</div>
+          <div class="fc-title">The Complete Student Cyber Safety Handbook</div>
+          <div class="fc-desc">Everything a student needs to know — from password security and privacy settings to recognising phishing and staying safe on social media. Age-appropriate for Grades VI–XII.</div>
+          <a href="#" class="fc-cta">Download Free ↓</a>
+        </div>
+        <!-- Secondary featured 1 -->
+        <div class="feat-card feat-card--sm">
+          <span class="fc-icon">🎯</span>
+          <div class="fc-tag">Toolkit · Interactive</div>
+          <div class="fc-title">Phishing Identification Quick-Reference Card</div>
+          <div class="fc-desc">A laminated-print-ready card listing the 8 most common phishing indicators in emails, messages, and websites. Perfect for classroom display.</div>
+          <a href="#" class="fc-cta">Download Card ↓</a>
+        </div>
+        <!-- Secondary featured 2 -->
+        <div class="feat-card feat-card--sm">
+          <span class="fc-icon">🏫</span>
+          <div class="fc-tag">Guide · For Schools</div>
+          <div class="fc-title">School Cyber Safety Implementation Handbook</div>
+          <div class="fc-desc">A practical guide for schools setting up cyber awareness programmes. Includes curriculum integration tips, parent communication templates, and workshop frameworks.</div>
+          <a href="#" class="fc-cta">Download Handbook ↓</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ALL RESOURCES ═══ -->
+  <section class="rs rs--bg" id="resources">
+    <div class="rw">
+      <div class="rev" style="margin-bottom:24px">
+        <span class="ey">Full Library</span>
+        <h2 class="h2">Browse all resources</h2>
+      </div>
+      <!-- Filter tabs -->
+      <div class="rf-bar rev d1">
+        <button class="rf-tab active" data-cat="all">All Resources <span class="rf-tab-count">9</span></button>
+        <button class="rf-tab" data-cat="guides">📘 Guides <span class="rf-tab-count">3</span></button>
+        <button class="rf-tab" data-cat="toolkits">🧰 Toolkits <span class="rf-tab-count">2</span></button>
+        <button class="rf-tab" data-cat="videos">🎬 Videos <span class="rf-tab-count">2</span></button>
+        <button class="rf-tab" data-cat="workshops">🏫 Workshops <span class="rf-tab-count">1</span></button>
+        <button class="rf-tab" data-cat="research">📊 Research <span class="rf-tab-count">1</span></button>
+      </div>
+      <!-- Grid -->
+      <div class="res-grid rev d2" id="resGrid">
+        <div class="res-card" data-cat="guides" data-title="Student Cyber Safety Handbook">
+          <div class="rc-top rc-top--g"><div class="rc-icon">📘</div><span class="rc-cat-tag rc-tag--g">Guide</span></div>
+          <div class="rc-body">
+            <div class="rc-title">Student Cyber Safety Handbook</div>
+            <div class="rc-desc">Comprehensive 28-page guide covering all fundamentals of digital safety for students in Grades VI–XII.</div>
+            <div class="rc-foot"><span class="rc-meta">PDF · 28 pages</span><a href="#" class="rc-cta">Download ↓</a></div>
+          </div>
+        </div>
+        <div class="res-card" data-cat="guides" data-title="Parent Guide to Online Safety">
+          <div class="rc-top rc-top--g"><div class="rc-icon">👨‍👩‍👧</div><span class="rc-cat-tag rc-tag--g">Guide</span></div>
+          <div class="rc-body">
+            <div class="rc-title">Parent's Guide to Online Safety</div>
+            <div class="rc-desc">Help your children navigate the digital world safely. Practical, jargon-free guidance for parents and guardians.</div>
+            <div class="rc-foot"><span class="rc-meta">PDF · 16 pages</span><a href="#" class="rc-cta">Download ↓</a></div>
+          </div>
+        </div>
+        <div class="res-card" data-cat="guides" data-title="School Implementation Handbook">
+          <div class="rc-top rc-top--g"><div class="rc-icon">🏫</div><span class="rc-cat-tag rc-tag--g">Guide</span></div>
+          <div class="rc-body">
+            <div class="rc-title">School Implementation Handbook</div>
+            <div class="rc-desc">A practical playbook for schools setting up structured cyber safety education from scratch.</div>
+            <div class="rc-foot"><span class="rc-meta">PDF · 22 pages</span><a href="#" class="rc-cta">Download ↓</a></div>
+          </div>
+        </div>
+        <div class="res-card" data-cat="toolkits" data-title="Phishing Identification Card">
+          <div class="rc-top rc-top--t"><div class="rc-icon">🎯</div><span class="rc-cat-tag rc-tag--t">Toolkit</span></div>
+          <div class="rc-body">
+            <div class="rc-title">Phishing Identification Quick-Reference</div>
+            <div class="rc-desc">Print-ready classroom card with 8 visual indicators of phishing across email, SMS, and websites.</div>
+            <div class="rc-foot"><span class="rc-meta">PDF · Print-ready</span><a href="#" class="rc-cta">Download ↓</a></div>
+          </div>
+        </div>
+        <div class="res-card" data-cat="toolkits" data-title="Password Security Checklist">
+          <div class="rc-top rc-top--t"><div class="rc-icon">🔐</div><span class="rc-cat-tag rc-tag--t">Toolkit</span></div>
+          <div class="rc-body">
+            <div class="rc-title">Password Security Checklist</div>
+            <div class="rc-desc">A self-assessment checklist students can use to audit and strengthen their digital account security in 10 minutes.</div>
+            <div class="rc-foot"><span class="rc-meta">PDF · 1 page</span><a href="#" class="rc-cta">Download ↓</a></div>
+          </div>
+        </div>
+        <div class="res-card" data-cat="videos" data-title="What Is Phishing Tutorial">
+          <div class="rc-top rc-top--v"><div class="rc-icon">🎬</div><span class="rc-cat-tag rc-tag--v">Video</span></div>
+          <div class="rc-body">
+            <div class="rc-title">What Is Phishing? (8 min)</div>
+            <div class="rc-desc">An animated explainer designed for Grades VI–VIII. Uses real-world examples to illustrate how phishing works and what to do about it.</div>
+            <div class="rc-foot"><span class="rc-meta">YouTube · 8 min</span><a href="#" class="rc-cta rc-cta--outline">Watch →</a></div>
+          </div>
+        </div>
+        <div class="res-card" data-cat="videos" data-title="Safe Social Media Practices">
+          <div class="rc-top rc-top--v"><div class="rc-icon">📱</div><span class="rc-cat-tag rc-tag--v">Video</span></div>
+          <div class="rc-body">
+            <div class="rc-title">Safe Social Media Practices</div>
+            <div class="rc-desc">A 12-minute walkthrough of privacy settings, follower hygiene, and how to identify impersonation accounts across Instagram, Snapchat, and WhatsApp.</div>
+            <div class="rc-foot"><span class="rc-meta">YouTube · 12 min</span><a href="#" class="rc-cta rc-cta--outline">Watch →</a></div>
+          </div>
+        </div>
+        <div class="res-card" data-cat="workshops" data-title="Cyber Safety 101 Workshop">
+          <div class="rc-top rc-top--w"><div class="rc-icon">🎓</div><span class="rc-cat-tag rc-tag--w">Workshop</span></div>
+          <div class="rc-body">
+            <div class="rc-title">Cyber Safety 101 — School Workshop</div>
+            <div class="rc-desc">A 90-minute facilitated session for schools. Covers threats, identification, and safe habits. Can be delivered by trained Surakshaks.</div>
+            <div class="rc-foot"><span class="rc-meta">Request via Surakshak</span><a href="surakshak.html" class="rc-cta">Request →</a></div>
+          </div>
+        </div>
+        <div class="res-card" data-cat="research" data-title="India Youth Cyber Safety Report">
+          <div class="rc-top rc-top--r"><div class="rc-icon">📊</div><span class="rc-cat-tag rc-tag--r">Research</span></div>
+          <div class="rc-body">
+            <div class="rc-title">India Youth Cyber Safety Report 2025</div>
+            <div class="rc-desc">Data from 12,000+ students across 28 states. Key findings on most common threats faced, awareness gaps, and intervention effectiveness.</div>
+            <div class="rc-foot"><span class="rc-meta">PDF · 44 pages</span><a href="#" class="rc-cta">Download ↓</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ VIDEO SERIES ═══ -->
+  <section class="rs rs--white" id="videos">
+    <div class="rw">
+      <div class="rev" style="margin-bottom:32px; display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:16px;">
+        <div>
+          <span class="ey">Video Series</span>
+          <h2 class="h2" style="margin-bottom:0">Watch &amp; Learn</h2>
+        </div>
+        <a href="#" style="font-size:13px;font-weight:700;color:var(--acc);">View all videos →</a>
+      </div>
+      <div class="vid-grid rev d1">
+        <div class="vid-card">
+          <div class="vid-thumb vt--1">
+            <div class="vid-play">▶</div>
+            <div class="vid-dur">08:12</div>
+          </div>
+          <div class="vid-body">
+            <div class="vid-ep">Episode 01 · Foundations</div>
+            <div class="vid-title">What Is Phishing & Why Does It Work?</div>
+            <div class="vid-sub">Grades VI–VIII · Animated explainer</div>
+          </div>
+        </div>
+        <div class="vid-card">
+          <div class="vid-thumb vt--2">
+            <div class="vid-play">▶</div>
+            <div class="vid-dur">12:05</div>
+          </div>
+          <div class="vid-body">
+            <div class="vid-ep">Episode 02 · Social Media</div>
+            <div class="vid-title">Safe Practices on Instagram, Snap & WhatsApp</div>
+            <div class="vid-sub">Grades VIII–XII · Screen walkthrough</div>
+          </div>
+        </div>
+        <div class="vid-card">
+          <div class="vid-thumb vt--3">
+            <div class="vid-play">▶</div>
+            <div class="vid-dur">09:44</div>
+          </div>
+          <div class="vid-body">
+            <div class="vid-ep">Episode 03 · Identity</div>
+            <div class="vid-title">How to Build an Unbreakable Digital Identity</div>
+            <div class="vid-sub">Grades IX–XII · Practical guide</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ WORKSHOPS ═══ -->
+  <section class="rs rs--surf" id="workshops">
+    <div class="rw">
+      <div class="rev" style="margin-bottom:32px">
+        <span class="ey">Live Learning</span>
+        <h2 class="h2">Upcoming Workshops</h2>
+        <p style="font-size:15px;color:var(--mut);margin:0;">Free sessions delivered by trained Surakshaks across India.</p>
+      </div>
+      <div class="wk-list rev d1">
+        <div class="wk-item">
+          <div class="wk-date"><div class="wkd-m">Jul</div><div class="wkd-d">14</div></div>
+          <div class="wk-info">
+            <div class="wk-title">Cyber Safety for Students <span class="wk-badge">Online</span></div>
+            <div class="wk-meta">2:00 PM IST · 90 mins · Grades VI–X · Open registration</div>
+          </div>
+          <a href="#" class="wk-cta">Register Free →</a>
+        </div>
+        <div class="wk-item">
+          <div class="wk-date"><div class="wkd-m">Jul</div><div class="wkd-d">22</div></div>
+          <div class="wk-info">
+            <div class="wk-title">Protecting Your Digital Identity <span class="wk-badge">Online</span></div>
+            <div class="wk-meta">4:00 PM IST · 60 mins · Grades IX–XII · Open registration</div>
+          </div>
+          <a href="#" class="wk-cta">Register Free →</a>
+        </div>
+        <div class="wk-item">
+          <div class="wk-date"><div class="wkd-m">Aug</div><div class="wkd-d">02</div></div>
+          <div class="wk-info">
+            <div class="wk-title">Parent Cyber Safety Orientation</div>
+            <div class="wk-meta">11:00 AM IST · 60 mins · For parents &amp; guardians · Open registration</div>
+          </div>
+          <a href="#" class="wk-cta">Register Free →</a>
+        </div>
+        <div class="wk-item">
+          <div class="wk-date"><div class="wkd-m">Aug</div><div class="wkd-d">12</div></div>
+          <div class="wk-info">
+            <div class="wk-title">Spotting Fake News &amp; Misinformation <span class="wk-badge">Online</span></div>
+            <div class="wk-meta">3:00 PM IST · 75 mins · All grades · Open registration</div>
+          </div>
+          <a href="#" class="wk-cta">Register Free →</a>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:32px;">
+        <a href="surakshak.html" style="font-size:14px;font-weight:700;color:var(--acc);">Want a workshop for your school? Connect with a Surakshak →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ NEWSLETTER ═══ -->
+  <section class="nl-section">
+    <div class="rw">
+      <div class="rev">
+        <h2>New resources every month.</h2>
+        <p>Get notified when we publish new guides, toolkits, and workshops. No spam — just what matters.</p>
+        <div class="nl-form">
+          <input type="email" placeholder="your@email.com" />
+          <button>Subscribe</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="pw" style="padding-top:56px;">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo-circle-link">
+            <div class="footer-logo-circle">
+              <img src="assets/logo-suraksha.png" alt="Hashtag Suraksha" class="footer-logo-img" />
+            </div>
+          </a>
+          <p>India's national cybersecurity movement. A joint initiative of CERT-In and Cyber Buddha.</p>
+          <div class="footer-partner-logos">
+            <img src="assets/logo-certin.png" alt="MeitY &amp; CERT-In" class="footer-certin-logo" />
+          </div>
+          <div class="footer-socials">
+            <a href="https://www.facebook.com/hashtagsuraksha" target="_blank" rel="noopener">Facebook</a>
+            <a href="https://www.instagram.com/hashtag.suraksha" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://www.linkedin.com/company/hashtag-suraksha" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+        <div class="footer-links-group">
+          <div class="footer-col">
+            <h5>Ecosystem</h5>
+            <a href="platform.html">CASK</a>
+            <a href="surakshak.html">Surakshak</a>
+            <a href="olympiad.html">National Cyber Olympiad</a>
+            <a href="phishnchip.html">The Phish &amp; Chip Show</a>
+            <a href="slanglish.html">Slanglish</a>
+          </div>
+          <div class="footer-col">
+            <h5>Organisation</h5>
+            <a href="index.html#about">About</a>
+            <a href="resources.html">Resources</a>
+            <a href="partner.html">Partner With Us</a>
+            <a href="https://hashtagsuraksha.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
+            <a href="https://hashtagsuraksha.com/terms-of-use" target="_blank" rel="noopener">Terms of Use</a>
+          </div>
+          <div class="footer-col">
+            <h5>Contact</h5>
+            <a href="mailto:info@hashtagsuraksha.com">info@hashtagsuraksha.com</a>
+            <a href="partner.html" class="footer-cta-link">Become a Partner</a>
+            <a href="surakshak.html" class="footer-cta-link">Join Surakshak</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>2025 Hashtag Suraksha. All rights reserved. A CERT-In and Cyber Buddha initiative under MeitY, Government of India.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* Nav scroll */
+    var nav=document.getElementById('navbar');
+    window.addEventListener('scroll',function(){ nav.classList.toggle('scrolled',window.scrollY>40); });
+    /* Hamburger */
+    document.getElementById('hamburger').addEventListener('click',function(){ document.getElementById('mobileMenu').classList.toggle('open'); });
+    /* Reveal */
+    var io=new IntersectionObserver(function(e){ e.forEach(function(x){ if(x.isIntersecting){ x.target.classList.add('in'); io.unobserve(x.target); }}); },{threshold:.08});
+    document.querySelectorAll('.rev').forEach(function(el){ io.observe(el); });
+    /* Theme toggle */
+    document.getElementById('themeToggle').addEventListener('click',function(){
+      var h=document.documentElement;
+      h.setAttribute('data-theme', h.getAttribute('data-theme')==='dark'?'light':'dark');
+    });
+    /* Filter tabs */
+    document.querySelectorAll('.rf-tab').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        document.querySelectorAll('.rf-tab').forEach(function(b){ b.classList.remove('active'); });
+        btn.classList.add('active');
+        var cat=btn.dataset.cat;
+        document.querySelectorAll('.res-card').forEach(function(card){
+          card.style.display=(cat==='all'||card.dataset.cat===cat)?'':'none';
+        });
+      });
+    });
+    /* Hero category pills click */
+    function filterByCategory(cat){
+      document.getElementById('resources').scrollIntoView({behavior:'smooth'});
+      setTimeout(function(){
+        document.querySelectorAll('.rf-tab').forEach(function(b){ b.classList.remove('active'); });
+        var tab=document.querySelector('.rf-tab[data-cat="'+cat+'"]');
+        if(tab){ tab.classList.add('active'); tab.click(); }
+      },400);
+    }
+    /* Search */
+    document.getElementById('searchInput').addEventListener('input',function(){
+      var q=this.value.toLowerCase();
+      document.querySelectorAll('.res-card').forEach(function(card){
+        var title=(card.dataset.title||'').toLowerCase();
+        card.style.display=(!q||title.includes(q))?'':'none';
+      });
+    });
+  </script>
+</body>
+</html>

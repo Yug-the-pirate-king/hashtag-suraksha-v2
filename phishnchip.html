@@ -1,0 +1,2225 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Phish &amp; Chip Show | #Suraksha</title>
+  <meta name="description" content="One Scam. One Detective. One Decision. The interactive cybersecurity show for students — spot scams, earn badges, outsmart Phish." />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Bangers&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="global.css" />
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* ── RESET ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── NAV ALWAYS WHITE ─────────────────── */
+    .nav,
+    [data-theme="dark"] .nav {
+      background: rgba(255,255,255,0.96) !important;
+      border-bottom: 1px solid #E2E8F0 !important;
+      backdrop-filter: blur(20px) !important;
+    }
+    [data-theme="dark"] .nav .nav-links li a { color: #1A1A2E !important; }
+    [data-theme="dark"] .nav .nav-links li a.active,
+    [data-theme="dark"] .nav .nav-links li a:hover { color: #0891B2 !important; }
+    [data-theme="dark"] .nav-logo-img { filter: none !important; }
+    [data-theme="dark"] .theme-toggle-btn { color: #1A1A2E !important; }
+    [data-theme="dark"] .nav-cta {
+      background: #1E1B4B !important; color: #fff !important;
+    }
+
+    /* ── PAGE BASE ── */
+    body { background: #080010; color: #fff; overflow-x: hidden; }
+
+    /* ── COMIC FONT ── */
+    .comic-font { font-family: 'Bangers', cursive; letter-spacing: 0.04em; }
+
+    /* ── HALFTONE DOT OVERLAY ── */
+    .halftone {
+      background-image: radial-gradient(circle, rgba(255,255,255,0.045) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       SECTION 1 — HERO
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .pnc-hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 100px 24px 60px;
+      background: #080010;
+    }
+
+    /* Background gradient blobs */
+    .pnc-hero-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      pointer-events: none;
+    }
+    .pnc-blob-phish {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(204,0,51,0.35), transparent 70%);
+      top: -60px; left: -100px;
+      animation: blobFloat1 10s ease-in-out infinite;
+    }
+    .pnc-blob-chip {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(0,122,255,0.35), transparent 70%);
+      top: -60px; right: -100px;
+      animation: blobFloat2 12s ease-in-out infinite;
+    }
+    .pnc-blob-center {
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(88,0,180,0.2), transparent 70%);
+      bottom: 80px; left: 50%; transform: translateX(-50%);
+      animation: blobFloat3 15s ease-in-out infinite;
+    }
+    @keyframes blobFloat1 {
+      0%,100% { transform: translate(0,0); }
+      50% { transform: translate(40px,50px); }
+    }
+    @keyframes blobFloat2 {
+      0%,100% { transform: translate(0,0); }
+      50% { transform: translate(-50px,40px); }
+    }
+    @keyframes blobFloat3 {
+      0%,100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(-30px); }
+    }
+
+    /* Show label */
+    .pnc-show-label {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 14px;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .pnc-show-label::before,
+    .pnc-show-label::after {
+      content: '';
+      display: block;
+      flex: 0 0 40px;
+      height: 1px;
+      background: rgba(255,255,255,0.35);
+    }
+
+    /* Big title */
+    .pnc-hero-title {
+      font-family: 'Bangers', cursive;
+      font-size: clamp(60px, 8.5vw, 104px);
+      line-height: 1;
+      letter-spacing: 0.04em;
+      text-align: center;
+      z-index: 2;
+      margin-bottom: 10px;
+      position: relative;
+    }
+    .pnc-title-the, .pnc-title-show {
+      font-size: 0.34em;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.45em;
+      display: block;
+      line-height: 1.9;
+      text-shadow: 0 0 20px rgba(255,255,255,0.3);
+    }
+    /* PHISH and CHIP must be exact same size — stacked on their own lines */
+    .pnc-title-phish {
+      font-size: 1em;
+      display: block;
+      color: #ff2248;
+      text-shadow: 4px 4px 0 #8b0000, 0 0 40px rgba(255,34,72,0.6);
+    }
+    /* & as a visible separator with flanking lines — own centered row between PHISH and CHIP */
+    .pnc-title-amp {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      color: rgba(255,255,255,0.8);
+      font-size: 0.3em;
+      letter-spacing: 0.05em;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 900;
+      margin: 0.12em 0;
+      line-height: 1;
+    }
+    .pnc-title-amp::before,
+    .pnc-title-amp::after {
+      content: '';
+      display: inline-block;
+      width: 34px;
+      height: 1.5px;
+      background: rgba(255,255,255,0.4);
+      vertical-align: middle;
+    }
+    .pnc-title-chip {
+      font-size: 1em;
+      display: block;
+      color: #0af;
+      text-shadow: 4px 4px 0 #003d7a, 0 0 40px rgba(0,170,255,0.6);
+    }
+
+    /* Tagline */
+    .pnc-tagline {
+      font-family: 'Bangers', cursive;
+      font-size: clamp(14px, 2.5vw, 20px);
+      letter-spacing: 0.14em;
+      color: rgba(255,255,255,0.6);
+      text-transform: uppercase;
+      text-align: center;
+      margin: 10px 0 28px;
+      z-index: 2;
+    }
+
+    /* Hero stage — 3-column: char | center | char */
+    .pnc-hero-stage {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      width: 100%;
+      max-width: 1300px;
+      z-index: 2;
+      position: relative;
+      min-height: min(72vh, 640px);
+    }
+
+    /* Side character columns */
+    .pnc-hero-char {
+      flex: 0 0 320px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      position: relative;
+      padding-bottom: 20px;
+    }
+
+    /* Spotlight cone behind each character */
+    .pnc-hero-char::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 260px;
+      height: 90%;
+      pointer-events: none;
+      z-index: 0;
+      border-radius: 0 0 50% 50%;
+    }
+    .pnc-hero-char--phish::before {
+      background: radial-gradient(ellipse 55% 70% at 50% 100%, rgba(255,30,60,0.18) 0%, transparent 75%);
+    }
+    .pnc-hero-char--chip::before {
+      background: radial-gradient(ellipse 55% 70% at 50% 100%, rgba(0,160,255,0.18) 0%, transparent 75%);
+    }
+    /* Floor spotlight ring */
+    .pnc-hero-char::after {
+      content: '';
+      position: absolute;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 180px;
+      height: 22px;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .pnc-hero-char--phish::after {
+      background: radial-gradient(ellipse 100% 100% at 50% 50%, rgba(255,30,60,0.25) 0%, transparent 70%);
+      box-shadow: 0 0 30px 8px rgba(255,30,60,0.12);
+    }
+    .pnc-hero-char--chip::after {
+      background: radial-gradient(ellipse 100% 100% at 50% 50%, rgba(0,160,255,0.25) 0%, transparent 70%);
+      box-shadow: 0 0 30px 8px rgba(0,160,255,0.12);
+    }
+
+    /* Center column — title, tagline, CTAs */
+    .pnc-hero-center {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 2;
+      padding: 0 16px;
+      padding-bottom: 32px;
+    }
+
+    /* PNG character images — NO box, no border, transparent bg */
+    /* Characters should be tall — starting from "The" level */
+    .pnc-hero-img {
+      height: 460px;
+      width: auto;
+      max-width: 340px;
+      display: block;
+      user-select: none;
+      pointer-events: none;
+      background: transparent;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Bouncy float animation */
+    @keyframes charBounce {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      30%  { transform: translateY(-18px) rotate(-1.5deg); }
+      60%  { transform: translateY(-8px) rotate(0.8deg); }
+    }
+    .pnc-hero-char--phish .pnc-hero-img {
+      animation: charBounce 3.6s ease-in-out infinite;
+    }
+    .pnc-hero-char--chip .pnc-hero-img {
+      animation: charBounce 3.2s ease-in-out infinite;
+      animation-delay: 0.45s;
+    }
+
+    /* Character name badge */
+    .pnc-char-name {
+      font-family: 'Bangers', cursive;
+      font-size: 22px;
+      letter-spacing: 0.1em;
+      margin-top: 10px;
+      padding: 4px 20px;
+      border-radius: 999px;
+    }
+    .pnc-hero-char--phish .pnc-char-name {
+      background: rgba(204,0,51,0.2);
+      border: 1.5px solid rgba(255,34,72,0.5);
+      color: #ff4466;
+    }
+    .pnc-hero-char--chip .pnc-char-name {
+      background: rgba(0,122,255,0.2);
+      border: 1.5px solid rgba(0,170,255,0.5);
+      color: #38bdf8;
+    }
+
+    /* Speech bubbles — visible below char, welcoming */
+    .pnc-bubble {
+      border-radius: 14px;
+      padding: 10px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.5;
+      max-width: 200px;
+      text-align: center;
+      position: relative;
+      margin-top: 10px;
+      border: 2px solid transparent;
+      animation: bubblePop 0.5s 1.1s cubic-bezier(0.34,1.56,0.64,1) both;
+    }
+    /* Tail points upward (bubble is below char) */
+    .pnc-bubble::before {
+      content: '';
+      position: absolute;
+      top: -11px;
+      width: 0; height: 0;
+      border-left: 9px solid transparent;
+      border-right: 9px solid transparent;
+    }
+    .pnc-bubble-phish {
+      background: rgba(30,0,15,0.92);
+      border-color: rgba(255,34,72,0.45);
+      color: #ff8099;
+      box-shadow: 0 4px 20px rgba(200,0,40,0.2);
+    }
+    .pnc-bubble-phish::before {
+      right: 36px;
+      border-bottom: 11px solid rgba(255,34,72,0.45);
+    }
+    .pnc-bubble-chip {
+      background: rgba(0,15,35,0.92);
+      border-color: rgba(0,170,255,0.45);
+      color: #7dd3fc;
+      box-shadow: 0 4px 20px rgba(0,120,220,0.2);
+    }
+    .pnc-bubble-chip::before {
+      left: 36px;
+      border-bottom: 11px solid rgba(0,170,255,0.45);
+    }
+    @keyframes bubblePop {
+      from { transform: scale(0.4) translateY(10px); opacity: 0; }
+      to   { transform: scale(1) translateY(0); opacity: 1; }
+    }
+
+    /* CTA buttons */
+    .pnc-cta-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+      z-index: 2;
+    }
+    .pnc-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 22px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 800;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.18s, box-shadow 0.18s;
+      letter-spacing: 0.02em;
+    }
+    .pnc-btn:hover { transform: translateY(-3px); }
+    .pnc-btn-primary {
+      background: linear-gradient(135deg, #cc0033, #ff2248);
+      color: #fff;
+      box-shadow: 0 8px 28px rgba(204,0,51,0.45);
+    }
+    .pnc-btn-primary:hover { box-shadow: 0 12px 36px rgba(204,0,51,0.6); }
+    .pnc-btn-secondary {
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      border: 1.5px solid rgba(255,255,255,0.15);
+    }
+    .pnc-btn-secondary:hover { background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.25); }
+    .pnc-btn-badge {
+      background: linear-gradient(135deg, #7c3aed, #a855f7);
+      color: #fff;
+      box-shadow: 0 8px 28px rgba(124,58,237,0.4);
+    }
+    .pnc-btn-badge:hover { box-shadow: 0 12px 36px rgba(124,58,237,0.55); }
+
+    /* Scroll hint */
+    .pnc-scroll-hint {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255,255,255,0.25);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      z-index: 2;
+      animation: fadeInUp 1s 1.2s both;
+    }
+    .pnc-scroll-arrow {
+      width: 20px;
+      height: 20px;
+      border-right: 2px solid rgba(255,255,255,0.2);
+      border-bottom: 2px solid rgba(255,255,255,0.2);
+      transform: rotate(45deg);
+      animation: scrollBounce 1.8s ease-in-out infinite;
+    }
+    @keyframes scrollBounce {
+      0%,100% { transform: rotate(45deg) translateY(0); opacity: 0.3; }
+      50% { transform: rotate(45deg) translateY(6px); opacity: 0.7; }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateX(-50%) translateY(12px); }
+      to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+    }
+
+    /* Entry animations for characters */
+    .pnc-hero-char--phish { animation: slideInLeft 0.7s 0.2s cubic-bezier(0.34,1.3,0.64,1) both; }
+    .pnc-hero-char--chip  { animation: slideInRight 0.7s 0.4s cubic-bezier(0.34,1.3,0.64,1) both; }
+    .pnc-hero-title  { animation: fadeInDown 0.6s 0s ease both; }
+    .pnc-tagline     { animation: fadeInDown 0.6s 0.15s ease both; }
+    .pnc-cta-row     { animation: fadeInUp2 0.6s 0.6s ease both; }
+    @keyframes slideInLeft {
+      from { transform: translateX(-80px); opacity: 0; }
+      to   { transform: translateX(0); opacity: 1; }
+    }
+    @keyframes slideInRight {
+      from { transform: translateX(80px); opacity: 0; }
+      to   { transform: translateX(0); opacity: 1; }
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp2 {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       SECTION 2 — MEET THE CHARACTERS
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .pnc-chars {
+      background: #0c0018;
+      padding: 64px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .pnc-section-label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .pnc-section-label span {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+    }
+    .pnc-section-label::before,
+    .pnc-section-label::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: rgba(255,255,255,0.12);
+    }
+    .pnc-section-title {
+      font-family: 'Bangers', cursive;
+      font-size: clamp(32px, 5.5vw, 52px);
+      letter-spacing: 0.05em;
+      text-align: center;
+      margin-bottom: 40px;
+      color: #fff;
+    }
+
+    /* ── Character tab switcher ── */
+    .pnc-char-tabs {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      margin: 0 auto 40px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1.5px solid rgba(255,255,255,0.1);
+      max-width: 560px;
+    }
+    .pnc-tabs-vs {
+      font-family: 'Bangers', cursive;
+      font-size: 20px;
+      color: rgba(255,255,255,0.2);
+      padding: 0 14px;
+      flex-shrink: 0;
+      letter-spacing: 0.05em;
+      background: rgba(255,255,255,0.03);
+      align-self: stretch;
+      display: flex;
+      align-items: center;
+    }
+    .pnc-char-tab {
+      flex: 1;
+      padding: 15px 20px;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: none;
+      background: rgba(255,255,255,0.04);
+      color: rgba(255,255,255,0.35);
+      transition: background 0.3s, color 0.3s;
+    }
+    .pnc-char-tab:hover { color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.07); }
+    .pnc-char-tab--phish.active {
+      background: linear-gradient(135deg, rgba(204,0,51,0.28), rgba(120,0,20,0.32));
+      color: #ff4466;
+    }
+    .pnc-char-tab--chip.active {
+      background: linear-gradient(135deg, rgba(0,80,200,0.28), rgba(0,40,120,0.32));
+      color: #38bdf8;
+    }
+
+    /* ── Profile showcase ── */
+    .pnc-char-showcase {
+      max-width: 880px;
+      margin: 0 auto;
+      min-height: 400px;
+    }
+    .pnc-char-profile {
+      display: none;
+      gap: 44px;
+      align-items: center;
+      animation: profileFadeIn 0.35s ease both;
+    }
+    .pnc-char-profile.active { display: flex; }
+    @keyframes profileFadeIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Profile: image column */
+    .pnc-profile-img-col {
+      flex: 0 0 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+    /* PNG — NO box, no border, transparent bg preserved */
+    .pnc-profile-img {
+      width: 200px;
+      height: auto;
+      display: block;
+      user-select: none;
+    }
+    #profile-phish .pnc-profile-img {
+      filter: drop-shadow(0 12px 32px rgba(200,0,40,0.4));
+    }
+    #profile-chip .pnc-profile-img {
+      filter: drop-shadow(0 12px 32px rgba(0,100,230,0.4));
+    }
+    .pnc-profile-quote {
+      font-size: 12px;
+      font-style: italic;
+      line-height: 1.6;
+      text-align: center;
+      padding: 12px 16px;
+      border-radius: 12px;
+      width: 100%;
+    }
+    #profile-phish .pnc-profile-quote {
+      background: rgba(204,0,51,0.1);
+      border: 1px solid rgba(255,34,72,0.2);
+      color: #ff8099;
+    }
+    #profile-chip .pnc-profile-quote {
+      background: rgba(0,122,255,0.1);
+      border: 1px solid rgba(0,170,255,0.2);
+      color: #7dd3fc;
+    }
+
+    /* Profile: info column */
+    .pnc-profile-info-col { flex: 1; }
+    .pnc-profile-role {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    #profile-phish .pnc-profile-role { color: rgba(255,80,100,0.7); }
+    #profile-chip  .pnc-profile-role { color: rgba(56,189,248,0.7); }
+    .pnc-profile-name {
+      font-family: 'Bangers', cursive;
+      font-size: clamp(48px, 7vw, 76px);
+      letter-spacing: 0.04em;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .pnc-profile-name--phish { color: #ff2248; text-shadow: 3px 3px 0 #8b0000; }
+    .pnc-profile-name--chip  { color: #0af;    text-shadow: 3px 3px 0 #003d7a; }
+    .pnc-profile-subtitle {
+      font-size: 14px;
+      color: rgba(255,255,255,0.38);
+      margin-bottom: 20px;
+    }
+    #profile-phish .pnc-stat-fill { background: linear-gradient(90deg, #cc0033, #ff4466); }
+    #profile-chip  .pnc-stat-fill { background: linear-gradient(90deg, #0060cc, #0af); }
+    #profile-phish .pnc-trait-icon { background: rgba(204,0,51,0.2); }
+    #profile-chip  .pnc-trait-icon { background: rgba(0,122,255,0.2); }
+    @media (max-width: 700px) {
+      .pnc-char-profile.active { flex-direction: column; }
+      .pnc-profile-img-col { flex: none; }
+    }
+
+    /* legacy — kept for fallback */
+    .pnc-char-card {
+      border-radius: 20px;
+      padding: 24px 22px;
+      position: relative;
+      overflow: hidden;
+      border: 2px solid transparent;
+    }
+    .pnc-char-card::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 80px; height: 80px;
+      background-image: repeating-linear-gradient(
+        -45deg,
+        rgba(255,255,255,0.025) 0px,
+        rgba(255,255,255,0.025) 2px,
+        transparent 2px,
+        transparent 10px
+      );
+      border-radius: 0 24px 0 0;
+    }
+
+    .pnc-card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+    .pnc-card-char-mini {
+      width: 70px;
+      height: 84px;
+      flex-shrink: 0;
+    }
+    .pnc-card-identity {}
+    .pnc-card-role {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .pnc-char-card--phish .pnc-card-role { color: rgba(255,100,120,0.7); }
+    .pnc-char-card--chip .pnc-card-role  { color: rgba(56,189,248,0.7); }
+    .pnc-card-name {
+      font-family: 'Bangers', cursive;
+      font-size: 36px;
+      letter-spacing: 0.06em;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .pnc-char-card--phish .pnc-card-name { color: #ff2248; text-shadow: 2px 2px 0 #8b0000; }
+    .pnc-char-card--chip  .pnc-card-name { color: #0af;    text-shadow: 2px 2px 0 #003d7a; }
+    .pnc-card-subtitle {
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* Traits */
+    .pnc-card-traits {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+    .pnc-trait {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13.5px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.7);
+    }
+    .pnc-trait-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      flex-shrink: 0;
+    }
+    .pnc-char-card--phish .pnc-trait-icon { background: rgba(204,0,51,0.2); }
+    .pnc-char-card--chip  .pnc-trait-icon { background: rgba(0,122,255,0.2); }
+
+    /* Stat bar */
+    .pnc-stat {
+      margin-bottom: 12px;
+    }
+    .pnc-stat-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      color: rgba(255,255,255,0.4);
+    }
+    .pnc-stat-bar {
+      height: 6px;
+      border-radius: 99px;
+      background: rgba(255,255,255,0.06);
+      overflow: hidden;
+    }
+    .pnc-stat-fill {
+      height: 100%;
+      border-radius: 99px;
+      transition: width 1.2s 0.5s cubic-bezier(0.23,1,0.32,1);
+    }
+    .pnc-char-card--phish .pnc-stat-fill { background: linear-gradient(90deg, #cc0033, #ff4466); }
+    .pnc-char-card--chip  .pnc-stat-fill { background: linear-gradient(90deg, #0060cc, #0af); }
+
+    /* Favourite phrase */
+    .pnc-phrase {
+      border-radius: 12px;
+      padding: 14px 18px;
+      font-size: 14px;
+      font-style: italic;
+      font-weight: 600;
+      line-height: 1.5;
+      position: relative;
+      margin-top: 8px;
+    }
+    .pnc-phrase::before {
+      content: '"';
+      font-family: Georgia, serif;
+      font-size: 48px;
+      line-height: 1;
+      position: absolute;
+      top: 2px; left: 10px;
+      opacity: 0.18;
+    }
+    .pnc-char-card--phish .pnc-phrase {
+      background: rgba(204,0,51,0.1);
+      border: 1px solid rgba(255,34,72,0.2);
+      color: #ff8099;
+    }
+    .pnc-char-card--chip .pnc-phrase {
+      background: rgba(0,122,255,0.1);
+      border: 1px solid rgba(0,170,255,0.2);
+      color: #7dd3fc;
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       SECTION 3 — FEATURED EPISODES
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .pnc-episodes {
+      background: #080010;
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .pnc-episodes-inner {
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 48px 24px;
+      box-sizing: border-box;
+    }
+
+    /* Infinite auto-scroll carousel */
+    .pnc-carousel-wrapper {
+      overflow: hidden;
+      width: 100%;
+      padding: 16px 0 24px;
+      cursor: pointer;
+      position: relative;
+    }
+    .pnc-carousel-wrapper::before,
+    .pnc-carousel-wrapper::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 80px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .pnc-carousel-wrapper::before {
+      left: 0;
+      background: linear-gradient(to right, #080010, transparent);
+    }
+    .pnc-carousel-wrapper::after {
+      right: 0;
+      background: linear-gradient(to left, #080010, transparent);
+    }
+    .pnc-carousel-track {
+      display: flex;
+      gap: 20px;
+      width: max-content;
+      animation: carouselScroll 28s linear infinite;
+    }
+    .pnc-carousel-wrapper:hover .pnc-carousel-track {
+      animation-play-state: paused;
+    }
+    @keyframes carouselScroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* Episode grid (legacy, kept for fallback) */
+    .pnc-ep-grid {
+      display: none;
+    }
+
+    .pnc-ep-card {
+      flex: 0 0 260px;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #0e001c;
+      border: 1.5px solid rgba(255,255,255,0.07);
+      cursor: pointer;
+      transition: transform 0.22s, border-color 0.22s, box-shadow 0.22s;
+      position: relative;
+    }
+    .pnc-ep-card:hover {
+      transform: scale(1.04) translateY(-4px);
+      border-color: rgba(255,255,255,0.2);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+
+    /* Thumbnail */
+    .pnc-ep-thumb {
+      height: 110px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .pnc-ep-thumb::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.35);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .pnc-ep-card:hover .pnc-ep-thumb::after { opacity: 1; }
+
+    /* Play button overlay */
+    .pnc-ep-play {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%,-50%) scale(0.7);
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.9);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0;
+      transition: opacity 0.2s, transform 0.2s;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .pnc-ep-play svg { width: 18px; height: 18px; fill: #080010; margin-left: 3px; }
+    .pnc-ep-card:hover .pnc-ep-play {
+      opacity: 1;
+      transform: translate(-50%,-50%) scale(1);
+    }
+
+    /* Episode number badge */
+    .pnc-ep-num {
+      position: absolute;
+      top: 10px; left: 10px;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(6px);
+      color: rgba(255,255,255,0.6);
+      padding: 3px 9px;
+      border-radius: 999px;
+      z-index: 3;
+    }
+
+    /* "New" badge */
+    .pnc-ep-new {
+      position: absolute;
+      top: 10px; right: 10px;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: #cc0033;
+      color: #fff;
+      padding: 3px 9px;
+      border-radius: 999px;
+      z-index: 3;
+    }
+
+    .pnc-ep-info {
+      padding: 16px 16px 18px;
+    }
+    .pnc-ep-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+    .pnc-ep-desc {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+    .pnc-ep-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+    .pnc-ep-tag-phish {
+      background: rgba(204,0,51,0.15);
+      color: #ff4466;
+      border: 1px solid rgba(255,34,72,0.25);
+    }
+    .pnc-ep-tag-chip {
+      background: rgba(0,122,255,0.15);
+      color: #38bdf8;
+      border: 1px solid rgba(0,170,255,0.25);
+    }
+    .pnc-ep-tag-both {
+      background: rgba(124,58,237,0.15);
+      color: #c084fc;
+      border: 1px solid rgba(192,132,252,0.25);
+    }
+
+    /* Episode card gradient themes */
+    .pnc-ep-thumb-1 { background: linear-gradient(135deg, #1a0028, #3d0066); }
+    .pnc-ep-thumb-2 { background: linear-gradient(135deg, #001228, #003366); }
+    .pnc-ep-thumb-3 { background: linear-gradient(135deg, #1a0010, #4d0020); }
+    .pnc-ep-thumb-4 { background: linear-gradient(135deg, #0a1a00, #1a4000); }
+    .pnc-ep-thumb-5 { background: linear-gradient(135deg, #1a1200, #4d3800); }
+
+    /* Carousel thumb default gradient (when no numbered class) */
+    .pnc-ep-thumb { background: linear-gradient(135deg, #14002a, #001840); }
+    .pnc-ep-emoji {
+      font-size: 46px;
+      display: block;
+      line-height: 1;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
+    }
+
+    /* Episodes subtitle + CTA hint */
+    .pnc-ep-subtitle {
+      text-align: center;
+      color: rgba(255,255,255,0.45);
+      font-size: 15px;
+      margin-bottom: 44px;
+      letter-spacing: 0.01em;
+    }
+    .pnc-ep-cta-hint {
+      text-align: center;
+      margin-top: 20px;
+      color: rgba(255,255,255,0.25);
+      font-size: 12px;
+      letter-spacing: 0.05em;
+    }
+    /* legacy (unused but kept so JS refs don't error) */
+    .pnc-comic,.pnc-comic-inner,.comic-header,.comic-overline,.comic-title,.comic-desc{}
+    .comic-progress { display: flex; justify-content: center; gap: 10px; margin-bottom: 36px; }
+    .comic-dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.15); transition: all 0.3s; }
+    .comic-dot.active { background: #fff; transform: scale(1.3); }
+    .comic-dot.done, .comic-dot.done-good { background: #22c55e; transform: scale(1.1); }
+    .comic-dot.done-bad { background: #ff4466; transform: scale(1.1); }
+    .comic-scene { animation: comicSlideIn 0.5s cubic-bezier(0.34,1.3,0.64,1) both; }
+    @keyframes comicSlideIn { from { opacity:0; transform:translateX(40px); } to { opacity:1; transform:translateX(0); } }
+    .comic-chapter { font-family: 'Bangers', cursive; font-size: 20px; letter-spacing: 0.08em; color: rgba(255,255,255,0.45); text-align: center; margin-bottom: 20px; text-transform: uppercase; }
+
+    /* Horizontal panels */
+    .comic-strip-row { display: flex; gap: 0; margin-bottom: 24px; border-radius: 16px; overflow: hidden; border: 1.5px solid rgba(255,255,255,0.08); }
+    .comic-panel-h { flex: 1; padding: 20px 16px; display: flex; flex-direction: column; align-items: center; position: relative; min-height: 280px; }
+    .comic-panel-h + .comic-panel-h { border-left: 1.5px solid rgba(255,255,255,0.07); }
+    .comic-panel-h--villain { background: linear-gradient(160deg,#1a0010,#0d0008); }
+    .comic-panel-h--message { background: linear-gradient(160deg,#0e0020,#06000e); }
+    .comic-panel-h--hero { background: linear-gradient(160deg,#001428,#000a18); }
+    .comic-panel-label { font-size: 10px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 8px; width: 100%; text-align: center; }
+    .comic-char { height: 100px; width: auto; object-fit: contain; background: transparent; margin-bottom: 14px; filter: drop-shadow(0 4px 16px rgba(0,0,0,0.6)); }
+    .comic-speech { background: rgba(255,255,255,0.06); border: 1.5px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.75); border-radius: 10px; padding: 10px 12px; font-size: 12px; font-weight: 600; line-height: 1.5; text-align: center; max-width: 200px; position: relative; margin-top: auto; }
+    .comic-speech::before { content: ''; position: absolute; top: -10px; left: 50%; transform: translateX(-50%); border-left: 9px solid transparent; border-right: 9px solid transparent; }
+    .comic-speech--villain { background: rgba(255,34,72,0.12); color: #ffb3c1; border-color: rgba(255,34,72,0.35); }
+    .comic-speech--villain::before { border-bottom: 10px solid rgba(255,34,72,0.35); }
+    .comic-speech--hero { background: rgba(0,150,255,0.12); color: #93c5fd; border-color: rgba(0,170,255,0.35); }
+    .comic-speech--hero::before { border-bottom: 10px solid rgba(0,170,255,0.35); }
+
+    /* Phone mockup */
+    .comic-phone-mock { background: #0f0f1a; border: 1.5px solid rgba(255,255,255,0.12); border-radius: 10px; overflow: hidden; width: 100%; max-width: 220px; font-size: 11px; margin-top: auto; }
+    .phone-header { background: rgba(255,255,255,0.06); padding: 6px 10px; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; color: rgba(255,255,255,0.4); border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .phone-body { padding: 10px; }
+    .phone-from { font-size: 10px; color: rgba(255,255,255,0.4); margin-bottom: 4px; }
+    .phone-subject { font-weight: 800; color: #fff; font-size: 11px; margin-bottom: 6px; }
+    .phone-body-text { color: rgba(255,255,255,0.55); line-height: 1.55; font-size: 10.5px; }
+    .phish-red { color: #ff5577; font-weight: 700; }
+    .phish-link { color: #60a5fa; text-decoration: underline; cursor: default; }
+
+    /* Choice row */
+    .comic-choice-row { background: rgba(255,255,255,0.03); border: 1.5px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 20px 24px; margin-bottom: 24px; }
+    .comic-choice-label { font-family: 'Bangers', cursive; font-size: 18px; letter-spacing: 0.1em; color: #f6d860; margin-bottom: 14px; text-align: center; }
+    .comic-choices { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .comic-btn { padding: 14px 16px; border-radius: 10px; border: 2px solid transparent; font-size: 14px; font-weight: 800; cursor: pointer; text-align: left; transition: all 0.18s; background: rgba(255,255,255,0.04); color: #fff; }
+    .comic-btn:hover { transform: translateY(-2px); }
+    .comic-btn:disabled { opacity: 0.4; cursor: default; transform: none; }
+    .comic-btn--bad { border-color: rgba(255,60,80,0.3); color: #ff7090; }
+    .comic-btn--bad:hover { background: rgba(255,50,70,0.12); border-color: rgba(255,50,70,0.6); }
+    .comic-btn--good { border-color: rgba(0,200,100,0.3); color: #6ee7b7; }
+    .comic-btn--good:hover { background: rgba(0,200,100,0.1); border-color: rgba(0,200,100,0.6); }
+
+    /* Outcome panels */
+    .comic-outcome { animation: comicSlideIn 0.4s ease both; margin-bottom: 24px; }
+    .outcome-panel { display: flex; align-items: center; gap: 20px; border-radius: 14px; padding: 20px 24px; margin-bottom: 16px; }
+    .outcome-panel--bad { background: rgba(200,0,40,0.08); border: 1.5px solid rgba(255,34,72,0.3); }
+    .outcome-panel--good { background: rgba(34,197,94,0.07); border: 1.5px solid rgba(34,197,94,0.3); }
+    .outcome-char { height: 80px; width: auto; flex-shrink: 0; background: transparent; }
+    .outcome-result { font-family: 'Bangers', cursive; font-size: 26px; letter-spacing: 0.05em; margin-bottom: 6px; }
+    .outcome-panel--bad .outcome-result { color: #ff4466; }
+    .outcome-panel--good .outcome-result { color: #4ade80; }
+    .outcome-text p { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.6; margin-bottom: 6px; }
+    .outcome-tip { font-size: 12px !important; color: rgba(255,255,255,0.4) !important; background: rgba(255,255,255,0.04); border-radius: 6px; padding: 6px 10px; }
+    .comic-next-btn { display: block; margin: 0 auto; padding: 12px 28px; background: linear-gradient(135deg,#cc0033,#ff2248); color: #fff; border: none; border-radius: 10px; font-size: 14px; font-weight: 800; cursor: pointer; letter-spacing: 0.04em; transition: transform 0.18s,box-shadow 0.18s; box-shadow: 0 6px 22px rgba(200,0,40,0.35); }
+    .comic-next-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(200,0,40,0.5); }
+
+    /* Final 4-panel strip */
+    .comic-final-strip { display: grid; grid-template-columns: repeat(4,1fr); gap: 6px; background: #fff; border-radius: 12px; padding: 14px; margin-bottom: 24px; }
+    .comic-final-panel { display: flex; flex-direction: column; border: 2px solid #222; border-radius: 6px; overflow: hidden; background: #fff; }
+    .cfp-label { background: #111; color: #fff; font-size: 9px; font-weight: 800; letter-spacing: 0.1em; text-align: center; padding: 4px; text-transform: uppercase; }
+    .cfp-content { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px 8px; gap: 8px; min-height: 130px; background: #f8f8f8; }
+    .cfp-char { height: 65px; width: auto; background: transparent; }
+    .cfp-bubble { background: #fff; border: 1.5px solid #222; border-radius: 6px; padding: 5px 8px; font-size: 9px; font-weight: 700; color: #111; text-align: center; max-width: 95px; }
+    .cfp-bubble--villain { border-color: #cc0033; color: #cc0033; }
+    .cfp-bubble--hero { border-color: #0066cc; color: #0066cc; }
+    .cfp-bubble--win { border-color: #006600; color: #006600; }
+    .cfp-caption { background: #222; color: #fff; font-size: 8px; font-weight: 700; text-align: center; padding: 5px 4px; }
+
+    /* Detective badge */
+    .comic-badge-section { text-align: center; margin-bottom: 28px; }
+    .badge-container { display: inline-flex; flex-direction: column; align-items: center; gap: 6px; background: rgba(255,255,255,0.04); border: 2px solid rgba(255,255,255,0.12); border-radius: 20px; padding: 24px 40px; animation: badgePop 0.6s 0.3s cubic-bezier(0.34,1.56,0.64,1) both; }
+    @keyframes badgePop { from { transform:scale(0.5) rotate(-6deg); opacity:0; } to { transform:scale(1) rotate(0deg); opacity:1; } }
+    .badge-icon { font-size: 48px; }
+    .badge-title { font-family: 'Bangers', cursive; font-size: 28px; letter-spacing: 0.1em; color: #fff; }
+    .badge-score { font-size: 13px; color: rgba(255,255,255,0.4); font-weight: 700; }
+    .badge-message { font-size: 13px; color: rgba(255,255,255,0.5); max-width: 280px; text-align: center; line-height: 1.5; }
+    .comic-final-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .comic-save-btn { padding: 12px 24px; background: linear-gradient(135deg,#0066cc,#0af); color: #fff; border: none; border-radius: 10px; font-size: 14px; font-weight: 800; cursor: pointer; transition: transform 0.18s; }
+    .comic-save-btn:hover { transform: translateY(-2px); }
+    .comic-restart-btn { padding: 12px 24px; background: rgba(255,255,255,0.07); color: #fff; border: 1.5px solid rgba(255,255,255,0.15); border-radius: 10px; font-size: 14px; font-weight: 800; cursor: pointer; transition: all 0.18s; }
+    .comic-restart-btn:hover { background: rgba(255,255,255,0.12); }
+
+    @media (max-width:768px) {
+      .comic-strip-row { flex-direction: column; }
+      .comic-choices { grid-template-columns: 1fr; }
+      .comic-final-strip { grid-template-columns: repeat(2,1fr); }
+      .outcome-panel { flex-direction: column; text-align: center; }
+    }
+
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       SECTION 5 — WEB TRAP
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .pnc-web {
+      background: radial-gradient(ellipse 92% 72% at 50% 32%, #1a0333 0%, #0b0016 58%, #060010 100%);
+      min-height: 100vh; padding: 0; position: relative; overflow: hidden;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .web-inner { max-width: 1000px; width: 100%; margin: 0 auto; padding: 26px 24px; box-sizing: border-box; }
+    .web-header { text-align: center; margin-bottom: 8px; }
+    .web-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Space Grotesk','Hind',sans-serif; font-size: 11px; font-weight: 800;
+      letter-spacing: 0.16em; text-transform: uppercase; color: #c9a2ff;
+      padding: 6px 16px; border-radius: 999px; margin-bottom: 10px;
+      background: rgba(139,92,246,0.12); border: 1px solid rgba(160,120,255,0.4);
+      box-shadow: 0 0 18px rgba(139,92,246,0.18);
+    }
+    .web-badge .web-badge-dot { width: 7px; height: 7px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 8px #4ade80; animation: webPulse 1.4s ease-in-out infinite; }
+    @keyframes webPulse { 0%,100%{opacity:1} 50%{opacity:0.35} }
+    .web-title { font-family: 'Bangers', cursive; font-size: clamp(38px,5.6vw,62px); letter-spacing: 0.04em; color: #fff; margin: 0 0 6px; text-shadow: 0 2px 22px rgba(139,92,246,0.45), 0 0 2px rgba(255,255,255,0.3); }
+    .web-sub { font-size: 13.5px; color: rgba(255,255,255,0.5); margin: 0 auto; max-width: 620px; line-height: 1.5; }
+
+    /* Game HUD — chip bar */
+    .web-hud { display: inline-flex; align-items: center; justify-content: center; gap: 10px; margin: 14px auto 2px; flex-wrap: wrap;
+      padding: 7px 8px; border-radius: 14px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09); backdrop-filter: blur(8px); }
+    .web-hud-item { display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.6);
+      padding: 7px 14px; border-radius: 10px; background: rgba(0,0,0,0.22); }
+    .web-hud-item b { color: #f6d860; font-family: 'Bangers',cursive; font-size: 20px; letter-spacing: 0.03em; }
+    .web-hud-sep { width: 1px; height: 20px; background: rgba(255,255,255,0.12); }
+    .web-depth { display: inline-flex; gap: 5px; }
+    .web-life { font-size: 15px; transition: filter .3s, opacity .3s, transform .3s; }
+    .web-life.lost { filter: grayscale(1); opacity: 0.28; transform: scale(0.85); }
+
+    .web-stage { position: relative; width: min(94vw, 560px); aspect-ratio: 118 / 100; margin: 6px auto 0; }
+    .web-stage.shake { animation: webShake 0.45s ease; }
+    @keyframes webShake { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-9px) rotate(-0.5deg)} 40%{transform:translateX(8px) rotate(0.5deg)} 60%{transform:translateX(-6px)} 80%{transform:translateX(4px)} }
+    .web-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+    .web-silk { stroke: rgba(198,214,255,0.13); stroke-width: 0.35; fill: none; }
+    .web-silk-ring { stroke: rgba(198,214,255,0.11); stroke-width: 0.3; fill: none; }
+    .web-strand-line { stroke: rgba(190,210,255,0.42); stroke-width: 0.7; fill: none; stroke-linecap: round; transition: opacity .5s; }
+    .web-strand-line.cut { animation: strandSnap .55s forwards; }
+    @keyframes strandSnap { 60%{opacity:0.4} to { opacity: 0; } }
+
+    .web-spider { position: absolute; top: -8px; right: 3%; font-size: clamp(26px,5vw,40px); animation: spiderBob 3.2s ease-in-out infinite; z-index: 4; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.65)); }
+    @keyframes spiderBob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(8px)} }
+    .web-victim {
+      position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
+      width: clamp(50px,11vw,66px); height: clamp(50px,11vw,66px); border-radius: 50%;
+      background: radial-gradient(circle,#43267e,#1c0a3e); border: 2px solid rgba(168,128,255,0.55);
+      display: flex; align-items: center; justify-content: center; font-size: clamp(22px,5vw,30px);
+      box-shadow: 0 0 26px rgba(150,95,255,0.42), inset 0 0 16px rgba(95,55,190,0.5); z-index: 3;
+      animation: victimStruggle 1.7s ease-in-out infinite;
+    }
+    @keyframes victimStruggle { 0%,100%{transform:translate(-50%,-50%) rotate(-5deg)} 50%{transform:translate(-50%,-50%) rotate(5deg)} }
+    .web-victim-lbl { position:absolute; left:50%; top:calc(50% + clamp(32px,7vw,42px)); transform:translateX(-50%); font-size:8.5px; font-weight:800; letter-spacing:0.16em; color:rgba(255,255,255,0.45); text-transform:uppercase; z-index:3; white-space:nowrap; }
+
+    .web-strand {
+      position: absolute; transform: translate(-50%,-50%); z-index: 5;
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 8px 11px; border-radius: 13px; cursor: pointer;
+      background: rgba(20,11,42,0.94); border: 1.5px solid rgba(255,255,255,0.15);
+      backdrop-filter: blur(6px); box-shadow: 0 8px 22px rgba(0,0,0,0.5);
+      font-family: 'Hind',sans-serif; max-width: 158px;
+      transition: transform .2s cubic-bezier(.22,1,.36,1), border-color .2s, box-shadow .2s, opacity .5s;
+    }
+    .web-strand:hover { transform: translate(-50%,-50%) scale(1.06); border-color: rgba(246,216,96,0.65); box-shadow: 0 10px 28px rgba(246,216,96,0.2); }
+    .web-strand-ico { font-size: 17px; flex-shrink: 0; }
+    .web-strand-txt { font-size: 11.5px; font-weight: 600; color: rgba(255,255,255,0.92); line-height: 1.22; }
+    .web-scissor { font-size: 13px; margin-left: 1px; opacity: 0.6; transition: opacity .2s, transform .2s; flex-shrink: 0; }
+    .web-strand:hover .web-scissor { opacity: 1; transform: rotate(-20deg); }
+    .web-strand.cut { animation: strandFall .65s cubic-bezier(.5,0,.9,.5) forwards; pointer-events: none; }
+    @keyframes strandFall { to { transform: translate(-50%, 130px) rotate(26deg); opacity: 0; } }
+    .web-strand.safe-cut { animation: safeFlash .55s; }
+    @keyframes safeFlash { 0%,100%{border-color:rgba(255,255,255,0.15)} 25%,70%{border-color:#ff3b57; box-shadow:0 0 24px rgba(255,59,87,0.55)} }
+    .web-strand.done-danger { border-color: rgba(34,197,94,0.5); background: rgba(12,40,26,0.9); }
+
+    .web-result { position:absolute; inset:0; z-index:9; display:none; flex-direction:column; align-items:center; justify-content:center; text-align:center; background: rgba(7,0,17,0.88); backdrop-filter: blur(7px); border-radius: 20px; padding: 24px; }
+    .web-result.show { display:flex; animation: webFade .4s ease; }
+    @keyframes webFade { from{opacity:0; transform:scale(0.97)} to{opacity:1; transform:scale(1)} }
+    .web-result-emoji { font-size: 50px; margin-bottom: 8px; }
+    .web-result-title { font-family:'Bangers',cursive; font-size: 32px; letter-spacing:0.05em; margin-bottom: 8px; }
+    .web-result.win .web-result-title { color:#4ade80; }
+    .web-result.lose .web-result-title { color:#ff5470; }
+    .web-result-msg { font-size: 13px; color: rgba(255,255,255,0.66); line-height:1.55; max-width: 400px; margin-bottom: 16px; }
+    .web-result-btn { padding: 11px 26px; border-radius: 10px; border:none; font-size:14px; font-weight:800; cursor:pointer; background: linear-gradient(135deg,#8b2fd6,#c04bff); color:#fff; transition: transform .18s, box-shadow .18s; box-shadow: 0 8px 22px rgba(150,60,220,0.35); }
+    .web-result-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(150,60,220,0.5); }
+
+    /* Light theme */
+    [data-theme="light"] .pnc-web { background: radial-gradient(ellipse 92% 72% at 50% 30%, #efe9fb 0%, #e7ebf8 60%, #eef1f8 100%); }
+    [data-theme="light"] .web-title { color: #1a0b2e; text-shadow: 0 2px 18px rgba(139,92,246,0.22); }
+    [data-theme="light"] .web-sub { color: rgba(20,10,40,0.55); }
+    [data-theme="light"] .web-badge { color: #6d28d9; background: rgba(139,92,246,0.1); border-color: rgba(139,92,246,0.3); }
+    [data-theme="light"] .web-hud { background: rgba(20,10,40,0.04); border-color: rgba(20,10,40,0.1); }
+    [data-theme="light"] .web-hud-item { color: rgba(20,10,40,0.7); background: rgba(255,255,255,0.6); }
+    [data-theme="light"] .web-silk { stroke: rgba(90,70,150,0.16); }
+    [data-theme="light"] .web-silk-ring { stroke: rgba(90,70,150,0.13); }
+    [data-theme="light"] .web-strand-line { stroke: rgba(120,90,200,0.5); }
+    [data-theme="light"] .web-strand { background: rgba(255,255,255,0.92); border-color: rgba(20,10,40,0.1); box-shadow: 0 8px 22px rgba(60,30,120,0.12); }
+    [data-theme="light"] .web-strand-txt { color: #1a0b2e; }
+    [data-theme="light"] .web-strand.done-danger { background: rgba(224,247,233,0.95); border-color: rgba(34,160,90,0.5); }
+    [data-theme="light"] .web-victim-lbl { color: rgba(20,10,40,0.5); }
+    [data-theme="light"] .web-result { background: rgba(240,236,250,0.9); }
+    [data-theme="light"] .web-result-msg { color: rgba(20,10,40,0.65); }
+
+    @media (max-width: 560px) { .web-strand { max-width: 118px; padding: 6px 9px; } .web-strand-txt { font-size: 10.5px; } }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       SECTION 6 — CHIP'S DETECTIVE LAB
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .pnc-lab {
+      background: #04000e;
+      padding: 0 24px;
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .pnc-lab::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(0,100,200,0.05) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .lab-inner { max-width: 1120px; margin: 0 auto; width: 100%; position: relative; z-index: 1; padding: 26px 0; box-sizing: border-box; }
+
+    .lab-header { text-align: center; margin-bottom: 10px; }
+    .lab-overline { font-size: 11px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(0,170,255,0.45); display: block; margin-bottom: 8px; }
+    .lab-title { font-family: 'Bangers', cursive; font-size: clamp(34px,5vw,54px); letter-spacing: 0.04em; color: #fff; margin: 0 0 6px; }
+    .lab-subtitle { font-size: 14px; color: rgba(255,255,255,0.4); margin: 0; }
+
+    .lab-case-tabs { display: flex; justify-content: center; gap: 10px; margin: 14px 0 16px; flex-wrap: wrap; }
+    .lab-case-tab { padding: 7px 18px; border-radius: 999px; border: 1.5px solid rgba(255,255,255,0.1); background: transparent; color: rgba(255,255,255,0.4); font-size: 12px; font-weight: 800; letter-spacing: 0.06em; cursor: pointer; transition: all 0.2s; }
+    .lab-case-tab.active { background: rgba(0,130,255,0.15); border-color: rgba(0,170,255,0.5); color: #60a5fa; }
+    .lab-case-tab.solved::after { content: ' ✓'; color: #4ade80; }
+    .lab-case-tab:hover:not(.active) { border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.6); }
+
+    /* Two-column investigation board */
+    .lab-board { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: stretch; height: min(76vh, 552px); }
+    .lab-panel { background: rgba(255,255,255,0.02); border: 1.5px solid rgba(255,255,255,0.07); border-radius: 16px; display: flex; flex-direction: column; overflow: hidden; }
+    .lab-panel-head { display: flex; align-items: center; justify-content: space-between; padding: 11px 16px; border-bottom: 1px solid rgba(255,255,255,0.06); background: rgba(0,100,200,0.06); }
+    .lab-panel-head-t { font-size: 11px; font-weight: 800; letter-spacing: 0.13em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
+    .lab-case-num { font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.28); letter-spacing: 0.1em; }
+    .lab-case-num span { color: #f6d860; }
+
+    /* Exhibit (left) */
+    .lab-exhibit-body { padding: 14px 18px; font-size: 13px; color: rgba(255,255,255,0.62); line-height: 1.65; overflow-y: auto; flex: 1; min-height: 0; scrollbar-width: thin; }
+    .lab-exhibit-meta { font-size: 11px; color: rgba(255,255,255,0.4); margin-bottom: 3px; }
+    .lab-exhibit-meta b { color: rgba(255,255,255,0.72); font-weight: 700; }
+    .lab-exhibit-subject { font-size: 15px; font-weight: 800; color: #fff; margin: 8px 0 10px; line-height: 1.3; }
+    .lab-exhibit-divider { height: 1px; background: rgba(255,255,255,0.07); margin: 10px 0; }
+    .lab-exhibit-body b { color: rgba(255,255,255,0.85); }
+
+    /* Work panel (right) */
+    .lab-work { padding: 14px 16px; display: flex; flex-direction: column; gap: 12px; flex: 1; min-height: 0; overflow-y: auto; scrollbar-width: thin; }
+    .lab-chip-line { display: flex; gap: 12px; align-items: center; }
+    .lab-chip-line img { height: 46px; width: auto; background: transparent; flex-shrink: 0; filter: drop-shadow(0 4px 14px rgba(0,120,255,0.35)); }
+    .lab-chip-speech { font-size: 12.5px; color: #93c5fd; font-weight: 600; line-height: 1.5; }
+    .lab-chip-speech strong { color: #fff; }
+
+    .lab-clue-head { font-size: 10px; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+    .lab-clues { display: flex; flex-direction: column; gap: 8px; }
+    .lab-clue { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 10px; background: rgba(255,255,255,0.03); border: 1.5px solid rgba(255,255,255,0.08); cursor: pointer; transition: all 0.16s; font-size: 12.5px; color: rgba(255,255,255,0.82); }
+    .lab-clue:hover { border-color: rgba(0,170,255,0.35); background: rgba(0,120,255,0.06); }
+    .lab-clue-box { width: 20px; height: 20px; border-radius: 6px; flex-shrink: 0; border: 1.5px solid rgba(255,255,255,0.25); display: flex; align-items: center; justify-content: center; font-size: 11px; color: transparent; transition: all 0.16s; }
+    .lab-clue.flagged { border-color: rgba(255,34,72,0.5); background: rgba(255,34,72,0.08); }
+    .lab-clue.flagged .lab-clue-box { border-color: #ff2248; background: rgba(255,34,72,0.2); color: #ff5577; }
+    .lab-clue-main { display: flex; flex-direction: column; gap: 3px; }
+    .lab-clue-why { display: none; font-size: 11px; color: rgba(255,255,255,0.5); line-height: 1.5; }
+    .lab-clue.reveal { cursor: default; align-items: flex-start; }
+    .lab-clue.reveal .lab-clue-why { display: block; }
+    .lab-clue.reveal.correct { border-color: rgba(34,197,94,0.5); background: rgba(34,197,94,0.07); }
+    .lab-clue.reveal.wrong { border-color: rgba(255,34,72,0.5); background: rgba(255,34,72,0.07); }
+    .lab-clue-tag { margin-left: auto; align-self: flex-start; font-size: 8.5px; font-weight: 800; letter-spacing: 0.08em; padding: 2px 8px; border-radius: 999px; flex-shrink: 0; }
+    .lab-clue-tag.red { background: rgba(255,34,72,0.15); color: #ff5577; }
+    .lab-clue-tag.ok  { background: rgba(34,197,94,0.15); color: #4ade80; }
+
+    /* Verdict */
+    .lab-verdict-q { font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(0,170,255,0.5); margin-bottom: 8px; text-align: center; }
+    .lab-verdict-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .lab-verdict-btn { padding: 11px 10px; border-radius: 12px; border: 2px solid transparent; font-family: 'Bangers', cursive; font-size: 18px; letter-spacing: 0.05em; cursor: pointer; transition: all 0.18s; display: flex; flex-direction: column; align-items: center; gap: 2px; }
+    .lab-verdict-btn small { font-family: 'Plus Jakarta Sans',sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.55; }
+    .lab-verdict-scam { background: rgba(204,0,51,0.07); border-color: rgba(255,34,72,0.3); color: #ff4466; }
+    .lab-verdict-scam:hover { background: rgba(204,0,51,0.15); border-color: #ff2248; transform: translateY(-2px); }
+    .lab-verdict-safe { background: rgba(34,197,94,0.07); border-color: rgba(34,197,94,0.3); color: #4ade80; }
+    .lab-verdict-safe:hover { background: rgba(34,197,94,0.15); border-color: #4ade80; transform: translateY(-2px); }
+    .lab-verdict-btn:disabled { opacity: 0.4; cursor: default; transform: none; }
+
+    /* Result */
+    .lab-result { display: none; border-radius: 12px; padding: 14px 16px; animation: badgePop 0.4s cubic-bezier(0.34,1.56,0.64,1) both; }
+    .lab-result.show { display: block; }
+    .lab-result.good { background: rgba(34,197,94,0.08); border: 1.5px solid rgba(34,197,94,0.28); }
+    .lab-result.bad  { background: rgba(204,0,51,0.08); border: 1.5px solid rgba(255,34,72,0.28); }
+    .lab-result-title { font-family: 'Bangers', cursive; font-size: 22px; letter-spacing: 0.05em; margin-bottom: 4px; }
+    .lab-result.good .lab-result-title { color: #4ade80; }
+    .lab-result.bad .lab-result-title { color: #ff4466; }
+    .lab-result-msg { font-size: 12px; color: rgba(255,255,255,0.6); line-height: 1.55; }
+    .lab-result-msg strong { color: #f6d860; }
+    .lab-result-actions { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+    .lab-next-btn { padding: 9px 20px; background: linear-gradient(135deg,#0055cc,#0af); color: #fff; border: none; border-radius: 8px; font-size: 12px; font-weight: 800; cursor: pointer; transition: transform 0.18s; }
+    .lab-next-btn:hover { transform: translateY(-2px); }
+    .lab-reset-btn { padding: 9px 20px; background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.6); border: 1.5px solid rgba(255,255,255,0.12); border-radius: 8px; font-size: 12px; font-weight: 800; cursor: pointer; transition: all 0.18s; }
+    .lab-reset-btn:hover { background: rgba(255,255,255,0.1); }
+
+    @media (max-width: 860px) {
+      .lab-board { grid-template-columns: 1fr; }
+      .lab-exhibit-body { max-height: 190px; }
+    }
+
+    /* ── FOOTER (inline, matches home) ── */
+
+    .footer { background: #080010; border-top: 1px solid rgba(255,255,255,0.07); padding: 64px 0 0; }
+    .footer-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; padding-bottom: 48px; }
+    .footer-logo-circle-link { display: inline-block; margin-bottom: 16px; }
+    .footer-logo-circle { width: 72px; height: 72px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; padding: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.18); }
+    .footer-logo-img { width: 100% !important; height: 100% !important; object-fit: contain !important; display: block !important; filter: none !important; }
+    .footer-brand > p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px; }
+    .footer-partner-logos { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+    .footer-certin-logo { height: 36px; width: auto; max-width: 200px; object-fit: contain; background: #fff; border-radius: 6px; padding: 4px 8px; }
+    .footer-socials { display: flex; gap: 12px; flex-wrap: wrap; }
+    .footer-socials a { font-size: 13px; color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
+    .footer-socials a:hover { color: var(--primary); }
+    .footer-links-group { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .footer-col h5 { font-family: var(--font-ui); font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 16px; }
+    .footer-col a { display: block; font-size: 13px; font-weight: 400; color: var(--text-secondary); text-decoration: none; margin-bottom: 10px; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--primary); }
+    .footer-cta-link { color: var(--primary) !important; font-weight: 500 !important; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding: 24px 0; text-align: center; }
+    .footer-bottom p { font-size: 12px; color: var(--text-secondary); }
+
+
+    @media (max-width: 640px) {
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .footer-links-group { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="cursorGlow" class="cursor-glow"></div>
+
+  <!-- ── NAV ── -->
+  <nav class="nav" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/logo-suraksha.svg" alt="#Suraksha" class="nav-logo-img" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="platform.html">CASK</a></li>
+        <li><a href="surakshak.html">Surakshak</a></li>
+        <li><a href="olympiad.html">Olympiad</a></li>
+        <li><a href="phishnchip.html" class="active">The Phish &amp; Chip Show</a></li>
+        <li><a href="slanglish.html">Slanglish</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="partner.html">Partner With Us</a></li>
+      </ul>
+      <div class="nav-right">
+        <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a href="surakshak.html" class="nav-cta">Join the Movement</a>
+      </div>
+      <button class="hamburger" id="hamburger">&#9776;</button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="platform.html">CASK</a>
+      <a href="surakshak.html">Surakshak</a>
+      <a href="olympiad.html">Olympiad</a>
+      <a href="phishnchip.html">The Phish &amp; Chip Show</a>
+      <a href="slanglish.html">Slanglish</a>
+      <a href="resources.html">Resources</a>
+      <a href="partner.html">Partner With Us</a>
+      <a href="surakshak.html" class="mobile-cta">Join the Movement</a>
+    </div>
+  </nav>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       SECTION 1 — HERO
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section class="pnc-hero halftone">
+    <div class="pnc-hero-blob pnc-blob-phish"></div>
+    <div class="pnc-hero-blob pnc-blob-chip"></div>
+    <div class="pnc-hero-blob pnc-blob-center"></div>
+
+    <p class="pnc-show-label">A Gen Z Cybersecurity Podcast</p>
+
+    <!-- 3-column stage: char | title + CTAs | char -->
+    <div class="pnc-hero-stage">
+
+      <!-- PHISH LEFT COLUMN -->
+      <div class="pnc-hero-char pnc-hero-char--phish">
+        <img src="assets/phish.png" class="pnc-hero-img" alt="PHISH the villain" />
+        <span class="pnc-char-name">🎭 PHISH</span>
+        <div class="pnc-bubble pnc-bubble-phish">
+          🎭 Welcome, dear victim...<br/>I mean, visitor! 😈
+        </div>
+      </div>
+
+      <!-- CENTER COLUMN: title + tagline + CTAs -->
+      <div class="pnc-hero-center">
+        <h1 class="pnc-hero-title">
+          <span class="pnc-title-the">The</span>
+          <span class="pnc-title-phish">PHISH</span><span class="pnc-title-amp"> &amp; </span><span class="pnc-title-chip">CHIP</span>
+          <span class="pnc-title-show">Show</span>
+        </h1>
+        <p class="pnc-tagline">One Scammer &nbsp;·&nbsp; One Detective &nbsp;·&nbsp; One Decision</p>
+        <div class="pnc-cta-row">
+          <a href="#interactive-comic" class="pnc-btn pnc-btn-primary">🎮 Play the Comic</a>
+          <a href="#episodes" class="pnc-btn pnc-btn-secondary">📺 Watch Episodes</a>
+        </div>
+      </div>
+
+      <!-- CHIP RIGHT COLUMN -->
+      <div class="pnc-hero-char pnc-hero-char--chip">
+        <img src="assets/chip.png" class="pnc-hero-img" alt="CHIP the detective" />
+        <span class="pnc-char-name">🤖 CHIP</span>
+        <div class="pnc-bubble pnc-bubble-chip">
+          🤖 I've got your back.<br/>Let's bust some scams! 🔍
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="pnc-scroll-hint">
+      <div class="pnc-scroll-arrow"></div>
+      Scroll to explore
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       SECTION 3 — FEATURED EPISODES
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section class="pnc-episodes" id="episodes">
+    <div class="pnc-episodes-inner">
+      <h2 class="pnc-section-title" style="margin-bottom:8px;">Featured Episodes</h2>
+      <p class="pnc-ep-subtitle">🍿 Every episode is a real cyber trap. Watch — then ask yourself: would YOU have fallen for it?</p>
+
+      <!-- Carousel wrapper — hover to pause -->
+      <div class="pnc-carousel-wrapper">
+        <div class="pnc-carousel-track" id="episodeTrack">
+
+          <!-- ── SET 1 (originals) ── -->
+
+          <!-- EP 1 -->
+          <div class="pnc-ep-card" onclick="document.getElementById('interactive-comic').scrollIntoView({behavior:'smooth'})">
+            <div class="pnc-ep-thumb">
+              <span class="pnc-ep-num">EP 01</span>
+              <span class="pnc-ep-emoji">📧</span>
+            </div>
+            <div class="pnc-ep-body">
+              <span class="pnc-ep-tag pnc-ep-tag-phish">🎭 PHISH Win</span>
+              <h3 class="pnc-ep-title">The ₹50 Lakh Email</h3>
+              <p class="pnc-ep-desc">A single email. A "government scholarship." 400 students fell for it in one week.</p>
+              <span class="pnc-ep-tag pnc-ep-tag-both">📧 Phishing Email</span>
+            </div>
+          </div>
+
+          <!-- EP 2 -->
+          <div class="pnc-ep-card" onclick="document.getElementById('interactive-comic').scrollIntoView({behavior:'smooth'})">
+            <div class="pnc-ep-thumb">
+              <span class="pnc-ep-num">EP 02</span>
+              <span class="pnc-ep-emoji">💬</span>
+            </div>
+            <div class="pnc-ep-body">
+              <span class="pnc-ep-tag pnc-ep-tag-chip">🤖 CHIP Wins</span>
+              <h3 class="pnc-ep-title">Your OTP Is Not a Secret?</h3>
+              <p class="pnc-ep-desc">You'd never share your OTP. Or would you? Phish has 12 ways to make you hand it over.</p>
+              <span class="pnc-ep-tag pnc-ep-tag-both">🔐 OTP Scam</span>
+            </div>
+          </div>
+
+          <!-- EP 3 -->
+          <div class="pnc-ep-card" onclick="document.getElementById('interactive-comic').scrollIntoView({behavior:'smooth'})">
+            <div class="pnc-ep-thumb">
+              <span class="pnc-ep-num">EP 03</span>
+              <span class="pnc-ep-emoji">🎮</span>
+            </div>
+            <div class="pnc-ep-body">
+              <span class="pnc-ep-tag pnc-ep-tag-phish">🎭 PHISH Win</span>
+              <h3 class="pnc-ep-title">Free Skins, Stolen Account</h3>
+              <p class="pnc-ep-desc">Gaming scams prey on FOMO. Free V-bucks. Free skins. All fake. All dangerous.</p>
+              <span class="pnc-ep-tag pnc-ep-tag-both">🎮 Gaming Scam</span>
+            </div>
+          </div>
+
+          <!-- EP 4 -->
+          <div class="pnc-ep-card" onclick="document.getElementById('interactive-comic').scrollIntoView({behavior:'smooth'})">
+            <div class="pnc-ep-thumb">
+              <span class="pnc-ep-num">EP 04</span>
+              <span class="pnc-ep-emoji">❤️</span>
+            </div>
+            <div class="pnc-ep-body">
+              <span class="pnc-ep-tag pnc-ep-tag-chip">🤖 CHIP Wins</span>
+              <h3 class="pnc-ep-title">The 3AM DM Romance</h3>
+              <p class="pnc-ep-desc">They knew your name. Your college. Your schedule. It wasn't love — it was recon.</p>
+              <span class="pnc-ep-tag pnc-ep-tag-both">💔 Romance Fraud</span>
+            </div>
+          </div>
+
+          <!-- EP 5 -->
+          <div class="pnc-ep-card" onclick="document.getElementById('interactive-comic').scrollIntoView({behavior:'smooth'})">
+            <div class="pnc-ep-thumb">
+              <span class="pnc-ep-num">EP 05</span>
+              <span class="pnc-ep-emoji">📲</span>
+            </div>
+            <div class="pnc-ep-body">
+              <span class="pnc-ep-tag pnc-ep-tag-phish">🎭 PHISH Win</span>
+              <h3 class="pnc-ep-title">The Viral Giveaway Trap</h3>
+              <p class="pnc-ep-desc">iPhone. PS5. MacBook. Fake giveaways. Instagram is Phish's playground.</p>
+              <span class="pnc-ep-tag pnc-ep-tag-both">📲 Social Scam</span>
+            </div>
+          </div>
+
+          <!-- ── SET 2 (duplicate for seamless loop) ── -->
+
+          <div class="pnc-ep-card" onclick="document.getElementById('interactive-comic').scrollIntoView({behavior:'smooth'})">
+            <div class="pnc-ep-thumb"><span class="pnc-ep-num">EP 01</span><span class="pnc-ep-emoji">📧</span></div>
+            <div class="pnc-ep-body">
+              <span class="pnc-ep-tag pnc-ep-tag-phish">🎭 PHISH Win</span>
+              <h3 class="pnc-ep-title">The ₹50 Lakh Email</h3>
+              <p class="pnc-ep-desc">A single email. A "government scholarship." 400 students fell for it in one week.</p>
+              <span class="pnc-ep-tag pnc-ep-tag-both">📧 Phishing Email</span>
+            </div>
+          </div>
+
+          <div class="pnc-ep-card" onclick="document.getElementById('interactive-comic').scrollIntoView({behavior:'smooth'})">
+            <div class="pnc-ep-thumb"><span class="pnc-ep-num">EP 02</span><span class="pnc-ep-emoji">💬</span></div>
+            <div class="pnc-ep-body">
+              <span class="pnc-ep-tag pnc-ep-tag-chip">🤖 CHIP Wins</span>
+              <h3 class="pnc-ep-title">Your OTP Is Not a Secret?</h3>
+              <p class="pnc-ep-desc">You'd never share your OTP. Or would you? Phish has 12 ways to make you hand it over.</p>
+              <span class="pnc-ep-tag pnc-ep-tag-both">🔐 OTP Scam</span>
+            </div>
+          </div>
+
+          <div class="pnc-ep-card" onclick="document.getElementById('interactive-comic').scrollIntoView({behavior:'smooth'})">
+            <div class="pnc-ep-thumb"><span class="pnc-ep-num">EP 03</span><span class="pnc-ep-emoji">🎮</span></div>
+            <div class="pnc-ep-body">
+              <span class="pnc-ep-tag pnc-ep-tag-phish">🎭 PHISH Win</span>
+              <h3 class="pnc-ep-title">Free Skins, Stolen Account</h3>
+              <p class="pnc-ep-desc">Gaming scams prey on FOMO. Free V-bucks. Free skins. All fake. All dangerous.</p>
+              <span class="pnc-ep-tag pnc-ep-tag-both">🎮 Gaming Scam</span>
+            </div>
+          </div>
+
+          <div class="pnc-ep-card" onclick="document.getElementById('interactive-comic').scrollIntoView({behavior:'smooth'})">
+            <div class="pnc-ep-thumb"><span class="pnc-ep-num">EP 04</span><span class="pnc-ep-emoji">❤️</span></div>
+            <div class="pnc-ep-body">
+              <span class="pnc-ep-tag pnc-ep-tag-chip">🤖 CHIP Wins</span>
+              <h3 class="pnc-ep-title">The 3AM DM Romance</h3>
+              <p class="pnc-ep-desc">They knew your name. Your college. Your schedule. It wasn't love — it was recon.</p>
+              <span class="pnc-ep-tag pnc-ep-tag-both">💔 Romance Fraud</span>
+            </div>
+          </div>
+
+          <div class="pnc-ep-card" onclick="document.getElementById('interactive-comic').scrollIntoView({behavior:'smooth'})">
+            <div class="pnc-ep-thumb"><span class="pnc-ep-num">EP 05</span><span class="pnc-ep-emoji">📲</span></div>
+            <div class="pnc-ep-body">
+              <span class="pnc-ep-tag pnc-ep-tag-phish">🎭 PHISH Win</span>
+              <h3 class="pnc-ep-title">The Viral Giveaway Trap</h3>
+              <p class="pnc-ep-desc">iPhone. PS5. MacBook. Fake giveaways. Instagram is Phish's playground.</p>
+              <span class="pnc-ep-tag pnc-ep-tag-both">📲 Social Scam</span>
+            </div>
+          </div>
+
+        </div><!-- /pnc-carousel-track -->
+      </div><!-- /pnc-carousel-wrapper -->
+
+      <p class="pnc-ep-cta-hint">⏸ Hover over any card to pause &nbsp;·&nbsp; Click any card to play the mission</p>
+
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       SECTION 2 — MEET THE CHARACTERS
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section class="pnc-chars" id="characters">
+    <div class="pnc-section-label"><span>The Cast</span></div>
+    <h2 class="pnc-section-title">Meet the Characters</h2>
+
+    <!-- Tab switcher -->
+    <div class="pnc-char-tabs">
+      <button class="pnc-char-tab pnc-char-tab--phish active" onclick="switchCharTab('phish')">
+        🎭 PHISH &mdash; The Villain
+      </button>
+      <span class="pnc-tabs-vs">VS</span>
+      <button class="pnc-char-tab pnc-char-tab--chip" onclick="switchCharTab('chip')">
+        🤖 CHIP &mdash; The Hero
+      </button>
+    </div>
+
+    <!-- Profile showcase -->
+    <div class="pnc-char-showcase">
+
+      <!-- PHISH PROFILE (active by default) -->
+      <div class="pnc-char-profile active" id="profile-phish">
+        <div class="pnc-profile-img-col">
+          <img src="assets/phish.png" class="pnc-profile-img" alt="PHISH" />
+          <div class="pnc-profile-quote">
+            &ldquo;Click now before it&rsquo;s too late! Your account will be suspended in 30 minutes.&rdquo;
+          </div>
+        </div>
+        <div class="pnc-profile-info-col">
+          <p class="pnc-profile-role">The Villain</p>
+          <h3 class="pnc-profile-name pnc-profile-name--phish">PHISH</h3>
+          <p class="pnc-profile-subtitle">Master of Tricks</p>
+          <div class="pnc-card-traits">
+            <div class="pnc-trait"><span class="pnc-trait-icon">🎭</span>Creates fake giveaways &amp; prize scams</div>
+            <div class="pnc-trait"><span class="pnc-trait-icon">📧</span>Sends phishing emails &amp; fake links</div>
+            <div class="pnc-trait"><span class="pnc-trait-icon">⚡</span>Uses urgency &amp; fear to trigger panic</div>
+            <div class="pnc-trait"><span class="pnc-trait-icon">🎪</span>Expert at impersonation &amp; disguise</div>
+          </div>
+          <div class="pnc-stat">
+            <div class="pnc-stat-header"><span>Deception Skill</span><span>97%</span></div>
+            <div class="pnc-stat-bar"><div class="pnc-stat-fill" data-w="97%" style="width:0"></div></div>
+          </div>
+          <div class="pnc-stat">
+            <div class="pnc-stat-header"><span>Urgency Tactics</span><span>92%</span></div>
+            <div class="pnc-stat-bar"><div class="pnc-stat-fill" data-w="92%" style="width:0"></div></div>
+          </div>
+          <div class="pnc-stat" style="margin-bottom:0">
+            <div class="pnc-stat-header"><span>Victims per Day</span><span>3.4B globally</span></div>
+            <div class="pnc-stat-bar"><div class="pnc-stat-fill" data-w="85%" style="width:0"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CHIP PROFILE (hidden by default) -->
+      <div class="pnc-char-profile" id="profile-chip">
+        <div class="pnc-profile-img-col">
+          <img src="assets/chip.png" class="pnc-profile-img" alt="CHIP" />
+          <div class="pnc-profile-quote">
+            &ldquo;Let&rsquo;s verify first. Urgency is a tactic. Take a breath and check the source.&rdquo;
+          </div>
+        </div>
+        <div class="pnc-profile-info-col">
+          <p class="pnc-profile-role">The Hero</p>
+          <h3 class="pnc-profile-name pnc-profile-name--chip">CHIP</h3>
+          <p class="pnc-profile-subtitle">Cyber Detective</p>
+          <div class="pnc-card-traits">
+            <div class="pnc-trait"><span class="pnc-trait-icon">🔍</span>Spots red flags instantly</div>
+            <div class="pnc-trait"><span class="pnc-trait-icon">🛡️</span>Verifies senders &amp; links before clicking</div>
+            <div class="pnc-trait"><span class="pnc-trait-icon">🧠</span>Investigates before reacting</div>
+            <div class="pnc-trait"><span class="pnc-trait-icon">📡</span>Trained on 10 billion cyber threats</div>
+          </div>
+          <div class="pnc-stat">
+            <div class="pnc-stat-header"><span>Detection Accuracy</span><span>99.4%</span></div>
+            <div class="pnc-stat-bar"><div class="pnc-stat-fill" data-w="99%" style="width:0"></div></div>
+          </div>
+          <div class="pnc-stat">
+            <div class="pnc-stat-header"><span>Response Speed</span><span>0.3s</span></div>
+            <div class="pnc-stat-bar"><div class="pnc-stat-fill" data-w="88%" style="width:0"></div></div>
+          </div>
+          <div class="pnc-stat" style="margin-bottom:0">
+            <div class="pnc-stat-header"><span>Scams Stopped</span><span>1.2M+ &amp; counting</span></div>
+            <div class="pnc-stat-bar"><div class="pnc-stat-fill" data-w="95%" style="width:0"></div></div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /pnc-char-showcase -->
+  </section>
+
+
+    <section class="pnc-web" id="spot-the-phish">
+    <div class="web-inner">
+      <div class="web-header">
+        <span class="web-badge"><span class="web-badge-dot"></span>Mission · Level 01</span>
+        <h2 class="web-title">Web Trap</h2>
+        <p class="web-sub">You're caught in a scammer's web. Cut only the dangerous strands to break free — one wrong snip and you fall deeper.</p>
+      </div>
+      <div class="web-hud">
+        <div class="web-hud-item">✂ Cut <b id="webCount">0</b> / 3</div>
+        <div class="web-hud-sep"></div>
+        <div class="web-hud-item">Lives <span class="web-depth" id="webLives"><span class="web-life">🕸</span><span class="web-life">🕸</span><span class="web-life">🕸</span></span></div>
+      </div>
+      <div class="web-stage" id="webStage">
+        <svg class="web-svg" id="webSvg" viewBox="0 0 118 100" preserveAspectRatio="xMidYMid meet" aria-hidden="true"></svg>
+        <div class="web-spider" aria-hidden="true">🕷</div>
+        <div class="web-victim" aria-hidden="true">🪰</div>
+        <div class="web-victim-lbl">You are here</div>
+        <div class="web-result" id="webResult">
+          <div class="web-result-emoji" id="webResEmoji">🕸</div>
+          <div class="web-result-title" id="webResTitle"></div>
+          <div class="web-result-msg" id="webResMsg"></div>
+          <button class="web-result-btn" onclick="webReset()">↻ Play Again</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       SECTION 6 — CHIP'S DETECTIVE LAB
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section class="pnc-lab" id="detective-lab">
+    <div class="lab-inner">
+
+      <div class="lab-header">
+        <span class="lab-overline">— Investigation Room —</span>
+        <h2 class="lab-title">Chip's Detective Lab</h2>
+        <p class="lab-subtitle">Read the message. Flag the real red flags. Deliver your verdict.</p>
+      </div>
+
+      <div class="lab-case-tabs" id="labCaseTabs">
+        <button class="lab-case-tab active" onclick="labLoadCase(0)">📧 Case 1: Amazon</button>
+        <button class="lab-case-tab" onclick="labLoadCase(1)">💬 Case 2: WhatsApp</button>
+        <button class="lab-case-tab" onclick="labLoadCase(2)">🏦 Case 3: Bank Alert</button>
+      </div>
+
+      <div class="lab-board">
+        <!-- LEFT: the evidence -->
+        <div class="lab-panel">
+          <div class="lab-panel-head">
+            <span class="lab-panel-head-t">📄 Exhibit A — Suspect Message</span>
+            <span class="lab-case-num" id="labCaseNum">CASE #PC-2025-001</span>
+          </div>
+          <div class="lab-exhibit-body" id="labExhibit">
+            <div class="lab-exhibit-meta">FROM: <b id="labExFrom"></b></div>
+            <div class="lab-exhibit-meta">TO: <b>you@gmail.com</b></div>
+            <div class="lab-exhibit-divider"></div>
+            <div class="lab-exhibit-subject" id="labExSubject"></div>
+            <div id="labExBody"></div>
+          </div>
+        </div>
+
+        <!-- RIGHT: your investigation -->
+        <div class="lab-panel">
+          <div class="lab-panel-head">
+            <span class="lab-panel-head-t">🔎 Your Investigation</span>
+            <span class="lab-case-num"><span id="labFlagCount">0</span> flags raised</span>
+          </div>
+          <div class="lab-work">
+            <div class="lab-chip-line">
+              <img src="assets/chip.png" alt="CHIP" />
+              <div class="lab-chip-speech" id="labChipSpeech"></div>
+            </div>
+            <div class="lab-clue-head">Tap every clue you think is a red flag</div>
+            <div class="lab-clues" id="labClues"></div>
+            <div class="lab-verdict" id="labVerdict">
+              <div class="lab-verdict-q">So — scam or safe?</div>
+              <div class="lab-verdict-row">
+                <button class="lab-verdict-btn lab-verdict-scam" onclick="labVerdict('scam')">🚨 IT'S A SCAM<small>Phishing / Fraud</small></button>
+                <button class="lab-verdict-btn lab-verdict-safe" onclick="labVerdict('safe')">✅ IT'S SAFE<small>Legitimate message</small></button>
+              </div>
+            </div>
+            <div class="lab-result" id="labResult"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- (end of main sections) -->
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="cask-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo-circle-link">
+            <div class="footer-logo-circle">
+              <img src="assets/logo-suraksha.png" alt="Hashtag Suraksha" class="footer-logo-img" />
+            </div>
+          </a>
+          <p>India's national cybersecurity movement. A joint initiative of CERT-In and Cyber Buddha.</p>
+          <div class="footer-partner-logos">
+            <img src="assets/logo-certin.png" alt="MeitY &amp; CERT-In" class="footer-certin-logo" />
+          </div>
+          <div class="footer-socials">
+            <a href="https://www.facebook.com/hashtagsuraksha" target="_blank" rel="noopener">Facebook</a>
+            <a href="https://www.instagram.com/hashtag.suraksha" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://www.linkedin.com/company/hashtag-suraksha" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+        <div class="footer-links-group">
+          <div class="footer-col">
+            <h5>Ecosystem</h5>
+            <a href="platform.html">CASK Platform</a>
+            <a href="phishnchip.html" class="footer-cta-link">The Phish &amp; Chip Show</a>
+            <a href="olympiad.html">Cyber Olympiad</a>
+            <a href="slanglish.html">Slanglish</a>
+          </div>
+          <div class="footer-col">
+            <h5>Organisation</h5>
+            <a href="surakshak.html">Become a Surakshak</a>
+            <a href="partner.html">Partner With Us</a>
+            <a href="resources.html">Resources</a>
+            <a href="index.html">About</a>
+          </div>
+          <div class="footer-col">
+            <h5>Contact</h5>
+            <a href="partner.html" class="footer-cta-link">Get in Touch →</a>
+            <a href="mailto:hello@hashtagsuraksha.in">hello@hashtagsuraksha.in</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>2026 Hashtag Suraksha. All rights reserved. A CERT-In and Cyber Buddha initiative under MeitY, Government of India.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS: nav scroll + theme toggle (matching other pages) -->
+  <script src="main.js"></script>
+  <script>
+    // Cursor glow
+    const cursorGlow = document.getElementById('cursorGlow');
+    if (cursorGlow) {
+      document.addEventListener('mousemove', e => {
+        cursorGlow.style.left = e.clientX + 'px';
+        cursorGlow.style.top  = e.clientY + 'px';
+      });
+    }
+
+    /* ── SECTION 2: Character Tab Switcher ── */
+    function switchCharTab(char) {
+      // Update tab buttons
+      document.querySelectorAll('.pnc-char-tab').forEach(function(btn) {
+        btn.classList.remove('active');
+      });
+      var activeBtn = document.querySelector('.pnc-char-tab--' + char);
+      if (activeBtn) activeBtn.classList.add('active');
+
+      // Update profiles
+      document.querySelectorAll('.pnc-char-profile').forEach(function(p) {
+        p.classList.remove('active');
+        p.style.display = 'none';
+      });
+      var activeProfile = document.getElementById('profile-' + char);
+      if (activeProfile) {
+        activeProfile.style.display = 'flex';
+        requestAnimationFrame(function() { activeProfile.classList.add('active'); });
+        // Animate stat bars
+        activeProfile.querySelectorAll('.pnc-stat-fill').forEach(function(fill) {
+          fill.style.width = '0';
+          setTimeout(function() { fill.style.transition = 'width 0.9s ease'; fill.style.width = fill.dataset.w; }, 80);
+        });
+      }
+    }
+
+    // Init stat bars on page load for default active profile
+    document.addEventListener('DOMContentLoaded', function() {
+      var defaultProfile = document.querySelector('.pnc-char-profile.active');
+      if (defaultProfile) {
+        defaultProfile.querySelectorAll('.pnc-stat-fill').forEach(function(fill) {
+          setTimeout(function() { fill.style.transition = 'width 0.9s ease'; fill.style.width = fill.dataset.w; }, 400);
+        });
+      }
+    });
+
+    /* ── SECTION 4: Interactive Comic ── */
+    var comicAnswers = {};
+    var comicGoodCount = 0;
+
+    function comicChoose(scene, outcome) {
+      if (comicAnswers[scene]) return; // already chosen
+      comicAnswers[scene] = outcome;
+      if (outcome === 'good') comicGoodCount++;
+
+      // Disable both buttons for this scene
+      var btnBad  = document.getElementById('cbtn-' + scene + '-bad');
+      var btnGood = document.getElementById('cbtn-' + scene + '-good');
+      if (btnBad)  { btnBad.disabled = true;  btnBad.style.opacity = '0.4'; }
+      if (btnGood) { btnGood.disabled = true; }
+      if (outcome === 'good' && btnGood) btnGood.style.boxShadow = '0 0 0 2px #4ade80';
+      if (outcome === 'bad'  && btnBad)  btnBad.style.boxShadow  = '0 0 0 2px #f87171';
+
+      // Show outcome block
+      var outcomeEl = document.getElementById('outcome-' + scene + '-' + outcome);
+      if (outcomeEl) {
+        outcomeEl.style.display = 'block';
+        setTimeout(function() { outcomeEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 120);
+      }
+
+      // Update progress dot
+      var dot = document.getElementById('cdot-' + scene);
+      if (dot) { dot.classList.remove('active'); dot.classList.add(outcome === 'good' ? 'done-good' : 'done-bad'); }
+    }
+
+    function comicNext(fromScene) {
+      var nextScene = fromScene + 1;
+      var nextEl = document.getElementById('comic-scene-' + nextScene);
+      if (nextEl) {
+        nextEl.style.display = 'block';
+        var nextDot = document.getElementById('cdot-' + nextScene);
+        if (nextDot) nextDot.classList.add('active');
+        setTimeout(function() { nextEl.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100);
+      }
+    }
+
+    function buildFinalStrip() {
+      var s1 = comicAnswers[1] || 'bad';
+      var s2 = comicAnswers[2] || 'bad';
+
+      // Panel 2 — scene 1 outcome
+      var fp2char = document.getElementById('fp2-char');
+      var fp2bubble = document.getElementById('fp2-bubble');
+      var fp2cap = document.getElementById('fp2-caption');
+      if (s1 === 'good') {
+        fp2char.src = 'assets/chip.png'; fp2char.alt = 'CHIP';
+        fp2bubble.className = 'cfp-bubble cfp-bubble--hero';
+        fp2bubble.textContent = '🔍 Fake domain! Deleted. ✅';
+        fp2cap.textContent = 'You spotted the fake domain';
+      } else {
+        fp2char.src = 'assets/phish.png'; fp2char.alt = 'PHISH';
+        fp2bubble.className = 'cfp-bubble cfp-bubble--villain';
+        fp2bubble.textContent = '😈 Clicked! Data stolen!';
+        fp2cap.textContent = 'You fell for the prize trap';
+      }
+
+      // Panel 4 — scene 2 outcome
+      var fp4char = document.getElementById('fp4-char');
+      var fp4bubble = document.getElementById('fp4-bubble');
+      var fp4cap = document.getElementById('fp4-caption');
+      if (s2 === 'good') {
+        fp4char.src = 'assets/chip.png'; fp4char.alt = 'CHIP';
+        fp4bubble.className = 'cfp-bubble cfp-bubble--hero';
+        fp4bubble.textContent = '🚫 OTP blocked. Account safe!';
+        fp4cap.textContent = 'PHISH BUSTED — you won!';
+      } else {
+        fp4char.src = 'assets/phish.png'; fp4char.alt = 'PHISH';
+        fp4bubble.className = 'cfp-bubble cfp-bubble--villain';
+        fp4bubble.textContent = '🤡 OTP = full access. HACKED!';
+        fp4cap.textContent = 'OTP shared — account drained';
+      }
+
+      // Badge
+      var badges = [
+        { icon: '😰', title: 'PHISH GOT YOU', msg: 'But now you know — knowledge is your shield!' },
+        { icon: '🔰', title: 'LEARNING DETECTIVE', msg: 'One right, one wrong. Keep training with CHIP!' },
+        { icon: '🛡️', title: 'CYBER DETECTIVE', msg: 'Perfect score! You spotted every trap. PHISH doesn\'t stand a chance!' }
+      ];
+      var b = badges[comicGoodCount] || badges[0];
+      document.getElementById('badgeIcon').textContent = b.icon;
+      document.getElementById('badgeTitle').textContent = b.title;
+      document.getElementById('badgeScore').textContent = comicGoodCount + ' / 2 Correct';
+      document.getElementById('badgeMessage').textContent = b.msg;
+
+      // Show final scene
+      var finalEl = document.getElementById('comic-scene-final');
+      finalEl.style.display = 'block';
+      var dot3 = document.getElementById('cdot-3');
+      if (dot3) dot3.classList.add('active');
+      setTimeout(function() { finalEl.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100);
+    }
+
+    function saveComicStrip() {
+      var strip = document.getElementById('comicFinalStrip');
+      if (typeof html2canvas !== 'undefined') {
+        html2canvas(strip, { backgroundColor: '#ffffff', scale: 2 }).then(function(canvas) {
+          var link = document.createElement('a');
+          link.download = 'my-phish-chip-comic.png';
+          link.href = canvas.toDataURL('image/png');
+          link.click();
+        });
+      } else {
+        var w = window.open('');
+        w.document.write('<html><body style="margin:0;background:#fff">' + strip.outerHTML + '</body></html>');
+        w.document.close(); w.print();
+      }
+    }
+
+    function restartComic() {
+      comicAnswers = {}; comicGoodCount = 0;
+      // Reset scenes
+      document.getElementById('comic-scene-2').style.display = 'none';
+      document.getElementById('comic-scene-final').style.display = 'none';
+      // Re-enable buttons
+      ['cbtn-1-bad','cbtn-1-good','cbtn-2-bad','cbtn-2-good'].forEach(function(id) {
+        var btn = document.getElementById(id);
+        if (btn) { btn.disabled = false; btn.style.opacity = ''; btn.style.boxShadow = ''; }
+      });
+      // Hide outcomes
+      document.querySelectorAll('.comic-outcome').forEach(function(o) { o.style.display = 'none'; });
+      // Reset dots
+      document.querySelectorAll('.comic-dot').forEach(function(d, i) {
+        d.className = 'comic-dot' + (i === 0 ? ' active' : '');
+      });
+      document.getElementById('interactive-comic').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    (function() {
+      var s = document.createElement('script');
+      s.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+      document.head.appendChild(s);
+    })();
+
+        /* ── SECTION 5: Web Trap ── */
+    (function(){
+      var stage = document.getElementById('webStage');
+      if (!stage) return;
+      var svg = document.getElementById('webSvg');
+      var NS = 'http://www.w3.org/2000/svg';
+      var cx = 59, cy = 50;
+      var webCutCount = 0, webWrong = 0, webDone = false;
+
+      function line(x1,y1,x2,y2,cls){ var l=document.createElementNS(NS,'line'); l.setAttribute('x1',x1);l.setAttribute('y1',y1);l.setAttribute('x2',x2);l.setAttribute('y2',y2);l.setAttribute('class',cls); svg.appendChild(l); return l; }
+      function poly(pts,cls){ var p=document.createElementNS(NS,'polygon'); p.setAttribute('points',pts.join(' '));p.setAttribute('class',cls); svg.appendChild(p); return p; }
+      function dew(x,y,r){ var c=document.createElementNS(NS,'circle'); c.setAttribute('cx',x);c.setAttribute('cy',y);c.setAttribute('r',r);c.setAttribute('fill','rgba(190,215,255,0.45)'); svg.appendChild(c); }
+
+      // Decorative web: spokes + concentric rings
+      var spokes = 12, edge = 53, rings = [14,26,38,50];
+      for (var i=0;i<spokes;i++){ var a=(i/spokes)*Math.PI*2 - Math.PI/2; line(cx,cy,cx+edge*Math.cos(a),cy+edge*Math.sin(a),'web-silk'); }
+      rings.forEach(function(r){ var pts=[]; for(var i=0;i<spokes;i++){ var a=(i/spokes)*Math.PI*2 - Math.PI/2; pts.push((cx+r*Math.cos(a)).toFixed(1)+','+(cy+r*Math.sin(a)).toFixed(1)); } poly(pts,'web-silk-ring'); });
+      dew(cx+42*Math.cos(-0.5),cy+42*Math.sin(-0.5),0.7); dew(cx+30*Math.cos(2.2),cy+30*Math.sin(2.2),0.6); dew(cx+46*Math.cos(3.7),cy+46*Math.sin(3.7),0.7);
+
+      // The five message strands (ang measured from top, clockwise)
+      var strands = [
+        { ico:'🔑', txt:'“Share your OTP to verify”', danger:true,  ang:0 },
+        { ico:'📱', txt:'“You WON a new iPhone!”',     danger:true,  ang:72 },
+        { ico:'💬', txt:'IG DM: “is this you? [link]”', danger:true,  ang:144 },
+        { ico:'📧', txt:'Teacher’s class email',        danger:false, ang:216 },
+        { ico:'📋', txt:'School Google Form',           danger:false, ang:288 }
+      ];
+      var Rp = 42;
+      strands.forEach(function(s,i){
+        var a=(s.ang-90)*Math.PI/180;
+        var px=cx+Rp*Math.cos(a), py=cy+Rp*Math.sin(a);
+        var ln=line(cx,cy,px,py,'web-strand-line'); ln.id='webline-'+i;
+        var b=document.createElement('button'); b.type='button'; b.className='web-strand';
+        b.style.left=(px/118*100).toFixed(2)+'%'; b.style.top=(py/100*100).toFixed(2)+'%';
+        b.innerHTML='<span class="web-strand-ico">'+s.ico+'</span><span class="web-strand-txt">'+s.txt+'</span><span class="web-scissor">✂</span>';
+        b.addEventListener('click', function(){ webCut(i,s,b); });
+        stage.appendChild(b);
+      });
+
+      function updateHud(){
+        document.getElementById('webCount').textContent = webCutCount;
+        var lives = document.querySelectorAll('#webLives .web-life');
+        lives.forEach(function(l,idx){ l.classList.toggle('lost', idx >= (3-webWrong)); });
+      }
+
+      window.webCut = function(i,s,b){
+        if (webDone || b.classList.contains('cut') || b.classList.contains('done-danger')) return;
+        if (s.danger){
+          b.classList.add('cut','done-danger');
+          var ln=document.getElementById('webline-'+i); if(ln) ln.classList.add('cut');
+          webCutCount++; updateHud();
+          if (webCutCount>=3) webEnd(true);
+        } else {
+          b.classList.add('safe-cut'); setTimeout(function(){ b.classList.remove('safe-cut'); },560);
+          stage.classList.add('shake'); setTimeout(function(){ stage.classList.remove('shake'); },460);
+          webWrong++; updateHud();
+          if (webWrong>=3) webEnd(false);
+        }
+      };
+
+      function webEnd(win){
+        webDone = true;
+        var r=document.getElementById('webResult');
+        r.className='web-result show '+(win?'win':'lose');
+        document.getElementById('webResEmoji').textContent = win ? '🕸✂️' : '🕷';
+        document.getElementById('webResTitle').textContent = win ? 'You cut free!' : 'The spider got you!';
+        document.getElementById('webResMsg').innerHTML = win
+          ? 'You snapped every dangerous strand — the OTP request, the fake iPhone prize and the scam DM link — and left the harmless ones (your teacher’s email, the class form) alone. That’s exactly how you escape a web of scams.'
+          : 'You cut a <strong>safe</strong> strand and fell deeper. Not every message is a trap — your teacher’s email and the class Google Form were harmless. Read what each message actually <em>asks</em> before you snip.';
+      }
+
+      window.webReset = function(){
+        webCutCount=0; webWrong=0; webDone=false;
+        document.getElementById('webResult').className='web-result';
+        document.querySelectorAll('#webStage .web-strand').forEach(function(b){ b.classList.remove('cut','done-danger','safe-cut'); });
+        document.querySelectorAll('.web-strand-line').forEach(function(l){ l.classList.remove('cut'); });
+        updateHud();
+      };
+    })();
+
+/* ── SECTION 6: Detective Lab ── */
+    var labCases = [
+      {
+        num: 'CASE #PC-2025-001',
+        from: 'support@amazon-india-help.com',
+        subject: 'Your Amazon order has been placed on hold',
+        body: 'Dear Customer,<br/><br/>Your order #408-7291836-5523912 is on hold due to a payment verification issue. It will be <b>cancelled in 24 hours</b> unless you re-verify your payment details.<br/><br/>Verify here: amazon-india-help.com/verify-payment<br/><br/>— Amazon Customer Service',
+        intro: 'A message says your Amazon order is on hold. <strong>Three things here are red flags — one is just a normal detail. Find them, then decide.</strong>',
+        clues: [
+          { label: 'Sender domain is <b>amazon-india-help.com</b>', flag: true,  why: 'Amazon only uses amazon.in or amazon.com. A third-party domain like this is a spoof.' },
+          { label: 'Link points to <b>amazon-india-help.com/verify-payment</b>', flag: true, why: 'The link goes to the same fake domain — built to capture your card details.' },
+          { label: '<b>"Cancelled in 24 hours"</b> time pressure', flag: true, why: 'Artificial urgency is designed to make you act before you think. A classic scam move.' },
+          { label: 'Order number <b>#408-7291836-5523912</b>', flag: false, why: 'An order number looks official but proves nothing — scammers copy the format. On its own it is neither proof of a scam nor of safety.' }
+        ],
+        answer: 'scam',
+        verdict: 'It is a scam. The fake domain, the spoofed link and the 24-hour pressure give it away. The order number is a decoy — real-looking, but meaningless. Golden rule: type amazon.in yourself, never click.'
+      },
+      {
+        num: 'CASE #PC-2025-002',
+        from: 'WhatsApp +91 98000 12345 (unknown)',
+        subject: 'KBC Lottery — You Won Rs 25,00,000!',
+        body: 'Dear Lucky Winner! 🎉<br/><br/>Your number won the KBC Season 14 Lottery — Rs 25,00,000.<br/><br/>To claim, send your full name, address and <b>Aadhaar number</b>, and pay a <b>Rs 1,500 processing fee</b> via UPI.<br/><br/>Offer valid 24 hours. Do not tell anyone.',
+        intro: 'A WhatsApp "lottery win". <strong>Spot the real red flags — but do not flag things that are actually harmless.</strong>',
+        clues: [
+          { label: 'Unsolicited win from an <b>unknown number</b>', flag: true, why: 'You never entered a lottery. Real prizes are not announced by random WhatsApp numbers.' },
+          { label: '<b>Rs 1,500 fee</b> to release the prize', flag: true, why: 'No genuine prize ever needs an upfront payment. This is the core of an advance-fee scam.' },
+          { label: 'Asks for your <b>Aadhaar + address</b>', flag: true, why: 'That data combo enables identity theft and SIM-swap fraud. Never share it.' },
+          { label: 'The message has <b>good grammar and an emoji</b> 🎉', flag: false, why: 'A common myth is that scams always look sloppy. Polished wording proves nothing — judge the request, not the writing.' }
+        ],
+        answer: 'scam',
+        verdict: 'It is a classic advance-fee lottery scam. The tell is the money + data demand, not the writing style. Good scams look clean.'
+      },
+      {
+        num: 'CASE #PC-2025-003',
+        from: 'alerts@hdfcbank.net',
+        subject: 'Transaction Alert — A/c XXXX3456',
+        body: 'Dear Customer,<br/><br/>Your account XXXX3456 was debited <b>Rs 2,000</b> on 12 May at AMAZON.<br/><br/>If this was not you, call the number printed on your debit card. <b>Never share your OTP, PIN or password</b> with anyone — including bank staff.<br/><br/>— HDFC Bank',
+        intro: 'A bank transaction alert. <strong>Careful — not everything scary is a scam. Would flagging this be a false alarm?</strong>',
+        clues: [
+          { label: 'Reports a <b>Rs 2,000 debit</b> you may not recognise', flag: false, why: 'A transaction alert simply informs you. Stating an amount is normal — it is how banks help you catch fraud early.' },
+          { label: 'Says <b>"never share your OTP/PIN"</b>', flag: false, why: 'This is exactly what a real bank says. Scammers ASK for your OTP — they do not warn you to protect it.' },
+          { label: 'Has <b>no link and asks for nothing</b>', flag: false, why: 'Legitimate alerts are informational. No link, no "verify now", no data request — all signs it is genuine.' },
+          { label: 'Tells you to <b>call the number on your card</b>', flag: false, why: 'It points you to the official channel you already trust, not a random number in the message. That is the safe way.' }
+        ],
+        answer: 'safe',
+        verdict: 'This one is safe. It only informs you, asks for nothing, and reminds you to protect your OTP. Flagging it would be a false alarm — recognising a genuine message is a real skill.'
+      }
+    ];
+
+    var labCur = 0;
+    var labSolved = [false, false, false];
+    var labSubmitted = false;
+
+    function labLoadCase(idx) {
+      labCur = idx; labSubmitted = false;
+      var c = labCases[idx];
+      document.querySelectorAll('.lab-case-tab').forEach(function(t, i) {
+        t.classList.toggle('active', i === idx);
+        t.classList.toggle('solved', labSolved[i]);
+      });
+      document.getElementById('labCaseNum').textContent = c.num;
+      document.getElementById('labExFrom').textContent = c.from;
+      document.getElementById('labExSubject').textContent = c.subject;
+      document.getElementById('labExBody').innerHTML = c.body;
+      document.getElementById('labChipSpeech').innerHTML = c.intro;
+      var box = document.getElementById('labClues'); box.innerHTML = '';
+      c.clues.forEach(function(cl, i) {
+        box.innerHTML += '<div class="lab-clue" id="lclue-' + i + '" onclick="labToggle(' + i + ')">'
+          + '<div class="lab-clue-box">🚩</div>'
+          + '<div class="lab-clue-main"><span>' + cl.label + '</span><span class="lab-clue-why">' + cl.why + '</span></div>'
+          + '</div>';
+      });
+      document.getElementById('labFlagCount').textContent = '0';
+      document.getElementById('labVerdict').style.display = 'block';
+      document.querySelectorAll('#labVerdict .lab-verdict-btn').forEach(function(b) { b.disabled = false; });
+      var r = document.getElementById('labResult'); r.className = 'lab-result'; r.innerHTML = '';
+    }
+
+    function labToggle(i) {
+      if (labSubmitted) return;
+      document.getElementById('lclue-' + i).classList.toggle('flagged');
+      var n = document.querySelectorAll('#labClues .lab-clue.flagged').length;
+      document.getElementById('labFlagCount').textContent = n;
+    }
+
+    function labVerdict(v) {
+      if (labSubmitted) return;
+      labSubmitted = true;
+      var c = labCases[labCur];
+      document.querySelectorAll('#labVerdict .lab-verdict-btn').forEach(function(b) { b.disabled = true; });
+      var clueScore = 0;
+      c.clues.forEach(function(cl, i) {
+        var el = document.getElementById('lclue-' + i);
+        var flagged = el.classList.contains('flagged');
+        var correct = (flagged === cl.flag);
+        if (correct) clueScore++;
+        el.classList.add('reveal', correct ? 'correct' : 'wrong');
+        var tag = document.createElement('span');
+        tag.className = 'lab-clue-tag ' + (cl.flag ? 'red' : 'ok');
+        tag.textContent = cl.flag ? 'RED FLAG' : 'HARMLESS';
+        el.appendChild(tag);
+      });
+      var verdictCorrect = (v === c.answer);
+      var total = clueScore + (verdictCorrect ? 1 : 0);
+      var max = c.clues.length + 1;
+      var good = verdictCorrect && clueScore === c.clues.length;
+      if (verdictCorrect) { labSolved[labCur] = true; document.querySelectorAll('.lab-case-tab')[labCur].classList.add('solved'); }
+      var r = document.getElementById('labResult');
+      r.className = 'lab-result show ' + (verdictCorrect ? 'good' : 'bad');
+      var title = verdictCorrect ? (good ? 'Case Closed! 🏆' : 'Verdict Correct 👍') : 'Case Reopened 🔍';
+      r.innerHTML = '<div class="lab-result-title">' + title + '</div>'
+        + '<div class="lab-result-msg">You scored <strong>' + total + '/' + max + '</strong> (' + clueScore + '/' + c.clues.length + ' clues + verdict).<br/>' + c.verdict + '</div>'
+        + '<div class="lab-result-actions">'
+        + (labCur < labCases.length - 1 ? '<button class="lab-next-btn" onclick="labNextCase()">Next Case →</button>' : '')
+        + '<button class="lab-reset-btn" onclick="labLoadCase(' + labCur + ')">🔄 Retry</button>'
+        + '</div>';
+      document.getElementById('labVerdict').style.display = 'none';
+      document.getElementById('labChipSpeech').innerHTML = verdictCorrect
+        ? ('🎉 <strong>Nice work, detective!</strong> ' + (good ? 'A flawless read of the evidence.' : 'Right call — check the clue notes below.'))
+        : '🤔 <strong>Not so fast.</strong> Read the clue notes below — the evidence tells a different story.';
+    }
+
+    function labNextCase() { if (labCur < labCases.length - 1) labLoadCase(labCur + 1); }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      if (document.getElementById('labClues')) labLoadCase(0);
+    });
+
+    /* ── Stat bar animation on scroll ── */
+    (function() {
+      var bars = document.querySelectorAll('.pnc-stat-fill');
+      bars.forEach(function(b){ b.style.width = '0'; });
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            var fill = entry.target;
+            var target = fill.getAttribute('data-w') || fill.style.width;
+            setTimeout(function(){ fill.style.width = target; }, 100);
+            observer.unobserve(fill);
+          }
+        });
+      }, { threshold: 0.3 });
+      bars.forEach(function(b){ observer.observe(b); });
+    })();
+  </script>
+</body>
+</html>

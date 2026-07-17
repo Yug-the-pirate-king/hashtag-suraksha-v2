@@ -1,0 +1,301 @@
+/* ═══════════════════════════════════════════════
+   RESOURCES.CSS — Resources & Awareness Page
+   Futuristic overrides + filter tabs
+═══════════════════════════════════════════════ */
+
+/* ── Hero Override ── */
+.resources-hero {
+  background: var(--bg) !important;
+  padding: 140px 24px 100px !important;
+  position: relative;
+  overflow: hidden;
+}
+.resources-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 600px 400px at 20% 50%, rgba(120,80,255,0.10) 0%, transparent 60%),
+    radial-gradient(ellipse 500px 350px at 80% 30%, rgba(255,107,26,0.09) 0%, transparent 55%);
+  pointer-events: none;
+}
+.resources-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 100%);
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 100%);
+  pointer-events: none;
+}
+
+.resources-hero h1 {
+  font-family: 'Playfair Display', serif !important;
+  color: var(--text-primary) !important;
+}
+.resources-hero h1 span {
+  background: linear-gradient(135deg, var(--accent-saffron), #FFB347);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.resources-hero p {
+  color: var(--text-secondary) !important;
+  font-family: 'DM Sans', sans-serif !important;
+}
+.resources-hero-tag {
+  background: rgba(120,80,255,0.12) !important;
+  color: #A78BFA !important;
+  border: 1px solid rgba(120,80,255,0.3) !important;
+  font-family: 'Space Grotesk', sans-serif !important;
+}
+
+/* ── Filter Tab System ── */
+.resources-filter-bar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 70px;
+  z-index: 40;
+  padding: 0 24px;
+}
+.filter-tabs {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  padding: 12px 0;
+  scrollbar-width: none;
+}
+.filter-tabs::-webkit-scrollbar { display: none; }
+
+.filter-tab {
+  padding: 8px 20px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.22s ease;
+  flex-shrink: 0;
+}
+.filter-tab:hover {
+  background: rgba(255,107,26,0.08);
+  color: var(--accent-saffron);
+  border-color: rgba(255,107,26,0.2);
+}
+.filter-tab.active {
+  background: var(--accent-saffron);
+  color: white;
+  border-color: var(--accent-saffron);
+  box-shadow: 0 4px 14px rgba(255,107,26,0.35);
+}
+
+/* ── Resource Cards ── */
+.resources-section {
+  background: var(--bg) !important;
+  border-top: 1px solid var(--border);
+  padding: 80px 24px !important;
+}
+.resources-section h2 {
+  font-family: 'DM Serif Display', serif !important;
+  color: var(--text-primary) !important;
+}
+.resources-section > p, .resources-section .section-subtitle {
+  color: var(--text-secondary) !important;
+}
+
+.resource-card, .guide-card, .video-card, .quiz-card, .toolkit-card {
+  background: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 18px !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+  overflow: hidden;
+  position: relative;
+}
+.resource-card:hover, .guide-card:hover, .video-card:hover,
+.quiz-card:hover, .toolkit-card:hover {
+  transform: translateY(-7px) !important;
+  box-shadow: 0 20px 44px rgba(0,0,0,0.3) !important;
+  border-color: rgba(255,107,26,0.3) !important;
+}
+
+.resource-card-thumb {
+  width: 100%;
+  height: 160px;
+  background: linear-gradient(135deg, rgba(255,107,26,0.15), rgba(120,80,255,0.1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+.resource-card-thumb svg { opacity: 0.7; }
+
+.resource-card-body { padding: 24px; }
+.resource-tag {
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  background: rgba(255,107,26,0.12) !important;
+  color: var(--accent-saffron) !important;
+  border-radius: 999px !important;
+  padding: 4px 12px !important;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+.resource-card h3, .guide-card h3, .resource-title {
+  font-family: 'DM Serif Display', serif !important;
+  color: var(--text-primary) !important;
+  font-size: 17px;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+.resource-card p, .resource-desc {
+  color: var(--text-secondary) !important;
+  font-size: 14px !important;
+  line-height: 1.7 !important;
+}
+.resource-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+.resource-meta-item {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Resource sections that should be hidden/shown via filter */
+.resource-group { display: none; }
+.resource-group.active { display: block; animation: fadeInUp 0.4s ease; }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Featured Resource (wide card) ── */
+.resource-featured {
+  background: linear-gradient(135deg, rgba(255,107,26,0.08), rgba(120,80,255,0.06)) !important;
+  border-color: rgba(255,107,26,0.25) !important;
+  border-radius: 24px !important;
+  padding: 40px !important;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 32px;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.resource-featured h3 {
+  font-family: 'DM Serif Display', serif !important;
+  color: var(--text-primary) !important;
+  font-size: clamp(22px, 3vw, 32px);
+}
+.resource-featured p { color: var(--text-secondary) !important; line-height: 1.7; }
+
+/* ── Override all hardcoded inline-style section backgrounds ── */
+/* Makes all resource sections theme-aware */
+.books-section,
+.podcast-section, .podcasts-section,
+.guides-section,
+.tips-section,
+.helpline-section,
+.quizzes-section, .videos-section,
+.toolkits-section, .parents-section {
+  background: var(--bg) !important;
+  border-top: 1px solid var(--border);
+  padding: 80px 24px !important;
+}
+
+/* Force all h2 headings in these sections to follow theme */
+.books-section h2, .books-section h3,
+.podcast-section h2, .podcasts-section h2,
+.guides-section h2,
+.tips-section h2,
+.helpline-section h2,
+.quizzes-section h2, .videos-section h2,
+.toolkits-section h2, .parents-section h2 {
+  font-family: 'DM Serif Display', serif !important;
+  color: var(--text-primary) !important;
+}
+
+/* Force all paragraphs to follow theme */
+.books-section p, .podcast-section p, .podcasts-section p,
+.guides-section p, .tips-section p, .helpline-section p,
+.quizzes-section p, .videos-section p, .toolkits-section p {
+  color: var(--text-secondary) !important;
+}
+
+/* Book cards */
+.book-card { background: var(--surface) !important; border: 1px solid var(--border) !important; border-radius: 16px !important; }
+.book-info h3 { color: var(--text-primary) !important; }
+.book-info p { color: var(--text-secondary) !important; }
+
+/* Helpline box */
+.helpline-box h2 { color: var(--text-primary) !important; }
+.helpline-box p { color: var(--text-secondary) !important; }
+.helpline-item .num { color: var(--accent-saffron) !important; }
+.helpline-item .lbl { color: var(--text-secondary) !important; }
+
+/* ── Light Mode ── */
+[data-theme="light"] .resources-hero h1 { color: #0D1422 !important; }
+[data-theme="light"] .resources-hero p { color: #444 !important; }
+[data-theme="light"] .resources-hero::after {
+  background-image:
+    linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
+}
+[data-theme="light"] .resources-filter-bar { background: rgba(255,255,255,0.95) !important; }
+[data-theme="light"] .filter-tab { color: #444 !important; }
+
+/* Cards */
+[data-theme="light"] .resource-card,
+[data-theme="light"] .guide-card,
+[data-theme="light"] .video-card,
+[data-theme="light"] .quiz-card,
+[data-theme="light"] .book-card {
+  background: white !important;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06) !important;
+}
+[data-theme="light"] .resource-card h3,
+[data-theme="light"] .resource-title,
+[data-theme="light"] .book-info h3 { color: #0D1422 !important; }
+[data-theme="light"] .resource-card p,
+[data-theme="light"] .resource-desc,
+[data-theme="light"] .book-info p { color: #555 !important; }
+[data-theme="light"] .resource-card-thumb {
+  background: linear-gradient(135deg, rgba(212,90,0,0.08), rgba(120,80,255,0.06)) !important;
+}
+
+/* Section headings in light */
+[data-theme="light"] .books-section h2,
+[data-theme="light"] .podcast-section h2,
+[data-theme="light"] .guides-section h2,
+[data-theme="light"] .tips-section h2,
+[data-theme="light"] .helpline-section h2 { color: #0D1422 !important; }
+[data-theme="light"] .helpline-box h2 { color: #0D1422 !important; }
+[data-theme="light"] .helpline-box p,
+[data-theme="light"] .helpline-item .lbl { color: #555 !important; }
+
+@media (max-width: 700px) {
+  .resource-featured { grid-template-columns: 1fr !important; }
+}
