@@ -1,0 +1,318 @@
+/* ═══════════════════════════════════════════════════════════════
+   HASHTAG SURAKSHA — POLISH IMPROVEMENTS v1
+   Targeted CSS enhancements across all pages.
+   Never modifies HTML structure or existing class names.
+═══════════════════════════════════════════════════════════════ */
+
+/* ══ 1. ACCESSIBILITY — Focus states ════════════════════════ */
+:focus-visible {
+  outline: 2px solid #007aff !important;
+  outline-offset: 3px !important;
+  border-radius: 5px;
+}
+button:focus-visible,
+a:focus-visible,
+[tabindex]:focus-visible { border-radius: 6px; }
+
+/* ══ 2. ANIMATION — Global timing consistency ══════════════ */
+button, a, [class*="-card"], [class*="-btn"], [class*="-chip"] {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ══ 3. LANDING PAGE — Increased logo sizes ════════════════ */
+
+/* Government / certification logo strip */
+.cert-govt-bar {
+  padding: 10px 22px !important;
+  gap: 14px !important;
+}
+.cert-govt-logo {
+  height: 48px !important;
+  max-width: 140px !important;
+}
+.cert-govt-divider { height: 44px !important; }
+
+/* White logo strip — slightly taller */
+.partner-logo-marquee-wrap {
+  max-width: 960px !important;
+}
+.partner-logo-chip {
+  padding: 12px 24px !important;
+  border-radius: 14px !important;
+}
+.partner-logo-chip img {
+  height: 92px !important;
+  max-width: 210px !important;
+}
+
+/* ══ 4. TRANSPARENT LOGOS — Visibility in dark/light ═══════ */
+.logo-dark {
+  filter: brightness(1.08) drop-shadow(0 0 10px rgba(255,255,255,0.16));
+}
+[data-theme="light"] .logo-light {
+  filter: brightness(0.95) drop-shadow(0 0 8px rgba(0,0,0,0.13));
+}
+/* Larger size for brand logos in hero sections */
+.cask-section-logo,
+.slang-section-logo {
+  max-height: 90px !important;
+}
+
+/* ══ 5. AUDIO BUTTON — Smooth transitions ══════════════════ */
+.cask-unmute-btn {
+  transition:
+    background 0.25s cubic-bezier(.22,1,.36,1),
+    border-color 0.25s,
+    transform 0.18s cubic-bezier(.22,1,.36,1),
+    box-shadow 0.25s !important;
+  will-change: transform;
+}
+.cask-unmute-btn:hover {
+  transform: scale(1.10) !important;
+  box-shadow: 0 4px 18px rgba(0,122,255,0.38) !important;
+}
+.cask-unmute-btn:active { transform: scale(0.95) !important; }
+
+/* ══ 6. EVERYTHING INSIDE CASK — Glow on ALL cards ════════ */
+/* Subtle premium glow on every card (dark mode) */
+.cd4-card {
+  border-color: rgba(84,244,255,0.13) !important;
+  box-shadow:
+    0 0 16px rgba(84,244,255,0.04) inset,
+    0 12px 32px rgba(0,0,0,0.30) !important;
+  transition:
+    border-color 0.25s cubic-bezier(.22,1,.36,1),
+    transform 0.25s cubic-bezier(.22,1,.36,1),
+    box-shadow 0.25s cubic-bezier(.22,1,.36,1),
+    background 0.25s !important;
+}
+.cd4-card:hover {
+  border-color: rgba(84,244,255,0.52) !important;
+  box-shadow:
+    0 0 30px rgba(84,244,255,0.16) inset,
+    0 20px 48px rgba(0,0,0,0.44) !important;
+  background: #0f1c30 !important;
+}
+/* Hero glow cards retain stronger original glow */
+.cd4-card-glow {
+  border-color: rgba(84,244,255,0.40) !important;
+  box-shadow:
+    0 0 28px rgba(84,244,255,0.15) inset,
+    0 12px 32px rgba(0,0,0,0.32) !important;
+}
+.cd4-card-glow:hover {
+  border-color: rgba(84,244,255,0.68) !important;
+  box-shadow:
+    0 0 38px rgba(84,244,255,0.24) inset,
+    0 20px 52px rgba(0,0,0,0.46) !important;
+}
+
+/* ══ 6b. EVERYTHING INSIDE CASK — Light mode ══════════════ */
+[data-theme="light"] .cd4-section {
+  background: #f0f4ff !important;
+}
+[data-theme="light"] .cd4-section::before {
+  background:
+    radial-gradient(ellipse 55% 45% at 0% 0%, rgba(0,122,255,0.07) 0%, transparent 55%),
+    radial-gradient(ellipse 45% 40% at 100% 0%, rgba(90,50,200,0.05) 0%, transparent 55%) !important;
+}
+[data-theme="light"] .cd4-h2 { color: #0a0f20 !important; }
+[data-theme="light"] .cd4-sub { color: rgba(10,15,32,0.56) !important; }
+[data-theme="light"] .cd4-head { border-bottom-color: rgba(10,15,32,0.08) !important; }
+[data-theme="light"] .cd4-eyebrow { color: rgba(0,100,80,0.80) !important; }
+[data-theme="light"] .cd4-toggle {
+  background: rgba(10,15,32,0.05) !important;
+  border-color: rgba(10,15,32,0.10) !important;
+}
+[data-theme="light"] .cd4-wing strong { color: #0a0f20 !important; }
+[data-theme="light"] .cd4-wing small  { color: rgba(10,15,32,0.50) !important; }
+[data-theme="light"] .cd4-wing-active {
+  background: rgba(0,120,80,0.07) !important;
+  border-color: rgba(0,120,80,0.20) !important;
+}
+/* Card in light mode: clean white, clear text */
+[data-theme="light"] .cd4-card {
+  background: #ffffff !important;
+  border-color: rgba(0,0,0,0.07) !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.03) !important;
+}
+[data-theme="light"] .cd4-card:hover {
+  background: #ffffff !important;
+  border-color: rgba(0,122,255,0.36) !important;
+  box-shadow: 0 12px 40px rgba(0,122,255,0.12), 0 0 18px rgba(0,122,255,0.07) inset !important;
+  transform: translateY(-4px) scale(1.02);
+}
+[data-theme="light"] .cd4-card strong { color: #0a0f20 !important; }
+[data-theme="light"] .cd4-card .cd4-card-desc { color: rgba(10,15,32,0.62) !important; }
+[data-theme="light"] .cd4-card-ico {
+  background: rgba(0,122,255,0.08) !important;
+  box-shadow: none !important;
+}
+[data-theme="light"] .cd4-card-glow {
+  background: #f8f0ff !important;
+  border-color: rgba(0,100,200,0.22) !important;
+  box-shadow: 0 6px 24px rgba(0,100,200,0.10), 0 0 20px rgba(0,100,200,0.06) inset !important;
+}
+[data-theme="light"] .cd4-card-glow:hover {
+  border-color: rgba(0,122,255,0.44) !important;
+  box-shadow: 0 14px 44px rgba(0,122,255,0.16), 0 0 28px rgba(0,122,255,0.10) inset !important;
+}
+[data-theme="light"] .cd4-card-glow .cd4-card-ico {
+  background: rgba(0,122,255,0.12) !important;
+}
+/* Prevent text from stacking/overlapping inside light mode cards */
+[data-theme="light"] .cd4-card {
+  overflow: hidden;
+}
+
+/* ══ 7. FOUR YEARS, FOUR TRANSFORMATIONS — Light mode ══════ */
+[data-theme="light"] .fyt-section { background: #f5f8ff !important; }
+[data-theme="light"] .fyt-panel   { background: #f5f8ff !important; }
+[data-theme="light"] .fyt-overlay {
+  background: rgba(245,248,255,0.97) !important;
+}
+[data-theme="light"] .fyt-ov-h2  { color: #0a0f20 !important; }
+[data-theme="light"] .fyt-ov-sub { color: rgba(10,15,32,0.56) !important; }
+[data-theme="light"] .fyt-hl     { color: #0a0f20 !important; }
+[data-theme="light"] .fyt-body   { color: rgba(10,15,32,0.62) !important; }
+[data-theme="light"] .fyt-yr-label { color: rgba(10,15,32,0.44) !important; }
+[data-theme="light"] .fyt-cert-label { color: rgba(10,15,32,0.40) !important; }
+[data-theme="light"] .fyt-cert-sub   { color: rgba(10,15,32,0.40) !important; }
+[data-theme="light"] .fyt-sec-lbl    { color: rgba(10,15,32,0.42) !important; }
+[data-theme="light"] .fyt-grade-sep  { background: rgba(10,15,32,0.14) !important; }
+[data-theme="light"] .fyt-watermark  { color: rgba(10,15,32,0.05) !important; }
+/* Stronger decorative ring & orbit in light mode */
+[data-theme="light"] .fyt-orbit {
+  border-color: rgba(var(--fyt-rgb), 0.32) !important;
+}
+[data-theme="light"] .fyt-bg-glow {
+  background: radial-gradient(
+    ellipse 75% 55% at 22% 60%,
+    rgba(var(--fyt-rgb), 0.16) 0%,
+    transparent 65%
+  ) !important;
+}
+/* Left column divider */
+[data-theme="light"] .fyt-left {
+  border-right-color: rgba(10,15,32,0.10) !important;
+}
+/* Unit rows */
+[data-theme="light"] .fyt-unit-row {
+  background: rgba(255,255,255,0.90) !important;
+  border-color: rgba(var(--fyt-rgb), 0.22) !important;
+  box-shadow: 0 0 16px rgba(var(--fyt-rgb), 0.04) !important;
+}
+[data-theme="light"] .fyt-unit-row:hover,
+[data-theme="light"] .fyt-unit-row.fyt-ur-active {
+  background: rgba(255,255,255,0.99) !important;
+  border-color: rgba(var(--fyt-rgb), 0.45) !important;
+  box-shadow: 0 0 26px rgba(var(--fyt-rgb), 0.14) !important;
+}
+[data-theme="light"] .fyt-unit-row .fyt-uname {
+  color: rgba(10,15,32,0.84) !important;
+}
+/* Detail overlay panel */
+[data-theme="light"] .fyt-detail-panel {
+  background: rgba(255,255,255,0.97) !important;
+  border-color: rgba(var(--fyt-rgb), 0.32) !important;
+}
+[data-theme="light"] .fyt-detail-ttl { color: rgba(10,15,32,0.88) !important; }
+[data-theme="light"] .fyt-detail-bul li { color: rgba(10,15,32,0.58) !important; }
+/* Bottom outcomes / key terms */
+[data-theme="light"] .fyt-bottom-row {
+  border-top-color: rgba(10,15,32,0.08) !important;
+}
+[data-theme="light"] .fyt-bottom-row .fyt-oc {
+  color: rgba(10,15,32,0.70) !important;
+}
+[data-theme="light"] .fyt-term {
+  color: rgba(10,15,32,0.88) !important;
+  background: rgba(255,255,255,0.75) !important;
+}
+/* Stats row */
+[data-theme="light"] .fyt-stat-l   { color: rgba(10,15,32,0.40) !important; }
+[data-theme="light"] .fyt-stat-sep { background: rgba(10,15,32,0.08) !important; }
+/* Progress bar at bottom */
+[data-theme="light"] .fyt-prog-bar {
+  background: linear-gradient(to top, rgba(245,248,255,0.95) 40%, transparent) !important;
+}
+[data-theme="light"] .fyt-prog-track { background: rgba(10,15,32,0.10) !important; }
+[data-theme="light"] .fyt-prog-lbl   { color: rgba(10,15,32,0.38) !important; }
+
+/* ══ 8. MULTILINGUAL — One-row scrollable, smooth hover ════ */
+.cask-lang-cloud {
+  flex-wrap: nowrap !important;
+  overflow-x: auto !important;
+  overflow-y: visible !important;
+  max-width: 100% !important;
+  padding: 18px 32px 24px !important;
+  margin-top: 28px !important;
+  margin-bottom: 8px !important;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  gap: 12px !important;
+  justify-content: flex-start !important;
+  scroll-snap-type: x proximity;
+}
+.cask-lang-cloud::-webkit-scrollbar { display: none; }
+.clb-wrap {
+  scroll-snap-align: start;
+  flex-shrink: 0 !important;
+  /* Override layout hacks that break single-row */
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+/* Highlight active bubble on hover (set by JS) */
+.clb-wrap.clb-active .cask-lang-bubble {
+  border-color: rgba(0,122,255,0.55) !important;
+  box-shadow: 0 18px 44px rgba(0,122,255,0.22), inset 0 1px 0 rgba(255,255,255,0.14) !important;
+}
+/* Smooth fade for chat preview when language changes */
+#caskLangBubble {
+  transition: opacity 0.22s ease, transform 0.22s ease;
+  will-change: opacity;
+}
+#caskLangBubble.hs-fading {
+  opacity: 0;
+  transform: translateY(4px);
+}
+#caskLangStatus {
+  transition: opacity 0.18s ease;
+}
+/* Compact section to fit in ~1 viewport */
+.cask-section.cask-section-mid {
+  padding: 56px 0 48px !important;
+}
+
+/* ══ 9. FOUR YEARS MILESTONES — Glass consistency ══════════ */
+/* These apply to milestone/recognition cards in platform.html */
+[data-theme="light"] .cask-recog {
+  background: #f0f4ff !important;
+}
+
+/* ══ 10. PHISH & CHIP — Light mode support ═════════════════ */
+/* Body class added via JS when on phishnchip.html in light mode */
+[data-theme="light"] .pnc-hero {
+  background: linear-gradient(160deg,#f8f0ff 0%,#e8eeff 100%) !important;
+  color: #0a0010 !important;
+}
+[data-theme="light"] .pnc-show-label { color: rgba(10,0,32,0.55) !important; }
+[data-theme="light"] .pnc-show-label::before,
+[data-theme="light"] .pnc-show-label::after { background: rgba(10,0,32,0.25) !important; }
+
+/* ══ 11. HOVER ANIMATIONS — 60fps smooth lift ══════════════ */
+.cd4-card,
+.cask-topic-card,
+.fyt-unit-row,
+.cask-lang-bubble,
+.partner-logo-chip,
+.cask-role-tab,
+.surakshak-level {
+  will-change: transform;
+}
+
+/* ══ 12. NO HORIZONTAL SCROLL — Responsive guard ═══════════ */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}

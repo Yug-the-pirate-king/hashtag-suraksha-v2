@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Hind:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="global.css" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="improvements.css" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     /* position:sticky requires overflow-x:clip (not hidden) on body */
@@ -5950,6 +5951,37 @@
       gu: { name:'Gujarati', text:'\u0aa8\u0aae\u0ab8\u0acd\u0aa4\u0ac7! \u0a85\u0a9c\u0abe\u0aa3\u0acd\u0aaf\u0abe \u0ab5\u0acd\u0aaf\u0a95\u0acd\u0aa4\u0abf\u0aa8\u0ac0 UPI \u0ab5\u0abf\u0aa8\u0ab5\u0aa3\u0ac0 \u0a95\u0acd\u0aaf\u0abe\u0ab0\u0ac7\u0aaf \u0aae\u0a82\u0a9c\u0ac2\u0ab0 \u0aa8 \u0a95\u0ab0\u0ab6\u0acb.' },
       ml: { name:'Malayalam', text:'\u0d28\u0d2e\u0d38\u0d4d\u0d15\u0d3e\u0d30\u0d02! \u0d05\u0d2a\u0d30\u0d3f\u0d1a\u0d3f\u0d24\u0d30\u0d3e\u0d2f \u0d12\u0d30\u0d3e\u0d33\u0d41\u0d1f\u0d46 UPI \u0d05\u0d2d\u0d4d\u0d2f\u0d7c\u0d24\u0d4d\u0d25\u0d28 \u0d12\u0d30\u0d3f\u0d15\u0d4d\u0d15\u0d32\u0d41\u0d02 \u0d05\u0d28\u0d41\u0d35\u0d26\u0d3f\u0d15\u0d4d\u0d15\u0d30\u0d41\u0d24\u0d4f.' }
     };
+    // ── Multilingual bubble hover → update chat preview ──────
+    (function() {
+      // Map each bubble's language to langData keys
+      var bubbleLangMap = ['hi','en','bn','te','kn','gu','mr','ta','ml',null];
+      var cloud = document.querySelector('.cask-lang-cloud');
+      if (!cloud) return;
+      var wraps = cloud.querySelectorAll('.clb-wrap');
+      var bubble = document.getElementById('caskLangBubble');
+      var status = document.getElementById('caskLangStatus');
+      function setLang(key) {
+        if (!key || !langData[key] || !bubble || !status) return;
+        var d = langData[key];
+        bubble.classList.add('hs-fading');
+        setTimeout(function() {
+          bubble.textContent = d.text;
+          status.textContent = 'Responding in ' + d.name;
+          bubble.classList.remove('hs-fading');
+        }, 220);
+      }
+      wraps.forEach(function(wrap, i) {
+        var key = bubbleLangMap[i] || null;
+        wrap.addEventListener('mouseenter', function() {
+          wraps.forEach(function(w) { w.classList.remove('clb-active'); });
+          wrap.classList.add('clb-active');
+          setLang(key);
+        });
+        wrap.addEventListener('mouseleave', function() {
+          wrap.classList.remove('clb-active');
+        });
+      });
+    })();
     // Language pill clicks handled via onclick="caskSetLang(this, lang)" on each button
 
     // ── Hero bg shader variants ──────────────────────
