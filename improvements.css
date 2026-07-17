@@ -317,6 +317,49 @@ html, body {
   max-width: 100vw;
 }
 
+/* ══ 13. FOOTER — Mobile & tablet responsive ════════════════ */
+/* Ensures .footer-grid and .footer-links-group collapse correctly
+   on all pages regardless of which container class they use        */
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+  .footer-links-group {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 24px 16px !important;
+  }
+}
+@media (max-width: 420px) {
+  .footer-links-group {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ══ 14. NAV — Mobile & tablet ══════════════════════════════ */
+/* Force hamburger display on narrow screens on all pages */
+@media (max-width: 900px) {
+  .nav-links  { display: none !important; }
+  .nav-right  { display: none !important; }
+  .hamburger  { display: flex !important; }
+}
+
+/* ══ 15. CONTAINER — Global max-width guard ════════════════ */
+/* Prevent any container class from overflowing its parent */
+.container,
+.cask-container,
+.pw {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* ══ 16. FOOTER padding inside container ═══════════════════ */
+/* Ensure top padding is consistent when .container replaces .pw */
+.footer .container,
+.footer .cask-container {
+  padding-top: 56px;
+}
+
 /* ═══════════════════════════════════════════════════════════════
    ROUND 2 IMPROVEMENTS — addressing remaining brief items
 ═══════════════════════════════════════════════════════════════ */
