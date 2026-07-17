@@ -15,6 +15,7 @@
   --bg-card-hover:   rgba(35,39,40,0.95);
   --text-primary:    #F8FAFC;
   --text-secondary:  #CBD5E1;
+  --text-popup:      #F8FAFC;
   --accent-saffron:  #007aff;
   --accent-saffron-glow: rgba(0,122,255,0.25);
   --accent-cyan:     #22D3EE;
@@ -40,6 +41,7 @@
   --bg-card-hover:   rgba(0,0,0,0.06);
   --text-primary:    #0F172A;
   --text-secondary:  #475569;
+  --text-popup:      #F8FAFC;
   --accent-saffron:  #1D4ED8;
   --accent-saffron-glow: rgba(29,78,216,0.18);
   --accent-cyan:     #0891B2;
@@ -85,6 +87,14 @@ img { max-width: 100%; }
   padding: 0 24px;
 }
 
+.theme-option{
+  color: var(--text-popup) !important;
+}
+
+.theme-chooser-logo img{
+  height: 90px !important;
+}
+
 .center { text-align: center; }
 
 /* ── CURSOR GLOW (global) ────────────────────────────────────── */
@@ -107,9 +117,10 @@ img { max-width: 100%; }
 }
 
 /* ── THEME TOGGLE BUTTON ─────────────────────────────────────── */
-.theme-toggle-btn {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+.theme-toggle-btn,
+[data-theme="dark"] .theme-toggle-btn {
+  background: rgba(0, 0, 0, 0.06) !important;
+  border: 1.5px solid rgba(0, 0, 0, 0.15) !important;
   border-radius: 50%;
   width: 36px;
   height: 36px;
@@ -117,15 +128,23 @@ img { max-width: 100%; }
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: var(--text-primary);
-  transition: all 0.3s ease;
+  color: #555 !important;
+  transition: all 0.25s;
   flex-shrink: 0;
 }
-.theme-toggle-btn:hover { border-color: var(--accent-saffron); color: var(--accent-saffron); }
+
+.theme-toggle-btn:hover,
+[data-theme="dark"] .theme-toggle-btn:hover {
+  border-color: #1D4ED8 !important;
+  color: #1D4ED8 !important;
+  background: rgba(29, 78, 216, 0.08) !important;
+}
+
 .theme-toggle-btn svg { width: 15px; height: 15px; }
+
 [data-theme="dark"]  .icon-sun  { display: block; }
-[data-theme="dark"]  .icon-moon { display: none;  }
-[data-theme="light"] .icon-sun  { display: none;  }
+[data-theme="dark"]  .icon-moon { display: none; }
+[data-theme="light"] .icon-sun  { display: none; }
 [data-theme="light"] .icon-moon { display: block; }
 
 /* ── NAV ─────────────────────────────────────────────────────── */

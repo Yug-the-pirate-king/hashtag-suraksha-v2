@@ -1141,7 +1141,7 @@ img { max-width: 100%; }
   font-size: 14px;
   line-height: 1.8;
   margin: 16px 0 24px;
-  max-width: 280px;
+  max-width: 300px;
 }
 .footer-logo { margin-bottom: 4px; display: inline-block; }
 .footer-socials { display: flex; gap: 20px; }
