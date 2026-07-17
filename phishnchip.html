@@ -883,6 +883,26 @@
     }
     .pnc-ep-card:hover .pnc-ep-thumb::after { opacity: 1; }
 
+    [data-theme="light"] .pnc-carousel-wrapper::before{
+        background: linear-gradient(to right, #fff8fa, transparent);
+    }
+
+    [data-theme="light"] .pnc-carousel-wrapper::after{
+        background: linear-gradient(to left, #fff8fa, transparent);
+    }
+
+    [data-theme="light"] .pnc-ep-cta-hint{
+        color: rgb(0 0 0 / 25%);
+    }
+
+    [data-theme="light"] .pnc-trait{
+      color: #000a18;
+    }
+
+    .pnc-ep-body{
+        padding: 10px;
+    }
+
     /* Play button overlay */
     .pnc-ep-play {
       position: absolute;
@@ -1766,7 +1786,7 @@
 
   <!-- ── FOOTER ── -->
   <footer class="footer">
-    <div class="cask-container">
+    <div class="cask-container container">
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="index.html" class="footer-logo-circle-link">
