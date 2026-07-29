@@ -1,0 +1,435 @@
+/* ==========================================================
+   COURSE CATALOG — NEW CARD DESIGN OVERRIDE
+   Loaded after catalog-overrides.css to replace old card styles
+   ========================================================== */
+
+/* Ensure the cv- theme tokens + fonts are available in this stylesheet too */
+:root {
+  --cv-paper: #F6F3EA;
+  --cv-paper-raised: #FFFFFF;
+  --cv-ink: #10181B;
+  --cv-ink-soft: #5C6668;
+  --cv-line: #E4E0D2;
+  --cv-indigo: #3E7CB1;
+  --cv-indigo-soft: #DCEAF4;
+  --cv-amber: #D9720F;
+  --cv-amber-soft: #FBE7D2;
+  --cv-moss: #1C8F5D;
+  --cv-moss-soft: #DEF1E7;
+  --cv-danger: #B5482E;
+  --cv-shadow: 0 1px 2px rgba(16,24,27,0.05), 0 10px 28px -14px rgba(16,24,27,0.16);
+  --cv-radius: 16px;
+  --font-display: 'Big Shoulders Display', 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'IBM Plex Sans', 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'IBM Plex Mono', 'JetBrains Mono', monospace;
+}
+
+[data-theme="dark"] {
+  --cv-paper: #0B1113;
+  --cv-paper-raised: #141B1E;
+  --cv-ink: #EEEAE0;
+  --cv-ink-soft: #8B958F;
+  --cv-line: #232B2E;
+  --cv-indigo: #6FA8D6;
+  --cv-indigo-soft: #132531;
+  --cv-amber: #F0954A;
+  --cv-amber-soft: #2E2013;
+  --cv-moss: #3FBE85;
+  --cv-moss-soft: #12291F;
+  --cv-danger: #E08064;
+  --cv-shadow: 0 1px 2px rgba(0,0,0,0.35), 0 14px 32px -16px rgba(0,0,0,0.6);
+}
+
+/* ---------- Grid layout: always flex-wrap cards ---------- */
+#edx-cards-row,
+#edx-cards-row.edx-cards-row,
+#edx-cards-row.list-view {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 22px !important;
+  justify-content: center !important;
+  align-items: stretch !important;
+  padding: 10px 0 24px !important;
+}
+
+#edx-cards-row .clean-course-card,
+#edx-cards-row .clean-course-card.card,
+#edx-cards-row.edx-cards-row .clean-course-card.card {
+  position: relative !important;
+  width: 350px !important;
+  max-width: 100% !important;
+  flex-shrink: 0 !important;
+  background: var(--cv-paper-raised) !important;
+  border: 1px solid var(--cv-line) !important;
+  border-radius: var(--cv-radius) !important;
+  box-shadow: var(--cv-shadow) !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  cursor: default !important;
+  overflow: hidden !important;
+  gap: 0 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.35s ease, border-color 0.35s ease !important;
+}
+
+#edx-cards-row .clean-course-card:hover,
+#edx-cards-row .clean-course-card:focus-visible {
+  transform: translateY(-4px) !important;
+  border-color: var(--cv-line) !important;
+  box-shadow: var(--cv-shadow) !important;
+}
+
+#edx-cards-row .clean-course-card.saved,
+#edx-cards-row .clean-course-card.card.saved {
+  border-color: var(--cv-amber) !important;
+  box-shadow: 0 0 0 1px var(--cv-amber-soft), var(--cv-shadow) !important;
+}
+
+/* ---------- Banner ---------- */
+#edx-cards-row .clean-course-card .card-banner,
+#edx-cards-row .clean-course-card.card .card-banner {
+  position: relative !important;
+  height: 130px !important;
+  width: 100% !important;
+  flex-shrink: 0 !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-color: var(--cv-indigo-soft) !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+#edx-cards-row .clean-course-card .card-banner.no-image,
+#edx-cards-row .clean-course-card.card .card-banner.no-image {
+  background-image:
+    radial-gradient(circle at 22px 22px, color-mix(in srgb, var(--cv-indigo) 18%, transparent) 0, transparent 55%),
+    repeating-linear-gradient(135deg, color-mix(in srgb, var(--cv-ink) 4%, transparent) 0 2px, transparent 2px 14px) !important;
+}
+
+#edx-cards-row .clean-course-card .card-banner::after,
+#edx-cards-row .clean-course-card.card .card-banner::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(to top, color-mix(in srgb, var(--cv-paper-raised) 92%, transparent) 0%, transparent 55%) !important;
+}
+
+/* ---------- Logo wrap ---------- */
+#edx-cards-row .clean-course-card .logo-wrap,
+#edx-cards-row .clean-course-card.card .logo-wrap {
+  position: absolute !important;
+  left: 20px !important;
+  bottom: -24px !important;
+  width: 52px !important;
+  height: 52px !important;
+  border-radius: 14px !important;
+  background: #FFFFFF !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+  flex-shrink: 0 !important;
+  border: 3px solid #FFFFFF !important;
+  box-shadow: var(--cv-shadow) !important;
+  z-index: 2 !important;
+}
+
+#edx-cards-row .clean-course-card .logo-wrap img,
+#edx-cards-row .clean-course-card.card .logo-wrap img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  padding: 6px !important;
+  background: #FFFFFF !important;
+  border-radius: 0 !important;
+  display: block !important;
+  flex-shrink: 0 !important;
+}
+
+#edx-cards-row .clean-course-card .logo-fallback,
+#edx-cards-row .clean-course-card.card .logo-fallback {
+  font-family: var(--font-display) !important;
+  font-weight: 700 !important;
+  font-size: 18px !important;
+  color: var(--cv-indigo) !important;
+  text-transform: uppercase !important;
+  line-height: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: #FFFFFF !important;
+}
+
+#edx-cards-row .clean-course-card .logo-wrap.has-logo .logo-fallback,
+#edx-cards-row .clean-course-card.card .logo-wrap.has-logo .logo-fallback {
+  display: none !important;
+}
+
+/* ---------- Stamp ---------- */
+#edx-cards-row .clean-course-card .stamp,
+#edx-cards-row .clean-course-card.card .stamp {
+  position: absolute !important;
+  top: 14px !important;
+  right: 14px !important;
+  z-index: 2 !important;
+  backdrop-filter: blur(6px) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  padding: 5px 10px 5px 8px !important;
+  border-radius: 999px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  border: none !important;
+}
+
+#edx-cards-row .clean-course-card .stamp.hot,
+#edx-cards-row .clean-course-card.card .stamp.hot {
+  background: var(--cv-amber-soft) !important;
+  color: var(--cv-amber) !important;
+}
+
+#edx-cards-row .clean-course-card .stamp.jobskills,
+#edx-cards-row .clean-course-card.card .stamp.jobskills {
+  background: var(--cv-indigo-soft) !important;
+  color: var(--cv-indigo) !important;
+}
+
+#edx-cards-row .clean-course-card .stamp::before,
+#edx-cards-row .clean-course-card.card .stamp::before {
+  content: "" !important;
+  width: 5px !important;
+  height: 5px !important;
+  border-radius: 50% !important;
+  background: currentColor !important;
+}
+
+/* ---------- Card body ---------- */
+#edx-cards-row .clean-course-card .card-body,
+#edx-cards-row .clean-course-card.card .card-body {
+  padding: 36px 22px 20px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 14px !important;
+  flex: 1 !important;
+  color: var(--cv-ink-soft) !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+#edx-cards-row .clean-course-card .uni-name,
+#edx-cards-row .clean-course-card.card .uni-name {
+  font-size: 12.5px !important;
+  color: var(--cv-ink-soft) !important;
+  line-height: 1.3 !important;
+  padding-left: 66px !important;
+  min-height: 24px !important;
+  font-family: var(--font-body) !important;
+  font-weight: 400 !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+}
+
+#edx-cards-row .clean-course-card .uni-name .country,
+#edx-cards-row .clean-course-card.card .uni-name .country {
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  color: var(--cv-ink-soft) !important;
+  opacity: 0.75 !important;
+  display: block !important;
+  margin-top: 2px !important;
+}
+
+#edx-cards-row .clean-course-card .course-title,
+#edx-cards-row .clean-course-card.card .course-title {
+  font-family: var(--font-display) !important;
+  font-weight: 600 !important;
+  font-size: 19px !important;
+  line-height: 1.25 !important;
+  letter-spacing: -0.01em !important;
+  margin: 0 !important;
+  color: var(--cv-ink) !important;
+  min-height: auto !important;
+  display: block !important;
+}
+
+#edx-cards-row .clean-course-card .skills-desc,
+#edx-cards-row .clean-course-card.card .skills-desc {
+  font-family: var(--font-body) !important;
+  font-size: 13px !important;
+  line-height: 1.55 !important;
+  color: var(--cv-ink-soft) !important;
+  margin: 0 !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 3 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+}
+
+/* ---------- Badges ---------- */
+#edx-cards-row .clean-course-card .badge-row,
+#edx-cards-row .clean-course-card.card .badge-row {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 6px !important;
+}
+
+#edx-cards-row .clean-course-card .badge,
+#edx-cards-row .clean-course-card.card .badge {
+  font-family: var(--font-mono) !important;
+  font-size: 10.5px !important;
+  letter-spacing: 0.03em !important;
+  padding: 4px 9px !important;
+  border-radius: 7px !important;
+  border: 1px solid var(--cv-line) !important;
+  color: var(--cv-ink-soft) !important;
+  background: var(--cv-paper) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  text-transform: none !important;
+}
+
+#edx-cards-row .clean-course-card .badge.qs,
+#edx-cards-row .clean-course-card.card .badge.qs {
+  color: var(--cv-indigo) !important;
+  border-color: transparent !important;
+  background: var(--cv-indigo-soft) !important;
+}
+
+#edx-cards-row .clean-course-card .badge.nirf,
+#edx-cards-row .clean-course-card.card .badge.nirf {
+  color: var(--cv-moss) !important;
+  border-color: transparent !important;
+  background: var(--cv-moss-soft) !important;
+}
+
+#edx-cards-row .clean-course-card .badge.scholar,
+#edx-cards-row .clean-course-card.card .badge.scholar {
+  color: var(--cv-amber) !important;
+  border-color: transparent !important;
+  background: var(--cv-amber-soft) !important;
+}
+
+/* ---------- Meta row ---------- */
+#edx-cards-row .clean-course-card .meta-row,
+#edx-cards-row .clean-course-card.card .meta-row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  flex-wrap: nowrap !important;
+  gap: 8px !important;
+  font-size: 12px !important;
+  color: var(--cv-ink-soft) !important;
+  border-top: 1px dashed var(--cv-line) !important;
+  border-bottom: none !important;
+  padding: 12px 0 0 !important;
+  margin: 2px 0 0 !important;
+  font-family: var(--font-body) !important;
+}
+
+#edx-cards-row .clean-course-card .meta-row .cost,
+#edx-cards-row .clean-course-card.card .meta-row .cost {
+  font-family: var(--font-mono) !important;
+  font-weight: 600 !important;
+  font-size: 12.5px !important;
+  color: var(--cv-ink) !important;
+  flex-shrink: 0 !important;
+}
+
+#edx-cards-row .clean-course-card .meta-row .cost.free,
+#edx-cards-row .clean-course-card.card .meta-row .cost.free {
+  color: var(--cv-moss) !important;
+}
+
+/* ---------- Footer actions ---------- */
+#edx-cards-row .clean-course-card .card-footer-actions,
+#edx-cards-row .clean-course-card.card .card-footer-actions {
+  display: flex !important;
+  gap: 8px !important;
+  margin-top: auto !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+#edx-cards-row .clean-course-card .btn,
+#edx-cards-row .clean-course-card.card .btn,
+#edx-cards-row .clean-course-card .card-footer-actions .btn,
+#edx-cards-row .clean-course-card.card .card-footer-actions .btn {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 7px !important;
+  font-family: var(--font-body) !important;
+  font-weight: 600 !important;
+  font-size: 13.5px !important;
+  padding: 12px 14px !important;
+  border-radius: 11px !important;
+  cursor: pointer !important;
+  border: 1px solid var(--cv-ink) !important;
+  background: var(--cv-ink) !important;
+  color: var(--cv-paper) !important;
+  text-decoration: none !important;
+  margin: 0 !important;
+  flex: 1 !important;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease !important;
+}
+
+#edx-cards-row .clean-course-card .btn-save,
+#edx-cards-row .clean-course-card.card .btn-save,
+#edx-cards-row .clean-course-card .card-footer-actions .btn-save,
+#edx-cards-row .clean-course-card.card .card-footer-actions .btn-save {
+  flex: 0 0 44px !important;
+  width: 44px !important;
+  padding: 0 !important;
+  font-size: 18px !important;
+}
+
+#edx-cards-row .clean-course-card .btn-save.saved,
+#edx-cards-row .clean-course-card.card .btn-save.saved {
+  color: var(--cv-danger) !important;
+  border-color: var(--cv-danger) !important;
+  background: var(--cv-paper) !important;
+}
+
+[data-theme="dark"] #edx-cards-row .clean-course-card .btn,
+[data-theme="dark"] #edx-cards-row .clean-course-card.card .btn {
+  background: var(--cv-indigo) !important;
+  border-color: var(--cv-indigo) !important;
+  color: #fff !important;
+}
+
+[data-theme="dark"] #edx-cards-row .clean-course-card .btn-save.saved,
+[data-theme="dark"] #edx-cards-row .clean-course-card.card .btn-save.saved {
+  color: var(--cv-amber) !important;
+  border-color: var(--cv-amber) !important;
+  background: var(--cv-paper-raised) !important;
+}
+
+/* ---------- Remove old inner layout artifacts ---------- */
+#edx-cards-row .clean-course-card .card-header-bar,
+#edx-cards-row .clean-course-card .card-badges,
+#edx-cards-row .clean-course-card .card-footer {
+  display: none !important;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 480px) {
+  #edx-cards-row .clean-course-card,
+  #edx-cards-row .clean-course-card.card {
+    width: 100% !important;
+  }
+}

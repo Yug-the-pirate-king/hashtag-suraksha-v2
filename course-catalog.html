@@ -17,7 +17,8 @@
   <meta name="theme-color" content="#0F172A" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Yatra+One&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Yatra+One&display=swap" rel="stylesheet" />
   <!-- hashtag-v2 site styles -->
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="global.css" />
@@ -25,6 +26,633 @@
   <link rel="stylesheet" href="improvements.css" />
   <link rel="stylesheet" href="assets/cv-style.css?v=6" />
   <link rel="stylesheet" href="assets/catalog-overrides.css?v=10" />
+  <!-- New card design override (must load after catalog-overrides.css) -->
+  <link rel="stylesheet" href="assets/catalog-new-cards.css?v=1" />
+
+  <style>
+    /* ==========================================================
+       NEW LANDING HERO + CARD DESIGN INTEGRATION
+       ========================================================== */
+
+    /* Aesthetic tokens from redesign handoff (light + dark) */
+    :root {
+      --cv-paper: #F6F3EA;
+      --cv-paper-raised: #FFFFFF;
+      --cv-ink: #10181B;
+      --cv-ink-soft: #5C6668;
+      --cv-line: #E4E0D2;
+      --cv-indigo: #3E7CB1;
+      --cv-indigo-soft: #DCEAF4;
+      --cv-amber: #D9720F;
+      --cv-amber-soft: #FBE7D2;
+      --cv-moss: #1C8F5D;
+      --cv-moss-soft: #DEF1E7;
+      --cv-danger: #B5482E;
+      --cv-shadow: 0 1px 2px rgba(16,24,27,0.05), 0 10px 28px -14px rgba(16,24,27,0.16);
+      --cv-radius: 16px;
+
+      /* hero/data-dark canvas is fixed regardless of theme */
+      --navy: #0D1B22;
+      --navy-raised: #132631;
+      --navy-line: #24363F;
+      --on-navy: #F2EEE2;
+      --on-navy-soft: #93A0A4;
+
+      --landing-bg: var(--navy);
+      --landing-text-main: var(--on-navy);
+      --landing-text-muted: var(--on-navy-soft);
+      --landing-accent-green: var(--cv-moss);
+      --landing-accent-saffron: var(--cv-amber);
+      --landing-accent-thread: var(--cv-indigo);
+      --landing-card-bg: var(--navy-raised);
+      --landing-card-border: var(--navy-line);
+
+      --font-display: 'Big Shoulders Display', 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'IBM Plex Sans', 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'IBM Plex Mono', var(--font-mono);
+    }
+
+    [data-theme="dark"] {
+      --cv-paper: #0B1113;
+      --cv-paper-raised: #141B1E;
+      --cv-ink: #EEEAE0;
+      --cv-ink-soft: #8B958F;
+      --cv-line: #232B2E;
+      --cv-indigo: #6FA8D6;
+      --cv-indigo-soft: #132531;
+      --cv-amber: #F0954A;
+      --cv-amber-soft: #2E2013;
+      --cv-moss: #3FBE85;
+      --cv-moss-soft: #12291F;
+      --cv-danger: #E08064;
+      --cv-shadow: 0 1px 2px rgba(0,0,0,0.35), 0 14px 32px -16px rgba(0,0,0,0.6);
+    }
+
+    /* Landing hero — fixed dark canvas */
+    .landing-hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      position: relative;
+      background: var(--landing-bg);
+      color: var(--landing-text-main);
+      overflow: hidden;
+    }
+
+    .landing-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(var(--navy-line) 1px, transparent 1.5px);
+      background-size: 22px 22px;
+      mask-image: radial-gradient(circle at 50% 20%, black 0%, transparent 70%);
+      opacity: 0.6;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .landing-hero .floating-elements {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100vw;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .landing-hero .globe-placeholder {
+      width: 800px;
+      height: 800px;
+      border-radius: 50%;
+      border: 1px dashed color-mix(in srgb, var(--landing-accent-green) 15%, transparent);
+      position: absolute;
+      top: 0%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: radial-gradient(circle at center, color-mix(in srgb, var(--landing-accent-green) 3%, transparent) 0%, transparent 60%);
+      box-shadow: inset 0 0 150px color-mix(in srgb, var(--landing-accent-green) 5%, transparent);
+    }
+
+    .landing-hero .glowing-orb {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: var(--landing-accent-green);
+      filter: blur(150px);
+      opacity: 0.15;
+      border-radius: 50%;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .landing-hero .hero-tag {
+      position: relative;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--landing-accent-green);
+      background: color-mix(in srgb, var(--landing-accent-green) 10%, transparent);
+      border: 1px solid var(--landing-accent-green);
+      border-radius: 999px;
+      padding: 6px 14px;
+      margin-bottom: 1.5rem;
+    }
+
+    .landing-hero h1 {
+      position: relative;
+      z-index: 2;
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -0.01em;
+      margin: 0 0 1.5rem 0;
+      max-width: 900px;
+      color: var(--landing-text-main);
+    }
+
+    .landing-hero p {
+      position: relative;
+      z-index: 2;
+      font-family: var(--font-body);
+      font-size: clamp(1rem, 1.25vw, 1.25rem);
+      color: var(--landing-text-muted);
+      max-width: 600px;
+      margin: 0 0 3rem 0;
+      line-height: 1.65;
+    }
+
+    .landing-hero .cta-button {
+      position: relative;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--landing-accent-green);
+      color: #082419;
+      padding: 15px 28px;
+      border-radius: 999px;
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      box-shadow: var(--cv-shadow);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .landing-hero .cta-button:hover { transform: translateY(-2px); box-shadow: 0 10px 25px color-mix(in srgb, var(--landing-accent-green) 40%, transparent); }
+
+    /* Stats grid */
+    .landing-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 32px 90px;
+      position: relative;
+      z-index: 10;
+      background: var(--landing-bg);
+    }
+
+    .landing-glass-card {
+      background: var(--landing-card-bg);
+      border: 1px solid var(--landing-card-border);
+      border-radius: var(--cv-radius);
+      padding: 26px 24px;
+      text-align: left;
+      transition: transform 0.3s, border-color 0.3s;
+      position: relative;
+      overflow: hidden;
+      border-top: 3px solid var(--accent, var(--cv-amber));
+    }
+
+    .landing-glass-card:nth-child(1) { --accent: var(--cv-amber); }
+    .landing-glass-card:nth-child(2) { --accent: var(--cv-indigo); }
+    .landing-glass-card:nth-child(3) { --accent: var(--cv-moss); }
+
+    .landing-glass-card:hover { transform: translateY(-5px); border-color: color-mix(in srgb, var(--accent) 30%, var(--landing-card-border)); }
+
+    .landing-stat-number {
+      font-family: var(--font-display);
+      font-size: 38px;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 4px;
+      line-height: 1;
+    }
+    .landing-stat-number.teal { color: var(--cv-indigo); }
+    .landing-stat-number.green { color: var(--cv-moss); }
+    .landing-stat-label {
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--landing-text-main);
+      margin-bottom: 10px;
+    }
+    .landing-stat-desc { color: var(--landing-text-muted); font-size: 13px; line-height: 1.55; }
+
+    /* New card design (also used by the All Courses grid override) */
+    .card {
+      position: relative;
+      width: 350px;
+      flex-shrink: 0;
+      background: var(--cv-paper-raised);
+      border: 1px solid var(--cv-line);
+      border-radius: var(--cv-radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--cv-shadow);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.35s ease, border-color 0.35s ease;
+    }
+
+    .card:hover { transform: translateY(-4px); }
+
+    .card-banner {
+      position: relative;
+      height: 130px;
+      width: 100%;
+      flex-shrink: 0;
+      background-size: cover;
+      background-position: center;
+      background-color: var(--cv-indigo-soft);
+    }
+
+    .card-banner.no-image {
+      background-image:
+        radial-gradient(circle at 22px 22px, color-mix(in srgb, var(--cv-indigo) 18%, transparent) 0, transparent 55%),
+        repeating-linear-gradient(135deg, color-mix(in srgb, var(--cv-ink) 4%, transparent) 0 2px, transparent 2px 14px);
+    }
+
+    .card-banner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, color-mix(in srgb, var(--cv-paper-raised) 92%, transparent) 0%, transparent 55%);
+    }
+
+    .card-body {
+      padding: 36px 22px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      flex: 1;
+    }
+
+    .logo-wrap {
+      position: absolute;
+      left: 20px;
+      bottom: -24px;
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 3px solid #FFFFFF;
+      box-shadow: var(--cv-shadow);
+      z-index: 2;
+    }
+
+    .logo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 6px;
+      background: #FFFFFF;
+    }
+
+    .logo-fallback {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--cv-indigo);
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    .stamp {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      z-index: 2;
+      backdrop-filter: blur(6px);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 5px 10px 5px 8px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .stamp.hot { background: var(--cv-amber-soft); color: var(--cv-amber); }
+    .stamp.jobskills { background: var(--cv-indigo-soft); color: var(--cv-indigo); }
+    .stamp::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+
+    .uni-name {
+      font-size: 12.5px;
+      color: var(--cv-ink-soft);
+      line-height: 1.3;
+      padding-left: 66px;
+      min-height: 24px;
+      font-family: var(--font-body);
+    }
+
+    .uni-name .country {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--cv-ink-soft);
+      opacity: 0.75;
+      display: block;
+      margin-top: 2px;
+    }
+
+    .course-title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 19px;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+      margin: 0;
+      color: var(--cv-ink);
+    }
+
+    .skills-desc {
+      font-family: var(--font-body);
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--cv-ink-soft);
+      margin: 0;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .badge-row { display: flex; flex-wrap: wrap; gap: 6px; }
+
+    .badge {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      letter-spacing: 0.03em;
+      padding: 4px 9px;
+      border-radius: 7px;
+      border: 1px solid var(--cv-line);
+      color: var(--cv-ink-soft);
+      background: var(--cv-paper);
+    }
+
+    .badge.qs { color: var(--cv-indigo); border-color: transparent; background: var(--cv-indigo-soft); }
+    .badge.nirf { color: var(--cv-moss); border-color: transparent; background: var(--cv-moss-soft); }
+    .badge.scholar { color: var(--cv-amber); border-color: transparent; background: var(--cv-amber-soft); }
+
+    .meta-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--cv-ink-soft);
+      border-top: 1px dashed var(--cv-line);
+      padding-top: 12px;
+      margin-top: 2px;
+      font-family: var(--font-body);
+    }
+
+    .meta-row .cost {
+      font-family: var(--font-mono);
+      font-weight: 600;
+      font-size: 12.5px;
+      color: var(--cv-ink);
+    }
+
+    .meta-row .cost.free { color: var(--cv-moss); }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 13.5px;
+      padding: 12px 14px;
+      border-radius: 11px;
+      cursor: pointer;
+      border: 1px solid var(--cv-ink);
+      background: var(--cv-ink);
+      color: var(--cv-paper);
+      text-decoration: none;
+      margin-top: auto;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    [data-theme="dark"] .btn { background: var(--cv-indigo); border-color: var(--cv-indigo); color: #fff; }
+
+    /* How it works / storytelling section */
+    .how-it-works-section {
+      background: var(--landing-bg);
+      padding: 0 32px 100px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .how-it-works-header {
+      text-align: center;
+      margin-bottom: 44px;
+    }
+
+    .how-it-works-header .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--cv-indigo);
+      background: color-mix(in srgb, var(--cv-indigo) 12%, transparent);
+      border: 1px solid var(--cv-indigo);
+      border-radius: 999px;
+      padding: 6px 14px;
+      margin-bottom: 14px;
+    }
+
+    .how-it-works-header h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      font-weight: 800;
+      margin: 0 0 0.75rem 0;
+      color: var(--landing-text-main);
+    }
+
+    .how-it-works-header p {
+      color: var(--landing-text-muted);
+      font-size: 14.5px;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .journey-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .journey-steps::before {
+      content: '';
+      position: absolute;
+      top: 24px;
+      left: 12.5%;
+      right: 12.5%;
+      height: 1px;
+      background: var(--navy-line);
+      z-index: 0;
+    }
+
+    .journey-step {
+      background: var(--landing-card-bg);
+      border: 1px solid var(--landing-card-border);
+      border-radius: var(--cv-radius);
+      padding: 22px 18px;
+      text-align: left;
+      position: relative;
+      z-index: 1;
+      margin: 0 10px;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .journey-step:hover { transform: translateY(-5px); border-color: color-mix(in srgb, var(--cv-indigo) 30%, var(--landing-card-border)); }
+
+    .step-number {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--cv-moss);
+      display: block;
+      margin-bottom: 14px;
+    }
+
+    .step-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      margin-bottom: 14px;
+    }
+
+    .journey-step h3 {
+      font-family: var(--font-body);
+      font-size: 15.5px;
+      font-weight: 700;
+      color: var(--landing-text-main);
+      margin: 0 0 8px 0;
+    }
+
+    .journey-step p {
+      font-size: 12.5px;
+      color: var(--landing-text-muted);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    /* Domain Explorer placeholder */
+    .domain-explorer-placeholder {
+      background: var(--landing-bg);
+      padding: 40px 32px 60px;
+      position: relative;
+      z-index: 10;
+    }
+    .domain-explorer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: var(--landing-card-bg);
+      border: 1px dashed var(--landing-card-border);
+      border-radius: var(--cv-radius);
+      padding: 48px 32px;
+      text-align: center;
+    }
+    .domain-explorer-inner .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--cv-amber);
+      background: color-mix(in srgb, var(--cv-amber) 10%, transparent);
+      border: 1px solid var(--cv-amber);
+      border-radius: 999px;
+      padding: 6px 14px;
+      margin-bottom: 18px;
+    }
+    .domain-explorer-inner h2 {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--landing-text-main);
+      margin: 0 0 10px;
+    }
+    .domain-explorer-inner p {
+      color: var(--landing-text-muted);
+      font-size: 14.5px;
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .journey-steps { grid-template-columns: 1fr; }
+      .journey-steps::before { display: none; }
+      .how-it-works-section { padding: 2.5rem 4% 3rem; }
+      .journey-step { padding: 1.75rem 1.25rem; margin: 0 0 12px; }
+      .domain-explorer-placeholder { padding: 20px 4% 40px; }
+      .domain-explorer-inner { padding: 32px 20px; }
+      .domain-explorer-inner h2 { font-size: 26px; }
+    }
+
+    @media (max-width: 768px) {
+      .landing-hero { padding: 3rem 1.5rem 3rem; }
+      .landing-hero h1 { font-size: clamp(2rem, 8vw, 3rem); }
+      .landing-stats-grid { grid-template-columns: 1fr; gap: 1.25rem; padding: 1.5rem 4%; }
+      .landing-glass-card { padding: 1.75rem; }
+      .card { width: 100%; max-width: 380px; }
+    }
+
+    @media (max-width: 480px) {
+      .card { width: 100%; max-width: 100%; }
+      .card-body { padding: 34px 18px 18px; }
+    }
+  </style>
 
   <!-- Chart.js (needed for dashboard analytics charts) -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -106,44 +734,78 @@
        ═══════════════════════════════════════════════════════════ -->
   <main class="catalog-page" id="main-content">
 
-    <!-- Catalog intro hero -->
-    <section class="catalog-section catalog-hero">
-      <div class="container">
-        <span class="section-tag center">Course Catalog</span>
-        <h1 class="section-title center">Explore Global Cybersecurity Education</h1>
-        <p class="section-sub center">
-          A verified catalog of 3,700+ cybersecurity courses across 45 countries.
-          Filter by country, domain, level, and pricing — or dive straight into the data.
-        </p>
+    <!-- NEW LANDING HERO -->
+    <section class="landing-hero">
+      <div class="floating-elements">
+        <div class="glowing-orb"></div>
+        <div class="globe-placeholder"></div>
+      </div>
+      <span class="hero-tag">Course Catalog</span>
+      <h1>Explore Global Cybersecurity Education</h1>
+      <p>A verified catalog of the world's top cybersecurity courses. Filter by country, domain, level, and pricing — or dive straight into the data.</p>
+      <a href="#all-courses-section" class="cta-button">Browse 3,700+ Courses</a>
+    </section>
+
+    <!-- NEW STATS GRID -->
+    <section class="landing-stats-grid">
+      <div class="landing-glass-card">
+        <div class="landing-stat-number teal">3,700+</div>
+        <div class="landing-stat-label">Verified Courses</div>
+        <div class="landing-stat-desc">Curated cybersecurity programs from top universities and institutions globally. Filter by level, domain, and access type.</div>
+      </div>
+      <div class="landing-glass-card">
+        <div class="landing-stat-number green">45</div>
+        <div class="landing-stat-label">Countries Represented</div>
+        <div class="landing-stat-desc">Spin the interactive globe to discover localized cybersecurity education in any region of the world.</div>
+      </div>
+      <div class="landing-glass-card">
+        <div class="landing-stat-number" style="background: linear-gradient(90deg, #fff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">IITs</div>
+        <div class="landing-stat-label">Premium Institutions</div>
+        <div class="landing-stat-desc">Access high-value, low-cost degrees and certifications from elite universities like IITs, IIITs, and NITs.</div>
       </div>
     </section>
 
-    <!-- Quick guide strip -->
-    <section class="catalog-section catalog-guide-strip" aria-label="How to use this catalog">
-      <div class="container">
-        <div class="guide-strip">
-          <div class="guide-strip-item">
-            <span class="guide-strip-icon" aria-hidden="true">🌍</span>
-            <div>
-              <strong>Spin the globe</strong>
-              <span>Click any country to see its courses.</span>
-            </div>
-          </div>
-          <div class="guide-strip-item">
-            <span class="guide-strip-icon" aria-hidden="true">🎛️</span>
-            <div>
-              <strong>Filter everything</strong>
-              <span>Category, level, topic, search, and sort.</span>
-            </div>
-          </div>
-          <div class="guide-strip-item">
-            <span class="guide-strip-icon" aria-hidden="true">🎓</span>
-            <div>
-              <strong>Take the tour</strong>
-              <span>Answer 3 quick questions for a tailored list.</span>
-            </div>
-          </div>
+    <!-- HOW IT WORKS — Storytelling journey -->
+    <section class="how-it-works-section">
+      <div class="how-it-works-header">
+        <span class="section-tag">How it works</span>
+        <h2>Your Course Discovery Journey</h2>
+        <p>From a global overview to a personalized shortlist in four simple steps.</p>
+      </div>
+      <div class="journey-steps">
+        <div class="journey-step">
+          <div class="step-number">01</div>
+          <div class="step-icon">🌍</div>
+          <h3>Explore the Globe</h3>
+          <p>Spin the interactive 3D globe and click any country to see localized cybersecurity courses.</p>
         </div>
+        <div class="journey-step">
+          <div class="step-number">02</div>
+          <div class="step-icon">🎛️</div>
+          <h3>Filter the Catalog</h3>
+          <p>Use Category, Level, Access, Topic, and Country filters to narrow down what matters to you.</p>
+        </div>
+        <div class="journey-step">
+          <div class="step-number">03</div>
+          <div class="step-icon">🎓</div>
+          <h3>Take the Quick Tour</h3>
+          <p>Answer 3 simple questions and let us tailor a recommended path for your goals.</p>
+        </div>
+        <div class="journey-step">
+          <div class="step-number">04</div>
+          <div class="step-icon">📋</div>
+          <h3>Compare &amp; Save</h3>
+          <p>Compare courses side-by-side, save favorites, and visit university pages to apply.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- DOMAIN EXPLORER — placeholder for future module -->
+    <section class="domain-explorer-placeholder" id="domain-explorer-placeholder" aria-label="Domain Explorer">
+      <div class="domain-explorer-inner">
+        <span class="eyebrow">🚧 Under Construction</span>
+        <h2>Domain Explorer</h2>
+        <p>A new way to browse courses by cybersecurity domain — coming soon. For now, use the filters below to explore the full catalog.</p>
       </div>
     </section>
 
@@ -153,10 +815,10 @@
         <!-- Tab wrapper that app.js switchTab() targets -->
         <div id="tab-dashboard" class="tab-content active">
 
-        
+
 
         <!-- ══════════ DASHBOARD TAB ══════════ -->
-        
+
 
           <!-- Dashboard welcome banner -->
           <div class="dash-welcome-banner" id="dash-welcome-banner" role="status" aria-live="polite">
@@ -316,18 +978,6 @@
 
           </div>
 
-          <!-- ══════════ DOMAIN KNOWLEDGE FEED ══════════ -->
-          <section class="domain-info-section" id="domain-info-section">
-            <div class="domain-info-hdr">
-              <div>
-                <div class="domain-info-title">🛡️ Cybersecurity Domain Explorer</div>
-                <div class="domain-info-sub">Explore the specializations that shape the catalog — and jump straight to matching courses.</div>
-              </div>
-            </div>
-            <div class="domain-cards-grid" id="domain-cards-grid">
-              <!-- Cards rendered by app.js when scrolled into view -->
-            </div>
-          </section>
         </div><!-- /tab-dashboard -->
 
         <!-- ══════════ ALL COURSES SECTION ══════════ -->
@@ -701,9 +1351,17 @@
   </div>
 
   <!-- course verifier app logic -->
-  <script src="assets/app.js?v=90" defer></script>
+  <script src="assets/app.js?v=91" defer></script>
   
   <!-- hashtag-v2 shared behavior (nav scroll, hamburger, cursor glow) -->
   <script src="main.js"></script>
+
+  <!-- THEME SYNC (landing hero defaults to dark) -->
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('hs-theme');
+      document.documentElement.setAttribute('data-theme', savedTheme || 'dark');
+    })();
+  </script>
 </body>
 </html>

@@ -8,9 +8,11 @@
 'use strict';
 
 const COURSES_JSON = 'assets/courses.json';
+const CATALOG_RICH_JSON = 'assets/course_catalog.json';
 
 // ── State ────────────────────────────────────────────────────────
 let globalData = null;
+let richCatalogMap = null;
 let currentFilter = { type: null, value: null };
 let countryDataList = [];
 let allCoursesData = [];
@@ -1847,44 +1849,44 @@ function renderEdxCards() {
         const courseType = normalizeDomain(c.domain) || 'Course';
         const domainClass = DOMAIN_CLASS_MAP[c.domainSlug] || '';
         const verifiedBadge = (c.has_qs_badge || c.has_nirf_badge) ? `<span class="verified-badge" title="Verified by ranking">✓ Verified</span>` : '';
+        const hasBanner = c.banner_url && c.banner_url.trim() !== '';
+        const hasLogo = c.logo_url && c.logo_url.trim() !== '';
+        const stampClass = c.stamp === 'hot' ? 'hot' : (c.stamp === 'jobskills' ? 'jobskills' : '');
+        const stampLabel = c.stamp === 'hot' ? 'Hot Pick' : (c.stamp === 'jobskills' ? 'Job Skills' : '');
+        const badges = [];
+        if (c.has_qs_badge) badges.push('<span class="badge qs">QS Ranked</span>');
+        if (c.has_nirf_badge) badges.push('<span class="badge nirf">NIRF</span>');
+        if (c.scholarship_match || c.has_scholarship) badges.push('<span class="badge scholar">Scholarship</span>');
+        badges.push(`<span class="badge">${escHtml(courseType)}</span>`);
+        badges.push(`<span class="badge">${escHtml(level)}</span>`);
+        badges.push(`<span class="badge ${access.cls}">${escHtml(access.label || access.text || '')}</span>`);
+        const costClass = ((c.cost && c.cost.toLowerCase() === 'free') || c.free_match || c.has_free) ? 'free' : '';
+        const skillsDesc = c.skills_description || c.skills || '';
         return `
-        <article class="clean-course-card ${saved ? 'saved' : ''} ${domainClass}" style="animation: fadeStagger 0.4s ease ${i * 0.04}s both;" onclick="showCourseModal('${c.id}')" data-course-id="${c.id}" tabindex="0" role="button" aria-label="Open ${escHtml(c.name)}">
-            <div class="card-header-bar">
-                <div class="univ-badge">
-                    <span class="univ-avatar" aria-hidden="true">${escHtml(initials)}</span>
-                    <span class="univ-name">${escHtml(c.university || '—')}</span>
+        <article class="clean-course-card card ${saved ? 'saved' : ''} ${domainClass}" style="animation: fadeStagger 0.4s ease ${i * 0.04}s both;" data-course-id="${c.id}" tabindex="0" role="button" aria-label="Open ${escHtml(c.name)}">
+            <div class="card-banner ${hasBanner ? '' : 'no-image'}" ${hasBanner ? `style="background-image:url('${escHtml(c.banner_url)}')"` : ''} onclick="showCourseModal('${c.id}')">
+                <div class="logo-wrap ${hasLogo ? 'has-logo' : ''}" onclick="event.stopPropagation();">
+                    ${hasLogo ? `<img src="${c.logo_url}" alt="${escHtml(c.university)} logo" loading="lazy" onerror="this.parentNode.classList.remove('has-logo'); this.style.display='none';" />` : ''}
+                    <span class="logo-fallback">${escHtml(initials)}</span>
                 </div>
-                <div class="card-actions">
-                    <button class="card-action-btn ${saved ? 'saved' : ''}"
-                        title="${saved ? 'Remove from saved' : 'Save course'}"
-                        aria-label="${saved ? 'Remove from saved' : 'Save course'}"
-                        aria-pressed="${saved}"
-                        onclick="event.stopPropagation(); toggleFavorite('${c.id}', this)">${saved ? '♥' : '♡'}</button>
-                    <button class="card-action-btn" title="Share course" aria-label="Share course"
-                        onclick="event.stopPropagation(); shareCourseById('${c.id}')">⇧</button>
-                    <a class="card-action-btn" href="${escHtml(getCourseUrl(c))}" target="_blank" rel="noopener"
-                        title="Visit course website"
-                        aria-label="Visit course website"
-                        onclick="event.stopPropagation();">↗</a>
+                ${stampClass ? `<span class="stamp ${stampClass}">${stampLabel}</span>` : ''}
+            </div>
+            <div class="card-body" onclick="showCourseModal('${c.id}')">
+                <div class="uni-name">
+                    ${escHtml(c.university || '—')}
+                    <span class="country">${flag} ${escHtml(c.country || '—')}</span>
                 </div>
-            </div>
-            <div class="card-badges">
-                <span class="course-type-badge ${access.cls}">${escHtml(courseType)}</span>
-                <span class="course-level-badge level-${levelClass}">${level}</span>
-                ${verifiedBadge}
-                ${rank}
-            </div>
-            <div class="card-body">
                 <h3 class="course-title" title="${escHtml(c.name)}">${escHtml(c.name)}</h3>
+                <p class="skills-desc">${escHtml(skillsDesc)}</p>
+                <div class="badge-row">${badges.join('')}</div>
                 <div class="meta-row">
-                    <span class="meta-pill" title="Duration">⏱ ${escHtml(duration)}</span>
-                    <span class="meta-pill" title="Delivery mode">💻 ${escHtml(mode)}</span>
-                    <span class="card-country" title="Country">${flag} ${escHtml(c.country || '—')}</span>
+                    <span>${escHtml(duration)} · ${escHtml(mode)} · ${escHtml(c.course_type || courseType || 'Course')}</span>
+                    <span class="cost ${costClass}">${escHtml(c.cost || '—')}</span>
                 </div>
-            </div>
-            <div class="card-footer">
-                <button class="btn-view-details" onclick="event.stopPropagation(); showCourseModal('${c.id}')">View Details</button>
-                <a class="btn-visit-site" href="${escHtml(getCourseUrl(c))}" target="_blank" rel="noopener" onclick="event.stopPropagation();">Visit website →</a>
+                <div class="card-footer-actions" style="display:flex; gap:8px; margin-top:auto;">
+                    <button class="btn" style="flex:1;" onclick="event.stopPropagation(); showCourseModal('${c.id}')">View Details</button>
+                    <button class="btn btn-save ${saved ? 'saved' : ''}" style="width:44px;" onclick="event.stopPropagation(); toggleFavorite('${c.id}', this)" title="${saved ? 'Remove from saved' : 'Save course'}" aria-label="${saved ? 'Remove from saved' : 'Save course'}" aria-pressed="${saved}">${saved ? '♥' : '♡'}</button>
+                </div>
             </div>
         </article>`;
     }).join('');
@@ -2453,15 +2455,55 @@ function scrollDomains(dx) {
     if (el) el.scrollBy({ left: dx, behavior: 'smooth' });
 }
 
+async function loadRichCatalog() {
+    if (richCatalogMap) return richCatalogMap;
+    try {
+        const res = await fetch(CATALOG_RICH_JSON);
+        const data = await res.json();
+        const list = Array.isArray(data) ? data : [];
+        richCatalogMap = new Map();
+        for (const c of list) {
+            const id = Array.isArray(c.id) ? c.id[0] : c.id;
+            const key = `${String(c.name || '').trim().toLowerCase()}::${String(c.university || '').trim().toLowerCase()}`;
+            richCatalogMap.set(key, c);
+            if (id) richCatalogMap.set(`id:${id}`, c);
+        }
+    } catch (e) {
+        console.warn('Rich catalog load failed:', e);
+        richCatalogMap = new Map();
+    }
+    return richCatalogMap;
+}
+
+function mergeRichFields(course) {
+    if (!richCatalogMap) return course;
+    const idKey = course.id ? `id:${course.id}` : null;
+    const nameKey = `${String(course.name || '').trim().toLowerCase()}::${String(course.university || '').trim().toLowerCase()}`;
+    const rich = (idKey && richCatalogMap.get(idKey)) || richCatalogMap.get(nameKey);
+    if (!rich) return course;
+    return {
+        ...course,
+        logo_url: rich.logo_url || course.logo_url || '',
+        banner_url: rich.banner_url || course.banner_url || '',
+        skills_description: rich.skills_description || course.skills_description || course.skills || '',
+        course_type: rich.course_type || course.course_type || normalizeDomain(course.domain) || 'Course',
+        has_scholarship: !!(rich.has_scholarship || course.has_scholarship || course.scholarship_match),
+        has_free: !!(rich.has_free || course.has_free || course.free_match),
+        has_qs_badge: !!(rich.has_qs_badge || course.has_qs_badge),
+        has_nirf_badge: !!(rich.has_nirf_badge || course.has_nirf_badge),
+    };
+}
+
 async function loadAllCourses(force = false) {
     const row = document.getElementById('edx-cards-row');
     if (allCoursesData.length > 0 && !force) { renderEdxCards(); return; }
     if (row) row.innerHTML = renderSkeletonCards(12) + `<div class="courses-loading-text" aria-live="polite">Loading courses…</div>`;
     showLoadingCurtain('Loading courses…');
     try {
-        const res = await fetch(COURSES_JSON);
+        const [res] = await Promise.all([fetch(COURSES_JSON), loadRichCatalog()]);
         const data = await res.json();
         allCoursesData = (Array.isArray(data) ? data : data.courses || []).sort((a, b) => parseInt(a.id || '9') - parseInt(b.id || '9'));
+        allCoursesData = allCoursesData.map(mergeRichFields);
         enrichAllCourses(allCoursesData);
 
         // Build globalData here too, so Dashboard Insights can render even if the
@@ -2862,9 +2904,10 @@ function buildCourseDetails(c) {
 async function showCourseModal(courseId, fallbackName, fallbackUni) {
     if (allCoursesData.length === 0) {
         try {
-            const res = await fetch(COURSES_JSON);
+            const [res] = await Promise.all([fetch(COURSES_JSON), loadRichCatalog()]);
             const data = await res.json();
             allCoursesData = Array.isArray(data) ? data : data.courses || [];
+            allCoursesData = allCoursesData.map(mergeRichFields);
             enrichAllCourses(allCoursesData);
             refreshFilterOptions();
         } catch (e) { return; }
@@ -3010,9 +3053,10 @@ async function fetchData() {
     if (!globalData) document.body.dataset.loading = 'true';
     showLoadingCurtain('Loading course data…');
     try {
-        const res = await fetch(COURSES_JSON + '?v=' + Date.now());
+        const [res] = await Promise.all([fetch(COURSES_JSON + '?v=' + Date.now()), loadRichCatalog()]);
         const data = await res.json();
         allCoursesData = (Array.isArray(data) ? data : data.courses || []).sort((a, b) => parseInt(a.id || '9') - parseInt(b.id || '9'));
+        allCoursesData = allCoursesData.map(mergeRichFields);
         enrichAllCourses(allCoursesData);
 
         const stats = computeStats(allCoursesData);
