@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Course Catalog — Hashtag Suraksha</title>
+  <meta name="description" content="Browse 3,700+ verified cybersecurity courses across 45 countries. Filter by country, domain, level, and pricing. Part of the Hashtag Suraksha ecosystem." />
+  <link rel="canonical" href="https://hashtagsuraksha.com/course-catalog.html" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Course Catalog — Hashtag Suraksha" />
+  <meta property="og:description" content="Browse 3,700+ verified cybersecurity courses across 45 countries. Filter by country, domain, level, and pricing." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://hashtagsuraksha.com/course-catalog.html" />
+  <meta property="og:image" content="https://hashtagsuraksha.com/assets/logo-suraksha.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#0F172A" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Yatra+One&display=swap" rel="stylesheet" />
+  <!-- hashtag-v2 site styles -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="global.css" />
+  <link rel="stylesheet" href="home.css" />
+  <link rel="stylesheet" href="improvements.css" />
+  <link rel="stylesheet" href="assets/cv-style.css?v=6" />
+  <link rel="stylesheet" href="assets/catalog-overrides.css?v=10" />
+
+  <!-- Chart.js (needed for dashboard analytics charts) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/chartjs-chart-geo@4.2.8/build/index.umd.min.js"></script>
+
+  <!-- COBE globe is imported as an ES module from the local build -->
+  <script type="module" src="assets/cobe-import.js?v=2"></script>
+  <script src="https://kit.fontawesome.com/997b419143.js" crossorigin="anonymous"></script>
+
+  <!-- Structured data for the catalog -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Hashtag Suraksha Course Catalog",
+    "description": "A verified catalog of 3,700+ cybersecurity courses across 45 countries.",
+    "url": "https://hashtagsuraksha.com/course-catalog.html",
+    "itemListElement": []
+  }
+  </script>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Scroll progress indicator -->
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- CURSOR GLOW (hashtag-v2) -->
+  <div id="cursorGlow" class="cursor-glow"></div>
+
+  <!-- NAV — identical to hashtag-v2 index.html -->
+  <nav class="nav" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/logo-suraksha.svg" alt="#Suraksha" class="nav-logo-img" />
+      </a>
+      <ul class="nav-links" id="nav-tabs">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="platform.html">CASK</a></li>
+        <li><a href="surakshak.html">Surakshak</a></li>
+        <li><a href="olympiad.html">Olympiad</a></li>
+        <li><a href="phishnchip.html">The Phish &amp; Chip Show</a></li>
+        <li><a href="slanglish.html">Slanglish</a></li>
+        <li><a href="course-catalog.html" class="active" aria-current="page">Course Catalog</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="partner.html">Partner With Us</a></li>
+      </ul>
+      <div class="nav-right">
+        <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a href="surakshak.html" class="nav-cta">Join the Movement</a>
+      </div>
+      <button class="hamburger" id="hamburger">&#9776;</button>
+    </div>
+    <div class="mobile-menu" id="mobile-nav-drawer" aria-hidden="true">
+      <a href="index.html">Home</a>
+      <a href="platform.html">CASK</a>
+      <a href="surakshak.html">Surakshak</a>
+      <a href="olympiad.html">Olympiad</a>
+      <a href="phishnchip.html">The Phish &amp; Chip Show</a>
+      <a href="slanglish.html">Slanglish</a>
+      <a href="course-catalog.html" class="active">Course Catalog</a>
+      <a href="resources.html">Resources</a>
+      <a href="partner.html">Partner With Us</a>
+      <a href="surakshak.html" class="mobile-cta">Join the Movement</a>
+      <button id="mobileThemeToggle" class="mobile-theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <span class="mobile-theme-label">Toggle theme</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       MAIN CATALOG CONTENT
+       ═══════════════════════════════════════════════════════════ -->
+  <main class="catalog-page" id="main-content">
+
+    <!-- Catalog intro hero -->
+    <section class="catalog-section catalog-hero">
+      <div class="container">
+        <span class="section-tag center">Course Catalog</span>
+        <h1 class="section-title center">Explore Global Cybersecurity Education</h1>
+        <p class="section-sub center">
+          A verified catalog of 3,700+ cybersecurity courses across 45 countries.
+          Filter by country, domain, level, and pricing — or dive straight into the data.
+        </p>
+      </div>
+    </section>
+
+    <!-- Quick guide strip -->
+    <section class="catalog-section catalog-guide-strip" aria-label="How to use this catalog">
+      <div class="container">
+        <div class="guide-strip">
+          <div class="guide-strip-item">
+            <span class="guide-strip-icon" aria-hidden="true">🌍</span>
+            <div>
+              <strong>Spin the globe</strong>
+              <span>Click any country to see its courses.</span>
+            </div>
+          </div>
+          <div class="guide-strip-item">
+            <span class="guide-strip-icon" aria-hidden="true">🎛️</span>
+            <div>
+              <strong>Filter everything</strong>
+              <span>Category, level, topic, search, and sort.</span>
+            </div>
+          </div>
+          <div class="guide-strip-item">
+            <span class="guide-strip-icon" aria-hidden="true">🎓</span>
+            <div>
+              <strong>Take the tour</strong>
+              <span>Answer 3 quick questions for a tailored list.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="catalog-section alt">
+      <div class="catalog-app">
+
+        <!-- Tab wrapper that app.js switchTab() targets -->
+        <div id="tab-dashboard" class="tab-content active">
+
+        
+
+        <!-- ══════════ DASHBOARD TAB ══════════ -->
+        
+
+          <!-- Dashboard welcome banner -->
+          <div class="dash-welcome-banner" id="dash-welcome-banner" role="status" aria-live="polite">
+            <div class="dash-welcome-content">
+              <div class="dash-welcome-text">
+                <strong>👋 Welcome to the Course Catalog</strong>
+                Explore 3,700+ verified cybersecurity courses from 45 countries. Spin the globe to pick a country, click any metric card, or head to <strong>All Courses</strong> to search, sort, and save favorites.
+              </div>
+              <div class="dash-welcome-actions">
+                <button class="dash-welcome-tour" id="dash-welcome-tour" aria-describedby="welcome-hint">🎓 Start quick tour</button>
+                <span id="welcome-hint" class="vh">Answer three quick questions and we'll filter the catalog for you.</span>
+                <button class="dash-welcome-close" id="dash-welcome-close" aria-label="Dismiss welcome message">✕</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="dash-layout" id="dashboard-section">
+
+            <!-- ═══ LEFT SIDEBAR ═══ -->
+            <div class="dash-left">
+
+              <!-- Total Courses Card -->
+              <div class="glass-card metric-card dash-total-card clickable is-default-selected" data-filter-all="true" role="button" tabindex="0" title="Browse all courses" aria-pressed="true">
+                <div class="metric-card-title">Total Courses</div>
+                <div class="metric-value" id="total-count">0</div>
+                <div class="dash-total-delta" id="total-delta">Catalog total — all countries</div>
+              </div>
+
+              <div class="dash-helper-hint">💡 Click any card below to filter the catalog.</div>
+
+              <div class="glass-card metric-card">
+                <div class="metric-card-title">Premium Institutions</div>
+                <div class="metric-list">
+                  <div class="metric-row">
+                    <div class="metric-label">IITs</div>
+                    <div class="metric-value" id="dash-iit-count">0</div>
+                    <div class="metric-bar-track"><div class="metric-bar-fill" id="dash-iit-bar"></div></div>
+                  </div>
+                  <div class="metric-row">
+                    <div class="metric-label">IIITs</div>
+                    <div class="metric-value" id="dash-iiit-count">0</div>
+                    <div class="metric-bar-track"><div class="metric-bar-fill" id="dash-iiit-bar"></div></div>
+                  </div>
+                  <div class="metric-row">
+                    <div class="metric-label">NITs</div>
+                    <div class="metric-value" id="dash-nit-count">0</div>
+                    <div class="metric-bar-track"><div class="metric-bar-fill" id="dash-nit-bar"></div></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Access Types -->
+              <div class="glass-card metric-card">
+                <div class="metric-card-title">Access Types</div>
+                <div class="metric-list">
+                  <div class="metric-row access-row clickable" data-filter-type="Free" role="button" tabindex="0" title="Show free courses">
+                    <div class="metric-label"><span class="access-icon">🆓</span> Free</div>
+                    <div class="metric-value" id="dash-free-count">0</div>
+                  </div>
+                  <div class="metric-row access-row clickable" data-filter-type="Free to Audit" role="button" tabindex="0" title="Show free-to-audit courses">
+                    <div class="metric-label"><span class="access-icon">🔓</span> Free to Audit</div>
+                    <div class="metric-value" id="dash-fta-count">0</div>
+                  </div>
+                  <div class="metric-row access-row clickable" data-filter-type="High Value Low Cost" role="button" tabindex="0" title="Show high value low cost courses">
+                    <div class="metric-label"><span class="access-icon">💎</span> High Value Low Cost</div>
+                    <div class="metric-value" id="dash-hvlc-count">0</div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- ═══ CENTER ═══ -->
+            <div class="dash-center">
+              <div class="globe-glow"></div>
+              <div class="dash-globe-wrap" id="globe-container">
+                <!-- COBE 3D globe renders here -->
+                <button class="globe-fullscreen-btn" id="globe-fullscreen-btn" aria-label="Toggle full-screen globe">⛶</button>
+                <button class="globe-reset-btn" id="globe-reset-btn" aria-label="Reset globe view">⌖</button>
+              </div>
+
+              <!-- Floating Country Course Panel -->
+              <div class="country-detail-panel glass-panel" id="course-details-panel" style="display:none;">
+                <div class="country-detail-hdr">
+                  <div class="country-detail-title">
+                    <span id="country-detail-flag">🌐</span>
+                    <span id="country-detail-name">Country</span>
+                    <span class="country-detail-count" id="country-detail-count">0</span>
+                  </div>
+                  <button id="clear-filter" class="country-detail-close" title="Clear selection" aria-label="Clear country selection">✕</button>
+                </div>
+                <div class="country-detail-sub">Click any country on the globe to filter courses</div>
+
+                <!-- Quick stats -->
+                <div class="country-detail-stats" id="country-detail-stats">
+                  <div class="country-detail-stat">
+                    <div class="country-detail-stat-val accent" id="cds-total">0</div>
+                    <div class="country-detail-stat-label">Total Courses</div>
+                  </div>
+                  <div class="country-detail-stat">
+                    <div class="country-detail-stat-val green" id="cds-qs">0</div>
+                    <div class="country-detail-stat-label">QS Ranked</div>
+                  </div>
+                  <div class="country-detail-stat">
+                    <div class="country-detail-stat-val blue" id="cds-domain">—</div>
+                    <div class="country-detail-stat-label">Top Domain</div>
+                  </div>
+                </div>
+
+                <!-- Top domains -->
+                <div class="country-detail-topics" id="country-detail-topics">
+                  <div class="country-detail-topics-title">Top Domains</div>
+                  <div class="country-detail-topic-list" id="country-detail-topic-list"></div>
+                </div>
+
+                <!-- Actions -->
+                <div class="country-detail-actions">
+                  <button id="country-view-table" class="country-detail-btn">📋 View All <span id="country-btn-name">Country</span> Courses</button>
+                </div>
+
+                <div class="tbl-wrap" style="max-height:220px;">
+                  <table class="data-table country-courses-table" id="country-courses-table">
+                    <caption class="vh">Courses offered in the selected country</caption>
+                    <thead><tr>
+                      <th class="freeze-col" scope="col"># / Course Name</th>
+                      <th scope="col">University</th>
+                      <th scope="col" class="col-center">QS Rank</th>
+                      <th scope="col" class="col-center">NIRF Rank</th>
+                      <th scope="col" class="col-actions"><span class="vh">Actions</span></th>
+                    </tr></thead>
+                    <tbody id="course-details-body"></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <!-- ═══ RIGHT SIDEBAR ═══ -->
+            <div class="dash-right">
+              <div class="glass-card metric-card dash-quantity-card india-card clickable" data-filter-country="India" role="button" tabindex="0" title="Show courses from India">
+                <div class="metric-card-title"><span class="india-flag-badge">🇮🇳</span> India</div>
+                <div class="metric-value" id="india-stat-count" style="color:var(--teal);">0</div>
+                <div class="dash-total-delta" id="india-stat-pct">0% of catalog</div>
+              </div>
+
+              <div class="glass-card dash-quantity-card">
+                <div class="dash-quantity-header">
+                  <div>
+                    <div class="dash-quantity-title">International distribution</div>
+                    <div class="dash-quantity-sub">Top countries outside India</div>
+                  </div>
+                </div>
+                <div class="dash-quantity-bars" id="quantity-bars">
+                  <!-- Populated by JS -->
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ══════════ DOMAIN KNOWLEDGE FEED ══════════ -->
+          <section class="domain-info-section" id="domain-info-section">
+            <div class="domain-info-hdr">
+              <div>
+                <div class="domain-info-title">🛡️ Cybersecurity Domain Explorer</div>
+                <div class="domain-info-sub">Explore the specializations that shape the catalog — and jump straight to matching courses.</div>
+              </div>
+            </div>
+            <div class="domain-cards-grid" id="domain-cards-grid">
+              <!-- Cards rendered by app.js when scrolled into view -->
+            </div>
+          </section>
+        </div><!-- /tab-dashboard -->
+
+        <!-- ══════════ ALL COURSES SECTION ══════════ -->
+        <section id="all-courses-section" class="all-courses-section">
+          <div class="edx-container">
+            <div class="courses-hero">
+              <div class="courses-hero-content">
+                <div class="edx-title-wrap">
+                  <span class="edx-title-icon" aria-hidden="true">🎓</span>
+                  <h2 class="edx-title" id="edx-section-title">All Courses</h2>
+                </div>
+                <p class="edx-subtitle" id="edx-section-subtitle">Explore <strong id="hero-course-count">0</strong> verified cybersecurity courses from top universities and institutions.</p>
+              </div>
+            </div>
+
+            <!-- Hero filter summary -->
+            <div class="courses-hero-summary" id="courses-hero-summary" aria-live="polite" aria-atomic="true">
+              <span id="hero-summary-text">Browse the full catalog below.</span>
+            </div>
+
+            <!-- Sidebar + results workspace -->
+            <div class="catalog-workspace" id="catalog-workspace">
+              <div class="catalog-mobile-overlay" id="catalog-mobile-overlay" aria-hidden="true"></div>
+
+              <!-- Sidebar filters -->
+              <aside class="catalog-sidebar" id="catalog-sidebar" aria-label="Course filters">
+                <div class="catalog-sidebar-header">
+                  <h3 class="catalog-sidebar-title">
+                    <span class="sidebar-title-icon" aria-hidden="true">⚙</span>
+                    <span class="sidebar-title-text">Filters</span>
+                  </h3>
+                  <div class="catalog-sidebar-actions">
+                    <button type="button" class="sidebar-clear-btn" id="sidebar-clear-filters" title="Clear all filters">Clear all</button>
+                    <button type="button" class="sidebar-toggle-btn" id="catalog-sidebar-toggle" aria-expanded="true" aria-controls="catalog-sidebar-body" title="Collapse sidebar">
+                      <span class="sidebar-toggle-icon" aria-hidden="true">‹</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="catalog-sidebar-body" id="catalog-sidebar-body">
+                  <div class="filter-accordion">
+                    <button type="button" class="accordion-trigger" aria-expanded="true">Category</button>
+                    <div class="accordion-panel">
+                      <div class="pill-group course-types-pills" id="course-type-pills" role="group" aria-label="Filter by course category">
+                        <button type="button" class="type-pill active" data-type="all" aria-pressed="true">All <span class="filter-count">0</span></button>
+                        <button type="button" class="type-pill" data-type="Bachelor's Degree" aria-pressed="false">Bachelor's <span class="filter-count">0</span></button>
+                        <button type="button" class="type-pill" data-type="Master's Degree" aria-pressed="false">Master's <span class="filter-count">0</span></button>
+                        <button type="button" class="type-pill" data-type="Post Graduate Diploma" aria-pressed="false">PG Diploma <span class="filter-count">0</span></button>
+                        <button type="button" class="type-pill" data-type="Post Graduate Certificate" aria-pressed="false">PG Cert <span class="filter-count">0</span></button>
+                        <button type="button" class="type-pill" data-type="Diploma" aria-pressed="false">Diploma <span class="filter-count">0</span></button>
+                        <button type="button" class="type-pill" data-type="Certificate" aria-pressed="false">Certificate <span class="filter-count">0</span></button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="filter-accordion">
+                    <button type="button" class="accordion-trigger" aria-expanded="true">Level</button>
+                    <div class="accordion-panel">
+                      <div class="pill-group skill-level-pills" id="skill-level-pills" role="group" aria-label="Filter by skill level">
+                        <button type="button" class="type-pill active" data-level="all" aria-pressed="true">All <span class="filter-count">0</span></button>
+                        <button type="button" class="type-pill" data-level="Beginner" aria-pressed="false">🌱 Beginner <span class="filter-count">0</span></button>
+                        <button type="button" class="type-pill" data-level="Intermediate" aria-pressed="false">🚀 Intermediate <span class="filter-count">0</span></button>
+                        <button type="button" class="type-pill" data-level="Advanced" aria-pressed="false">🔥 Advanced <span class="filter-count">0</span></button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="filter-accordion">
+                    <button type="button" class="accordion-trigger" aria-expanded="true">Access Type</button>
+                    <div class="accordion-panel">
+                      <div class="pill-group access-type-pills" id="access-type-pills" role="group" aria-label="Filter by access type">
+                        <button type="button" class="type-pill" data-access="Free" aria-pressed="false">🆓 Free <span class="filter-count">0</span></button>
+                        <button type="button" class="type-pill" data-access="Free to Audit" aria-pressed="false">🔓 Free to Audit <span class="filter-count">0</span></button>
+                        <button type="button" class="type-pill" data-access="High Value Low Cost" aria-pressed="false">💎 High Value Low Cost <span class="filter-count">0</span></button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="filter-accordion">
+                    <button type="button" class="accordion-trigger" aria-expanded="true">Topic</button>
+                    <div class="accordion-panel">
+                      <div class="pill-group domain-chips-scroll" id="domain-chips-scroll" role="group" aria-label="Filter by topic domain">
+                        <button type="button" class="domain-chip active" data-domain="all" aria-pressed="true">Featured <span class="filter-count">0</span></button>
+                        <button type="button" class="domain-chip" data-domain="foundational" aria-pressed="false">Foundational <span class="filter-count">0</span></button>
+                        <button type="button" class="domain-chip" data-domain="network-infra" aria-pressed="false">Networks <span class="filter-count">0</span></button>
+                        <button type="button" class="domain-chip" data-domain="system-endpoint" aria-pressed="false">Systems <span class="filter-count">0</span></button>
+                        <button type="button" class="domain-chip" data-domain="forensics-ir" aria-pressed="false">Forensics <span class="filter-count">0</span></button>
+                        <button type="button" class="domain-chip" data-domain="data-app-security" aria-pressed="false">Data & App <span class="filter-count">0</span></button>
+                        <button type="button" class="domain-chip" data-domain="legal-compliance" aria-pressed="false">Legal <span class="filter-count">0</span></button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="filter-accordion">
+                    <button type="button" class="accordion-trigger" aria-expanded="true">Country</button>
+                    <div class="accordion-panel">
+                      <select id="course-country-filter" class="country-filter-select" aria-label="Filter by country">
+                        <option value="all">All countries</option>
+                      </select>
+                    </div>
+                  </div>
+                </div><!-- /catalog-sidebar-body -->
+              </aside><!-- /catalog-sidebar -->
+
+              <!-- Results area -->
+              <div class="catalog-results">
+                <div class="catalog-mobile-filter-bar">
+                  <button type="button" class="mobile-filter-toggle" id="catalog-mobile-toggle" aria-expanded="false" aria-controls="catalog-sidebar">
+                    <span aria-hidden="true">⚙</span>
+                    <span>Filters</span>
+                  </button>
+                </div>
+
+                <!-- Search, sort, view toggle, and clear-all -->
+                <div class="courses-toolbar" id="courses-toolbar">
+                  <div class="courses-search">
+                    <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <circle cx="11" cy="11" r="8"></circle>
+                      <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="search" id="course-search" placeholder="Search courses, universities, countries…" aria-label="Search courses" autocomplete="off">
+                    <button type="button" class="search-clear-btn" id="search-clear-btn" aria-label="Clear search" title="Clear search">×</button>
+                    <kbd class="search-kbd" id="search-kbd">Ctrl K</kbd>
+                  </div>
+                  <div class="courses-sort">
+                    <label for="course-sort" class="vh">Sort by</label>
+                    <select id="course-sort" aria-label="Sort courses">
+                      <option value="relevance">Relevance</option>
+                      <option value="name">Name A–Z</option>
+                      <option value="nameDesc">Name Z–A</option>
+                      <option value="country">Country A–Z</option>
+                      <option value="qs">QS Ranked first</option>
+                    </select>
+                  </div>
+                  <div class="courses-view-toggle" role="group" aria-label="View layout">
+                    <button type="button" id="view-grid" class="view-btn active" aria-label="Grid view" title="Grid view" aria-pressed="true">⊞</button>
+                    <button type="button" id="view-list" class="view-btn" aria-label="List view" title="List view" aria-pressed="false">☰</button>
+                  </div>
+                  <button class="edx-reset-btn" id="edx-reset-filters">Clear filters</button>
+                </div>
+
+                <!-- Active filter chips -->
+                <div class="active-filters" id="active-filters" aria-live="polite"></div>
+
+                <!-- Filter status / result count -->
+                <div class="edx-meta-bar">
+                  <span class="edx-result-count" id="edx-result-count" aria-live="polite" aria-atomic="true">0 courses</span>
+                  <span class="shortcut-hint">Press <kbd>1</kbd>–<kbd>9</kbd> for topics, <kbd>Esc</kbd> to clear</span>
+                </div>
+
+                <!-- Cards Grid -->
+                <div class="edx-cards-row" id="edx-cards-row">
+                  <!-- Cards dynamically injected via app.js -->
+                </div>
+
+                <!-- Pagination / load more -->
+                <div class="courses-pagination-wrap" id="courses-pagination-wrap">
+                  <div class="courses-pagination-meta" id="courses-pagination-meta">Showing 0 of 0 courses</div>
+                  <div class="courses-pagination" id="courses-pagination"></div>
+                  <div class="courses-page-size">
+                    <label for="courses-page-size">Show</label>
+                    <select id="courses-page-size" aria-label="Courses per page">
+                      <option value="12">12</option>
+                      <option value="24">24</option>
+                      <option value="48">48</option>
+                      <option value="all">All</option>
+                    </select>
+                  </div>
+                </div>
+              </div><!-- /catalog-results -->
+            </div><!-- /catalog-workspace -->
+          </div>
+          <button class="back-to-top" id="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
+        </section><!-- /all-courses-section -->
+
+      </div><!-- /catalog-app -->
+
+      <!-- Persistent help / restart tour -->
+      <button class="catalog-help-btn" id="catalog-help-btn" aria-label="Restart catalog tour" title="Restart catalog tour">
+        <span aria-hidden="true">❔</span>
+        <span class="help-label">Help</span>
+      </button>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       FOOTER (hashtag-v2)
+       ═══════════════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo-circle-link">
+            <div class="footer-logo-circle">
+              <span class="cv-footer-logo-text">⬡</span>
+            </div>
+          </a>
+          <p>Global cybersecurity course catalog curated by Khushboo Singh. Part of the Hashtag Suraksha ecosystem.</p>
+          <div class="footer-socials">
+            <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="#" target="_blank" rel="noopener">Twitter</a>
+          </div>
+        </div>
+        <div class="footer-links-group">
+          <div class="footer-col">
+            <h5>Ecosystem</h5>
+            <a href="platform.html">CASK</a>
+            <a href="surakshak.html">Surakshak</a>
+            <a href="olympiad.html">Olympiad</a>
+            <a href="phishnchip.html">The Phish &amp; Chip Show</a>
+            <a href="slanglish.html">Slanglish</a>
+          </div>
+          <div class="footer-col">
+            <h5>Catalog</h5>
+            <a href="#dashboard-section">Dashboard</a>
+            <a href="#all-courses-section">All Courses</a>
+            <a href="resources.html">Resources</a>
+          </div>
+          <div class="footer-col">
+            <h5>Contact</h5>
+            <a href="mailto:info@hashtagsuraksha.com">info@hashtagsuraksha.com</a>
+            <a href="partner.html" class="footer-cta-link">Become a Partner</a>
+            <a href="surakshak.html" class="footer-cta-link">Join Surakshak</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>2026 CourseVerify · Hashtag Suraksha. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       MODALS & OVERLAYS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <!-- ONBOARDING QUIZ MODAL -->
+  <div id="onboarding-modal" class="modal-overlay onboarding-overlay" role="dialog" aria-modal="true" aria-labelledby="onboarding-title">
+    <div class="modal-box onboarding-box">
+      <div class="modal-hdr onboarding-hdr">
+        <div>
+          <h3 id="onboarding-title">🎓 Welcome to the Course Catalog</h3>
+          <p class="onboarding-sub">Answer 3 quick questions and we'll tailor the catalog for you.</p>
+        </div>
+        <button id="onboarding-close" class="modal-close" aria-label="Close onboarding">✕</button>
+      </div>
+      <div id="onboarding-body" class="onboarding-body">
+        <!-- Step 1: Experience -->
+        <div class="onboarding-step active" data-step="1">
+          <div class="onboarding-step-header">
+            <span class="onboarding-step-label">Step 1 of 3</span>
+            <span class="onboarding-step-hint">We use this to match course difficulty.</span>
+          </div>
+          <div class="onboarding-question">What best describes your current cybersecurity experience?</div>
+          <div class="onboarding-options">
+            <button class="onboarding-option" data-level="Beginner" data-answer="beginner">🌱 Just starting — I want fundamentals</button>
+            <button class="onboarding-option" data-level="Intermediate" data-answer="intermediate">🚀 I know the basics and want to specialize</button>
+            <button class="onboarding-option" data-level="Advanced" data-answer="advanced">🔥 I'm experienced and want advanced certs/degrees</button>
+          </div>
+        </div>
+
+        <!-- Step 2: Domain -->
+        <div class="onboarding-step" data-step="2">
+          <div class="onboarding-step-header">
+            <span class="onboarding-step-label">Step 2 of 3</span>
+            <span class="onboarding-step-hint">Pick the domain that matches your interest.</span>
+          </div>
+          <div class="onboarding-question">Which area interests you most right now?</div>
+          <div class="onboarding-options onboarding-grid">
+            <button class="onboarding-option" data-domain="Foundational" data-answer="foundational">🧱 Foundations & Risk</button>
+            <button class="onboarding-option" data-domain="Network Infrastructure" data-answer="network">🌐 Networks & Cloud</button>
+            <button class="onboarding-option" data-domain="System & Endpoint" data-answer="endpoint">💻 Endpoints & OS</button>
+            <button class="onboarding-option" data-domain="Cyber Forensics" data-answer="forensics">🔍 Forensics & IR</button>
+            <button class="onboarding-option" data-domain="Data & Application" data-answer="data">🗄️ AppSec & Data Privacy</button>
+            <button class="onboarding-option" data-domain="Legal & Ethical" data-answer="legal">⚖️ Cyber Law & Compliance</button>
+          </div>
+        </div>
+
+        <!-- Step 3: Goal -->
+        <div class="onboarding-step" data-step="3">
+          <div class="onboarding-step-header">
+            <span class="onboarding-step-label">Step 3 of 3</span>
+            <span class="onboarding-step-hint">This helps us surface the right course format.</span>
+          </div>
+          <div class="onboarding-question">What is your main goal right now?</div>
+          <div class="onboarding-options onboarding-grid">
+            <button class="onboarding-option" data-goal="career" data-answer="career">💼 Switch or grow my cybersecurity career</button>
+            <button class="onboarding-option" data-goal="upskill" data-answer="upskill">📚 Upskill in a specific topic quickly</button>
+            <button class="onboarding-option" data-goal="degree" data-answer="degree">🎓 Earn a degree or diploma</button>
+            <button class="onboarding-option" data-goal="cert" data-answer="cert">🏅 Prepare for a certification</button>
+          </div>
+        </div>
+
+        <!-- Result -->
+        <div class="onboarding-step" data-step="4">
+          <div class="onboarding-step-header">
+            <span class="onboarding-step-label">Ready</span>
+          </div>
+          <div class="onboarding-result" id="onboarding-result">
+            <div class="onboarding-result-icon">🎯</div>
+            <div class="onboarding-result-title" id="onboarding-result-title">Recommended path ready</div>
+            <div class="onboarding-result-tags" id="onboarding-result-tags"></div>
+            <p id="onboarding-result-text"></p>
+            <div class="onboarding-result-actions">
+              <button class="modal-btn primary onboarding-cta" id="onboarding-cta">Explore recommended courses</button>
+              <button class="modal-btn secondary" id="onboarding-skip">Browse everything</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer onboarding-footer">
+        <div class="onboarding-dots" aria-label="Onboarding progress">
+          <span class="dot active" data-step="1"></span>
+          <span class="dot" data-step="2"></span>
+          <span class="dot" data-step="3"></span>
+          <span class="dot" data-step="4"></span>
+        </div>
+        <div class="onboarding-actions">
+          <button class="modal-btn secondary" id="onboarding-back" disabled>Back</button>
+          <button class="modal-btn primary" id="onboarding-next">Next</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COURSE DETAIL MODAL -->
+  <div id="course-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-course-title">
+    <div class="modal-box" role="document">
+      <div class="modal-hdr" id="modal-hdr">
+        <h3 id="modal-course-title">Course Details</h3>
+        <button id="close-modal" class="modal-close" aria-label="Close course details">✕</button>
+      </div>
+      <div id="modal-body" style="padding:20px 24px;">
+        <!-- Populated by JS -->
+      </div>
+      <div class="modal-footer">
+        <button id="modal-secondary" class="modal-btn secondary">Close</button>
+        <a id="modal-primary" class="modal-btn primary" href="#" target="_blank" rel="noopener">↗ Visit course website</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Suggestion / duplicate overlay -->
+  <div id="suggest-overlay" class="suggest-overlay" role="dialog" aria-modal="true" aria-labelledby="suggest-title">
+    <div class="suggest-box">
+      <div class="suggest-hdr">
+        <h3 id="suggest-title">Possible duplicates</h3>
+        <button id="suggest-close" class="modal-close" aria-label="Close suggestions">✕</button>
+      </div>
+      <div id="suggest-body"></div>
+    </div>
+  </div>
+
+  <!-- Toast notification -->
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true">
+    <div class="toast-icon" id="toast-icon">✓</div>
+    <div class="toast-body">
+      <div class="toast-title" id="toast-title">Saved</div>
+      <div class="toast-msg" id="toast-msg">Updated.</div>
+    </div>
+    <div class="toast-progress" id="toast-progress"></div>
+  </div>
+
+  <!-- Global loading curtain -->
+  <div id="loading-curtain" class="loading-curtain" aria-hidden="true">
+    <div class="loading-curtain-inner">
+      <div class="spinner" aria-hidden="true"></div>
+      <p id="loading-curtain-msg">Loading courses…</p>
+    </div>
+  </div>
+
+  <!-- course verifier app logic -->
+  <script src="assets/app.js?v=90" defer></script>
+  
+  <!-- hashtag-v2 shared behavior (nav scroll, hamburger, cursor glow) -->
+  <script src="main.js"></script>
+</body>
+</html>

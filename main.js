@@ -41,40 +41,53 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Toggle button in nav
+  function toggleTheme() {
+    const current = htmlEl.getAttribute('data-theme');
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+  }
+
   if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-      const current = htmlEl.getAttribute('data-theme');
-      applyTheme(current === 'dark' ? 'light' : 'dark');
-    });
+    themeToggle.addEventListener('click', toggleTheme);
+  }
+
+  // Mobile theme toggle in drawer
+  const mobileThemeToggle = document.getElementById('mobileThemeToggle');
+  if (mobileThemeToggle) {
+    mobileThemeToggle.addEventListener('click', toggleTheme);
   }
 
   // ─── CURSOR GLOW ───────────────────────────────────────────────
   const cursorGlow = document.getElementById('cursorGlow');
+  const isTouchDevice = window.matchMedia('(pointer: coarse)').matches;
   if (cursorGlow) {
-    let mouseX = -500, mouseY = -500;
-    let glowX  = -500, glowY  = -500;
+    if (isTouchDevice) {
+      cursorGlow.style.display = 'none';
+    } else {
+      let mouseX = -500, mouseY = -500;
+      let glowX  = -500, glowY  = -500;
 
-    document.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    });
+      document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
 
-    document.addEventListener('mouseleave', () => {
-      cursorGlow.style.opacity = '0';
-    });
+      document.addEventListener('mouseleave', () => {
+        cursorGlow.style.opacity = '0';
+      });
 
-    document.addEventListener('mouseenter', () => {
-      cursorGlow.style.opacity = '1';
-    });
+      document.addEventListener('mouseenter', () => {
+        cursorGlow.style.opacity = '1';
+      });
 
-    function animateGlow() {
-      // Smooth lerp follow
-      glowX += (mouseX - glowX) * 0.08;
-      glowY += (mouseY - glowY) * 0.08;
-      cursorGlow.style.transform = `translate(${glowX - 200}px, ${glowY - 200}px)`;
-      requestAnimationFrame(animateGlow);
+      function animateGlow() {
+        // Smooth lerp follow
+        glowX += (mouseX - glowX) * 0.08;
+        glowY += (mouseY - glowY) * 0.08;
+        cursorGlow.style.transform = `translate(${glowX - 200}px, ${glowY - 200}px)`;
+        requestAnimationFrame(animateGlow);
+      }
+      animateGlow();
     }
-    animateGlow();
   }
 
   // ─── NAVBAR SCROLL ─────────────────────────────────────────────
@@ -87,30 +100,58 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ─── HAMBURGER MENU ────────────────────────────────────────────
   const hamburger  = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileMenu = document.getElementById('mobileMenu') || document.getElementById('mobile-nav-drawer');
   if (hamburger && mobileMenu) {
+    function setMobileMenuOpen(open) {
+      mobileMenu.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', String(open));
+      mobileMenu.setAttribute('aria-hidden', String(!open));
+      document.body.style.overflow = open ? 'hidden' : '';
+      hamburger.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+    }
+
     hamburger.addEventListener('click', () => {
-      mobileMenu.classList.toggle('open');
+      setMobileMenuOpen(!mobileMenu.classList.contains('open'));
     });
+
+    // Close drawer when clicking a link
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => setMobileMenuOpen(false));
+    });
+
+    // Close on escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+        setMobileMenuOpen(false);
+        hamburger.focus();
+      }
+    });
+
+    // Set initial state
+    hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.setAttribute('aria-controls', mobileMenu.id);
+    hamburger.setAttribute('aria-label', 'Open navigation menu');
   }
 
   // ─── MAGNETIC BUTTONS ──────────────────────────────────────────
-  document.querySelectorAll('.magnetic-btn').forEach(btn => {
-    btn.addEventListener('mousemove', (e) => {
-      const rect   = btn.getBoundingClientRect();
-      const cx     = rect.left + rect.width  / 2;
-      const cy     = rect.top  + rect.height / 2;
-      const dx     = (e.clientX - cx) * 0.25;
-      const dy     = (e.clientY - cy) * 0.25;
-      btn.style.transform = `translate(${dx}px, ${dy}px)`;
-    });
+  if (!isTouchDevice) {
+    document.querySelectorAll('.magnetic-btn').forEach(btn => {
+      btn.addEventListener('mousemove', (e) => {
+        const rect   = btn.getBoundingClientRect();
+        const cx     = rect.left + rect.width  / 2;
+        const cy     = rect.top  + rect.height / 2;
+        const dx     = (e.clientX - cx) * 0.25;
+        const dy     = (e.clientY - cy) * 0.25;
+        btn.style.transform = `translate(${dx}px, ${dy}px)`;
+      });
 
-    btn.addEventListener('mouseleave', () => {
-      btn.style.transform = '';
-      btn.style.transition = 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)';
-      setTimeout(() => btn.style.transition = '', 400);
+      btn.addEventListener('mouseleave', () => {
+        btn.style.transform = '';
+        btn.style.transition = 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)';
+        setTimeout(() => btn.style.transition = '', 400);
+      });
     });
-  });
+  }
 
   // ─── 3D CARD TILT ──────────────────────────────────────────────
   document.querySelectorAll('.eco-card, .cert-card, .testimonial-card, .audience-card').forEach(card => {
