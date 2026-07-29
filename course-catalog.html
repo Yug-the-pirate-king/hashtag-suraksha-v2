@@ -276,8 +276,8 @@
     }
 
     .landing-glass-card {
-      background: var(--landing-bg);
-      border: 1px solid var(--landing-card-border);
+      background: transparent;
+      border: 1px solid transparent;
       border-radius: var(--cv-radius);
       padding: 26px 24px;
       text-align: left;
@@ -286,10 +286,6 @@
       overflow: hidden;
       border-top: 3px solid var(--accent, var(--cv-amber));
       box-shadow: none;
-    }
-
-    [data-theme="light"] .landing-glass-card {
-      border-color: color-mix(in srgb, var(--landing-card-border) 70%, transparent);
     }
 
     .landing-glass-card:nth-child(1) { --accent: var(--cv-amber); }
