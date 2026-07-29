@@ -51,25 +51,19 @@
       --cv-shadow: 0 1px 2px rgba(16,24,27,0.05), 0 10px 28px -14px rgba(16,24,27,0.16);
       --cv-radius: 16px;
 
-      /* hero/data-dark canvas is fixed regardless of theme */
-      --navy: #0D1B22;
-      --navy-raised: #132631;
-      --navy-line: #24363F;
-      --on-navy: #F2EEE2;
-      --on-navy-soft: #93A0A4;
-
-      --landing-bg: var(--navy);
-      --landing-text-main: var(--on-navy);
-      --landing-text-muted: var(--on-navy-soft);
+      /* default tokens */
+      --landing-bg: var(--cv-paper);
+      --landing-text-main: var(--cv-ink);
+      --landing-text-muted: var(--cv-ink-soft);
       --landing-accent-green: var(--cv-moss);
       --landing-accent-saffron: var(--cv-amber);
       --landing-accent-thread: var(--cv-indigo);
-      --landing-card-bg: var(--navy-raised);
-      --landing-card-border: var(--navy-line);
+      --landing-card-bg: var(--cv-paper-raised);
+      --landing-card-border: var(--cv-line);
 
       --font-display: 'Big Shoulders Display', 'Plus Jakarta Sans', sans-serif;
       --font-body: 'IBM Plex Sans', 'Plus Jakarta Sans', sans-serif;
-      --font-mono: 'IBM Plex Mono', var(--font-mono);
+      --font-mono: 'IBM Plex Mono', 'JetBrains Mono', monospace;
     }
 
     [data-theme="dark"] {
@@ -86,9 +80,14 @@
       --cv-moss-soft: #12291F;
       --cv-danger: #E08064;
       --cv-shadow: 0 1px 2px rgba(0,0,0,0.35), 0 14px 32px -16px rgba(0,0,0,0.6);
+      --landing-bg: #0D1B22;
+      --landing-text-main: #F2EEE2;
+      --landing-text-muted: #93A0A4;
+      --landing-card-bg: #132631;
+      --landing-card-border: #24363F;
     }
 
-    /* Landing hero — fixed dark canvas */
+    /* Landing hero — theme-aware */
     .landing-hero {
       display: flex;
       flex-direction: column;
@@ -105,12 +104,17 @@
       content: "";
       position: absolute;
       inset: 0;
-      background-image: radial-gradient(var(--navy-line) 1px, transparent 1.5px);
+      background-image: radial-gradient(color-mix(in srgb, var(--landing-text-muted) 40%, transparent) 1px, transparent 1.5px);
       background-size: 22px 22px;
       mask-image: radial-gradient(circle at 50% 20%, black 0%, transparent 70%);
-      opacity: 0.6;
+      opacity: 0.5;
       pointer-events: none;
       z-index: 0;
+    }
+
+    [data-theme="dark"] .landing-hero::before {
+      background-image: radial-gradient(#24363F 1px, transparent 1.5px);
+      opacity: 0.6;
     }
 
     .landing-hero .floating-elements {
@@ -139,15 +143,18 @@
 
     .landing-hero .glowing-orb {
       position: absolute;
-      width: 300px;
-      height: 300px;
+      width: 280px;
+      height: 280px;
       background: var(--landing-accent-green);
-      filter: blur(150px);
-      opacity: 0.15;
+      filter: blur(120px);
+      opacity: 0.18;
       border-radius: 50%;
       top: 20%;
       left: 50%;
       transform: translateX(-50%);
+    }
+    [data-theme="light"] .landing-hero .glowing-orb {
+      opacity: 0.10;
     }
 
     .landing-hero .hero-tag {
@@ -212,7 +219,46 @@
       transition: transform 0.2s, box-shadow 0.2s;
     }
 
+    [data-theme="light"] .landing-hero .cta-button {
+      box-shadow: 0 4px 14px color-mix(in srgb, var(--landing-accent-green) 25%, transparent);
+    }
+
     .landing-hero .cta-button:hover { transform: translateY(-2px); box-shadow: 0 10px 25px color-mix(in srgb, var(--landing-accent-green) 40%, transparent); }
+
+    /* Entrance animations */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes countPulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+      100% { transform: scale(1); }
+    }
+    .landing-hero .hero-tag,
+    .landing-hero h1,
+    .landing-hero p,
+    .landing-hero .cta-button,
+    .landing-stats-grid .landing-glass-card,
+    .how-it-works-header > *,
+    .journey-step {
+      animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+    .landing-hero .hero-tag { animation-delay: 0.05s; }
+    .landing-hero h1 { animation-delay: 0.15s; }
+    .landing-hero p { animation-delay: 0.25s; }
+    .landing-hero .cta-button { animation-delay: 0.35s; }
+    .landing-stats-grid .landing-glass-card:nth-child(1) { animation-delay: 0.45s; }
+    .landing-stats-grid .landing-glass-card:nth-child(2) { animation-delay: 0.55s; }
+    .landing-stats-grid .landing-glass-card:nth-child(3) { animation-delay: 0.65s; }
+    .how-it-works-header > *:nth-child(1) { animation-delay: 0.15s; }
+    .how-it-works-header > *:nth-child(2) { animation-delay: 0.25s; }
+    .how-it-works-header > *:nth-child(3) { animation-delay: 0.35s; }
+    .journey-step:nth-child(1) { animation-delay: 0.45s; }
+    .journey-step:nth-child(2) { animation-delay: 0.55s; }
+    .journey-step:nth-child(3) { animation-delay: 0.65s; }
+    .journey-step:nth-child(4) { animation-delay: 0.75s; }
+    .landing-stat-number.counted { animation: countPulse 0.35s ease; }
 
     /* Stats grid */
     .landing-stats-grid {
@@ -228,22 +274,31 @@
     }
 
     .landing-glass-card {
-      background: var(--landing-card-bg);
+      background: var(--landing-bg);
       border: 1px solid var(--landing-card-border);
       border-radius: var(--cv-radius);
       padding: 26px 24px;
       text-align: left;
-      transition: transform 0.3s, border-color 0.3s;
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
       position: relative;
       overflow: hidden;
       border-top: 3px solid var(--accent, var(--cv-amber));
+      box-shadow: none;
+    }
+
+    [data-theme="light"] .landing-glass-card {
+      border-color: color-mix(in srgb, var(--landing-card-border) 70%, transparent);
     }
 
     .landing-glass-card:nth-child(1) { --accent: var(--cv-amber); }
     .landing-glass-card:nth-child(2) { --accent: var(--cv-indigo); }
     .landing-glass-card:nth-child(3) { --accent: var(--cv-moss); }
 
-    .landing-glass-card:hover { transform: translateY(-5px); border-color: color-mix(in srgb, var(--accent) 30%, var(--landing-card-border)); }
+    .landing-glass-card:hover {
+      transform: translateY(-5px);
+      border-color: color-mix(in srgb, var(--accent) 50%, var(--landing-card-border));
+      box-shadow: 0 12px 30px -10px color-mix(in srgb, var(--accent) 12%, transparent);
+    }
 
     .landing-stat-number {
       font-family: var(--font-display);
@@ -263,6 +318,10 @@
       margin-bottom: 10px;
     }
     .landing-stat-desc { color: var(--landing-text-muted); font-size: 13px; line-height: 1.55; }
+
+    /* Dashboard metric legibility in light mode */
+    [data-theme="light"] .metric-label { color: var(--text-1); font-weight: 600; }
+    [data-theme="light"] .metric-card-title { color: var(--text-1); }
 
     /* New card design (also used by the All Courses grid override) */
     .card {
@@ -530,9 +589,10 @@
       left: 12.5%;
       right: 12.5%;
       height: 1px;
-      background: var(--navy-line);
+      background: var(--landing-card-border);
       z-index: 0;
     }
+    [data-theme="dark"] .journey-steps::before { background: #24363F; }
 
     .journey-step {
       background: var(--landing-card-bg);
@@ -543,10 +603,18 @@
       position: relative;
       z-index: 1;
       margin: 0 10px;
-      transition: transform 0.3s, border-color 0.3s;
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+      box-shadow: var(--cv-shadow);
+    }
+    [data-theme="light"] .journey-step {
+      box-shadow: 0 4px 20px -8px rgba(16,24,27,0.10), 0 1px 3px rgba(16,24,27,0.04);
     }
 
-    .journey-step:hover { transform: translateY(-5px); border-color: color-mix(in srgb, var(--cv-indigo) 30%, var(--landing-card-border)); }
+    .journey-step:hover {
+      transform: translateY(-5px);
+      border-color: color-mix(in srgb, var(--cv-indigo) 30%, var(--landing-card-border));
+      box-shadow: 0 12px 30px -10px color-mix(in srgb, var(--cv-indigo) 15%, transparent);
+    }
 
     .step-number {
       font-family: var(--font-mono);
@@ -561,13 +629,14 @@
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      background: var(--navy);
+      background: color-mix(in srgb, var(--cv-indigo) 10%, var(--landing-card-bg));
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 18px;
       margin-bottom: 14px;
     }
+    [data-theme="dark"] .step-icon { background: #0D1B22; }
 
     .journey-step h3 {
       font-family: var(--font-body);
@@ -582,6 +651,35 @@
       color: var(--landing-text-muted);
       line-height: 1.55;
       margin: 0;
+    }
+
+    .step-outcome {
+      display: block;
+      margin-top: 12px;
+      padding-left: 10px;
+      border-left: 2px solid var(--cv-moss);
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--cv-moss);
+      line-height: 1.5;
+    }
+
+    .journey-cta {
+      max-width: 1100px;
+      margin: 52px auto 0;
+      text-align: center;
+      animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.85s both;
+    }
+    .journey-cta .cta-button {
+      box-shadow: 0 4px 14px color-mix(in srgb, var(--landing-accent-green) 25%, transparent);
+    }
+    .journey-hint {
+      margin: 14px 0 0;
+      font-size: 13px;
+      color: var(--landing-text-muted);
     }
 
     /* Domain Explorer placeholder */
@@ -599,6 +697,10 @@
       border-radius: var(--cv-radius);
       padding: 48px 32px;
       text-align: center;
+      box-shadow: var(--cv-shadow);
+    }
+    [data-theme="light"] .domain-explorer-inner {
+      box-shadow: 0 4px 20px -8px rgba(16,24,27,0.10), 0 1px 3px rgba(16,24,27,0.04);
     }
     .domain-explorer-inner .eyebrow {
       display: inline-flex;
@@ -749,17 +851,17 @@
     <!-- NEW STATS GRID -->
     <section class="landing-stats-grid">
       <div class="landing-glass-card">
-        <div class="landing-stat-number teal">3,700+</div>
+        <div class="landing-stat-number teal" data-count="3700">3,700+</div>
         <div class="landing-stat-label">Verified Courses</div>
         <div class="landing-stat-desc">Curated cybersecurity programs from top universities and institutions globally. Filter by level, domain, and access type.</div>
       </div>
       <div class="landing-glass-card">
-        <div class="landing-stat-number green">45</div>
+        <div class="landing-stat-number green" data-count="45">45</div>
         <div class="landing-stat-label">Countries Represented</div>
         <div class="landing-stat-desc">Spin the interactive globe to discover localized cybersecurity education in any region of the world.</div>
       </div>
       <div class="landing-glass-card">
-        <div class="landing-stat-number" style="background: linear-gradient(90deg, #fff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">IITs</div>
+        <div class="landing-stat-number">IITs</div>
         <div class="landing-stat-label">Premium Institutions</div>
         <div class="landing-stat-desc">Access high-value, low-cost degrees and certifications from elite universities like IITs, IIITs, and NITs.</div>
       </div>
@@ -769,34 +871,42 @@
     <section class="how-it-works-section">
       <div class="how-it-works-header">
         <span class="section-tag">How it works</span>
-        <h2>Your Course Discovery Journey</h2>
-        <p>From a global overview to a personalized shortlist in four simple steps.</p>
+        <h2>From curiosity to application in four steps</h2>
+        <p>Hashtag Suraksha turns a massive global catalog into a clear, personal path. Here’s exactly what you get and how to get it.</p>
       </div>
       <div class="journey-steps">
         <div class="journey-step">
           <div class="step-number">01</div>
           <div class="step-icon">🌍</div>
-          <h3>Explore the Globe</h3>
-          <p>Spin the interactive 3D globe and click any country to see localized cybersecurity courses.</p>
+          <h3>See the full picture</h3>
+          <p>Explore 3,700+ verified cybersecurity courses across 45 countries on an interactive 3D globe.</p>
+          <span class="step-outcome">Outcome: discover universities and domains you didn't know existed.</span>
         </div>
         <div class="journey-step">
           <div class="step-number">02</div>
           <div class="step-icon">🎛️</div>
-          <h3>Filter the Catalog</h3>
-          <p>Use Category, Level, Access, Topic, and Country filters to narrow down what matters to you.</p>
+          <h3>Find what fits you</h3>
+          <p>Use country, domain, level, pricing, and access-type filters to narrow thousands into a focused shortlist.</p>
+          <span class="step-outcome">Outcome: only see courses that match your goals and budget.</span>
         </div>
         <div class="journey-step">
           <div class="step-number">03</div>
           <div class="step-icon">🎓</div>
-          <h3>Take the Quick Tour</h3>
-          <p>Answer 3 simple questions and let us tailor a recommended path for your goals.</p>
+          <h3>Get matched quickly</h3>
+          <p>Take a 3-question quick tour. We’ll suggest a tailored path based on your background and ambition.</p>
+          <span class="step-outcome">Outcome: save hours of guessing with transparent, goal-first recommendations.</span>
         </div>
         <div class="journey-step">
           <div class="step-number">04</div>
           <div class="step-icon">📋</div>
-          <h3>Compare &amp; Save</h3>
-          <p>Compare courses side-by-side, save favorites, and visit university pages to apply.</p>
+          <h3>Compare &amp; apply</h3>
+          <p>Save favorites, compare course details side-by-side, and visit official university pages to enroll.</p>
+          <span class="step-outcome">Outcome: choose confidently and apply to the right course directly.</span>
         </div>
+      </div>
+      <div class="journey-cta">
+        <a href="#all-courses-section" class="cta-button">Start your journey →</a>
+        <p class="journey-hint">Or scroll down to explore the globe and filters right away.</p>
       </div>
     </section>
 
@@ -1361,6 +1471,46 @@
     (function() {
       const savedTheme = localStorage.getItem('hs-theme');
       document.documentElement.setAttribute('data-theme', savedTheme || 'dark');
+    })();
+  </script>
+
+  <!-- LANDING STAT COUNT-UP -->
+  <script>
+    (function() {
+      const DURATION = 1600;
+      function easeOutQuart(t) { return 1 - Math.pow(1 - t, 4); }
+      function format(n, finalText) {
+        if (/\d{1,3}(,\d{3})+/.test(finalText)) return n.toLocaleString('en-US');
+        return Math.round(n).toString();
+      }
+      function run(el) {
+        const final = el.textContent.trim();
+        const match = final.match(/([\d,]+)\s*(\+)?/);
+        if (!match) return;
+        const target = parseInt(match[1].replace(/,/g, ''), 10);
+        const suffix = match[2] || '';
+        const startTime = performance.now();
+        function step(now) {
+          const p = Math.min((now - startTime) / DURATION, 1);
+          const val = Math.round(easeOutQuart(p) * target);
+          el.textContent = format(val, final) + suffix;
+          if (p < 1) requestAnimationFrame(step);
+          else {
+            el.textContent = final;
+            el.classList.add('counted');
+          }
+        }
+        requestAnimationFrame(step);
+      }
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            run(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.4, rootMargin: '0px 0px -50px 0px' });
+      document.querySelectorAll('.landing-stat-number[data-count]').forEach(el => observer.observe(el));
     })();
   </script>
 </body>
