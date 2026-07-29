@@ -26,6 +26,8 @@
   <link rel="stylesheet" href="improvements.css" />
   <link rel="stylesheet" href="assets/cv-style.css?v=6" />
   <link rel="stylesheet" href="assets/catalog-overrides.css?v=10" />
+  <!-- Unify dashboard/globe/metrics with the landing palette -->
+  <link rel="stylesheet" href="assets/catalog-theme-override.css?v=1" />
   <!-- New card design override (must load after catalog-overrides.css) -->
   <link rel="stylesheet" href="assets/catalog-new-cards.css?v=1" />
 
@@ -308,8 +310,6 @@
       margin-bottom: 4px;
       line-height: 1;
     }
-    .landing-stat-number.teal { color: var(--cv-indigo); }
-    .landing-stat-number.green { color: var(--cv-moss); }
     .landing-stat-label {
       font-family: var(--font-body);
       font-size: 15px;
@@ -851,12 +851,12 @@
     <!-- NEW STATS GRID -->
     <section class="landing-stats-grid">
       <div class="landing-glass-card">
-        <div class="landing-stat-number teal" data-count="3700">3,700+</div>
+        <div class="landing-stat-number" data-count="3700">3,700+</div>
         <div class="landing-stat-label">Verified Courses</div>
         <div class="landing-stat-desc">Curated cybersecurity programs from top universities and institutions globally. Filter by level, domain, and access type.</div>
       </div>
       <div class="landing-glass-card">
-        <div class="landing-stat-number green" data-count="45">45</div>
+        <div class="landing-stat-number" data-count="45">45</div>
         <div class="landing-stat-label">Countries Represented</div>
         <div class="landing-stat-desc">Spin the interactive globe to discover localized cybersecurity education in any region of the world.</div>
       </div>
@@ -1069,7 +1069,7 @@
             <div class="dash-right">
               <div class="glass-card metric-card dash-quantity-card india-card clickable" data-filter-country="India" role="button" tabindex="0" title="Show courses from India">
                 <div class="metric-card-title"><span class="india-flag-badge">🇮🇳</span> India</div>
-                <div class="metric-value" id="india-stat-count" style="color:var(--teal);">0</div>
+                <div class="metric-value" id="india-stat-count">0</div>
                 <div class="dash-total-delta" id="india-stat-pct">0% of catalog</div>
               </div>
 
@@ -1461,7 +1461,7 @@
   </div>
 
   <!-- course verifier app logic -->
-  <script src="assets/app.js?v=91" defer></script>
+  <script src="assets/app.js?v=92" defer></script>
   
   <!-- hashtag-v2 shared behavior (nav scroll, hamburger, cursor glow) -->
   <script src="main.js"></script>
@@ -1484,11 +1484,10 @@
         return Math.round(n).toString();
       }
       function run(el) {
-        const final = el.textContent.trim();
-        const match = final.match(/([\d,]+)\s*(\+)?/);
-        if (!match) return;
-        const target = parseInt(match[1].replace(/,/g, ''), 10);
-        const suffix = match[2] || '';
+        if (!el.dataset.target) return;
+        const final = el.dataset.finalText;
+        const target = parseInt(el.dataset.target, 10);
+        const suffix = el.dataset.suffix;
         const startTime = performance.now();
         function step(now) {
           const p = Math.min((now - startTime) / DURATION, 1);
@@ -1502,6 +1501,19 @@
         }
         requestAnimationFrame(step);
       }
+
+      const targets = document.querySelectorAll('.landing-stat-number[data-count]');
+      targets.forEach(el => {
+        const final = el.textContent.trim();
+        const match = final.match(/([\d,]+)\s*(\+)?/);
+        if (match) {
+          el.dataset.finalText = final;
+          el.dataset.target = parseInt(match[1].replace(/,/g, ''), 10);
+          el.dataset.suffix = match[2] || '';
+          el.textContent = '0' + el.dataset.suffix;
+        }
+      });
+
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -1510,7 +1522,7 @@
           }
         });
       }, { threshold: 0.4, rootMargin: '0px 0px -50px 0px' });
-      document.querySelectorAll('.landing-stat-number[data-count]').forEach(el => observer.observe(el));
+      targets.forEach(el => observer.observe(el));
     })();
   </script>
 </body>

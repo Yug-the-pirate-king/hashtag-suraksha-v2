@@ -477,28 +477,38 @@ function hexToRgb01(hex) {
     return [r / 255, g / 255, b / 255];
 }
 
+// Read a CSS custom property from :root as a hex string (or fallback).
+function getCssHex(name, fallback) {
+    try {
+        const raw = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+        return raw || fallback;
+    } catch (e) {
+        return fallback;
+    }
+}
+
 const GLOBE_THEMES = {
     dark: {
         // Ocean white, continents dark charcoal.  COBE's map texture is colored by
         // mapBrightness; with dark=0 the baseColor is the ocean, and a low positive
         // mapBrightness makes the landmasses visible as a dark grey shape.
         base: '#FFFFFF',
-        bg: '#030507',
-        halo: '#22D3EE',
-        marker: '#22D3EE',
-        arc: '#22D3EE',
+        bg: '#0B1113',
+        halo: getCssHex('--globe-halo', '#3FBE85'),
+        marker: getCssHex('--globe-marker', '#3FBE85'),
+        arc: getCssHex('--globe-arc', '#F0954A'),
         dark: 0,
         diffuse: 0.6,
         mapBrightness: 1.5,
         mapBaseBrightness: 0.02
     },
     light: {
-        // Ocean: subtle premium light blue/grey
-        base: '#e2e8f0',
-        bg: '#f8fafc',
-        halo: '#1D4ED8',
-        marker: '#0891B2',
-        arc: '#0891B2',
+        // Ocean: warm neutral so the globe matches the paper palette.
+        base: getCssHex('--globe-base', '#E4E0D2'),
+        bg: getCssHex('--globe-bg', '#F6F3EA'),
+        halo: getCssHex('--globe-halo', '#1C8F5D'),
+        marker: getCssHex('--globe-marker', '#1C8F5D'),
+        arc: getCssHex('--globe-arc', '#D9720F'),
         dark: 0,
         diffuse: 1.2,
         mapBrightness: 6,
@@ -627,18 +637,20 @@ function initCobeGlobe(container) {
     }, 0);
 
     const markerEntries = getActiveCountryEntries();
+    const initialMarkerColor = hexToRgb01(getCssHex('--globe-marker', '#1C8F5D'));
+    const initialArcColor = hexToRgb01(getCssHex('--globe-arc', '#D9720F'));
     cobeMarkers = markerEntries.map(([name, [lat, lng]], i) => ({
         id: 'cobe-' + i,
         location: [lat, lng],
         size: 0.022,
-        color: [0.133, 0.827, 0.933]
+        color: initialMarkerColor
     }));
 
     const arcs = generateDenseArcData().map((arc, i) => ({
         id: 'arc-' + i,
         from: [arc.startLat, arc.startLng],
         to: [arc.endLat, arc.endLng],
-        color: [0.133, 0.827, 0.933]
+        color: initialArcColor
     }));
 
     try {
