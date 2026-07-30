@@ -670,8 +670,30 @@
       animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.85s both;
     }
     .journey-cta .cta-button {
-      box-shadow: 0 4px 14px color-mix(in srgb, var(--landing-accent-green) 25%, transparent);
+      background: transparent;
+      color: var(--landing-accent-green);
+      border: 2px solid var(--landing-accent-green);
+      box-shadow: 0 4px 14px color-mix(in srgb, var(--landing-accent-green) 15%, transparent);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
     }
+    .journey-cta .cta-button::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--landing-accent-green);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      z-index: -1;
+    }
+    .journey-cta .cta-button:hover {
+      color: var(--cv-paper);
+      box-shadow: 0 8px 22px color-mix(in srgb, var(--landing-accent-green) 30%, transparent);
+    }
+    .journey-cta .cta-button:hover::before { transform: scaleX(1); }
+    .journey-cta .cta-button:active { transform: translateY(1px); }
     .journey-hint {
       margin: 14px 0 0;
       font-size: 13px;
@@ -728,12 +750,376 @@
       line-height: 1.6;
     }
 
+    /* Domain Explorer two-column layout */
+    .domain-explorer-section {
+      background: var(--landing-bg);
+      padding: 60px 32px;
+      position: relative;
+      z-index: 10;
+    }
+    .domain-explorer-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .domain-explorer-text {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .domain-explorer-text .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--cv-amber);
+      background: color-mix(in srgb, var(--cv-amber) 10%, transparent);
+      border: 1px solid var(--cv-amber);
+      border-radius: 999px;
+      padding: 6px 14px;
+      width: fit-content;
+    }
+    .domain-explorer-text h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.5vw, 2.75rem);
+      font-weight: 800;
+      color: var(--landing-text-main);
+      margin: 0;
+      line-height: 1.05;
+    }
+    .domain-explorer-text p {
+      color: var(--landing-text-muted);
+      font-size: 15px;
+      line-height: 1.65;
+      margin: 0;
+      max-width: 480px;
+    }
+    .domain-explorer-text .cta-button {
+      align-self: flex-start;
+      margin-top: 8px;
+    }
+    .domain-explorer-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 240px;
+    }
+
+    @media (max-width: 768px) {
+      .domain-explorer-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .domain-explorer-visual {
+        order: -1;
+        min-height: 180px;
+      }
+    }
+
+    /* Folder card — adapted from Uiverse.io by byllzz */
+    .folder-card {
+      width: 170px;
+      height: 130px;
+      perspective: 1200px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .folder-toggle { display: none; }
+
+    .hint-wrapper {
+      position: absolute;
+      top: -40px;
+      right: -50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      pointer-events: none;
+      z-index: 100;
+      animation: floatHint 2.5s ease-in-out infinite;
+    }
+    .hint-text {
+      font-family: var(--font-body);
+      color: var(--cv-indigo);
+      font-size: 10px;
+      font-weight: 700;
+      text-decoration: underline;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+      position: relative;
+      right: -25px;
+      top: 10px;
+      transform: rotate(45deg);
+    }
+    .hint-arrow { height: 35px; width: 35px; }
+    .hint-arrow path { stroke: var(--cv-indigo); }
+
+    @keyframes floatHint {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
+    .folder-toggle:checked ~ .hint-wrapper {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+
+    .folder-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+      backface-visibility: hidden;
+      will-change: transform;
+    }
+    .folder-toggle:checked ~ .folder-container {
+      transform: rotateX(10deg) rotateY(-5deg);
+    }
+
+    .folder-back {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
+    }
+    .folder-back path { fill: #0056b3; }
+
+    .folder-front-wrapper {
+      position: absolute;
+      bottom: -7px;
+      width: 100%;
+      z-index: 90;
+      transform-origin: bottom;
+      transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border-radius: 12px;
+    }
+    .folder-front path { fill: rgba(0, 123, 255, 0.65); }
+    .folder-label {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 30px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 10px;
+    }
+
+    .counter {
+      position: absolute;
+      top: -95px;
+      right: -75px;
+      background-color: #a18cd1;
+      padding: 4px 8px;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+      transform: scale(0) translateY(20px);
+      opacity: 0;
+      transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+      z-index: 100;
+      pointer-events: auto;
+    }
+    .folder-toggle:checked ~ .folder-container .counter {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+      transition-delay: 0.2s;
+    }
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      background: #34d399;
+      border-radius: 50%;
+      position: relative;
+      box-shadow: 0 0 10px #34d399;
+    }
+    .status-dot::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #34d399;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(3); opacity: 0; }
+    }
+    .counter-label {
+      font-family: var(--font-body);
+      font-size: 8px;
+      font-weight: 800;
+      color: #000;
+      text-transform: capitalize;
+    }
+    .counter-number {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 900;
+      color: #ffffff;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+    .counter:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: var(--cv-indigo);
+      transform: scale(1.1) translateY(-5px) !important;
+      cursor: help;
+    }
+    .counter:hover .counter-number {
+      color: var(--cv-indigo);
+      transition: color 0.3s ease;
+    }
+
+    .file {
+      position: absolute;
+      bottom: 5px;
+      left: 10%;
+      width: 80%;
+      height: 85px;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.3), 0 4px 12px rgba(0, 0, 0, 0.3);
+      transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      z-index: 0;
+    }
+    .file-1 { background: #ff5f6d; z-index: 25; transition-delay: 0.15s; }
+    .file-2 { background: #ffc371; z-index: 24; transition-delay: 0.1s; }
+    .file-3 { background: #4facfe; z-index: 23; transition-delay: 0.05s; }
+    .file-4 { background: #00f2fe; z-index: 22; transition-delay: 0.02s; }
+    .file-5 { background: #a18cd1; z-index: 21; transition-delay: 0s; }
+
+    .shine {
+      position: absolute;
+      top: 0; left: -100%;
+      width: 50%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      transform: skewX(-20deg);
+      transition: none;
+    }
+    .folder-toggle:checked ~ .folder-container .shine {
+      left: 150%;
+      transition: left 0.8s ease-in-out;
+      transition-delay: 0.3s;
+    }
+
+    .file-text {
+      font-family: var(--font-body);
+      font-size: 9px;
+      color: #fff;
+      padding: 12px;
+      font-weight: 800;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      transform: translateY(5px);
+      transition: all 0.3s ease 0.4s;
+    }
+    .folder-toggle:checked ~ .folder-container .file-text {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .folder-toggle:checked ~ .folder-container .folder-front-wrapper {
+      transform: rotateX(-50deg);
+    }
+    .folder-toggle:checked ~ .folder-container .file-1 { transform: translateY(-70px) rotate(-10deg) translateX(-15px) translateZ(20px); }
+    .folder-toggle:checked ~ .folder-container .file-2 { transform: translateY(-55px) rotate(8deg) translateX(18px) translateZ(10px); }
+    .folder-toggle:checked ~ .folder-container .file-3 { transform: translateY(-40px) rotate(-15deg) translateX(-8px); }
+    .folder-toggle:checked ~ .folder-container .file-4 { transform: translateY(-25px) rotate(12deg) translateX(12px); }
+    .folder-toggle:checked ~ .folder-container .file-5 { transform: translateY(-10px) rotate(-5deg); }
+
+    .folder-toggle:checked ~ .folder-container .file:hover { cursor: pointer; filter: brightness(1.1); }
+    .folder-toggle:checked ~ .folder-container .file-1:hover { transform: translateY(-80px) rotate(-10deg) translateX(-15px) translateZ(20px); }
+    .folder-toggle:checked ~ .folder-container .file-2:hover { transform: translateY(-65px) rotate(8deg) translateX(18px) translateZ(10px); }
+    .folder-toggle:checked ~ .folder-container .file-3:hover { transform: translateY(-50px) rotate(-15deg) translateX(-8px); }
+    .folder-toggle:checked ~ .folder-container .file-4:hover { transform: translateY(-35px) rotate(12deg) translateX(12px); }
+    .folder-toggle:checked ~ .folder-container .file-5:hover { transform: translateY(-20px) rotate(-5deg); }
+
+    .file-icon {
+      position: absolute;
+      top: 10px; right: 10px;
+      width: 14px; height: 14px;
+      color: rgba(255, 255, 255, 0.4);
+      transition: color 0.3s ease;
+    }
+    .file-tag {
+      position: absolute;
+      bottom: 10px; right: 10px;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      color: rgba(255, 255, 255, 0.9);
+      font-family: var(--font-body);
+      font-size: 7px;
+      font-weight: 700;
+      padding: 3px 6px;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      transform: translateX(10px);
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      pointer-events: none;
+    }
+    .folder-toggle:checked ~ .folder-container .file:hover .file-icon { color: rgba(255, 255, 255, 0.9); }
+    .folder-toggle:checked ~ .folder-container .file-tag { opacity: 1; }
+
+    .folder-search {
+      position: absolute;
+      top: -40px; left: 10%;
+      width: 30px; height: 25px;
+      background-color: var(--cv-indigo);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      padding: 0 8px;
+      transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      opacity: 0;
+      z-index: 100;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .search-icon { width: 12px; height: 12px; flex-shrink: 0; }
+    .search-input {
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      font-family: var(--font-body);
+      font-size: 9px;
+      margin-left: 8px;
+      outline: none;
+      transition: width 0.4s ease;
+    }
+    .search-input::placeholder { color: #ffffff; }
+    .folder-toggle:checked ~ .folder-container .folder-search {
+      opacity: 1;
+      top: -80px;
+      width: 80%;
+    }
+    .folder-toggle:checked ~ .folder-container .folder-search:focus-within {
+      width: 90%;
+      background-color: #ff3b30;
+    }
+    .folder-toggle:checked ~ .folder-container .folder-search:focus-within .search-input { width: 100%; }
+
     @media (max-width: 768px) {
       .journey-steps { grid-template-columns: 1fr; }
       .journey-steps::before { display: none; }
       .how-it-works-section { padding: 2.5rem 4% 3rem; }
       .journey-step { padding: 1.75rem 1.25rem; margin: 0 0 12px; }
-      .domain-explorer-placeholder { padding: 20px 4% 40px; }
+      .domain-explorer-section { padding: 40px 4%; }
       .domain-explorer-inner { padding: 32px 20px; }
       .domain-explorer-inner h2 { font-size: 26px; }
     }
@@ -906,12 +1292,109 @@
       </div>
     </section>
 
-    <!-- DOMAIN EXPLORER — placeholder for future module -->
-    <section class="domain-explorer-placeholder" id="domain-explorer-placeholder" aria-label="Domain Explorer">
-      <div class="domain-explorer-inner">
-        <span class="eyebrow">🚧 Under Construction</span>
-        <h2>Domain Explorer</h2>
-        <p>A new way to browse courses by cybersecurity domain — coming soon. For now, use the filters below to explore the full catalog.</p>
+    <!-- DOMAIN EXPLORER — two-column teaser with folder UI -->
+    <section class="domain-explorer-section" id="domain-explorer-placeholder" aria-label="Domain Explorer">
+      <div class="domain-explorer-grid">
+        <div class="domain-explorer-text">
+          <span class="eyebrow">🌐 Domain Explorer</span>
+          <h2>Want to know in depth about cybersecurity and all domains related to it?</h2>
+          <p>A new way to browse courses by cybersecurity domain is coming soon. Until then, explore the full catalog below — or jump straight into a topic like Network Security, Forensics, Cloud Security, and more using the filters.</p>
+          <a href="#all-courses-section" class="cta-button">Explore the catalog →</a>
+        </div>
+
+        <div class="domain-explorer-visual">
+          <label class="folder-card" aria-label="Open domain folder preview">
+            <input type="checkbox" class="folder-toggle" />
+
+            <div class="hint-wrapper">
+              <span class="hint-text">Click to open</span>
+              <svg class="hint-arrow" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 35 5 C 35 5, 15 5, 10 25 M 10 25 L 3 18 M 10 25 L 18 22" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </div>
+
+            <div class="folder-container">
+              <svg class="folder-back" viewBox="0 0 50 40" fill="none">
+                <path d="M0 4C0 1.79086 1.79086 0 4 0H16.524C17.721 0 18.8415 0.54051 19.574 1.4673L22.426 5.0654C23.1585 5.99219 24.279 6.5327 25.476 6.5327H46C48.2091 6.5327 50 8.32356 50 10.5327V36C50 38.2091 48.2091 40 46 40H4C1.79086 40 0 38.2091 0 36V4Z" fill="#0056b3"></path>
+              </svg>
+
+              <div class="folder-search">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="text" placeholder="Search files..." class="search-input" />
+              </div>
+
+              <div class="file file-5">
+                <div class="shine"></div>
+                <svg class="file-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                  <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                  <polyline points="21 15 16 10 5 21"></polyline>
+                </svg>
+                <div class="file-text">Hero_BG.png</div>
+                <div class="file-tag">PNG • 4.2 MB</div>
+              </div>
+
+              <div class="file file-4">
+                <div class="shine"></div>
+                <svg class="file-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                  <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                </svg>
+                <div class="file-text">Promo_Cut.mp4</div>
+                <div class="file-tag">MP4 • 128 MB</div>
+              </div>
+
+              <div class="file file-3">
+                <div class="shine"></div>
+                <svg class="file-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+                <div class="file-text">app_config.json</div>
+                <div class="file-tag">JSON • 12 KB</div>
+              </div>
+
+              <div class="file file-2">
+                <div class="shine"></div>
+                <svg class="file-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                  <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+                <div class="file-text">Q3_Report.pdf</div>
+                <div class="file-tag">PDF • 1.1 MB</div>
+              </div>
+
+              <div class="file file-1">
+                <div class="shine"></div>
+                <svg class="file-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+                <div class="file-text">Pitch_Deck.pptx</div>
+                <div class="file-tag">PPTX • 8.4 MB</div>
+              </div>
+
+              <div class="folder-front-wrapper">
+                <svg class="folder-front" viewBox="0 0 50 34" fill="none">
+                  <path d="M0 4C0 1.79086 1.79086 0 4 0H46C48.2091 0 50 1.79086 50 4V30C50 32.2091 48.2091 34 46 34H4C1.79086 34 0 32.2091 0 30V4Z" fill="rgba(0, 123, 255, 0.65)"></path>
+                </svg>
+                <div class="folder-label"></div>
+                <div class="counter">
+                  <div class="status-dot"></div>
+                  <span class="counter-label">FILES</span>
+                  <span class="counter-number">05</span>
+                </div>
+              </div>
+            </div>
+          </label>
+        </div>
       </div>
     </section>
 
