@@ -477,38 +477,28 @@ function hexToRgb01(hex) {
     return [r / 255, g / 255, b / 255];
 }
 
-// Read a CSS custom property from :root as a hex string (or fallback).
-function getCssHex(name, fallback) {
-    try {
-        const raw = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
-        return raw || fallback;
-    } catch (e) {
-        return fallback;
-    }
-}
-
 const GLOBE_THEMES = {
     dark: {
         // Ocean white, continents dark charcoal.  COBE's map texture is colored by
         // mapBrightness; with dark=0 the baseColor is the ocean, and a low positive
         // mapBrightness makes the landmasses visible as a dark grey shape.
         base: '#FFFFFF',
-        bg: '#0B1113',
-        halo: getCssHex('--globe-halo', '#3FBE85'),
-        marker: getCssHex('--globe-marker', '#3FBE85'),
-        arc: getCssHex('--globe-arc', '#F0954A'),
+        bg: '#030507',
+        halo: '#22D3EE',
+        marker: '#22D3EE',
+        arc: '#22D3EE',
         dark: 0,
         diffuse: 0.6,
         mapBrightness: 1.5,
         mapBaseBrightness: 0.02
     },
     light: {
-        // Ocean: warm neutral so the globe matches the paper palette.
-        base: getCssHex('--globe-base', '#E4E0D2'),
-        bg: getCssHex('--globe-bg', '#F6F3EA'),
-        halo: getCssHex('--globe-halo', '#1C8F5D'),
-        marker: getCssHex('--globe-marker', '#1C8F5D'),
-        arc: getCssHex('--globe-arc', '#D9720F'),
+        // Ocean: subtle premium light blue/grey
+        base: '#e2e8f0',
+        bg: '#f8fafc',
+        halo: '#1D4ED8',
+        marker: '#0891B2',
+        arc: '#0891B2',
         dark: 0,
         diffuse: 1.2,
         mapBrightness: 6,
@@ -637,20 +627,18 @@ function initCobeGlobe(container) {
     }, 0);
 
     const markerEntries = getActiveCountryEntries();
-    const initialMarkerColor = hexToRgb01(getCssHex('--globe-marker', '#1C8F5D'));
-    const initialArcColor = hexToRgb01(getCssHex('--globe-arc', '#D9720F'));
     cobeMarkers = markerEntries.map(([name, [lat, lng]], i) => ({
         id: 'cobe-' + i,
         location: [lat, lng],
         size: 0.022,
-        color: initialMarkerColor
+        color: [0.133, 0.827, 0.933]
     }));
 
     const arcs = generateDenseArcData().map((arc, i) => ({
         id: 'arc-' + i,
         from: [arc.startLat, arc.startLng],
         to: [arc.endLat, arc.endLng],
-        color: initialArcColor
+        color: [0.133, 0.827, 0.933]
     }));
 
     try {
@@ -1876,14 +1864,14 @@ function renderEdxCards() {
         const skillsDesc = c.skills_description || c.skills || '';
         return `
         <article class="clean-course-card card ${saved ? 'saved' : ''} ${domainClass}" style="animation: fadeStagger 0.4s ease ${i * 0.04}s both;" data-course-id="${c.id}" tabindex="0" role="button" aria-label="Open ${escHtml(c.name)}">
-            <div class="card-banner ${hasBanner ? '' : 'no-image'}" ${hasBanner ? `style="background-image:url('${escHtml(c.banner_url)}')"` : ''} onclick="showCourseModal('${c.id}')">
-                <div class="logo-wrap ${hasLogo ? 'has-logo' : ''}" onclick="event.stopPropagation();">
+            <div class="card-banner ${hasBanner ? '' : 'no-image'}" ${hasBanner ? `style="background-image:url('${escHtml(c.banner_url)}')"` : ''}>
+                <div class="logo-wrap ${hasLogo ? 'has-logo' : ''}">
                     ${hasLogo ? `<img src="${c.logo_url}" alt="${escHtml(c.university)} logo" loading="lazy" onerror="this.parentNode.classList.remove('has-logo'); this.style.display='none';" />` : ''}
                     <span class="logo-fallback">${escHtml(initials)}</span>
                 </div>
                 ${stampClass ? `<span class="stamp ${stampClass}">${stampLabel}</span>` : ''}
             </div>
-            <div class="card-body" onclick="showCourseModal('${c.id}')">
+            <div class="card-body">
                 <div class="uni-name">
                     ${escHtml(c.university || '—')}
                     <span class="country">${flag} ${escHtml(c.country || '—')}</span>
@@ -1896,19 +1884,22 @@ function renderEdxCards() {
                     <span class="cost ${costClass}">${escHtml(c.cost || '—')}</span>
                 </div>
                 <div class="card-footer-actions" style="display:flex; gap:8px; margin-top:auto;">
-                    <button class="btn" style="flex:1;" onclick="event.stopPropagation(); showCourseModal('${c.id}')">View Details</button>
+                    <a class="btn" style="flex:1; text-align:center;" href="${escHtml(getCourseUrl(c))}" target="_blank" rel="noopener" onclick="event.stopPropagation();" title="Visit ${escHtml(c.university || 'course')} website">Visit website →</a>
                     <button class="btn btn-save ${saved ? 'saved' : ''}" style="width:44px;" onclick="event.stopPropagation(); toggleFavorite('${c.id}', this)" title="${saved ? 'Remove from saved' : 'Save course'}" aria-label="${saved ? 'Remove from saved' : 'Save course'}" aria-pressed="${saved}">${saved ? '♥' : '♡'}</button>
                 </div>
             </div>
         </article>`;
     }).join('');
 
-    // Wire keyboard activation for cards
+    // Wire keyboard activation for cards — focus the website link
     row.querySelectorAll('.clean-course-card[data-course-id]').forEach(card => {
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('role', 'article');
         card.addEventListener('keydown', e => {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
-                showCourseModal(card.dataset.courseId);
+                const link = card.querySelector('.card-footer-actions a.btn');
+                if (link) link.focus();
             }
         });
     });

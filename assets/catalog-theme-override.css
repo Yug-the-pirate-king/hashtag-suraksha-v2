@@ -1,183 +1,27 @@
 /* ════════════════════════════════════════════════════════════════
    COURSE CATALOG THEME OVERRIDE
-   Forces the dashboard, globe, metrics, and UI accents to use the
-   same saffron / moss / indigo / warm-paper palette as the landing
-   hero and new course cards. Loaded only on course-catalog.html.
+   Keeps the landing hero/stats/journey in the saffron/moss/indigo
+   palette while letting the dashboard, globe, and metrics fall back
+   to the original blue/cyan cv-style.css tokens.
    ════════════════════════════════════════════════════════════════ */
 
-/* ── Light mode token remap ──────────────────────────────────── */
-:root,
-[data-theme="light"] {
-  --accent: #1C8F5D;
-  --accent-light: #3FBE85;
-  --accent-dark: #0F6B44;
-  --accent-glow: rgba(28, 143, 93, 0.25);
-
-  --teal: #1C8F5D;
-  --teal-400: #4FCA95;
-  --teal-500: #1C8F5D;
-  --teal-600: #147A4D;
-  --teal-700: #0F6B44;
-  --teal-800: #0A4D30;
-  --teal-900: #063321;
-  --teal-bg: rgba(28, 143, 93, 0.12);
-  --teal-glow: rgba(28, 143, 93, 0.22);
-
-  --blue: #3E7CB1;
-  --blue-400: #6FA8D6;
-  --blue-500: #3E7CB1;
-  --blue-600: #2E6392;
-  --blue-700: #225274;
-  --blue-800: #173D58;
-  --blue-900: #0F2A3D;
-  --blue-bg: rgba(62, 124, 177, 0.12);
-  --blue-glow: rgba(62, 124, 177, 0.22);
-
-  --bg: #F6F3EA;
-  --bg-2: #EDE8DB;
-  --bg-card: rgba(16, 24, 27, 0.03);
-  --bg-panel: #F6F3EA;
-  --bg-hover: rgba(28, 143, 93, 0.06);
-  --bg-input: #EDE8DB;
-
-  --surface-1: rgba(16, 24, 27, 0.06);
-  --surface-2: rgba(16, 24, 27, 0.04);
-
-  --text-1: #10181B;
-  --text-2: #5C6668;
-  --text-3: #8A948F;
-  --text-inv: #FFFFFF;
-
-  --border: #E4E0D2;
-  --border-2: rgba(16, 24, 27, 0.08);
-  --shadow: 0 4px 24px rgba(16, 24, 27, 0.08);
-  --shadow-sm: 0 2px 8px rgba(16, 24, 27, 0.06);
-  --shadow-lg: 0 16px 48px rgba(16, 24, 27, 0.08);
-  --shadow-xl: 0 24px 80px rgba(16, 24, 27, 0.10);
-
-  --green: #1C8F5D;
-  --green-bg: rgba(28, 143, 93, 0.10);
-  --red: #B5482E;
-  --red-bg: rgba(181, 72, 46, 0.10);
-  --amber: #D9720F;
-  --amber-bg: rgba(217, 114, 15, 0.10);
-  --purple: #D9720F;
-  --purple-bg: rgba(217, 114, 15, 0.10);
-
-  --globe-base: #E4E0D2;
-  --globe-bg: #F6F3EA;
-  --globe-halo: #1C8F5D;
-  --globe-marker: #1C8F5D;
-  --globe-arc: #D9720F;
-
-  --focus-ring: 0 0 0 3px rgba(28, 143, 93, 0.25);
-  --bg-card-rgb: 255, 255, 255;
-  --bg-panel-rgb: 246, 243, 234;
+/* ── Keep the new landing section warm ──────────────────────── */
+:root {
+  --landing-bg: var(--cv-paper);
+  --landing-text-main: var(--cv-ink);
+  --landing-text-muted: var(--cv-ink-soft);
+  --landing-card-bg: var(--cv-paper-raised);
+  --landing-card-border: var(--cv-line);
 }
 
-/* ── Dark mode token remap ───────────────────────────────────── */
 [data-theme="dark"] {
-  --accent: #3FBE85;
-  --accent-light: #6FD4A8;
-  --accent-dark: #2E9A6A;
-  --accent-glow: rgba(63, 190, 133, 0.30);
-
-  --teal: #3FBE85;
-  --teal-400: #6FD4A8;
-  --teal-500: #3FBE85;
-  --teal-600: #2E9A6A;
-  --teal-700: #248A5E;
-  --teal-800: #1A6644;
-  --teal-900: #114430;
-  --teal-bg: rgba(63, 190, 133, 0.12);
-  --teal-glow: rgba(63, 190, 133, 0.25);
-
-  --blue: #6FA8D6;
-  --blue-400: #93BFE3;
-  --blue-500: #6FA8D6;
-  --blue-600: #4E8BBF;
-  --blue-700: #3B72A0;
-  --blue-800: #2A5579;
-  --blue-900: #1C3D58;
-  --blue-bg: rgba(111, 168, 214, 0.12);
-  --blue-glow: rgba(111, 168, 214, 0.25);
-
-  --bg: #0B1113;
-  --bg-2: #141B1E;
-  --bg-card: rgba(63, 190, 133, 0.06);
-  --bg-panel: #141B1E;
-  --bg-hover: rgba(63, 190, 133, 0.10);
-  --bg-input: #1B2529;
-
-  --surface-1: rgba(63, 190, 133, 0.10);
-  --surface-2: rgba(63, 190, 133, 0.06);
-
-  --text-1: #EEEAE0;
-  --text-2: #8B958F;
-  --text-3: #5C6668;
-  --text-inv: #0B1113;
-
-  --border: #232B2E;
-  --border-2: rgba(63, 190, 133, 0.18);
-  --shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.30);
-  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.40);
-  --shadow-xl: 0 24px 80px rgba(0, 0, 0, 0.45);
-
-  --green: #3FBE85;
-  --green-bg: rgba(63, 190, 133, 0.12);
-  --red: #E08064;
-  --red-bg: rgba(224, 128, 100, 0.12);
-  --amber: #F0954A;
-  --amber-bg: rgba(240, 149, 74, 0.12);
-  --purple: #F0954A;
-  --purple-bg: rgba(240, 149, 74, 0.12);
-
-  /* COBE dark mode: base stays white-ish so landmasses read as dark grey */
-  --globe-base: #FFFFFF;
-  --globe-bg: #0B1113;
-  --globe-halo: #3FBE85;
-  --globe-marker: #3FBE85;
-  --globe-arc: #F0954A;
-
-  --focus-ring: 0 0 0 3px rgba(63, 190, 133, 0.30);
-  --bg-card-rgb: 20, 27, 30;
-  --bg-panel-rgb: 20, 27, 30;
-
-  color-scheme: dark;
+  --landing-bg: #0D1B22;
+  --landing-text-main: #F2EEE2;
+  --landing-text-muted: #93A0A4;
+  --landing-card-bg: #132631;
+  --landing-card-border: #24363F;
 }
 
-/* ── Explicit element overrides for hardcoded cyan leftovers ──── */
-
-/* Dashboard metric cards: remove cyan inset glow, use warm tones */
-.glass-card:hover {
-  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12),
-    inset 0 1px 0 rgba(28, 143, 93, 0.10);
-}
-[data-theme="dark"] .glass-card:hover {
-  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45),
-    inset 0 1px 0 rgba(63, 190, 133, 0.10);
-}
-
-/* India card cyan badge → moss */
-.india-flag-badge {
-  background: rgba(28, 143, 93, 0.12);
-}
-[data-theme="dark"] .india-flag-badge {
-  background: rgba(63, 190, 133, 0.12);
-}
-
-/* Country detail topic chip hover */
-.country-detail-topic:hover {
-  background: var(--teal-bg);
-  border-color: var(--teal-700);
-  color: var(--teal-400);
-}
-
-/* Modal domain accents: map to warm palette on catalog page */
-.modal-hdr.accent-teal::after { background: var(--teal-500); }
-.modal-hdr.accent-cyan::after { background: var(--amber); }
-.modal-hdr.accent-indigo::after { background: var(--blue-500); }
-.modal-hdr.accent-violet::after { background: var(--amber); }
-.modal-hdr.accent-rose::after { background: var(--red); }
-.modal-hdr.accent-amber::after { background: var(--amber); }
+/* Landing section cards are already styled inline in course-catalog.html,
+   so nothing else needs overriding here. The dashboard/globe/metrics now
+   intentionally fall back to cv-style.css blue/cyan tokens. */
