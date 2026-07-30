@@ -2846,8 +2846,15 @@ function renderOnboardingStep(step) {
             (!effectiveCourseType || matchTypePill(c, effectiveCourseType))
         ).length;
 
-        if (title) title.textContent = `${count} recommended course${count === 1 ? '' : 's'}`;
-        if (text) text.textContent = `Based on ${level.toLowerCase()} courses in ${domain.toLowerCase()} for ${goalLabel.toLowerCase()}.`;
+        if (title) title.textContent = `${count} course${count === 1 ? '' : 's'} for your pathway`;
+        const rolePhrase = {
+            'Beginner': 'starting out',
+            'Intermediate': 'building on the basics',
+            'Advanced': 'leveling up'
+        }[level] || 'exploring';
+        const domainPhrase = domain === 'All domains' ? 'cybersecurity' : domain;
+        const goalPhrase = goalLabel.toLowerCase();
+        if (text) text.textContent = `You’re ${rolePhrase} in ${domainPhrase} and aiming for ${goalPhrase}. These verified courses are matched to move you toward that goal.`;
         if (tags) {
             tags.innerHTML = `
                 <span class="onboarding-result-tag"><span class="tag-dot" style="background:${getDomainColor(onboardingState.domain)}"></span>${escHtml(level)}</span>
