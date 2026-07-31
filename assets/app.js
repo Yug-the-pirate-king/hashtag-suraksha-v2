@@ -35,6 +35,10 @@ let edxFilterState = {
     accessTypes: [],    // multi-select access types from #access-type-pills
     domainChip: 'all',  // domain category from #domain-chips-scroll
     levelPill: 'all',   // skill level from #skill-level-pills
+    duration: 'all',    // duration bucket from #duration-pills
+    mode: 'all',        // delivery mode from #mode-pills
+    language: 'all',    // language from #language-pills
+    ranking: 'all',     // ranking badge from #ranking-pills
     country: 'all',     // country filter (e.g. from globe/metrics)
     search: '',
     sort: 'relevance',
@@ -191,6 +195,102 @@ function normalizeDomain(raw) {
     return 'Other';
 }
 
+// ── Duration / Mode / Language helpers for new filter dimensions ─
+const DURATION_UNITS = {
+    y: 12,    // years → months
+    m: 1,     // months → months
+    w: 1 / 4.345, // weeks → months
+    h: 0,     // hours → treat as under 1 month
+    sp: 0     // self-paced → treat as under 1 month
+};
+
+function parseDurationMonths(raw) {
+    if (!raw || raw === '-') return NaN;
+    const s = String(raw).toLowerCase().replace(/\s+/g, '');
+    // Handle slash-separated options (e.g. "1/3/6M", "3/4Y") by taking the max.
+    if (s.includes('/')) {
+        const parts = s.split('/');
+        const months = parts.map(p => parseDurationMonths(p)).filter(n => !isNaN(n));
+        return months.length ? Math.max(...months) : NaN;
+    }
+    // Handle ranges like "8-16M" by taking the max.
+    if (s.includes('-')) {
+        const months = s.split('-').map(p => parseDurationMonths(p)).filter(n => !isNaN(n));
+        return months.length ? Math.max(...months) : NaN;
+    }
+    // Special tokens.
+    if (s === 'sp' || s.includes('self') || s.includes('paced')) return 0;
+    // Extract number + unit.
+    const m = s.match(/([0-9]*\.?[0-9]+)([ymwh]?)/);
+    if (!m) return NaN;
+    const val = parseFloat(m[1]);
+    const unit = m[2] || 'm';
+    const factor = DURATION_UNITS[unit] ?? 1;
+    return val * factor;
+}
+
+function getDurationBucket(months) {
+    if (months === null || months === undefined || isNaN(months)) return null;
+    if (months < 1) return 'short';
+    if (months <= 3) return '1-3';
+    if (months <= 6) return '3-6';
+    if (months <= 12) return '6-12';
+    if (months <= 24) return '1-2';
+    if (months <= 48) return '2-4';
+    return '4+';
+}
+
+function getCourseDuration(course) {
+    if (course._durationMonths !== undefined) return { months: course._durationMonths, bucket: course._durationBucket };
+    const months = parseDurationMonths(course.duration);
+    const bucket = getDurationBucket(months);
+    course._durationMonths = months;
+    course._durationBucket = bucket;
+    return { months, bucket };
+}
+
+function getCourseMode(course) {
+    if (course._mode) return course._mode;
+    const raw = String(course.mode || '').toLowerCase();
+    let mode = 'Other';
+    if (raw.includes('hybrid')) mode = 'Hybrid';
+    else if (raw.includes('online')) mode = 'Online';
+    else if (raw.includes('offline')) mode = 'Offline';
+    course._mode = mode;
+    return mode;
+}
+
+function getCourseLanguage(course) {
+    if (course._language) return course._language;
+    let lang = course.language;
+    if (!lang && Array.isArray(course.pdf_table)) {
+        const entry = course.pdf_table.find(e => e.attribute === 'Language');
+        if (entry && entry.original) {
+            lang = String(entry.original).split(/[,;(]/)[0].trim();
+        }
+    }
+    // Normalize common variations.
+    const canonical = {
+        'eng': 'English', 'english': 'English', 'en': 'English',
+        'hindi': 'Hindi', 'hi': 'Hindi',
+        'spanish': 'Spanish', 'es': 'Spanish',
+        'french': 'French', 'fr': 'French',
+        'german': 'German', 'de': 'German',
+        'portuguese': 'Portuguese', 'pt': 'Portuguese',
+        'italian': 'Italian', 'it': 'Italian',
+        'chinese': 'Chinese', 'zh': 'Chinese',
+        'japanese': 'Japanese', 'ja': 'Japanese',
+        'korean': 'Korean', 'ko': 'Korean',
+        'arabic': 'Arabic', 'ar': 'Arabic',
+        'russian': 'Russian', 'ru': 'Russian',
+        'tamil': 'Tamil', 'telugu': 'Telugu', 'marathi': 'Marathi',
+        'bengali': 'Bengali', 'gujarati': 'Gujarati', 'kannada': 'Kannada',
+        'malayalam': 'Malayalam', 'punjabi': 'Punjabi', 'urdu': 'Urdu'
+    }[String(lang).toLowerCase().trim()] || (lang || 'English');
+    course._language = canonical;
+    return canonical;
+}
+
 // ════════════════════════════════════════════════════════════════
 //  CANONICAL FILTER DIMENSIONS (derived at runtime)
 //  These fields drive the three independent filter dimensions:
@@ -259,7 +359,10 @@ function enrichCourse(course) {
     course.accessType = getAccessType(course);
     course.domainSlug = getDomainSlug(course);
     course.domainLabel = getDomainLabel(course);
-    
+    course.durationInfo = getCourseDuration(course);
+    course.mode = getCourseMode(course);
+    course.language = getCourseLanguage(course);
+
     if (!course.logo_url && course.university) {
         for (const [key, url] of Object.entries(LOGO_MAP)) {
             if (course.university.includes(key)) {
@@ -293,41 +396,29 @@ function getFlag(name) {
 
 
 function populateDynamicFilters() {
+    // Append any extra languages found in the data to the static #language-pills.
+    // The static markup already holds the main options and their event listeners.
     const langSet = new Set();
     allCoursesData.forEach(c => {
         if (c.language) langSet.add(c.language);
     });
     const langPillsWrap = document.getElementById('language-pills');
-    if (langPillsWrap) {
-        let langHtml = '<button type="button" class="type-pill active" data-language="all">All</button>';
-        Array.from(langSet).sort().forEach(l => {
-            langHtml += `<button type="button" class="type-pill" data-language="${l}">${l}</button>`;
-        });
-        
-        langPillsWrap.innerHTML = langHtml;
-        langPillsWrap.querySelectorAll('.type-pill').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const type = e.target.getAttribute('data-type');
-                const level = e.target.getAttribute('data-level');
-                const duration = e.target.getAttribute('data-duration');
-                const language = e.target.getAttribute('data-language');
-                const mode = e.target.getAttribute('data-mode');
-                
-                if (type) edxFilterState.typePill = type;
-                if (level) edxFilterState.levelPill = level;
-                if (duration) edxFilterState.duration = duration;
-                if (language) edxFilterState.language = language;
-                if (mode) edxFilterState.mode = mode;
-                
-                e.target.closest('.pill-dropdown-wrap')?.classList.remove('open');
-                
-                syncEdxUIFromState();
-                const filtered = getEdxFilteredBase();
-                edxFilterState.page = 1;
-                renderEdxCards(filtered);
-            });
-        });
-    }
+    if (!langPillsWrap) return;
+    const existing = new Set(
+        Array.from(langPillsWrap.querySelectorAll('.type-pill[data-language]')).map(b => b.dataset.language)
+    );
+    const extras = Array.from(langSet)
+        .filter(l => l && !existing.has(l) && l.toLowerCase() !== 'all')
+        .sort();
+    extras.forEach(l => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'type-pill';
+        btn.dataset.language = l;
+        btn.setAttribute('aria-pressed', 'false');
+        btn.innerHTML = `${escHtml(l)} <span class="filter-count">0</span>`;
+        langPillsWrap.appendChild(btn);
+    });
 }
 //  TABS
 // ================================================================
@@ -1547,6 +1638,30 @@ function matchCountry(course, country) {
     return isSameCountry(course.country, country);
 }
 
+function matchDurationPill(course, bucket) {
+    if (!bucket || bucket === 'all') return true;
+    const info = course.durationInfo || getCourseDuration(course);
+    return info.bucket === bucket;
+}
+
+function matchModePill(course, mode) {
+    if (!mode || mode === 'all') return true;
+    return (course.mode || getCourseMode(course)) === mode;
+}
+
+function matchLanguagePill(course, language) {
+    if (!language || language === 'all') return true;
+    return (course.language || getCourseLanguage(course)) === language;
+}
+
+function matchRankingPill(course, ranking) {
+    if (!ranking || ranking === 'all') return true;
+    if (ranking === 'qs') return !!course.has_qs_badge;
+    if (ranking === 'nirf') return !!course.has_nirf_badge;
+    if (ranking === 'dual') return !!course.has_qs_badge && !!course.has_nirf_badge;
+    return false;
+}
+
 function getEdxFilteredCourses() {
     let result = getEdxFilteredBase();
     const sort = edxFilterState.sort;
@@ -1570,6 +1685,10 @@ function getEdxFilteredBase(exclude = {}) {
         matchAccessTypes(c, state.accessTypes) &&
         matchDomainChip(c, state.domainChip) &&
         matchLevelPill(c, state.levelPill) &&
+        matchDurationPill(c, state.duration) &&
+        matchModePill(c, state.mode) &&
+        matchLanguagePill(c, state.language) &&
+        matchRankingPill(c, state.ranking) &&
         matchCountry(c, state.country)
     );
     if (q) {
@@ -1589,11 +1708,19 @@ function updateFilterCounts() {
     const accessBase = getEdxFilteredBase({ accessTypes: [] });
     const domainBase = getEdxFilteredBase({ domainChip: 'all' });
     const levelBase = getEdxFilteredBase({ levelPill: 'all' });
+    const durationBase = getEdxFilteredBase({ duration: 'all' });
+    const modeBase = getEdxFilteredBase({ mode: 'all' });
+    const languageBase = getEdxFilteredBase({ language: 'all' });
+    const rankingBase = getEdxFilteredBase({ ranking: 'all' });
 
     const typeCounts = {};
     const accessCounts = {};
     const domainCounts = {};
     const levelCounts = {};
+    const durationCounts = {};
+    const modeCounts = {};
+    const languageCounts = {};
+    const rankingCounts = {};
 
     document.querySelectorAll('#course-type-pills .type-pill').forEach(b => {
         const type = b.dataset.type || 'all';
@@ -1610,6 +1737,22 @@ function updateFilterCounts() {
     document.querySelectorAll('#skill-level-pills .type-pill').forEach(b => {
         const level = b.dataset.level || 'all';
         levelCounts[level] = levelBase.filter(c => matchLevelPill(c, level)).length;
+    });
+    document.querySelectorAll('#duration-pills .type-pill').forEach(b => {
+        const duration = b.dataset.duration || 'all';
+        durationCounts[duration] = durationBase.filter(c => matchDurationPill(c, duration)).length;
+    });
+    document.querySelectorAll('#mode-pills .type-pill').forEach(b => {
+        const mode = b.dataset.mode || 'all';
+        modeCounts[mode] = modeBase.filter(c => matchModePill(c, mode)).length;
+    });
+    document.querySelectorAll('#language-pills .type-pill').forEach(b => {
+        const language = b.dataset.language || 'all';
+        languageCounts[language] = languageBase.filter(c => matchLanguagePill(c, language)).length;
+    });
+    document.querySelectorAll('#ranking-pills .type-pill').forEach(b => {
+        const ranking = b.dataset.ranking || 'all';
+        rankingCounts[ranking] = rankingBase.filter(c => matchRankingPill(c, ranking)).length;
     });
 
     document.querySelectorAll('#course-type-pills .type-pill').forEach(b => {
@@ -1639,6 +1782,34 @@ function updateFilterCounts() {
         const countEl = b.querySelector('.filter-count');
         if (countEl) countEl.textContent = count;
         b.title = `${level === 'all' ? 'All' : level} level (${count})`;
+    });
+    document.querySelectorAll('#duration-pills .type-pill').forEach(b => {
+        const duration = b.dataset.duration || 'all';
+        const count = durationCounts[duration] ?? 0;
+        const countEl = b.querySelector('.filter-count');
+        if (countEl) countEl.textContent = count;
+        b.title = `${duration === 'all' ? 'All durations' : duration} (${count})`;
+    });
+    document.querySelectorAll('#mode-pills .type-pill').forEach(b => {
+        const mode = b.dataset.mode || 'all';
+        const count = modeCounts[mode] ?? 0;
+        const countEl = b.querySelector('.filter-count');
+        if (countEl) countEl.textContent = count;
+        b.title = `${mode === 'all' ? 'All modes' : mode} (${count})`;
+    });
+    document.querySelectorAll('#language-pills .type-pill').forEach(b => {
+        const language = b.dataset.language || 'all';
+        const count = languageCounts[language] ?? 0;
+        const countEl = b.querySelector('.filter-count');
+        if (countEl) countEl.textContent = count;
+        b.title = `${language === 'all' ? 'All languages' : language} (${count})`;
+    });
+    document.querySelectorAll('#ranking-pills .type-pill').forEach(b => {
+        const ranking = b.dataset.ranking || 'all';
+        const count = rankingCounts[ranking] ?? 0;
+        const countEl = b.querySelector('.filter-count');
+        if (countEl) countEl.textContent = count;
+        b.title = `${ranking === 'all' ? 'All rankings' : ranking} (${count})`;
     });
 }
 
@@ -1966,6 +2137,7 @@ function renderEdxCards() {
                     </div>
                     <div class="list-col-actions card-footer-actions">
                         <a class="btn lv-btn" href="${escHtml(getCourseUrl(c))}" target="_blank" rel="noopener" onclick="event.stopPropagation();" title="Visit ${escHtml(c.university || 'course')} website">Visit site &rarr;</a>
+                        <button class="btn btn-save ${saved ? 'saved' : ''}" onclick="event.stopPropagation(); toggleFavorite('${c.id}', this)" title="${saved ? 'Remove from saved' : 'Save course'}" aria-label="${saved ? 'Remove from saved' : 'Save course'}" aria-pressed="${saved}">${saved ? '♥' : '♡'}</button>
                     </div>
                 </div>
             </div>
@@ -2123,11 +2295,12 @@ function updateCourseViewClass() {
             header.id = 'list-view-header';
             header.className = 'list-view-header';
             header.innerHTML = `
+                <div class="lv-col lv-col-logo"></div>
                 <div class="lv-col lv-col-course">COURSE</div>
-                <div class="lv-col lv-col-skills">SKILLS COVERED</div>
+                <div class="lv-col lv-col-skills">BADGES</div>
                 <div class="lv-col lv-col-duration">DURATION</div>
                 <div class="lv-col lv-col-cost">COST</div>
-                <div class="lv-col lv-col-action"></div>
+                <div class="lv-col lv-col-action">ACTIONS</div>
             `;
             row.parentNode.insertBefore(header, row);
         }
@@ -2149,6 +2322,10 @@ function renderActiveFilterChips() {
     });
     if (f.domainChip && f.domainChip !== 'all') chips.push({ key: 'domainChip', label: f.domainChip, cls: 'chip-domain' });
     if (f.levelPill && f.levelPill !== 'all') chips.push({ key: 'levelPill', label: `Level: ${f.levelPill}`, cls: `chip-level chip-level-${f.levelPill.toLowerCase()}` });
+    if (f.duration && f.duration !== 'all') chips.push({ key: 'duration', label: `Duration: ${f.duration}`, cls: 'chip-duration' });
+    if (f.mode && f.mode !== 'all') chips.push({ key: 'mode', label: `Mode: ${f.mode}`, cls: 'chip-mode' });
+    if (f.language && f.language !== 'all') chips.push({ key: 'language', label: `Language: ${f.language}`, cls: 'chip-language' });
+    if (f.ranking && f.ranking !== 'all') chips.push({ key: 'ranking', label: `Ranking: ${f.ranking.toUpperCase()}`, cls: 'chip-ranking' });
     if (f.country && f.country !== 'all') chips.push({ key: 'country', label: `Country: ${f.country}`, cls: 'chip-country' });
     if (f.sort && f.sort !== 'relevance') chips.push({ key: 'sort', label: `Sort: ${sortLabel(f.sort)}`, cls: 'chip-sort' });
 
@@ -2187,6 +2364,10 @@ function removeFilterChip(key) {
     }
     if (key === 'domainChip') edxFilterState.domainChip = 'all';
     if (key === 'levelPill') edxFilterState.levelPill = 'all';
+    if (key === 'duration') edxFilterState.duration = 'all';
+    if (key === 'mode') edxFilterState.mode = 'all';
+    if (key === 'language') edxFilterState.language = 'all';
+    if (key === 'ranking') edxFilterState.ranking = 'all';
     if (key === 'country') { edxFilterState.country = 'all'; courseFilter.country = 'all'; }
     if (key === 'sort') edxFilterState.sort = 'relevance';
     edxFilterState.page = 1;
@@ -2262,6 +2443,11 @@ function syncEdxUIFromState() {
         b.classList.toggle('active', active);
         b.setAttribute('aria-pressed', String(active));
     });
+    document.querySelectorAll('#ranking-pills .type-pill').forEach(b => {
+        const active = (b.dataset.ranking || 'all') === (edxFilterState.ranking || 'all');
+        b.classList.toggle('active', active);
+        b.setAttribute('aria-pressed', String(active));
+    });
 
     document.querySelectorAll('.courses-view-toggle .view-btn').forEach(b => {
         const active = b.id === `view-${edxFilterState.view}`;
@@ -2277,6 +2463,7 @@ function syncEdxUIFromState() {
     updateDropdownButtonText('language-pills', 'Language');
     updateDropdownButtonText('skill-level-pills', 'Level');
     updateDropdownButtonText('mode-pills', 'Mode');
+    updateDropdownButtonText('ranking-pills', 'Ranking');
     updateDropdownButtonText('domain-chips-scroll', 'Topic');
 }
 
@@ -2352,6 +2539,50 @@ function setEdxLevelPill(level) {
     renderEdxCards();
 }
 
+function setEdxDurationPill(bucket) {
+    edxFilterState.duration = bucket || 'all';
+    edxFilterState.page = 1;
+    document.querySelectorAll('#duration-pills .type-pill').forEach(b => {
+        const active = (b.dataset.duration || 'all') === edxFilterState.duration;
+        b.classList.toggle('active', active);
+        b.setAttribute('aria-pressed', String(active));
+    });
+    renderEdxCards();
+}
+
+function setEdxModePill(mode) {
+    edxFilterState.mode = mode || 'all';
+    edxFilterState.page = 1;
+    document.querySelectorAll('#mode-pills .type-pill').forEach(b => {
+        const active = (b.dataset.mode || 'all') === edxFilterState.mode;
+        b.classList.toggle('active', active);
+        b.setAttribute('aria-pressed', String(active));
+    });
+    renderEdxCards();
+}
+
+function setEdxLanguagePill(language) {
+    edxFilterState.language = language || 'all';
+    edxFilterState.page = 1;
+    document.querySelectorAll('#language-pills .type-pill').forEach(b => {
+        const active = (b.dataset.language || 'all') === edxFilterState.language;
+        b.classList.toggle('active', active);
+        b.setAttribute('aria-pressed', String(active));
+    });
+    renderEdxCards();
+}
+
+function setEdxRankingPill(ranking) {
+    edxFilterState.ranking = ranking || 'all';
+    edxFilterState.page = 1;
+    document.querySelectorAll('#ranking-pills .type-pill').forEach(b => {
+        const active = (b.dataset.ranking || 'all') === edxFilterState.ranking;
+        b.classList.toggle('active', active);
+        b.setAttribute('aria-pressed', String(active));
+    });
+    renderEdxCards();
+}
+
 function syncEdxFiltersFromLegacy() {
     // If legacy courseFilter has values, reflect them in the new pill bars.
     const f = courseFilter;
@@ -2403,6 +2634,38 @@ function initEdxControls() {
         levelPills.addEventListener('click', e => {
             const btn = e.target.closest('.type-pill');
             if (btn) setEdxLevelPill(btn.dataset.level || 'all');
+        });
+    }
+
+    const durationPills = document.getElementById('duration-pills');
+    if (durationPills) {
+        durationPills.addEventListener('click', e => {
+            const btn = e.target.closest('.type-pill');
+            if (btn) setEdxDurationPill(btn.dataset.duration || 'all');
+        });
+    }
+
+    const modePills = document.getElementById('mode-pills');
+    if (modePills) {
+        modePills.addEventListener('click', e => {
+            const btn = e.target.closest('.type-pill');
+            if (btn) setEdxModePill(btn.dataset.mode || 'all');
+        });
+    }
+
+    const languagePills = document.getElementById('language-pills');
+    if (languagePills) {
+        languagePills.addEventListener('click', e => {
+            const btn = e.target.closest('.type-pill');
+            if (btn) setEdxLanguagePill(btn.dataset.language || 'all');
+        });
+    }
+
+    const rankingPills = document.getElementById('ranking-pills');
+    if (rankingPills) {
+        rankingPills.addEventListener('click', e => {
+            const btn = e.target.closest('.type-pill');
+            if (btn) setEdxRankingPill(btn.dataset.ranking || 'all');
         });
     }
 
@@ -2593,7 +2856,11 @@ function initSidebarAccordions() {
 }
 
 function clearAllCourseFilters() {
-    edxFilterState = { typePill: 'all', accessTypes: [], domainChip: 'all', levelPill: 'all', country: 'all', search: '', sort: 'relevance', view: edxFilterState.view, page: 1 };
+    edxFilterState = {
+        typePill: 'all', accessTypes: [], domainChip: 'all', levelPill: 'all',
+        duration: 'all', mode: 'all', language: 'all', ranking: 'all',
+        country: 'all', search: '', sort: 'relevance', view: edxFilterState.view, page: 1
+    };
     courseFilter = { search: '', country: 'all', domain: 'all', qs: 'any', nirf: 'any', courseType: 'all' };
     syncEdxUIFromState();
     renderEdxCards();
@@ -2936,11 +3203,6 @@ function initOnboarding() {
             onboardingNext();
         });
     });
-
-    if (!localStorage.getItem('cvOnboardingSeen') && !onboardingHasOpened) {
-        onboardingHasOpened = true;
-        setTimeout(() => openOnboarding(false), 900);
-    }
 
     initWelcomeBanner();
 }
