@@ -1,15 +1,18 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" data-theme="dark">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Course Catalog — Hashtag Suraksha</title>
-  <meta name="description" content="Browse 3,700+ verified cybersecurity courses across 45 countries. Filter by country, domain, level, and pricing. Part of the Hashtag Suraksha ecosystem." />
+  <title>CourseKosh — Hashtag Suraksha</title>
+  <meta name="description"
+    content="Browse 3,700+ verified cybersecurity courses across 45 countries. Filter by country, domain, level, and pricing. Part of the Hashtag Suraksha ecosystem." />
   <link rel="canonical" href="https://hashtagsuraksha.com/course-catalog.html" />
 
   <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Course Catalog — Hashtag Suraksha" />
-  <meta property="og:description" content="Browse 3,700+ verified cybersecurity courses across 45 countries. Filter by country, domain, level, and pricing." />
+  <meta property="og:title" content="CourseKosh — Hashtag Suraksha" />
+  <meta property="og:description"
+    content="Browse 3,700+ verified cybersecurity courses across 45 countries. Filter by country, domain, level, and pricing." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://hashtagsuraksha.com/course-catalog.html" />
   <meta property="og:image" content="https://hashtagsuraksha.com/assets/logo-suraksha.png" />
@@ -18,1247 +21,21 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Yatra+One&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Yatra+One&display=swap"
+    rel="stylesheet" />
   <!-- hashtag-v2 site styles -->
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="global.css" />
-  <link rel="stylesheet" href="home.css" />
-  <link rel="stylesheet" href="improvements.css" />
-  <link rel="stylesheet" href="assets/cv-style.css?v=6" />
-  <link rel="stylesheet" href="assets/catalog-overrides.css?v=10" />
-  <!-- Unify dashboard/globe/metrics with the landing palette -->
-  <link rel="stylesheet" href="assets/catalog-theme-override.css?v=1" />
-  <!-- New card design override (must load after catalog-overrides.css) -->
-  <link rel="stylesheet" href="assets/catalog-new-cards.css?v=1" />
-
-  <style>
-    /* ==========================================================
-       NEW LANDING HERO + CARD DESIGN INTEGRATION
-       ========================================================== */
-
-    /* Aesthetic tokens from redesign handoff (light + dark) */
-    :root {
-      --cv-paper: #F6F3EA;
-      --cv-paper-raised: #FFFFFF;
-      --cv-ink: #10181B;
-      --cv-ink-soft: #5C6668;
-      --cv-line: #E4E0D2;
-      --cv-indigo: #3E7CB1;
-      --cv-indigo-soft: #DCEAF4;
-      --cv-amber: #D9720F;
-      --cv-amber-soft: #FBE7D2;
-      --cv-moss: #1C8F5D;
-      --cv-moss-soft: #DEF1E7;
-      --cv-danger: #B5482E;
-      --cv-shadow: 0 1px 2px rgba(16,24,27,0.05), 0 10px 28px -14px rgba(16,24,27,0.16);
-      --cv-radius: 16px;
-
-      /* default tokens */
-      --landing-bg: var(--cv-paper);
-      --landing-text-main: var(--cv-ink);
-      --landing-text-muted: var(--cv-ink-soft);
-      --landing-accent-green: var(--cv-moss);
-      --landing-accent-saffron: var(--cv-amber);
-      --landing-accent-thread: var(--cv-indigo);
-      --landing-card-bg: var(--cv-paper-raised);
-      --landing-card-border: var(--cv-line);
-
-      --font-display: 'Big Shoulders Display', 'Plus Jakarta Sans', sans-serif;
-      --font-body: 'IBM Plex Sans', 'Plus Jakarta Sans', sans-serif;
-      --font-mono: 'IBM Plex Mono', 'JetBrains Mono', monospace;
-    }
-
-    [data-theme="dark"] {
-      --cv-paper: #0B1113;
-      --cv-paper-raised: #141B1E;
-      --cv-ink: #EEEAE0;
-      --cv-ink-soft: #8B958F;
-      --cv-line: #232B2E;
-      --cv-indigo: #6FA8D6;
-      --cv-indigo-soft: #132531;
-      --cv-amber: #F0954A;
-      --cv-amber-soft: #2E2013;
-      --cv-moss: #3FBE85;
-      --cv-moss-soft: #12291F;
-      --cv-danger: #E08064;
-      --cv-shadow: 0 1px 2px rgba(0,0,0,0.35), 0 14px 32px -16px rgba(0,0,0,0.6);
-      --landing-bg: #0D1B22;
-      --landing-text-main: #F2EEE2;
-      --landing-text-muted: #93A0A4;
-      --landing-card-bg: #132631;
-      --landing-card-border: #24363F;
-    }
-
-    /* Landing hero — theme-aware */
-    .landing-hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 6rem 2rem 4rem;
-      position: relative;
-      background: var(--landing-bg);
-      color: var(--landing-text-main);
-      overflow: hidden;
-    }
-
-    .landing-hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(color-mix(in srgb, var(--landing-text-muted) 40%, transparent) 1px, transparent 1.5px);
-      background-size: 22px 22px;
-      mask-image: radial-gradient(circle at 50% 20%, black 0%, transparent 70%);
-      opacity: 0.5;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    [data-theme="dark"] .landing-hero::before {
-      background-image: radial-gradient(#24363F 1px, transparent 1.5px);
-      opacity: 0.6;
-    }
-
-    .landing-hero .floating-elements {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 100vw;
-      height: 100%;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .landing-hero .globe-placeholder {
-      width: 800px;
-      height: 800px;
-      border-radius: 50%;
-      border: 1px dashed color-mix(in srgb, var(--landing-accent-green) 15%, transparent);
-      position: absolute;
-      top: 0%;
-      left: 50%;
-      transform: translateX(-50%);
-      background: radial-gradient(circle at center, color-mix(in srgb, var(--landing-accent-green) 3%, transparent) 0%, transparent 60%);
-      box-shadow: inset 0 0 150px color-mix(in srgb, var(--landing-accent-green) 5%, transparent);
-    }
-
-    .landing-hero .glowing-orb {
-      position: absolute;
-      width: 280px;
-      height: 280px;
-      background: var(--landing-accent-green);
-      filter: blur(120px);
-      opacity: 0.18;
-      border-radius: 50%;
-      top: 20%;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-    [data-theme="light"] .landing-hero .glowing-orb {
-      opacity: 0.10;
-    }
-
-    .landing-hero .hero-tag {
-      position: relative;
-      z-index: 2;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-family: var(--font-mono);
-      font-size: 11.5px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--landing-accent-green);
-      background: color-mix(in srgb, var(--landing-accent-green) 10%, transparent);
-      border: 1px solid var(--landing-accent-green);
-      border-radius: 999px;
-      padding: 6px 14px;
-      margin-bottom: 1.5rem;
-    }
-
-    .landing-hero h1 {
-      position: relative;
-      z-index: 2;
-      font-family: var(--font-display);
-      font-size: clamp(3rem, 6vw, 5rem);
-      font-weight: 900;
-      line-height: 0.95;
-      letter-spacing: -0.01em;
-      margin: 0 0 1.5rem 0;
-      max-width: 900px;
-      color: var(--landing-text-main);
-    }
-
-    .landing-hero p {
-      position: relative;
-      z-index: 2;
-      font-family: var(--font-body);
-      font-size: clamp(1rem, 1.25vw, 1.25rem);
-      color: var(--landing-text-muted);
-      max-width: 600px;
-      margin: 0 0 3rem 0;
-      line-height: 1.65;
-    }
-
-    .cta-button {
-      position: relative;
-      z-index: 2;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--landing-accent-green);
-      color: #082419;
-      padding: 15px 28px;
-      border-radius: 999px;
-      font-family: var(--font-body);
-      font-weight: 700;
-      font-size: 1rem;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      box-shadow: var(--cv-shadow);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    [data-theme="light"] .cta-button {
-      box-shadow: 0 4px 14px color-mix(in srgb, var(--landing-accent-green) 25%, transparent);
-    }
-
-    .cta-button:hover { transform: translateY(-2px); box-shadow: 0 10px 25px color-mix(in srgb, var(--landing-accent-green) 40%, transparent); }
-
-    /* Entrance animations */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes countPulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.08); }
-      100% { transform: scale(1); }
-    }
-    .landing-hero .hero-tag,
-    .landing-hero h1,
-    .landing-hero p,
-    .cta-button,
-    .landing-stats-grid .landing-glass-card,
-    .how-it-works-header > *,
-    .journey-step {
-      animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
-    }
-    .landing-hero .hero-tag { animation-delay: 0.05s; }
-    .landing-hero h1 { animation-delay: 0.15s; }
-    .landing-hero p { animation-delay: 0.25s; }
-    .landing-hero .cta-button { animation-delay: 0.35s; }
-    .landing-stats-grid .landing-glass-card:nth-child(1) { animation-delay: 0.45s; }
-    .landing-stats-grid .landing-glass-card:nth-child(2) { animation-delay: 0.55s; }
-    .landing-stats-grid .landing-glass-card:nth-child(3) { animation-delay: 0.65s; }
-    .how-it-works-header > *:nth-child(1) { animation-delay: 0.15s; }
-    .how-it-works-header > *:nth-child(2) { animation-delay: 0.25s; }
-    .how-it-works-header > *:nth-child(3) { animation-delay: 0.35s; }
-    .journey-step:nth-child(1) { animation-delay: 0.45s; }
-    .journey-step:nth-child(2) { animation-delay: 0.55s; }
-    .journey-step:nth-child(3) { animation-delay: 0.65s; }
-    .journey-step:nth-child(4) { animation-delay: 0.75s; }
-    .landing-stat-number.counted { animation: countPulse 0.35s ease; }
-
-    /* Stats grid */
-    .landing-stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 32px 90px;
-      position: relative;
-      z-index: 10;
-      background: var(--landing-bg);
-    }
-
-    .landing-glass-card {
-      background: transparent;
-      border: 1px solid transparent;
-      border-radius: var(--cv-radius);
-      padding: 26px 24px;
-      text-align: left;
-      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-      position: relative;
-      overflow: hidden;
-      border-top: 3px solid var(--accent, var(--cv-amber));
-      box-shadow: none;
-    }
-
-    .landing-glass-card:nth-child(1) { --accent: var(--cv-amber); }
-    .landing-glass-card:nth-child(2) { --accent: var(--cv-indigo); }
-    .landing-glass-card:nth-child(3) { --accent: var(--cv-moss); }
-
-    .landing-glass-card:hover {
-      transform: translateY(-5px);
-      border-color: color-mix(in srgb, var(--accent) 50%, var(--landing-card-border));
-      box-shadow: 0 12px 30px -10px color-mix(in srgb, var(--accent) 12%, transparent);
-    }
-
-    .landing-stat-number {
-      font-family: var(--font-display);
-      font-size: 38px;
-      font-weight: 800;
-      color: var(--accent);
-      margin-bottom: 4px;
-      line-height: 1;
-    }
-    .landing-stat-label {
-      font-family: var(--font-body);
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--landing-text-main);
-      margin-bottom: 10px;
-    }
-    .landing-stat-desc { color: var(--landing-text-muted); font-size: 13px; line-height: 1.55; }
-
-    /* Dashboard metric legibility in light mode */
-    [data-theme="light"] .metric-label { color: var(--text-1); font-weight: 600; }
-    [data-theme="light"] .metric-card-title { color: var(--text-1); }
-
-    /* New card design (also used by the All Courses grid override) */
-    .card {
-      position: relative;
-      width: 350px;
-      flex-shrink: 0;
-      background: var(--cv-paper-raised);
-      border: 1px solid var(--cv-line);
-      border-radius: var(--cv-radius);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      box-shadow: var(--cv-shadow);
-      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.35s ease, border-color 0.35s ease;
-    }
-
-    .card:hover { transform: translateY(-4px); }
-
-    .card-banner {
-      position: relative;
-      height: 130px;
-      width: 100%;
-      flex-shrink: 0;
-      background-size: cover;
-      background-position: center;
-      background-color: var(--cv-indigo-soft);
-    }
-
-    .card-banner.no-image {
-      background-image:
-        radial-gradient(circle at 22px 22px, color-mix(in srgb, var(--cv-indigo) 18%, transparent) 0, transparent 55%),
-        repeating-linear-gradient(135deg, color-mix(in srgb, var(--cv-ink) 4%, transparent) 0 2px, transparent 2px 14px);
-    }
-
-    .card-banner::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, color-mix(in srgb, var(--cv-paper-raised) 92%, transparent) 0%, transparent 55%);
-    }
-
-    .card-body {
-      padding: 36px 22px 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      flex: 1;
-    }
-
-    .logo-wrap {
-      position: absolute;
-      left: 20px;
-      bottom: -24px;
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
-      background: #FFFFFF;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      flex-shrink: 0;
-      border: 3px solid #FFFFFF;
-      box-shadow: var(--cv-shadow);
-      z-index: 2;
-    }
-
-    .logo-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      padding: 6px;
-      background: #FFFFFF;
-    }
-
-    .logo-fallback {
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 18px;
-      color: var(--cv-indigo);
-      text-transform: uppercase;
-      line-height: 1;
-    }
-
-    .stamp {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      z-index: 2;
-      backdrop-filter: blur(6px);
-      font-family: var(--font-mono);
-      font-size: 10px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 5px 10px 5px 8px;
-      border-radius: 999px;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .stamp.hot { background: var(--cv-amber-soft); color: var(--cv-amber); }
-    .stamp.jobskills { background: var(--cv-indigo-soft); color: var(--cv-indigo); }
-    .stamp::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
-
-    .uni-name {
-      font-size: 12.5px;
-      color: var(--cv-ink-soft);
-      line-height: 1.3;
-      padding-left: 66px;
-      min-height: 24px;
-      font-family: var(--font-body);
-    }
-
-    .uni-name .country {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--cv-ink-soft);
-      opacity: 0.75;
-      display: block;
-      margin-top: 2px;
-    }
-
-    .course-title {
-      font-family: var(--font-display);
-      font-weight: 600;
-      font-size: 19px;
-      line-height: 1.25;
-      letter-spacing: -0.01em;
-      margin: 0;
-      color: var(--cv-ink);
-    }
-
-    .skills-desc {
-      font-family: var(--font-body);
-      font-size: 13px;
-      line-height: 1.55;
-      color: var(--cv-ink-soft);
-      margin: 0;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-
-    .badge-row { display: flex; flex-wrap: wrap; gap: 6px; }
-
-    .badge {
-      font-family: var(--font-mono);
-      font-size: 10.5px;
-      letter-spacing: 0.03em;
-      padding: 4px 9px;
-      border-radius: 7px;
-      border: 1px solid var(--cv-line);
-      color: var(--cv-ink-soft);
-      background: var(--cv-paper);
-    }
-
-    .badge.qs { color: var(--cv-indigo); border-color: transparent; background: var(--cv-indigo-soft); }
-    .badge.nirf { color: var(--cv-moss); border-color: transparent; background: var(--cv-moss-soft); }
-    .badge.scholar { color: var(--cv-amber); border-color: transparent; background: var(--cv-amber-soft); }
-
-    .meta-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 12px;
-      color: var(--cv-ink-soft);
-      border-top: 1px dashed var(--cv-line);
-      padding-top: 12px;
-      margin-top: 2px;
-      font-family: var(--font-body);
-    }
-
-    .meta-row .cost {
-      font-family: var(--font-mono);
-      font-weight: 600;
-      font-size: 12.5px;
-      color: var(--cv-ink);
-    }
-
-    .meta-row .cost.free { color: var(--cv-moss); }
-
-    .btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 7px;
-      font-family: var(--font-body);
-      font-weight: 600;
-      font-size: 13.5px;
-      padding: 12px 14px;
-      border-radius: 11px;
-      cursor: pointer;
-      border: 1px solid var(--cv-ink);
-      background: var(--cv-ink);
-      color: var(--cv-paper);
-      text-decoration: none;
-      margin-top: auto;
-      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-    }
-
-    [data-theme="dark"] .btn { background: var(--cv-indigo); border-color: var(--cv-indigo); color: #fff; }
-
-    /* How it works / storytelling section */
-    .how-it-works-section {
-      background: var(--landing-bg);
-      padding: 0 32px 100px;
-      position: relative;
-      z-index: 10;
-    }
-
-    .how-it-works-header {
-      text-align: center;
-      margin-bottom: 44px;
-    }
-
-    .how-it-works-header .section-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-family: var(--font-mono);
-      font-size: 11.5px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--cv-indigo);
-      background: color-mix(in srgb, var(--cv-indigo) 12%, transparent);
-      border: 1px solid var(--cv-indigo);
-      border-radius: 999px;
-      padding: 6px 14px;
-      margin-bottom: 14px;
-    }
-
-    .how-it-works-header h2 {
-      font-family: var(--font-display);
-      font-size: clamp(1.75rem, 3vw, 2.5rem);
-      font-weight: 800;
-      margin: 0 0 0.75rem 0;
-      color: var(--landing-text-main);
-    }
-
-    .how-it-works-header p {
-      color: var(--landing-text-muted);
-      font-size: 14.5px;
-      max-width: 600px;
-      margin: 0 auto;
-      line-height: 1.6;
-    }
-
-    .journey-steps {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-      max-width: 1100px;
-      margin: 0 auto;
-      position: relative;
-    }
-
-    .journey-steps::before {
-      content: '';
-      position: absolute;
-      top: 24px;
-      left: 12.5%;
-      right: 12.5%;
-      height: 1px;
-      background: var(--landing-card-border);
-      z-index: 0;
-    }
-    [data-theme="dark"] .journey-steps::before { background: #24363F; }
-
-    .journey-step {
-      background: var(--landing-card-bg);
-      border: 1px solid var(--landing-card-border);
-      border-radius: var(--cv-radius);
-      padding: 22px 18px;
-      text-align: left;
-      position: relative;
-      z-index: 1;
-      margin: 0 10px;
-      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-      box-shadow: var(--cv-shadow);
-    }
-    [data-theme="light"] .journey-step {
-      box-shadow: 0 4px 20px -8px rgba(16,24,27,0.10), 0 1px 3px rgba(16,24,27,0.04);
-    }
-
-    .journey-step:hover {
-      transform: translateY(-5px);
-      border-color: color-mix(in srgb, var(--cv-indigo) 30%, var(--landing-card-border));
-      box-shadow: 0 12px 30px -10px color-mix(in srgb, var(--cv-indigo) 15%, transparent);
-    }
-
-    .step-number {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 500;
-      color: var(--cv-moss);
-      display: block;
-      margin-bottom: 14px;
-    }
-
-    .step-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: color-mix(in srgb, var(--cv-indigo) 10%, var(--landing-card-bg));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      margin-bottom: 14px;
-    }
-    [data-theme="dark"] .step-icon { background: #0D1B22; }
-
-    .journey-step h3 {
-      font-family: var(--font-body);
-      font-size: 15.5px;
-      font-weight: 700;
-      color: var(--landing-text-main);
-      margin: 0 0 8px 0;
-    }
-
-    .journey-step p {
-      font-size: 12.5px;
-      color: var(--landing-text-muted);
-      line-height: 1.55;
-      margin: 0;
-    }
-
-    .step-outcome {
-      display: block;
-      margin-top: 12px;
-      padding-left: 10px;
-      border-left: 2px solid var(--cv-moss);
-      font-family: var(--font-mono);
-      font-size: 10.5px;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--cv-moss);
-      line-height: 1.5;
-    }
-
-    .journey-cta {
-      max-width: 1100px;
-      margin: 52px auto 0;
-      text-align: center;
-      animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.85s both;
-    }
-    .journey-cta .cta-button {
-      background: transparent;
-      color: var(--landing-accent-green);
-      border: 2px solid var(--landing-accent-green);
-      box-shadow: 0 4px 14px color-mix(in srgb, var(--landing-accent-green) 15%, transparent);
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
-    }
-    .journey-cta .cta-button::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: var(--landing-accent-green);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-      z-index: -1;
-    }
-    .journey-cta .cta-button:hover {
-      color: var(--cv-paper);
-      box-shadow: 0 8px 22px color-mix(in srgb, var(--landing-accent-green) 30%, transparent);
-    }
-    .journey-cta .cta-button:hover::before { transform: scaleX(1); }
-    .journey-cta .cta-button:active { transform: translateY(1px); }
-    .journey-hint {
-      margin: 14px 0 0;
-      font-size: 13px;
-      color: var(--landing-text-muted);
-    }
-
-    /* Domain Explorer placeholder */
-    .domain-explorer-placeholder {
-      background: var(--landing-bg);
-      padding: 40px 32px 60px;
-      position: relative;
-      z-index: 10;
-    }
-    .domain-explorer-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      background: var(--landing-card-bg);
-      border: 1px dashed var(--landing-card-border);
-      border-radius: var(--cv-radius);
-      padding: 48px 32px;
-      text-align: center;
-      box-shadow: var(--cv-shadow);
-    }
-    [data-theme="light"] .domain-explorer-inner {
-      box-shadow: 0 4px 20px -8px rgba(16,24,27,0.10), 0 1px 3px rgba(16,24,27,0.04);
-    }
-    .domain-explorer-inner .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-family: var(--font-mono);
-      font-size: 11.5px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--cv-amber);
-      background: color-mix(in srgb, var(--cv-amber) 10%, transparent);
-      border: 1px solid var(--cv-amber);
-      border-radius: 999px;
-      padding: 6px 14px;
-      margin-bottom: 18px;
-    }
-    .domain-explorer-inner h2 {
-      font-family: var(--font-display);
-      font-size: 32px;
-      font-weight: 800;
-      color: var(--landing-text-main);
-      margin: 0 0 10px;
-    }
-    .domain-explorer-inner p {
-      color: var(--landing-text-muted);
-      font-size: 14.5px;
-      max-width: 520px;
-      margin: 0 auto;
-      line-height: 1.6;
-    }
-
-    /* Domain Explorer two-column layout */
-    .domain-explorer-section {
-      background: var(--landing-bg);
-      padding: 60px 32px;
-      position: relative;
-      z-index: 10;
-    }
-    .domain-explorer-grid {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 48px;
-      align-items: center;
-    }
-    .domain-explorer-text {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    .domain-explorer-text .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-family: var(--font-mono);
-      font-size: 11.5px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--cv-amber);
-      background: color-mix(in srgb, var(--cv-amber) 10%, transparent);
-      border: 1px solid var(--cv-amber);
-      border-radius: 999px;
-      padding: 6px 14px;
-      width: fit-content;
-    }
-    .domain-explorer-text h2 {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 3.5vw, 2.75rem);
-      font-weight: 800;
-      color: var(--landing-text-main);
-      margin: 0;
-      line-height: 1.05;
-    }
-    .domain-explorer-text p {
-      color: var(--landing-text-muted);
-      font-size: 15px;
-      line-height: 1.65;
-      margin: 0;
-      max-width: 480px;
-    }
-    .domain-explorer-text .cta-button {
-      align-self: flex-start;
-      margin-top: 8px;
-    }
-    .domain-explorer-visual {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 240px;
-    }
-
-    @media (max-width: 768px) {
-      .domain-explorer-grid {
-        grid-template-columns: 1fr;
-        gap: 36px;
-      }
-      .domain-explorer-visual {
-        order: -1;
-        min-height: 180px;
-      }
-    }
-
-    /* Folder card — domain explorer interactive UI */
-    .folder-card {
-      width: 320px;
-      height: 240px;
-      perspective: 1400px;
-      cursor: default;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .folder-toggle { display: none; }
-
-    .hint-wrapper {
-      position: absolute;
-      top: -50px;
-      right: -30px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2px;
-      transition: opacity 0.3s ease, transform 0.3s ease;
-      pointer-events: none;
-      z-index: 100;
-      animation: floatHint 2.5s ease-in-out infinite;
-    }
-    .hint-text {
-      font-family: var(--font-body);
-      color: var(--cv-indigo);
-      font-size: 11px;
-      font-weight: 700;
-      text-decoration: underline;
-      letter-spacing: 0.5px;
-      white-space: nowrap;
-      position: relative;
-      right: -18px;
-      top: 12px;
-      transform: rotate(45deg);
-    }
-    .hint-arrow { height: 38px; width: 38px; }
-    .hint-arrow path { stroke: var(--cv-indigo); }
-
-    @keyframes floatHint {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(6px); }
-    }
-    .folder-toggle:checked ~ .hint-wrapper,
-    .folder-card.has-expanded .hint-wrapper {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-
-    .folder-container {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      transform-style: preserve-3d;
-      transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-      backface-visibility: hidden;
-      will-change: transform;
-    }
-    .folder-toggle:checked ~ .folder-container {
-      transform: rotateX(10deg) rotateY(-5deg);
-    }
-
-    .folder-back {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      filter: drop-shadow(0 14px 30px rgba(0, 0, 0, 0.45));
-    }
-    .folder-back path { fill: #0056b3; }
-
-    .folder-front-wrapper {
-      position: absolute;
-      bottom: -7px;
-      width: 100%;
-      z-index: 90;
-      transform-origin: bottom;
-      transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      border-radius: 12px;
-    }
-    .folder-front path { fill: rgba(0, 123, 255, 0.65); }
-    .folder-label {
-      position: absolute;
-      top: 14px;
-      left: 14px;
-      width: 40px;
-      height: 5px;
-      background: rgba(255, 255, 255, 0.5);
-      border-radius: 10px;
-    }
-
-    .counter {
-      position: absolute;
-      top: -110px;
-      right: -70px;
-      background-color: #a18cd1;
-      padding: 5px 10px;
-      border-radius: 50px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.2);
-      transform: scale(0) translateY(20px);
-      opacity: 0;
-      transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-      z-index: 100;
-      pointer-events: auto;
-    }
-    .folder-toggle:checked ~ .folder-container .counter {
-      transform: scale(1) translateY(0);
-      opacity: 1;
-      transition-delay: 0.2s;
-    }
-    .status-dot {
-      width: 6px;
-      height: 6px;
-      background: #34d399;
-      border-radius: 50%;
-      position: relative;
-      box-shadow: 0 0 10px #34d399;
-    }
-    .status-dot::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: #34d399;
-      border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0% { transform: scale(1); opacity: 1; }
-      100% { transform: scale(3); opacity: 0; }
-    }
-    .counter-label {
-      font-family: var(--font-body);
-      font-size: 8px;
-      font-weight: 800;
-      color: #000;
-      text-transform: capitalize;
-    }
-    .counter-number {
-      font-family: var(--font-body);
-      font-size: 13px;
-      font-weight: 900;
-      color: #ffffff;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-    }
-
-    /* Domain cards inside the folder */
-    .domain-card {
-      position: absolute;
-      bottom: 14px;
-      left: 50%;
-      width: 76px;
-      height: 92px;
-      margin-left: -38px;
-      border-radius: 8px;
-      overflow: hidden;
-      background: var(--dc-color, #4facfe);
-      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.35), 0 5px 16px rgba(0, 0, 0, 0.35);
-      transition: all 0.65s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-      opacity: 0;
-      pointer-events: none;
-      z-index: 20;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      padding: 8px;
-      text-align: center;
-      color: #fff;
-    }
-    .domain-card .shine {
-      position: absolute;
-      top: 0; left: -100%;
-      width: 50%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
-      transform: skewX(-20deg);
-      transition: none;
-    }
-    .folder-toggle:checked ~ .folder-container .domain-card .shine {
-      left: 150%;
-      transition: left 0.8s ease-in-out;
-      transition-delay: 0.3s;
-    }
-
-    .domain-card-icon {
-      font-size: 22px;
-      line-height: 1;
-      filter: drop-shadow(0 1px 2px rgba(0,0,0,0.25));
-      z-index: 2;
-    }
-    .domain-card-title {
-      font-family: var(--font-body);
-      font-size: 9px;
-      font-weight: 700;
-      line-height: 1.2;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.25);
-      z-index: 2;
-    }
-
-    /* Fanned-out grid positions when folder is open */
-    .folder-toggle:checked ~ .folder-container .folder-front-wrapper { transform: rotateX(-55deg); }
-    .folder-toggle:checked ~ .folder-container .domain-card { opacity: 1; pointer-events: auto; }
-    .folder-toggle:checked ~ .folder-container .domain-card:nth-child(3) { transform: translate(-82px, -135px) rotate(-8deg); transition-delay: 0.12s; }
-    .folder-toggle:checked ~ .folder-container .domain-card:nth-child(4) { transform: translate(0, -150px) rotate(0deg); transition-delay: 0.08s; }
-    .folder-toggle:checked ~ .folder-container .domain-card:nth-child(5) { transform: translate(82px, -135px) rotate(8deg); transition-delay: 0.04s; }
-    .folder-toggle:checked ~ .folder-container .domain-card:nth-child(6) { transform: translate(-82px, -60px) rotate(-6deg); transition-delay: 0.16s; }
-    .folder-toggle:checked ~ .folder-container .domain-card:nth-child(7) { transform: translate(0, -75px) rotate(0deg); transition-delay: 0.2s; }
-    .folder-toggle:checked ~ .folder-container .domain-card:nth-child(8) { transform: translate(82px, -60px) rotate(6deg); transition-delay: 0.24s; }
-
-    .folder-toggle:checked ~ .folder-container .domain-card:hover {
-      filter: brightness(1.12);
-      z-index: 80;
-    }
-    .folder-toggle:checked ~ .folder-container .domain-card:nth-child(3):hover { transform: translate(-82px, -145px) rotate(-8deg); }
-    .folder-toggle:checked ~ .folder-container .domain-card:nth-child(4):hover { transform: translate(0, -160px) rotate(0deg); }
-    .folder-toggle:checked ~ .folder-container .domain-card:nth-child(5):hover { transform: translate(82px, -145px) rotate(8deg); }
-    .folder-toggle:checked ~ .folder-container .domain-card:nth-child(6):hover { transform: translate(-82px, -70px) rotate(-6deg); }
-    .folder-toggle:checked ~ .folder-container .domain-card:nth-child(7):hover { transform: translate(0, -85px) rotate(0deg); }
-    .folder-toggle:checked ~ .folder-container .domain-card:nth-child(8):hover { transform: translate(82px, -70px) rotate(6deg); }
-
-    /* Expanded domain detail view */
-    .domain-card-detail {
-      position: absolute;
-      inset: 10px;
-      background: var(--landing-card-bg);
-      border: 1px solid var(--landing-card-border);
-      border-radius: 12px;
-      padding: 18px;
-      opacity: 0;
-      pointer-events: none;
-      transform: scale(0.92);
-      transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.15s;
-      z-index: 5;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      overflow: hidden;
-      color: var(--landing-text-main);
-      box-shadow: var(--cv-shadow);
-    }
-    .domain-card-detail .domain-close {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      border: 1px solid var(--landing-card-border);
-      background: var(--landing-bg);
-      color: var(--landing-text-muted);
-      font-size: 16px;
-      line-height: 1;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.2s ease;
-    }
-    .domain-card-detail .domain-close:hover {
-      background: var(--cv-danger);
-      color: #fff;
-      border-color: var(--cv-danger);
-    }
-    .domain-card-detail h3 {
-      font-family: var(--font-display);
-      font-size: 20px;
-      font-weight: 800;
-      margin: 0;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--landing-text-main);
-    }
-    .domain-card-detail p {
-      font-size: 12px;
-      line-height: 1.55;
-      color: var(--landing-text-muted);
-      margin: 0;
-    }
-    .domain-detail-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
-    }
-    .domain-detail-tags span {
-      font-family: var(--font-mono);
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      padding: 3px 7px;
-      border-radius: 999px;
-      background: var(--dc-color-soft, rgba(0,0,0,0.06));
-      color: var(--dc-color, var(--landing-text-main));
-      border: 1px solid var(--landing-card-border);
-    }
-    .domain-detail-meta {
-      font-size: 10px;
-      color: var(--landing-text-muted);
-      line-height: 1.5;
-    }
-    .domain-detail-meta strong {
-      color: var(--landing-text-main);
-      font-weight: 600;
-    }
-    .domain-card-detail .btn {
-      margin-top: auto;
-      align-self: flex-start;
-      padding: 8px 14px;
-      font-size: 12px;
-      border-radius: 999px;
-      background: var(--dc-color, var(--landing-accent-green));
-      border-color: var(--dc-color, var(--landing-accent-green));
-      color: #fff;
-    }
-
-    .folder-card.has-expanded .folder-toggle:checked ~ .folder-container .domain-card:not(.expanded) {
-      opacity: 0;
-      pointer-events: none;
-      transform: scale(0.8);
-    }
-    .folder-card.has-expanded .folder-container .domain-card.expanded {
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      height: 100%;
-      margin-left: 0;
-      transform: none !important;
-      rotate: 0deg !important;
-      z-index: 120;
-      background: transparent;
-      box-shadow: none;
-      cursor: default;
-    }
-    .folder-card.has-expanded .folder-container .domain-card.expanded .domain-card-icon,
-    .folder-card.has-expanded .folder-container .domain-card.expanded .domain-card-title,
-    .folder-card.has-expanded .folder-container .domain-card.expanded .shine {
-      opacity: 0;
-      pointer-events: none;
-    }
-    .folder-card.has-expanded .folder-container .domain-card.expanded .domain-card-detail {
-      opacity: 1;
-      pointer-events: auto;
-      transform: scale(1);
-    }
-
-    .folder-search {
-      position: absolute;
-      top: -40px; left: 10%;
-      width: 30px; height: 25px;
-      background-color: var(--cv-indigo);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
-      padding: 0 8px;
-      transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-      opacity: 0;
-      z-index: 100;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-    .search-icon { width: 12px; height: 12px; flex-shrink: 0; }
-    .search-input {
-      background: transparent;
-      border: none;
-      color: #ffffff;
-      font-family: var(--font-body);
-      font-size: 9px;
-      margin-left: 8px;
-      outline: none;
-      transition: width 0.4s ease;
-    }
-    .search-input::placeholder { color: #ffffff; }
-    .folder-toggle:checked ~ .folder-container .folder-search {
-      opacity: 1;
-      top: -80px;
-      width: 80%;
-    }
-    .folder-toggle:checked ~ .folder-container .folder-search:focus-within {
-      width: 90%;
-      background-color: #ff3b30;
-    }
-    .folder-toggle:checked ~ .folder-container .folder-search:focus-within .search-input { width: 100%; }
-
-    @media (max-width: 768px) {
-      .journey-steps { grid-template-columns: 1fr; }
-      .journey-steps::before { display: none; }
-      .how-it-works-section { padding: 2.5rem 4% 3rem; }
-      .journey-step { padding: 1.75rem 1.25rem; margin: 0 0 12px; }
-      .domain-explorer-section { padding: 40px 4%; }
-      .domain-explorer-inner { padding: 32px 20px; }
-      .domain-explorer-inner h2 { font-size: 26px; }
-      .folder-card { width: 260px; height: 195px; }
-      .domain-card { width: 60px; height: 74px; margin-left: -30px; }
-      .domain-card-title { font-size: 8px; }
-      .folder-toggle:checked ~ .folder-container .domain-card:nth-child(3) { transform: translate(-66px, -110px) rotate(-8deg); }
-      .folder-toggle:checked ~ .folder-container .domain-card:nth-child(4) { transform: translate(0, -122px) rotate(0deg); }
-      .folder-toggle:checked ~ .folder-container .domain-card:nth-child(5) { transform: translate(66px, -110px) rotate(8deg); }
-      .folder-toggle:checked ~ .folder-container .domain-card:nth-child(6) { transform: translate(-66px, -50px) rotate(-6deg); }
-      .folder-toggle:checked ~ .folder-container .domain-card:nth-child(7) { transform: translate(0, -60px) rotate(0deg); }
-      .folder-toggle:checked ~ .folder-container .domain-card:nth-child(8) { transform: translate(66px, -50px) rotate(6deg); }
-      .domain-card-detail h3 { font-size: 16px; }
-      .domain-card-detail p { font-size: 11px; }
-      .domain-detail-tags span { font-size: 8px; }
-      .domain-detail-meta { font-size: 9px; }
-      .landing-hero { padding: 3rem 1.5rem 3rem; }
-      .landing-hero h1 { font-size: clamp(2rem, 8vw, 3rem); }
-      .landing-stats-grid { grid-template-columns: 1fr; gap: 1.25rem; padding: 1.5rem 4%; }
-      .landing-glass-card { padding: 1.75rem; }
-      .card { width: 100%; max-width: 380px; }
-    }
-
-    @media (max-width: 480px) {
-      .card { width: 100%; max-width: 100%; }
-      .card-body { padding: 34px 18px 18px; }
-      .folder-card { width: 220px; height: 165px; }
-      .domain-card { width: 52px; height: 64px; margin-left: -26px; }
-      .domain-card-icon { font-size: 18px; }
-      .domain-card-title { font-size: 7px; }
-    }
-  </style>
-
+  <link rel="stylesheet" href="course-catalog.css?v=1007" />
+  <link rel="stylesheet" href="assets/list-view-override.css?v=1007" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
   <!-- Chart.js (needed for dashboard analytics charts) -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://unpkg.com/chartjs-chart-geo@4.2.8/build/index.umd.min.js"></script>
 
   <!-- COBE globe is imported as an ES module from the local build -->
-  <script type="module" src="assets/cobe-import.js?v=2"></script>
+  <script type="module" src="assets/cobe-import.js?v=1007"></script>
   <script src="https://kit.fontawesome.com/997b419143.js" crossorigin="anonymous"></script>
 
   <!-- Structured data for the catalog -->
@@ -1266,13 +43,14 @@
   {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "name": "Hashtag Suraksha Course Catalog",
+    "name": "CourseKosh by Hashtag Suraksha",
     "description": "A verified catalog of 3,700+ cybersecurity courses across 45 countries.",
     "url": "https://hashtagsuraksha.com/course-catalog.html",
     "itemListElement": []
   }
   </script>
 </head>
+
 <body>
 
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -1296,14 +74,26 @@
         <li><a href="olympiad.html">Olympiad</a></li>
         <li><a href="phishnchip.html">The Phish &amp; Chip Show</a></li>
         <li><a href="slanglish.html">Slanglish</a></li>
-        <li><a href="course-catalog.html" class="active" aria-current="page">Course Catalog</a></li>
+        <li><a href="course-catalog.html" class="active" aria-current="page">CourseKosh</a></li>
         <li><a href="resources.html">Resources</a></li>
         <li><a href="partner.html">Partner With Us</a></li>
       </ul>
       <div class="nav-right">
         <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle theme">
-          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5" />
+            <line x1="12" y1="1" x2="12" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="23" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="1" y1="12" x2="3" y2="12" />
+            <line x1="21" y1="12" x2="23" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
         </button>
         <a href="surakshak.html" class="nav-cta">Join the Movement</a>
       </div>
@@ -1316,21 +106,33 @@
       <a href="olympiad.html">Olympiad</a>
       <a href="phishnchip.html">The Phish &amp; Chip Show</a>
       <a href="slanglish.html">Slanglish</a>
-      <a href="course-catalog.html" class="active">Course Catalog</a>
+      <a href="course-catalog.html" class="active">CourseKosh</a>
       <a href="resources.html">Resources</a>
       <a href="partner.html">Partner With Us</a>
       <a href="surakshak.html" class="mobile-cta">Join the Movement</a>
       <button id="mobileThemeToggle" class="mobile-theme-toggle" aria-label="Toggle theme">
-        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5" />
+          <line x1="12" y1="1" x2="12" y2="3" />
+          <line x1="12" y1="21" x2="12" y2="23" />
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+          <line x1="1" y1="12" x2="3" y2="12" />
+          <line x1="21" y1="12" x2="23" y2="12" />
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
         <span class="mobile-theme-label">Toggle theme</span>
       </button>
     </div>
   </nav>
 
-  <!-- ═══════════════════════════════════════════════════════════
+  <!-- 
        MAIN CATALOG CONTENT
-       ═══════════════════════════════════════════════════════════ -->
+        -->
   <main class="catalog-page" id="main-content">
 
     <!-- NEW LANDING HERO -->
@@ -1339,71 +141,128 @@
         <div class="glowing-orb"></div>
         <div class="globe-placeholder"></div>
       </div>
-      <span class="hero-tag">Course Catalog</span>
-      <h1>Explore Global Cybersecurity Education</h1>
-      <p>A verified catalog of the world's top cybersecurity courses. Filter by country, domain, level, and pricing — or dive straight into the data.</p>
-      <a href="#all-courses-section" class="cta-button">Browse 3,700+ Courses</a>
+      <span class="hero-tag">CourseKosh</span>
+      <h1>Your Cybersecurity Career Starts Here</h1>
+      <p>Not sure where to begin? We turn 3,700+ verified courses into a clear, personal pathway — whether youre a
+        student, switching careers, or leveling up in cybersecurity.</p>
+      <div class="hero-cta-row">
+        <button type="button" class="cta-button" onclick="openOnboarding(true)">Find my path →</button>
+        <a href="#all-courses-section" class="cta-button cta-secondary">Browse 3,700+ courses</a>
+      </div>
+    </section>
+
+    <!-- WHO THIS IS FOR -->
+    <section class="persona-band" aria-label="Who this is for">
+      <div class="persona-card">
+        <div class="persona-icon"
+          style="display:flex;align-items:center;justify-content:center;background:#e5e7eb;border-radius:8px;"><svg
+            style="width:24px;height:24px;color:#059669" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z" />
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2zM4 19.5v-15" />
+          </svg></div>
+        <h3>Student / Fresher</h3>
+        <p>Build your foundation, explore domains, and pick the right degree or certificate to launch your cybersecurity
+          journey.</p>
+        <button type="button" class="persona-link" onclick="openOnboarding(true)">See my path →</button>
+      </div>
+      <div class="persona-card">
+        <div class="persona-icon"
+          style="display:flex;align-items:center;justify-content:center;background:#e5e7eb;border-radius:8px;"><svg
+            style="width:24px;height:24px;color:#059669" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+            <path d="M2 12h20" />
+          </svg></div>
+        <h3>Career Switcher</h3>
+        <p>Map your existing skills to a cybersecurity role and fast-track with targeted, job-ready courses.</p>
+        <button type="button" class="persona-link" onclick="openOnboarding(true)">See my path →</button>
+      </div>
+      <div class="persona-card">
+        <div class="persona-icon"
+          style="display:flex;align-items:center;justify-content:center;background:#e5e7eb;border-radius:8px;"><svg
+            style="width:24px;height:24px;color:#059669" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+            <line x1="8" y1="21" x2="16" y2="21" />
+            <line x1="12" y1="17" x2="12" y2="21" />
+          </svg></div>
+        <h3>Working Professional</h3>
+        <p>Upskill in a specialization, earn a certification, and advance your current role with verified programs.</p>
+        <button type="button" class="persona-link" onclick="openOnboarding(true)">See my path →</button>
+      </div>
     </section>
 
     <!-- NEW STATS GRID -->
     <section class="landing-stats-grid">
       <div class="landing-glass-card">
         <div class="landing-stat-number" data-count="3700">3,700+</div>
-        <div class="landing-stat-label">Verified Courses</div>
-        <div class="landing-stat-desc">Curated cybersecurity programs from top universities and institutions globally. Filter by level, domain, and access type.</div>
+        <div class="landing-stat-label">Courses Matched to Real Job Skills</div>
+        <div class="landing-stat-desc">Every program is verified and mapped to the skills employers actually ask for —
+          not just random listings.</div>
       </div>
       <div class="landing-glass-card">
         <div class="landing-stat-number" data-count="45">45</div>
-        <div class="landing-stat-label">Countries Represented</div>
-        <div class="landing-stat-desc">Spin the interactive globe to discover localized cybersecurity education in any region of the world.</div>
+        <div class="landing-stat-label">Global Opportunities, Localized for You</div>
+        <div class="landing-stat-desc">Explore education from 45 countries and find programs that fit your location,
+          budget, and career goals.</div>
       </div>
       <div class="landing-glass-card">
         <div class="landing-stat-number">IITs</div>
-        <div class="landing-stat-label">Premium Institutions</div>
-        <div class="landing-stat-desc">Access high-value, low-cost degrees and certifications from elite universities like IITs, IIITs, and NITs.</div>
+        <div class="landing-stat-label">Elite, Affordable Credentials</div>
+        <div class="landing-stat-desc">Access high-value degrees and certifications from IITs, IIITs, NITs, and top
+          global universities.</div>
       </div>
     </section>
 
     <!-- HOW IT WORKS — Storytelling journey -->
     <section class="how-it-works-section">
       <div class="how-it-works-header">
-        <span class="section-tag">How it works</span>
-        <h2>From curiosity to application in four steps</h2>
-        <p>Hashtag Suraksha turns a massive global catalog into a clear, personal path. Here’s exactly what you get and how to get it.</p>
+        <span class="section-tag">Your pathway</span>
+        <h2>From curiosity to cybersecurity career in four steps</h2>
+        <p>This isnt just a course list. Its a guided journey to help you understand where you fit, what to learn, and
+          how to get hired or promoted in cybersecurity.</p>
       </div>
       <div class="journey-steps">
         <div class="journey-step">
           <div class="step-number">01</div>
-          <div class="step-icon">🌍</div>
-          <h3>See the full picture</h3>
-          <p>Explore 3,700+ verified cybersecurity courses across 45 countries on an interactive 3D globe.</p>
-          <span class="step-outcome">Outcome: discover universities and domains you didn't know existed.</span>
+          <div class="step-icon"><i class="fa-regular fa-compass" style="color: var(--teal-500); font-size: 1.8rem; margin: 12px 0;"></i></div>
+          <h3>Discover the landscape</h3>
+          <p>Explore 3,700+ verified courses across 45 countries and see the full range of where a cybersecurity career
+            can take you.</p>
+          <span class="step-outcome">Outcome: understand the domains, roles, and credentials that exist.</span>
         </div>
         <div class="journey-step">
           <div class="step-number">02</div>
-          <div class="step-icon">🎛️</div>
-          <h3>Find what fits you</h3>
-          <p>Use country, domain, level, pricing, and access-type filters to narrow thousands into a focused shortlist.</p>
-          <span class="step-outcome">Outcome: only see courses that match your goals and budget.</span>
+          <div class="step-icon"><i class="fa-solid fa-map-location-dot" style="color: var(--teal-500); font-size: 1.8rem; margin: 12px 0;"></i></div>
+          <h3>Pick your direction</h3>
+          <p>Use the domain explorer and career matcher to choose a specialization that fits your background and
+            ambition.</p>
+          <span class="step-outcome">Outcome: a clear role or domain to aim for, not a vague interest.</span>
         </div>
         <div class="journey-step">
           <div class="step-number">03</div>
-          <div class="step-icon">🎓</div>
-          <h3>Get matched quickly</h3>
-          <p>Take a 3-question quick tour. We’ll suggest a tailored path based on your background and ambition.</p>
-          <span class="step-outcome">Outcome: save hours of guessing with transparent, goal-first recommendations.</span>
+          <div class="step-icon"><i class="fa-solid fa-wand-magic-sparkles" style="color: var(--teal-500); font-size: 1.8rem; margin: 12px 0;"></i></div>
+          <h3>Get matched to courses</h3>
+          <p>Answer three quick questions and well filter the catalog to show only the programs that move you toward
+            your goal.</p>
+          <span class="step-outcome">Outcome: a focused shortlist that fits your level, budget, and schedule.</span>
         </div>
         <div class="journey-step">
           <div class="step-number">04</div>
-          <div class="step-icon">📋</div>
-          <h3>Compare &amp; apply</h3>
-          <p>Save favorites, compare course details side-by-side, and visit official university pages to enroll.</p>
-          <span class="step-outcome">Outcome: choose confidently and apply to the right course directly.</span>
+          <div class="step-icon"><i class="fa-solid fa-rocket" style="color: var(--teal-500); font-size: 1.8rem; margin: 12px 0;"></i></div>
+          <h3>Launch your career</h3>
+          <p>Compare favorites, save courses, and visit official university pages to enroll — with confidence in your
+            choice.</p>
+          <span class="step-outcome">Outcome: a clear next step toward your first cybersecurity role or
+            promotion.</span>
         </div>
       </div>
       <div class="journey-cta">
-        <a href="#all-courses-section" class="cta-button">Start your journey →</a>
-        <p class="journey-hint">Or scroll down to explore the globe and filters right away.</p>
+        <button type="button" class="cta-button" onclick="openOnboarding(true)">Take the 30-sec career matcher
+          →</button>
+        <p class="journey-hint">Or scroll down to explore domains, the globe, and all courses right away.</p>
       </div>
     </section>
 
@@ -1411,26 +270,30 @@
     <section class="domain-explorer-section" id="domain-explorer-placeholder" aria-label="Domain Explorer">
       <div class="domain-explorer-grid">
         <div class="domain-explorer-text">
-          <span class="eyebrow">🌐 Domain Explorer</span>
-          <h2>Want to know in depth about cybersecurity and all domains related to it?</h2>
-          <p>Open the folder to explore the six core cybersecurity domains. Click any domain card to see what it covers, the skills you'll build, and the careers it leads to — then jump straight into matching courses.</p>
-          <a href="#all-courses-section" class="cta-button">Explore the catalog →</a>
+          <span class="eyebrow"> Domain Explorer</span>
+          <h2>Which cybersecurity path is right for you?</h2>
+          <p>Cybersecurity has many career doors. Open the folder to explore six core domains, see the skills and job
+            roles behind each one, and jump straight into matching courses.</p>
+          <button type="button" class="cta-button" onclick="openOnboarding(true)">Find my path →</button>
         </div>
 
-        <div class="domain-explorer-visual">
+        <div class="domain-explorer-visual" id="domain-explorer-visual">
           <label class="folder-card" aria-label="Open cybersecurity domain folder">
             <input type="checkbox" class="folder-toggle" />
 
             <div class="hint-wrapper">
-              <span class="hint-text">Click to open</span>
+              <span class="hint-text">Double click to open</span>
               <svg class="hint-arrow" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M 35 5 C 35 5, 15 5, 10 25 M 10 25 L 3 18 M 10 25 L 18 22" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M 35 5 C 35 5, 15 5, 10 25 M 10 25 L 3 18 M 10 25 L 18 22" stroke="#60a5fa" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round"></path>
               </svg>
             </div>
 
             <div class="folder-container">
               <svg class="folder-back" viewBox="0 0 50 40" fill="none">
-                <path d="M0 4C0 1.79086 1.79086 0 4 0H16.524C17.721 0 18.8415 0.54051 19.574 1.4673L22.426 5.0654C23.1585 5.99219 24.279 6.5327 25.476 6.5327H46C48.2091 6.5327 50 8.32356 50 10.5327V36C50 38.2091 48.2091 40 46 40H4C1.79086 40 0 38.2091 0 36V4Z" fill="#0056b3"></path>
+                <path
+                  d="M0 4C0 1.79086 1.79086 0 4 0H16.524C17.721 0 18.8415 0.54051 19.574 1.4673L22.426 5.0654C23.1585 5.99219 24.279 6.5327 25.476 6.5327H46C48.2091 6.5327 50 8.32356 50 10.5327V36C50 38.2091 48.2091 40 46 40H4C1.79086 40 0 38.2091 0 36V4Z"
+                  fill="#0056b3"></path>
               </svg>
 
               <div class="folder-search">
@@ -1441,159 +304,33 @@
                 <input type="text" placeholder="Search domains..." class="search-input" />
               </div>
 
-              <!-- 1. Foundational -->
-              <div class="domain-card" data-domain-id="foundational" data-domain-chip="foundational" data-domain-label="Foundational" style="--dc-color: #14b8a6; --dc-color-soft: rgba(20,184,166,0.12);">
+              <!-- The 3 domain files (Preview) -->
+              <div class="file file-3" data-domain="System & Endpoint">
                 <div class="shine"></div>
-                <span class="domain-card-icon">🧱</span>
-                <span class="domain-card-title">Foundational</span>
-                <div class="domain-card-detail">
-                  <button class="domain-close" aria-label="Close domain details">×</button>
-                  <h3><span>🧱</span> Foundational</h3>
-                  <p>Core concepts every cybersecurity learner needs — from threat basics to risk frameworks and governance.</p>
-                  <div class="domain-detail-tags">
-                    <span>Cybersecurity Basics</span>
-                    <span>Risk Management</span>
-                    <span>Threat Landscape</span>
-                    <span>Security Frameworks</span>
-                    <span>Security Governance</span>
-                  </div>
-                  <div class="domain-detail-meta">
-                    <div><strong>Skills:</strong> Risk Assessment, Policy Writing, NIST/ISO 27001, Security Awareness, Asset Management</div>
-                    <div><strong>Roles:</strong> Security Analyst, GRC Analyst, IT Auditor, Risk Manager</div>
-                    <div><strong>Course types:</strong> Certificate, Free to Audit, Bachelor's Degree</div>
-                  </div>
-                  <a href="#all-courses-section" class="btn domain-explore-btn" data-domain="Foundational">Explore Foundational courses →</a>
-                </div>
+                <div class="file-icon-text"></div>
+                <div class="file-text">Endpoint</div>
+                <div class="file-tag">Explore Domain</div>
               </div>
 
-              <!-- 2. Network Infrastructure -->
-              <div class="domain-card" data-domain-id="network" data-domain-chip="network-infra" data-domain-label="Network Infrastructure" style="--dc-color: #6366f1; --dc-color-soft: rgba(99,102,241,0.12);">
+              <div class="file file-2" data-domain="Network Infrastructure">
                 <div class="shine"></div>
-                <span class="domain-card-icon">🌐</span>
-                <span class="domain-card-title">Network</span>
-                <div class="domain-card-detail">
-                  <button class="domain-close" aria-label="Close domain details">×</button>
-                  <h3><span>🌐</span> Network Infrastructure</h3>
-                  <p>Protect the arteries of digital infrastructure — firewalls, IDS/IPS, cloud networks, and zero-trust architecture.</p>
-                  <div class="domain-detail-tags">
-                    <span>Network Security</span>
-                    <span>Firewalls & VPN</span>
-                    <span>IDS/IPS</span>
-                    <span>Cloud Security</span>
-                    <span>Zero Trust</span>
-                  </div>
-                  <div class="domain-detail-meta">
-                    <div><strong>Skills:</strong> Packet Analysis, Firewall Rules, SDN Security, VPC Design, Network Segmentation</div>
-                    <div><strong>Roles:</strong> Network Security Engineer, Cloud Security Architect, SOC Analyst, Infrastructure Engineer</div>
-                    <div><strong>Course types:</strong> Certificate, Diploma, Master's Degree</div>
-                  </div>
-                  <a href="#all-courses-section" class="btn domain-explore-btn" data-domain="Network Infrastructure">Explore Network courses →</a>
-                </div>
+                <div class="file-icon-text"></div>
+                <div class="file-text">Network</div>
+                <div class="file-tag">Explore Domain</div>
               </div>
 
-              <!-- 3. System & Endpoint -->
-              <div class="domain-card" data-domain-id="endpoint" data-domain-chip="system-endpoint" data-domain-label="System & Endpoint" style="--dc-color: #06b6d4; --dc-color-soft: rgba(6,182,212,0.12);">
+              <div class="file file-1" data-domain="Foundational">
                 <div class="shine"></div>
-                <span class="domain-card-icon">💻</span>
-                <span class="domain-card-title">Endpoint</span>
-                <div class="domain-card-detail">
-                  <button class="domain-close" aria-label="Close domain details">×</button>
-                  <h3><span>💻</span> System & Endpoint</h3>
-                  <p>Harden endpoints, operating systems, and mobile devices against malware, misconfiguration, and lateral movement.</p>
-                  <div class="domain-detail-tags">
-                    <span>Endpoint Security</span>
-                    <span>OS Hardening</span>
-                    <span>Mobile Security</span>
-                    <span>Patch Management</span>
-                    <span>Malware Defense</span>
-                  </div>
-                  <div class="domain-detail-meta">
-                    <div><strong>Skills:</strong> EDR/XDR, OS Internals, Threat Hunting, Vulnerability Management, Incident Triage</div>
-                    <div><strong>Roles:</strong> Endpoint Security Engineer, SOC Analyst, Threat Hunter, System Administrator</div>
-                    <div><strong>Course types:</strong> Certificate, Diploma, Post Graduate Diploma</div>
-                  </div>
-                  <a href="#all-courses-section" class="btn domain-explore-btn" data-domain="System & Endpoint">Explore Endpoint courses →</a>
-                </div>
-              </div>
-
-              <!-- 4. Cyber Forensics -->
-              <div class="domain-card" data-domain-id="forensics" data-domain-chip="forensics-ir" data-domain-label="Cyber Forensics" style="--dc-color: #8b5cf6; --dc-color-soft: rgba(139,92,246,0.12);">
-                <div class="shine"></div>
-                <span class="domain-card-icon">🔍</span>
-                <span class="domain-card-title">Forensics</span>
-                <div class="domain-card-detail">
-                  <button class="domain-close" aria-label="Close domain details">×</button>
-                  <h3><span>🔍</span> Cyber Forensics</h3>
-                  <p>Investigate breaches, recover digital evidence, and reconstruct attacks using forensic tools and incident-response playbooks.</p>
-                  <div class="domain-detail-tags">
-                    <span>Digital Forensics</span>
-                    <span>Incident Response</span>
-                    <span>Reverse Engineering</span>
-                    <span>eDiscovery</span>
-                    <span>Threat Intelligence</span>
-                  </div>
-                  <div class="domain-detail-meta">
-                    <div><strong>Skills:</strong> Disk Imaging, Memory Forensics, Kill Chain Analysis, Chain of Custody, IOC Triage</div>
-                    <div><strong>Roles:</strong> Digital Forensics Specialist, Incident Responder, Malware Analyst, Threat Intel Analyst</div>
-                    <div><strong>Course types:</strong> Certificate, Post Graduate Certificate, Master's Degree</div>
-                  </div>
-                  <a href="#all-courses-section" class="btn domain-explore-btn" data-domain="Cyber Forensics">Explore Forensics courses →</a>
-                </div>
-              </div>
-
-              <!-- 5. Data & Application -->
-              <div class="domain-card" data-domain-id="data" data-domain-chip="data-app-security" data-domain-label="Data & Application" style="--dc-color: #f43f5e; --dc-color-soft: rgba(244,63,94,0.12);">
-                <div class="shine"></div>
-                <span class="domain-card-icon">🗄️</span>
-                <span class="domain-card-title">Data & App</span>
-                <div class="domain-card-detail">
-                  <button class="domain-close" aria-label="Close domain details">×</button>
-                  <h3><span>🗄️</span> Data & Application</h3>
-                  <p>Secure code, databases, cryptography, and data privacy to protect the applications and information that power organizations.</p>
-                  <div class="domain-detail-tags">
-                    <span>Application Security</span>
-                    <span>Data Privacy</span>
-                    <span>Cryptography</span>
-                    <span>Database Security</span>
-                    <span>DevSecOps</span>
-                  </div>
-                  <div class="domain-detail-meta">
-                    <div><strong>Skills:</strong> Secure Coding, OWASP Top 10, Encryption, Privacy by Design, CI/CD Security</div>
-                    <div><strong>Roles:</strong> Application Security Engineer, Data Privacy Officer, DevSecOps Engineer, Cryptographer</div>
-                    <div><strong>Course types:</strong> Certificate, Post Graduate Diploma, Master's Degree</div>
-                  </div>
-                  <a href="#all-courses-section" class="btn domain-explore-btn" data-domain="Data & Application">Explore Data & App courses →</a>
-                </div>
-              </div>
-
-              <!-- 6. Legal & Ethical -->
-              <div class="domain-card" data-domain-id="legal" data-domain-chip="legal-compliance" data-domain-label="Legal & Ethical" style="--dc-color: #f59e0b; --dc-color-soft: rgba(245,158,11,0.12);">
-                <div class="shine"></div>
-                <span class="domain-card-icon">⚖️</span>
-                <span class="domain-card-title">Legal</span>
-                <div class="domain-card-detail">
-                  <button class="domain-close" aria-label="Close domain details">×</button>
-                  <h3><span>⚖️</span> Legal & Ethical</h3>
-                  <p>Navigate cyber law, ethics, compliance, and reporting obligations across jurisdictions and industries.</p>
-                  <div class="domain-detail-tags">
-                    <span>Cyber Law</span>
-                    <span>Ethics & Professionalism</span>
-                    <span>Regulatory Compliance</span>
-                    <span>Incident Reporting</span>
-                    <span>Digital Rights</span>
-                  </div>
-                  <div class="domain-detail-meta">
-                    <div><strong>Skills:</strong> Legal Research, Compliance Mapping, Incident Disclosure, Ethical Hacking Ethics, GDPR/CCPA</div>
-                    <div><strong>Roles:</strong> Cybersecurity Lawyer, Compliance Manager, Ethics Officer, Policy Advisor</div>
-                    <div><strong>Course types:</strong> Certificate, Diploma, Free to Audit</div>
-                  </div>
-                  <a href="#all-courses-section" class="btn domain-explore-btn" data-domain="Legal & Ethical">Explore Legal & Ethical courses →</a>
-                </div>
+                <div class="file-icon-text"></div>
+                <div class="file-text">Foundational</div>
+                <div class="file-tag">Explore Domain</div>
               </div>
 
               <div class="folder-front-wrapper">
                 <svg class="folder-front" viewBox="0 0 50 34" fill="none">
-                  <path d="M0 4C0 1.79086 1.79086 0 4 0H46C48.2091 0 50 1.79086 50 4V30C50 32.2091 48.2091 34 46 34H4C1.79086 34 0 32.2091 0 30V4Z" fill="rgba(0, 123, 255, 0.65)"></path>
+                  <path
+                    d="M0 4C0 1.79086 1.79086 0 4 0H46C48.2091 0 50 1.79086 50 4V30C50 32.2091 48.2091 34 46 34H4C1.79086 34 0 32.2091 0 30V4Z"
+                    fill="rgba(0, 123, 255, 0.65)"></path>
                 </svg>
                 <div class="folder-label"></div>
                 <div class="counter">
@@ -1606,6 +343,256 @@
           </label>
         </div>
       </div>
+
+      <!-- EXPANDED DOMAIN VIEW (Hidden by default) -->
+      <div id="expanded-domain-view"
+        style="display: none; width: 100%; opacity: 0; transition: opacity 0.4s ease; flex-direction: column;">
+        <button id="close-expanded-view"
+          style="align-self: flex-start; padding: 10px 20px; border-radius: 999px; background: var(--bg-card); border: 1px solid var(--border-2); color: var(--text-primary); cursor: pointer; margin-bottom: 20px; font-weight: 600; display: flex; align-items: center; gap: 8px;">
+          <i class="fa-solid fa-arrow-left"></i> Back to Folder
+        </button>
+        <div class="domain-scroll-hint" aria-label="Domain slider controls">
+          <button type="button" class="domain-scroll-arrow" id="domain-scroll-left"
+            aria-label="Previous domain"></button>
+          <span class="domain-scroll-text">Scroll to explore all domains</span>
+          <button type="button" class="domain-scroll-arrow" id="domain-scroll-right" aria-label="Next domain"></button>
+        </div>
+        <div id="expanded-content-area"
+          style="display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 24px; scroll-behavior: smooth; padding: 4px 4px 16px; width: 100%; max-width: 100%; -webkit-overflow-scrolling: touch; scrollbar-width: none;">
+          <!-- Content injected here by JS -->
+        </div>
+      </div>
+
+      <!-- DOMAIN TEMPLATES -->
+      <div id="domain-templates" style="display: none;">
+        <div class="domain-detail-template" data-domain="Foundational" data-color="#14b8a6"
+          style="background: #14b8a6; color: white;">
+          <h3
+            style="font-family: var(--font-display); font-size: 28px; margin-bottom: 12px; display: flex; align-items: center; gap: 12px; color: white;">
+            <img class="domain-logo" src="assets/Domain%20logos/Foundational.png" alt="Foundational" /> Foundational
+          </h3>
+          <p style="font-size: 16px; color: rgba(255, 255, 255, 0.9); margin-bottom: 24px; max-width: 800px;">Core
+            concepts every cybersecurity learner needs — from threat basics to risk frameworks and governance.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;">
+            <span class="expanded-tag"
+              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Cybersecurity
+              Basics</span>
+            <span class="expanded-tag"
+              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Risk
+              Management</span>
+            <span class="expanded-tag"
+              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Threat
+              Landscape</span>
+            <span class="expanded-tag"
+              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Security
+              Frameworks</span>
+            <span class="expanded-tag"
+              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Security
+              Governance</span>
+          </div>
+          <div style="font-size: 14px; color: rgba(255, 255, 255, 0.85); line-height: 1.8; margin-bottom: 32px;">
+            <div><strong style="color: white; font-weight: 700;">Skills:</strong> Risk Assessment, Policy Writing,
+              NIST/ISO 27001, Security Awareness, Asset Management</div>
+            <div><strong style="color: white; font-weight: 700;">Roles:</strong> Security Analyst, GRC Analyst, IT
+              Auditor, Risk Manager</div>
+            <div><strong style="color: white; font-weight: 700;">Course types:</strong> Certificate, Free to Audit,
+              Bachelor's Degree</div>
+          </div>
+          <a href="#all-courses-section" class="btn domain-explore-btn" data-domain="Foundational"
+            style="background: white; color: #14b8a6; padding: 12px 24px; border-radius: 999px; text-decoration: none; font-weight: 800; border: none; font-size: 14px; align-self: flex-start; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">Explore
+            Foundational courses →</a>
+        </div>
+
+        <div class="domain-detail-template" data-domain="Network Infrastructure" data-color="#6366f1"
+          style="background: #6366f1; color: white;">
+          <h3
+            style="font-family: var(--font-display); font-size: 28px; margin-bottom: 12px; display: flex; align-items: center; gap: 12px; color: white;">
+            <img class="domain-logo" src="assets/Domain%20logos/Network%20%26%20Infrastructure.jpg.jpeg"
+              alt="Network Infrastructure" /> Network Infrastructure</h3>
+          <p style="font-size: 16px; color: rgba(255, 255, 255, 0.9); margin-bottom: 24px; max-width: 800px;">Protect
+            the arteries of digital infrastructure — firewalls, IDS/IPS, cloud networks, and zero-trust architecture.
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;">
+            <span class="expanded-tag"
+              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Network
+              Security</span>
+            <span class="expanded-tag"
+              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Firewalls
+              & VPN</span>
+            <span class="expanded-tag"
+              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">IDS/IPS</span>
+            <span class="expanded-tag"
+              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Cloud
+              Security</span>
+            <span class="expanded-tag"
+              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Zero
+              Trust</span>
+          </div>
+          <div style="font-size: 14px; color: rgba(255, 255, 255, 0.85); line-height: 1.8; margin-bottom: 32px;">
+            <div><strong style="color: white; font-weight: 700;">Skills:</strong> Packet Analysis, Firewall Rules, SDN
+              Security, VPC Design, Network Segmentation</div>
+            <div><strong style="color: white; font-weight: 700;">Roles:</strong> Network Security Engineer, Cloud
+              Security Architect, SOC Analyst, Infrastructure Engineer</div>
+            <div><strong style="color: white; font-weight: 700;">Course types:</strong> Certificate, Diploma, Master's
+              Degree</div>
+          </div>
+          <a href="#all-courses-section" class="btn domain-explore-btn" data-domain="Network Infrastructure"
+            style="background: white; color: #6366f1; padding: 12px 24px; border-radius: 999px; text-decoration: none; font-weight: 800; border: none; font-size: 14px; align-self: flex-start; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">Explore
+            Network courses →</a>
+        </div>
+
+        <div class="domain-detail-template" data-domain="System & Endpoint" data-color="#06b6d4"
+          style="background: #06b6d4; color: white;">
+          <h3
+            style="font-family: var(--font-display); font-size: 28px; margin-bottom: 12px; display: flex; align-items: center; gap: 12px; color: white;">
+            <img class="domain-logo" src="assets/Domain%20logos/System%20and%20Endpoint.png" alt="System & Endpoint" />
+            System & Endpoint</h3>
+          <p style="font-size: 16px; color: rgba(255, 255, 255, 0.9); margin-bottom: 24px; max-width: 800px;">Harden
+            endpoints, operating systems, and mobile devices against malware, misconfiguration, and lateral movement.
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;">
+            <span class="expanded-tag"
+              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Endpoint
+              Security</span>
+            <span class="expanded-tag"
+              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">OS
+              Hardening</span>
+            <span class="expanded-tag"
+              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Mobile
+              Security</span>
+            <span class="expanded-tag"
+              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Patch
+              Management</span>
+            <span class="expanded-tag"
+              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Malware
+              Defense</span>
+          </div>
+          <div style="font-size: 14px; color: rgba(255, 255, 255, 0.85); line-height: 1.8; margin-bottom: 32px;">
+            <div><strong style="color: white; font-weight: 700;">Skills:</strong> EDR/XDR, OS Internals, Threat Hunting,
+              Vulnerability Management, Incident Triage</div>
+            <div><strong style="color: white; font-weight: 700;">Roles:</strong> Endpoint Security Engineer, SOC
+              Analyst, Threat Hunter, System Administrator</div>
+            <div><strong style="color: white; font-weight: 700;">Course types:</strong> Certificate, Diploma, Post
+              Graduate Diploma</div>
+          </div>
+          <a href="#all-courses-section" class="btn domain-explore-btn" data-domain="System & Endpoint"
+            style="background: white; color: #06b6d4; padding: 12px 24px; border-radius: 999px; text-decoration: none; font-weight: 800; border: none; font-size: 14px; align-self: flex-start; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">Explore
+            Endpoint courses →</a>
+        </div>
+
+        <div class="domain-detail-template" data-domain="Cyber Forensics" data-color="#8b5cf6"
+          style="background: #8b5cf6; color: white;">
+          <h3
+            style="font-family: var(--font-display); font-size: 28px; margin-bottom: 12px; display: flex; align-items: center; gap: 12px; color: white;">
+            <img class="domain-logo" src="assets/Domain%20logos/Cyber%20Forensics%20%26%20Investigation.jpg.jpeg"
+              alt="Cyber Forensics" /> Cyber Forensics</h3>
+          <p style="font-size: 16px; color: rgba(255, 255, 255, 0.9); margin-bottom: 24px; max-width: 800px;">
+            Investigate breaches, recover digital evidence, and reconstruct attacks using forensic tools and
+            incident-response playbooks.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;">
+            <span class="expanded-tag"
+              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Digital
+              Forensics</span>
+            <span class="expanded-tag"
+              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Incident
+              Response</span>
+            <span class="expanded-tag"
+              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Reverse
+              Engineering</span>
+            <span class="expanded-tag"
+              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">eDiscovery</span>
+            <span class="expanded-tag"
+              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Threat
+              Intelligence</span>
+          </div>
+          <div style="font-size: 14px; color: rgba(255, 255, 255, 0.85); line-height: 1.8; margin-bottom: 32px;">
+            <div><strong style="color: white; font-weight: 700;">Skills:</strong> Disk Imaging, Memory Forensics, Kill
+              Chain Analysis, Chain of Custody, IOC Triage</div>
+            <div><strong style="color: white; font-weight: 700;">Roles:</strong> Digital Forensics Specialist, Incident
+              Responder, Malware Analyst, Threat Intel Analyst</div>
+            <div><strong style="color: white; font-weight: 700;">Course types:</strong> Certificate, Post Graduate
+              Certificate, Master's Degree</div>
+          </div>
+          <a href="#all-courses-section" class="btn domain-explore-btn" data-domain="Cyber Forensics"
+            style="background: white; color: #8b5cf6; padding: 12px 24px; border-radius: 999px; text-decoration: none; font-weight: 800; border: none; font-size: 14px; align-self: flex-start; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">Explore
+            Forensics courses →</a>
+        </div>
+
+        <div class="domain-detail-template" data-domain="Data & Application" data-color="#f43f5e"
+          style="background: #f43f5e; color: white;">
+          <h3
+            style="font-family: var(--font-display); font-size: 28px; margin-bottom: 12px; display: flex; align-items: center; gap: 12px; color: white;">
+            <img class="domain-logo" src="assets/Domain%20logos/Appilcation%20%26%20Data.png"
+              alt="Data & Application" /> Data & Application</h3>
+          <p style="font-size: 16px; color: rgba(255, 255, 255, 0.9); margin-bottom: 24px; max-width: 800px;">Secure
+            code, databases, cryptography, and data privacy to protect the applications and information that power
+            organizations.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;">
+            <span class="expanded-tag"
+              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Application
+              Security</span>
+            <span class="expanded-tag"
+              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Data
+              Privacy</span>
+            <span class="expanded-tag"
+              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Cryptography</span>
+            <span class="expanded-tag"
+              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Database
+              Security</span>
+            <span class="expanded-tag"
+              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">DevSecOps</span>
+          </div>
+          <div style="font-size: 14px; color: rgba(255, 255, 255, 0.85); line-height: 1.8; margin-bottom: 32px;">
+            <div><strong style="color: white; font-weight: 700;">Skills:</strong> Secure Coding, OWASP Top 10,
+              Encryption, Privacy by Design, CI/CD Security</div>
+            <div><strong style="color: white; font-weight: 700;">Roles:</strong> Application Security Engineer, Data
+              Privacy Officer, DevSecOps Engineer, Cryptographer</div>
+            <div><strong style="color: white; font-weight: 700;">Course types:</strong> Certificate, Post Graduate
+              Diploma, Master's Degree</div>
+          </div>
+          <a href="#all-courses-section" class="btn domain-explore-btn" data-domain="Data & Application"
+            style="background: white; color: #f43f5e; padding: 12px 24px; border-radius: 999px; text-decoration: none; font-weight: 800; border: none; font-size: 14px; align-self: flex-start; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">Explore
+            Data & App courses →</a>
+        </div>
+
+        <div class="domain-detail-template" data-domain="Legal & Ethical" data-color="#f59e0b"
+          style="background: #f59e0b; color: white;">
+          <h3
+            style="font-family: var(--font-display); font-size: 28px; margin-bottom: 12px; display: flex; align-items: center; gap: 12px; color: white;">
+            <img class="domain-logo" src="assets/Domain%20logos/Legal,%20Ethical%20and%20Strategic.jpg.jpeg"
+              alt="Legal & Ethical" /> Legal & Ethical</h3>
+          <p style="font-size: 16px; color: rgba(255, 255, 255, 0.9); margin-bottom: 24px; max-width: 800px;">Navigate
+            cyber law, ethics, compliance, and reporting obligations across jurisdictions and industries.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;">
+            <span class="expanded-tag"
+              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Cyber
+              Law</span>
+            <span class="expanded-tag"
+              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Ethics
+              & Professionalism</span>
+            <span class="expanded-tag"
+              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Regulatory
+              Compliance</span>
+            <span class="expanded-tag"
+              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Incident
+              Reporting</span>
+            <span class="expanded-tag"
+              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Digital
+              Rights</span>
+          </div>
+          <div style="font-size: 14px; color: rgba(255, 255, 255, 0.85); line-height: 1.8; margin-bottom: 32px;">
+            <div><strong style="color: white; font-weight: 700;">Skills:</strong> Legal Research, Compliance Mapping,
+              Incident Disclosure, Ethical Hacking Ethics, GDPR/CCPA</div>
+            <div><strong style="color: white; font-weight: 700;">Roles:</strong> Cybersecurity Lawyer, Compliance
+              Manager, Ethics Officer, Policy Advisor</div>
+            <div><strong style="color: white; font-weight: 700;">Course types:</strong> Certificate, Diploma, Free to
+              Audit</div>
+          </div>
+          <a href="#all-courses-section" class="btn domain-explore-btn" data-domain="Legal & Ethical"
+            style="background: white; color: #f59e0b; padding: 12px 24px; border-radius: 999px; text-decoration: none; font-weight: 800; border: none; font-size: 14px; align-self: flex-start; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">Explore
+            Legal & Ethical courses →</a>
+        </div>
+      </div>
     </section>
 
     <section class="catalog-section alt">
@@ -1616,55 +603,102 @@
 
 
 
-        <!-- ══════════ DASHBOARD TAB ══════════ -->
+          <!--  DASHBOARD TAB  -->
 
 
           <!-- Dashboard welcome banner -->
           <div class="dash-welcome-banner" id="dash-welcome-banner" role="status" aria-live="polite">
             <div class="dash-welcome-content">
               <div class="dash-welcome-text">
-                <strong>👋 Welcome to the Course Catalog</strong>
-                Explore 3,700+ verified cybersecurity courses from 45 countries. Spin the globe to pick a country, click any metric card, or head to <strong>All Courses</strong> to search, sort, and save favorites.
+                <strong> Welcome to CourseKosh</strong>
+                Explore 3,700+ verified cybersecurity courses from 45 countries. Spin the globe to pick a country, click
+                any metric card, or head to <strong>All Courses</strong> to search, sort, and save favorites.
               </div>
               <div class="dash-welcome-actions">
-                <button class="dash-welcome-tour" id="dash-welcome-tour" aria-describedby="welcome-hint">🎓 Start quick tour</button>
-                <span id="welcome-hint" class="vh">Answer three quick questions and we'll filter the catalog for you.</span>
-                <button class="dash-welcome-close" id="dash-welcome-close" aria-label="Dismiss welcome message">✕</button>
+                <button class="dash-welcome-tour" id="dash-welcome-tour" aria-describedby="welcome-hint"> Start quick
+                  tour</button>
+                <span id="welcome-hint" class="vh">Answer three quick questions and we'll filter the catalog for
+                  you.</span>
+                <button class="dash-welcome-close" id="dash-welcome-close"
+                  aria-label="Dismiss welcome message"></button>
               </div>
             </div>
           </div>
 
           <div class="dash-layout" id="dashboard-section">
 
-            <!-- ═══ LEFT SIDEBAR ═══ -->
+            <!--  LEFT SIDEBAR  -->
             <div class="dash-left">
 
               <!-- Total Courses Card -->
-              <div class="glass-card metric-card dash-total-card clickable is-default-selected" data-filter-all="true" role="button" tabindex="0" title="Browse all courses" aria-pressed="true">
-                <div class="metric-card-title">Total Courses</div>
+              <div class="glass-card metric-card dash-total-card clickable is-default-selected" data-filter-all="true"
+                role="button" tabindex="0" title="Browse all courses" aria-pressed="true">
+                <div class="metric-card-title">CourseKosh Total</div>
                 <div class="metric-value" id="total-count">0</div>
-                <div class="dash-total-delta" id="total-delta">Catalog total — all countries</div>
+                <div class="dash-total-delta" id="total-delta">All countries — full collection</div>
               </div>
 
-              <div class="dash-helper-hint">💡 Click any card below to filter the catalog.</div>
+              <div class="dash-helper-hint"> Click any card below to filter the catalog.</div>
 
               <div class="glass-card metric-card">
                 <div class="metric-card-title">Premium Institutions</div>
                 <div class="metric-list">
                   <div class="metric-row">
-                    <div class="metric-label">IITs</div>
+                    <div class="metric-label"><svg
+                        style="width:16px;height:16px;margin-right:8px;vertical-align:middle;color:var(--teal-400);"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M12 3L2 8v2h20V8L12 3z" />
+                        <path d="M4 10v9" />
+                        <path d="M8 10v9" />
+                        <path d="M12 10v9" />
+                        <path d="M16 10v9" />
+                        <path d="M20 10v9" />
+                        <path d="M2 19h20" />
+                        <path d="M2 22h20" />
+                      </svg> IITs</div>
                     <div class="metric-value" id="dash-iit-count">0</div>
-                    <div class="metric-bar-track"><div class="metric-bar-fill" id="dash-iit-bar"></div></div>
+                    <div class="metric-bar-track">
+                      <div class="metric-bar-fill" id="dash-iit-bar"></div>
+                    </div>
                   </div>
                   <div class="metric-row">
-                    <div class="metric-label">IIITs</div>
+                    <div class="metric-label"><svg
+                        style="width:16px;height:16px;margin-right:8px;vertical-align:middle;color:var(--teal-400);"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M12 3L2 8v2h20V8L12 3z" />
+                        <path d="M4 10v9" />
+                        <path d="M8 10v9" />
+                        <path d="M12 10v9" />
+                        <path d="M16 10v9" />
+                        <path d="M20 10v9" />
+                        <path d="M2 19h20" />
+                        <path d="M2 22h20" />
+                      </svg> IIITs</div>
                     <div class="metric-value" id="dash-iiit-count">0</div>
-                    <div class="metric-bar-track"><div class="metric-bar-fill" id="dash-iiit-bar"></div></div>
+                    <div class="metric-bar-track">
+                      <div class="metric-bar-fill" id="dash-iiit-bar"></div>
+                    </div>
                   </div>
                   <div class="metric-row">
-                    <div class="metric-label">NITs</div>
+                    <div class="metric-label"><svg
+                        style="width:16px;height:16px;margin-right:8px;vertical-align:middle;color:var(--teal-400);"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M12 3L2 8v2h20V8L12 3z" />
+                        <path d="M4 10v9" />
+                        <path d="M8 10v9" />
+                        <path d="M12 10v9" />
+                        <path d="M16 10v9" />
+                        <path d="M20 10v9" />
+                        <path d="M2 19h20" />
+                        <path d="M2 22h20" />
+                      </svg> NITs</div>
                     <div class="metric-value" id="dash-nit-count">0</div>
-                    <div class="metric-bar-track"><div class="metric-bar-fill" id="dash-nit-bar"></div></div>
+                    <div class="metric-bar-track">
+                      <div class="metric-bar-fill" id="dash-nit-bar"></div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1673,16 +707,35 @@
               <div class="glass-card metric-card">
                 <div class="metric-card-title">Access Types</div>
                 <div class="metric-list">
-                  <div class="metric-row access-row clickable" data-filter-type="Free" role="button" tabindex="0" title="Show free courses">
-                    <div class="metric-label"><span class="access-icon">🆓</span> Free</div>
+                  <div class="metric-row access-row clickable" data-filter-type="Free" role="button" tabindex="0"
+                    title="Show free courses">
+                    <div class="metric-label"><svg
+                        style="width:16px;height:16px;margin-right:8px;vertical-align:middle;color:var(--teal-400);"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+                        <line x1="7" y1="7" x2="7.01" y2="7"></line>
+                      </svg> Free</div>
                     <div class="metric-value" id="dash-free-count">0</div>
                   </div>
-                  <div class="metric-row access-row clickable" data-filter-type="Free to Audit" role="button" tabindex="0" title="Show free-to-audit courses">
-                    <div class="metric-label"><span class="access-icon">🔓</span> Free to Audit</div>
+                  <div class="metric-row access-row clickable" data-filter-type="Free to Audit" role="button"
+                    tabindex="0" title="Show free-to-audit courses">
+                    <div class="metric-label"><svg
+                        style="width:16px;height:16px;margin-right:8px;vertical-align:middle;color:var(--teal-400);"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4" />
+                        <path d="M4 6v12c0 1.1.9 2 2 2h14v-4" />
+                      </svg> Free to Audit</div>
                     <div class="metric-value" id="dash-fta-count">0</div>
                   </div>
-                  <div class="metric-row access-row clickable" data-filter-type="High Value Low Cost" role="button" tabindex="0" title="Show high value low cost courses">
-                    <div class="metric-label"><span class="access-icon">💎</span> High Value Low Cost</div>
+                  <div class="metric-row access-row clickable" data-filter-type="High Value Low Cost" role="button"
+                    tabindex="0" title="Show high value low cost courses">
+                    <div class="metric-label"><svg
+                        style="width:16px;height:16px;margin-right:8px;vertical-align:middle;color:var(--teal-400);"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon
+                          points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                      </svg> High Value Low Cost</div>
                     <div class="metric-value" id="dash-hvlc-count">0</div>
                   </div>
                 </div>
@@ -1690,24 +743,26 @@
 
             </div>
 
-            <!-- ═══ CENTER ═══ -->
+            <!--  CENTER  -->
             <div class="dash-center">
               <div class="globe-glow"></div>
               <div class="dash-globe-wrap" id="globe-container">
                 <!-- COBE 3D globe renders here -->
-                <button class="globe-fullscreen-btn" id="globe-fullscreen-btn" aria-label="Toggle full-screen globe">⛶</button>
-                <button class="globe-reset-btn" id="globe-reset-btn" aria-label="Reset globe view">⌖</button>
+                <button class="globe-fullscreen-btn" id="globe-fullscreen-btn"
+                  aria-label="Toggle full-screen globe"></button>
+                <button class="globe-reset-btn" id="globe-reset-btn" aria-label="Reset globe view"></button>
               </div>
 
               <!-- Floating Country Course Panel -->
               <div class="country-detail-panel glass-panel" id="course-details-panel" style="display:none;">
                 <div class="country-detail-hdr">
                   <div class="country-detail-title">
-                    <span id="country-detail-flag">🌐</span>
+                    <span id="country-detail-flag"></span>
                     <span id="country-detail-name">Country</span>
                     <span class="country-detail-count" id="country-detail-count">0</span>
                   </div>
-                  <button id="clear-filter" class="country-detail-close" title="Clear selection" aria-label="Clear country selection">✕</button>
+                  <button id="clear-filter" class="country-detail-close" title="Clear selection"
+                    aria-label="Clear country selection"></button>
                 </div>
                 <div class="country-detail-sub">Click any country on the globe to filter courses</div>
 
@@ -1735,28 +790,32 @@
 
                 <!-- Actions -->
                 <div class="country-detail-actions">
-                  <button id="country-view-table" class="country-detail-btn">📋 View All <span id="country-btn-name">Country</span> Courses</button>
+                  <button id="country-view-table" class="country-detail-btn"> View All <span
+                      id="country-btn-name">Country</span> Courses</button>
                 </div>
 
                 <div class="tbl-wrap" style="max-height:220px;">
                   <table class="data-table country-courses-table" id="country-courses-table">
                     <caption class="vh">Courses offered in the selected country</caption>
-                    <thead><tr>
-                      <th class="freeze-col" scope="col"># / Course Name</th>
-                      <th scope="col">University</th>
-                      <th scope="col" class="col-center">QS Rank</th>
-                      <th scope="col" class="col-center">NIRF Rank</th>
-                      <th scope="col" class="col-actions"><span class="vh">Actions</span></th>
-                    </tr></thead>
+                    <thead>
+                      <tr>
+                        <th class="freeze-col" scope="col"># / Course Name</th>
+                        <th scope="col">University</th>
+                        <th scope="col" class="col-center">QS Rank</th>
+                        <th scope="col" class="col-center">NIRF Rank</th>
+                        <th scope="col" class="col-actions"><span class="vh">Actions</span></th>
+                      </tr>
+                    </thead>
                     <tbody id="course-details-body"></tbody>
                   </table>
                 </div>
               </div>
             </div>
 
-            <!-- ═══ RIGHT SIDEBAR ═══ -->
+            <!--  RIGHT SIDEBAR  -->
             <div class="dash-right">
-              <div class="glass-card metric-card dash-quantity-card india-card clickable" data-filter-country="India" role="button" tabindex="0" title="Show courses from India">
+              <div class="glass-card metric-card dash-quantity-card india-card clickable" data-filter-country="India"
+                role="button" tabindex="0" title="Show courses from India">
                 <div class="metric-card-title"><span class="india-flag-badge">🇮🇳</span> India</div>
                 <div class="metric-value" id="india-stat-count">0</div>
                 <div class="dash-total-delta" id="india-stat-pct">0% of catalog</div>
@@ -1779,16 +838,22 @@
 
         </div><!-- /tab-dashboard -->
 
-        <!-- ══════════ ALL COURSES SECTION ══════════ -->
+        <!--  ALL COURSES SECTION  -->
         <section id="all-courses-section" class="all-courses-section">
           <div class="edx-container">
             <div class="courses-hero">
               <div class="courses-hero-content">
                 <div class="edx-title-wrap">
-                  <span class="edx-title-icon" aria-hidden="true">🎓</span>
+                  <span class="edx-title-icon" aria-hidden="true" style="color: var(--teal-400)"><svg width="24"
+                      height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    </svg></span>
                   <h2 class="edx-title" id="edx-section-title">All Courses</h2>
                 </div>
-                <p class="edx-subtitle" id="edx-section-subtitle">Explore <strong id="hero-course-count">0</strong> verified cybersecurity courses from top universities and institutions.</p>
+                <p class="edx-subtitle" id="edx-section-subtitle">Explore <strong id="hero-course-count">0</strong>
+                  verified cybersecurity courses from top universities and institutions.</p>
               </div>
             </div>
 
@@ -1805,13 +870,27 @@
               <aside class="catalog-sidebar" id="catalog-sidebar" aria-label="Course filters">
                 <div class="catalog-sidebar-header">
                   <h3 class="catalog-sidebar-title">
-                    <span class="sidebar-title-icon" aria-hidden="true">⚙</span>
+                    <span class="sidebar-title-icon" aria-hidden="true" style="display:flex;align-items:center;"><svg
+                        style="width:18px;height:18px;margin-right:6px" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <line x1="4" y1="21" x2="4" y2="14" />
+                        <line x1="4" y1="10" x2="4" y2="3" />
+                        <line x1="12" y1="21" x2="12" y2="12" />
+                        <line x1="12" y1="8" x2="12" y2="3" />
+                        <line x1="20" y1="21" x2="20" y2="16" />
+                        <line x1="20" y1="12" x2="20" y2="3" />
+                        <line x1="1" y1="14" x2="7" y2="14" />
+                        <line x1="9" y1="8" x2="15" y2="8" />
+                        <line x1="17" y1="16" x2="23" y2="16" />
+                      </svg></span>
                     <span class="sidebar-title-text">Filters</span>
                   </h3>
                   <div class="catalog-sidebar-actions">
-                    <button type="button" class="sidebar-clear-btn" id="sidebar-clear-filters" title="Clear all filters">Clear all</button>
-                    <button type="button" class="sidebar-toggle-btn" id="catalog-sidebar-toggle" aria-expanded="true" aria-controls="catalog-sidebar-body" title="Collapse sidebar">
-                      <span class="sidebar-toggle-icon" aria-hidden="true">‹</span>
+                    <button type="button" class="sidebar-clear-btn" id="sidebar-clear-filters"
+                      title="Clear all filters">Clear all</button>
+                    <button type="button" class="sidebar-toggle-btn" id="catalog-sidebar-toggle" aria-expanded="true"
+                      aria-controls="catalog-sidebar-body" title="Collapse sidebar">
+                      <span class="sidebar-toggle-icon" aria-hidden="true"></span>
                     </button>
                   </div>
                 </div>
@@ -1820,14 +899,22 @@
                   <div class="filter-accordion">
                     <button type="button" class="accordion-trigger" aria-expanded="true">Category</button>
                     <div class="accordion-panel">
-                      <div class="pill-group course-types-pills" id="course-type-pills" role="group" aria-label="Filter by course category">
-                        <button type="button" class="type-pill active" data-type="all" aria-pressed="true">All <span class="filter-count">0</span></button>
-                        <button type="button" class="type-pill" data-type="Bachelor's Degree" aria-pressed="false">Bachelor's <span class="filter-count">0</span></button>
-                        <button type="button" class="type-pill" data-type="Master's Degree" aria-pressed="false">Master's <span class="filter-count">0</span></button>
-                        <button type="button" class="type-pill" data-type="Post Graduate Diploma" aria-pressed="false">PG Diploma <span class="filter-count">0</span></button>
-                        <button type="button" class="type-pill" data-type="Post Graduate Certificate" aria-pressed="false">PG Cert <span class="filter-count">0</span></button>
-                        <button type="button" class="type-pill" data-type="Diploma" aria-pressed="false">Diploma <span class="filter-count">0</span></button>
-                        <button type="button" class="type-pill" data-type="Certificate" aria-pressed="false">Certificate <span class="filter-count">0</span></button>
+                      <div class="pill-group course-types-pills" id="course-type-pills" role="group"
+                        aria-label="Filter by course category">
+                        <button type="button" class="type-pill active" data-type="all" aria-pressed="true">All <span
+                            class="filter-count">0</span></button>
+                        <button type="button" class="type-pill" data-type="Bachelor's Degree"
+                          aria-pressed="false">Bachelor's <span class="filter-count">0</span></button>
+                        <button type="button" class="type-pill" data-type="Master's Degree"
+                          aria-pressed="false">Master's <span class="filter-count">0</span></button>
+                        <button type="button" class="type-pill" data-type="Post Graduate Diploma"
+                          aria-pressed="false">PG Diploma <span class="filter-count">0</span></button>
+                        <button type="button" class="type-pill" data-type="Post Graduate Certificate"
+                          aria-pressed="false">PG Cert <span class="filter-count">0</span></button>
+                        <button type="button" class="type-pill" data-type="Diploma" aria-pressed="false">Diploma <span
+                            class="filter-count">0</span></button>
+                        <button type="button" class="type-pill" data-type="Certificate" aria-pressed="false">Certificate
+                          <span class="filter-count">0</span></button>
                       </div>
                     </div>
                   </div>
@@ -1835,11 +922,16 @@
                   <div class="filter-accordion">
                     <button type="button" class="accordion-trigger" aria-expanded="true">Level</button>
                     <div class="accordion-panel">
-                      <div class="pill-group skill-level-pills" id="skill-level-pills" role="group" aria-label="Filter by skill level">
-                        <button type="button" class="type-pill active" data-level="all" aria-pressed="true">All <span class="filter-count">0</span></button>
-                        <button type="button" class="type-pill" data-level="Beginner" aria-pressed="false">🌱 Beginner <span class="filter-count">0</span></button>
-                        <button type="button" class="type-pill" data-level="Intermediate" aria-pressed="false">🚀 Intermediate <span class="filter-count">0</span></button>
-                        <button type="button" class="type-pill" data-level="Advanced" aria-pressed="false">🔥 Advanced <span class="filter-count">0</span></button>
+                      <div class="pill-group skill-level-pills" id="skill-level-pills" role="group"
+                        aria-label="Filter by skill level">
+                        <button type="button" class="type-pill active" data-level="all" aria-pressed="true">All <span
+                            class="filter-count">0</span></button>
+                        <button type="button" class="type-pill" data-level="Beginner" aria-pressed="false"> Beginner
+                          <span class="filter-count">0</span></button>
+                        <button type="button" class="type-pill" data-level="Intermediate" aria-pressed="false">
+                          Intermediate <span class="filter-count">0</span></button>
+                        <button type="button" class="type-pill" data-level="Advanced" aria-pressed="false"> Advanced
+                          <span class="filter-count">0</span></button>
                       </div>
                     </div>
                   </div>
@@ -1847,10 +939,23 @@
                   <div class="filter-accordion">
                     <button type="button" class="accordion-trigger" aria-expanded="true">Access Type</button>
                     <div class="accordion-panel">
-                      <div class="pill-group access-type-pills" id="access-type-pills" role="group" aria-label="Filter by access type">
-                        <button type="button" class="type-pill" data-access="Free" aria-pressed="false">🆓 Free <span class="filter-count">0</span></button>
-                        <button type="button" class="type-pill" data-access="Free to Audit" aria-pressed="false">🔓 Free to Audit <span class="filter-count">0</span></button>
-                        <button type="button" class="type-pill" data-access="High Value Low Cost" aria-pressed="false">💎 High Value Low Cost <span class="filter-count">0</span></button>
+                      <div class="pill-group access-type-pills" id="access-type-pills" role="group"
+                        aria-label="Filter by access type">
+                        <button type="button" class="type-pill" data-access="Free" aria-pressed="false"><svg style="width:16px;height:16px;margin-right:8px;vertical-align:middle;color:var(--teal-400);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg> Free <span
+                            class="filter-count">0</span></button>
+                        <button type="button" class="type-pill" data-access="Free to Audit" aria-pressed="false"><svg
+                            style="width:16px;height:16px;margin-right:8px;vertical-align:middle;color:var(--teal-400);"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                          </svg> Free to Audit <span class="filter-count">0</span></button>
+                        <button type="button" class="type-pill" data-access="High Value Low Cost"
+                          aria-pressed="false"><svg
+                            style="width:16px;height:16px;margin-right:8px;vertical-align:middle;color:var(--teal-400);"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon
+                              points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                          </svg> High Value Low Cost <span class="filter-count">0</span></button>
                       </div>
                     </div>
                   </div>
@@ -1858,14 +963,22 @@
                   <div class="filter-accordion">
                     <button type="button" class="accordion-trigger" aria-expanded="true">Topic</button>
                     <div class="accordion-panel">
-                      <div class="pill-group domain-chips-scroll" id="domain-chips-scroll" role="group" aria-label="Filter by topic domain">
-                        <button type="button" class="domain-chip active" data-domain="all" aria-pressed="true">Featured <span class="filter-count">0</span></button>
-                        <button type="button" class="domain-chip" data-domain="foundational" aria-pressed="false">Foundational <span class="filter-count">0</span></button>
-                        <button type="button" class="domain-chip" data-domain="network-infra" aria-pressed="false">Networks <span class="filter-count">0</span></button>
-                        <button type="button" class="domain-chip" data-domain="system-endpoint" aria-pressed="false">Systems <span class="filter-count">0</span></button>
-                        <button type="button" class="domain-chip" data-domain="forensics-ir" aria-pressed="false">Forensics <span class="filter-count">0</span></button>
-                        <button type="button" class="domain-chip" data-domain="data-app-security" aria-pressed="false">Data & App <span class="filter-count">0</span></button>
-                        <button type="button" class="domain-chip" data-domain="legal-compliance" aria-pressed="false">Legal <span class="filter-count">0</span></button>
+                      <div class="pill-group domain-chips-scroll" id="domain-chips-scroll" role="group"
+                        aria-label="Filter by topic domain">
+                        <button type="button" class="domain-chip active" data-domain="all" aria-pressed="true">Featured
+                          <span class="filter-count">0</span></button>
+                        <button type="button" class="domain-chip" data-domain="foundational"
+                          aria-pressed="false">Foundational <span class="filter-count">0</span></button>
+                        <button type="button" class="domain-chip" data-domain="network-infra"
+                          aria-pressed="false">Networks <span class="filter-count">0</span></button>
+                        <button type="button" class="domain-chip" data-domain="system-endpoint"
+                          aria-pressed="false">Systems <span class="filter-count">0</span></button>
+                        <button type="button" class="domain-chip" data-domain="forensics-ir"
+                          aria-pressed="false">Forensics <span class="filter-count">0</span></button>
+                        <button type="button" class="domain-chip" data-domain="data-app-security"
+                          aria-pressed="false">Data & App <span class="filter-count">0</span></button>
+                        <button type="button" class="domain-chip" data-domain="legal-compliance"
+                          aria-pressed="false">Legal <span class="filter-count">0</span></button>
                       </div>
                     </div>
                   </div>
@@ -1884,8 +997,9 @@
               <!-- Results area -->
               <div class="catalog-results">
                 <div class="catalog-mobile-filter-bar">
-                  <button type="button" class="mobile-filter-toggle" id="catalog-mobile-toggle" aria-expanded="false" aria-controls="catalog-sidebar">
-                    <span aria-hidden="true">⚙</span>
+                  <button type="button" class="mobile-filter-toggle" id="catalog-mobile-toggle" aria-expanded="false"
+                    aria-controls="catalog-sidebar">
+                    <span aria-hidden="true"></span>
                     <span>Filters</span>
                   </button>
                 </div>
@@ -1893,27 +1007,47 @@
                 <!-- Search, sort, view toggle, and clear-all -->
                 <div class="courses-toolbar" id="courses-toolbar">
                   <div class="courses-search">
-                    <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" aria-hidden="true">
                       <circle cx="11" cy="11" r="8"></circle>
                       <path d="m21 21-4.35-4.35"></path>
                     </svg>
-                    <input type="search" id="course-search" placeholder="Search courses, universities, countries…" aria-label="Search courses" autocomplete="off">
-                    <button type="button" class="search-clear-btn" id="search-clear-btn" aria-label="Clear search" title="Clear search">×</button>
+                    <input type="search" id="course-search" placeholder="Search courses, universities, countries"
+                      aria-label="Search courses" autocomplete="off">
+                    <button type="button" class="search-clear-btn" id="search-clear-btn" aria-label="Clear search"
+                      title="Clear search">Ã—</button>
                     <kbd class="search-kbd" id="search-kbd">Ctrl K</kbd>
                   </div>
                   <div class="courses-sort">
                     <label for="course-sort" class="vh">Sort by</label>
                     <select id="course-sort" aria-label="Sort courses">
-                      <option value="relevance">Relevance</option>
-                      <option value="name">Name A–Z</option>
-                      <option value="nameDesc">Name Z–A</option>
-                      <option value="country">Country A–Z</option>
+                      <option value="relevance" selected>Relevance</option>
+                      <option value="name">Name A-Z</option>
+                      <option value="nameDesc">Name Z-A</option>
+                      <option value="country">Country A-Z</option>
                       <option value="qs">QS Ranked first</option>
+                      <option value="nirf">NIRF Rated first</option>
                     </select>
                   </div>
                   <div class="courses-view-toggle" role="group" aria-label="View layout">
-                    <button type="button" id="view-grid" class="view-btn active" aria-label="Grid view" title="Grid view" aria-pressed="true">⊞</button>
-                    <button type="button" id="view-list" class="view-btn" aria-label="List view" title="List view" aria-pressed="false">☰</button>
+                    <button type="button" id="view-grid" class="view-btn active" aria-label="Grid view"
+                      title="Grid view" aria-pressed="true"><svg style="width:18px;height:18px" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7" />
+                        <rect x="14" y="3" width="7" height="7" />
+                        <rect x="14" y="14" width="7" height="7" />
+                        <rect x="3" y="14" width="7" height="7" />
+                      </svg></button>
+                    <button type="button" id="view-list" class="view-btn" aria-label="List view" title="List view"
+                      aria-pressed="false"><svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <line x1="8" y1="6" x2="21" y2="6" />
+                        <line x1="8" y1="12" x2="21" y2="12" />
+                        <line x1="8" y1="18" x2="21" y2="18" />
+                        <line x1="3" y1="6" x2="3.01" y2="6" />
+                        <line x1="3" y1="12" x2="3.01" y2="12" />
+                        <line x1="3" y1="18" x2="3.01" y2="18" />
+                      </svg></button>
                   </div>
                   <button class="edx-reset-btn" id="edx-reset-filters">Clear filters</button>
                 </div>
@@ -1923,8 +1057,8 @@
 
                 <!-- Filter status / result count -->
                 <div class="edx-meta-bar">
-                  <span class="edx-result-count" id="edx-result-count" aria-live="polite" aria-atomic="true">0 courses</span>
-                  <span class="shortcut-hint">Press <kbd>1</kbd>–<kbd>9</kbd> for topics, <kbd>Esc</kbd> to clear</span>
+                  <span class="edx-result-count" id="edx-result-count" aria-live="polite" aria-atomic="true">0
+                    courses</span>
                 </div>
 
                 <!-- Cards Grid -->
@@ -1949,33 +1083,35 @@
               </div><!-- /catalog-results -->
             </div><!-- /catalog-workspace -->
           </div>
-          <button class="back-to-top" id="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
+
         </section><!-- /all-courses-section -->
 
       </div><!-- /catalog-app -->
 
       <!-- Persistent help / restart tour -->
-      <button class="catalog-help-btn" id="catalog-help-btn" aria-label="Restart catalog tour" title="Restart catalog tour">
-        <span aria-hidden="true">❔</span>
+      <button class="catalog-help-btn" id="catalog-help-btn" aria-label="Restart catalog tour"
+        title="Restart catalog tour">
+        <span aria-hidden="true"></span>
         <span class="help-label">Help</span>
       </button>
     </section>
 
   </main>
 
-  <!-- ═══════════════════════════════════════════════════════════
+  <!-- 
        FOOTER (hashtag-v2)
-       ═══════════════════════════════════════════════════════════ -->
+        -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="index.html" class="footer-logo-circle-link">
             <div class="footer-logo-circle">
-              <span class="cv-footer-logo-text">⬡</span>
+              <img src="assets/logo-suraksha.png" alt="Hashtag Suraksha" class="footer-logo-img" />
             </div>
           </a>
-          <p>Global cybersecurity course catalog curated by Khushboo Singh. Part of the Hashtag Suraksha ecosystem.</p>
+          <p>CourseKosh — a global cybersecurity course catalog curated by Khushboo Singh. Part of the Hashtag Suraksha
+            ecosystem.</p>
           <div class="footer-socials">
             <a href="#" target="_blank" rel="noopener">LinkedIn</a>
             <a href="#" target="_blank" rel="noopener">Twitter</a>
@@ -1991,7 +1127,7 @@
             <a href="slanglish.html">Slanglish</a>
           </div>
           <div class="footer-col">
-            <h5>Catalog</h5>
+            <h5>CourseKosh</h5>
             <a href="#dashboard-section">Dashboard</a>
             <a href="#all-courses-section">All Courses</a>
             <a href="resources.html">Resources</a>
@@ -2010,32 +1146,37 @@
     </div>
   </footer>
 
-  <!-- ═══════════════════════════════════════════════════════════
+  <!-- 
        MODALS & OVERLAYS
-       ═══════════════════════════════════════════════════════════ -->
+        -->
 
   <!-- ONBOARDING QUIZ MODAL -->
-  <div id="onboarding-modal" class="modal-overlay onboarding-overlay" role="dialog" aria-modal="true" aria-labelledby="onboarding-title">
+  <div id="onboarding-modal" class="modal-overlay onboarding-overlay" role="dialog" aria-modal="true"
+    aria-labelledby="onboarding-title">
     <div class="modal-box onboarding-box">
       <div class="modal-hdr onboarding-hdr">
         <div>
-          <h3 id="onboarding-title">🎓 Welcome to the Course Catalog</h3>
-          <p class="onboarding-sub">Answer 3 quick questions and we'll tailor the catalog for you.</p>
+          <h3 id="onboarding-title"> Find your cybersecurity pathway</h3>
+          <p class="onboarding-sub">Three quick questions. One clear direction. Well match courses to your background,
+            interest, and career goal.</p>
         </div>
-        <button id="onboarding-close" class="modal-close" aria-label="Close onboarding">✕</button>
+        <button id="onboarding-close" class="modal-close" aria-label="Close onboarding"></button>
       </div>
       <div id="onboarding-body" class="onboarding-body">
         <!-- Step 1: Experience -->
         <div class="onboarding-step active" data-step="1">
           <div class="onboarding-step-header">
             <span class="onboarding-step-label">Step 1 of 3</span>
-            <span class="onboarding-step-hint">We use this to match course difficulty.</span>
+            <span class="onboarding-step-hint">We use this to recommend the right difficulty.</span>
           </div>
-          <div class="onboarding-question">What best describes your current cybersecurity experience?</div>
+          <div class="onboarding-question">Where are you in your cybersecurity journey?</div>
           <div class="onboarding-options">
-            <button class="onboarding-option" data-level="Beginner" data-answer="beginner">🌱 Just starting — I want fundamentals</button>
-            <button class="onboarding-option" data-level="Intermediate" data-answer="intermediate">🚀 I know the basics and want to specialize</button>
-            <button class="onboarding-option" data-level="Advanced" data-answer="advanced">🔥 I'm experienced and want advanced certs/degrees</button>
+            <button class="onboarding-option" data-level="Beginner" data-answer="beginner"> Just starting — I need
+              fundamentals</button>
+            <button class="onboarding-option" data-level="Intermediate" data-answer="intermediate"> I know the basics
+              and want to specialize</button>
+            <button class="onboarding-option" data-level="Advanced" data-answer="advanced"> I'm experienced and want
+              advanced certs/degrees</button>
           </div>
         </div>
 
@@ -2043,16 +1184,22 @@
         <div class="onboarding-step" data-step="2">
           <div class="onboarding-step-header">
             <span class="onboarding-step-label">Step 2 of 3</span>
-            <span class="onboarding-step-hint">Pick the domain that matches your interest.</span>
+            <span class="onboarding-step-hint">Pick the career direction that excites you most.</span>
           </div>
-          <div class="onboarding-question">Which area interests you most right now?</div>
+          <div class="onboarding-question">Which cybersecurity career direction interests you most?</div>
           <div class="onboarding-options onboarding-grid">
-            <button class="onboarding-option" data-domain="Foundational" data-answer="foundational">🧱 Foundations & Risk</button>
-            <button class="onboarding-option" data-domain="Network Infrastructure" data-answer="network">🌐 Networks & Cloud</button>
-            <button class="onboarding-option" data-domain="System & Endpoint" data-answer="endpoint">💻 Endpoints & OS</button>
-            <button class="onboarding-option" data-domain="Cyber Forensics" data-answer="forensics">🔍 Forensics & IR</button>
-            <button class="onboarding-option" data-domain="Data & Application" data-answer="data">🗄️ AppSec & Data Privacy</button>
-            <button class="onboarding-option" data-domain="Legal & Ethical" data-answer="legal">⚖️ Cyber Law & Compliance</button>
+            <button class="onboarding-option" data-domain="Foundational" data-answer="foundational"> Foundations &
+              Risk</button>
+            <button class="onboarding-option" data-domain="Network Infrastructure" data-answer="network"> Networks &
+              Cloud</button>
+            <button class="onboarding-option" data-domain="System & Endpoint" data-answer="endpoint"> Endpoints &
+              OS</button>
+            <button class="onboarding-option" data-domain="Cyber Forensics" data-answer="forensics"> Forensics &
+              IR</button>
+            <button class="onboarding-option" data-domain="Data & Application" data-answer="data"> AppSec & Data
+              Privacy</button>
+            <button class="onboarding-option" data-domain="Legal & Ethical" data-answer="legal"> Cyber Law &
+              Compliance</button>
           </div>
         </div>
 
@@ -2062,12 +1209,14 @@
             <span class="onboarding-step-label">Step 3 of 3</span>
             <span class="onboarding-step-hint">This helps us surface the right course format.</span>
           </div>
-          <div class="onboarding-question">What is your main goal right now?</div>
+          <div class="onboarding-question">What do you want to achieve next?</div>
           <div class="onboarding-options onboarding-grid">
-            <button class="onboarding-option" data-goal="career" data-answer="career">💼 Switch or grow my cybersecurity career</button>
-            <button class="onboarding-option" data-goal="upskill" data-answer="upskill">📚 Upskill in a specific topic quickly</button>
-            <button class="onboarding-option" data-goal="degree" data-answer="degree">🎓 Earn a degree or diploma</button>
-            <button class="onboarding-option" data-goal="cert" data-answer="cert">🏅 Prepare for a certification</button>
+            <button class="onboarding-option" data-goal="career" data-answer="career"> Switch or grow my cybersecurity
+              career</button>
+            <button class="onboarding-option" data-goal="upskill" data-answer="upskill"> Upskill in a specific topic
+              quickly</button>
+            <button class="onboarding-option" data-goal="degree" data-answer="degree"> Earn a degree or diploma</button>
+            <button class="onboarding-option" data-goal="cert" data-answer="cert"> Prepare for a certification</button>
           </div>
         </div>
 
@@ -2077,7 +1226,7 @@
             <span class="onboarding-step-label">Ready</span>
           </div>
           <div class="onboarding-result" id="onboarding-result">
-            <div class="onboarding-result-icon">🎯</div>
+            <div class="onboarding-result-icon"></div>
             <div class="onboarding-result-title" id="onboarding-result-title">Recommended path ready</div>
             <div class="onboarding-result-tags" id="onboarding-result-tags"></div>
             <p id="onboarding-result-text"></p>
@@ -2108,14 +1257,15 @@
     <div class="modal-box" role="document">
       <div class="modal-hdr" id="modal-hdr">
         <h3 id="modal-course-title">Course Details</h3>
-        <button id="close-modal" class="modal-close" aria-label="Close course details">✕</button>
+        <button id="close-modal" class="modal-close" aria-label="Close course details"></button>
       </div>
       <div id="modal-body" style="padding:20px 24px;">
         <!-- Populated by JS -->
       </div>
       <div class="modal-footer">
         <button id="modal-secondary" class="modal-btn secondary">Close</button>
-        <a id="modal-primary" class="modal-btn primary" href="#" target="_blank" rel="noopener">↗ Visit course website</a>
+        <a id="modal-primary" class="modal-btn primary" href="#" target="_blank" rel="noopener"> Visit course
+          website</a>
       </div>
     </div>
   </div>
@@ -2125,7 +1275,7 @@
     <div class="suggest-box">
       <div class="suggest-hdr">
         <h3 id="suggest-title">Possible duplicates</h3>
-        <button id="suggest-close" class="modal-close" aria-label="Close suggestions">✕</button>
+        <button id="suggest-close" class="modal-close" aria-label="Close suggestions"></button>
       </div>
       <div id="suggest-body"></div>
     </div>
@@ -2145,88 +1295,147 @@
   <div id="loading-curtain" class="loading-curtain" aria-hidden="true">
     <div class="loading-curtain-inner">
       <div class="spinner" aria-hidden="true"></div>
-      <p id="loading-curtain-msg">Loading courses…</p>
+      <p id="loading-curtain-msg">Loading courses</p>
     </div>
   </div>
 
   <!-- course verifier app logic -->
-  <script src="assets/app.js?v=94" defer></script>
+  <script src="assets/app.js?v=1007" charset="UTF-8" defer></script>
 
   <!-- hashtag-v2 shared behavior (nav scroll, hamburger, cursor glow) -->
-  <script src="main.js"></script>
+  <script src="main.js?v=1007"></script>
 
   <!-- INTERACTIVE DOMAIN FOLDER -->
   <script defer>
     (function () {
       const folderCard = document.querySelector('.folder-card');
       const folderToggle = document.querySelector('.folder-toggle');
-      const domainCards = Array.from(document.querySelectorAll('.domain-card'));
-      if (!folderCard || !domainCards.length) return;
+      const explorerGrid = document.querySelector('.domain-explorer-grid');
+      const expandedView = document.getElementById('expanded-domain-view');
+      const expandedContent = document.getElementById('expanded-content-area');
+      const closeExpandedBtn = document.getElementById('close-expanded-view');
+      const scrollLeftBtn = document.getElementById('domain-scroll-left');
+      const scrollRightBtn = document.getElementById('domain-scroll-right');
+      const templates = Array.from(document.querySelectorAll('#domain-templates .domain-detail-template'));
 
-      function collapseAll() {
-        folderCard.classList.remove('has-expanded');
-        domainCards.forEach(c => c.classList.remove('expanded'));
-      }
-
-      function expandCard(card) {
-        if (!folderToggle || !folderToggle.checked) {
-          if (folderToggle) folderToggle.checked = true;
-        }
-        collapseAll();
-        folderCard.classList.add('has-expanded');
-        card.classList.add('expanded');
-      }
-
-      domainCards.forEach(card => {
-        card.addEventListener('click', function (e) {
-          if (e.target.closest('.domain-card-detail, .domain-close, .domain-explore-btn')) return;
-          const isExpanded = card.classList.contains('expanded');
-          if (isExpanded) {
-            collapseAll();
-            return;
+      if (folderCard) {
+        folderCard.addEventListener('dblclick', function(e) {
+          if (e.target.closest('.file') || e.target.closest('.folder-search')) return;
+          e.preventDefault();
+          if (!folderCard.classList.contains('is-open')) {
+            folderCard.classList.add('is-open', 'is-popped');
+            if (folderToggle) folderToggle.checked = true;
+          } else {
+            folderCard.classList.remove('is-open', 'is-popped');
+            if (folderToggle) folderToggle.checked = false;
           }
-          expandCard(card);
         });
+        
+        folderCard.addEventListener('click', function(e) {
+          if (e.target.closest('.file') || e.target.closest('.folder-search')) return;
+          e.preventDefault();
+        });
+      }
 
-        const closeBtn = card.querySelector('.domain-close');
-        if (closeBtn) {
-          closeBtn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            collapseAll();
-          });
-        }
 
-        const exploreBtn = card.querySelector('.domain-explore-btn');
-        if (exploreBtn) {
-          exploreBtn.addEventListener('click', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            const chip = card.dataset.domainChip || 'all';
-            collapseAll();
-            const section = document.getElementById('all-courses-section');
-            if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            if (typeof setEdxDomainChip === 'function') {
-              setEdxDomainChip(chip);
-            } else {
-              const chipBtn = document.querySelector('#domain-chips-scroll .domain-chip[data-domain="' + chip + '"]');
-              if (chipBtn) chipBtn.click();
-            }
+      const fileCards = document.querySelectorAll('.folder-container .file');
+
+      fileCards.forEach(card => {
+        card.addEventListener('click', function (e) {
+          e.preventDefault();
+          const domainName = this.getAttribute('data-domain');
+
+          // Ensure folder is checked
+          if (folderToggle && !folderToggle.checked) {
+            folderToggle.checked = true;
+          }
+
+          if (folderCard) {
+            folderCard.classList.add('is-open', 'is-popped');
+          }
+
+          // Inject all 6 templates into the slider container
+          expandedContent.innerHTML = '';
+          templates.forEach(t => {
+            const clone = t.cloneNode(true);
+            clone.style.display = 'flex';
+            expandedContent.appendChild(clone);
           });
-        }
+
+          // Re-attach event listeners for explore buttons inside the expanded view
+          const exploreBtns = expandedContent.querySelectorAll('.domain-explore-btn');
+          exploreBtns.forEach(btn => {
+            btn.addEventListener('click', function (e) {
+              e.preventDefault();
+              e.stopPropagation();
+
+              const chip = this.getAttribute('data-domain') || 'all';
+              // Close the expanded view
+              if (closeExpandedBtn) closeExpandedBtn.click();
+
+              // Scroll down
+              const section = document.getElementById('all-courses-section');
+              if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+              // Try to set the chip filter if the function exists
+              if (typeof setEdxDomainChip === 'function') {
+                let chipId = 'all';
+                if (chip === 'Foundational') chipId = 'foundational';
+                if (chip === 'Network Infrastructure') chipId = 'network-infra';
+                if (chip === 'System & Endpoint') chipId = 'system-endpoint';
+                if (chip === 'Cyber Forensics') chipId = 'forensics-ir';
+                if (chip === 'Data & Application') chipId = 'data-app-security';
+                if (chip === 'Legal & Ethical') chipId = 'legal-compliance';
+                setEdxDomainChip(chipId);
+              }
+            });
+          });
+
+          // Hide the grid, show the expanded view
+          if (explorerGrid) explorerGrid.style.display = 'none';
+          if (expandedView) {
+            expandedView.style.display = 'flex';
+            // Trigger reflow for fade in
+            void expandedView.offsetWidth;
+            expandedView.style.opacity = '1';
+
+            // Scroll to the clicked domain
+            setTimeout(() => {
+              const targetPanel = expandedContent.querySelector('.domain-detail-template[data-domain="' + domainName + '"]');
+              if (targetPanel) {
+                targetPanel.scrollIntoView({ behavior: 'instant', inline: 'center' });
+                // We use 'instant' so the user doesn't see a long frantic scroll from the beginning, they just appear there.
+              }
+            }, 50); // slight delay to allow display:flex to render dimensions
+          }
+        });
       });
 
-      // Collapse expanded card when clicking outside the folder while expanded
-      document.addEventListener('click', function (e) {
-        if (!folderCard.classList.contains('has-expanded')) return;
-        if (!folderCard.contains(e.target)) {
-          collapseAll();
-        }
-      });
+      function scrollDomainSlider(direction) {
+        if (!expandedContent) return;
+        const card = expandedContent.querySelector('.domain-detail-template');
+        const gap = parseInt(getComputedStyle(expandedContent).gap) || 24;
+        const step = card ? (card.offsetWidth + gap) : 324;
+        expandedContent.scrollBy({ left: direction * step, behavior: 'smooth' });
+      }
 
-      // ESC closes expanded domain card
+      if (scrollLeftBtn) scrollLeftBtn.addEventListener('click', () => scrollDomainSlider(-1));
+      if (scrollRightBtn) scrollRightBtn.addEventListener('click', () => scrollDomainSlider(1));
+
+      if (closeExpandedBtn) {
+        closeExpandedBtn.addEventListener('click', function () {
+          expandedView.style.opacity = '0';
+          setTimeout(() => {
+            expandedView.style.display = 'none';
+            if (explorerGrid) explorerGrid.style.display = 'grid'; // .domain-explorer-grid is a CSS grid
+          }, 400); // Wait for transition
+        });
+      }
+
+      // Close expanded view on ESC key
       document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && folderCard.classList.contains('has-expanded')) {
-          collapseAll();
+        if (e.key === 'Escape' && expandedView && expandedView.style.display === 'flex') {
+          closeExpandedBtn.click();
         }
       });
     })();
@@ -2234,7 +1443,7 @@
 
   <!-- THEME SYNC (landing hero defaults to dark) -->
   <script>
-    (function() {
+    (function () {
       const savedTheme = localStorage.getItem('hs-theme');
       document.documentElement.setAttribute('data-theme', savedTheme || 'dark');
     })();
@@ -2242,7 +1451,7 @@
 
   <!-- LANDING STAT COUNT-UP -->
   <script>
-    (function() {
+    (function () {
       const DURATION = 1600;
       function easeOutQuart(t) { return 1 - Math.pow(1 - t, 4); }
       function format(n, finalText) {
@@ -2292,4 +1501,5 @@
     })();
   </script>
 </body>
+
 </html>

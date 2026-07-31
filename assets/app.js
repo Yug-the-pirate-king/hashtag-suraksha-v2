@@ -1,4 +1,4 @@
-/* ================================================================
+﻿/* ================================================================
    COURSEVERIFY CATALOG  ·  APP.JS  v9  (static JSON edition)
    Loads courses directly from courses.json in the same folder.
    Dashboard uses a local COBE WebGL globe.
@@ -27,12 +27,8 @@ let firstDataFetch = true;
 let courseFilter = { search: '', country: 'all', domain: 'all', qs: 'any', nirf: 'any', courseType: 'all' };
 
 // ── edX All Courses filter state ────────────────────────────────────
-let coursesPageSize = 12;
-function getCoursesPageSize() {
-    if (coursesPageSize === 'all') return Infinity;
-    const n = parseInt(coursesPageSize, 10);
-    return isNaN(n) || n < 1 ? 12 : n;
-}
+let coursesPageSize = window.innerWidth <= 768 ? 100 : 250;
+function getCoursesPageSize() { return window.innerWidth <= 768 ? 100 : 250; }
 const favoriteCourses = new Set(JSON.parse(localStorage.getItem('cv_favorites') || '[]'));
 let edxFilterState = {
     typePill: 'all',    // course type from #course-type-pills
@@ -96,7 +92,7 @@ const CYBER_DOMAINS_DATA = [
     {
         id: 'foundational',
         title: 'Foundational',
-        icon: '🧱',
+        icon: '<svg style="width:24px;height:24px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2zM4 19.5v-15"/></svg>',
         color: '#14b8a6',
         summary: 'Core concepts every cybersecurity learner needs — from threat basics to risk frameworks and governance.',
         subDomains: ['Cybersecurity Basics', 'Risk Management', 'Threat Landscape', 'Security Frameworks', 'Security Governance'],
@@ -108,7 +104,7 @@ const CYBER_DOMAINS_DATA = [
     {
         id: 'network',
         title: 'Network Infrastructure',
-        icon: '🌐',
+        icon: '<svg style="width:24px;height:24px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>',
         color: '#6366f1',
         summary: 'Protect the arteries of digital infrastructure — firewalls, IDS/IPS, cloud networks, and zero-trust architecture.',
         subDomains: ['Network Security', 'Firewalls & VPN', 'IDS/IPS', 'Cloud Security', 'Zero Trust Architecture'],
@@ -120,7 +116,7 @@ const CYBER_DOMAINS_DATA = [
     {
         id: 'endpoint',
         title: 'System & Endpoint',
-        icon: '💻',
+        icon: '<svg style="width:24px;height:24px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>',
         color: '#06b6d4',
         summary: 'Harden endpoints, operating systems, and mobile devices against malware, misconfiguration, and lateral movement.',
         subDomains: ['Endpoint Security', 'OS Hardening', 'Mobile Security', 'Patch Management', 'Malware Defense'],
@@ -132,7 +128,7 @@ const CYBER_DOMAINS_DATA = [
     {
         id: 'forensics',
         title: 'Cyber Forensics',
-        icon: '🔍',
+        icon: '',
         color: '#8b5cf6',
         summary: 'Investigate breaches, recover digital evidence, and reconstruct attacks using forensic tools and incident-response playbooks.',
         subDomains: ['Digital Forensics', 'Incident Response', 'Reverse Engineering', 'eDiscovery', 'Threat Intelligence'],
@@ -144,7 +140,7 @@ const CYBER_DOMAINS_DATA = [
     {
         id: 'data',
         title: 'Data & Application',
-        icon: '🗄️',
+        icon: '️',
         color: '#f43f5e',
         summary: 'Secure code, databases, cryptography, and data privacy to protect the applications and information that power organizations.',
         subDomains: ['Application Security', 'Data Privacy', 'Cryptography', 'Database Security', 'DevSecOps'],
@@ -249,11 +245,30 @@ function getDomainLabel(course) {
     return SLUG_LABEL_MAP[getDomainSlug(course)] || getDomainCategory(course.id);
 }
 
+const LOGO_MAP = {
+    "Indian Institute of Technology Kanpur": "https://www.iitk.ac.in/new/images/logo/iitk-logo.jpg",
+    "IIT Kanpur": "https://www.iitk.ac.in/new/images/logo/iitk-logo.jpg",
+    "Indian Institute of Technology Indore": "https://www.iiti.ac.in/public/images/logo.png",
+    "IIT Indore": "https://www.iiti.ac.in/public/images/logo.png",
+    "Indian Institute of Technology Jodhpur": "https://iitj.ac.in/logo/IITJ_Logo_with_name.png",
+    "IIT Jodhpur": "https://iitj.ac.in/logo/IITJ_Logo_with_name.png"
+};
+
 function enrichCourse(course) {
     course.skillLevel = getSkillLevel(course);
     course.accessType = getAccessType(course);
     course.domainSlug = getDomainSlug(course);
     course.domainLabel = getDomainLabel(course);
+    
+    if (!course.logo_url && course.university) {
+        for (const [key, url] of Object.entries(LOGO_MAP)) {
+            if (course.university.includes(key)) {
+                course.logo_url = url;
+                break;
+            }
+        }
+    }
+    
     return course;
 }
 
@@ -264,23 +279,56 @@ function enrichAllCourses(courses) {
 
 // ── Country flag emoji helper ─────────────────────────────────────
 const FLAG_MAP = {
-    'India': '🇮🇳', 'United States': '🇺🇸', 'Australia': '🇦🇺',
-    'United Kingdom': '🇬🇧', 'Canada': '🇨🇦', 'Germany': '🇩🇪',
-    'France': '🇫🇷', 'Singapore': '🇸🇬', 'South Africa': '🇿🇦',
-    'New Zealand': '🇳🇿', 'UAE': '🇦🇪', 'China': '🇨🇳',
-    'Japan': '🇯🇵', 'Netherlands': '🇳🇱', 'Switzerland': '🇨🇭',
-    'Brazil': '🇧🇷', 'Italy': '🇮🇹', 'Spain': '🇪🇸',
-    'Ireland': '🇮🇪', 'Sweden': '🇸🇪', 'Denmark': '🇩🇰',
+    'United States': 'US', 'United Kingdom': 'UK', 'Australia': 'AU', 'Canada': 'CA',
+    'India': 'IN', 'Germany': 'DE', 'France': 'FR', 'Singapore': 'SG', 'Ireland': 'IE',
+    'Netherlands': 'NL', 'Switzerland': 'CH', 'New Zealand': 'NZ'
 };
 function getFlag(name) {
-    if (!name) return '🌐';
+    if (!name) return '';
     for (const [key, flag] of Object.entries(FLAG_MAP)) {
         if (name.toLowerCase().includes(key.toLowerCase()) || key.toLowerCase().includes(name.toLowerCase())) return flag;
     }
-    return '🌐';
+    return '';
 }
 
-// ================================================================
+
+function populateDynamicFilters() {
+    const langSet = new Set();
+    allCoursesData.forEach(c => {
+        if (c.language) langSet.add(c.language);
+    });
+    const langPillsWrap = document.getElementById('language-pills');
+    if (langPillsWrap) {
+        let langHtml = '<button type="button" class="type-pill active" data-language="all">All</button>';
+        Array.from(langSet).sort().forEach(l => {
+            langHtml += `<button type="button" class="type-pill" data-language="${l}">${l}</button>`;
+        });
+        
+        langPillsWrap.innerHTML = langHtml;
+        langPillsWrap.querySelectorAll('.type-pill').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const type = e.target.getAttribute('data-type');
+                const level = e.target.getAttribute('data-level');
+                const duration = e.target.getAttribute('data-duration');
+                const language = e.target.getAttribute('data-language');
+                const mode = e.target.getAttribute('data-mode');
+                
+                if (type) edxFilterState.typePill = type;
+                if (level) edxFilterState.levelPill = level;
+                if (duration) edxFilterState.duration = duration;
+                if (language) edxFilterState.language = language;
+                if (mode) edxFilterState.mode = mode;
+                
+                e.target.closest('.pill-dropdown-wrap')?.classList.remove('open');
+                
+                syncEdxUIFromState();
+                const filtered = getEdxFilteredBase();
+                edxFilterState.page = 1;
+                renderEdxCards(filtered);
+            });
+        });
+    }
+}
 //  TABS
 // ================================================================
 async function switchTab(targetId) {
@@ -483,7 +531,7 @@ const GLOBE_THEMES = {
         // mapBrightness; with dark=0 the baseColor is the ocean, and a low positive
         // mapBrightness makes the landmasses visible as a dark grey shape.
         base: '#FFFFFF',
-        bg: '#030507',
+        bg: '#000000',
         halo: '#22D3EE',
         marker: '#22D3EE',
         arc: '#22D3EE',
@@ -1063,15 +1111,15 @@ function renderCountryDetailPanel(countryName, courses) {
 
     function formatRankCell(val, badgeType) {
         if (!val || val === 'No') return '<span class="rank-text muted">—</span>';
-        if (badgeType === 'qs') return `<span class="table-rank-badge qs">🌟 ${escHtml(val)}</span>`;
-        if (badgeType === 'nirf') return `<span class="table-rank-badge nirf">🇮🇳 ${escHtml(val)}</span>`;
+        if (badgeType === 'qs') return `<span class="table-rank-badge qs"> ${escHtml(val)}</span>`;
+        if (badgeType === 'nirf') return `<span class="table-rank-badge nirf"> ${escHtml(val)}</span>`;
         return escHtml(val);
     }
 
     tbody.innerHTML = courses.length === 0
         ? `<tr class="empty-row">
             <td colspan="5" class="empty-state">
-                <div class="empty-icon">📭</div>
+                <div class="empty-icon"></div>
                 <strong>No courses found</strong>
                 <div class="empty-sub">Try a different country or reset the filters.</div>
             </td>
@@ -1091,7 +1139,7 @@ function renderCountryDetailPanel(countryName, courses) {
                 <td class="col-center">${formatRankCell(nirfVal, 'nirf')}</td>
                 <td class="col-actions">
                     <div class="row-actions" role="group" aria-label="Row actions">
-                        <button class="row-action" title="View details" aria-label="View details" onclick="event.stopPropagation(); showCourseModal('${c.id}')">👁</button>
+                        <button class="row-action" title="View details" aria-label="View details" onclick="event.stopPropagation(); showCourseModal('${c.id}')"></button>
                         <button class="row-action ${saved ? 'saved' : ''}" title="${saved ? 'Remove from saved' : 'Save course'}" aria-label="${saved ? 'Remove from saved' : 'Save course'}" aria-pressed="${saved}" onclick="event.stopPropagation(); toggleFavorite('${c.id}', this)">${saved ? '♥' : '♡'}</button>
                         <a class="row-action" href="${escHtml(getCourseUrl(c))}" target="_blank" rel="noopener" title="Visit course website" aria-label="Visit course website" onclick="event.stopPropagation();">↗</a>
                     </div>
@@ -1391,7 +1439,7 @@ function applyFilter(type, value) {
     if (panel) panel.style.display = 'flex';
     if (document.getElementById('country-detail-name')) document.getElementById('country-detail-name').textContent = value;
     if (document.getElementById('country-detail-count')) document.getElementById('country-detail-count').textContent = `${filtered.length} course${filtered.length === 1 ? '' : 's'}`;
-    if (document.getElementById('country-detail-flag')) document.getElementById('country-detail-flag').textContent = '🔬';
+    if (document.getElementById('country-detail-flag')) document.getElementById('country-detail-flag').textContent = '';
 
     const qsRank = c => c.qs ? String(c.qs) : (c.has_qs_badge ? 'Yes' : 'No');
     const nirfRank = c => c.nirf ? String(c.nirf) : (c.has_nirf_badge ? 'Yes' : 'No');
@@ -1744,9 +1792,9 @@ async function shareCourse(course) {
 }
 
 function getRankPill(course) {
-    if (course.has_qs_badge && course.has_nirf_badge) return `<span class="rank-pill dual">🏆 DUAL RANKED</span>`;
-    if (course.has_qs_badge) return `<span class="rank-pill qs">🌟 QS RANKED</span>`;
-    if (course.has_nirf_badge) return `<span class="rank-pill nirf">🇮🇳 NIRF RANKED</span>`;
+    if (course.has_qs_badge && course.has_nirf_badge) return `<span class="rank-pill dual"> DUAL RANKED</span>`;
+    if (course.has_qs_badge) return `<span class="rank-pill qs"> QS RANKED</span>`;
+    if (course.has_nirf_badge) return `<span class="rank-pill nirf"> NIRF RANKED</span>`;
     return '';
 }
 
@@ -1817,7 +1865,7 @@ function renderEdxCards() {
     if (total === 0) {
         row.innerHTML = `
             <div class="edx-empty">
-                <div class="edx-empty-icon" aria-hidden="true">🔍</div>
+                <div class="edx-empty-icon" aria-hidden="true"></div>
                 <h3>No courses match your filters</h3>
                 <p class="edx-empty-sub">Try clearing some filters or changing your search terms to see more results.</p>
                 <div class="edx-empty-actions">
@@ -1832,16 +1880,17 @@ function renderEdxCards() {
 
     const pageSize = getCoursesPageSize();
     const page = edxFilterState.page || 1;
-    const start = (page - 1) * pageSize;
-    const pageCourses = all.slice(start, start + pageSize);
+    const start = 0;
+    const end = page * pageSize;
+    const pageCourses = all.slice(start, end);
 
     row.innerHTML = pageCourses.map((c, i) => {
         const initials = getUniversityInitials(c.university);
-        const access = getAccessPill(c);
         const duration = formatDurationShort(c);
         const mode = formatMode(c);
         const rank = getRankPill(c);
         const flag = getFlag(c.country);
+        const language = c.language || 'English';
         const cid = String(c.id);
         const saved = favoriteCourses.has(cid);
         const level = c.skillLevel || getSkillLevel(c);
@@ -1859,7 +1908,7 @@ function renderEdxCards() {
         if (c.scholarship_match || c.has_scholarship) badges.push('<span class="badge scholar">Scholarship</span>');
         badges.push(`<span class="badge">${escHtml(courseType)}</span>`);
         badges.push(`<span class="badge">${escHtml(level)}</span>`);
-        badges.push(`<span class="badge ${access.cls}">${escHtml(access.label || access.text || '')}</span>`);
+        badges.push(`<span class="badge lang" style="background: #D97706; color: #fff; border-color: #D97706;">${escHtml(language)}</span>`);
         const costClass = ((c.cost && c.cost.toLowerCase() === 'free') || c.free_match || c.has_free) ? 'free' : '';
         const skillsDesc = c.skills_description || c.skills || '';
         return `
@@ -1867,25 +1916,57 @@ function renderEdxCards() {
             <div class="card-banner ${hasBanner ? '' : 'no-image'}" ${hasBanner ? `style="background-image:url('${escHtml(c.banner_url)}')"` : ''}>
                 <div class="logo-wrap ${hasLogo ? 'has-logo' : ''}">
                     ${hasLogo ? `<img src="${c.logo_url}" alt="${escHtml(c.university)} logo" loading="lazy" onerror="this.parentNode.classList.remove('has-logo'); this.style.display='none';" />` : ''}
-                    <span class="logo-fallback">${escHtml(initials)}</span>
+                    <span class="logo-fallback"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.4"><path d="M3 21h18"></path><path d="M3 10h18"></path><path d="M5 6l7-3 7 3"></path><path d="M4 10v11"></path><path d="M20 10v11"></path><path d="M8 14v3"></path><path d="M12 14v3"></path><path d="M16 14v3"></path></svg></span>
                 </div>
                 ${stampClass ? `<span class="stamp ${stampClass}">${stampLabel}</span>` : ''}
             </div>
             <div class="card-body">
-                <div class="uni-name">
-                    ${escHtml(c.university || '—')}
-                    <span class="country">${flag} ${escHtml(c.country || '—')}</span>
+                <!-- GRID VIEW CONTENT -->
+                <div class="grid-view-content" style="display: contents;">
+                    <div class="uni-name">
+                        ${escHtml(c.university || '—')}
+                        <span class="country">${flag} ${escHtml(c.country || '—')}</span>
+                    </div>
+                    <h3 class="course-title" title="${escHtml(c.name)}">${escHtml(c.name)}</h3>
+                    <p class="skills-desc">${escHtml(skillsDesc)}</p>
+                    <div class="badge-row">${badges.join('')}</div>
+                    <div class="meta-row">
+                        <span>${escHtml(duration)} · ${escHtml(mode)} · ${escHtml(c.course_type || courseType || 'Course')}</span>
+                        <span class="cost ${costClass}">${escHtml(c.cost || '—')}</span>
+                    </div>
+                    <div class="card-footer-actions" style="display:flex; gap:8px; margin-top:auto;">
+                        <a class="btn" style="flex:1; text-align:center;" href="${escHtml(getCourseUrl(c))}" target="_blank" rel="noopener" onclick="event.stopPropagation();" title="Visit ${escHtml(c.university || 'course')} website">Visit website →</a>
+                        <button class="btn btn-save ${saved ? 'saved' : ''}" style="width:44px;" onclick="event.stopPropagation(); toggleFavorite('${c.id}', this)" title="${saved ? 'Remove from saved' : 'Save course'}" aria-label="${saved ? 'Remove from saved' : 'Save course'}" aria-pressed="${saved}">${saved ? '♥' : '♡'}</button>
+                    </div>
                 </div>
-                <h3 class="course-title" title="${escHtml(c.name)}">${escHtml(c.name)}</h3>
-                <p class="skills-desc">${escHtml(skillsDesc)}</p>
-                <div class="badge-row">${badges.join('')}</div>
-                <div class="meta-row">
-                    <span>${escHtml(duration)} · ${escHtml(mode)} · ${escHtml(c.course_type || courseType || 'Course')}</span>
-                    <span class="cost ${costClass}">${escHtml(c.cost || '—')}</span>
-                </div>
-                <div class="card-footer-actions" style="display:flex; gap:8px; margin-top:auto;">
-                    <a class="btn" style="flex:1; text-align:center;" href="${escHtml(getCourseUrl(c))}" target="_blank" rel="noopener" onclick="event.stopPropagation();" title="Visit ${escHtml(c.university || 'course')} website">Visit website →</a>
-                    <button class="btn btn-save ${saved ? 'saved' : ''}" style="width:44px;" onclick="event.stopPropagation(); toggleFavorite('${c.id}', this)" title="${saved ? 'Remove from saved' : 'Save course'}" aria-label="${saved ? 'Remove from saved' : 'Save course'}" aria-pressed="${saved}">${saved ? '♥' : '♡'}</button>
+
+                <!-- LIST VIEW CONTENT -->
+                <div class="list-view-content" style="display: none;">
+                    <div class="list-col-logo">
+                        <div class="logo-wrap ${hasLogo ? 'has-logo' : ''}" style="width: 44px; height: 44px; border-radius: 8px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; background: #fff; color: var(--cv-ink); overflow: hidden;">
+                            ${hasLogo ? `<img src="${c.logo_url}" alt="${escHtml(c.university)} logo" loading="lazy" onerror="this.parentNode.classList.remove('has-logo'); this.parentNode.querySelector('.logo-fallback').style.display='flex'; this.style.display='none';" style="width:100%; height:100%; object-fit:contain; border-radius:8px;" />` : ''}
+                            <span class="logo-fallback" style="${hasLogo ? 'display:none;' : ''}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.4"><path d="M3 21h18"></path><path d="M3 10h18"></path><path d="M5 6l7-3 7 3"></path><path d="M4 10v11"></path><path d="M20 10v11"></path><path d="M8 14v3"></path><path d="M12 14v3"></path><path d="M16 14v3"></path></svg></span>
+                        </div>
+                    </div>
+                    <div class="list-col-course">
+                        <h3 class="course-title" title="${escHtml(c.name)}">${escHtml(c.name)}</h3>
+                        <div class="course-meta-text">
+                            ${escHtml(c.university || '—')} &middot; ${escHtml(c.country || '—')} &middot; ${escHtml(mode)}
+                        </div>
+                        <p class="skills-desc">${escHtml(skillsDesc)}</p>
+                    </div>
+                    <div class="list-col-skills">
+                        <div class="badge-row">${badges.join('')}</div>
+                    </div>
+                    <div class="list-col-duration">
+                        <span class="duration-text"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:4px;opacity:0.4;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>${escHtml(duration)}</span>
+                    </div>
+                    <div class="list-col-cost">
+                        <span class="cost ${costClass}">${escHtml(c.cost || '—')}</span>
+                    </div>
+                    <div class="list-col-actions card-footer-actions">
+                        <a class="btn lv-btn" href="${escHtml(getCourseUrl(c))}" target="_blank" rel="noopener" onclick="event.stopPropagation();" title="Visit ${escHtml(c.university || 'course')} website">Visit site &rarr;</a>
+                    </div>
                 </div>
             </div>
         </article>`;
@@ -1907,6 +1988,7 @@ function renderEdxCards() {
     renderPagination(page, total);
     updateCourseViewClass();
     updateFilterCounts();
+    setupInfiniteScroll(all.length, end);
 }
 
 function renderPagination(currentPage, total) {
@@ -1917,40 +1999,14 @@ function renderPagination(currentPage, total) {
 
     const pageSize = getCoursesPageSize();
     const isAll = pageSize === Infinity;
-    const pages = isAll ? 1 : Math.ceil(total / pageSize);
-    const start = total === 0 ? 0 : (isAll ? 1 : (currentPage - 1) * pageSize + 1);
+    const start = total === 0 ? 0 : 1;
     const end = isAll ? total : Math.min(currentPage * pageSize, total);
 
     if (metaEl) metaEl.textContent = `Showing ${start.toLocaleString()}–${end.toLocaleString()} of ${total.toLocaleString()} courses`;
-    if (wrapEl) wrapEl.classList.toggle('has-pagination', pages > 1);
-
-    if (pages <= 1) { el.innerHTML = ''; return; }
-
-    const cp = Math.max(1, Math.min(currentPage, pages));
-    const addPage = (p, label = p) =>
-        `<button class="pagination-btn ${p === cp ? 'active' : ''}" data-page="${p}" aria-label="Page ${p}" ${p === cp ? 'aria-current="true"' : ''}>${label}</button>`;
-    const addEllipsis = () => `<span class="pagination-btn ellipsis" aria-hidden="true">…</span>`;
-
-    let html = `<button class="pagination-btn" data-page="first" aria-label="First page" ${cp <= 1 ? 'disabled' : ''}>«</button>`;
-    html += `<button class="pagination-btn" data-page="prev" aria-label="Previous page" ${cp <= 1 ? 'disabled' : ''}>‹</button>`;
-
-    if (pages <= 7) {
-        for (let i = 1; i <= pages; i++) html += addPage(i);
-    } else {
-        html += addPage(1);
-        if (cp > 3) html += addEllipsis();
-
-        const start = Math.max(2, cp - 1);
-        const end = Math.min(pages - 1, cp + 1);
-        for (let i = start; i <= end; i++) html += addPage(i);
-
-        if (cp < pages - 2) html += addEllipsis();
-        html += addPage(pages);
-    }
-
-    html += `<button class="pagination-btn" data-page="next" aria-label="Next page" ${cp >= pages ? 'disabled' : ''}>›</button>`;
-    html += `<button class="pagination-btn" data-page="last" aria-label="Last page" ${cp >= pages ? 'disabled' : ''}>»</button>`;
-    el.innerHTML = html;
+    
+    // Hide the traditional pagination wrapper since we are using infinite scroll
+    if (wrapEl) wrapEl.style.display = 'none';
+    el.innerHTML = '';
 }
 
 function goToCoursePage(page) {
@@ -1964,9 +2020,82 @@ function goToCoursePage(page) {
     if (page === 'next') next = Math.min(pages, (edxFilterState.page || 1) + 1);
     edxFilterState.page = next;
     renderEdxCards();
-    const row = document.getElementById('edx-cards-row');
-    if (row) row.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
+
+// Infinite scroll (doom scrolling) — auto-load more cards when near bottom
+let _infiniteScrollObserver = null;
+let _infiniteScrollSentinel = null;
+let _isLoadingMore = false;
+
+function setupInfiniteScroll(totalItems, currentlyShown) {
+    // Remove old sentinel and observer
+    if (_infiniteScrollObserver) {
+        _infiniteScrollObserver.disconnect();
+        _infiniteScrollObserver = null;
+    }
+    if (_infiniteScrollSentinel) {
+        _infiniteScrollSentinel.remove();
+        _infiniteScrollSentinel = null;
+    }
+    
+    // Remove any existing load more button
+    const existingLoadMore = document.querySelector('.load-more-wrap');
+    if (existingLoadMore) {
+        existingLoadMore.remove();
+    }
+
+    // If all items are shown, no need for infinite scroll
+    if (currentlyShown >= totalItems) return;
+
+    // Check device limits
+    const isMobile = window.innerWidth <= 900;
+    const maxScrollLimit = isMobile ? 100 : 250;
+
+    const row = document.getElementById('edx-cards-row');
+    if (!row) return;
+
+    // If limit is reached, show a manual "Load More" button instead of doom scrolling
+    if (currentlyShown >= maxScrollLimit) {
+        const btnWrap = document.createElement('div');
+        btnWrap.className = 'load-more-wrap';
+        btnWrap.style = 'text-align:center; padding: 30px 20px; width: 100%;';
+        btnWrap.innerHTML = `<button type="button" class="btn-quick-view" style="font-size: 14px; padding: 12px 24px;" onclick="window._loadMoreManual()">Load More Courses</button>`;
+        window._loadMoreManual = function() {
+            edxFilterState.page = (edxFilterState.page || 1) + 1;
+            renderEdxCards();
+        };
+        row.parentNode.insertBefore(btnWrap, row.nextSibling);
+        return;
+    }
+
+    // Create sentinel element at the bottom
+    _infiniteScrollSentinel = document.createElement('div');
+    _infiniteScrollSentinel.className = 'infinite-scroll-sentinel';
+    
+    // NOTE: Give the sentinel a height and margin so the footer is visible briefly before fetching
+    _infiniteScrollSentinel.style.height = '100px'; 
+    _infiniteScrollSentinel.style.width = '100%';
+    _infiniteScrollSentinel.innerHTML = `<div style="text-align:center; padding: 20px; color: var(--text-muted, #666);">Loading more courses...</div>`;
+    
+    row.parentNode.insertBefore(_infiniteScrollSentinel, row.nextSibling);
+
+    _infiniteScrollObserver = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting && !_isLoadingMore) {
+            _isLoadingMore = true;
+            edxFilterState.page = (edxFilterState.page || 1) + 1;
+            
+            renderEdxCards();
+            
+            // Wait for DOM to paint and sentinel to be pushed down before unlocking
+            setTimeout(() => {
+                _isLoadingMore = false;
+            }, 50);
+        }
+    }, { rootMargin: '100px' });
+
+    _infiniteScrollObserver.observe(_infiniteScrollSentinel);
+}
+
 
 async function shareCourseById(id) {
     const c = getCourseById(id);
@@ -1984,7 +2113,28 @@ function getCourseUrl(course) {
 function updateCourseViewClass() {
     const row = document.getElementById('edx-cards-row');
     if (!row) return;
-    row.classList.toggle('list-view', edxFilterState.view === 'list');
+    const isList = edxFilterState.view === 'list';
+    row.classList.toggle('list-view', isList);
+    
+    let header = document.getElementById('list-view-header');
+    if (isList) {
+        if (!header) {
+            header = document.createElement('div');
+            header.id = 'list-view-header';
+            header.className = 'list-view-header';
+            header.innerHTML = `
+                <div class="lv-col lv-col-course">COURSE</div>
+                <div class="lv-col lv-col-skills">SKILLS COVERED</div>
+                <div class="lv-col lv-col-duration">DURATION</div>
+                <div class="lv-col lv-col-cost">COST</div>
+                <div class="lv-col lv-col-action"></div>
+            `;
+            row.parentNode.insertBefore(header, row);
+        }
+        header.style.display = 'grid';
+    } else {
+        if (header) header.style.display = 'none';
+    }
 }
 
 function renderActiveFilterChips() {
@@ -2023,7 +2173,7 @@ function renderActiveFilterChips() {
 
 function sortLabel(sort) {
     return {
-        relevance: 'Relevance', name: 'Name A–Z', nameDesc: 'Name Z–A', country: 'Country A–Z', qs: 'QS Ranked first'
+        relevance: 'Relevance', name: 'Name A–Z', nameDesc: 'Name Z–A', country: 'Country A–Z', qs: 'QS Ranked first', nirf: 'NIRF Rated first'
     }[sort] || sort;
 }
 
@@ -2044,11 +2194,39 @@ function removeFilterChip(key) {
     renderEdxCards();
 }
 
+function updateDropdownButtonText(groupId, defaultText) {
+    const group = document.getElementById(groupId);
+    if (!group) return;
+    const wrap = group.closest('.pill-dropdown');
+    if (!wrap) return;
+    const btn = wrap.querySelector('.pill-dropdown-btn');
+    if (!btn) return;
+    
+    let activePill = group.querySelector('.active');
+    let activeText = activePill ? activePill.textContent.trim() : 'All';
+    let isAll = activeText.toLowerCase() === 'all';
+    
+    const svgIcon = `<svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><polyline points="6 9 12 15 18 9"></polyline></svg>`;
+    
+    if (isAll) {
+        btn.innerHTML = `${defaultText} ${svgIcon}`;
+        btn.style.color = '';
+        btn.style.borderColor = '';
+        btn.style.background = '';
+    } else {
+        btn.innerHTML = `${defaultText}: <span style="font-weight: 700; color: inherit;">${activeText}</span> ${svgIcon}`;
+        btn.style.color = 'var(--primary)';
+        btn.style.borderColor = 'var(--primary)';
+        btn.style.background = 'var(--bg-highlight, rgba(0, 112, 243, 0.05))';
+    }
+}
+
 function syncEdxUIFromState() {
     const searchInput = document.getElementById('course-search');
     if (searchInput) searchInput.value = edxFilterState.search;
     const sortSelect = document.getElementById('course-sort');
     if (sortSelect) sortSelect.value = edxFilterState.sort;
+    
     document.querySelectorAll('#course-type-pills .type-pill').forEach(b => {
         const active = b.dataset.type === edxFilterState.typePill;
         b.classList.toggle('active', active);
@@ -2069,6 +2247,22 @@ function syncEdxUIFromState() {
         b.classList.toggle('active', active);
         b.setAttribute('aria-pressed', String(active));
     });
+    document.querySelectorAll('#duration-pills .type-pill').forEach(b => {
+        const active = (b.dataset.duration || 'all') === (edxFilterState.duration || 'all');
+        b.classList.toggle('active', active);
+        b.setAttribute('aria-pressed', String(active));
+    });
+    document.querySelectorAll('#language-pills .type-pill').forEach(b => {
+        const active = (b.dataset.language || 'all') === (edxFilterState.language || 'all');
+        b.classList.toggle('active', active);
+        b.setAttribute('aria-pressed', String(active));
+    });
+    document.querySelectorAll('#mode-pills .type-pill').forEach(b => {
+        const active = (b.dataset.mode || 'all') === (edxFilterState.mode || 'all');
+        b.classList.toggle('active', active);
+        b.setAttribute('aria-pressed', String(active));
+    });
+
     document.querySelectorAll('.courses-view-toggle .view-btn').forEach(b => {
         const active = b.id === `view-${edxFilterState.view}`;
         b.classList.toggle('active', active);
@@ -2077,6 +2271,13 @@ function syncEdxUIFromState() {
     const countrySelect = document.getElementById('course-country-filter');
     if (countrySelect) countrySelect.value = edxFilterState.country || 'all';
     highlightDomainExplorerCard(edxFilterState.domainChip);
+    
+    updateDropdownButtonText('course-type-pills', 'Category');
+    updateDropdownButtonText('duration-pills', 'Duration');
+    updateDropdownButtonText('language-pills', 'Language');
+    updateDropdownButtonText('skill-level-pills', 'Level');
+    updateDropdownButtonText('mode-pills', 'Mode');
+    updateDropdownButtonText('domain-chips-scroll', 'Topic');
 }
 
 function populateCountryFilter() {
@@ -2100,8 +2301,8 @@ function setEdxTypePill(pill) {
     document.querySelectorAll('#course-type-pills .type-pill').forEach(b => {
         const active = b.dataset.type === pill;
         b.classList.toggle('active', active);
-        b.setAttribute('aria-pressed', String(active));
     });
+    syncEdxUIFromState();
     renderEdxCards();
 }
 
@@ -2114,8 +2315,8 @@ function setEdxAccessType(access) {
     document.querySelectorAll('#access-type-pills .type-pill').forEach(b => {
         const active = types.includes(b.dataset.access);
         b.classList.toggle('active', active);
-        b.setAttribute('aria-pressed', String(active));
     });
+    syncEdxUIFromState();
     renderEdxCards();
 }
 
@@ -2128,6 +2329,7 @@ function setEdxDomainChip(chip) {
         b.setAttribute('aria-pressed', String(active));
     });
     highlightDomainExplorerCard(chip);
+    syncEdxUIFromState();
     renderEdxCards();
 }
 
@@ -2398,9 +2600,10 @@ function clearAllCourseFilters() {
 }
 
 function setCourseView(view) {
+    if(edxFilterState.view === view) return;
     edxFilterState.view = view;
     document.querySelectorAll('.courses-view-toggle .view-btn').forEach(b => {
-        const active = b.id === `view-${view}`;
+        const active = b.id === 'view-' + view;
         b.classList.toggle('active', active);
         b.setAttribute('aria-pressed', String(active));
     });
@@ -2433,15 +2636,7 @@ function initCourseKeyboardShortcuts() {
             return;
         }
 
-        if (/^[1-9]$/.test(e.key) && !e.ctrlKey && !e.metaKey && !e.altKey) {
-            const chips = Array.from(document.querySelectorAll('#domain-chips-scroll .domain-chip'));
-            const idx = parseInt(e.key, 10) - 1;
-            if (chips[idx]) {
-                e.preventDefault();
-                chips[idx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-                setEdxDomainChip(chips[idx].dataset.domain || 'all');
-            }
-        }
+        // Keyboard shortcut 1-9 for domain chips removed per user request
     });
 }
 
@@ -2486,6 +2681,7 @@ function mergeRichFields(course) {
     if (!rich) return course;
     return {
         ...course,
+        ...rich,
         logo_url: rich.logo_url || course.logo_url || '',
         banner_url: rich.banner_url || course.banner_url || '',
         skills_description: rich.skills_description || course.skills_description || course.skills || '',
@@ -2519,6 +2715,8 @@ async function loadAllCourses(force = false) {
 
         refreshFilterOptions();
         populateCountryFilter();
+        populateDynamicFilters();
+
         syncEdxFiltersFromLegacy();
         syncEdxUIFromState();
         setEdxTypePill(edxFilterState.typePill);
@@ -2846,8 +3044,15 @@ function renderOnboardingStep(step) {
             (!effectiveCourseType || matchTypePill(c, effectiveCourseType))
         ).length;
 
-        if (title) title.textContent = `${count} recommended course${count === 1 ? '' : 's'}`;
-        if (text) text.textContent = `Based on ${level.toLowerCase()} courses in ${domain.toLowerCase()} for ${goalLabel.toLowerCase()}.`;
+        if (title) title.textContent = `${count} course${count === 1 ? '' : 's'} for your pathway`;
+        const rolePhrase = {
+            'Beginner': 'starting out',
+            'Intermediate': 'building on the basics',
+            'Advanced': 'leveling up'
+        }[level] || 'exploring';
+        const domainPhrase = domain === 'All domains' ? 'cybersecurity' : domain;
+        const goalPhrase = goalLabel.toLowerCase();
+        if (text) text.textContent = `You’re ${rolePhrase} in ${domainPhrase} and aiming for ${goalPhrase}. These verified courses are matched to move you toward that goal.`;
         if (tags) {
             tags.innerHTML = `
                 <span class="onboarding-result-tag"><span class="tag-dot" style="background:${getDomainColor(onboardingState.domain)}"></span>${escHtml(level)}</span>
@@ -3056,7 +3261,7 @@ async function fetchData() {
     if (!globalData) document.body.dataset.loading = 'true';
     showLoadingCurtain('Loading course data…');
     try {
-        const [res] = await Promise.all([fetch(COURSES_JSON + '?v=' + Date.now()), loadRichCatalog()]);
+        const [res] = await Promise.all([fetch(COURSES_JSON), loadRichCatalog()]);
         const data = await res.json();
         allCoursesData = (Array.isArray(data) ? data : data.courses || []).sort((a, b) => parseInt(a.id || '9') - parseInt(b.id || '9'));
         allCoursesData = allCoursesData.map(mergeRichFields);
@@ -3071,6 +3276,7 @@ async function fetchData() {
         firstDataFetch = false;
         _applyData(globalData, animate);
         populateCountryFilter();
+        populateDynamicFilters();
 
         // Render the All Courses grid when the section exists on this page.
         if (document.getElementById('all-courses-section')) {

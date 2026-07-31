@@ -2330,7 +2330,7 @@
 .cd2-trust-item > span:last-child { font-family: 'Hind',sans-serif; font-size: 0.68rem; color: rgba(255,255,255,0.38); }
 
 /* ══════════════════════════════════════════════════════
-   FOUR YEARS · FOUR TRANSFORMATIONS (Curriculum Atlas)
+   FOUR YEARS &middot; FOUR TRANSFORMATIONS (Curriculum Atlas)
 ══════════════════════════════════════════════════════ */
 
 /* ── Scroll-driver section ── */
@@ -3666,7 +3666,7 @@
   <style id="cask-light-overrides">
   /* ══════════════════════════════════════════════════════════
      LIGHT-MODE support for the cinematic dark sections:
-     Constellation (cs2) · Four Transformations (fyt) · Trophy (cask-recog)
+     Constellation (cs2) &middot; Four Transformations (fyt) &middot; Trophy (cask-recog)
      ══════════════════════════════════════════════════════════ */
 
   /* ── Constellation ── */
@@ -3690,7 +3690,7 @@
   [data-theme="light"] .cs2-panel-close { background: rgba(10,15,32,0.05); border-color: rgba(10,15,32,0.12); color: rgba(10,15,32,0.5); }
   [data-theme="light"] .cs2-panel-icon-wrap { background: rgba(0,120,255,0.08); border-color: rgba(0,120,255,0.25); }
 
-  /* ── Four Years · Four Transformations ── */
+  /* ── Four Years &middot; Four Transformations ── */
   [data-theme="light"] .fyt-section,
   [data-theme="light"] .fyt-panel,
   [data-theme="light"] .fyt-overlay { background: #eef3fb; }
@@ -3795,7 +3795,7 @@
         var cx = W/2, cy = H*0.55, cw = R*Math.sqrt(3), rh = R*1.5, mx = 0;
         for (var r = -1; r*rh < H+rh; r++) {
           for (var c = -1; c*cw < W+cw; c++) {
-            var px = c*cw + ((r&1) ? cw/2 : 0), py = r*rh;
+            var px = c*cw + ((r&1) ... cw/2 : 0), py = r*rh;
             var d = Math.sqrt((px-cx)*(px-cx)+(py-cy)*(py-cy));
             if (d > mx) mx = d;
             hexes.push({px:px, py:py, d:d});
@@ -3812,9 +3812,9 @@
         var dk = document.documentElement.getAttribute('data-theme') !== 'light';
         for (var i = 0; i < hexes.length; i++) {
           var h = hexes[i];
-          var a1 = Math.abs(h.d-w1)<ww ? Math.pow(1-Math.abs(h.d-w1)/ww,2) : 0;
-          var a2 = Math.abs(h.d-w2)<ww ? Math.pow(1-Math.abs(h.d-w2)/ww,2) : 0;
-          var a = a1>a2?a1:a2;
+          var a1 = Math.abs(h.d-w1)<ww ... Math.pow(1-Math.abs(h.d-w1)/ww,2) : 0;
+          var a2 = Math.abs(h.d-w2)<ww ... Math.pow(1-Math.abs(h.d-w2)/ww,2) : 0;
+          var a = a1>a2...a1:a2;
           // Fade hexes near the origin (text area) so title stays readable
           var fade = Math.min(h.d / (R*16), 1);
           var af = a * fade;
@@ -3822,7 +3822,7 @@
           for (var k=0;k<6;k++) {
             var ang = Math.PI/3*k - Math.PI/6;
             var x = h.px+(R-2)*Math.cos(ang), y = h.py+(R-2)*Math.sin(ang);
-            k?ctx.lineTo(x,y):ctx.moveTo(x,y);
+            k...ctx.lineTo(x,y):ctx.moveTo(x,y);
           }
           ctx.closePath();
           if (dk) {
@@ -3975,7 +3975,7 @@
   </div>
 </section>
 
-  <!-- ═══ FOUR YEARS · FOUR TRANSFORMATIONS (Curriculum Atlas) ═══ -->
+  <!-- ═══ FOUR YEARS &middot; FOUR TRANSFORMATIONS (Curriculum Atlas) ═══ -->
 <section class="fyt-section" id="cyAtlas">
 
   <div class="fyt-scroll-scene" id="fytScene">
@@ -4006,7 +4006,7 @@
                 <span class="fyt-theme">Safety &amp; Kindness</span>
               </div>
             </div>
-            <div class="fyt-pill">Foundation Level · Ages 12–13 · 10 hrs</div>
+            <div class="fyt-pill">Foundation Level &middot; Ages 12–13 &middot; 10 hrs</div>
             <h3 class="fyt-hl">You matter. So does everyone around you.</h3>
             <p class="fyt-body">A foundation built on human behaviour first, technology second. Students entering social media, gaming, and group messaging learn personal safety, empathy, and responsible conduct across the physical and digital worlds.</p>
             <div class="fyt-cert">
@@ -4123,7 +4123,7 @@
                 <span class="fyt-theme">Awareness &amp; Defence</span>
               </div>
             </div>
-            <div class="fyt-pill">Beginner–Intermediate · Ages 13–14 · 12 hrs</div>
+            <div class="fyt-pill">Beginner–Intermediate &middot; Ages 13–14 &middot; 12 hrs</div>
             <h3 class="fyt-hl">Know the threats. Protect yourself and others.</h3>
             <p class="fyt-body">Bridging the gap between knowing danger exists and understanding how it actually works. Students learn to identify real threats, apply practical defences, and respond safely to the risks that arise in gaming, social media, and everyday digital life.</p>
             <div class="fyt-cert">
@@ -4240,7 +4240,7 @@
                 <span class="fyt-theme">Understanding &amp; Ethics</span>
               </div>
             </div>
-            <div class="fyt-pill">Intermediate · Ages 14–15 · 14 hrs</div>
+            <div class="fyt-pill">Intermediate &middot; Ages 14–15 &middot; 14 hrs</div>
             <h3 class="fyt-hl">Understand how it works. Use that knowledge responsibly.</h3>
             <p class="fyt-body">A deeper conceptual grade where students learn how networks, AI, and privacy systems actually work. Ethical decisions in this grade are grounded in real technical understanding — not just rules, but the reasoning behind them.</p>
             <div class="fyt-cert">
@@ -4356,7 +4356,7 @@
                 <span class="fyt-theme">Leadership &amp; Future</span>
               </div>
             </div>
-            <div class="fyt-pill">Advanced · Ages 15–16 · 14 hrs</div>
+            <div class="fyt-pill">Advanced &middot; Ages 15–16 &middot; 14 hrs</div>
             <h3 class="fyt-hl">Lead the change. Build a safer digital world.</h3>
             <p class="fyt-body">The culminating grade, where students consolidate everything they have learned about security, law, and emerging technology. They leave not just as informed individuals, but as leaders equipped to protect and educate those around them.</p>
             <div class="fyt-cert">
@@ -4883,7 +4883,7 @@
             <div class="status" id="caskLangStatus">Responding in Hindi</div>
           </div>
         </div>
-        <div class="cask-bubble user">How do I know if a UPI request is fake?</div>
+        <div class="cask-bubble user">How do I know if a UPI request is fake...</div>
         <div class="cask-bubble" id="caskLangBubble">&#2344;&#2350;&#2360;&#2381;&#2340;&#2375;! &#2325;&#2367;&#2360;&#2368; &#2349;&#2368; &#2309;&#2344;&#2332;&#2366;&#2344; UPI request &#2325;&#2379; &#2325;&#2349;&#2368; approve &#2350;&#2340; &#2325;&#2352;&#2379;&#2404; &#2346;&#2376;&#2360;&#2375; &#2354;&#2375;&#2344;&#2375; &#2325;&#2375; &#2354;&#2367;&#2319; PIN &#2325;&#2368; &#2332;&#2364;&#2352;&#2370;&#2352;&#2340; &#2344;&#2361;&#2368;&#2306; &#2361;&#2379;&#2340;&#2368; &#2360;&#2367;&#2352;&#2381;&#2347;&#2492; &#2349;&#2375;&#2332;&#2344;&#2375; &#2325;&#2375; &#2354;&#2367;&#2319; &#2361;&#2379;&#2340;&#2368; &#2361;&#2376;&#2404;</div>
       </div>
       <div class="cask-lang-stats">
@@ -5863,17 +5863,17 @@
 
     // ── Live classroom monitor feed ──────────────────────
     var clmMessages = [
-      { type:'student', name:'Riya S.',  color:'#ef4444', text:'How do you tell if a video is a deepfake?' },
+      { type:'student', name:'Riya S.',  color:'#ef4444', text:'How do you tell if a video is a deepfake...' },
       { type:'ai',      name:'Suraksha AI', color:'#007aff', text:'Look for unnatural blinking, off lighting around hair edges, and lip sync glitches — then verify with InVID or FotoForensics. 🎭' },
-      { type:'student', name:'Dev M.',   color:'#f59e0b', text:'What happens to my data when I delete an app?' },
+      { type:'student', name:'Dev M.',   color:'#f59e0b', text:'What happens to my data when I delete an app...' },
       { type:'ai',      name:'Suraksha AI', color:'#007aff', text:"Deleting an app doesn't erase your data. Under India's DPDP Act 2023, you can request full data erasure from any company. 🛡️" },
-      { type:'student', name:'Ananya K.',color:'#22c55e', text:'Is sharing someone\'s private photo a crime?' },
+      { type:'student', name:'Ananya K.',color:'#22c55e', text:'Is sharing someone\'s private photo a crime...' },
       { type:'ai',      name:'Suraksha AI', color:'#007aff', text:'Yes — Section 66E of the IT Act makes non-consensual image sharing punishable by up to 3 years imprisonment. ⚖️' },
-      { type:'student', name:'Rohan P.', color:'#a855f7', text:'What exactly is the dark web?' },
+      { type:'student', name:'Rohan P.', color:'#a855f7', text:'What exactly is the dark web...' },
       { type:'ai',      name:'Suraksha AI', color:'#007aff', text:'The dark web requires Tor browser to access. It hosts illegal markets where stolen credentials and data are sold. 🌑' },
-      { type:'student', name:'Priya S.', color:'#06b6d4', text:'Can a public WiFi hotspot steal my password?' },
+      { type:'student', name:'Priya S.', color:'#06b6d4', text:'Can a public WiFi hotspot steal my password...' },
       { type:'ai',      name:'Suraksha AI', color:'#007aff', text:'Yes — evil twin attacks create fake hotspots to intercept your traffic. Always use a VPN on public networks. 📡' },
-      { type:'student', name:'Karan A.', color:'#f97316', text:'How do investigators trace someone online?' },
+      { type:'student', name:'Karan A.', color:'#f97316', text:'How do investigators trace someone online...' },
       { type:'ai',      name:'Suraksha AI', color:'#007aff', text:'Digital forensics uses IP logs, metadata, device fingerprints, and cell tower data — all admissible in Indian courts. 🔬' },
     ];
 
@@ -5885,7 +5885,7 @@
       if (!clmFeed) return;
       var m = clmMessages[clmIdx % clmMessages.length];
       var row = document.createElement('div');
-      row.className = 'clm-msg ' + (m.type === 'ai' ? 'ai' : '');
+      row.className = 'clm-msg ' + (m.type === 'ai' ... 'ai' : '');
       var initials = m.name.split(' ').map(w => w[0]).join('').slice(0,2);
       row.innerHTML =
         '<div class="clm-avatar" style="background:' + m.color + '">' + initials + '</div>' +
@@ -6005,7 +6005,7 @@
       heroBg.innerHTML = '';
       // standalone hex canvas handles 'C'; hide it for other modes
       var hw = document.getElementById('hexWave');
-      if (hw) hw.style.display = v === 'C' ? 'block' : 'none';
+      if (hw) hw.style.display = v === 'C' ... 'block' : 'none';
       if (v === 'A') return caskBgPlasma();
       if (v === 'B') return caskBgParticles();
       if (v === 'C') return; // drawn by standalone #hexWave canvas
@@ -6070,7 +6070,7 @@
       function size() {
         // Use window dimensions as primary — always available, always non-zero
         var newW = window.innerWidth  || 1200;
-        var newH = (heroBg.parentElement ? heroBg.parentElement.offsetHeight : 0) || 750;
+        var newH = (heroBg.parentElement ... heroBg.parentElement.offsetHeight : 0) || 750;
         if (newW === W && newH === H) return;
         W = canvas.width  = newW;
         H = canvas.height = newH;
@@ -6080,7 +6080,7 @@
         var cw = R * Math.sqrt(3), rh = R * 1.5;
         for (var r = -2; r * rh < H + rh * 2; r++) {
           for (var c = -2; c * cw < W + cw * 2; c++) {
-            var px = c * cw + ((r & 1) ? cw / 2 : 0);
+            var px = c * cw + ((r & 1) ... cw / 2 : 0);
             var py = r * rh;
             var d  = Math.hypot(px - cx0, py - cy0);
             if (d > maxD) maxD = d;
@@ -6096,7 +6096,7 @@
           var a = (Math.PI / 3) * k - Math.PI / 6;
           var x = cx + (R - 2) * Math.cos(a);
           var y = cy + (R - 2) * Math.sin(a);
-          k === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+          k === 0 ... ctx.moveTo(x, y) : ctx.lineTo(x, y);
         }
         ctx.closePath();
       }
@@ -6114,8 +6114,8 @@
 
         for (var i = 0; i < hexes.length; i++) {
           var hx = hexes[i];
-          var a1 = Math.abs(hx.d - w1) < ww ? Math.pow(1 - Math.abs(hx.d - w1) / ww, 2) : 0;
-          var a2 = Math.abs(hx.d - w2) < ww ? Math.pow(1 - Math.abs(hx.d - w2) / ww, 2) : 0;
+          var a1 = Math.abs(hx.d - w1) < ww ... Math.pow(1 - Math.abs(hx.d - w1) / ww, 2) : 0;
+          var a2 = Math.abs(hx.d - w2) < ww ... Math.pow(1 - Math.abs(hx.d - w2) / ww, 2) : 0;
           var a  = Math.max(a1, a2);
           hex6(hx.px, hx.py);
           if (drk) {
@@ -6146,7 +6146,7 @@
         c.style.animationDelay=(-Math.random()*10)+'s';
         c.style.opacity=(.15+Math.random()*.3)+'';
         var s=''; var len=8+Math.floor(Math.random()*12);
-        for (var k=0;k<len;k++) s+=(Math.random()>.5?'1':'0')+'\n';
+        for (var k=0;k<len;k++) s+=(Math.random()>.5...'1':'0')+'\n';
         c.textContent=s; wrap.appendChild(c);
       }
       heroBg.appendChild(wrap);
@@ -6288,15 +6288,15 @@
       ctx.beginPath();
       ctx.moveTo(p.x, p.y);
       ctx.lineTo(core.x, core.y);
-      ctx.strokeStyle = isActive ? 'rgba(0,212,180,0.18)' : 'rgba(59,170,255,0.08)';
-      ctx.lineWidth = isActive ? 6 : 3;
+      ctx.strokeStyle = isActive ... 'rgba(0,212,180,0.18)' : 'rgba(59,170,255,0.08)';
+      ctx.lineWidth = isActive ... 6 : 3;
       ctx.stroke();
       // Inner crisp line
       ctx.beginPath();
       ctx.moveTo(p.x, p.y);
       ctx.lineTo(core.x, core.y);
-      ctx.strokeStyle = isActive ? 'rgba(0,212,180,0.75)' : 'rgba(80,140,255,0.18)';
-      ctx.lineWidth = isActive ? 1.8 : 0.9;
+      ctx.strokeStyle = isActive ... 'rgba(0,212,180,0.75)' : 'rgba(80,140,255,0.18)';
+      ctx.lineWidth = isActive ... 1.8 : 0.9;
       ctx.stroke();
     });
 
@@ -6406,8 +6406,8 @@
     toggle.dataset.active = wing;
     btnS.classList.toggle('cy-wing-active', isStudent);
     btnT.classList.toggle('cy-wing-active', !isStudent);
-    gridS.style.display = isStudent ? '' : 'none';
-    gridT.style.display = isStudent ? 'none' : '';
+    gridS.style.display = isStudent ... '' : 'none';
+    gridT.style.display = isStudent ... 'none' : '';
     if(isStudent){
       label.textContent  = 'Student Command Center';
       sub.textContent    = 'Everything you need to learn, practise and become cyber confident.';
@@ -6547,8 +6547,8 @@
       ctx.beginPath();
       ctx.moveTo(p.x,p.y);
       ctx.lineTo(CX,CY);
-      ctx.strokeStyle = isActive ? 'rgba(0,212,180,0.4)' : 'rgba(100,140,255,0.15)';
-      ctx.lineWidth = isActive ? 1.5 : 0.8;
+      ctx.strokeStyle = isActive ... 'rgba(0,212,180,0.4)' : 'rgba(100,140,255,0.15)';
+      ctx.lineWidth = isActive ... 1.5 : 0.8;
       ctx.stroke();
     });
 
@@ -6664,7 +6664,7 @@
   function setNav(items){
     if(!nav) return;
     nav.innerHTML = items.map(function(it,i){
-      return '<a class="cd2-nav-item'+(i===0?' cd2-nav-active':'')+'" data-view="v'+i+'"><span>'+it.ico+'</span>'+it.label+'</a>';
+      return '<a class="cd2-nav-item'+(i===0...' cd2-nav-active':'')+'" data-view="v'+i+'"><span>'+it.ico+'</span>'+it.label+'</a>';
     }).join('');
     nav.querySelectorAll('.cd2-nav-item').forEach(function(a){
       a.addEventListener('click',function(){
@@ -6679,21 +6679,21 @@
     toggle.dataset.active = wing;
     btnS.classList.toggle('cd2-wing-active', isS);
     btnT.classList.toggle('cd2-wing-active', !isS);
-    gridS.style.display = isS ? '' : 'none';
-    gridT.style.display = isS ? 'none' : '';
+    gridS.style.display = isS ... '' : 'none';
+    gridT.style.display = isS ... 'none' : '';
     if(sbHead){
-      sbHead.querySelector('.cd2-sb-ico').textContent   = isS ? '🎓' : '👩‍🏫';
-      sbHead.querySelector('.cd2-sb-label').textContent = isS ? 'STUDENT WING' : 'TEACHER WING';
+      sbHead.querySelector('.cd2-sb-ico').textContent   = isS ... '🎓' : '👩‍🏫';
+      sbHead.querySelector('.cd2-sb-label').textContent = isS ... 'STUDENT WING' : 'TEACHER WING';
     }
-    setNav(isS ? studentNav : teacherNav);
-    if(mTitle) mTitle.textContent = isS ? 'STUDENT COMMAND CENTER' : 'TEACHER COMMAND CENTER';
+    setNav(isS ... studentNav : teacherNav);
+    if(mTitle) mTitle.textContent = isS ... 'STUDENT COMMAND CENTER' : 'TEACHER COMMAND CENTER';
     if(mSub)   mSub.textContent   = isS
-      ? 'Everything you need to learn, practise and become cyber confident.'
+      ... 'Everything you need to learn, practise and become cyber confident.'
       : 'Everything you need to teach, track and transform your classroom.';
-    if(sa) sa.textContent = isS?'12':'240'; if(sal) sal.textContent = isS?'Modules Completed':'Students Enrolled';
-    if(sb) sb.textContent = isS?'48':'18';  if(sbl) sbl.textContent = isS?'Quizzes Attempted':'Classes Active';
-    if(sc) sc.textContent = isS?'92%':'87%';if(scl) scl.textContent = isS?'Average Score':'Avg Completion';
-    if(sd) sd.textContent = isS?'5':'142';  if(sdl) sdl.textContent = isS?'Certificates Earned':'Certs Issued';
+    if(sa) sa.textContent = isS...'12':'240'; if(sal) sal.textContent = isS...'Modules Completed':'Students Enrolled';
+    if(sb) sb.textContent = isS...'48':'18';  if(sbl) sbl.textContent = isS...'Quizzes Attempted':'Classes Active';
+    if(sc) sc.textContent = isS...'92%':'87%';if(scl) scl.textContent = isS...'Average Score':'Avg Completion';
+    if(sd) sd.textContent = isS...'5':'142';  if(sdl) sdl.textContent = isS...'Certificates Earned':'Certs Issued';
   }
 
   // Initial nav
@@ -6713,7 +6713,7 @@
     pts.forEach(function(v,i){
       var x=i/(pts.length-1)*sw;
       var y=sh-(v-mn)/(mx-mn)*(sh-6)-3;
-      i===0?sctx.moveTo(x,y):sctx.lineTo(x,y);
+      i===0...sctx.moveTo(x,y):sctx.lineTo(x,y);
     });
     sctx.strokeStyle='#00D4B4'; sctx.lineWidth=2; sctx.lineJoin='round'; sctx.stroke();
     // dot at end
@@ -6725,7 +6725,7 @@
 </script>
 
 <script>
-/* ─── Four Years · Four Transformations — scroll-driven grade panels ─── */
+/* ─── Four Years &middot; Four Transformations — scroll-driven grade panels ─── */
 (function(){
   var scene   = document.getElementById('fytScene');
   if (!scene) return;
@@ -6747,7 +6747,7 @@
   var CYCLE = DWELL + TRANS; // 0.25
 
   function clamp(v,a,b){ return Math.min(Math.max(v,a),b); }
-  function mapR(v,a,b,c,d){ return b===a ? c : c+(d-c)*clamp((v-a)/(b-a),0,1); }
+  function mapR(v,a,b,c,d){ return b===a ... c : c+(d-c)*clamp((v-a)/(b-a),0,1); }
 
   /* x-position (vw) for each panel */
   function xForPanel(p, idx) {
@@ -6803,7 +6803,7 @@
     /* Label highlight — each grade owns one quarter of progress */
     var active = Math.min(Math.floor(prog * 4), 3);
     plbls.forEach(function(l, i) {
-      if (l) l.style.color = (i === active) ? ACCENTS[i] : fallback_color;
+      if (l) l.style.color = (i === active) ... ACCENTS[i] : fallback_color;
     });
 
     /* Panel slide + scale */
@@ -6971,20 +6971,20 @@
 
       // Layer 1 — outermost diffuse glow
       ctx.beginPath(); ctx.moveTo(np.x,np.y); ctx.lineTo(CX,CY);
-      ctx.strokeStyle = active ? 'rgba(0,212,180,0.20)' : 'rgba(59,130,246,0.09)';
-      ctx.lineWidth   = active ? 9 : 6;
+      ctx.strokeStyle = active ... 'rgba(0,212,180,0.20)' : 'rgba(59,130,246,0.09)';
+      ctx.lineWidth   = active ... 9 : 6;
       ctx.stroke();
 
       // Layer 2 — mid glow
       ctx.beginPath(); ctx.moveTo(np.x,np.y); ctx.lineTo(CX,CY);
-      ctx.strokeStyle = active ? 'rgba(0,212,180,0.38)' : 'rgba(100,149,255,0.14)';
-      ctx.lineWidth   = active ? 3.5 : 2;
+      ctx.strokeStyle = active ... 'rgba(0,212,180,0.38)' : 'rgba(100,149,255,0.14)';
+      ctx.lineWidth   = active ... 3.5 : 2;
       ctx.stroke();
 
       // Layer 3 — crisp bright core
       ctx.beginPath(); ctx.moveTo(np.x,np.y); ctx.lineTo(CX,CY);
-      ctx.strokeStyle = active ? 'rgba(0,220,185,0.70)' : 'rgba(150,190,255,0.24)';
-      ctx.lineWidth   = active ? 1.2 : 0.8;
+      ctx.strokeStyle = active ... 'rgba(0,220,185,0.70)' : 'rgba(150,190,255,0.24)';
+      ctx.lineWidth   = active ... 1.2 : 0.8;
       ctx.stroke();
     });
 

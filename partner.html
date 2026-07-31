@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="improvements.css" />
   <style>
     /* ═══════════════════════════════════════
-       PARTNER · Forest Green + Coral
+       PARTNER &middot; Forest Green + Coral
     ═══════════════════════════════════════ */
     :root {
       --bg:     #F0FAF6;
@@ -594,7 +594,7 @@
     <div class="ph-grid"></div>
     <div class="ph-vline"></div>
     <div class="ph-inner">
-      <div class="ph-eyebrow"><span></span>Schools · Corporates · Governments · NGOs</div>
+      <div class="ph-eyebrow"><span></span>Schools &middot; Corporates &middot; Governments &middot; NGOs</div>
       <h1 class="ph-h1">
         Build a Safer<br/>
         <em>India —</em>
@@ -619,7 +619,7 @@
     <div class="pw">
       <div class="about-grid rev">
         <div class="about-left">
-          <span class="ey ey--g">What is Hashtag Suraksha?</span>
+          <span class="ey ey--g">What is Hashtag Suraksha...</span>
           <h2 class="h2">Five verticals.<br/>One mission.</h2>
           <p class="about-desc">Hashtag Suraksha is India's national youth cyber safety movement — built across five interconnected verticals that address every dimension of the challenge, from AI-powered learning to grassroots ambassadors, national competitions, podcasting, and vernacular content.</p>
           <p class="about-desc">We reach students entirely for free. Partners make that possible — and in return get genuine reach, credibility, and a measurable stake in India's cyber-safe future.</p>
@@ -723,7 +723,7 @@
               <div class="usi-badge-text">Institutional Patron &amp; Anchor Partner</div>
             </div>
             <h2 class="usi-h2">United Service Institution of <em>India</em></h2>
-            <div class="usi-founded">Est. 1870 · New Delhi · India's Premier Tri-Service Defence Think Tank</div>
+            <div class="usi-founded">Est. 1870 &middot; New Delhi &middot; India's Premier Tri-Service Defence Think Tank</div>
           </div>
         </div>
 
@@ -916,7 +916,7 @@
   <section class="cta-sec" id="contact">
     <div class="cta-inner">
       <div class="rev">
-        <h2 class="cta-h2">Ready to build a<br/>safer India <em>together?</em></h2>
+        <h2 class="cta-h2">Ready to build a<br/>safer India <em>together...</em></h2>
         <p class="cta-p">Whether you're a school, a corporate, a government body, or a civil society organisation — there's a place for you in the Hashtag Suraksha movement.</p>
         <div class="cta-actions">
           <a href="mailto:partner@suraksha.in" class="cta-btn-main">📧 Email Us to Partner</a>
@@ -1031,7 +1031,7 @@
     /* Theme toggle */
     document.getElementById('themeToggle').addEventListener('click',function(){
       var h=document.documentElement;
-      h.setAttribute('data-theme', h.getAttribute('data-theme')==='dark'?'light':'dark');
+      h.setAttribute('data-theme', h.getAttribute('data-theme')==='dark'...'light':'dark');
     });
     /* USI accordion */
     function toggleAcc(hd) {
@@ -1044,7 +1044,7 @@
     function toggleCtaForm(btn) {
       var f = document.getElementById('ctaForm');
       var isOpen = f.classList.toggle('open');
-      btn.textContent = isOpen ? '✕ Close Form' : '✍️ Give Your Details';
+      btn.textContent = isOpen ... '✕ Close Form' : '✍️ Give Your Details';
     }
     /* CTA form submit */
     function submitCtaForm() {
@@ -1056,7 +1056,7 @@
       if (!name || !email || !org) { alert('Please fill in your name, email, and organisation.'); return; }
       var subject = 'Partnership Enquiry — ' + org;
       var body = 'Name: ' + name + '\nEmail: ' + email + '\nOrganisation: ' + org + '\nPartner Type: ' + (type || 'Not specified') + '\nMessage: ' + (msg || '—');
-      window.location.href = 'mailto:partner@suraksha.in?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      window.location.href = 'mailto:partner@suraksha.in...subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
       document.getElementById('ctaForm').classList.remove('open');
       document.getElementById('ctaThanks').classList.add('show');
     }

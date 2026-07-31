@@ -1605,8 +1605,8 @@ a:focus-visible,
 }
 
 [data-theme="dark"] .catalog-sidebar {
-  background: rgba(15, 23, 42, 0.72);
-  border-color: var(--border-2);
+  background: var(--bg-2);
+  border-color: var(--border);
 }
 
 /* Responsive */
@@ -1751,5 +1751,295 @@ a:focus-visible,
   }
   .clean-course-card:active {
     transform: scale(0.995);
+  }
+}
+
+/* === HORIZONTAL FILTER BAR REDESIGN === */
+#catalog-workspace {
+  display: block; /* Remove grid for sidebar */
+}
+
+.catalog-sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 24px;
+}
+
+[data-theme="dark"] .catalog-sticky-header {
+  background: var(--bg-dark);
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.horizontal-filters-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.pill-dropdown-wrap {
+  position: relative;
+}
+
+.pill-dropdown-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+[data-theme="dark"] .pill-dropdown-btn {
+  color: var(--text-primary-dark);
+  border-color: var(--border-dark);
+}
+
+.pill-dropdown-btn:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+[data-theme="dark"] .pill-dropdown-btn:hover {
+  background: rgba(255,255,255,0.05);
+}
+
+.pill-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  min-width: 200px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  z-index: 101;
+}
+
+[data-theme="dark"] .pill-dropdown-menu {
+  background: var(--bg-card-dark);
+  border-color: var(--border-dark);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+.pill-dropdown-wrap.open .pill-dropdown-menu {
+  display: block;
+}
+
+.pill-dropdown-wrap .pill-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+/* Override pill styles for dropdown */
+.pill-dropdown-menu .domain-chip,
+.pill-dropdown-menu .type-pill {
+  width: 100%;
+  text-align: left;
+  justify-content: flex-start;
+  border-radius: 4px;
+  padding: 8px 12px;
+}
+
+/* === GRID REDESIGN === */
+.edx-cards-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 24px;
+}
+
+@media (max-width: 1024px) {
+  .edx-cards-row {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .edx-cards-row {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  
+  .horizontal-filters-row {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 8px;
+  }
+  
+  .pill-dropdown-btn {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .edx-cards-row {
+    grid-template-columns: 1fr !important; /* Keep 1 col for very small screens, or 2 if explicitly requested. I'll do 2 per request. */
+  }
+}
+
+/* Force 2 columns on phone specifically requested */
+@media (max-width: 480px) {
+  .edx-cards-row {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* === HORIZONTAL FILTER BAR REDESIGN === */
+#catalog-workspace {
+  display: block; /* Remove grid for sidebar */
+}
+
+.catalog-sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 24px;
+}
+
+[data-theme="dark"] .catalog-sticky-header {
+  background: var(--bg-dark);
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.horizontal-filters-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.pill-dropdown-wrap {
+  position: relative;
+}
+
+.pill-dropdown-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+[data-theme="dark"] .pill-dropdown-btn {
+  color: var(--text-primary-dark);
+  border-color: var(--border-dark);
+}
+
+.pill-dropdown-btn:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+[data-theme="dark"] .pill-dropdown-btn:hover {
+  background: rgba(255,255,255,0.05);
+}
+
+.pill-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  min-width: 200px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  z-index: 101;
+}
+
+[data-theme="dark"] .pill-dropdown-menu {
+  background: var(--bg-card-dark);
+  border-color: var(--border-dark);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+.pill-dropdown-wrap.open .pill-dropdown-menu {
+  display: block;
+}
+
+.pill-dropdown-wrap .pill-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+/* Override pill styles for dropdown */
+.pill-dropdown-menu .domain-chip,
+.pill-dropdown-menu .type-pill {
+  width: 100%;
+  text-align: left;
+  justify-content: flex-start;
+  border-radius: 4px;
+  padding: 8px 12px;
+}
+
+/* === GRID REDESIGN === */
+.edx-cards-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 24px;
+}
+
+@media (max-width: 1024px) {
+  .edx-cards-row {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .edx-cards-row {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  
+  .horizontal-filters-row {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 8px;
+  }
+  
+  .pill-dropdown-btn {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .edx-cards-row {
+    grid-template-columns: 1fr !important; /* Keep 1 col for very small screens, or 2 if explicitly requested. I'll do 2 per request. */
+  }
+}
+
+/* Force 2 columns on phone specifically requested */
+@media (max-width: 480px) {
+  .edx-cards-row {
+    grid-template-columns: repeat(2, 1fr) !important;
   }
 }
