@@ -1,12 +1,12 @@
-﻿
+
 /* ======================================================
    SOURCE: style.css
    ====================================================== */
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-   HASHTAG SURAKSHA â€” GLOBAL STYLESHEET
+/* ═══════════════════════════════════════════════════
+   HASHTAG SURAKSHA — GLOBAL STYLESHEET
    Fonts: Sora (headings) + Inter (body)
    Palette: White / Saffron #FF9933 / Navy #1A3A6B / Green #138808
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+═══════════════════════════════════════════════════ */
 
 :root {
   --navy:      #1A3A6B;
@@ -60,7 +60,7 @@ img { max-width: 100%; }
 .text-navy { color: var(--navy); }
 .text-green { color: var(--green); }
 
-/* â•â•â• BUTTONS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+/* ═══ BUTTONS ═════════════════════════════════════ */
 .btn-primary {
   display: inline-block;
   background: var(--saffron);
@@ -113,7 +113,7 @@ img { max-width: 100%; }
   transform: translateY(-2px);
 }
 
-/* â•â•â• SECTION TAGS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+/* ═══ SECTION TAGS ════════════════════════════════ */
 .section-tag {
   display: inline-block;
   font-family: 'Sora', sans-serif;
@@ -146,7 +146,7 @@ img { max-width: 100%; }
   line-height: 1.7;
 }
 
-/* â•â•â• NAVBAR â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+/* ═══ NAVBAR ══════════════════════════════════════ */
 .nav {
   position: fixed;
   top: 0;
@@ -268,7 +268,7 @@ img { max-width: 100%; }
 }
 .mobile-menu.open { display: flex; }
 
-/* â•â•â• HERO â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+/* ═══ HERO ════════════════════════════════════════ */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -417,7 +417,7 @@ img { max-width: 100%; }
   50% { transform: rotate(45deg) translateY(6px); }
 }
 
-/* â•â•â• STATS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+/* ═══ STATS ═══════════════════════════════════════ */
 .stats-section {
   background: var(--navy);
   padding: 0;
@@ -489,7 +489,7 @@ img { max-width: 100%; }
   50% { opacity: 0.5; transform: scale(1.4); }
 }
 
-/* â•â•â• MOVEMENT â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+/* ═══ MOVEMENT ════════════════════════════════════ */
 .movement-section {
   padding: 100px 0;
   background: var(--white);
@@ -552,7 +552,7 @@ img { max-width: 100%; }
   line-height: 1.5;
 }
 
-/* â”€â”€â”€ INSTITUTIONAL TRUST STRIP â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ─── INSTITUTIONAL TRUST STRIP ─────────────────────── */
 .trust-strip {
   background: var(--white);
   border-top: 1px solid var(--gray-200);
@@ -627,7 +627,7 @@ img { max-width: 100%; }
 }
 .cert-desc { font-size: 14px; color: var(--gray-500); line-height: 1.7; }
 
-/* â•â•â• ECOSYSTEM â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+/* ═══ ECOSYSTEM ═══════════════════════════════════ */
 .ecosystem-section {
   padding: 100px 0;
   background: var(--off-white);
@@ -711,7 +711,7 @@ img { max-width: 100%; }
   font-size: 18px;
 }
 
-/* â•â•â• PLATFORM TEASER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+/* ═══ PLATFORM TEASER ════════════════════════════ */
 .platform-teaser {
   padding: 100px 0;
   background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
@@ -850,7 +850,7 @@ img { max-width: 100%; }
   50% { transform: translateY(-4px); opacity: 1; }
 }
 
-/* â•â•â• SCHOOLS TEASER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+/* ═══ SCHOOLS TEASER ══════════════════════════════ */
 .schools-teaser {
   padding: 100px 0;
   background: var(--white);
@@ -940,7 +940,7 @@ img { max-width: 100%; }
   letter-spacing: 0.5px;
 }
 
-/* â•â•â• SURAKSHAK TEASER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+/* ═══ SURAKSHAK TEASER ════════════════════════════ */
 .surakshak-teaser {
   padding: 100px 0;
   background: linear-gradient(135deg, #0a1628 0%, var(--navy-dark) 100%);
@@ -1012,7 +1012,7 @@ img { max-width: 100%; }
   to { opacity: 1; transform: translateX(0); }
 }
 
-/* â•â•â• PARENTS SECTION â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+/* ═══ PARENTS SECTION ════════════════════════════ */
 .parents-section {
   padding: 100px 0;
   background: var(--off-white);
@@ -1089,7 +1089,7 @@ img { max-width: 100%; }
   50% { transform: translateY(-10px); }
 }
 
-/* â•â•â• PARTNERS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+/* ═══ PARTNERS ════════════════════════════════════ */
 .partners-section {
   padding: 80px 0;
   background: white;
@@ -1127,7 +1127,7 @@ img { max-width: 100%; }
 }
 .partner-cta p { color: var(--gray-500); margin-bottom: 16px; font-size: 16px; }
 
-/* â•â•â• FOOTER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+/* ═══ FOOTER ══════════════════════════════════════ */
 .footer {
   background: var(--navy-dark);
   color: white;
@@ -1193,8 +1193,8 @@ img { max-width: 100%; }
 }
 .footer-bottom p { color: rgba(255,255,255,0.3); font-size: 13px; }
 
-/* â•â•â• RESPONSIVE â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
-@media (max-width: 768px) {
+/* ═══ RESPONSIVE ══════════════════════════════════ */
+@media (max-width: 900px) {
   .nav-links, .nav-cta { display: none; }
   .hamburger { display: block; }
   .movement-grid, .platform-teaser-grid, .parents-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -1277,7 +1277,7 @@ img { max-width: 100%; }
   --border-hover:    rgba(29,78,216,0.4);
 }
 
-/* â”€â”€ BASE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── BASE ────────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
@@ -1321,7 +1321,7 @@ img { max-width: 100%; }
 
 .center { text-align: center; }
 
-/* â”€â”€ CURSOR GLOW (global) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── CURSOR GLOW (global) ────────────────────────────────────── */
 .cursor-glow {
   position: fixed;
   width: 380px;
@@ -1340,7 +1340,7 @@ img { max-width: 100%; }
   mix-blend-mode: multiply;
 }
 
-/* â”€â”€ THEME TOGGLE BUTTON â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── THEME TOGGLE BUTTON ─────────────────────────────────────── */
 .theme-toggle-btn,
 [data-theme="dark"] .theme-toggle-btn {
   background: rgba(0, 0, 0, 0.06) !important;
@@ -1371,7 +1371,7 @@ img { max-width: 100%; }
 [data-theme="light"] .icon-sun  { display: none; }
 [data-theme="light"] .icon-moon { display: block; }
 
-/* â”€â”€ NAV â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── NAV ─────────────────────────────────────────────────────── */
 .nav {
   position: fixed !important;
   top: 0 !important; left: 0 !important; right: 0 !important;
@@ -1568,7 +1568,7 @@ img { max-width: 100%; }
 [data-theme="light"] .mobile-theme-toggle .icon-sun  { display: none; }
 [data-theme="light"] .mobile-theme-toggle .icon-moon { display: block; }
 
-/* â”€â”€ FOOTER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── FOOTER ──────────────────────────────────────────────────── */
 .footer {
   background: var(--bg) !important;
   padding: 72px 0 0 !important;
@@ -1657,7 +1657,7 @@ img { max-width: 100%; }
   color: var(--text-secondary) !important;
 }
 
-/* â”€â”€ BUTTONS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── BUTTONS ─────────────────────────────────────────────────── */
 .btn-primary {
   display: inline-flex !important;
   align-items: center;
@@ -1718,7 +1718,7 @@ img { max-width: 100%; }
   transform: translateY(-2px) !important;
 }
 
-/* â”€â”€ SECTION UTILITIES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── SECTION UTILITIES ───────────────────────────────────────── */
 .section-tag {
   display: inline-block;
   font-family: var(--font-ui) !important;
@@ -1750,7 +1750,7 @@ img { max-width: 100%; }
   line-height: 1.7;
 }
 
-/* â”€â”€ GLASS CARD UTILITY â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── GLASS CARD UTILITY ──────────────────────────────────────── */
 .glass-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -1764,7 +1764,7 @@ img { max-width: 100%; }
   background: var(--bg-card-hover);
 }
 
-/* â”€â”€ PAGE HERO (inner pages) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── PAGE HERO (inner pages) ─────────────────────────────────── */
 .page-hero {
   position: relative;
   padding: 140px 0 80px;
@@ -1856,7 +1856,7 @@ img { max-width: 100%; }
   background-clip: text;
 }
 
-/* â”€â”€ SCROLL REVEAL (global) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── SCROLL REVEAL (global) ──────────────────────────────────── */
 .reveal {
   opacity: 0;
   transform: translateY(22px);
@@ -1867,10 +1867,10 @@ img { max-width: 100%; }
   transform: translateY(0);
 }
 
-/* â”€â”€ MAGNETIC BUTTON (global utility) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── MAGNETIC BUTTON (global utility) ───────────────────────── */
 .magnetic-btn { position: relative; }
 
-/* â”€â”€ SECTION SHARED STYLES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── SECTION SHARED STYLES ───────────────────────────────────── */
 .section-dark  { background: var(--bg); }
 .section-light { background: var(--bg-surface); }
 
@@ -1885,7 +1885,7 @@ img { max-width: 100%; }
   margin: 0;
 }
 
-/* â”€â”€ TRUST STRIP (reusable) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── TRUST STRIP (reusable) ──────────────────────────────────── */
 .trust-strip {
   background: var(--bg) !important;
   padding: 24px 0 !important;
@@ -1941,7 +1941,7 @@ img { max-width: 100%; }
 
 .trust-divider-v { width: 1px; height: 32px; background: var(--border); }
 
-/* â”€â”€ LIVE BADGE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── LIVE BADGE ──────────────────────────────────────────────── */
 .live-badge {
   display: flex;
   align-items: center;
@@ -1969,7 +1969,7 @@ img { max-width: 100%; }
   50%      { box-shadow: 0 0 0 6px rgba(34,197,94,0.1); }
 }
 
-/* â”€â”€ STATS BAR (reusable) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── STATS BAR (reusable) ────────────────────────────────────── */
 .stats-section { background: var(--bg-surface) !important; border-top: 1px solid var(--border) !important; border-bottom: 1px solid var(--border) !important; padding: 0 !important; }
 .stats-bar { display: flex; align-items: center; justify-content: center; padding: 32px 40px; gap: 0; flex-wrap: wrap; }
 .stat-item { text-align: center; padding: 0 44px; }
@@ -1978,7 +1978,7 @@ img { max-width: 100%; }
 .stat-label { display: block !important; font-family: var(--font-ui) !important; font-size: 11px !important; font-weight: 500 !important; letter-spacing: 2px !important; text-transform: uppercase !important; color: var(--text-secondary) !important; margin-top: 6px; }
 .stat-divider { width: 1px; height: 56px; background: var(--border); }
 
-/* â”€â”€ HERO SCROLL HINT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── HERO SCROLL HINT ────────────────────────────────────────── */
 .hero-scroll-hint {
   position: absolute;
   bottom: 32px; left: 50%;
@@ -2009,7 +2009,7 @@ img { max-width: 100%; }
   50%      { transform: rotate(45deg) translateY(5px); opacity: 1; }
 }
 
-/* â”€â”€ GLASSMORPHISM CARD â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── GLASSMORPHISM CARD ──────────────────────────────────────── */
 .gcard {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -2025,7 +2025,7 @@ img { max-width: 100%; }
   transform: translateY(-4px);
 }
 
-/* â”€â”€ FEATURE BADGE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── FEATURE BADGE ───────────────────────────────────────────── */
 .feature-badge {
   display: inline-flex;
   align-items: center;
@@ -2041,7 +2041,7 @@ img { max-width: 100%; }
   backdrop-filter: var(--glass-blur);
 }
 
-/* â”€â”€ GLOW LINE SEPARATOR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── GLOW LINE SEPARATOR ─────────────────────────────────────── */
 .glow-line {
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--accent-saffron), transparent);
@@ -2049,7 +2049,7 @@ img { max-width: 100%; }
   margin: 0;
 }
 
-/* â”€â”€ LIGHT MODE: BROAD SECTION OVERRIDE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── LIGHT MODE: BROAD SECTION OVERRIDE ─────────────────────── */
 /* Catches old inline-style sections that use var(--navy-dark) / var(--off-white) */
 [data-theme="light"] .section-title { color: #0D1422 !important; }
 [data-theme="light"] .section-sub { color: rgba(13,20,34,0.65) !important; }
@@ -2103,12 +2103,12 @@ img { max-width: 100%; }
 /* ======================================================
    SOURCE: home.css
    ====================================================== */
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-   HASHTAG SURAKSHA â€” HOME PAGE STYLES
+/* ═══════════════════════════════════════════════════════════════
+   HASHTAG SURAKSHA — HOME PAGE STYLES
    Design system: Plus Jakarta Sans | Blue/Cyan/Amber palette
-   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+   ═══════════════════════════════════════════════════════════════ */
 
-/* â”€â”€ SHARED UTILITIES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── SHARED UTILITIES ─────────────────────────────────────────── */
 .center { text-align: center; }
 
 .section-tag {
@@ -2206,7 +2206,7 @@ img { max-width: 100%; }
   color: var(--text-primary) !important;
 }
 
-/* â”€â”€ NAV â€” ALWAYS WHITE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── NAV — ALWAYS WHITE ───────────────────────────────────────── */
 .nav,
 [data-theme="dark"] .nav,
 [data-theme="light"] .nav {
@@ -2362,7 +2362,7 @@ img { max-width: 100%; }
 
 .mobile-menu.open { display: flex; }
 
-/* â”€â”€ SHOW MORE / COLLAPSE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── SHOW MORE / COLLAPSE ─────────────────────────────────────── */
 .show-more-block {
   max-height: 0;
   overflow: hidden;
@@ -2395,7 +2395,7 @@ img { max-width: 100%; }
 
 .show-more-btn:hover { opacity: 0.75; }
 
-/* â”€â”€ REVEAL ANIMATION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── REVEAL ANIMATION ─────────────────────────────────────────── */
 .reveal-card {
   opacity: 0;
   transform: translateY(24px);
@@ -2407,7 +2407,7 @@ img { max-width: 100%; }
   transform: none;
 }
 
-/* â”€â”€ THEME CHOOSER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── THEME CHOOSER ────────────────────────────────────────────── */
 .theme-chooser {
   position: fixed;
   inset: 0;
@@ -2487,12 +2487,12 @@ img { max-width: 100%; }
 .dark-preview { background: #101415; border: 1px solid #2c3338; }
 .light-preview { background: #F8FAFC; border: 1px solid #E2E8F0; }
 
-/* â”€â”€ FONT OVERRIDE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── FONT OVERRIDE ────────────────────────────────────────────── */
 body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
 }
 
-/* â”€â”€ HERO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── HERO ─────────────────────────────────────────────────────── */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -2684,7 +2684,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   background: rgba(107,143,255,0.1);
 }
 
-/* RIGHT column â€” map circle */
+/* RIGHT column — map circle */
 .hero-map-col {
   display: flex;
   align-items: center;
@@ -2764,17 +2764,16 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   50%       { box-shadow: 0 0 0 5px rgba(0, 122, 255, 0); opacity: 0.75; }
 }
 
-/* â”€â”€ CARD TOP ROW (icon badge left, logo right) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── CARD TOP ROW (icon badge left, logo right) ───────────────── */
 .card-top-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 14px;
-
 }
 .card-top-row .card-icon-badge { margin-bottom: 0; }
 
-/* â”€â”€ CARD ICON BADGES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── CARD ICON BADGES ─────────────────────────────────────────── */
 .card-icon-badge {
   width: 40px;
   height: 40px;
@@ -2800,12 +2799,12 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 [data-theme="light"] .podcast-badge   { background: rgba(219, 39, 119, 0.10); color: #DB2777; }
 [data-theme="light"] .slanglish-badge { background: rgba(5, 150, 105, 0.10); color: #059669; }
 
-/* â”€â”€ VERTICAL CARD HOVER LIFT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── VERTICAL CARD HOVER LIFT ─────────────────────────────────── */
 .vertical-card:hover {
   transform: translateY(-6px);
 }
 
-/* â”€â”€ AUDIENCE CARDS HOVER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── AUDIENCE CARDS HOVER ────────────────────────────────────── */
 .audience-card:hover {
   box-shadow: 0 6px 28px rgba(0, 122, 255, 0.28);
   border-color: rgba(0,122,255,0.35);
@@ -2815,9 +2814,9 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   box-shadow: 0 6px 24px rgba(0, 122, 255, 0.18);
 }
 
-/* â”€â”€ SURAKSHAK LIVE FEED â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── SURAKSHAK LIVE FEED ─────────────────────────────────────── */
 .live-feed-card {
-  /* No height override â€” inherits 112px from .card-interactive */
+  /* No height override — inherits 112px from .card-interactive */
   padding: 10px 12px !important;
   justify-content: flex-start !important;
 }
@@ -2874,7 +2873,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 .lf-item em     { color: #22D3EE; font-style: normal; font-weight: 600; }
 [data-theme="light"] .lf-item em { color: #0891B2; }
 
-/* â”€â”€ PODCAST MYTH + YT LAYOUT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── PODCAST MYTH + YT LAYOUT ────────────────────────────────── */
 .podcast-preview-wrap {
   display: flex;
   gap: 10px;
@@ -2973,7 +2972,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   color: var(--text-secondary);
 }
 
-/* â”€â”€ WHATS INSIDE CASK â€” ANIMATED TICKER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── WHATS INSIDE CASK — ANIMATED TICKER ─────────────────────── */
 .wic-showcase { margin-top: 20px; }
 
 .wic-label {
@@ -3024,7 +3023,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 .wic-chip.practice-chip { background: rgba(5,150,105,0.09);  border-color: rgba(5,150,105,0.33);  color: #34d399; }
 .wic-chip.media-chip    { background: rgba(236,72,153,0.09); border-color: rgba(236,72,153,0.33); color: #f472b6; }
 
-/* â”€â”€ CASK MIND MAP â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── CASK MIND MAP ────────────────────────────────────────────── */
 .cask-mindmap {
   margin-top: 60px;
   padding-top: 40px;
@@ -3196,7 +3195,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 [data-theme="light"] .wic-chip.practice-chip { background: rgba(5,150,105,0.07);  color: #047857; }
 [data-theme="light"] .wic-chip.media-chip    { background: rgba(236,72,153,0.07); color: #be185d; }
 
-/* â”€â”€ CASK INLINE CHATBOT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── CASK INLINE CHATBOT ─────────────────────────────────────── */
 .cask-chatbot {
   background: var(--bg-surface);
   border: 1px solid rgba(0, 122, 255, 0.25);
@@ -3388,7 +3387,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   30% { transform: translateY(-5px); opacity: 1; }
 }
 
-/* â”€â”€ GENERAL CARD BOX SHADOWS â€” always visible, not just on hover â”€â”€ */
+/* ── GENERAL CARD BOX SHADOWS — always visible, not just on hover ── */
 
 /* Vertical cards: solid colored border + hard offset depth (no glow) */
 .vertical-card.cask-card {
@@ -3412,7 +3411,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   box-shadow: 4px 4px 0 rgba(52, 211, 153, 0.22);
 }
 
-/* Stronger on hover â€” deeper offset */
+/* Stronger on hover — deeper offset */
 .vertical-card.cask-card:hover {
   border-color: rgba(0, 122, 255, 0.80);
   box-shadow: 6px 6px 0 rgba(0, 122, 255, 0.30);
@@ -3439,7 +3438,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   transform: translate(-2px, -2px);
 }
 
-/* Light mode â€” same approach, darker saturated hues for contrast on white */
+/* Light mode — same approach, darker saturated hues for contrast on white */
 [data-theme="light"] .vertical-card.cask-card {
   border: 2px solid rgba(29, 78, 216, 0.55);
   box-shadow: 4px 4px 0 rgba(29, 78, 216, 0.20);
@@ -3461,7 +3460,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   box-shadow: 4px 4px 0 rgba(4, 120, 87, 0.20);
 }
 
-/* Audience cards â€” solid blue border + hard offset */
+/* Audience cards — solid blue border + hard offset */
 .audience-card {
   border: 1.5px solid rgba(0, 122, 255, 0.40);
   box-shadow: 3px 3px 0 rgba(0, 122, 255, 0.16);
@@ -3501,7 +3500,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 [data-theme="light"] .how-card      { box-shadow: 0 2px 12px rgba(0, 122, 255, 0.09); }
 [data-theme="light"] .journey-level { box-shadow: 0 2px 12px rgba(0, 122, 255, 0.09); }
 
-/* â”€â”€ LIVE FEED SCROLL ANIMATION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── LIVE FEED SCROLL ANIMATION ──────────────────────────────── */
 @keyframes feedScrollUp {
   0%   { transform: translateY(0); }
   100% { transform: translateY(-20%); }
@@ -3514,7 +3513,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   z-index: 1;
 }
 
-/* â”€â”€ PREMIUM HERO MAP CARD â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── PREMIUM HERO MAP CARD ─────────────────────────────────────── */
 @keyframes radarPing {
   0%   { r: 6;  opacity: 0.85; }
   60%  { r: 20; opacity: 0.2; }
@@ -3619,7 +3618,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 .cp2-4 { animation: radarPing2 2.8s ease-out infinite; animation-delay: 2.5s; }
 .cp2-5 { animation: radarPing2 2.8s ease-out infinite; animation-delay: 0.75s; }
 
-/* â”€â”€ VERTICALS SECTION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── VERTICALS SECTION ────────────────────────────────────────── */
 .verticals-section {
   padding: 100px 0;
   background: var(--bg-surface) !important;
@@ -3724,16 +3723,16 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   transform: translateX(4px);
 }
 
-/* â”€â”€ MOVEMENT / ABOUT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── MOVEMENT / ABOUT ─────────────────────────────────────────── */
 .movement-section {
   padding: 56px 0;
   background: var(--bg) !important;
 }
 
-/* â”€â”€ 2Ã—2 grid: each row pair naturally shares the same height â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-   Row 1: [text-top | CERT-In card]   â†’ tops align, heights match
-   Row 2: [bahl-quote | Cyber Buddha] â†’ tops align, bottoms align
-   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── 2×2 grid: each row pair naturally shares the same height ───────────
+   Row 1: [text-top | CERT-In card]   → tops align, heights match
+   Row 2: [bahl-quote | Cyber Buddha] → tops align, bottoms align
+   ─────────────────────────────────────────────────────────────────────── */
 .movement-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -3750,7 +3749,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   justify-content: flex-start;
 }
 
-/* Legacy selectors â€” kept for safety but no longer used in the grid */
+/* Legacy selectors — kept for safety but no longer used in the grid */
 .movement-text { display: flex; flex-direction: column; }
 .movement-text .bahl-quote { margin-top: auto; }
 .movement-visual { display: grid; grid-template-rows: 1fr 1fr; gap: 20px; align-self: stretch; }
@@ -3772,7 +3771,6 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   color: var(--text-secondary);
   line-height: 1.75;
   margin-bottom: 14px;
-
 }
 
 .bahl-quote {
@@ -3942,7 +3940,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   margin-bottom: 8px;
 }
 
-/* â”€â”€ CASK SECTION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── CASK SECTION ─────────────────────────────────────────────── */
 .cask-section {
   padding: 100px 0 60px;
   background: var(--bg-surface) !important;
@@ -4047,7 +4045,6 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   font-size: 12px;
   color: var(--text-secondary) !important;
   margin-bottom: 14px;
-
 }
 
 .tier-list {
@@ -4142,7 +4139,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   margin: 0;
 }
 
-/* â”€â”€ SURAKSHAK SECTION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── SURAKSHAK SECTION ────────────────────────────────────────── */
 .surakshak-section {
   padding: 100px 0;
   background: var(--bg) !important;
@@ -4221,7 +4218,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   flex-shrink: 0;
 }
 
-/* â”€â”€ PHISH AND CHIP SECTION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── PHISH AND CHIP SECTION ───────────────────────────────────── */
 .podcast-section {
   padding: 100px 0;
   background: var(--bg-surface) !important;
@@ -4352,7 +4349,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   font-style: italic;
 }
 
-/* â”€â”€ SLANGLISH SECTION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── SLANGLISH SECTION ────────────────────────────────────────── */
 .slanglish-section {
   padding: 100px 0;
   background: var(--bg) !important;
@@ -4443,7 +4440,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   margin: 0;
 }
 
-/* â”€â”€ PARTNER CTA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── PARTNER CTA ──────────────────────────────────────────────── */
 .partner-section {
   padding: 100px 0;
   background: var(--bg-surface) !important;
@@ -4495,7 +4492,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   border-color: var(--primary);
 }
 
-/* â”€â”€ FOOTER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── FOOTER ───────────────────────────────────────────────────── */
 .footer {
   background: var(--bg) !important;
   border-top: 1px solid var(--border);
@@ -4509,7 +4506,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   padding-bottom: 48px;
 }
 
-/* footer logo â€” now lives inside white circle, controlled by .footer-logo-img at line 3146+ */
+/* footer logo — now lives inside white circle, controlled by .footer-logo-img at line 3146+ */
 
 .footer-brand > p {
   font-size: 14px;
@@ -4550,7 +4547,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 
 .footer-links-group {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 32px;
 }
 
@@ -4595,7 +4592,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   margin: 0;
 }
 
-/* â”€â”€ CURSOR GLOW â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── CURSOR GLOW ──────────────────────────────────────────────── */
 .cursor-glow {
   position: fixed;
   width: 400px;
@@ -4614,7 +4611,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   mix-blend-mode: multiply;
 }
 
-/* â”€â”€ INTERACTIVE CARD ELEMENTS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── INTERACTIVE CARD ELEMENTS ───────────────────────────────── */
 .card-interactive {
   background: var(--bg-surface);
   border: 1px solid var(--border);
@@ -4622,14 +4619,14 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   padding: 12px 14px;
   margin: 8px 0;
   overflow: hidden;
-  /* Shared fixed height â€” CASK, Surakshak, Olympiad all equal */
+  /* Shared fixed height — CASK, Surakshak, Olympiad all equal */
   height: 112px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-/* Podcast and Slanglish â€” same fixed height so boxes always match */
+/* Podcast and Slanglish — same fixed height so boxes always match */
 .podcast-card-interactive,
 .slanglish-card-interactive {
   height: 165px;
@@ -4638,7 +4635,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   overflow: hidden;
 }
 
-/* CASK â€” mini chat */
+/* CASK — mini chat */
 .mini-chat-wrap { display: flex; flex-direction: column; gap: 6px; }
 
 .mini-chat-msg {
@@ -4667,7 +4664,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   overflow: hidden;
 }
 
-/* Surakshak â€” rank progress */
+/* Surakshak — rank progress */
 .rank-row {
   display: flex;
   align-items: center;
@@ -4710,7 +4707,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   transition: width 1s ease;
 }
 
-/* Olympiad â€” live stats */
+/* Olympiad — live stats */
 .live-stats-row {
   display: flex;
   align-items: center;
@@ -4740,7 +4737,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   background: var(--border);
 }
 
-/* Phish & Chip â€” mini player */
+/* Phish & Chip — mini player */
 .mini-player-row {
   display: flex;
   align-items: center;
@@ -4808,7 +4805,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   flex-shrink: 0;
 }
 
-/* Slanglish â€” word cycling */
+/* Slanglish — word cycling */
 .word-cycle { position: relative; }
 
 .cycle-word {
@@ -4847,19 +4844,19 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   font-style: italic;
 }
 
-/* â”€â”€ CASK UNIFIED TIER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── CASK UNIFIED TIER ────────────────────────────────────────── */
 /* padding-top aligns the chatbot with the h2 heading in the left column */
-/* section-tag ~28px + margin ~16px + h2 line ~14px â‰ˆ 58px */
+/* section-tag ~28px + margin ~16px + h2 line ~14px ≈ 58px */
 .cask-resources { width: 100%; padding-top: 58px; }
 
-/* â”€â”€ LOGO DARK/LIGHT TOGGLE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── LOGO DARK/LIGHT TOGGLE ───────────────────────────────────── */
 /* Default = dark theme */
 .logo-dark { display: block; }
 .logo-light { display: none; }
 [data-theme="light"] .logo-dark { display: none; }
 [data-theme="light"] .logo-light { display: block; }
 
-/* â”€â”€ CASK VERTICAL CARD â€” split layout with logo â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── CASK VERTICAL CARD — split layout with logo ─────────────── */
 .cask-card-split {
   display: flex;
   align-items: center;
@@ -4888,7 +4885,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   display: block;
 }
 
-/* â”€â”€ SLANGLISH VERTICAL CARD â€” logo in top row â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── SLANGLISH VERTICAL CARD — logo in top row ───────────────── */
 .slang-vcard-logo {
   width: 44px;
   height: 44px;
@@ -4898,7 +4895,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   display: block;
 }
 
-/* â”€â”€ Logo dark/light toggle â€” combined class specificity beats display:block â”€â”€ */
+/* ── Logo dark/light toggle — combined class specificity beats display:block ── */
 /* Dark mode (default): hide all light-version logos in card-top-row */
 .cask-vcard-logo.logo-light,
 .slang-vcard-logo.logo-light { display: none !important; }
@@ -4908,7 +4905,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 [data-theme="light"] .cask-vcard-logo.logo-light,
 [data-theme="light"] .slang-vcard-logo.logo-light { display: block !important; }
 
-/* â”€â”€ CASK SECTION â€” logo+label horizontal row â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── CASK SECTION — logo+label horizontal row ─────────────────── */
 .cask-section-logo-wrap { margin-bottom: 16px; }
 .cask-logo-label-row {
   display: flex;
@@ -4933,7 +4930,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   color: var(--text-primary);
 }
 
-/* â”€â”€ SLANGLISH SECTION â€” logo + title horizontal row â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── SLANGLISH SECTION — logo + title horizontal row ─────────── */
 .slang-section-logo-wrap { margin-bottom: 12px; }
 .slang-logo-title-row {
   display: flex;
@@ -4998,7 +4995,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   flex-shrink: 0;
 }
 
-/* â”€â”€ SURAKSHAK UNLOCK JOURNEY â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── SURAKSHAK UNLOCK JOURNEY ─────────────────────────────────── */
 .journey-path {
   display: flex;
   align-items: flex-start;
@@ -5095,7 +5092,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   flex-shrink: 0;
 }
 
-/* â”€â”€ SURAKSHAK LIVE PANEL (journey section) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── SURAKSHAK LIVE PANEL (journey section) ────────────────────── */
 .surakshak-live-panel {
   max-width: 640px;
   margin: 36px auto 28px;
@@ -5174,7 +5171,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   text-align: center;
 }
 
-/* â”€â”€ OLYMPIAD QUIZ â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── OLYMPIAD QUIZ ─────────────────────────────────────────────── */
 .olympiad-quiz-section {
   padding: 100px 0;
   background: var(--bg) !important;
@@ -5182,9 +5179,9 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 
 .quiz-wrapper { max-width: 640px; margin: 0 auto; }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-   NCO â€” National Cyber Olympiad Section
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+/* ═══════════════════════════════════════════════════
+   NCO — National Cyber Olympiad Section
+═══════════════════════════════════════════════════ */
 .nco-section {
   background: #060810;
   padding: 48px 0 60px;
@@ -5219,7 +5216,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   margin: 0 auto;
 }
 
-/* â”€â”€ Path (left) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Path (left) ─────────────────────────────────── */
 .nco-path-wrap {
   position: relative;
   padding-left: 0;
@@ -5328,7 +5325,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 }
 .nco-card:hover .nco-card-chevron { transform: rotate(90deg); }
 
-/* Expandable body â€” opens on hover */
+/* Expandable body — opens on hover */
 .nco-card-body {
   max-height: 0;
   overflow: hidden;
@@ -5382,7 +5379,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   padding-left: 66px;
 }
 
-/* â”€â”€ Shield + Quiz (right) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Shield + Quiz (right) ───────────────────────── */
 .nco-right-col {
   display: flex;
   flex-direction: column;
@@ -5462,7 +5459,6 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   color: var(--text-primary);
   line-height: 1.5;
   margin-bottom: 14px;
-
 }
 .nco-quiz-opts { display: flex; flex-direction: column; gap: 8px; }
 
@@ -5636,7 +5632,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   line-height: 1.6;
 }
 
-/* â”€â”€ ABOUT MOVEMENT â€” PARTNER CARD NEW STRUCTURES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── ABOUT MOVEMENT — PARTNER CARD NEW STRUCTURES ──────────────── */
 /* Card v2: white header band + dark body; fills grid row height */
 .pc-v2 { padding: 0; overflow: hidden; display: flex; flex-direction: column; height: 100%; box-sizing: border-box; }
 .pc-v2 .pc-body-content { flex: 1; }
@@ -5668,7 +5664,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 /* reuse pc-split-tag inside pc-body-content */
 .pc-v2 .pc-body-content .pc-split-tag { margin-bottom: 8px; }
 
-/* Bahl quote â€” white header band matching pc-header-band style */
+/* Bahl quote — white header band matching pc-header-band style */
 .bahl-quote {
   margin-top: 0 !important;
   padding: 0 !important;
@@ -5773,7 +5769,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   margin-bottom: 10px;
 }
 
-/* â”€â”€ FOOTER BRAND LOGO CIRCLE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── FOOTER BRAND LOGO CIRCLE ───────────────────────────────────── */
 .footer-logo-circle-link { display: inline-block; margin-bottom: 16px; }
 .footer-logo-circle {
   width: 72px;
@@ -5803,9 +5799,9 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   padding: 4px 8px;
 }
 
-/* â”€â”€ PHISH & CHIP SHOW â€” PHISH BOWL GAME (CYBER BLUE) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── PHISH & CHIP SHOW — PHISH BOWL GAME (CYBER BLUE) ───────────── */
 
-/* â”€â”€ CSS vars for theming â”€â”€ */
+/* ── CSS vars for theming ── */
 .pnc-section {
   --pb-bg:       #060d18;
   --pb-surface:  #0b1929;
@@ -5838,7 +5834,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   box-sizing: border-box;
 }
 
-/* â”€â”€ Shader canvas â€” animated data-stream background â”€â”€ */
+/* ── Shader canvas — animated data-stream background ── */
 #pbShaderCanvas {
   position: absolute;
   inset: 0;
@@ -5920,9 +5916,9 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   align-items: start;
 }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+/* ══════════════════════════════════════════
    FEATURED EPISODE CARD (left)
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+══════════════════════════════════════════ */
 .pb-feature-col { display: flex; flex-direction: column; gap: 12px; }
 .pb-feat-badge {
   display: inline-flex; align-items: center; gap: 6px;
@@ -5931,7 +5927,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   font-size: 10px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
   align-self: flex-start;
 }
-/* Badge as overlay inside the thumbnail â€” doesn't affect column height */
+/* Badge as overlay inside the thumbnail — doesn't affect column height */
 .pb-feat-badge-overlay {
   position: absolute;
   top: 12px;
@@ -5979,7 +5975,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.75);
   background: rgba(0,0,0,0.55); padding: 3px 8px; border-radius: 5px;
 }
-/* â”€â”€ Now-bar below the video card (matches phishnchip.html style) â”€â”€ */
+/* ── Now-bar below the video card (matches phishnchip.html style) ── */
 .pb-now-bar {
   display: flex; align-items: center; gap: 10px;
   flex-shrink: 0;
@@ -6009,9 +6005,9 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 }
 [data-theme="light"] .pb-now-tag { color: rgba(0,0,0,0.35); }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+/* ══════════════════════════════════════════
    CARNIVAL ROLLING STRIP (right)
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+══════════════════════════════════════════ */
 .pb-carnival {
   display: flex; flex-direction: column;
   background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);
@@ -6077,9 +6073,9 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   .pb-carnival { height: 320px; }
 }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+/* ══════════════════════════════════════════
    GAME PANEL (left)
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+══════════════════════════════════════════ */
 .pb-game-panel {
   background: var(--pb-surface);
   border: 1px solid rgba(0,200,255,0.32);
@@ -6186,7 +6182,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 [data-theme="light"] .pb-heart { color: rgba(0,0,0,0.08); }
 .pb-heart.pb-heart-on { color: #ff3366; text-shadow: 0 0 8px rgba(255,51,102,0.6); }
 
-/* â”€â”€ Radar wrap â”€â”€ */
+/* ── Radar wrap ── */
 .pb-radar-wrap {
   position: relative;
   padding: 22px 22px 14px;
@@ -6216,7 +6212,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   50%      { transform: translateY(-8px); }
 }
 
-/* â”€â”€ The radar itself â”€â”€ */
+/* ── The radar itself ── */
 .pb-radar {
   position: relative;
   width: 280px;
@@ -6247,7 +6243,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 .pb-ch-h { width:100%; height:1px; }
 .pb-ch-v { width:1px; height:100%; }
 
-/* â”€â”€ SCAN BEAM â€” rotating radar sweep â”€â”€ */
+/* ── SCAN BEAM — rotating radar sweep ── */
 .pb-scan-beam {
   position: absolute;
   width: 50%;
@@ -6457,9 +6453,9 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   box-shadow: 0 0 6px rgba(0,200,255,0.4);
 }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+/* ══════════════════════════════════════════
    DASHBOARD (right)
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+══════════════════════════════════════════ */
 .pb-dashboard { display:flex; flex-direction:column; gap:14px; }
 
 /* Masterclass card */
@@ -6577,7 +6573,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   .pb-stats-row, .pb-history-card { flex: 1 1 200px; }
 }
 
-/* â”€â”€ SLANGLISH â€” WORD DECODER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── SLANGLISH — WORD DECODER ──────────────────────────────────── */
 .slanglish-flip-section {
   padding: 100px 0;
   background: #0d0519 !important;
@@ -6613,7 +6609,6 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   letter-spacing: 2px;
   color: rgba(167,139,250,0.65);
   margin-bottom: 14px;
-
 }
 
 .slang-word-btns {
@@ -6792,8 +6787,8 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 [data-theme="light"] .slang-usp-label  { color: rgba(109,40,217,0.55); }
 [data-theme="light"] .slang-usp-strip  { border-color: rgba(124,58,237,0.14); }
 
-/* â”€â”€ CASK CHATBOT FULL COLUMN â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-/* â”€â”€ CASK SHOWCASE (replaces chatbot) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── CASK CHATBOT FULL COLUMN ──────────────────────────────────── */
+/* ── CASK SHOWCASE (replaces chatbot) ─────────────────────────── */
 .cask-showcase {
   background: var(--card-bg, #fff);
   border: 1px solid var(--border, rgba(0,0,0,0.08));
@@ -6931,7 +6926,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   max-height: 380px;
 }
 
-/* â”€â”€ CASK CHATBOT SUGGESTION CHIPS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── CASK CHATBOT SUGGESTION CHIPS ────────────────────────────── */
 .cask-suggest-chips {
   display: flex;
   flex-wrap: wrap;
@@ -6960,7 +6955,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   transform: translateY(-1px);
 }
 
-/* â”€â”€ CASK ROLE CARDS (replaces spoke map) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── CASK ROLE CARDS (replaces spoke map) ─────────────────────── */
 .cask-role-section {
   margin-top: 56px;
   padding-top: 48px;
@@ -7100,7 +7095,6 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 14px;
-
   padding-bottom: 10px;
   border-bottom: 1px solid var(--border);
 }
@@ -7207,7 +7201,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   .csm-rcontent { padding: 20px; }
 }
 
-/* â”€â”€ CASK SPOKE MIND MAP â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── CASK SPOKE MIND MAP ───────────────────────────────────────── */
 .cask-spoke-map {
   margin-top: 60px;
   padding-top: 40px;
@@ -7466,7 +7460,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   padding-top: 1px;
 }
 
-/* â”€â”€ SLANGLISH â€” WORD SPOTLIGHT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── SLANGLISH — WORD SPOTLIGHT ─────────────────────────────────── */
 .slanglish-spotlight-section {
   background: #080808;
   overflow: hidden;
@@ -7557,7 +7551,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   margin: 0 auto;
 }
 
-/* â”€â”€ LEFT COLUMN â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── LEFT COLUMN ───────────── */
 .slang-left-col {
   display: flex;
   flex-direction: column;
@@ -7575,7 +7569,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   width: 100%;
 }
 
-/* â”€â”€ CHARACTER PANEL (right) â”€â”€ */
+/* ── CHARACTER PANEL (right) ── */
 .slang-char-panel {
   --char-color: #7c3aed;
   --char-glow:  rgba(124,58,237,0.35);
@@ -7588,7 +7582,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   top: 72px;
 }
 
-/* â”€â”€ CHARACTER SELECTOR CAROUSEL â”€â”€â”€â”€â”€â”€ */
+/* ── CHARACTER SELECTOR CAROUSEL ────── */
 .slang-char-selector {
   display: flex;
   flex-direction: column;
@@ -7602,12 +7596,11 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   text-transform: uppercase;
   color: rgba(167,139,250,0.65);
   margin-bottom: 14px;
-
   text-align: center;
   width: 100%;
 }
 
-/* Row layout: [arrow] [stage] [arrow] â€” arrows hug the portrait */
+/* Row layout: [arrow] [stage] [arrow] — arrows hug the portrait */
 .slang-carousel {
   display: flex;
   flex-direction: row;
@@ -7643,7 +7636,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   flex: 0 0 auto;            /* shrink-wraps to portrait width */
   width: 260px;
 }
-/* Portrait image â€” no box, character floats freely */
+/* Portrait image — no box, character floats freely */
 .slang-car-portrait {
   width: 260px;
   height: 340px;
@@ -7657,7 +7650,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   transition: transform 0.4s ease;
 }
 .slang-car-portrait:hover { transform: scale(1.04) translateY(-5px); }
-/* Two stacked imgs â€” A is shown, B preloads behind, then they swap */
+/* Two stacked imgs — A is shown, B preloads behind, then they swap */
 .slang-car-img {
   width: 100%;
   height: 100%;
@@ -7706,7 +7699,6 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   text-align: center;
   max-width: 200px;
   margin-bottom: 14px;
-
 }
 /* Dot navigation */
 .slang-car-dots {
@@ -7743,7 +7735,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 }
 .slang-car-select-btn:hover { opacity: 0.88; transform: translateY(-1px); }
 
-/* â”€â”€ CHAT PANEL â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── CHAT PANEL ────────────── */
 .slang-chat {
   display: flex;
   flex-direction: column;
@@ -8059,7 +8051,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   color: rgba(167,139,250,0.70);
 }
 
-/* â”€â”€ SLANGLISH WORD CHIPS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── SLANGLISH WORD CHIPS ─────────────────── */
 .slang-chips {
   display: flex;
   flex-wrap: wrap;
@@ -8119,7 +8111,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   transform: translate(-2px,-2px) !important;
 }
 
-/* â”€â”€ PARTNER ECOSYSTEM WHEEL â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── PARTNER ECOSYSTEM WHEEL ───────────────────────────────────── */
 .partner-wheel-section {
   padding: 100px 0;
   background: var(--bg-surface) !important;
@@ -8237,7 +8229,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   .cm-content-grid.cm-compact { grid-template-columns: 1fr; }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .hero-inner {
     grid-template-columns: 1fr;
     text-align: center;
@@ -8295,9 +8287,9 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 }
 
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-   PHISH BOWL â€” LIGHT MODE (scanlines hidden, shader visible)
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+/* ══════════════════════════════════════════════════════════
+   PHISH BOWL — LIGHT MODE (scanlines hidden, shader visible)
+══════════════════════════════════════════════════════════ */
 [data-theme="light"] .pnc-section::before { opacity: 0; pointer-events: none; }
 [data-theme="light"] .pnc-section::after  { opacity: 0; pointer-events: none; }
 [data-theme="light"] .pb-game-panel {
@@ -8307,9 +8299,9 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
     0 4px 24px rgba(0,0,0,0.08);
 }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-   PHISH BOWL â€” DASHBOARD STRETCH + CREDITS SOLO CARD
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+/* ══════════════════════════════════════════════════════════
+   PHISH BOWL — DASHBOARD STRETCH + CREDITS SOLO CARD
+══════════════════════════════════════════════════════════ */
 .pb-dashboard {
   display: flex;
   flex-direction: column;
@@ -8367,11 +8359,11 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 [data-theme="light"] .pb-credits-solo-sub { color: rgba(0,60,180,0.4); }
 [data-theme="light"] .pb-credits-solo::before { background: linear-gradient(90deg, transparent, rgba(0,80,200,0.5), transparent); }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-   PHISH BOWL â€” SUPER GAMIFIED GAME INTERIOR
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+/* ══════════════════════════════════════════════════════════
+   PHISH BOWL — SUPER GAMIFIED GAME INTERIOR
+══════════════════════════════════════════════════════════ */
 
-/* All game text â†’ monospace family */
+/* All game text → monospace family */
 .pb-sim-label, .pb-level-name, .pb-diff-lbl,
 .pb-timer-lbl, .pb-timer-val, .pb-progress-lbl, .pb-progress-pct {
   font-family: 'Courier New', Courier, monospace !important;
@@ -8385,7 +8377,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 .pb-progress-lbl { letter-spacing: 1.5px !important; font-size: 8px !important; }
 .pb-progress-pct { letter-spacing: 1px !important; }
 
-/* â”€â”€ Radar center: start state â”€â”€ */
+/* ── Radar center: start state ── */
 .pb-cs-badge {
   font-family: 'Courier New', Courier, monospace;
   font-size: 8px;
@@ -8425,7 +8417,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 }
 @keyframes pbBlink { 0%,100%{opacity:1} 50%{opacity:0} }
 
-/* â”€â”€ Scenario state â”€â”€ */
+/* ── Scenario state ── */
 .pb-sc-analyzing {
   font-family: 'Courier New', Courier, monospace;
   font-size: 8px;
@@ -8461,7 +8453,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   color: var(--pb-muted) !important;
 }
 
-/* â”€â”€ Feedback state â”€â”€ */
+/* ── Feedback state ── */
 .pb-fb-icon {
   font-size: 26px !important;
   text-shadow: 0 0 16px currentColor !important;
@@ -8482,7 +8474,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   text-shadow: 0 0 10px rgba(0,200,255,0.6) !important;
 }
 
-/* â”€â”€ Level up state â”€â”€ */
+/* ── Level up state ── */
 .pb-lu-alert {
   font-family: 'Courier New', Courier, monospace;
   font-size: 8px;
@@ -8510,7 +8502,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   margin-top: 3px !important;
 }
 
-/* â”€â”€ Game over state â”€â”€ */
+/* ── Game over state ── */
 .pb-go-breach {
   font-family: 'Courier New', Courier, monospace;
   font-size: 8px;
@@ -8543,7 +8535,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   font-size: 9px !important;
 }
 
-/* â”€â”€ Deploy button â”€â”€ */
+/* ── Deploy button ── */
 .pb-deploy-btn {
   font-family: 'Courier New', Courier, monospace !important;
   letter-spacing: 2px !important;
@@ -8554,7 +8546,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   opacity: 0.75;
 }
 
-/* â”€â”€ Action buttons â”€â”€ */
+/* ── Action buttons ── */
 .pb-hook-btn, .pb-safe-btn {
   display: flex !important;
   flex-direction: column !important;
@@ -8583,7 +8575,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   text-transform: uppercase !important;
 }
 
-/* â”€â”€ About Movement: section-tag sits above grid â”€â”€ */
+/* ── About Movement: section-tag sits above grid ── */
 .movement-section-tag {
   display: inline-block;
   margin-bottom: 20px;
@@ -8595,11 +8587,11 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   flex-direction: column;
 }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-   PLATFORM.HTML â€” NEW SECTION STYLES
-   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+/* ═══════════════════════════════════════════════════════
+   PLATFORM.HTML — NEW SECTION STYLES
+   ═══════════════════════════════════════════════════════ */
 
-/* â”€â”€â”€ MOUNTAIN CLIMB (m2) â€” enhanced â”€â”€â”€ */
+/* ─── MOUNTAIN CLIMB (m2) — enhanced ─── */
 .m2-section {
   position: relative;
   width: 100%;
@@ -8725,7 +8717,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   50%       { opacity: 0.7;  transform: scale(1.25); }
 }
 
-/* â”€â”€â”€ CURRICULUM ATLAS (cx) â€” horizontal slider â”€â”€â”€ */
+/* ─── CURRICULUM ATLAS (cx) — horizontal slider ─── */
 .cx-atlas-section {
   background: #08111F;
   padding: 80px 0 60px;
@@ -8948,7 +8940,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 }
 .cx-prog-label { font-size: 11px; color: rgba(255,255,255,0.3); letter-spacing: 0.5px; }
 
-/* â”€â”€â”€ CYBER COMMAND DECK v3 (cd3) â€” simplified, one-screen â”€â”€â”€ */
+/* ─── CYBER COMMAND DECK v3 (cd3) — simplified, one-screen ─── */
 .cd3-section {
   background: #08111F;
   padding: 60px 56px 48px;
@@ -9022,7 +9014,6 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   text-transform: uppercase;
   color: rgba(255,255,255,0.25);
   margin-bottom: 14px;
-
 }
 
 .cd3-grid {
@@ -9082,7 +9073,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 .cd3-trust-item strong { color: rgba(255,255,255,0.7); }
 .cd3-trust-item span   { font-size: 16px; }
 
-/* Constellation Map â€” text overflow fix */
+/* Constellation Map — text overflow fix */
 .cs2-gradient-text {
   overflow: visible !important;
 }
@@ -9126,7 +9117,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 .cs2-core-pulse2 { animation: csPulse2 2.2s ease-in-out 0.7s infinite; }
 
 
-/* â”€â”€â”€ Atlas slider â€” overflow fix â”€â”€â”€ */
+/* ─── Atlas slider — overflow fix ─── */
 .cx-track-wrap {
   overflow: hidden;  /* clip slides outside viewport */
 }
@@ -9169,13 +9160,13 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 /* ======================================================
    SOURCE: improvements.css
    ====================================================== */
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-   HASHTAG SURAKSHA â€” POLISH IMPROVEMENTS v1
+/* ═══════════════════════════════════════════════════════════════
+   HASHTAG SURAKSHA — POLISH IMPROVEMENTS v1
    Targeted CSS enhancements across all pages.
    Never modifies HTML structure or existing class names.
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+═══════════════════════════════════════════════════════════════ */
 
-/* â•â• 1. ACCESSIBILITY â€” Focus states â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+/* ══ 1. ACCESSIBILITY — Focus states ════════════════════════ */
 :focus-visible {
   outline: 2px solid #007aff !important;
   outline-offset: 3px !important;
@@ -9185,12 +9176,12 @@ button:focus-visible,
 a:focus-visible,
 [tabindex]:focus-visible { border-radius: 6px; }
 
-/* â•â• 2. ANIMATION â€” Global timing consistency â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+/* ══ 2. ANIMATION — Global timing consistency ══════════════ */
 button, a, [class*="-card"], [class*="-btn"], [class*="-chip"] {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* â•â• 3. LANDING PAGE â€” Increased logo sizes â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+/* ══ 3. LANDING PAGE — Increased logo sizes ════════════════ */
 
 /* Government / certification logo strip */
 .cert-govt-bar {
@@ -9203,7 +9194,7 @@ button, a, [class*="-card"], [class*="-btn"], [class*="-chip"] {
 }
 .cert-govt-divider { height: 44px !important; }
 
-/* White logo strip â€” slightly taller */
+/* White logo strip — slightly taller */
 .partner-logo-marquee-wrap {
   max-width: 960px !important;
 }
@@ -9216,7 +9207,7 @@ button, a, [class*="-card"], [class*="-btn"], [class*="-chip"] {
   max-width: 210px !important;
 }
 
-/* â•â• 4. TRANSPARENT LOGOS â€” Visibility in dark/light â•â•â•â•â•â•â• */
+/* ══ 4. TRANSPARENT LOGOS — Visibility in dark/light ═══════ */
 .logo-dark {
   filter: brightness(1.08) drop-shadow(0 0 10px rgba(255,255,255,0.16));
 }
@@ -9229,7 +9220,7 @@ button, a, [class*="-card"], [class*="-btn"], [class*="-chip"] {
   max-height: 90px !important;
 }
 
-/* â•â• 5. AUDIO BUTTON â€” Smooth transitions â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+/* ══ 5. AUDIO BUTTON — Smooth transitions ══════════════════ */
 .cask-unmute-btn {
   transition:
     background 0.25s cubic-bezier(.22,1,.36,1),
@@ -9244,7 +9235,7 @@ button, a, [class*="-card"], [class*="-btn"], [class*="-chip"] {
 }
 .cask-unmute-btn:active { transform: scale(0.95) !important; }
 
-/* â•â• 6. EVERYTHING INSIDE CASK â€” Glow on ALL cards â•â•â•â•â•â•â•â• */
+/* ══ 6. EVERYTHING INSIDE CASK — Glow on ALL cards ════════ */
 /* Subtle premium glow on every card (dark mode) */
 .cd4-card {
   border-color: rgba(84,244,255,0.13) !important;
@@ -9278,7 +9269,7 @@ button, a, [class*="-card"], [class*="-btn"], [class*="-chip"] {
     0 20px 52px rgba(0,0,0,0.46) !important;
 }
 
-/* â•â• 6b. EVERYTHING INSIDE CASK â€” Light mode â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+/* ══ 6b. EVERYTHING INSIDE CASK — Light mode ══════════════ */
 [data-theme="light"] .cd4-section {
   background: #f0f4ff !important;
 }
@@ -9336,7 +9327,7 @@ button, a, [class*="-card"], [class*="-btn"], [class*="-chip"] {
   overflow: hidden;
 }
 
-/* â•â• 7. FOUR YEARS, FOUR TRANSFORMATIONS â€” Light mode â•â•â•â•â•â• */
+/* ══ 7. FOUR YEARS, FOUR TRANSFORMATIONS — Light mode ══════ */
 [data-theme="light"] .fyt-section { background: #f5f8ff !important; }
 [data-theme="light"] .fyt-panel   { background: #f5f8ff !important; }
 [data-theme="light"] .fyt-overlay {
@@ -9410,7 +9401,7 @@ button, a, [class*="-card"], [class*="-btn"], [class*="-chip"] {
 [data-theme="light"] .fyt-prog-track { background: rgba(10,15,32,0.10) !important; }
 
 
-/* â•â• 8. MULTILINGUAL â€” One-row scrollable, smooth hover â•â•â•â• */
+/* ══ 8. MULTILINGUAL — One-row scrollable, smooth hover ════ */
 .cask-lang-cloud {
   flex-wrap: nowrap !important;
   overflow-x: auto !important;
@@ -9455,7 +9446,7 @@ button, a, [class*="-card"], [class*="-btn"], [class*="-chip"] {
   padding: 56px 0 48px !important;
 }
 
-/* â•â• 9. FOUR YEARS MILESTONES â€” Glass consistency â•â•â•â•â•â•â•â•â•â• */
+/* ══ 9. FOUR YEARS MILESTONES — Glass consistency ══════════ */
 /* These apply to milestone/recognition cards in platform.html */
 [data-theme="light"] .cask-recog {
   background: #f0f4ff !important;
@@ -9471,7 +9462,7 @@ button, a, [class*="-card"], [class*="-btn"], [class*="-chip"] {
 [data-theme="light"] .pnc-show-label::before,
 [data-theme="light"] .pnc-show-label::after { background: rgba(10,0,32,0.25) !important; }
 
-/* â•â• 11. HOVER ANIMATIONS â€” 60fps smooth lift â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+/* ══ 11. HOVER ANIMATIONS — 60fps smooth lift ══════════════ */
 .cd4-card,
 .cask-topic-card,
 .fyt-unit-row,
@@ -9515,7 +9506,7 @@ html, body {
   .hamburger  { display: flex !important; }
 }
 
-/* â•â• 15. CONTAINER â€” Global max-width guard â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+/* ══ 15. CONTAINER — Global max-width guard ════════════════ */
 /* Prevent any container class from overflowing its parent */
 .container,
 .cask-container,
@@ -9524,18 +9515,18 @@ html, body {
   width: 100%;
 }
 
-/* â•â• 16. FOOTER padding inside container â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+/* ══ 16. FOOTER padding inside container ═══════════════════ */
 /* Ensure top padding is consistent when .container replaces .pw */
 .footer .container,
 .footer .cask-container {
   padding-top: 56px;
 }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-   ROUND 2 IMPROVEMENTS â€” addressing remaining brief items
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+/* ═══════════════════════════════════════════════════════════════
+   ROUND 2 IMPROVEMENTS — addressing remaining brief items
+═══════════════════════════════════════════════════════════════ */
 
-/* â”€â”€ R2-1. CASK CARDS: dark-mode hover subtitle overlap fix â”€â”€ */
+/* ── R2-1. CASK CARDS: dark-mode hover subtitle overlap fix ── */
 /* Strengthen the gradient so it completely covers the card bottom
    and the text never bleeds transparent into the icon/title zone */
 .cd4-card-desc {
@@ -9555,7 +9546,7 @@ html, body {
     transparent 100%) !important;
 }
 
-/* â”€â”€ R2-2. CASK CARDS: light-mode hover description fix â”€â”€â”€â”€â”€â”€ */
+/* ── R2-2. CASK CARDS: light-mode hover description fix ────── */
 /* Replace the dark gradient with a clean white one */
 [data-theme="light"] .cd4-card-desc {
   background: linear-gradient(to top,
@@ -9573,13 +9564,13 @@ html, body {
     transparent 100%) !important;
 }
 
-/* â”€â”€ R2-3. WHAT IS CASK â€” video/text column alignment â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── R2-3. WHAT IS CASK — video/text column alignment ──────── */
 /* Make the right column (video) top-align with the left (text) */
 .cask-video-grid {
   align-items: flex-start !important;
 }
 
-/* â”€â”€ R2-4. FOUR YEARS MILESTONES â€” badge contrast (light mode) */
+/* ── R2-4. FOUR YEARS MILESTONES — badge contrast (light mode) */
 [data-theme="light"] .cask-emblem svg {
   filter:
     drop-shadow(0 0 10px rgba(var(--pl-rgb), 0.72))
@@ -9610,7 +9601,7 @@ html, body {
   min-height: 100svh;
 }
 
-/* â”€â”€ R2-5. PHISH & CHIP â€” comprehensive light mode â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── R2-5. PHISH & CHIP — comprehensive light mode ─────────── */
 
 /* Hero */
 [data-theme="light"] .halftone {
@@ -9691,7 +9682,7 @@ html, body {
 [data-theme="light"] .comic-desc  { color: rgba(26,10,40,0.60) !important; }
 [data-theme="light"] .comic-overline { color: rgba(26,10,40,0.40) !important; }
 
-/* Webtrap â€” fill any gaps in existing light mode */
+/* Webtrap — fill any gaps in existing light mode */
 [data-theme="light"] .web-hud-item b { color: #5b21b6 !important; }
 [data-theme="light"] .web-victim {
   background: radial-gradient(circle, #e8d5ff, #c4a0f8) !important;
@@ -9705,7 +9696,7 @@ html, body {
 [data-theme="light"] .web-result-title { /* colours set per .win/.lose already */ }
 [data-theme="light"] .web-result-msg { color: rgba(26,10,40,0.68) !important; }
 
-/* â”€â”€ R2-6. WEBTRAP â€” ensure section fits viewport â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── R2-6. WEBTRAP — ensure section fits viewport ─────────── */
 .pnc-web .web-inner {
   padding: 18px 24px !important;
 }
@@ -9713,7 +9704,7 @@ html, body {
   margin-top: 4px !important;
 }
 
-/* â”€â”€ R2-7. CHIPS DETECTIVE LAB â€” light mode + viewport fit â”€â”€â”€ */
+/* ── R2-7. CHIPS DETECTIVE LAB — light mode + viewport fit ─── */
 [data-theme="light"] .pnc-lab {
   background: #f0f4ff !important;
 }
@@ -9772,7 +9763,7 @@ html, body {
   background: rgba(26,10,40,0.12) !important;
 }
 
-/* Lab viewport fit â€” tighter internal padding */
+/* Lab viewport fit — tighter internal padding */
 .pnc-lab .lab-inner {
   padding: 16px 0 !important;
 }
@@ -9780,7 +9771,7 @@ html, body {
 .lab-case-tabs { margin: 10px 0 12px !important; }
 .lab-board { height: min(72vh, 510px) !important; }
 
-/* â”€â”€ R2-8. VERDICT GAP FIX â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── R2-8. VERDICT GAP FIX ─────────────────────────────────── */
 /* When the verdict is submitted, #labVerdict hides and #labResult
    appears. Collapsing the gap ensures no empty space below the clues. */
 #labVerdict[style*="display: none"] + .lab-result,
@@ -9792,7 +9783,7 @@ html, body {
   justify-content: flex-start !important;
 }
 
-/* â”€â”€ R2-9. PHISH & CHIP â€” footer light mode â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── R2-9. PHISH & CHIP — footer light mode ─────────────────── */
 [data-theme="light"] .footer {
   background: #f5f0ff !important;
   border-top-color: rgba(26,10,40,0.10) !important;
@@ -9810,13 +9801,13 @@ html, body {
    SOURCE: assets/cv-style.css
    ====================================================== */
 /* ================================================================
-   COURSE VERIFIER  Â·  PREMIUM REDESIGN v5
+   COURSE VERIFIER  ·  PREMIUM REDESIGN v5
    Inspired by Fitonist-style dark dashboard
    ================================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
 
-/* â”€â”€ Design Tokens â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Design Tokens ─────────────────────────────────────────── */
 :root {
     /* Brand (hashtag-v2 primary blue) */
     --accent: #007aff;
@@ -9877,7 +9868,7 @@ html, body {
     --purple: #8b5cf6;
     --purple-bg: rgba(139, 92, 246, 0.10);
 
-    /* 3D Globe â€” light palette */
+    /* 3D Globe — light palette */
     --globe-base: #e2e8f0;
     --globe-bg: #f8fafc;
     --globe-halo: #1D4ED8;
@@ -9978,7 +9969,7 @@ html, body {
     --purple: #a78bfa;
     --purple-bg: rgba(167, 139, 250, 0.12);
 
-    /* 3D Globe â€” dark palette */
+    /* 3D Globe — dark palette */
     --globe-base: #030507;
     --globe-bg: #030507;
     --globe-halo: #0891B2;
@@ -9993,7 +9984,7 @@ html, body {
     color-scheme: dark;
 }
 
-/* â”€â”€ Reset â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Reset ─────────────────────────────────────────────────── */
 *,
 *::before,
 *::after {
@@ -10333,7 +10324,7 @@ body[data-loading="true"] .dash-total-value {
 }
 
 /* ================================================================
-   DASHBOARD  Â·  MAIN LAYOUT
+   DASHBOARD  ·  MAIN LAYOUT
    ================================================================ */
 .dash-wrap {
     padding: 24px 28px;
@@ -10341,7 +10332,7 @@ body[data-loading="true"] .dash-total-value {
     gap: 20px;
 }
 
-/* â”€â”€ KPI Row â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── KPI Row ─────────────────────────────────────────────── */
 .kpi-row {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -10437,7 +10428,7 @@ body[data-loading="true"] .dash-total-value {
     color: var(--blue);
 }
 
-/* â”€â”€ Main Grid â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Main Grid ───────────────────────────────────────────── */
 .main-grid {
     display: grid;
     grid-template-columns: 1.4fr 1fr;
@@ -10459,12 +10450,12 @@ body[data-loading="true"] .dash-total-value {
     align-items: start;
 }
 
-/* â”€â”€ Author grid fix â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Author grid fix ────────────────────────────────────── */
 .author-grid {
     align-items: start;
 }
 
-/* â”€â”€ Panels â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Panels ──────────────────────────────────────────────── */
 .panel {
     background: var(--bg-card);
     border: 1px solid var(--border);
@@ -10503,7 +10494,7 @@ body[data-loading="true"] .dash-total-value {
     margin-top: 1px;
 }
 
-/* â”€â”€ Charts â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Charts ──────────────────────────────────────────────── */
 .chart-wrap {
     position: relative;
     width: 100%;
@@ -10529,7 +10520,7 @@ body[data-loading="true"] .dash-total-value {
     height: 100% !important;
 }
 
-/* â”€â”€ Select / Pill Toggles â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Select / Pill Toggles ───────────────────────────────── */
 .pill-toggle {
     display: flex;
     background: var(--bg-2);
@@ -10578,7 +10569,7 @@ body[data-loading="true"] .dash-total-value {
     border-color: var(--teal);
 }
 
-/* â”€â”€ Icon Badges â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Icon Badges ─────────────────────────────────────────── */
 .icon-btn {
     width: 32px;
     height: 32px;
@@ -10765,7 +10756,7 @@ body[data-loading="true"] .dash-total-value {
     font-variant-numeric: tabular-nums;
 }
 
-/* Index column â€” compact, muted, right-aligned */
+/* Index column — compact, muted, right-aligned */
 .data-table th.col-idx,
 .data-table td.col-idx {
     width: 52px;
@@ -10780,7 +10771,7 @@ body[data-loading="true"] .dash-total-value {
     white-space: nowrap;
 }
 
-/* Truncated course-name cell â€” keeps rows on one line, full name on hover */
+/* Truncated course-name cell — keeps rows on one line, full name on hover */
 .data-table td.course-name-cell {
     max-width: 180px;
     white-space: normal;
@@ -10959,7 +10950,7 @@ body[data-loading="true"] .dash-total-value {
 .table-rank-badge.nirf {
     color: var(--teal-900);
     background: var(--teal-bg);
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid var(--teal-700);
 }
 
 .table-rank-badge.muted,
@@ -11041,7 +11032,7 @@ body[data-loading="true"] .dash-total-value {
 .badge-verified {
     background: transparent;
     color: var(--teal-400);
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid var(--teal-700);
 }
 
 .badge-error {
@@ -11352,7 +11343,7 @@ body[data-loading="true"] .dash-total-value {
 }
 
 /* ================================================================
-   BATCH 8 â€” MODAL, TOAST & OVERLAYS
+   BATCH 8 — MODAL, TOAST & OVERLAYS
    ================================================================ */
 
 /* Modal scale-in animation */
@@ -11941,7 +11932,7 @@ button:disabled,
     color: #030507;
 }
 
-/* â”€â”€ Solve buttons (green) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Solve buttons (green) ─────────────────────────────────────── */
 .modal-solve {
     padding: 6px 14px;
     border-radius: 8px;
@@ -12078,7 +12069,7 @@ tr.solved-row td {
 }
 
 /* ================================================================
-   UPGRADE v7 â€” sticky KPI strip, filter bars, empty states
+   UPGRADE v7 — sticky KPI strip, filter bars, empty states
    ================================================================ */
 
 /* Visually-hidden but accessible labels for filter controls */
@@ -12094,7 +12085,7 @@ tr.solved-row td {
     border: 0;
 }
 
-/* â”€â”€ Sticky headline KPI strip â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Sticky headline KPI strip ─────────────────────────────── */
 .kpi-strip {
     position: sticky;
     top: var(--navbar-h);
@@ -12260,7 +12251,7 @@ tr.solved-row td {
     border-color: var(--green) !important;
 }
 
-/* â”€â”€ Empty / loading state row â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Empty / loading state row ─────────────────────────────── */
 .empty-state {
     text-align: center;
     color: var(--text-3);
@@ -12397,7 +12388,7 @@ body[data-loading="true"] .kpi-strip-val {
 }
 
 /* ================================================================
-   DASHBOARD v2  Â·  THREE-COLUMN GLOBE LAYOUT
+   DASHBOARD v2  ·  THREE-COLUMN GLOBE LAYOUT
    ================================================================ */
 
 .dash-layout {
@@ -12487,7 +12478,7 @@ body[data-loading="true"] .kpi-strip-val {
     margin-top: 2px;
 }
 
-/* â”€â”€ Metric card base (used by institutions + access types) â”€ */
+/* ── Metric card base (used by institutions + access types) ─ */
 .metric-card {
     padding: 20px;
     display: flex;
@@ -12613,7 +12604,7 @@ body[data-loading="true"] #india-stat-count {
     font-size: 1rem;
 }
 
-/* â”€â”€ IIT / IIIT / NIT stat items â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── IIT / IIIT / NIT stat items ──────────────────────────── */
 .dash-stat-item {
     display: flex;
     align-items: center;
@@ -12668,7 +12659,7 @@ body[data-loading="true"] #india-stat-count {
     color: var(--text-1);
 }
 
-/* â”€â”€ COURSES (PARCLES) section â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── COURSES (PARCLES) section ────────────────────────────── */
 .dash-parcles {
     padding: 18px;
     display: flex;
@@ -12715,7 +12706,7 @@ body[data-loading="true"] #india-stat-count {
     color: var(--teal-400);
 }
 
-/* â”€â”€ Status summary rows â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Status summary rows ──────────────────────────────────── */
 .dash-status-summary {
     display: flex;
     flex-direction: column;
@@ -12767,7 +12758,7 @@ body[data-loading="true"] #india-stat-count {
     color: var(--text-1);
 }
 
-/* â”€â”€ Center / Globe background layer â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Center / Globe background layer ─────────────────────────── */
 .dash-globe-wrap {
     position: relative;
     width: 100%;
@@ -12869,7 +12860,7 @@ body[data-loading="true"] #india-stat-count {
     align-self: start;
 }
 
-/* â”€â”€ Floating Country Detail Panel â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Floating Country Detail Panel ─────────────────────────── */
 .country-detail-panel {
     position: absolute;
     top: 24px;
@@ -12979,7 +12970,6 @@ body[data-loading="true"] #india-stat-count {
     font-size: 0.75rem;
     color: var(--text-3);
     margin-bottom: 14px;
-
 }
 
 .country-detail-stats {
@@ -13034,7 +13024,6 @@ body[data-loading="true"] #india-stat-count {
 
 .country-detail-topics {
     margin-bottom: 14px;
-
 }
 
 .country-detail-topics-title {
@@ -13066,7 +13055,6 @@ body[data-loading="true"] #india-stat-count {
     display: flex;
     gap: 10px;
     margin-bottom: 14px;
-
 }
 
 .country-detail-btn {
@@ -13182,7 +13170,7 @@ body[data-loading="true"] #india-stat-count {
     border-color: var(--border);
 }
 
-/* â”€â”€ Right Sidebar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Right Sidebar ─────────────────────────────────────────── */
 .dash-right {
     width: 260px;
     background: transparent;
@@ -13374,7 +13362,7 @@ body[data-loading="true"] #india-stat-count {
     font-weight: 500;
 }
 
-/* â”€â”€ Dashboard responsive â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Dashboard responsive ─────────────────────────────────── */
 @media (max-width: 1200px) {
 
     .dash-left,
@@ -13461,7 +13449,7 @@ body[data-loading="true"] #india-stat-count {
 
 
 /* ================================================================
-   ALL COURSES TAB â€” COMPLETE REWRITE
+   ALL COURSES TAB — COMPLETE REWRITE
    ================================================================ */
 
 .edx-container {
@@ -13783,7 +13771,6 @@ body[data-loading="true"] #india-stat-count {
     align-items: center;
     gap: 12px;
     margin-bottom: 14px;
-
     padding: 12px 14px;
     background: var(--bg-card);
     border: 1px solid var(--border);
@@ -13932,7 +13919,7 @@ body[data-loading="true"] #india-stat-count {
     font-weight: 600;
     color: var(--teal-400);
     background: var(--teal-bg);
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid var(--teal-700);
     animation: scaleIn 0.2s ease both;
 }
 
@@ -14329,7 +14316,6 @@ body[data-loading="true"] #india-stat-count {
 .edx-empty-icon {
     font-size: 2.8rem;
     margin-bottom: 14px;
-
     opacity: 0.8;
 }
 
@@ -14675,7 +14661,6 @@ body[data-loading="true"] #india-stat-count {
     justify-content: space-between;
     gap: 10px;
     margin-bottom: 14px;
-
     flex-wrap: wrap;
 }
 
@@ -14719,7 +14704,6 @@ body[data-loading="true"] #india-stat-count {
     position: relative;
     height: 150px;
     margin-bottom: 14px;
-
 }
 
 .gauge-chart-wrap canvas {
@@ -14773,7 +14757,7 @@ body[data-loading="true"] #india-stat-count {
 }
 
 /* ================================================================
-   DURATION & PRICING TAB â€” COST INSIGHT LIST
+   DURATION & PRICING TAB — COST INSIGHT LIST
    ================================================================ */
 .cost-insight-list {
     display: flex;
@@ -15075,9 +15059,9 @@ body[data-loading="true"] #india-stat-count {
     }
 }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+/* ════════════════════════════════════════════════════════════════
    DASHBOARD INSIGHTS SECTION (merged analytics)
-   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+   ════════════════════════════════════════════════════════════════ */
 .dash-insights-section {
     padding: 48px 28px 64px;
     max-width: 1320px;
@@ -15271,7 +15255,7 @@ body[data-loading="true"] #india-stat-count {
 }
 
 /* ================================================================
-   BATCH 1 â€” Global Design Tokens & Base Polish
+   BATCH 1 — Global Design Tokens & Base Polish
    ================================================================ */
 
 html {
@@ -15406,7 +15390,7 @@ body {
 }
 
 /* ================================================================
-   BATCH 2 â€” Navbar & Navigation Polish
+   BATCH 2 — Navbar & Navigation Polish
    ================================================================ */
 
 /* Active tab bottom glow/underline */
@@ -15423,7 +15407,7 @@ body {
 /* Pill-shaped active tab with gradient */
 .navbar-tabs a.active {
     background: linear-gradient(135deg, var(--teal-bg), rgba(15, 110, 86, 0.05));
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid var(--teal-700);
     box-shadow: inset 0 1px 0 rgba(34, 211, 238, 0.05), 0 0 14px var(--teal-glow);
 }
 
@@ -15531,7 +15515,7 @@ body {
 }
 
 /* ================================================================
-   BATCH 3 â€” Dashboard Layout & Globe Polish
+   BATCH 3 — Dashboard Layout & Globe Polish
    ================================================================ */
 
 /* Rounded globe container */
@@ -15611,15 +15595,15 @@ body {
 }
 
 .country-detail-stat:nth-child(1) .country-detail-stat-val::before {
-    content: 'ðŸ“š';
+    content: '📚';
 }
 
 .country-detail-stat:nth-child(2) .country-detail-stat-val::before {
-    content: 'ðŸ†';
+    content: '🏆';
 }
 
 .country-detail-stat:nth-child(3) .country-detail-stat-val::before {
-    content: 'ðŸŽ¯';
+    content: '🎯';
 }
 
 /* Domain topic chips color-coded */
@@ -15634,7 +15618,7 @@ body {
 }
 
 /* ================================================================
-   BATCH 4 â€” Dashboard Cards & Metrics Polish
+   BATCH 4 — Dashboard Cards & Metrics Polish
    ================================================================ */
 
 /* Accent top bars for all metric cards */
@@ -15876,7 +15860,7 @@ body {
 }
 
 /* ================================================================
-   BATCH 9 â€” ANIMATIONS & MICRO-INTERACTIONS
+   BATCH 9 — ANIMATIONS & MICRO-INTERACTIONS
    ================================================================ */
 
 /* Utility animation classes */
@@ -16137,7 +16121,7 @@ button:active,
 }
 
 /* ================================================================
-   BATCH 10 â€” ACCESSIBILITY, THEME & RESPONSIVE
+   BATCH 10 — ACCESSIBILITY, THEME & RESPONSIVE
    ================================================================ */
 
 /* Visually hidden live region */
@@ -16255,7 +16239,7 @@ textarea,
 }
 
 /* ================================================================
-   NEW FEATURES â€” Global Search, Onboarding, Quick View, Skill Filters
+   NEW FEATURES — Global Search, Onboarding, Quick View, Skill Filters
    ================================================================ */
 
 /* Navbar search */
@@ -17020,7 +17004,6 @@ textarea,
     .dash-welcome-banner {
         padding: 0 14px;
         margin-bottom: 14px;
-
     }
 
     .dash-welcome-content {
@@ -17038,10 +17021,10 @@ textarea,
 }
 
 /* ================================================================
-   MOBILE RESPONSIVENESS â€” Comprehensive overrides
+   MOBILE RESPONSIVENESS — Comprehensive overrides
    ================================================================ */
 
-/* â”€â”€ Dashboard layout on narrow viewports â”€ */
+/* ── Dashboard layout on narrow viewports ─ */
 @media (max-width: 1100px) {
     .dash-layout {
         flex-direction: column;
@@ -17182,7 +17165,7 @@ textarea,
     }
 }
 
-/* â”€â”€ Course modal responsive layout â”€ */
+/* ── Course modal responsive layout ─ */
 @media (min-width: 601px) and (max-width: 768px) {
     .modal-box {
         width: calc(100% - 24px);
@@ -17214,7 +17197,7 @@ textarea,
     }
 }
 
-/* â”€â”€ Toast on mobile â”€ */
+/* ── Toast on mobile ─ */
 @media (max-width: 600px) {
     #toast,
     .toast {
@@ -17232,7 +17215,7 @@ textarea,
     }
 }
 
-/* â”€â”€ Floating buttons: help + back-to-top overlap â”€ */
+/* ── Floating buttons: help + back-to-top overlap ─ */
 @media (max-width: 600px) {
     .back-to-top {
         right: 14px;
@@ -17248,7 +17231,7 @@ textarea,
     }
 }
 
-/* â”€â”€ Domain explorer overflow safety â”€ */
+/* ── Domain explorer overflow safety ─ */
 @media (max-width: 768px) {
     .domain-info-title {
         font-size: 1.3rem;
@@ -17261,7 +17244,7 @@ textarea,
     }
 }
 
-/* â”€â”€ Pagination overflow on mobile â”€ */
+/* ── Pagination overflow on mobile ─ */
 @media (max-width: 600px) {
     .courses-pagination {
         flex-wrap: wrap;
@@ -17273,7 +17256,7 @@ textarea,
     }
 }
 
-/* â”€â”€ Globe sizing on mobile â”€ */
+/* ── Globe sizing on mobile ─ */
 @media (max-width: 1100px) {
     .dash-globe-wrap,
     .globe-wrap,
@@ -17298,7 +17281,7 @@ textarea,
     }
 }
 
-/* â”€â”€ Touch device hover cleanup â”€ */
+/* ── Touch device hover cleanup ─ */
 @media (hover: none) {
     .metric-row:hover,
     .data-table tbody tr:hover,
@@ -17348,13 +17331,13 @@ textarea,
 /* ======================================================
    SOURCE: assets/catalog-overrides.css
    ====================================================== */
-ï»¿/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-   COURSEVERIFY CATALOG PAGE â€” hashtag-v2 integration overrides v4
+/* ════════════════════════════════════════════════════════════════
+   COURSEVERIFY CATALOG PAGE — hashtag-v2 integration overrides v4
    The catalog now uses the EXACT same nav as index.html.
    This file only patches catalog-specific layout, not the nav.
-   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+   ════════════════════════════════════════════════════════════════ */
 
-/* â”€â”€ 1. CSS variable bridge: CourseVerify tokens from global.css â”€ */
+/* ── 1. CSS variable bridge: CourseVerify tokens from global.css ─ */
 /* These are the extra vars cv-style.css expects that global.css
    doesn't define by name. Light-mode values used here. */
 [data-theme="light"],
@@ -17375,15 +17358,15 @@ textarea,
   --amber:       #FBBF24;
 }
 
-/* â”€â”€ 2. Body top-padding for fixed hashtag-v2 nav â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── 2. Body top-padding for fixed hashtag-v2 nav ────────────── */
 body {
   padding-top: 70px !important;
 }
 
-/* â”€â”€ 3. Cursor glow must be non-interactive â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── 3. Cursor glow must be non-interactive ──────────────────── */
 .cursor-glow { pointer-events: none; }
 
-/* â”€â”€ 4. Catalog page shell â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── 4. Catalog page shell ───────────────────────────────────── */
 .catalog-page {
   width: 100%;
   min-height: calc(100vh - 70px);
@@ -17399,7 +17382,7 @@ body {
   padding: 0 24px;
 }
 
-/* â”€â”€ 5. Intro hero section â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── 5. Intro hero section ───────────────────────────────────── */
 .catalog-hero { padding: 28px 0 36px; text-align: center; }
 
 .catalog-hero .section-tag {
@@ -17413,7 +17396,6 @@ body {
   padding: 4px 14px;
   border-radius: 50px;
   margin-bottom: 14px;
-
 }
 
 .catalog-hero .section-title {
@@ -17443,7 +17425,7 @@ body {
 .loading-curtain { z-index: 9999  !important; }
 .toast           { z-index: 10001 !important; }
 
-/* â”€â”€ 9. Scroll progress bar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── 9. Scroll progress bar ──────────────────────────────────── */
 .scroll-progress {
   position: fixed; top: 0; left: 0;
   height: 3px;
@@ -17452,7 +17434,7 @@ body {
   transition: width 0.1s linear;
 }
 
-/* â”€â”€ 10. Guide strip â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── 10. Guide strip ─────────────────────────────────────────── */
 .catalog-guide-strip { padding: 0 0 28px; }
 .guide-strip {
   display: flex;
@@ -17506,7 +17488,7 @@ body {
   box-shadow: 0 0 0 1px var(--teal-400), var(--shadow);
 }
 
-/* â”€â”€ 11. Persistent catalog help button â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── 11. Persistent catalog help button ────────────────────────── */
 .catalog-help-btn {
   position: fixed;
   right: 22px;
@@ -17533,14 +17515,13 @@ body {
   transform: translateY(-2px);
 }
 
-/* â”€â”€ 12. Onboarding polish â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── 12. Onboarding polish ───────────────────────────────────── */
 .onboarding-step-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
   margin-bottom: 14px;
-
   flex-wrap: wrap;
 }
 .onboarding-step-label {
@@ -17590,7 +17571,7 @@ body {
   margin-top: 18px;
 }
 
-/* â”€â”€ 14. Accessibility focus polish â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── 14. Accessibility focus polish ──────────────────────────── */
 button:focus-visible,
 a:focus-visible,
 [tabindex]:focus-visible {
@@ -17603,7 +17584,7 @@ a:focus-visible,
   box-shadow: inset 0 0 0 1px var(--teal-500);
 }
 
-/* â”€â”€ 15. Dark mode overrides for catalog additions â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── 15. Dark mode overrides for catalog additions ───────────── */
 [data-theme="dark"] .guide-strip,
 [data-theme="dark"] .dash-welcome-content {
   background: var(--bg-card);
@@ -17641,9 +17622,9 @@ a:focus-visible,
   border-color: var(--border-2);
 }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+/* ════════════════════════════════════════════════════════════════
    COURSES SECTION POLISH
-   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+   ════════════════════════════════════════════════════════════════ */
 
 /* Hero title with icon */
 .edx-title-wrap {
@@ -17821,7 +17802,7 @@ a:focus-visible,
   color: var(--text-1);
 }
 
-/* Pill active state â€” brand teal */
+/* Pill active state — brand teal */
 .type-pill.active,
 .domain-chip.active {
   background: var(--teal-bg);
@@ -18506,7 +18487,7 @@ a:focus-visible,
   box-shadow: 0 0 0 4px var(--teal-glow);
 }
 
-/* â”€â”€ 16. Responsive â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── 16. Responsive ──────────────────────────────────────────── */
 @media (max-width: 1200px) { .catalog-app { padding: 0 18px; } }
 @media (max-width: 960px) {
   .guide-strip { flex-direction: column; align-items: flex-start; }
@@ -18587,9 +18568,9 @@ a:focus-visible,
   .onboarding-result-actions { flex-direction: column; align-items: stretch; }
 }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-   THREE-DIMENSION FILTER SYSTEM â€” domain tints & active states
-   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+/* ════════════════════════════════════════════════════════════════
+   THREE-DIMENSION FILTER SYSTEM — domain tints & active states
+   ════════════════════════════════════════════════════════════════ */
 
 /* Domain-tinted left border on course cards */
 .clean-course-card {
@@ -18667,9 +18648,9 @@ a:focus-visible,
   box-shadow: 0 0 0 2px var(--domain-color, var(--teal-500)), 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-   SIDEBAR FILTER LAYOUT â€” All Courses workspace
-   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+/* ════════════════════════════════════════════════════════════════
+   SIDEBAR FILTER LAYOUT — All Courses workspace
+   ════════════════════════════════════════════════════════════════ */
 .catalog-workspace {
   display: grid;
   grid-template-columns: 280px 1fr;
@@ -18891,7 +18872,6 @@ a:focus-visible,
 .catalog-mobile-filter-bar {
   display: none;
   margin-bottom: 14px;
-
 }
 
 .mobile-filter-toggle {
@@ -19115,14 +19095,14 @@ a:focus-visible,
 /* ======================================================
    SOURCE: assets/catalog-theme-override.css
    ====================================================== */
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+/* ════════════════════════════════════════════════════════════════
    COURSE CATALOG THEME OVERRIDE
    Keeps the landing hero/stats/journey in the saffron/moss/indigo
    palette while letting the dashboard, globe, and metrics fall back
    to the original blue/cyan cv-style.css tokens.
-   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+   ════════════════════════════════════════════════════════════════ */
 
-/* â”€â”€ Keep the new landing section warm â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Keep the new landing section warm ──────────────────────── */
 :root {
   --landing-bg: var(--cv-paper);
   --landing-text-main: var(--cv-ink);
@@ -19147,7 +19127,7 @@ a:focus-visible,
    SOURCE: assets/catalog-new-cards.css
    ====================================================== */
 /* ==========================================================
-   COURSE CATALOG â€” NEW CARD DESIGN OVERRIDE
+   COURSE CATALOG — NEW CARD DESIGN OVERRIDE
    Loaded after catalog-overrides.css to replace old card styles
    ========================================================== */
 
@@ -20436,7 +20416,6 @@ a:focus-visible,
       border-radius: 999px;
       padding: 6px 14px;
       margin-bottom: 14px;
-
     }
 
     .how-it-works-header h2 {
