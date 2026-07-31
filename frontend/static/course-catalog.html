@@ -249,9 +249,8 @@
         </div>
 
         <div class="domain-explorer-visual" id="domain-explorer-visual">
-          <label class="folder-card" aria-label="Open cybersecurity domain folder">
-            <input type="checkbox" class="folder-toggle" />
-          
+          <div class="folder-card" role="button" tabindex="0" aria-label="Open cybersecurity domain folder" aria-pressed="false">
+
             <div class="hint-wrapper">
               <span class="hint-text">Click to open</span>
               <svg class="hint-arrow" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -311,7 +310,7 @@
                 </div>
               </div>
             </div>
-          </label>
+          </div>
         </div>
       </div>
 
@@ -1322,7 +1321,6 @@
   <script defer>
     (function () {
       const folderCard = document.querySelector('.folder-card');
-      const folderToggle = document.querySelector('.folder-toggle');
       const explorerGrid = document.querySelector('.domain-explorer-grid');
       const expandedView = document.getElementById('expanded-domain-view');
       const expandedContent = document.getElementById('expanded-content-area');
@@ -1331,6 +1329,13 @@
       const scrollRightBtn = document.getElementById('domain-scroll-right');
       const templates = Array.from(document.querySelectorAll('#domain-templates .domain-detail-template'));
 
+      function setFolderOpen(open) {
+        if (!folderCard) return;
+        folderCard.classList.toggle('is-open', open);
+        folderCard.classList.toggle('is-popped', open);
+        folderCard.setAttribute('aria-pressed', String(open));
+      }
+
       if (folderCard) {
         folderCard.addEventListener('click', function(e) {
           // Let file cards and the search input handle their own clicks.
@@ -1338,12 +1343,13 @@
           e.preventDefault();
 
           // Single-click toggle: open if closed, close if open.
-          if (!folderCard.classList.contains('is-open')) {
-            folderCard.classList.add('is-open', 'is-popped');
-            if (folderToggle) folderToggle.checked = true;
-          } else {
-            folderCard.classList.remove('is-open', 'is-popped');
-            if (folderToggle) folderToggle.checked = false;
+          setFolderOpen(!folderCard.classList.contains('is-open'));
+        });
+
+        folderCard.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            setFolderOpen(!folderCard.classList.contains('is-open'));
           }
         });
       }
@@ -1356,13 +1362,9 @@
           e.preventDefault();
           const domainName = this.getAttribute('data-domain');
 
-          // Ensure folder is checked
-          if (folderToggle && !folderToggle.checked) {
-            folderToggle.checked = true;
-          }
-
           if (folderCard) {
             folderCard.classList.add('is-open', 'is-popped');
+            folderCard.setAttribute('aria-pressed', 'true');
           }
 
           // Inject all 6 templates into the slider container
