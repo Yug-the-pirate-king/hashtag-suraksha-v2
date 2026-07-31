@@ -15,11 +15,11 @@
 }
 
 [data-theme="dark"] {
-  --landing-bg: #0D1B22;
-  --landing-text-main: #F2EEE2;
-  --landing-text-muted: #93A0A4;
-  --landing-card-bg: #132631;
-  --landing-card-border: #24363F;
+  --landing-bg: #0B0F19;
+  --landing-text-main: #F8F9FA;
+  --landing-text-muted: #9CA3AF;
+  --landing-card-bg: #1A233A;
+  --landing-card-border: #1F2229;
 }
 
 /* Landing section cards are already styled inline in course-catalog.html,

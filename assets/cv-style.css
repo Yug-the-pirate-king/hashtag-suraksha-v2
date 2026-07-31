@@ -8,50 +8,50 @@
 /* ── Design Tokens ─────────────────────────────────────────── */
 :root {
     /* Brand (hashtag-v2 primary blue) */
-    --accent: #007aff;
+    --accent: #39FF14;
     --accent-light: #22D3EE;
-    --accent-dark: #0056b3;
+    --accent-dark: #0B6623;
     --accent-glow: rgba(0, 122, 255, 0.25);
 
     /* Primary data color: cyan */
-    --teal: #22D3EE;
+    --teal: #39FF14;
     --teal-400: #67e8f9;
     --teal-500: #22D3EE;
     --teal-600: #06b6d4;
     --teal-700: #0891b2;
-    --teal-800: #0e7490;
+    --teal-800: #0B6623;
     --teal-900: #155e75;
     --teal-bg: rgba(34, 211, 238, 0.12);
     --teal-glow: rgba(34, 211, 238, 0.22);
 
     /* Secondary data color: primary blue */
-    --blue: #007aff;
+    --blue: #39FF14;
     --blue-400: #47a1ff;
     --blue-500: #007aff;
     --blue-600: #005ecb;
     --blue-700: #004494;
-    --blue-800: #00336d;
+    --blue-800: #0B6623;
     --blue-900: #00254f;
     --blue-bg: rgba(0, 122, 255, 0.12);
     --blue-glow: rgba(0, 122, 255, 0.22);
 
     /* Light mode defaults (hashtag-v2 light palette) */
-    --bg: #FFFFFF;
-    --bg-2: #F8FAFC;
-    --bg-card: rgba(0, 0, 0, 0.03);
-    --bg-panel: #F8FAFC;
+    --bg: #F8FAFC;
+    --bg-2: #FFFFFF;
+    --bg-card: #FFFFFF;
+    --bg-panel: #FFFFFF;
     --bg-hover: rgba(0, 0, 0, 0.06);
     --bg-input: #F1F5F9;
 
     --surface-1: rgba(0, 0, 0, 0.08);
     --surface-2: rgba(0, 0, 0, 0.05);
 
-    --text-1: #0F172A;
+    --text-1: #CCCCCC;
     --text-2: #475569;
-    --text-3: #546178;
-    --text-inv: #FFFFFF;
+    --text-3: #39FF14;
+    --text-inv: #000000;
 
-    --border: #E2E8F0;
+    --border: #0B6623;
     --border-2: rgba(0, 0, 0, 0.12);
     --shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
@@ -111,75 +111,52 @@
 
 /* ── Dark mode token override ────────────────────────────── */
 [data-theme="dark"] {
-    --accent: #38bdf8;
-    --accent-light: #22D3EE;
-    --accent-dark: #0ea5e9;
-    --accent-glow: rgba(56, 189, 248, 0.25);
+    --accent: #22D3EE;
+    --accent-light: #67E8F9;
+    --accent-dark: #0891B2;
+    --accent-glow: rgba(0, 210, 255, 0.25);
 
     --teal: #22D3EE;
-    --teal-400: #67e8f9;
-    --teal-500: #22D3EE;
-    --teal-600: #06b6d4;
-    --teal-700: #0891b2;
-    --teal-800: #0e7490;
-    --teal-900: #155e75;
-    --teal-bg: rgba(34, 211, 238, 0.12);
-    --teal-glow: rgba(34, 211, 238, 0.22);
+    --teal-400: #22D3EE;
+    --teal-500: #06B6D4;
+    --teal-600: #00B8CC;
+    --teal-700: #008999;
+    --teal-800: #005C66;
+    --teal-900: #002E33;
+    --teal-bg: rgba(0, 229, 255, 0.1);
+    --teal-glow: rgba(0, 229, 255, 0.2);
 
-    --blue: #38bdf8;
-    --blue-400: #7dd3fc;
-    --blue-500: #0ea5e9;
-    --blue-600: #0284c7;
-    --blue-700: #0369a1;
-    --blue-800: #075985;
-    --blue-900: #0c4a6e;
-    --blue-bg: rgba(14, 165, 233, 0.12);
-    --blue-glow: rgba(14, 165, 233, 0.22);
+    --blue: #38BDF8;
+    --blue-400: #7DD3FC;
+    --blue-500: #38BDF8;
+    --blue-600: #2960CC;
+    --blue-700: #1D4399;
+    --blue-800: #122C66;
+    --blue-900: #091633;
+    --blue-bg: rgba(58, 134, 255, 0.1);
+    --blue-glow: rgba(58, 134, 255, 0.2);
 
-    --bg: #030507;
-    --bg-2: #071018;
-    --bg-card: rgba(6, 182, 212, 0.06);
-    --bg-panel: #071018;
-    --bg-hover: rgba(34, 211, 238, 0.10);
-    --bg-input: #0A1922;
+    --bg: #0B0F19;
+    --bg-2: #111827;
+    --bg-card: #1A233A;
+    --bg-panel: #111827;
+    --bg-hover: rgba(255, 255, 255, 0.04);
+    --bg-input: #14141A;
 
-    --surface-1: rgba(34, 211, 238, 0.10);
-    --surface-2: rgba(34, 211, 238, 0.06);
+    --surface-1: rgba(255, 255, 255, 0.03);
+    --surface-2: rgba(255, 255, 255, 0.05);
 
-    --text-1: #A5F3FC;
-    --text-2: #67E8F9;
+    --text-1: #FAFAFA;
+    --text-2: #A1A1AA;
     --text-3: #22D3EE;
-    --text-inv: #030507;
+    --text-inv: #000000;
 
-    --border: #0E7490;
-    --border-2: rgba(34, 211, 238, 0.18);
-    --shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
-    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.30);
-    --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.40);
-    --shadow-xl: 0 24px 80px rgba(0, 0, 0, 0.45);
-
-    --green: #34d399;
-    --green-bg: rgba(52, 211, 153, 0.12);
-    --red: #f87171;
-    --red-bg: rgba(248, 113, 113, 0.12);
-    --amber: #fbbf24;
-    --amber-bg: rgba(251, 191, 36, 0.12);
-    --purple: #a78bfa;
-    --purple-bg: rgba(167, 139, 250, 0.12);
-
-    /* 3D Globe — dark palette */
-    --globe-base: #030507;
-    --globe-bg: #030507;
-    --globe-halo: #0891B2;
-    --globe-marker: #22D3EE;
-    --globe-arc: #0891B2;
-
-    --bg-card-rgb: 7, 16, 24;
-    --bg-panel-rgb: 7, 16, 24;
-
-    --focus-ring: 0 0 0 3px rgba(34, 211, 238, 0.30);
-
-    color-scheme: dark;
+    --border: #334155;
+    --border-2: #334155;
+    --shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.8);
+    --shadow-xl: 0 24px 80px rgba(0, 0, 0, 0.9);
 }
 
 /* ── Reset ─────────────────────────────────────────────────── */
@@ -202,7 +179,7 @@ body {
     color: var(--text-1);
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
-    transition: background 0.3s ease, color 0.3s ease;
+    /* Removed transition to fix lag */
     overflow-x: hidden;
     animation: pageFadeIn 0.5s ease;
 }
@@ -7509,4 +7486,12 @@ textarea,
         background: #030507 !important;
         color: #000 !important;
     }
+}
+
+/* Fix badge visibility in dark mode */
+[data-theme="dark"] .filter-count,
+[data-theme="dark"] .type-pill .filter-count,
+[data-theme="dark"] .domain-chip .filter-count {
+    background: rgba(255, 255, 255, 0.15) !important;
+    color: var(--text-1) !important;
 }

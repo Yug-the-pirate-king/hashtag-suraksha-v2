@@ -14,8 +14,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const THEME_KEY    = 'hs-theme';
 
   function applyTheme(theme) {
+    document.documentElement.classList.add('theme-transitioning');
     htmlEl.setAttribute('data-theme', theme);
     localStorage.setItem(THEME_KEY, theme);
+    
+    // Force reflow
+    window.getComputedStyle(document.documentElement).color;
+    
+    setTimeout(() => {
+        document.documentElement.classList.remove('theme-transitioning');
+    }, 50);
   }
 
   function dismissChooser(theme) {

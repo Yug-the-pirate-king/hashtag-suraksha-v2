@@ -667,9 +667,9 @@
   <div class="hud-status-bar">
     <div class="hud-status-dot"></div>
     <span id="hudClock">00:00:00</span>
-    <span>·</span>
+    <span>&middot;</span>
     <span id="hudMsg">NATIONAL CYBER AWARENESS DRIVE ACTIVE</span>
-    <span>·</span>
+    <span>&middot;</span>
     <span>28+ STATES COVERED</span>
   </div>
 
@@ -695,7 +695,7 @@
     var container = document.getElementById('hudTicks');
     for (var i = 0; i < 72; i++) {
       var tick = document.createElement('div');
-      tick.className = 'hud-tick' + (i % 6 === 0 ? ' major' : '');
+      tick.className = 'hud-tick' + (i % 6 === 0 ... ' major' : '');
       tick.style.transform = 'rotate(' + (i * 5) + 'deg)';
       container.appendChild(tick);
     }
@@ -726,11 +726,11 @@
   // ── Badge message rotation ───────────────────
   var msgs = [
     'NATIONAL CYBER AWARENESS DRIVE ACTIVE',
-    'TRAINING SESSION · MUMBAI HUB',
-    'LIVE WORKSHOP · NEW DELHI',
-    'CASK SESSION · BANGALORE SCHOOLS',
-    'ALERT MONITOR · KOLKATA NODE',
-    'AWARENESS CAMPAIGN · HYDERABAD',
+    'TRAINING SESSION &middot; MUMBAI HUB',
+    'LIVE WORKSHOP &middot; NEW DELHI',
+    'CASK SESSION &middot; BANGALORE SCHOOLS',
+    'ALERT MONITOR &middot; KOLKATA NODE',
+    'AWARENESS CAMPAIGN &middot; HYDERABAD',
   ];
   var msgIdx = 0;
   var msgEl = document.getElementById('hudMsg');
