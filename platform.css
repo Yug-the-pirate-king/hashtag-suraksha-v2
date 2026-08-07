@@ -1,9 +1,24 @@
-/* ═══════════════════════════════════════════════
-   PLATFORM.CSS — AI Learning Platform Page
-   Futuristic overrides + interactive components
-═══════════════════════════════════════════════ */
+/* PLATFORM.CSS — AI Learning Platform overrides */
 
-/* ── Hero Override ── */
+[data-theme="light"] {
+  --platform-heading: #0D1422;
+  --platform-body: #555;
+  --platform-body-muted: #444;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .topic-chip,
+  .topic-tab,
+  .topic-item,
+  .tier-card,
+  :is(.result-card, .step-card, .cert-card) {
+    transition: none !important;
+  }
+
+  .topic-panel { animation: none; }
+}
+
+/* Hero */
 .platform-hero {
   background: var(--bg) !important;
   padding: 140px 24px 100px !important;
@@ -54,7 +69,7 @@
   font-family: 'DM Sans', sans-serif !important;
 }
 
-/* ── Demo Section Override ── */
+/* Demo */
 .demo-section {
   background: var(--bg) !important;
   border-top: 1px solid var(--border);
@@ -65,16 +80,15 @@
 }
 .demo-text p { color: var(--text-secondary) !important; }
 
-/* ── Topic Chips (futuristic) ── */
+/* Topic chips */
 .topic-chip {
   background: var(--surface) !important;
   border: 1px solid var(--border) !important;
   color: var(--text-secondary) !important;
   font-family: 'Space Grotesk', sans-serif !important;
-  transition: all 0.25s ease !important;
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease !important;
   position: relative;
 }
-/* Remove ::before gradient approach — text nodes sit below positioned pseudo-elements */
 .topic-chip::before { display: none !important; }
 
 .topic-chip:hover {
@@ -91,7 +105,14 @@
   box-shadow: 0 6px 20px rgba(255,107,26,0.3) !important;
 }
 
-/* ── Chat Window Override ── */
+.topic-chip:focus-visible,
+.topic-tab:focus-visible,
+.tier-card:focus-visible {
+  outline: 2px solid var(--accent-saffron);
+  outline-offset: 2px;
+}
+
+/* Chat window */
 .full-chat-window {
   background: var(--surface) !important;
   border: 1px solid var(--border) !important;
@@ -99,19 +120,17 @@
   border-radius: 20px !important;
 }
 
-/* ── Tier Cards (Interactive) ── */
+/* Tier cards */
 .tiers-section {
   background: var(--bg) !important;
   padding: 100px 24px !important;
   border-top: 1px solid var(--border);
 }
-.tiers-section .section-title,
-.tiers-section h2 {
+.tiers-section :is(.section-title, h2) {
   font-family: 'DM Serif Display', serif !important;
   color: var(--text-primary) !important;
 }
-.tiers-section .section-subtitle,
-.tiers-section > p {
+.tiers-section :is(.section-subtitle, > p) {
   color: var(--text-secondary) !important;
 }
 
@@ -145,11 +164,11 @@
   color: var(--accent-saffron) !important;
   border-color: rgba(255,107,26,0.3) !important;
 }
-.tier-card h3, .tier-name {
+:is(.tier-card h3, .tier-name) {
   font-family: 'DM Serif Display', serif !important;
   color: var(--text-primary) !important;
 }
-.tier-desc, .tier-card p {
+:is(.tier-card p, .tier-desc) {
   color: var(--text-secondary) !important;
   font-family: 'DM Sans', sans-serif !important;
 }
@@ -161,27 +180,23 @@
   color: var(--accent-saffron) !important;
 }
 
-/* Featured tier glows */
-.tier-card.featured,
-.tier-card[data-featured="true"] {
+.tier-card:is(.featured, [data-featured="true"]) {
   border-color: rgba(255,107,26,0.4) !important;
   background: linear-gradient(135deg, rgba(255,107,26,0.06), var(--surface)) !important;
 }
-.tier-card.featured::before,
-.tier-card[data-featured="true"]::before { opacity: 1; }
+.tier-card:is(.featured, [data-featured="true"])::before { opacity: 1; }
 
-/* ── Curriculum / Topics Section ── */
+/* Curriculum / Topics */
 .curriculum-section {
   background: var(--bg-2, #090d15) !important;
   border-top: 1px solid var(--border);
   padding: 100px 24px !important;
 }
-.curriculum-section h2, .topics-section h2 {
+:is(.curriculum-section, .topics-section) h2 {
   font-family: 'DM Serif Display', serif !important;
   color: var(--text-primary) !important;
 }
 
-/* Topic Tab Switcher */
 .topic-tabs {
   display: flex;
   gap: 8px;
@@ -200,7 +215,7 @@
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
   letter-spacing: 0.02em;
 }
 .topic-tab:hover {
@@ -220,14 +235,18 @@
   margin: 0 auto;
   animation: fadeInUp 0.4s ease;
 }
-.topic-panel.active { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+.topic-panel.active {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
 
 .topic-item {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 28px 24px;
-  transition: all 0.3s ease;
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 .topic-item:hover {
   border-color: rgba(255,107,26,0.4);
@@ -258,92 +277,74 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ── All other sections ── */
-.results-section, .how-section, .platform-cta-section {
+/* Other sections */
+:is(.results-section, .how-section, .platform-cta-section) {
   background: var(--bg) !important;
   border-top: 1px solid var(--border);
 }
-.results-section h2, .how-section h2, .platform-cta-section h2 {
+:is(.results-section, .how-section, .platform-cta-section) h2 {
   font-family: 'DM Serif Display', serif !important;
   color: var(--text-primary) !important;
 }
-.results-section p, .how-section p, .platform-cta-section p {
+:is(.results-section, .how-section, .platform-cta-section) p {
   color: var(--text-secondary) !important;
 }
 
-/* ── Result Cards ── */
-.result-card, .step-card, .cert-card {
+/* Result cards */
+:is(.result-card, .step-card, .cert-card) {
   background: var(--surface) !important;
   border: 1px solid var(--border) !important;
   border-radius: 16px !important;
   transition: transform 0.3s ease, box-shadow 0.3s ease !important;
 }
-.result-card:hover, .step-card:hover, .cert-card:hover {
+:is(.result-card, .step-card, .cert-card):hover {
   transform: translateY(-6px) !important;
   box-shadow: 0 24px 48px rgba(0,0,0,0.3) !important;
 }
-.result-card h3, .result-number, .cert-title {
+:is(.result-card h3, .result-number, .cert-title) {
   font-family: 'Space Grotesk', sans-serif !important;
   color: var(--text-primary) !important;
 }
-.result-card p, .step-desc, .cert-desc {
+:is(.result-card p, .step-desc, .cert-desc) {
   color: var(--text-secondary) !important;
 }
 
-/* ── Light Mode Overrides ── */
-[data-theme="light"] .platform-hero h1 { color: #0D1422 !important; }
-[data-theme="light"] .platform-hero p { color: #444 !important; }
+/* Light mode */
+[data-theme="light"] .platform-hero h1 { color: var(--platform-heading) !important; }
+[data-theme="light"] .platform-hero p { color: var(--platform-body-muted) !important; }
 [data-theme="light"] .platform-hero::after {
   background-image:
     linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px);
 }
-/* All section headings */
-[data-theme="light"] .demo-section h2,
-[data-theme="light"] .demo-text h2,
-[data-theme="light"] .tiers-section h2,
-[data-theme="light"] .curriculum-section h2,
-[data-theme="light"] .results-section h2,
-[data-theme="light"] .how-section h2,
-[data-theme="light"] .platform-cta-section h2 { color: #0D1422 !important; }
 
-[data-theme="light"] .demo-text p,
-[data-theme="light"] .tiers-section p,
-[data-theme="light"] .results-section p,
-[data-theme="light"] .how-section p { color: #555 !important; }
-
-/* Tier cards */
-[data-theme="light"] .tier-card {
-  background: white !important;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08) !important;
+[data-theme="light"] :is(.demo-section, .demo-text, .tiers-section, .curriculum-section, .results-section, .how-section, .platform-cta-section) h2 {
+  color: var(--platform-heading) !important;
 }
-[data-theme="light"] .tier-card:hover { box-shadow: 0 20px 48px rgba(0,0,0,0.14) !important; }
-[data-theme="light"] .tier-card h3 { color: #0D1422 !important; }
-[data-theme="light"] .tier-card p,
-[data-theme="light"] .tier-desc,
-[data-theme="light"] .tier-feature { color: #555 !important; }
+[data-theme="light"] :is(.demo-text, .tiers-section, .results-section, .how-section) p {
+  color: var(--platform-body) !important;
+}
 
-/* Topic tabs & items */
-[data-theme="light"] .topic-tab {
+[data-theme="light"] :is(.tier-card, .topic-tab, .topic-item, .result-card, .step-card, .cert-card) {
   background: white !important;
-  color: #444 !important;
+}
+[data-theme="light"] .tier-card { box-shadow: 0 4px 16px rgba(0,0,0,0.08) !important; }
+[data-theme="light"] .tier-card:hover { box-shadow: 0 20px 48px rgba(0,0,0,0.14) !important; }
+[data-theme="light"] .tier-card h3 { color: var(--platform-heading) !important; }
+[data-theme="light"] :is(.tier-card p, .tier-desc, .tier-feature) { color: var(--platform-body) !important; }
+
+[data-theme="light"] .topic-tab {
+  color: var(--platform-body-muted) !important;
   border-color: rgba(0,0,0,0.12) !important;
 }
 [data-theme="light"] .topic-tab.active {
   color: white !important;
   border-color: transparent !important;
 }
-[data-theme="light"] .topic-item { background: white !important; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
-[data-theme="light"] .topic-item h4 { color: #0D1422 !important; }
-[data-theme="light"] .topic-item p { color: #555 !important; }
+[data-theme="light"] .topic-item { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+[data-theme="light"] .topic-item h4 { color: var(--platform-heading) !important; }
+[data-theme="light"] .topic-item p { color: var(--platform-body) !important; }
 
-/* Result/step/cert cards */
-[data-theme="light"] .result-card,
-[data-theme="light"] .step-card,
-[data-theme="light"] .cert-card { background: white !important; box-shadow: 0 2px 12px rgba(0,0,0,0.06) !important; }
-[data-theme="light"] .result-card h3,
-[data-theme="light"] .result-number,
-[data-theme="light"] .cert-title { color: #0D1422 !important; }
-[data-theme="light"] .result-card p,
-[data-theme="light"] .step-desc,
-[data-theme="light"] .cert-desc { color: #555 !important; }
+[data-theme="light"] :is(.result-card, .step-card, .cert-card) { box-shadow: 0 2px 12px rgba(0,0,0,0.06) !important; }
+[data-theme="light"] :is(.result-card h3, .result-number, .cert-title) { color: var(--platform-heading) !important; }
+[data-theme="light"] :is(.result-card p, .step-desc, .cert-desc) { color: var(--platform-body) !important; }
