@@ -784,7 +784,7 @@
             msgs.appendChild(bMsg);
             msgs.scrollTop = msgs.scrollHeight;
             var left = 3 - qCount;
-            if (left > 0 && counter) counter.textContent = left + ' Q' + (left > 1 ... 's' : '') + ' left';
+            if (left > 0 && counter) counter.textContent = left + ' Q' + (left > 1 ? 's' : '') + ' left';
             if (qCount >= 3) {
               if (counter) counter.textContent = '0 left';
               setTimeout(function() {
@@ -1580,7 +1580,7 @@
     function toggleShowMore(id, btn) {
       const block = document.getElementById(id);
       const expanded = block.classList.toggle('expanded');
-      btn.textContent = expanded ... 'Show less' : 'Read more';
+      btn.textContent = expanded ? 'Show less' : 'Read more';
     }
 
     // ── Phish Bowl Game ─────────────────────────────────────────────
@@ -1668,7 +1668,7 @@
 
     function pbShowCenter(id) {
       ['pbStartState','pbScenario','pbFeedback','pbLevelup','pbGameover']
-        .forEach(function(s){ document.getElementById(s).style.display = s===id...'flex':'none'; });
+        .forEach(function(s){ document.getElementById(s).style.display = s===id?'flex':'none'; });
     }
 
     function pbNextQuestion() {
@@ -1676,15 +1676,15 @@
       var q = pbPickQuestion();
       pbState.currentQ = q;
       // Detect label from text
-      var lbl = q.text.indexOf('@') > -1 ... 'EMAIL'
-              : q.text.indexOf('http') > -1 ... 'URL'
-              : q.text.indexOf('.com') > -1 || q.text.indexOf('.') > -1 ... 'DOMAIN'
+      var lbl = q.text.indexOf('@') > -1 ? 'EMAIL'
+              : q.text.indexOf('http') > -1 ? 'URL'
+              : q.text.indexOf('.com') > -1 || q.text.indexOf('.') > -1 ? 'DOMAIN'
               : 'MESSAGE';
       document.getElementById('pbScType').textContent = lbl;
       document.getElementById('pbScText').textContent = q.text;
       // Show tier-appropriate hint on tier 1 only (remove on harder tiers)
       var hintEl = document.getElementById('pbScHint');
-      if (hintEl) hintEl.textContent = pbGetTier() <= 1 ... 'Phish or safe...' : '';
+      if (hintEl) hintEl.textContent = pbGetTier() <= 1 ? 'Phish or safe...' : '';
       pbShowCenter('pbScenario');
       pbSpawnTags(q);
       pbState.timeLeft = pbGetTimerMax();
@@ -1718,12 +1718,12 @@
       if (!q) return;
       var timeout = (choice === null);
       var correct = !timeout && (choice === q.isPhish);
-      var bonus = correct ... Math.ceil(10 * pbGetTier() * (pbState.timeLeft / pbGetTimerMax() + 0.5)) : 0;
+      var bonus = correct ? Math.ceil(10 * pbGetTier() * (pbState.timeLeft / pbGetTimerMax() + 0.5)) : 0;
 
       pbState.history.unshift({
         text: q.text, correct: correct, pts: bonus,
-        answer: timeout ... 'TIMED OUT' : (choice ... 'PHISH' : 'SAFE'),
-        actual: q.isPhish ... 'PHISH' : 'SAFE'
+        answer: timeout ? 'TIMED OUT' : (choice ? 'PHISH' : 'SAFE'),
+        actual: q.isPhish ? 'PHISH' : 'SAFE'
       });
       pbClearTags();
 
@@ -1732,7 +1732,7 @@
         pbState.progress++;
         pbBurst(true);
         pbFlash(true);
-        pbShowFeedback(true, q.isPhish ... '🎣 Phish caught!' : '✓ Safe call!', '+' + bonus);
+        pbShowFeedback(true, q.isPhish ? '🎣 Phish caught!' : '✓ Safe call!', '+' + bonus);
         pbUpdateScore();
         pbUpdateProgress();
         pbAddHistory(q, true, bonus);
@@ -1746,7 +1746,7 @@
         pbUpdateLives();
         pbBurst(false);
         pbFlash(false);
-        pbShowFeedback(false, timeout ... '⏱ Time out!' : (q.isPhish ... '☠ That was a Phish!' : '⚠ That was Safe!'), '');
+        pbShowFeedback(false, timeout ? '⏱ Time out!' : (q.isPhish ? '☠ That was a Phish!' : '⚠ That was Safe!'), '');
         pbAddHistory(q, false, 0);
         if (pbState.lives <= 0) {
           setTimeout(pbGameOver, 1200);
@@ -1764,7 +1764,7 @@
       for (var i = 0; i < 14; i++) {
         var p = document.createElement('div');
         p.className = 'pb-particle';
-        p.style.background = good ... '#00c8ff' : '#ff2244';
+        p.style.background = good ? '#00c8ff' : '#ff2244';
         if (good) p.style.boxShadow = '0 0 4px rgba(0,200,255,0.8)';
         else       p.style.boxShadow = '0 0 4px rgba(255,34,68,0.8)';
         var angle = (i / 14) * Math.PI * 2;
@@ -1785,14 +1785,14 @@
       if (!radar) return;
       radar.classList.remove('pb-flash-good', 'pb-flash-bad');
       void radar.offsetWidth;
-      radar.classList.add(good ... 'pb-flash-good' : 'pb-flash-bad');
+      radar.classList.add(good ? 'pb-flash-good' : 'pb-flash-bad');
       setTimeout(function(){ radar.classList.remove('pb-flash-good', 'pb-flash-bad'); }, 500);
     }
 
     function pbShowFeedback(good, msg, pts) {
       var fb = document.getElementById('pbFeedback');
-      fb.className = 'pb-center-state ' + (good ... 'pb-fb-good' : 'pb-fb-bad');
-      document.getElementById('pbFbIcon').textContent = good ... '✓' : '✗';
+      fb.className = 'pb-center-state ' + (good ? 'pb-fb-good' : 'pb-fb-bad');
+      document.getElementById('pbFbIcon').textContent = good ? '✓' : '✗';
       document.getElementById('pbFbMsg').textContent = msg;
       var ptsEl = document.getElementById('pbFbPts');
       if (ptsEl) ptsEl.textContent = pts;
@@ -1803,7 +1803,7 @@
       pbState.level++;
       pbState.progress = 0;
       var tier = pbGetTier();
-      var subMsg = tier >= 4 ... 'EXPERT MODE' : tier === 3 ... 'Critical threats' : tier === 2 ... 'Threats escalating' : 'Keep scanning';
+      var subMsg = tier >= 4 ? 'EXPERT MODE' : tier === 3 ? 'Critical threats' : tier === 2 ? 'Threats escalating' : 'Keep scanning';
       document.getElementById('pbLuTxt').textContent = 'Level ' + pbState.level + '!';
       var subEl = document.getElementById('pbLuSub');
       if (subEl) subEl.textContent = subMsg;
@@ -1841,11 +1841,11 @@
       var empty = list.querySelector('.pb-history-empty');
       if (empty) empty.remove();
       var item = document.createElement('div');
-      item.className = 'pb-history-item ' + (correct ... 'pb-history-ok' : 'pb-history-err');
-      var label = q.text.length > 22 ... q.text.slice(0,22) + '…' : q.text;
-      item.innerHTML = '<span class="pb-history-ico">' + (correct...'✓':'✗') + '</span>' +
+      item.className = 'pb-history-item ' + (correct ? 'pb-history-ok' : 'pb-history-err');
+      var label = q.text.length > 22 ? q.text.slice(0,22) + '…' : q.text;
+      item.innerHTML = '<span class="pb-history-ico">' + (correct?'✓':'✗') + '</span>' +
         '<span class="pb-history-txt">' + label + '</span>' +
-        '<span class="pb-history-pts">' + (correct ... '+'+pts : '−1') + '</span>';
+        '<span class="pb-history-pts">' + (correct ? '+'+pts : '−1') + '</span>';
       list.insertBefore(item, list.firstChild);
       while (list.children.length > 5) list.removeChild(list.lastChild);
     }
@@ -1854,8 +1854,8 @@
       pbClearTags();
       var area = document.getElementById('pbTagsArea');
       var tag1 = document.createElement('div');
-      tag1.className = 'pb-float-tag ' + (q.isPhish ... 'pb-tag-danger' : 'pb-tag-safe');
-      tag1.textContent = (q.isPhish ... '⚠ ' : '🛡 ') + q.hint;
+      tag1.className = 'pb-float-tag ' + (q.isPhish ? 'pb-tag-danger' : 'pb-tag-safe');
+      tag1.textContent = (q.isPhish ? '⚠ ' : '🛡 ') + q.hint;
       Object.assign(tag1.style, {top:'10%', left:'3%'});
       area.appendChild(tag1);
       var extras = ['PACKET SCAN','DNS LOOKUP','IP TRACE','CERT CHECK','WHOIS','SSL VERIFY'];
@@ -1885,7 +1885,7 @@
       var el = document.getElementById('pbTimerVal');
       if (!el) return;
       el.textContent = '0' + Math.floor(s/60) + ':' + String(s%60).padStart(2,'0');
-      el.className = 'pb-timer-val' + (s <= 5 ... ' pb-timer-urgent' : '');
+      el.className = 'pb-timer-val' + (s <= 5 ? ' pb-timer-urgent' : '');
     }
 
     function pbUpdateProgress() {
@@ -1899,7 +1899,7 @@
     function pbUpdateLives() {
       for (var i=1; i<=3; i++) {
         var el = document.getElementById('pb-heart-' + i);
-        if (el) el.className = 'pb-heart' + (i <= pbState.lives ... ' pb-heart-on' : '');
+        if (el) el.className = 'pb-heart' + (i <= pbState.lives ? ' pb-heart-on' : '');
       }
     }
 
@@ -1908,8 +1908,8 @@
       var rd = document.getElementById('pbRankDisp');
       var rdt = document.getElementById('pbRankDelta');
       if (cd) cd.textContent = pbState.score;
-      if (rd) rd.textContent = pbState.score === 0 ... '#—' : '#' + Math.max(1, 100 - Math.floor(pbState.score/15));
-      if (rdt) rdt.textContent = pbState.score === 0 ... 'Play to rank' : '↑ Active';
+      if (rd) rd.textContent = pbState.score === 0 ? '#—' : '#' + Math.max(1, 100 - Math.floor(pbState.score/15));
+      if (rdt) rdt.textContent = pbState.score === 0 ? 'Play to rank' : '↑ Active';
     }
 
     // ── Hero Map: Live Clock + Badge Rotation ───────────────────
@@ -2188,7 +2188,7 @@
           initials: 'K',
           color: '#ec4899',
           glow: 'rgba(236,72,153,0.35)',
-          greeting: "OMG HI bestie!! 🙋‍♀️ I’m Kelly and I literally know ALL the lingo — like every single word. Drop any slang and I’ll translate it for you!! What do you wanna know"",
+          greeting: "OMG HI bestie!! 🙋‍♀️ I’m Kelly and I literally know ALL the lingo — like every single word. Drop any slang and I’ll translate it for you!! What do you wanna know?",
           respond: function(word, entry) {
             return 'Okay so “' + word + '” basically means — ' + entry.def + ' 💥\n\nAnd lowkey the safety thing here is: ' + entry.tip + ' 🚩';
           },
@@ -2208,16 +2208,16 @@
           initials: 'M',
           color: '#f97316',
           glow: 'rgba(249,115,22,0.35)',
-          greeting: "HEYYY it’s Megan 👋 I’ll give it to you straight — no cap, no filter 💥 Drop any slang word and I’ll break it down real quick. What are we looking at"",
+          greeting: "HEYYY it’s Megan 👋 I’ll give it to you straight — no cap, no filter 💥 Drop any slang word and I’ll break it down real quick. What are we looking at?",
           respond: function(word, entry) {
-            return '“' + word + '”" Okay so: ' + entry.def + ' 💥\n\nThe thing nobody tells you: ' + entry.tip + ' 🚨';
+            return '“' + word + '”?" Okay so: ' + entry.def + ' 💥\n\nThe thing nobody tells you: ' + entry.tip + ' 🚨';
           },
           sentence: function(word, entry) {
-            if (entry.eg) return 'So you’d drop it like this 💥 ' + entry.eg + '\n\nSEE how that hits" That’s exactly how “' + word + '” lands in real life 🔥';
+            if (entry.eg) return 'So you’d drop it like this 💥 ' + entry.eg + '\n\nSEE how that hits?" That’s exactly how “' + word + '” lands in real life 🔥';
             return 'Just say “that’s giving ' + word.toLowerCase() + ' energy” and everyone knows what you mean 💀';
           },
           unknown: function(q) {
-            return 'Wait what even IS “' + q + '”" I literally cannot 💣 That one’s not in my vocabulary and I know a LOT. Slanglish.cyberbuddhas.com has 200+ words though!!';
+            return 'Wait what even IS “' + q + '”?" I literally cannot 💣 That one’s not in my vocabulary and I know a LOT. Slanglish.cyberbuddhas.com has 200+ words though!!';
           }
         },
         {
@@ -2328,7 +2328,7 @@
         var msgsEl = document.getElementById('slangChatMsgs');
         if (!msgsEl) return;
         var div = document.createElement('div');
-        div.className = from === 'char' ... 'slang-msg-char' : 'slang-msg-user';
+        div.className = from === 'char' ? 'slang-msg-char' : 'slang-msg-user';
         // Replace \n with <br>
         div.innerHTML = text.replace(/\n/g, '<br>');
         msgsEl.appendChild(div);
@@ -2404,8 +2404,8 @@
         var cFb  = el('slangCarFb');
 
         // Which is currently visible... The other will receive the new src.
-        var incoming = (imgA && imgA.classList.contains('active')) ... imgB : imgA;
-        var outgoing = (imgA && imgA.classList.contains('active')) ... imgA : imgB;
+        var incoming = (imgA && imgA.classList.contains('active')) ? imgB : imgA;
+        var outgoing = (imgA && imgA.classList.contains('active')) ? imgA : imgB;
 
         if (!incoming || !outgoing) return;
 
@@ -2443,7 +2443,7 @@
           dotsEl.innerHTML = '';
           characters.forEach(function(c, i) {
             var dot = document.createElement('span');
-            dot.className = 'slang-dot' + (i === carouselIdx ... ' slang-dot-active' : '');
+            dot.className = 'slang-dot' + (i === carouselIdx ? ' slang-dot-active' : '');
             dot.onclick = (function(ii) { return function() { slangCarouselShow(ii); }; })(i);
             dotsEl.appendChild(dot);
           });
@@ -2465,7 +2465,7 @@
       // Speak current word via Web Speech API
       window.slangSpeak = function() {
         if (!window.speechSynthesis) return;
-        var utter = new SpeechSynthesisUtterance(words[cur] ... words[cur].word : '');
+        var utter = new SpeechSynthesisUtterance(words[cur] ? words[cur].word : '');
         utter.rate  = 0.85;
         utter.pitch = 1.0;
         window.speechSynthesis.cancel();
@@ -2504,7 +2504,7 @@
       document.querySelectorAll('.slang-all-tape span').forEach(function(s) {
         s.style.cursor = 'pointer';
         var txt = s.textContent.trim();
-        var idx = tapeWordMap.hasOwnProperty(txt) ... tapeWordMap[txt] : null;
+        var idx = tapeWordMap.hasOwnProperty(txt) ? tapeWordMap[txt] : null;
         s.addEventListener('click', function() {
           if (idx !== null) { window.slangJump(idx); }
         });
@@ -2569,7 +2569,7 @@
     document.querySelectorAll('.mini-play-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
-        btn.textContent = btn.textContent === '▶' ... '⏸' : '▶';
+        btn.textContent = btn.textContent === '▶' ? '⏸' : '▶';
         btn.closest('.podcast-card-interactive').querySelector('.mini-wave-row').classList.toggle('playing');
       });
     });
@@ -2793,7 +2793,7 @@
         gl.viewport(0, 0, canvas.width, canvas.height);
         if (uT) gl.uniform1f(uT, t * 0.001);
         if (uR) gl.uniform2f(uR, canvas.width, canvas.height);
-        if (uLM) gl.uniform1f(uLM, document.documentElement.getAttribute('data-theme')==='light' ... 1.0 : 0.0);
+        if (uLM) gl.uniform1f(uLM, document.documentElement.getAttribute('data-theme')==='light' ? 1.0 : 0.0);
         gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
         raf = requestAnimationFrame(render);
       }
