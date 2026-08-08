@@ -19379,18 +19379,32 @@ a:focus-visible,
     repeating-linear-gradient(135deg, color-mix(in srgb, var(--cv-ink) 4%, transparent) 0 2px, transparent 2px 14px) !important;
 }
 
+/* The image sits over the existing placeholder, which remains available if it fails to load. */
+#edx-cards-row .clean-course-card .course-banner-image,
+#edx-cards-row .clean-course-card.card .course-banner-image {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
 #edx-cards-row .clean-course-card .card-banner::after,
 #edx-cards-row .clean-course-card.card .card-banner::after {
   content: "" !important;
   position: absolute !important;
   inset: 0 !important;
   background: linear-gradient(to top, color-mix(in srgb, var(--cv-paper-raised) 92%, transparent) 0%, transparent 55%) !important;
+  z-index: 1 !important;
 }
 
 /* ---------- Logo wrap ---------- */
 #edx-cards-row .clean-course-card .logo-wrap,
 #edx-cards-row .clean-course-card.card .logo-wrap {
   position: absolute !important;
+  z-index: 2 !important;
   left: 20px !important;
   bottom: -24px !important;
   width: 52px !important;
