@@ -13793,69 +13793,7 @@ body[data-loading="true"] #india-stat-count {
 
 /* Toolbar */
 .courses-toolbar {
-  position: sticky;
-  top: 70px;
-  z-index: 50;
-  background: var(--bg);
-
-    display: grid;
-    grid-template-columns: 1fr auto auto auto;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 14px;
-    padding: 12px 14px;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
-}
-
-.courses-search {
-    position: relative;
-    min-width: 0;
-}
-
-.courses-search .search-icon {
-    position: absolute;
-    left: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--text-3);
-    pointer-events: none;
-}
-
-.courses-search input[type="search"] {
-    width: 100%;
-    padding: 10px 76px 10px 38px;
-    border-radius: var(--radius-pill);
-    border: 1px solid var(--border);
-    background: var(--bg);
-    color: var(--text-1);
-    font-size: 0.88rem;
-    outline: none;
-    transition: var(--transition);
-    caret-color: var(--teal-500);
-}
-
-.courses-search input[type="search"]:focus {
-    border-color: var(--teal-500);
-    box-shadow: 0 0 0 3px var(--focus-ring);
-}
-
-.search-kbd {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    padding: 2px 6px;
-    border-radius: 5px;
-    font-size: 0.65rem;
-    font-weight: 700;
-    font-family: var(--font-mono, monospace);
-    color: var(--text-3);
-    background: var(--surface-2);
-    border: 1px solid var(--border);
-    pointer-events: none;
+  display: none;
 }
 
 .courses-sort select {
@@ -14667,23 +14605,6 @@ body[data-loading="true"] #india-stat-count {
         align-items: flex-start;
     }
 
-    .courses-toolbar {
-  position: sticky;
-  top: 70px;
-  z-index: 50;
-  background: var(--bg);
-
-        grid-template-columns: 1fr auto;
-    }
-
-    .courses-view-toggle {
-        order: 3;
-    }
-
-    .edx-reset-btn {
-        order: 4;
-    }
-
     .edx-cards-row.list-view .clean-course-card {
         flex-direction: column;
         align-items: flex-start;
@@ -14696,15 +14617,6 @@ body[data-loading="true"] #india-stat-count {
 }
 
 @media (max-width: 720px) {
-    .courses-toolbar {
-  position: sticky;
-  top: 70px;
-  z-index: 50;
-  background: var(--bg);
-
-        grid-template-columns: 1fr;
-    }
-
     .courses-sort,
     .courses-view-toggle,
     .edx-reset-btn {
@@ -17864,38 +17776,6 @@ a:focus-visible,
   box-shadow: var(--shadow-lg);
 }
 
-/* Search clear button */
-.search-clear-btn {
-  position: absolute;
-  right: 64px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: none;
-  background: var(--surface-2);
-  color: var(--text-3);
-  font-size: 0.85rem;
-  line-height: 1;
-  cursor: pointer;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  transition: var(--transition);
-}
-.search-clear-btn:hover,
-.search-clear-btn:focus-visible {
-  background: var(--teal-bg);
-  color: var(--teal-400);
-}
-.courses-search input[type="search"]:not(:placeholder-shown) ~ .search-clear-btn {
-  display: inline-flex;
-}
-.courses-search input[type="search"]:not(:placeholder-shown) ~ .search-kbd {
-  display: none;
-}
-
 /* Sort dropdown icon refresh */
 .courses-sort {
   position: relative;
@@ -18599,8 +18479,7 @@ a:focus-visible,
   .domain-chip,
   .view-btn,
   .chip-scroll-btn,
-  .courses-search input,
-  .courses-page-size select {
+    .courses-page-size select {
     transition: none;
     animation: none;
   }
@@ -18618,7 +18497,7 @@ a:focus-visible,
 .chip-scroll-btn:focus-visible,
 .btn-view-details:focus-visible,
 .btn-visit-site:focus-visible,
-.search-clear-btn:focus-visible,
+.nav-search-clear:focus-visible,
 .filter-collapse-btn:focus-visible {
   outline: 2px solid var(--teal-500);
   outline-offset: 2px;
@@ -18661,20 +18540,6 @@ a:focus-visible,
   .domain-chip {
     scroll-snap-align: start;
     flex-shrink: 0;
-  }
-  .courses-toolbar {
-  position: sticky;
-  top: 70px;
-  z-index: 50;
-  background: var(--bg);
-
-    grid-template-columns: 1fr;
-  }
-  .courses-search input[type="search"] {
-    width: 100%;
-  }
-  .courses-view-toggle {
-    justify-self: start;
   }
   .edx-meta-bar {
     flex-direction: column;
@@ -21271,3 +21136,530 @@ body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .btn-sav
 
 /* Prevent lag during theme toggle */
 .theme-transitioning * { transition: none !important; }
+
+/* ======================================================
+   COMPACT STICKY NAV — Course Catalog
+   Shrinks the navbar once the user scrolls past the
+   original search bar, moving search + filter into the nav.
+   ====================================================== */
+
+/* Compact nav is always sticky/fixed — reuse existing .nav */
+.nav-inner {
+  transition: height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              gap 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- Compact logo (hidden wordmark, icon-only mark) --- */
+.nav-logo-compact {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  flex-shrink: 0;
+  margin-right: 0;
+  max-width: 0;
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              max-width 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              margin 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, opacity, max-width;
+}
+
+[data-theme="light"] .nav-logo-compact {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+.nav-logo-img-compact {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* --- Compact search + filter container --- */
+.nav-compact-search {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  flex: 1 1 auto;
+  max-width: 0;
+  margin-left: 0;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transform: translateY(-6px);
+  transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              flex 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              max-width 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              margin-left 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, opacity, max-width, flex;
+}
+
+/* The compact nav strip is ALWAYS light, regardless of data-theme —
+   so these controls use fixed colors, not theme variables. */
+
+.nav-search-group,
+.nav-action-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.nav-search-group {
+  flex: 1 1 auto;
+}
+
+.nav-action-group {
+  flex-shrink: 0;
+}
+
+.nav-search-wrap {
+  position: relative;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  min-width: 160px;
+  max-width: 520px;
+  height: 40px;
+}
+
+.nav-search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  color: #64748b;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.nav-search-wrap input[type="search"] {
+  width: 100%;
+  height: 40px;
+  box-sizing: border-box;
+  padding: 0 36px 0 40px;
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  background: #f1f5f9;
+  color: #0f172a;
+  font-family: var(--font-ui, 'Plus Jakarta Sans', system-ui, sans-serif);
+  font-size: 14px;
+  outline: none;
+  transition: border-color .2s ease, background-color .2s ease, box-shadow .2s ease;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.nav-search-wrap input[type="search"]::-webkit-search-decoration,
+.nav-search-wrap input[type="search"]::-webkit-search-cancel-button,
+.nav-search-wrap input[type="search"]::-webkit-search-results-button,
+.nav-search-wrap input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.nav-search-wrap input[type="search"]::placeholder {
+  color: #64748b;
+  opacity: 1;
+}
+
+.nav-search-wrap input[type="search"]:focus {
+  border-color: #1d4ed8;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.18);
+}
+
+.nav-search-clear {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: #64748b;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-50%) scale(.8);
+  transition: opacity .18s ease, transform .18s ease,
+              background-color .18s ease, color .18s ease;
+  z-index: 1;
+}
+
+.nav-search-wrap input[type="search"]:not(:placeholder-shown) ~ .nav-search-clear {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) scale(1);
+}
+
+.nav-search-clear:hover,
+.nav-search-clear:focus-visible {
+  background: rgba(29, 78, 216, 0.10);
+  color: #1d4ed8;
+}
+
+.nav-filter-btn {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid #d1d5db;
+  background: #f1f5f9;
+  color: #64748b;
+  cursor: pointer;
+  transition: border-color .2s ease, color .2s ease,
+              background-color .2s ease, transform .2s ease;
+}
+
+.nav-filter-btn:hover,
+.nav-filter-btn:focus-visible {
+  border-color: #1d4ed8;
+  color: #1d4ed8;
+  background: rgba(29, 78, 216, 0.10);
+  transform: translateY(-1px);
+}
+
+.nav-sort-wrap {
+  display: flex;
+  align-items: center;
+  height: 40px;
+}
+
+.nav-sort-wrap select {
+  height: 40px;
+  box-sizing: border-box;
+  padding: 0 30px 0 14px;
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  background: #f1f5f9;
+  color: #0f172a;
+  font-family: var(--font-ui, 'Plus Jakarta Sans', system-ui, sans-serif);
+  font-size: 13px;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%2364748b' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.nav-sort-wrap select:focus {
+  border-color: #1d4ed8;
+  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.18);
+}
+
+.nav-view-toggle {
+  display: inline-flex;
+  align-items: stretch;
+  height: 40px;
+  box-sizing: border-box;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid #d1d5db;
+  background: #f1f5f9;
+}
+
+.nav-view-toggle .view-btn {
+  width: 40px;
+  height: 100%;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: #64748b;
+  cursor: pointer;
+  transition: background-color .2s ease, color .2s ease;
+}
+
+.nav-view-toggle .view-btn.active {
+  background: rgba(29, 78, 216, 0.12);
+  color: #1d4ed8;
+}
+
+.nav-view-toggle .view-btn:hover,
+.nav-view-toggle .view-btn:focus-visible {
+  color: #1d4ed8;
+}
+
+.nav-reset-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 40px;
+  box-sizing: border-box;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  background: #f1f5f9;
+  color: #64748b;
+  font-family: var(--font-ui, 'Plus Jakarta Sans', system-ui, sans-serif);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color .2s ease, color .2s ease,
+              background-color .2s ease, transform .2s ease;
+}
+
+.nav-reset-btn:hover,
+.nav-reset-btn:focus-visible {
+  border-color: #1d4ed8;
+  color: #1d4ed8;
+  background: rgba(29, 78, 216, 0.10);
+  transform: translateY(-1px);
+}
+
+.nav-reset-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* --- Elements that collapse away in compact mode --- */
+.nav-logo-full,
+.nav-links,
+.nav-cta {
+  transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              max-width 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              flex 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              margin 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              padding 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, opacity, max-width;
+}
+
+.nav-logo-full {
+  max-width: 220px;
+  opacity: 1;
+  transform: scale(1);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.nav-links {
+  flex: 1 1 auto;
+  opacity: 1;
+  max-width: 1200px;
+  overflow: hidden;
+}
+
+.nav-cta {
+  max-width: 220px;
+  opacity: 1;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* --- COMPACT STATE --- */
+.nav.compact .nav-inner {
+  height: 58px;
+  gap: 12px;
+  justify-content: flex-start;
+}
+
+.nav.compact .nav-logo-full {
+  max-width: 0;
+  opacity: 0;
+  transform: scale(0.92);
+  pointer-events: none;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  order: 99;
+}
+
+.nav.compact .nav-links {
+  flex: 0 0 0;
+  max-width: 0;
+  opacity: 0;
+  pointer-events: none;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  order: 99;
+}
+
+.nav.compact .nav-cta {
+  display: none;
+}
+
+.nav.compact .nav-logo-compact {
+  max-width: 38px;
+  opacity: 1;
+  transform: scale(1);
+  margin-right: 8px;
+}
+
+/* Unify the whole compact toolbar into one cohesive control */
+.nav.compact .nav-compact-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1 1 auto;
+  max-width: 900px;
+  margin: 0 20px;
+  padding: 4px;
+  border-radius: 999px;
+  background: #eef1f6;
+  border: 1px solid #e1e5eb;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+  overflow: visible;
+}
+
+/* Kill the old per-element backgrounds/borders now that they sit
+   inside a shared shell — they become borderless segments */
+.nav.compact .nav-search-wrap input[type="search"],
+.nav.compact .nav-filter-btn,
+.nav.compact .nav-sort-wrap select,
+.nav.compact .nav-view-toggle,
+.nav.compact .nav-reset-btn {
+  background: #fff;
+  border-color: #e1e5eb;
+}
+
+.nav-search-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.nav-action-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  padding-left: 8px;
+  border-left: 1px solid #d7dce3;
+}
+
+/* Lock every control to the exact same height so tops/bottoms align */
+.nav-search-wrap,
+.nav-search-wrap input[type="search"],
+.nav-filter-btn,
+.nav-sort-wrap,
+.nav-sort-wrap select,
+.nav-view-toggle,
+.nav-view-toggle .view-btn,
+.nav-reset-btn {
+  height: 36px;
+}
+
+.nav-filter-btn { width: 36px; }
+
+/* Tighter search bar padding to match the smaller 36px height */
+.nav-search-wrap input[type="search"] {
+  padding: 0 34px 0 36px;
+}
+
+.nav-search-icon { left: 11px; width: 15px; height: 15px; }
+.nav-search-clear { width: 24px; height: 24px; right: 4px; }
+
+.nav-sort-wrap select { font-size: 12.5px; padding: 0 26px 0 12px; }
+.nav-reset-btn { padding: 0 14px; font-size: 12.5px; }
+
+/* Keep the theme toggle visually separate, at the far right */
+.nav.compact .nav-right {
+  flex-shrink: 0;
+  margin-left: 4px;
+}
+
+/* Responsive compact toolbar */
+@media (max-width: 920px) {
+  .nav.compact .nav-compact-search {
+    max-width: none;
+  }
+
+  .nav-reset-text {
+    display: none;
+  }
+
+  .nav-reset-btn {
+    width: 36px;
+    padding: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .nav.compact .nav-action-group {
+    display: none;
+  }
+
+  .nav.compact .nav-compact-search {
+    gap: 8px;
+  }
+
+  .nav.compact .nav-search-wrap {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav.compact .nav-logo-compact {
+    display: none !important;
+  }
+
+  .nav.compact .nav-search-wrap input[type="search"] {
+    font-size: 13px;
+    padding-left: 34px;
+    padding-right: 30px;
+  }
+
+  .nav-search-icon {
+    left: 10px;
+    width: 16px;
+    height: 16px;
+  }
+
+  .nav-filter-btn,
+  .nav-search-wrap input[type="search"] {
+    height: 36px;
+  }
+}
+
+@media (max-width: 360px) {
+  .nav.compact .nav-filter-btn {
+    display: none;
+  }
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .nav-inner,
+  .nav-logo-full,
+  .nav-links,
+  .nav-cta,
+  .nav-logo-compact,
+  .nav-compact-search,
+  .nav-sort-wrap,
+  .nav-view-toggle,
+  .nav-reset-btn {
+    transition: none !important;
+  }
+}
