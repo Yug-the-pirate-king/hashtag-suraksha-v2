@@ -1,0 +1,91 @@
+/* =====================================================
+   FINAL MOBILE OVERRIDES (this file loads last)
+   Ensures 1 card/row, touch-friendly buttons, working filters
+   ===================================================== */
+@media (max-width: 768px) {
+    /* ---- GRID: Force 1 card per row ---- */
+    body #edx-cards-row:not(.list-view),
+    body #edx-cards-row.grid-view,
+    #edx-cards-row:not(.list-view) {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+    }
+
+    body #edx-cards-row:not(.list-view) .clean-course-card,
+    body #edx-cards-row:not(.list-view) .clean-course-card.card {
+        zoom: 1 !important; transform: none !important; width: 100% !important; max-width: 100% !important; min-width: 0 !important;
+    }
+    
+    /* ---- COURSE CARD MOBILE FIXES ---- */
+    .card-footer-actions { display: flex !important; width: 100% !important; }
+    .card-footer-actions .btn-save { display: none !important; }
+    .card-footer-actions .btn-visit, .card-footer-actions a.btn { width: 100% !important; flex: 1 !important; justify-content: center !important; }
+
+    /* ---- FILTER SIDEBAR DRAWER FIX ---- */
+    .catalog-sidebar {
+        position: fixed !important; top: 70px !important; bottom: 0 !important; left: 0 !important;
+        width: min(320px, 85vw) !important; max-height: calc(100vh - 70px) !important; z-index: 200 !important;
+        background: var(--bg-surface, #fff) !important; border-right: 1px solid var(--border-color, #e5e7eb) !important;
+        transform: translateX(-110%) !important; transition: transform 0.3s ease !important;
+        -webkit-overflow-scrolling: touch !important; overscroll-behavior: contain !important;
+        display: flex !important; flex-direction: column !important;
+    }
+    .catalog-workspace.filters-open .catalog-sidebar, .catalog-workspace.sidebar-collapsed.filters-open .catalog-sidebar { transform: translateX(0) !important; }
+    .catalog-workspace.sidebar-collapsed .catalog-sidebar-body { display: flex !important; }
+    .catalog-workspace.sidebar-collapsed .catalog-sidebar-header { flex-direction: row !important; border-bottom: 1px solid var(--border-color, #e5e7eb) !important; padding-bottom: 12px !important; }
+    .catalog-workspace.sidebar-collapsed .catalog-sidebar-title { writing-mode: horizontal-tb !important; transform: none !important; }
+    .catalog-mobile-overlay {
+        position: fixed !important; top: 70px !important; left: 0 !important; right: 0 !important; bottom: 0 !important;
+        background: rgba(0, 0, 0, 0.55) !important; z-index: 190 !important; opacity: 0 !important; pointer-events: none !important;
+        transition: opacity 0.3s ease !important; display: block !important;
+    }
+    .catalog-workspace.filters-open .catalog-mobile-overlay { opacity: 1 !important; pointer-events: auto !important; }
+
+    /* ---- MOBILE APP BOTTOM NAVIGATION BAR ---- */
+    .nav .nav-sort-wrap, .nav .nav-reset-btn { display: none !important; }
+    .nav .nav-action-group {
+        display: flex !important; position: fixed !important; bottom: 0 !important; left: 0 !important; right: 0 !important;
+        background: var(--bg-surface, #ffffff) !important; padding: 10px 20px !important;
+        border-top: 1px solid var(--border-color, #e5e7eb) !important; box-shadow: 0 -4px 15px rgba(0,0,0,0.05) !important;
+        z-index: 180 !important; justify-content: flex-end !important; padding-left: 140px !important; gap: 15px !important;
+        align-items: center !important; height: 65px !important;
+    }
+    .catalog-mobile-filter-bar {
+        position: fixed !important; bottom: 10px !important; left: 20px !important; z-index: 181 !important; margin: 0 !important;
+    }
+    .mobile-filter-toggle {
+        min-height: 44px !important; border-radius: 22px !important; padding: 0 20px !important;
+        background: var(--primary, #2563eb) !important; color: white !important; border: none !important; box-shadow: 0 4px 10px rgba(37,99,235,0.3) !important;
+    }
+    .mobile-filter-toggle svg, .mobile-filter-toggle span:first-child { filter: brightness(0) invert(1) !important; }
+    .nav-bookmark-btn {
+        background: rgba(239, 68, 68, 0.1) !important; color: #ef4444 !important; border-radius: 50% !important; width: 44px !important; height: 44px !important;
+    }
+    .nav-view-toggle {
+        background: var(--bg-2, #f3f4f6) !important; border-radius: 22px !important; padding: 4px !important; display: flex !important; gap: 4px !important;
+    }
+    .view-btn { width: 36px !important; height: 36px !important; border-radius: 18px !important; }
+    .catalog-main { padding-bottom: 80px !important; }
+    .filter-chip, .accordion-trigger, .type-pill, .domain-chip, .level-pill { min-height: 40px !important; touch-action: manipulation !important; }
+    .catalog-search input[type="search"], .catalog-search input[type="text"], #edx-search, .nav-search-wrap input[type="search"] { font-size: 16px !important; min-height: 44px !important; }
+    .pagination-btn { min-height: 40px !important; min-width: 40px !important; touch-action: manipulation !important; }
+    
+    /* ADDING HELP BUTTON '?' */
+    .mobile-help-btn {
+        position: fixed !important; bottom: 80px !important; right: 20px !important; width: 44px !important; height: 44px !important;
+        border-radius: 50% !important; background: var(--primary, #2563eb) !important; color: white !important; display: flex !important;
+        align-items: center !important; justify-content: center !important; font-size: 24px !important; font-weight: bold !important;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2) !important; z-index: 190 !important; border: none !important; cursor: pointer !important; text-decoration: none !important;
+    }
+}
+
+@media (max-width: 480px) {
+    body #edx-cards-row:not(.list-view), body #edx-cards-row.grid-view, #edx-cards-row:not(.list-view) { grid-template-columns: 1fr !important; padding: 0 !important; }
+    .clean-course-card, .clean-course-card.card { margin: 0 !important; }
+}
+
+/* MAKE SAVED HEART RED */
+body .btn-save-floating.saved svg, body #edx-cards-row:not(.list-view) .btn-save-floating.saved svg, .btn-save-floating.saved svg, .btn-save-floating.saved .heart-icon {
+    fill: #ef4444 !important; color: #ef4444 !important; stroke: #ef4444 !important; filter: drop-shadow(0 0 2px rgba(239, 68, 68, 0.5)) !important;
+}

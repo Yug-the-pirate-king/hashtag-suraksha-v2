@@ -25,8 +25,8 @@
     href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Yatra+One&display=swap"
     rel="stylesheet" />
   <!-- hashtag-v2 site styles -->
-  <link rel="stylesheet" href="course-catalog.css?v=1786638870817" />
-  <link rel="stylesheet" href="assets/list-view-override.css?v=1786635564633" />
+  <link rel="stylesheet" href="course-catalog.css?v=1786644595356" />
+  <link rel="stylesheet" href="assets/list-view-override.css?v=1786647791116" />
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
@@ -49,6 +49,451 @@
     "itemListElement": []
   }
   </script>
+  <style>
+    /* =====================================================
+   BULLETPROOF MOBILE LIST VIEW STYLES (4-COLUMN TABLE)
+   ===================================================== */
+    /* ---- MOBILE PHONE & TABLET: Fix search bar overlap with hamburger ---- */
+    @media (max-width: 1024px) {
+      body #navbar .nav-inner {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+        position: relative !important;
+      }
+
+      body #navbar .nav-compact-search {
+        flex: 1 1 auto !important;
+        margin-left: 10px !important;
+        margin-right: 10px !important;
+        /* Leave enough room for the 60px logo and 40px hamburger */
+        max-width: calc(100% - 110px) !important;
+        justify-content: flex-start !important;
+        display: flex !important;
+      }
+
+      /* Hamburger isolated on the far right */
+      body #navbar .hamburger,
+      body #navbar #hamburger,
+      body .hamburger {
+        display: block !important;
+        position: relative !important;
+        z-index: 9999999 !important;
+        pointer-events: auto !important;
+        cursor: pointer !important;
+        margin-left: auto !important;
+        flex-shrink: 0 !important;
+      }
+    }
+
+    /* ---- LIST VIEW + GENERAL MOBILE STYLES ---- */
+    @media (max-width: 1024px) {
+      /* Override rigid horizontal scroll layout from main CSS */
+      body #edx-cards-row.list-view,
+      body .list-view-header,
+      body .catalog-results .list-view-header {
+        min-width: 0 !important;
+        width: 100% !important;
+      }
+
+      body #edx-cards-row.list-view .clean-course-card.card {
+        background-color: #ffffff !important;
+        border-radius: 16px !important;
+        padding: 12px !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+        border: 1px solid #e5e7eb !important;
+        margin-bottom: 16px !important;
+        box-sizing: border-box !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 160px !important;
+        overflow: visible !important;
+        position: relative !important;
+      }
+
+      body #edx-cards-row.list-view .clean-course-card.card .list-view-content {
+        display: grid !important;
+        /* 4 columns: Logo | Title | Labels | Metrics */
+        grid-template-columns: 40px minmax(0, 1.8fr) minmax(0, 1.2fr) minmax(0, 0.8fr) !important;
+        grid-template-rows: auto auto auto !important;
+        gap: 6px 8px !important;
+        padding: 0 !important;
+        align-items: start !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      body #edx-cards-row.list-view .clean-course-card.card .list-col {
+        width: auto !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow: visible !important;
+        box-sizing: border-box !important;
+      }
+
+      /* COL 1: Logo */
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-logo {
+        grid-column: 1;
+        grid-row: 1 / 3;
+        width: 44px !important;
+        height: 44px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
+
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-logo .logo-wrap {
+        width: 44px !important;
+        height: 44px !important;
+        border-radius: 8px !important;
+        border: 1px solid #e5e7eb !important;
+        padding: 0 !important;
+        background: transparent !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
+
+      /* COL 2: Title and University */
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-course {
+        grid-column: 2;
+        grid-row: 1 / 3;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        text-align: left !important;
+        min-width: 0 !important;
+      }
+
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-course a.course-title {
+        font-size: 14px !important;
+        font-weight: 700 !important;
+        line-height: 1.3 !important;
+        color: #111827 !important;
+        margin-bottom: 4px !important;
+        display: -webkit-box !important;
+        -webkit-line-clamp: 4 !important;
+        -webkit-box-orient: vertical !important;
+        overflow: hidden !important;
+        white-space: normal !important;
+        word-break: break-word !important;
+        overflow-wrap: anywhere !important;
+      }
+
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-course .course-meta-text,
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-course div {
+        font-size: 11px !important;
+        color: #6b7280 !important;
+        white-space: normal !important;
+        overflow: hidden !important;
+        display: block !important;
+        word-break: break-word !important;
+      }
+
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-course .skills-desc {
+        display: none !important;
+      }
+
+      /* COL 3: Labels */
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-skills {
+        grid-column: 3;
+        grid-row: 1 / 3;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 4px !important;
+        align-items: flex-start !important;
+        justify-content: flex-start !important;
+      }
+
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-skills .badge,
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-skills span {
+        font-size: 10px !important;
+        font-weight: 500 !important;
+        color: #111827 !important;
+        margin-bottom: 4px !important;
+        display: inline-block !important;
+        white-space: nowrap !important;
+      }
+
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-skills .badge:nth-child(1) {
+        background: #eef2ff !important; color: #4f46e5 !important;
+      }
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-skills .badge:nth-child(2) {
+        background: #f0fdf4 !important; color: #16a34a !important;
+      }
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-skills .badge:nth-child(3) {
+        background: #fff7ed !important; color: #ea580c !important;
+      }
+
+      /* COL 4: Metrics (Duration Top, Cost Bottom) */
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-duration {
+        grid-column: 4;
+        grid-row: 1;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        gap: 4px !important;
+        font-size: 11px !important;
+        color: #6b7280 !important;
+        margin-top: 2px !important;
+        white-space: nowrap !important;
+      }
+
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-cost {
+        grid-column: 4;
+        grid-row: 2;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        font-size: 14px !important;
+        font-weight: 700 !important;
+        color: #16a34a !important;
+        margin-top: 2px !important;
+        white-space: nowrap !important;
+      }
+
+      /* ROW 3: Actions */
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-actions {
+        display: contents !important;
+      }
+
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .lv-btn-visit,
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-actions a.lv-btn-visit {
+        grid-column: 1 / 4 !important;
+        grid-row: 3 !important;
+        align-self: center !important;
+        margin-top: 12px !important;
+        width: 100% !important;
+        background-color: #000000 !important;
+        color: #ffffff !important;
+        border-radius: 12px !important;
+        padding: 12px !important;
+        font-size: 14px !important;
+        font-weight: 600 !important;
+        text-align: center !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        border: none !important;
+        text-decoration: none !important;
+        height: 44px !important;
+        white-space: nowrap !important;
+        box-sizing: border-box !important;
+      }
+
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .row-action,
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-actions button.row-action {
+        grid-column: 4 / 5 !important;
+        grid-row: 3 !important;
+        align-self: center !important;
+        margin-top: 12px !important;
+        width: 100% !important;
+        height: 44px !important;
+        background: #ffffff !important;
+        border: 1px solid #e5e7eb !important;
+        border-radius: 12px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+      }
+
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .row-action svg,
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .row-action i {
+        fill: none !important;
+        stroke: #6b7280 !important;
+        color: #6b7280 !important;
+        width: 20px !important;
+        height: 20px !important;
+        font-size: 18px !important;
+      }
+
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .row-action.saved svg,
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .row-action.saved i {
+        fill: #ef4444 !important;
+        stroke: #ef4444 !important;
+        color: #ef4444 !important;
+      }
+
+      /* HIDE THE EXTRA SAVE BUTTON IN LIST VIEW BANNER */
+      body #edx-cards-row.list-view .clean-course-card.card .card-banner .save-btn {
+        display: none !important;
+      }
+    }
+
+    /* ---- LANDSCAPE MOBILE GRID VIEW FIX ---- */
+    @media (min-width: 500px) and (max-width: 1024px) {
+      body #edx-cards-row:not(.list-view) {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 16px !important;
+      }
+    }
+
+    #catalog-help-btn .help-label {
+      display: none !important;
+    }
+
+    #catalog-help-btn span[aria-hidden="true"] {
+      display: block !important;
+      color: #111827 !important;
+      font-family: sans-serif !important;
+      font-weight: bold !important;
+      font-size: 22px !important;
+    }
+
+    .catalog-scroll-rail {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+      height: 0 !important;
+      width: 0 !important;
+      z-index: -100 !important;
+      position: absolute !important;
+    }
+
+    /* ---- GRID VIEW FIXES ---- */
+    body #edx-cards-row:not(.list-view) .clean-course-card.card .card-footer-actions {
+      display: grid !important;
+      grid-template-columns: 3fr 1fr !important;
+      gap: 12px !important;
+      width: 100% !important;
+    }
+
+    body #edx-cards-row:not(.list-view) .clean-course-card.card .card-footer-actions .btn-visit,
+    body #edx-cards-row:not(.list-view) .clean-course-card.card .card-footer-actions a.btn {
+      grid-column: 1 !important;
+      background-color: #000000 !important;
+      color: #ffffff !important;
+      border-radius: 12px !important;
+      border: none !important;
+      width: 100% !important;
+      text-align: center !important;
+      justify-content: center !important;
+      align-items: center !important;
+      display: flex !important;
+      font-weight: 600 !important;
+      padding: 12px !important;
+      margin: 0 !important;
+      box-sizing: border-box !important;
+    }
+
+    body #edx-cards-row:not(.list-view) .clean-course-card.card .card-footer-actions .btn-save,
+    body #edx-cards-row:not(.list-view) .clean-course-card.card .card-footer-actions button.btn-save {
+      grid-column: 2 !important;
+      width: 100% !important;
+      height: 100% !important;
+      min-height: 44px !important;
+      border-radius: 12px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      margin: 0 !important;
+      box-sizing: border-box !important;
+    }
+
+    @media (max-width: 1024px) {
+      /* Hide the bottom save/heart button in grid view — top-right corner heart takes over */
+      body #edx-cards-row:not(.list-view) .clean-course-card.card .card-footer-actions .btn-save,
+      body #edx-cards-row:not(.list-view) .clean-course-card.card .card-footer-actions button.btn-save {
+        display: none !important;
+      }
+      
+      /* Make Visit Website button take full width now that heart is hidden */
+      body #edx-cards-row:not(.list-view) .clean-course-card.card .card-footer-actions {
+        display: flex !important;
+      }
+      body #edx-cards-row:not(.list-view) .clean-course-card.card .card-footer-actions .btn-visit,
+      body #edx-cards-row:not(.list-view) .clean-course-card.card .card-footer-actions a.btn {
+        flex: 1 1 auto !important;
+        width: 100% !important;
+      }
+    }
+
+    /* ---- HELP BUTTON & SCROLL RAIL FIXES ---- */
+    #catalog-help-btn {
+      display: flex !important;
+      position: fixed !important;
+      bottom: 20px !important;
+      right: 20px !important;
+      width: 48px !important;
+      height: 48px !important;
+      border-radius: 24px !important;
+      background: #ffffff !important;
+      color: #111827 !important;
+      align-items: center !important;
+      justify-content: center !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+      z-index: 10000 !important;
+      border: 1px solid #e5e7eb !important;
+      cursor: pointer !important;
+      padding: 0 !important;
+    }
+
+    /* =====================================================
+   FIX DESKTOP/TABLET LIST VIEW HORIZONTAL SCROLL
+   ===================================================== */
+    @media (min-width: 1025px) {
+      body #edx-cards-row.list-view .clean-course-card.card .list-view-content {
+        grid-template-columns: 48px minmax(120px, 2fr) minmax(100px, 1fr) 70px 70px 140px !important;
+        gap: 12px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      body #edx-cards-row.list-view .clean-course-card.card {
+        box-sizing: border-box !important;
+      }
+
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-course a.course-title {
+        word-break: break-word !important;
+        overflow-wrap: anywhere !important;
+        white-space: normal !important;
+      }
+
+      #catalog-help-btn span[aria-hidden="true"] {
+        display: none !important;
+      }
+    }
+
+    /* ---- HAMBURGER + MOBILE DRAWER FIX ---- */
+    @media (max-width: 1024px) {
+      /* Hamburger must always be on top and clickable */
+      body #navbar .hamburger,
+      body .nav-inner .hamburger,
+      body .hamburger {
+        display: block !important;
+        position: relative !important;
+        z-index: 9999999 !important;
+        cursor: pointer !important;
+        pointer-events: auto !important;
+      }
+      /* Drawer: uses .open class toggled by main.js */
+      body #mobile-nav-drawer {
+        z-index: 9999990 !important;
+      }
+      body #mobile-nav-drawer.open {
+        display: flex !important;
+        flex-direction: column !important;
+        position: fixed !important;
+        top: var(--navbar-h, 60px) !important;
+        left: 0 !important;
+        right: 0 !important;
+        padding: 12px !important;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.25) !important;
+        height: auto !important;
+        overflow-y: auto !important;
+        max-height: calc(100vh - 60px) !important;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -129,10 +574,10 @@
             </select>
           </div>
 
-          <div class="nav-view-toggle" role="group" aria-label="View layout">
+          <div class="nav-view-toggle" role="group" aria-label="View layout" style="position: relative; z-index: 1000; pointer-events: auto;">
             <button type="button" id="view-grid" class="view-btn active" aria-label="Grid view" title="Grid view"
               aria-pressed="true"><svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2">
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="3" y="3" width="7" height="7" />
                 <rect x="14" y="3" width="7" height="7" />
                 <rect x="14" y="14" width="7" height="7" />
@@ -140,7 +585,7 @@
               </svg></button>
             <button type="button" id="view-list" class="view-btn" aria-label="List view" title="List view"
               aria-pressed="false"><svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2">
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="8" y1="6" x2="21" y2="6" />
                 <line x1="8" y1="12" x2="21" y2="12" />
                 <line x1="8" y1="18" x2="21" y2="18" />
@@ -150,9 +595,13 @@
               </svg></button>
           </div>
 
-          <button type="button" class="nav-bookmark-btn" id="navBookmarkBtn" aria-label="View saved courses" title="View saved courses" style="background:transparent; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; color:var(--text-3); padding:8px; border-radius:6px; transition:all 0.3s;">
+          <button type="button" class="nav-bookmark-btn" id="navBookmarkBtn" aria-label="View saved courses"
+            title="View saved courses"
+            style="background:transparent; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; color:var(--text-3); padding:8px; border-radius:6px; transition:all 0.3s;">
             <svg style="width:20px;height:20px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              <path
+                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+              </path>
             </svg>
           </button>
 
@@ -1196,7 +1645,7 @@
       <!-- Persistent help / restart tour -->
       <button class="catalog-help-btn" id="catalog-help-btn" aria-label="Restart catalog tour"
         title="Restart catalog tour">
-        <span aria-hidden="true"></span>
+        <span aria-hidden="true" style="font-family: sans-serif; font-weight: bold; font-size: 22px;">?</span>
         <span class="help-label">Help</span>
       </button>
 
@@ -1435,7 +1884,7 @@
   </div>
 
   <!-- course verifier app logic -->
-  <script src="assets/app.js?v=1786639954660" charset="UTF-8" defer></script>
+  <script src="assets/app.js?v=1786644595356" charset="UTF-8" defer></script>
 
   <!-- hashtag-v2 shared behavior (nav scroll, hamburger, cursor glow) -->
   <script src="main.js?v=1786623835678"></script>

@@ -26390,3 +26390,191 @@ button.row-action.saved {
 [data-theme="dark"] .theme-toggle-btn {
   color: #1A1A2E !important;
 }
+
+/* =====================================================
+   MOBILE RESPONSIVENESS FIX
+   - 1 card per row on phones (< 768px)
+   - Proper touch targets for bookmark/save buttons
+   - Filter sidebar fully functional on mobile
+   - No zoom hacks that break interactions
+   ===================================================== */
+
+/* ---- Grid: 1 card per row on mobile ---- */
+@media (max-width: 768px) {
+  body #edx-cards-row:not(.list-view),
+  body #edx-cards-row.grid-view {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  /* Remove the broken zoom hack */
+  body #edx-cards-row:not(.list-view) .clean-course-card.card {
+    zoom: 1 !important;
+    transform: none !important;
+  }
+
+  /* Card fills width properly */
+  .clean-course-card,
+  .clean-course-card.card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  /* Card banner - slightly shorter on mobile */
+  #edx-cards-row .clean-course-card .card-banner,
+  #edx-cards-row .clean-course-card.card .card-banner {
+    height: 110px !important;
+  }
+
+  /* Bookmark floating heart button - bigger touch target */
+  .btn-save-floating {
+    position: absolute !important;
+    top: 10px !important;
+    right: 10px !important;
+    z-index: 10 !important;
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+    border-radius: 50% !important;
+    background: rgba(255, 255, 255, 0.92) !important;
+    border: none !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+    -webkit-tap-highlight-color: transparent !important;
+    touch-action: manipulation !important;
+  }
+
+  .btn-save-floating svg {
+    width: 22px !important;
+    height: 22px !important;
+    pointer-events: none !important;
+  }
+
+  /* Bottom save/bookmark button - bigger touch target */
+  .btn.btn-save {
+    min-width: 48px !important;
+    min-height: 44px !important;
+    font-size: 18px !important;
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+
+  /* Visit website button - full width on mobile */
+  .card-footer-actions {
+    flex-direction: row !important;
+    gap: 8px !important;
+  }
+
+  .card-footer-actions .btn {
+    min-height: 44px !important;
+    font-size: 14px !important;
+    touch-action: manipulation !important;
+  }
+
+  /* Card body padding adjustments */
+  #edx-cards-row .clean-course-card .card-body,
+  #edx-cards-row .clean-course-card.card .card-body {
+    padding: 30px 16px 16px !important;
+  }
+
+  /* Badge row - wrap nicely */
+  .badge-row {
+    flex-wrap: wrap !important;
+    gap: 5px !important;
+  }
+
+  .badge-row .badge {
+    font-size: 11px !important;
+    padding: 3px 8px !important;
+  }
+
+  /* Meta row */
+  .meta-row {
+    font-size: 12px !important;
+    flex-wrap: wrap !important;
+    gap: 4px !important;
+  }
+}
+
+/* ---- Filter sidebar mobile touch fixes ---- */
+@media (max-width: 768px) {
+  /* Ensure sidebar is above everything */
+  .catalog-sidebar {
+    z-index: 200 !important;
+    -webkit-overflow-scrolling: touch !important;
+    overscroll-behavior: contain !important;
+  }
+
+  /* Mobile overlay must cover content */
+  .catalog-mobile-overlay {
+    z-index: 190 !important;
+  }
+
+  /* Mobile filter toggle must be reachable */
+  .mobile-filter-toggle {
+    min-height: 44px !important;
+    min-width: 44px !important;
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: transparent !important;
+    z-index: 5 !important;
+  }
+
+  /* Filter chips / accordion items - proper touch targets */
+  .filter-chip,
+  .accordion-trigger,
+  .type-pill,
+  .domain-chip,
+  .level-pill {
+    min-height: 40px !important;
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+
+  /* Search inputs */
+  .catalog-search input[type="search"],
+  .catalog-search input[type="text"],
+  #edx-search {
+    min-height: 44px !important;
+    font-size: 16px !important; /* prevents iOS zoom */
+  }
+
+  /* View toggle buttons - bigger touch target */
+  .view-toggle-btn,
+  .sort-toggle-btn {
+    min-height: 40px !important;
+    min-width: 40px !important;
+    touch-action: manipulation !important;
+  }
+
+  /* Pagination buttons */
+  .pagination-btn {
+    min-height: 40px !important;
+    min-width: 40px !important;
+    touch-action: manipulation !important;
+  }
+}
+
+/* ---- Ensure 1fr even at very small screens ---- */
+@media (max-width: 480px) {
+  body #edx-cards-row:not(.list-view),
+  body #edx-cards-row.grid-view {
+    grid-template-columns: 1fr !important;
+    padding: 0 !important;
+  }
+
+  .clean-course-card,
+  .clean-course-card.card {
+    margin: 0 !important;
+  }
+
+  /* Compact nav search input */
+  .nav.compact .nav-search-wrap input[type="search"] {
+    font-size: 16px !important;
+  }
+}

@@ -2465,7 +2465,11 @@ function renderEdxCards() {
                 <p class="skills-desc">${escHtml(skillsDesc)}</p>
                 <div class="badge-row">${badges.join('')}</div>
                 <div class="meta-row">
-                    <span>${escHtml(duration)} · ${escHtml(mode)} · ${escHtml(c.course_type || courseType || 'Course')}</span>
+                    <span style="display:inline-flex; align-items:center; gap:10px; flex-wrap:wrap; font-size:12px;">
+                        <span style="display:inline-flex; align-items:center; gap:4px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>${escHtml(duration)}</span>
+                        <span style="display:inline-flex; align-items:center; gap:4px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>${escHtml(mode)}</span>
+                        <span style="display:inline-flex; align-items:center; gap:4px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>${escHtml(c.course_type || courseType || 'Course')}</span>
+                    </span>
                     <span class="cost ${costClass}">${escHtml(c.cost || '—')}</span>
                 </div>
                 <div class="card-footer-actions" style="display:flex; gap:8px; margin-top:auto;">
@@ -2644,10 +2648,12 @@ function updateCourseViewClass() {
     if (!isList) {
         const workspace = document.getElementById('catalog-workspace');
         const collapsed = workspace && workspace.classList.contains('sidebar-collapsed');
-        const cols = collapsed ? 'repeat(4, 1fr)' : 'repeat(3, 1fr)';
+        const isMobilePortrait = window.innerWidth <= 499;
+        const isTablet = window.innerWidth > 499 && window.innerWidth <= 1024;
+        const cols = isMobilePortrait ? '1fr' : (isTablet ? 'repeat(2, 1fr)' : (collapsed ? 'repeat(4, 1fr)' : 'repeat(3, 1fr)'));
         row.style.setProperty('display', 'grid', 'important');
         row.style.setProperty('grid-template-columns', cols, 'important');
-        row.style.setProperty('gap', '20px', 'important');
+        row.style.setProperty('gap', isMobilePortrait ? '16px' : '20px', 'important');
     } else {
         row.style.removeProperty('display');
         row.style.removeProperty('grid-template-columns');
@@ -3184,7 +3190,8 @@ function initSidebarFilters() {
 
     sidebar.addEventListener('click', e => {
         const target = e.target;
-        const isFilterClick = target.closest('.type-pill, .domain-chip, .country-filter-select, .accordion-trigger');
+        // Do NOT auto-close on country select — user needs to interact with it
+        const isFilterClick = target.closest('.type-pill, .domain-chip, .accordion-trigger');
         if (!isFilterClick) return;
         const isAccordion = target.closest('.accordion-trigger');
         if (isAccordion) return;
@@ -3204,6 +3211,11 @@ function initSidebarFilters() {
         if (window.innerWidth > 900 && workspace.classList.contains('filters-open')) {
             setFiltersOpen(false);
         }
+        updateCourseViewClass();
+    });
+
+    window.addEventListener('orientationchange', () => {
+        setTimeout(() => updateCourseViewClass(), 100);
     });
 }
 
@@ -4109,6 +4121,11 @@ function initMobileMenu() {
     const btn = document.getElementById('mobile-menu-btn') || document.getElementById('hamburger');
     const drawer = document.getElementById('mobile-nav-drawer');
     if (!btn || !drawer) return;
+
+    // Prevent double-binding: main.js also adds a click listener to #hamburger.
+    // If main.js has already bound it (check via a flag), skip to avoid double-toggle.
+    if (btn._menuBound) return;
+    btn._menuBound = true;
 
     function toggle() {
         const open = drawer.classList.toggle('open');
