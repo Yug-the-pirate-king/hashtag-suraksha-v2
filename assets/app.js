@@ -1,4 +1,4 @@
-﻿/* ================================================================
+/* ================================================================
    COURSEVERIFY CATALOG  ·  APP.JS  v9  (static JSON edition)
    Loads courses directly from courses.json in the same folder.
    Dashboard uses a local COBE WebGL globe.
@@ -7,7 +7,7 @@
 
 'use strict';
 
-const COURSES_JSON = 'assets/courses.json';
+const COURSES_JSON = 'assets/course_catalog.json';
 const CATALOG_RICH_JSON = 'assets/course_catalog.json';
 
 // Valid image-file entries extracted once from "Cyber Image Links.xlsx". Drive
@@ -78,6 +78,7 @@ let richCatalogMap = null;
 let currentFilter = { type: null, value: null };
 let countryDataList = [];
 let allCoursesData = [];
+let rawDomainCounts = {};
 let currentPage = 1;
 const PAGE_SIZE = 100;
 let lastStatsHash = '';
@@ -93,6 +94,7 @@ let coursesPageSize = window.innerWidth <= 768 ? 100 : 250;
 function getCoursesPageSize() { return window.innerWidth <= 768 ? 100 : 250; }
 const favoriteCourses = new Set(JSON.parse(localStorage.getItem('cv_favorites') || '[]'));
 let edxFilterState = {
+    showSavedOnly: false,
     typePill: 'all',    // course type from #course-type-pills
     accessTypes: [],    // multi-select access types from #access-type-pills
     domainChip: 'all',  // domain category from #domain-chips-scroll
@@ -109,17 +111,59 @@ let edxFilterState = {
 };
 
 function getSkillLevel(course) {
-    // Infer skill level from access type, course type, and domain.
+    const domainCats = Array.isArray(course.domains) && course.domains.length > 0 
+        ? course.domains 
+        : [getDomainCategory(course)];
+
     const type = course.accessType || normalizeDomain(course.domain);
     const courseType = normalizeDomain(course.domain);
-    const domain = getDomainCategory(course.id);
-    const beginnerTypes = ['Free', 'Free to Audit', 'Certificate'];
     const advancedTypes = ["Bachelor's Degree", "Master's Degree"];
-    if (beginnerTypes.includes(type) || beginnerTypes.includes(courseType)) return 'Beginner';
+
     if (advancedTypes.includes(type) || advancedTypes.includes(courseType)) return 'Advanced';
-    if (domain === 'Foundational') return 'Beginner';
-    if (domain === 'Data & Application' || domain === 'Legal & Ethical') return 'Intermediate';
+
+    if (domainCats.includes('System & Endpoint') || domainCats.includes('Cyber Forensics')) return 'Intermediate';
+    if (domainCats.includes('Data & Application') || domainCats.includes('Legal & Ethical')) return 'Advanced';
+    if (domainCats.includes('Foundational') || domainCats.includes('Network Infrastructure')) return 'Beginner';
+
+    const beginnerTypes = ['Free', 'Free to Audit', 'Certificate'];
+    if (beginnerTypes.includes(type) || beginnerTypes.includes(courseType)) return 'Beginner';
+
     return 'Intermediate';
+}
+
+
+function matchDomainChip(course, chip) {
+    if (chip === 'all' || chip === 'Featured') return true;
+    const mapping = {
+        'foundational': 'Foundational',
+        'network-infra': 'Network Infrastructure',
+        'system-endpoint': 'System and Endpoint Security',
+        'forensics-ir': 'Cyber Forensics',
+        'data-app-security': 'Application & Data Security',
+        'legal-compliance': 'Legal & Ethical'
+    };
+    const expected = mapping[chip];
+    if (!expected) return false;
+    return Array.isArray(course.domains) && course.domains.includes(expected);
+}
+
+function matchAccessTypes(course, types) {
+    if (!types || types.length === 0) return true;
+    return Array.isArray(course.domains) && course.domains.some(d => types.includes(d));
+}
+
+function matchTypePill(course, pill) {
+    if (pill === 'all' || pill === 'All') return true;
+    const rawType = String(course.course_type || '').toLowerCase().trim();
+    const cName = String(course.name || '').toLowerCase().trim();
+    if (pill === 'Post Graduate Diploma' && (rawType.includes('pg diploma') || cName.includes('pg diploma'))) return true;
+    if (pill === 'Post Graduate Certificate' && (rawType.includes('pg cert') || cName.includes('pg cert'))) return true;
+    if (pill === "Bachelor's Degree" && rawType.includes('bachelor')) return true;
+    if (pill === "Master's Degree" && rawType.includes('master')) return true;
+
+    // Exact match for the rest
+    const normalized = rawType;
+    return normalized === String(pill).toLowerCase().trim();
 }
 
 function matchLevelPill(course, level) {
@@ -127,29 +171,20 @@ function matchLevelPill(course, level) {
     return getSkillLevel(course) === level;
 }
 
-// ── Domain category by course idx (ID number) ───────────────────
-const DOMAIN_RANGES = [
-    { label: 'Free', min: 1, max: 25 },
-    { label: 'Free to Audit', min: 26, max: 48 },
-    { label: 'High Value Low Cost', min: 49, max: 100 },
-    { label: 'Foundational', min: 101, max: 601 },
-    { label: 'Network Infrastructure', min: 602, max: 1585 },
-    { label: 'System & Endpoint', min: 1586, max: 1890 },
-    { label: 'Cyber Forensics', min: 1891, max: 2634 },
-    { label: 'Data & Application', min: 2635, max: 2965 },
-    { label: 'Legal & Ethical', min: 2966, max: 3727 },
-];
 
-function getDomainCategory(idxRaw) {
-    const idx = parseInt(idxRaw, 10);
-    if (isNaN(idx)) return 'Uncategorised';
-    for (const r of DOMAIN_RANGES) {
-        if (idx >= r.min && idx <= r.max) return r.label;
+
+function getDomainCategory(courseOrId) {
+    if (courseOrId && typeof courseOrId === 'object') {
+        if (Array.isArray(courseOrId.domains) && courseOrId.domains.length > 0) return courseOrId.domains[0];
     }
     return 'Uncategorised';
 }
 
-const ALL_DOMAIN_LABELS = DOMAIN_RANGES.map(r => r.label);
+const ALL_DOMAIN_LABELS = [
+    'Free', 'Free to Audit', 'High Value Low Cost', 'Foundational', 
+    'Network Infrastructure', 'System & Endpoint', 'Cyber Forensics', 
+    'Data & Application', 'Legal & Ethical'
+];
 
 // ════════════════════════════════════════════════════════════════
 //  CYBERSECURITY DOMAIN KNOWLEDGE DATA
@@ -393,18 +428,21 @@ const DOMAIN_CLASS_MAP = {
 };
 
 function getAccessType(course) {
-    const norm = normalizeDomain(course.domain);
-    if (ACCESS_TYPES.includes(norm)) return norm;
+    if (Array.isArray(course.domains)) {
+        if (course.domains.includes('Free')) return 'Free';
+        if (course.domains.includes('Free to Audit')) return 'Free to Audit';
+        if (course.domains.includes('High Value Low Cost')) return 'High Value Low Cost';
+    }
     return 'Paid';
 }
 
 function getDomainSlug(course) {
-    const cat = getDomainCategory(course.id);
+    const cat = getDomainCategory(course);
     return DOMAIN_SLUG_MAP[cat] || 'other';
 }
 
 function getDomainLabel(course) {
-    return SLUG_LABEL_MAP[getDomainSlug(course)] || getDomainCategory(course.id);
+    return SLUG_LABEL_MAP[getDomainSlug(course)] || getDomainCategory(course);
 }
 
 const LOGO_MAP = {
@@ -417,8 +455,21 @@ const LOGO_MAP = {
 };
 
 function enrichCourse(course) {
-    course.skillLevel = getSkillLevel(course);
+    course.rawIds = Array.isArray(course.id) ? course.id : [course.id];
+    course.id = Math.min(...course.rawIds);
+    if (!Array.isArray(course.domains)) {
+        course.domains = course.domain ? [course.domain] : [];
+    }
+
+    const academicDomains = course.domains.filter(d => !['Free', 'Free to Audit', 'High Value Low Cost'].includes(d));
+    if (academicDomains.length > 0) {
+        course.domain = academicDomains[0];
+    } else if (course.domains.length > 0) {
+        course.domain = course.domains[0];
+    }
+
     course.accessType = getAccessType(course);
+    course.skillLevel = getSkillLevel(course);
     course.domainSlug = getDomainSlug(course);
     course.domainLabel = getDomainLabel(course);
     course.durationInfo = getCourseDuration(course);
@@ -433,7 +484,7 @@ function enrichCourse(course) {
             }
         }
     }
-    
+
     return course;
 }
 
@@ -1233,7 +1284,7 @@ function renderCountryDetailPanel(countryName, courses) {
     const qsCount = courses.filter(c => c.has_qs_badge).length;
     const domainMap = {};
     courses.forEach(c => {
-        const dom = getDomainCategory(c.id) || 'Other';
+        const dom = getDomainCategory(c) || 'Other';
         domainMap[dom] = (domainMap[dom] || 0) + 1;
     });
     const topDomains = Object.entries(domainMap).sort((a, b) => b[1] - a[1]).slice(0, 3);
@@ -1473,7 +1524,7 @@ function updateDashboardExtras(data) {
     docs.forEach(c => {
         const uni = (c.university || '').toUpperCase();
         const name = (c.name || '').toLowerCase();
-        const key = name;
+        const key = uni;
         if (/\bIIIT\b/.test(uni) || /\bIIIT\b/.test(c.university || '')) {
             if (!seen.iiit.has(key)) { iiitCount++; seen.iiit.add(key); }
         } else if (/\bIIT\b/.test(uni) && !/\bIIIT\b/.test(uni) && !/\bNIT\b/.test(uni)) {
@@ -1638,13 +1689,13 @@ function getFilteredCourseData() {
     const q = f.search.trim().toLowerCase();
     return allCoursesData.filter(c => {
         if (f.country !== 'all' && !isSameCountry(c.country, f.country)) return false;
-        if (f.domain !== 'all' && getDomainCategory(c.id) !== f.domain) return false;
+        if (f.domain !== 'all' && getDomainCategory(c) !== f.domain) return false;
         if (f.courseType !== 'all' && normalizeDomain(c.domain) !== f.courseType) return false;
         if (f.qs === 'yes' && !c.has_qs_badge) return false;
         if (f.qs === 'no' && c.has_qs_badge) return false;
         if (f.nirf === 'yes' && !c.has_nirf_badge) return false;
         if (f.nirf === 'no' && c.has_nirf_badge) return false;
-        if (q && !`${c.name} ${c.university || ''} ${c.country || ''} ${c.domain || ''} ${getDomainCategory(c.id)} ${normalizeDomain(c.domain)}`.toLowerCase().includes(q)) return false;
+        if (q && !`${c.name} ${c.university || ''} ${c.country || ''} ${c.domain || ''} ${getDomainCategory(c)} ${normalizeDomain(c.domain)}`.toLowerCase().includes(q)) return false;
         return true;
     });
 }
@@ -1666,34 +1717,7 @@ function initFilters() {
 // ================================================================
 //  ALL COURSES — edX-style tabbed carousel
 // ================================================================
-const ALL_TYPE_PILLS = [
-    "All", "Bachelor's Degree", "Master's Degree", "Post Graduate Diploma",
-    "Post Graduate Certificate", "Diploma", "Certificate"
-];
 
-const ALL_ACCESS_TYPES = ['Free', 'Free to Audit', 'High Value Low Cost'];
-
-const ALL_DOMAIN_CHIPS = [
-    "Featured", "Foundational", "Network Infrastructure", "System & Endpoint",
-    "Cyber Forensics", "Data & Application", "Legal & Ethical"
-];
-
-function matchTypePill(course, pill) {
-    if (pill === 'all' || pill === 'All') return true;
-    const norm = normalizeDomain(course.domain);
-    return norm === pill;
-}
-
-function matchAccessTypes(course, types) {
-    if (!types || types.length === 0) return true;
-    return types.includes(course.accessType);
-}
-
-function matchDomainChip(course, chip) {
-    if (chip === 'all' || chip === 'Featured') return true;
-    if (course.domainSlug && chip === course.domainSlug) return true;
-    return getDomainCategory(course.id) === chip;
-}
 
 function matchCountry(course, country) {
     if (!country || country === 'all') return true;
@@ -1735,6 +1759,8 @@ function getEdxFilteredCourses() {
         result = result.slice().sort((a, b) => (a.country || '').localeCompare(b.country || ''));
     } else if (sort === 'qs') {
         result = result.slice().sort((a, b) => (b.has_qs_badge ? 1 : 0) - (a.has_qs_badge ? 1 : 0));
+    } else {
+        result = result.slice().sort((a, b) => parseInt(a.id || '9') - parseInt(b.id || '9'));
     }
     return result;
 }
@@ -1743,6 +1769,202 @@ function getEdxFilteredBase(exclude = {}) {
     const state = { ...edxFilterState, ...exclude };
     const q = (state.search || '').trim().toLowerCase();
     let result = allCoursesData.filter(c =>
+        (!state.showSavedOnly || favoriteCourses.has(String(c.id))) &&
+        matchTypePill(c, state.typePill) &&
+        matchAccessTypes(c, state.accessTypes) &&
+        matchDomainChip(c, state.domainChip) &&
+        matchLevelPill(c, state.levelPill) &&
+        matchDurationPill(c, state.duration) &&
+        matchModePill(c, state.mode) &&
+        matchLanguagePill(c, state.language) &&
+        matchRankingPill(c, state.ranking) &&
+        matchCountry(c, state.country)
+    );
+    if (q) {
+        result = result.filter(c =>
+            (c.name || '').toLowerCase().includes(q) ||
+            (c.university || '').toLowerCase().includes(q) ||
+            (c.country || '').toLowerCase().includes(q) ||
+            (c.domainLabel || '').toLowerCase().includes(q) ||
+            (c.accessType || '').toLowerCase().includes(q)
+        );
+    }
+    const al = String(a).trim().toLowerCase();
+    const bl = String(b).trim().toLowerCase();
+    if (!al || !bl) return false;
+    return al === bl || al.includes(bl) || bl.includes(al);
+}
+
+function updateLineChart() { /* removed with analytics */ }
+
+function updateMapChart() { /* removed with analytics */ }
+
+function updateCountryLeaderboard(countryCounts, containerId = 'country-list') {
+    const el = document.getElementById(containerId);
+    if (!el) return;
+    const entries = Object.entries(countryCounts || {})
+        .filter(([k]) => isValidCountry(k))
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 15);
+    const max = entries[0]?.[1] || 1;
+    el.innerHTML = entries.map(([name, cnt]) => `
+        <div class="country-row" onclick="applyFilter('country','${name.replace(/'/g, "\\'")}')">
+            <span class="c-flag">${getFlag(name)}</span>
+            <span class="c-name">${name}</span>
+            <div class="c-bar-wrap"><div class="c-bar" style="width:${Math.round(cnt / max * 100)}%"></div></div>
+            <span class="c-count">${cnt}</span>
+        </div>
+    `).join('');
+}
+
+// ================================================================
+//  DASHBOARD BAR-CHART FILTER (filtered detail panel)
+// ================================================================
+function applyFilter(type, value) {
+    currentFilter = { type, value };
+    if (type === 'country' && value) {
+        handleCountryClick(value);
+        return;
+    }
+    if (!value || !type) {
+        resetCountrySelection();
+        return;
+    }
+    // Domain filtering kept for legacy chart interactions
+    const panel = document.getElementById('course-details-panel');
+    const tbody = document.getElementById('course-details-body');
+    if (!tbody || !globalData?.documents) return;
+    const filtered = globalData.documents.filter(c => normalizeDomain(c.domain) === value);
+    if (panel) panel.style.display = 'flex';
+    if (document.getElementById('country-detail-name')) document.getElementById('country-detail-name').textContent = value;
+    if (document.getElementById('country-detail-count')) document.getElementById('country-detail-count').textContent = `${filtered.length} course${filtered.length === 1 ? '' : 's'}`;
+    if (document.getElementById('country-detail-flag')) document.getElementById('country-detail-flag').textContent = '';
+
+    const qsRank = c => c.qs ? String(c.qs) : (c.has_qs_badge ? 'Yes' : 'No');
+    const nirfRank = c => c.nirf ? String(c.nirf) : (c.has_nirf_badge ? 'Yes' : 'No');
+
+    tbody.innerHTML = filtered.length === 0
+        ? '<tr><td colspan="4" class="empty-state"><strong>No courses found</strong>Adjust filters to see matching courses.</td></tr>'
+        : filtered.map(c => `
+            <tr>
+                <td class="course-name-cell" title="${escHtml(c.name)}"><strong>${escHtml(c.name)}</strong></td>
+                <td>${escHtml(c.university || '—')}</td>
+                <td>${escHtml(qsRank(c))}</td>
+                <td>${escHtml(nirfRank(c))}</td>
+            </tr>`).join('');
+}
+
+// ================================================================
+//  TAB FILTERS
+// ================================================================
+function populateSelect(selectId, values) {
+    const sel = document.getElementById(selectId);
+    if (!sel) return;
+    const current = sel.value;
+    const first = sel.querySelector('option');
+    sel.innerHTML = '';
+    if (first) sel.appendChild(first);
+    [...values].filter(Boolean).sort().forEach(v => {
+        const o = document.createElement('option');
+        o.value = v; o.textContent = v;
+        sel.appendChild(o);
+    });
+    sel.value = [...sel.options].some(o => o.value === current) ? current : (first ? first.value : 'all');
+}
+
+function refreshFilterOptions() {
+    const cCountries = new Set();
+    allCoursesData.forEach(c => { if (c.country) cCountries.add(c.country); });
+    populateSelect('cf-country', cCountries);
+    populateSelect('cf-domain', ALL_DOMAIN_LABELS);
+}
+
+function getFilteredCourseData() {
+    const f = courseFilter;
+    const q = f.search.trim().toLowerCase();
+    return allCoursesData.filter(c => {
+        if (f.country !== 'all' && !isSameCountry(c.country, f.country)) return false;
+        if (f.domain !== 'all' && getDomainCategory(c) !== f.domain) return false;
+        if (f.courseType !== 'all' && normalizeDomain(c.domain) !== f.courseType) return false;
+        if (f.qs === 'yes' && !c.has_qs_badge) return false;
+        if (f.qs === 'no' && c.has_qs_badge) return false;
+        if (f.nirf === 'yes' && !c.has_nirf_badge) return false;
+        if (f.nirf === 'no' && c.has_nirf_badge) return false;
+        if (q && !`${c.name} ${c.university || ''} ${c.country || ''} ${c.domain || ''} ${getDomainCategory(c)} ${normalizeDomain(c.domain)}`.toLowerCase().includes(q)) return false;
+        return true;
+    });
+}
+
+function syncCourseFilters() {
+    const f = courseFilter;
+    const set = (id, v) => { const el = document.getElementById(id); if (el) el.value = v; };
+    set('cf-search', f.search); set('cf-course-type', f.courseType); set('cf-country', f.country); set('cf-domain', f.domain);
+    set('cf-qs', f.qs); set('cf-nirf', f.nirf);
+}
+
+function applyCourseFilter() { currentPage = 1; renderCoursesPage(); }
+
+function initFilters() {
+    // Legacy course-filters are no longer in the DOM; edX tabs/chips handle filtering.
+    // Keep this function as a no-op so existing callers don't break.
+}
+
+// ================================================================
+//  ALL COURSES — edX-style tabbed carousel
+// ================================================================
+
+
+function matchCountry(course, country) {
+    if (!country || country === 'all') return true;
+    return isSameCountry(course.country, country);
+}
+
+function matchDurationPill(course, bucket) {
+    if (!bucket || bucket === 'all') return true;
+    const info = course.durationInfo || getCourseDuration(course);
+    return info.bucket === bucket;
+}
+
+function matchModePill(course, mode) {
+    if (!mode || mode === 'all') return true;
+    return (course.mode || getCourseMode(course)) === mode;
+}
+
+function matchLanguagePill(course, language) {
+    if (!language || language === 'all') return true;
+    return (course.language || getCourseLanguage(course)) === language;
+}
+
+function matchRankingPill(course, ranking) {
+    if (!ranking || ranking === 'all') return true;
+    if (ranking === 'qs') return !!course.has_qs_badge;
+    if (ranking === 'nirf') return !!course.has_nirf_badge;
+    if (ranking === 'dual') return !!course.has_qs_badge && !!course.has_nirf_badge;
+    return false;
+}
+
+function getEdxFilteredCourses() {
+    let result = getEdxFilteredBase();
+    const sort = edxFilterState.sort;
+    if (sort === 'name') {
+        result = result.slice().sort((a, b) => (a.name || '').localeCompare(b.name || ''));
+    } else if (sort === 'nameDesc') {
+        result = result.slice().sort((a, b) => (b.name || '').localeCompare(a.name || ''));
+    } else if (sort === 'country') {
+        result = result.slice().sort((a, b) => (a.country || '').localeCompare(b.country || ''));
+    } else if (sort === 'qs') {
+        result = result.slice().sort((a, b) => (b.has_qs_badge ? 1 : 0) - (a.has_qs_badge ? 1 : 0));
+    } else {
+        result = result.slice().sort((a, b) => parseInt(a.id || '9') - parseInt(b.id || '9'));
+    }
+    return result;
+}
+
+function getEdxFilteredBase(exclude = {}) {
+    const state = { ...edxFilterState, ...exclude };
+    const q = (state.search || '').trim().toLowerCase();
+    let result = allCoursesData.filter(c =>
+        (!state.showSavedOnly || favoriteCourses.has(String(c.id))) &&
         matchTypePill(c, state.typePill) &&
         matchAccessTypes(c, state.accessTypes) &&
         matchDomainChip(c, state.domainChip) &&
@@ -1765,6 +1987,8 @@ function getEdxFilteredBase(exclude = {}) {
     return result;
 }
 
+
+
 function updateFilterCounts() {
     const typeBase = getEdxFilteredBase({ typePill: 'all' });
     const accessBase = getEdxFilteredBase({ accessTypes: [] });
@@ -1784,37 +2008,60 @@ function updateFilterCounts() {
     const languageCounts = {};
     const rankingCounts = {};
 
+    function countUnique(arr, filterFn, deduplicate=false) {
+        let count = 0;
+        const seen = new Set();
+        for (let i = 0; i < arr.length; i++) {
+            if (filterFn(arr[i])) {
+                if (deduplicate) {
+                    const key = arr[i].raw_index !== undefined ? arr[i].raw_index : String(arr[i].id);
+                    if (!seen.has(key)) {
+                        seen.add(key);
+                        count++;
+                    }
+                } else {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
     document.querySelectorAll('#course-type-pills .type-pill').forEach(b => {
         const type = b.dataset.type || 'all';
-        typeCounts[type] = typeBase.filter(c => matchTypePill(c, type)).length;
+        typeCounts[type] = countUnique(typeBase, c => matchTypePill(c, type));
     });
     document.querySelectorAll('#access-type-pills .type-pill').forEach(b => {
         const access = b.dataset.access || '';
-        accessCounts[access] = accessBase.filter(c => c.accessType === access).length;
+        accessCounts[access] = countUnique(accessBase, c => getAccessType(c) === access, true);
     });
     document.querySelectorAll('#domain-chips-scroll .domain-chip').forEach(b => {
         const domain = b.dataset.domain || 'all';
-        domainCounts[domain] = domainBase.filter(c => matchDomainChip(c, domain)).length;
+        if (domain === 'all') {
+            domainCounts[domain] = countUnique(domainBase, () => true, false); // Do not deduplicate All/Featured
+        } else {
+            domainCounts[domain] = countUnique(domainBase, c => matchDomainChip(c, domain), true);
+        }
     });
     document.querySelectorAll('#skill-level-pills .type-pill').forEach(b => {
         const level = b.dataset.level || 'all';
-        levelCounts[level] = levelBase.filter(c => matchLevelPill(c, level)).length;
+        levelCounts[level] = countUnique(levelBase, c => matchLevelPill(c, level));
     });
     document.querySelectorAll('#duration-pills .type-pill').forEach(b => {
         const duration = b.dataset.duration || 'all';
-        durationCounts[duration] = durationBase.filter(c => matchDurationPill(c, duration)).length;
+        durationCounts[duration] = countUnique(durationBase, c => matchDurationPill(c, duration));
     });
     document.querySelectorAll('#mode-pills .type-pill').forEach(b => {
         const mode = b.dataset.mode || 'all';
-        modeCounts[mode] = modeBase.filter(c => matchModePill(c, mode)).length;
+        modeCounts[mode] = countUnique(modeBase, c => matchModePill(c, mode));
     });
     document.querySelectorAll('#language-pills .type-pill').forEach(b => {
         const language = b.dataset.language || 'all';
-        languageCounts[language] = languageBase.filter(c => matchLanguagePill(c, language)).length;
+        languageCounts[language] = countUnique(languageBase, c => matchLanguagePill(c, language));
     });
     document.querySelectorAll('#ranking-pills .type-pill').forEach(b => {
         const ranking = b.dataset.ranking || 'all';
-        rankingCounts[ranking] = rankingBase.filter(c => matchRankingPill(c, ranking)).length;
+        rankingCounts[ranking] = countUnique(rankingBase, c => matchRankingPill(c, ranking));
     });
 
     document.querySelectorAll('#course-type-pills .type-pill').forEach(b => {
@@ -1919,10 +2166,14 @@ function toggleFavorite(id, btn) {
         btn.classList.toggle('saved', saved);
         btn.setAttribute('aria-pressed', saved);
         btn.title = saved ? 'Remove from saved' : 'Save course';
-        btn.textContent = saved ? '♥' : '♡';
+        if (btn.classList.contains('row-action')) { btn.innerHTML = `<i class=\"${saved ? 'fa-solid' : 'fa-regular'} fa-heart\"></i>`; } else if (!btn.classList.contains('btn-save-floating')) { btn.textContent = saved ? '♥' : '♡'; }
     }
     const card = document.querySelector(`.clean-course-card[data-course-id="${CSS.escape(key)}"]`);
-    if (card) card.classList.toggle('saved', saved);
+    if (card) {
+        card.classList.toggle('saved', saved);
+        const floatBtn = card.querySelector('.btn-save-floating');
+        if (floatBtn) floatBtn.classList.toggle('saved', saved);
+    }
     showToast(saved ? 'Course saved' : 'Removed from saved');
 }
 
@@ -2034,6 +2285,9 @@ function getRankPill(course) {
 function renderSkeletonCards(count = 12) {
     return Array.from({ length: count }, () => `
         <article class="clean-course-card skeleton-card" aria-hidden="true">
+
+        <div class="grid-view-content">
+            
             <div class="skeleton-header">
                 <div class="skeleton-badge"></div>
                 <div style="flex:1;">
@@ -2044,7 +2298,40 @@ function renderSkeletonCards(count = 12) {
             <div class="skeleton-row med"></div>
             <div class="skeleton-row"></div>
             <div class="skeleton-row short"></div>
-        </article>
+        
+        </div>
+                                        <div class="list-view-content" style="display: none; align-items: center;">
+            <div class="list-col list-col-logo" style="display: flex; align-items: center; justify-content: center; width: 48px; flex-shrink: 0;">
+                ${hasLogo ? `<div class="logo-wrap" style="width:48px;height:48px;border-radius:50%;border:1px solid #e5e7eb;background:#ffffff;display:flex;align-items:center;justify-content:center;padding:4px;overflow:hidden;flex-shrink:0;">
+                    <img src="${c.logo_url}" style="width:100%;height:100%;object-fit:contain;" alt="" onerror="this.remove()" />
+                </div>` : `<div class="logo-wrap" style="width:48px;height:48px;border-radius:50%;border:1px solid #e5e7eb;background:#ffffff;display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;"></div>`}
+            </div>
+            <div class="list-col list-col-course">
+                <a href="${escHtml(getCourseUrl(c))}" target="_blank" style="font-size:14px; font-weight:700; color:var(--text-1); text-decoration:none;">${escHtml(c.name)}</a>
+                <div style="font-size:12px; color:var(--text-3); margin-top:4px; display:flex; align-items:center;">
+                    ${escHtml(c.university)} &middot; ${escHtml(c.country || 'India')}
+                </div>
+            </div>
+            <div class="list-col list-col-skills" style="display:flex; flex-wrap:wrap; gap:6px;">
+                ${badges.join('')}
+                ${(mode && mode !== 'Other' && mode.toLowerCase() !== 'free' && mode.toLowerCase() !== 'free to audit') ? `<span class="badge mode">${escHtml(mode)}</span>` : ''}
+            </div>
+            <div class="list-col list-col-duration" style="font-size:13px; color:var(--text-2); display:flex; align-items:center; gap:6px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                ${escHtml(duration)}
+            </div>
+            <div class="list-col list-col-cost">
+                <span class="cost ${costClass}" style="font-size:13px; font-weight:600;">${escHtml(c.cost || '—')}</span>
+            </div>
+            <div class="list-col list-col-actions" style="display:flex; gap:8px; align-items:center; justify-content:center;">
+                <a class="lv-btn-visit" href="${escHtml(getCourseUrl(c))}" target="_blank" onclick="event.stopPropagation();">Visit site &rarr;</a>
+                <button class="row-action ${saved ? 'saved' : ''}" style="width:36px; height:36px; border-radius:6px; background:#111827; color:#fff; border:none; cursor:pointer; font-size:16px; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0;" title="${saved ? 'Remove from saved' : 'Save course'}" aria-label="${saved ? 'Remove from saved' : 'Save course'}" aria-pressed="${saved}" onclick="event.stopPropagation(); toggleFavorite('${c.id}', this)">
+                    <i class="${saved ? 'fa-solid' : 'fa-regular'} fa-heart"></i>
+                </button>
+            </div>
+        </div>
+    
+</article>
     `).join('');
 }
 
@@ -2088,8 +2375,9 @@ function renderEdxCards() {
     const paginationEl = document.getElementById('courses-pagination');
     if (!row) return;
 
+    const allBase = getEdxFilteredBase();
     const all = getEdxFilteredCourses();
-    const total = all.length;
+    const total = allBase.length;
     if (countEl) countEl.textContent = `${total.toLocaleString()} course${total === 1 ? '' : 's'}`;
     updateHeroState(total);
 
@@ -2139,75 +2427,88 @@ function renderEdxCards() {
         if (c.has_qs_badge) badges.push('<span class="badge qs">QS Ranked</span>');
         if (c.has_nirf_badge) badges.push('<span class="badge nirf">NIRF</span>');
         if (c.scholarship_match || c.has_scholarship) badges.push('<span class="badge scholar">Scholarship</span>');
-        badges.push(`<span class="badge">${escHtml(courseType)}</span>`);
+        let academicType = c.course_type || c.courseType || courseType;
+        if (academicType && academicType !== 'Other' && academicType.toLowerCase() !== 'free' && academicType.toLowerCase() !== 'free to audit') {
+            badges.push(`<span class="badge">${escHtml(academicType)}</span>`);
+        }
         badges.push(`<span class="badge">${escHtml(level)}</span>`);
         badges.push(`<span class="badge lang" style="background: #D97706; color: #fff; border-color: #D97706;">${escHtml(language)}</span>`);
+
+        // Domain badge removed by user request
         const costClass = ((c.cost && c.cost.toLowerCase() === 'free') || c.free_match || c.has_free) ? 'free' : '';
         const skillsDesc = c.skills_description || c.skills || '';
         return `
         <article class="clean-course-card card ${saved ? 'saved' : ''} ${domainClass}" style="animation: fadeStagger 0.4s ease ${i * 0.04}s both;" data-course-id="${c.id}" tabindex="0" role="button" aria-label="Open ${escHtml(c.name)}">
+
+        <div class="grid-view-content">
+            
             <div class="card-banner no-image">
                 ${bannerImage ? `<img class="course-banner-image" src="${escHtml(bannerImage)}" alt="" onerror="this.remove()" />` : ''}
+                <button class="btn-save-floating ${saved ? 'saved' : ''}" onclick="event.stopPropagation(); toggleFavorite('${c.id}', this)" title="${saved ? 'Remove from saved' : 'Save course'}" aria-label="${saved ? 'Remove from saved' : 'Save course'}">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="heart-icon"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                </button>
                 <div class="logo-wrap ${hasLogo ? 'has-logo' : ''}">
-                    ${hasLogo ? `<img src="${c.logo_url}" alt="${escHtml(c.university)} logo" loading="lazy" onerror="this.parentNode.classList.remove('has-logo'); this.style.display='none';" />` : ''}
+                    ${hasLogo ? `<img src="${c.logo_url}" alt="${escHtml(c.university)} logo" loading="lazy" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(c.university)}&background=random&color=fff&size=128&font-size=0.33';" />` : ''}
                     <span class="logo-fallback"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.4"><path d="M3 21h18"></path><path d="M3 10h18"></path><path d="M5 6l7-3 7 3"></path><path d="M4 10v11"></path><path d="M20 10v11"></path><path d="M8 14v3"></path><path d="M12 14v3"></path><path d="M16 14v3"></path></svg></span>
                 </div>
                 ${stampClass ? `<span class="stamp ${stampClass}">${stampLabel}</span>` : ''}
             </div>
             <div class="card-body">
-                <!-- GRID VIEW CONTENT -->
-                <div class="grid-view-content" style="display: contents;">
-                    <div class="uni-name">
-                        ${escHtml(c.university || '—')}
-                        <span class="country">${flag} ${escHtml(c.country || '—')}</span>
-                    </div>
-                    <h3 class="course-title" title="${escHtml(c.name)}">${escHtml(c.name)}</h3>
-                    <p class="skills-desc">${escHtml(skillsDesc)}</p>
-                    <div class="badge-row">${badges.join('')}</div>
-                    <div class="meta-row">
-                        <span>${escHtml(duration)} · ${escHtml(mode)} · ${escHtml(c.course_type || courseType || 'Course')}</span>
-                        <span class="cost ${costClass}">${escHtml(c.cost || '—')}</span>
-                    </div>
-                    <div class="card-footer-actions" style="display:flex; gap:8px; margin-top:auto;">
-                        <a class="btn" style="flex:1; text-align:center;" href="${escHtml(getCourseUrl(c))}" target="_blank" rel="noopener" onclick="event.stopPropagation();" title="Visit ${escHtml(c.university || 'course')} website">Visit website →</a>
-                        <button class="btn btn-save ${saved ? 'saved' : ''}" style="width:44px;" onclick="event.stopPropagation(); toggleFavorite('${c.id}', this)" title="${saved ? 'Remove from saved' : 'Save course'}" aria-label="${saved ? 'Remove from saved' : 'Save course'}" aria-pressed="${saved}">${saved ? '♥' : '♡'}</button>
-                    </div>
+                <p class="edx-card-uni">${escHtml(c.university)}</p>
+                ${c.affiliated_uni ? `<p class="edx-card-loc" style="font-size:11px; opacity:0.8; margin-bottom:4px;">Affiliated to: ${escHtml(c.affiliated_uni)}</p>` : ''}
+                <p class="edx-card-loc">${escHtml(c.country || 'India')}${c.uni_state && c.mode && c.mode.toLowerCase().includes('offline') ? ` &middot; ${escHtml(c.uni_state)}` : ''}</p>
+                <h3 class="edx-card-title" title="${escHtml(c.name)}">${escHtml(c.name)}</h3>
+                <span style="display:flex; gap: 8px;">
+                    ${Array.isArray(c.domains) && c.domains.includes('Free to Audit') ? '<span style="color:#2563eb; font-weight:700; font-size:12px; margin-right:8px;">Free to Learn</span>' : ''}
+                    ${c.has_scholarship ? '<span class="status-badge low-cost" style="background:#fef3c7; color:#d97706; border:1px solid #fde68a;">Scholarship</span>' : ''}
+                </span>
+                <p class="skills-desc">${escHtml(skillsDesc)}</p>
+                <div class="badge-row">${badges.join('')}</div>
+                <div class="meta-row">
+                    <span>${escHtml(duration)} · ${escHtml(mode)} · ${escHtml(c.course_type || courseType || 'Course')}</span>
+                    <span class="cost ${costClass}">${escHtml(c.cost || '—')}</span>
                 </div>
-
-                <!-- LIST VIEW CONTENT -->
-                <div class="list-view-content" style="display: none;">
-                    <div class="list-col-logo">
-                        <div class="logo-wrap ${hasLogo ? 'has-logo' : ''}" style="width: 44px; height: 44px; border-radius: 8px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; background: #fff; color: var(--cv-ink); overflow: hidden;">
-                            ${hasLogo ? `<img src="${c.logo_url}" alt="${escHtml(c.university)} logo" loading="lazy" onerror="this.parentNode.classList.remove('has-logo'); this.parentNode.querySelector('.logo-fallback').style.display='flex'; this.style.display='none';" style="width:100%; height:100%; object-fit:contain; border-radius:8px;" />` : ''}
-                            <span class="logo-fallback" style="${hasLogo ? 'display:none;' : ''}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.4"><path d="M3 21h18"></path><path d="M3 10h18"></path><path d="M5 6l7-3 7 3"></path><path d="M4 10v11"></path><path d="M20 10v11"></path><path d="M8 14v3"></path><path d="M12 14v3"></path><path d="M16 14v3"></path></svg></span>
-                        </div>
-                    </div>
-                    <div class="list-col-course">
-                        <h3 class="course-title" title="${escHtml(c.name)}">${escHtml(c.name)}</h3>
-                        <div class="course-meta-text">
-                            ${escHtml(c.university || '—')} &middot; ${escHtml(c.country || '—')} &middot; ${escHtml(mode)}
-                        </div>
-                        <p class="skills-desc">${escHtml(skillsDesc)}</p>
-                    </div>
-                    <div class="list-col-skills">
-                        <div class="badge-row">${badges.join('')}</div>
-                    </div>
-                    <div class="list-col-duration">
-                        <span class="duration-text"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:4px;opacity:0.4;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>${escHtml(duration)}</span>
-                    </div>
-                    <div class="list-col-cost">
-                        <span class="cost ${costClass}">${escHtml(c.cost || '—')}</span>
-                    </div>
-                    <div class="list-col-actions card-footer-actions">
-                        <a class="btn lv-btn" href="${escHtml(getCourseUrl(c))}" target="_blank" rel="noopener" onclick="event.stopPropagation();" title="Visit ${escHtml(c.university || 'course')} website">Visit site &rarr;</a>
-                        <button class="btn btn-save ${saved ? 'saved' : ''}" onclick="event.stopPropagation(); toggleFavorite('${c.id}', this)" title="${saved ? 'Remove from saved' : 'Save course'}" aria-label="${saved ? 'Remove from saved' : 'Save course'}" aria-pressed="${saved}">${saved ? '♥' : '♡'}</button>
-                    </div>
+                <div class="card-footer-actions" style="display:flex; gap:8px; margin-top:auto;">
+                    <a class="btn" style="flex:1; text-align:center;" href="${escHtml(getCourseUrl(c))}" target="_blank" rel="noopener" onclick="event.stopPropagation();" title="Visit ${escHtml(c.university || 'course')} website">Visit website →</a>
+                    <button class="btn btn-save ${saved ? 'saved' : ''}" style="width:44px;" onclick="event.stopPropagation(); toggleFavorite('${c.id}', this)" title="${saved ? 'Remove from saved' : 'Save course'}" aria-label="${saved ? 'Remove from saved' : 'Save course'}" aria-pressed="${saved}">${saved ? '♥' : '♡'}</button>
                 </div>
             </div>
-        </article>`;
+        
+        </div>
+                                        <div class="list-view-content" style="display: none; align-items: center;">
+            <div class="list-col list-col-logo" style="display: flex; align-items: center; justify-content: center; width: 48px; flex-shrink: 0;">
+                ${hasLogo ? `<div class="logo-wrap" style="width:48px;height:48px;border-radius:50%;border:1px solid #e5e7eb;background:#ffffff;display:flex;align-items:center;justify-content:center;padding:4px;overflow:hidden;flex-shrink:0;">
+                    <img src="${c.logo_url}" style="width:100%;height:100%;object-fit:contain;" alt="" onerror="this.remove()" />
+                </div>` : `<div class="logo-wrap" style="width:48px;height:48px;border-radius:50%;border:1px solid #e5e7eb;background:#ffffff;display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;"></div>`}
+            </div>
+            <div class="list-col list-col-course">
+                <a href="${escHtml(getCourseUrl(c))}" target="_blank" style="font-size:14px; font-weight:700; color:var(--text-1); text-decoration:none;">${escHtml(c.name)}</a>
+                <div style="font-size:12px; color:var(--text-3); margin-top:4px; display:flex; align-items:center;">
+                    ${escHtml(c.university)} &middot; ${escHtml(c.country || 'India')}
+                </div>
+            </div>
+            <div class="list-col list-col-skills" style="display:flex; flex-wrap:wrap; gap:6px;">
+                ${badges.join('')}
+                ${(mode && mode !== 'Other' && mode.toLowerCase() !== 'free' && mode.toLowerCase() !== 'free to audit') ? `<span class="badge mode">${escHtml(mode)}</span>` : ''}
+            </div>
+            <div class="list-col list-col-duration" style="font-size:13px; color:var(--text-2); display:flex; align-items:center; gap:6px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                ${escHtml(duration)}
+            </div>
+            <div class="list-col list-col-cost">
+                <span class="cost ${costClass}" style="font-size:13px; font-weight:600;">${escHtml(c.cost || '—')}</span>
+            </div>
+            <div class="list-col list-col-actions" style="display:flex; gap:8px; align-items:center; justify-content:center;">
+                <a class="lv-btn-visit" href="${escHtml(getCourseUrl(c))}" target="_blank" onclick="event.stopPropagation();">Visit site &rarr;</a>
+                <button class="row-action ${saved ? 'saved' : ''}" style="width:36px; height:36px; border-radius:6px; background:#111827; color:#fff; border:none; cursor:pointer; font-size:16px; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0;" title="${saved ? 'Remove from saved' : 'Save course'}" aria-label="${saved ? 'Remove from saved' : 'Save course'}" aria-pressed="${saved}" onclick="event.stopPropagation(); toggleFavorite('${c.id}', this)">
+                    <i class="${saved ? 'fa-solid' : 'fa-regular'} fa-heart"></i>
+                </button>
+            </div>
+        </div>
+    
+</article>`;
     }).join('');
 
-    // Wire keyboard activation for cards — focus the website link
     row.querySelectorAll('.clean-course-card[data-course-id]').forEach(card => {
         card.setAttribute('tabindex', '0');
         card.setAttribute('role', 'article');
@@ -2238,8 +2539,7 @@ function renderPagination(currentPage, total) {
     const end = isAll ? total : Math.min(currentPage * pageSize, total);
 
     if (metaEl) metaEl.textContent = `Showing ${start.toLocaleString()}–${end.toLocaleString()} of ${total.toLocaleString()} courses`;
-    
-    // Hide the traditional pagination wrapper since we are using infinite scroll
+
     if (wrapEl) wrapEl.style.display = 'none';
     el.innerHTML = '';
 }
@@ -2257,13 +2557,11 @@ function goToCoursePage(page) {
     renderEdxCards();
 }
 
-// Infinite scroll (doom scrolling) — auto-load more cards when near bottom
 let _infiniteScrollObserver = null;
 let _infiniteScrollSentinel = null;
 let _isLoadingMore = false;
 
 function setupInfiniteScroll(totalItems, currentlyShown) {
-    // Remove old sentinel and observer
     if (_infiniteScrollObserver) {
         _infiniteScrollObserver.disconnect();
         _infiniteScrollObserver = null;
@@ -2272,30 +2570,26 @@ function setupInfiniteScroll(totalItems, currentlyShown) {
         _infiniteScrollSentinel.remove();
         _infiniteScrollSentinel = null;
     }
-    
-    // Remove any existing load more button
+
     const existingLoadMore = document.querySelector('.load-more-wrap');
     if (existingLoadMore) {
         existingLoadMore.remove();
     }
 
-    // If all items are shown, no need for infinite scroll
     if (currentlyShown >= totalItems) return;
 
-    // Check device limits
     const isMobile = window.innerWidth <= 900;
     const maxScrollLimit = isMobile ? 100 : 250;
 
     const row = document.getElementById('edx-cards-row');
     if (!row) return;
 
-    // If limit is reached, show a manual "Load More" button instead of doom scrolling
     if (currentlyShown >= maxScrollLimit) {
         const btnWrap = document.createElement('div');
         btnWrap.className = 'load-more-wrap';
         btnWrap.style = 'text-align:center; padding: 30px 20px; width: 100%;';
         btnWrap.innerHTML = `<button type="button" class="btn-quick-view" style="font-size: 14px; padding: 12px 24px;" onclick="window._loadMoreManual()">Load More Courses</button>`;
-        window._loadMoreManual = function() {
+        window._loadMoreManual = function () {
             edxFilterState.page = (edxFilterState.page || 1) + 1;
             renderEdxCards();
         };
@@ -2303,25 +2597,21 @@ function setupInfiniteScroll(totalItems, currentlyShown) {
         return;
     }
 
-    // Create sentinel element at the bottom
     _infiniteScrollSentinel = document.createElement('div');
     _infiniteScrollSentinel.className = 'infinite-scroll-sentinel';
-    
-    // NOTE: Give the sentinel a height and margin so the footer is visible briefly before fetching
-    _infiniteScrollSentinel.style.height = '100px'; 
+    _infiniteScrollSentinel.style.height = '100px';
     _infiniteScrollSentinel.style.width = '100%';
     _infiniteScrollSentinel.innerHTML = `<div style="text-align:center; padding: 20px; color: var(--text-muted, #666);">Loading more courses...</div>`;
-    
+
     row.parentNode.insertBefore(_infiniteScrollSentinel, row.nextSibling);
 
     _infiniteScrollObserver = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting && !_isLoadingMore) {
             _isLoadingMore = true;
             edxFilterState.page = (edxFilterState.page || 1) + 1;
-            
+
             renderEdxCards();
-            
-            // Wait for DOM to paint and sentinel to be pushed down before unlocking
+
             setTimeout(() => {
                 _isLoadingMore = false;
             }, 50);
@@ -2350,7 +2640,20 @@ function updateCourseViewClass() {
     if (!row) return;
     const isList = edxFilterState.view === 'list';
     row.classList.toggle('list-view', isList);
-    
+
+    if (!isList) {
+        const workspace = document.getElementById('catalog-workspace');
+        const collapsed = workspace && workspace.classList.contains('sidebar-collapsed');
+        const cols = collapsed ? 'repeat(4, 1fr)' : 'repeat(3, 1fr)';
+        row.style.setProperty('display', 'grid', 'important');
+        row.style.setProperty('grid-template-columns', cols, 'important');
+        row.style.setProperty('gap', '20px', 'important');
+    } else {
+        row.style.removeProperty('display');
+        row.style.removeProperty('grid-template-columns');
+        row.style.removeProperty('gap');
+    }
+
     let header = document.getElementById('list-view-header');
     if (isList) {
         if (!header) {
@@ -2358,19 +2661,21 @@ function updateCourseViewClass() {
             header.id = 'list-view-header';
             header.className = 'list-view-header';
             header.innerHTML = `
-                <div class="lv-col lv-col-logo"></div>
-                <div class="lv-col lv-col-course">COURSE</div>
-                <div class="lv-col lv-col-skills">BADGES</div>
-                <div class="lv-col lv-col-duration">DURATION</div>
-                <div class="lv-col lv-col-cost">COST</div>
-                <div class="lv-col lv-col-action">ACTIONS</div>
+                <div class="list-col list-col-logo"></div>
+                <div class="list-col list-col-course">COURSE</div>
+                <div class="list-col list-col-skills">BADGES</div>
+                <div class="list-col list-col-duration">DURATION</div>
+                <div class="list-col list-col-cost">COST</div>
+                <div class="list-col list-col-actions">ACTIONS</div>
             `;
             row.parentNode.insertBefore(header, row);
         }
-        header.style.display = 'grid';
+        header.style.removeProperty('display');
     } else {
-        if (header) header.style.display = 'none';
+        if (header) header.style.setProperty('display', 'none', 'important');
     }
+
+    applyViewToggleGlow(isList ? 'list' : 'grid');
 }
 
 function renderActiveFilterChips() {
@@ -2445,13 +2750,13 @@ function updateDropdownButtonText(groupId, defaultText) {
     if (!wrap) return;
     const btn = wrap.querySelector('.pill-dropdown-btn');
     if (!btn) return;
-    
+
     let activePill = group.querySelector('.active');
     let activeText = activePill ? activePill.textContent.trim() : 'All';
     let isAll = activeText.toLowerCase() === 'all';
-    
+
     const svgIcon = `<svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><polyline points="6 9 12 15 18 9"></polyline></svg>`;
-    
+
     if (isAll) {
         btn.innerHTML = `${defaultText} ${svgIcon}`;
         btn.style.color = '';
@@ -2470,7 +2775,7 @@ function syncEdxUIFromState() {
     if (searchInput) searchInput.value = edxFilterState.search;
     const sortSelect = document.getElementById('course-sort');
     if (sortSelect) sortSelect.value = edxFilterState.sort;
-    
+
     document.querySelectorAll('#course-type-pills .type-pill').forEach(b => {
         const active = b.dataset.type === edxFilterState.typePill;
         b.classList.toggle('active', active);
@@ -2520,7 +2825,7 @@ function syncEdxUIFromState() {
     const countrySelect = document.getElementById('course-country-filter');
     if (countrySelect) countrySelect.value = edxFilterState.country || 'all';
     highlightDomainExplorerCard(edxFilterState.domainChip);
-    
+
     updateDropdownButtonText('course-type-pills', 'Category');
     updateDropdownButtonText('duration-pills', 'Duration');
     updateDropdownButtonText('language-pills', 'Language');
@@ -2647,7 +2952,6 @@ function setEdxRankingPill(ranking) {
 }
 
 function syncEdxFiltersFromLegacy() {
-    // If legacy courseFilter has values, reflect them in the new pill bars.
     const f = courseFilter;
     if (f.courseType && f.courseType !== 'all') {
         if (ALL_ACCESS_TYPES.includes(f.courseType)) {
@@ -2840,6 +3144,7 @@ function initSidebarFilters() {
         workspace.classList.toggle('sidebar-collapsed');
         localStorage.setItem('cvFiltersCollapsed', workspace.classList.contains('sidebar-collapsed') ? '1' : '0');
         updateCollapseState();
+        updateCourseViewClass();
     });
 
     function updateCollapseState() {
@@ -2861,7 +3166,6 @@ function initSidebarFilters() {
         if (mobileToggle) mobileToggle.setAttribute('aria-expanded', String(open));
         if (mobileOverlay) mobileOverlay.setAttribute('aria-hidden', String(!open));
         if (open) {
-            // Prevent background scrolling on mobile
             document.body.style.overflow = 'hidden';
         } else {
             document.body.style.overflow = '';
@@ -2878,20 +3182,17 @@ function initSidebarFilters() {
         mobileOverlay.addEventListener('click', () => setFiltersOpen(false));
     }
 
-    // Close drawer when selecting a filter on mobile
     sidebar.addEventListener('click', e => {
         const target = e.target;
         const isFilterClick = target.closest('.type-pill, .domain-chip, .country-filter-select, .accordion-trigger');
         if (!isFilterClick) return;
         const isAccordion = target.closest('.accordion-trigger');
-        if (isAccordion) return; // keep accordion toggles working
+        if (isAccordion) return;
         if (window.innerWidth <= 900 && workspace.classList.contains('filters-open')) {
-            // Small delay so the user sees the selection register
             setTimeout(() => setFiltersOpen(false), 180);
         }
     });
 
-    // Close on escape
     document.addEventListener('keydown', e => {
         if (e.key === 'Escape' && workspace.classList.contains('filters-open')) {
             setFiltersOpen(false);
@@ -2899,7 +3200,6 @@ function initSidebarFilters() {
         }
     });
 
-    // Reset drawer state on desktop resize
     window.addEventListener('resize', () => {
         if (window.innerWidth > 900 && workspace.classList.contains('filters-open')) {
             setFiltersOpen(false);
@@ -2930,14 +3230,28 @@ function clearAllCourseFilters() {
 }
 
 function setCourseView(view) {
-    if(edxFilterState.view === view) return;
+    if (edxFilterState.view === view) return;
     edxFilterState.view = view;
-    document.querySelectorAll('.courses-view-toggle .view-btn').forEach(b => {
+    document.querySelectorAll('.view-btn').forEach(b => {
         const active = b.id === 'view-' + view;
         b.classList.toggle('active', active);
         b.setAttribute('aria-pressed', String(active));
     });
     updateCourseViewClass();
+}
+
+function applyViewToggleGlow(view) {
+    const gridBtn = document.getElementById('view-grid');
+    const listBtn = document.getElementById('view-list');
+    if (!gridBtn || !listBtn) return;
+
+    if (view === 'grid') {
+        gridBtn.style.cssText = 'background:rgba(59,130,246,0.15)!important;color:#2563eb!important;';
+        listBtn.style.cssText = 'background:transparent!important;color:inherit!important;';
+    } else {
+        listBtn.style.cssText = 'background:rgba(59,130,246,0.15)!important;color:#2563eb!important;';
+        gridBtn.style.cssText = 'background:transparent!important;color:inherit!important;';
+    }
 }
 
 function initCourseKeyboardShortcuts() {
@@ -2965,8 +3279,6 @@ function initCourseKeyboardShortcuts() {
             }
             return;
         }
-
-        // Keyboard shortcut 1-9 for domain chips removed per user request
     });
 }
 
@@ -3008,11 +3320,16 @@ function mergeRichFields(course) {
     const idKey = course.id ? `id:${course.id}` : null;
     const nameKey = `${String(course.name || '').trim().toLowerCase()}::${String(course.university || '').trim().toLowerCase()}`;
     const rich = (idKey && richCatalogMap.get(idKey)) || richCatalogMap.get(nameKey);
-    if (!rich) return course;
+    let logo_url = rich.logo_url || course.logo_url || '';
+
+
     return {
         ...course,
         ...rich,
-        logo_url: rich.logo_url || course.logo_url || '',
+        id: course.id,
+        domains: course.domains,
+        raw_index: course.raw_index,
+        logo_url: logo_url,
         banner_url: rich.banner_url || course.banner_url || '',
         skills_description: rich.skills_description || course.skills_description || course.skills || '',
         course_type: rich.course_type || course.course_type || normalizeDomain(course.domain) || 'Course',
@@ -3024,24 +3341,50 @@ function mergeRichFields(course) {
 }
 
 async function loadAllCourses(force = false) {
+    console.log('APP.JS VERSION: PATCHED WITH DOMAIN SLICING - IF THIS IS NOT IN THE CONSOLE, YOUR CACHE IS STALE');
     const row = document.getElementById('edx-cards-row');
     if (allCoursesData.length > 0 && !force) { renderEdxCards(); return; }
-    if (row) row.innerHTML = renderSkeletonCards(12) + `<div class="courses-loading-text" aria-live="polite">Loading courses…</div>`;
+    if (row) row.innerHTML = renderSkeletonCards(12) + '<div class="courses-loading-text" aria-live="polite">Loading courses…</div>';
     showLoadingCurtain('Loading courses…');
     try {
-        const [res] = await Promise.all([fetch(COURSES_JSON), loadRichCatalog()]);
+        const [res] = await Promise.all([fetch(COURSES_JSON + '?v=' + Date.now()), loadRichCatalog()]);
         const data = await res.json();
-        allCoursesData = (Array.isArray(data) ? data : data.courses || []).sort((a, b) => parseInt(a.id || '9') - parseInt(b.id || '9'));
+        const raw = Array.isArray(data) ? data : data.courses || [];
+
+        rawDomainCounts = { 'foundational': 0, 'network-infra': 0, 'system-endpoint': 0, 'forensics-ir': 0, 'data-app-security': 0, 'legal-compliance': 0 };
+        const mappingKeys = { 'Foundational': 'foundational', 'Network Infrastructure': 'network-infra', 'System and Endpoint Security': 'system-endpoint', 'Cyber Forensics': 'forensics-ir', 'Application & Data Security': 'data-app-security', 'Legal & Ethical': 'legal-compliance' };
+        (typeof rawData !== 'undefined' ? rawData : (typeof raw !== 'undefined' ? raw : [])).forEach(c => {
+            if (Array.isArray(c.domains)) {
+                c.domains.forEach(d => {
+                    if (mappingKeys[d]) rawDomainCounts[mappingKeys[d]]++;
+                });
+            }
+        });
+        let expanded = [];
+        raw.forEach(c => {
+            if (Array.isArray(c.id)) {
+                c.id.forEach((idVal, idx) => {
+                    let newC = { ...c, id: idVal };
+                    if (Array.isArray(c.domains) && c.domains.length > idx) {
+                        newC.domains = [c.domains[idx]];
+                    } else {
+                        newC.domains = [];
+                    }
+                    expanded.push(newC);
+                });
+            } else {
+                let newC = { ...c, raw_index: rawIndex };
+                expanded.push(newC);
+            }
+        });
+        allCoursesData = expanded.sort((a, b) => parseInt(a.id || '9') - parseInt(b.id || '9'));
         allCoursesData = allCoursesData.map(mergeRichFields);
         enrichAllCourses(allCoursesData);
 
-        // Build globalData here too, so Dashboard Insights can render even if the
-        // initial fetchData() hasn't finished or failed.
         const stats = computeStats(allCoursesData);
         const countryCounts = computeCountryCounts(allCoursesData);
         const domainCounts = computeDomainCounts(allCoursesData);
         globalData = { status: 'success', documents: allCoursesData, stats, country_counts: countryCounts, domain_counts: domainCounts };
-
 
         refreshFilterOptions();
         populateCountryFilter();
@@ -3061,7 +3404,6 @@ async function loadAllCourses(force = false) {
 }
 
 function renderCoursesPage() {
-    // Kept for compatibility with legacy callers; the edX grid is the live view.
     renderEdxCards();
 }
 
@@ -3103,9 +3445,6 @@ function jumpToCourses(partial) {
     if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-// ================================================================
-//  GLOBAL NAVBAR SEARCH
-// ================================================================
 function initGlobalSearch() {
     const input = document.getElementById('global-search-input');
     const results = document.getElementById('global-search-results');
@@ -3150,7 +3489,7 @@ function renderGlobalSearch(query) {
         const name = (c.name || '').toLowerCase();
         const uni = (c.university || '').toLowerCase();
         const country = (c.country || '').toLowerCase();
-        const domain = (c.domainLabel || getDomainCategory(c.id)).toLowerCase();
+        const domain = (c.domainLabel || getDomainCategory(c)).toLowerCase();
         const access = (c.accessType || '').toLowerCase();
         let score = 0;
         if (name.startsWith(q)) score += 100;
@@ -3173,7 +3512,7 @@ function renderGlobalSearch(query) {
         <div class="global-search-item ${i === 0 ? 'active' : ''}" data-index="${i}" tabindex="-1"
             onclick="openGlobalSearchResult('${m.c.id}')">
             <div class="global-search-item-title">${escHtml(m.c.name)}</div>
-            <div class="global-search-item-meta">${escHtml(m.c.university || '—')} · ${escHtml(m.c.country || '—')} · ${getDomainCategory(m.c.id)}</div>
+            <div class="global-search-item-meta">${escHtml(m.c.university || '—')} · ${escHtml(m.c.country || '—')} · ${getDomainCategory(m.c)}</div>
         </div>
     `).join('') + `
         <div class="global-search-action" onclick="doGlobalSearch('${escHtml(q)}')">View all ${matches.length === 8 ? 'matching' : ''} results →</div>`;
@@ -3209,9 +3548,6 @@ function doGlobalSearch(query) {
     if (results) { results.classList.remove('open'); results.innerHTML = ''; }
 }
 
-// ================================================================
-//  ONBOARDING QUIZ
-// ================================================================
 let onboardingState = { step: 1, level: null, domain: null, goal: null };
 let onboardingHasOpened = false;
 
@@ -3225,7 +3561,6 @@ function initOnboarding() {
     const helpBtn = document.getElementById('catalog-help-btn');
     if (!overlay) return;
 
-    // Persistent help / restart tour button
     helpBtn?.addEventListener('click', () => openOnboarding(true));
 
     closeBtn?.addEventListener('click', closeOnboarding);
@@ -3365,7 +3700,7 @@ function renderOnboardingStep(step) {
         const effectiveCourseType = getOnboardingCourseType(onboardingState.goal);
         const count = allCoursesData.filter(c =>
             (!onboardingState.level || getSkillLevel(c) === onboardingState.level) &&
-            (!onboardingState.domain || getDomainCategory(c.id) === onboardingState.domain) &&
+            (!onboardingState.domain || getDomainCategory(c) === onboardingState.domain) &&
             (!effectiveCourseType || matchTypePill(c, effectiveCourseType))
         ).length;
 
@@ -3415,7 +3750,7 @@ function buildCourseDetails(c) {
     const rows = [
         { label: 'University', value: c.university },
         { label: 'Domain', value: c.domain },
-        { label: 'Domain Category', value: getDomainCategory(c.id) },
+        { label: 'Domain Category', value: getDomainCategory(c) },
         { label: 'Country', value: c.country },
         { label: 'Cost', value: c.cost },
         { label: 'Duration', value: c.duration },
@@ -3437,9 +3772,36 @@ function buildCourseDetails(c) {
 async function showCourseModal(courseId, fallbackName, fallbackUni) {
     if (allCoursesData.length === 0) {
         try {
-            const [res] = await Promise.all([fetch(COURSES_JSON), loadRichCatalog()]);
+            const [res] = await Promise.all([fetch(COURSES_JSON + '?v=' + Date.now()), loadRichCatalog()]);
             const data = await res.json();
-            allCoursesData = Array.isArray(data) ? data : data.courses || [];
+            const raw = Array.isArray(data) ? data : data.courses || [];
+
+            rawDomainCounts = { 'foundational': 0, 'network-infra': 0, 'system-endpoint': 0, 'forensics-ir': 0, 'data-app-security': 0, 'legal-compliance': 0 };
+            const mappingKeys = { 'Foundational': 'foundational', 'Network Infrastructure': 'network-infra', 'System and Endpoint Security': 'system-endpoint', 'Cyber Forensics': 'forensics-ir', 'Application & Data Security': 'data-app-security', 'Legal & Ethical': 'legal-compliance' };
+            (typeof rawData !== 'undefined' ? rawData : (typeof raw !== 'undefined' ? raw : [])).forEach(c => {
+                if (Array.isArray(c.domains)) {
+                    c.domains.forEach(d => {
+                        if (mappingKeys[d]) rawDomainCounts[mappingKeys[d]]++;
+                    });
+                }
+            });
+            let expanded = [];
+            raw.forEach(c => {
+                if (Array.isArray(c.id)) {
+                    c.id.forEach((idVal, idx) => {
+                        let newC = { ...c, id: idVal };
+                        if (Array.isArray(c.domains) && c.domains.length > idx) {
+                            newC.domains = [c.domains[idx]];
+                        } else {
+                            newC.domains = [];
+                        }
+                        expanded.push(newC);
+                    });
+                } else {
+                    expanded.push(c);
+                }
+            });
+            allCoursesData = expanded.sort((a, b) => parseInt(a.id || '9') - parseInt(b.id || '9'));
             allCoursesData = allCoursesData.map(mergeRichFields);
             enrichAllCourses(allCoursesData);
             refreshFilterOptions();
@@ -3449,7 +3811,7 @@ async function showCourseModal(courseId, fallbackName, fallbackUni) {
     if (!c && fallbackName) c = allCoursesData.find(x => x.name === fallbackName && (x.university || '') === (fallbackUni || ''));
     if (!c) { showToast('Course not found', 'error'); return; }
 
-    const domain = getDomainCategory(c.id);
+    const domain = getDomainCategory(c);
     const accentMap = {
         'Foundational': 'accent-teal',
         'Network Infrastructure': 'accent-indigo',
@@ -3575,9 +3937,19 @@ function computeCountryCounts(courses) {
 
 function computeDomainCounts(courses) {
     const counts = {};
+    const seen = new Set();
     courses.forEach(c => {
-        const cat = getDomainCategory(c.id);
-        if (cat && cat !== 'Uncategorised') counts[cat] = (counts[cat] || 0) + 1;
+        const key = c.raw_index !== undefined ? c.raw_index : String(c.id);
+        if (!seen.has(key)) {
+            seen.add(key);
+            if (Array.isArray(c.domains)) {
+                c.domains.forEach(d => {
+                    if (d && d !== 'Other' && d !== 'Uncategorised') {
+                        counts[d] = (counts[d] || 0) + 1;
+                    }
+                });
+            }
+        }
     });
     return counts;
 }
@@ -3586,9 +3958,38 @@ async function fetchData() {
     if (!globalData) document.body.dataset.loading = 'true';
     showLoadingCurtain('Loading course data…');
     try {
-        const [res] = await Promise.all([fetch(COURSES_JSON), loadRichCatalog()]);
+        const [res] = await Promise.all([fetch(COURSES_JSON + '?v=' + Date.now()), loadRichCatalog()]);
         const data = await res.json();
-        allCoursesData = (Array.isArray(data) ? data : data.courses || []).sort((a, b) => parseInt(a.id || '9') - parseInt(b.id || '9'));
+        const rawData = Array.isArray(data) ? data : data.courses || [];
+
+
+        rawDomainCounts = { 'foundational': 0, 'network-infra': 0, 'system-endpoint': 0, 'forensics-ir': 0, 'data-app-security': 0, 'legal-compliance': 0 };
+        const mappingKeys = { 'Foundational': 'foundational', 'Network Infrastructure': 'network-infra', 'System and Endpoint Security': 'system-endpoint', 'Cyber Forensics': 'forensics-ir', 'Application & Data Security': 'data-app-security', 'Legal & Ethical': 'legal-compliance' };
+        (typeof rawData !== 'undefined' ? rawData : (typeof raw !== 'undefined' ? raw : [])).forEach(c => {
+            if (Array.isArray(c.domains)) {
+                c.domains.forEach(d => {
+                    if (mappingKeys[d]) rawDomainCounts[mappingKeys[d]]++;
+                });
+            }
+        });
+        let expanded = [];
+        rawData.forEach((c, rawIndex) => {
+            if (Array.isArray(c.id)) {
+                c.id.forEach((idVal, idx) => {
+                    let newC = { ...c, id: idVal, raw_index: rawIndex };
+                    if (Array.isArray(c.domains) && c.domains.length > idx) {
+                        newC.domains = [c.domains[idx]];
+                    } else {
+                        newC.domains = [];
+                    }
+                    expanded.push(newC);
+                });
+            } else {
+                let newC = { ...c, raw_index: rawIndex };
+                expanded.push(newC);
+            }
+        });
+        allCoursesData = expanded.sort((a, b) => parseInt(a.id || '9') - parseInt(b.id || '9'));
         allCoursesData = allCoursesData.map(mergeRichFields);
         enrichAllCourses(allCoursesData);
 
@@ -3969,3 +4370,50 @@ function initBatch9And10() {
 }
 
 initBatch9And10();
+
+window.toggleSavedFilter = function () {
+    edxFilterState.showSavedOnly = !edxFilterState.showSavedOnly;
+    edxFilterState.page = 1;
+    const bmBtn = document.getElementById('navBookmarkBtn');
+    if (edxFilterState.showSavedOnly) {
+        document.body.classList.add('showing-saved-only');
+        if (bmBtn) bmBtn.classList.add('active-glow');
+        showToast('Showing bookmarked courses');
+    } else {
+        document.body.classList.remove('showing-saved-only');
+        if (bmBtn) bmBtn.classList.remove('active-glow');
+        showToast('Showing all courses');
+    }
+    renderEdxCards();
+};
+
+
+
+// NAV BOOKMARK BTN LOGIC
+document.addEventListener('DOMContentLoaded', () => {
+    const navBookmarkBtn = document.getElementById('navBookmarkBtn');
+    if(navBookmarkBtn) {
+        navBookmarkBtn.addEventListener('click', () => {
+            edxFilterState.showSavedOnly = !edxFilterState.showSavedOnly;
+            if(edxFilterState.showSavedOnly) {
+                navBookmarkBtn.classList.add('active-glow');
+            } else {
+                navBookmarkBtn.classList.remove('active-glow');
+            }
+            applyCourseFilter();
+        });
+        
+        // Initial state
+
+    }
+});
+
+// Update toggleFavorite to handle the top nav heart
+const originalToggleFavorite = toggleFavorite;
+toggleFavorite = function(id, btn) {
+    originalToggleFavorite(id, btn);
+    const navBookmarkBtn = document.getElementById('navBookmarkBtn');
+    if(navBookmarkBtn) {
+
+    }
+};

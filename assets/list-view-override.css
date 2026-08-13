@@ -7,10 +7,11 @@
 body #edx-cards-row.list-view .clean-course-card.card .grid-view-content {
     display: none !important;
 }
+
 body #edx-cards-row.list-view .clean-course-card.card .list-view-content {
 
     display: grid !important;
-    grid-template-columns: 54px minmax(140px, 2.5fr) minmax(100px, 1.5fr) 70px 80px 130px;
+    grid-template-columns: 48px minmax(200px, 3fr) minmax(150px, 2fr) 100px 80px 160px;
     align-items: center;
     gap: 18px;
     width: 100%;
@@ -23,6 +24,7 @@ body #edx-cards-row.list-view .clean-course-card.card .list-view-content {
     flex-wrap: nowrap !important;
     gap: 0 !important;
 }
+
 #edx-cards-row.list-view .clean-course-card,
 #edx-cards-row.list-view .clean-course-card.card,
 #edx-cards-row.edx-cards-row.list-view .clean-course-card.card {
@@ -41,15 +43,18 @@ body #edx-cards-row.list-view .clean-course-card.card .list-view-content {
     transform: none !important;
     transition: background 0.15s !important;
 }
+
 #edx-cards-row.list-view .clean-course-card:hover,
 #edx-cards-row.list-view .clean-course-card:focus-visible {
     transform: none !important;
     box-shadow: none !important;
-    background: rgba(255,255,255,0.03) !important;
+    background: rgba(255, 255, 255, 0.03) !important;
 }
+
 #edx-cards-row.list-view .clean-course-card.card .card-banner {
     display: none !important;
 }
+
 #edx-cards-row.list-view .clean-course-card.card .card-body {
     display: block !important;
     padding: 0 !important;
@@ -74,17 +79,20 @@ body #edx-cards-row.list-view .clean-course-card.card .list-view-content {
     overflow: hidden !important;
     flex-shrink: 0 !important;
 }
+
 #edx-cards-row.list-view .list-col-logo .logo-wrap img {
     width: 100% !important;
     height: 100% !important;
     object-fit: contain !important;
     border-radius: 50% !important;
 }
+
 #edx-cards-row.list-view .list-col-logo .logo-fallback {
     color: #8b7355 !important;
     font-weight: 700 !important;
     font-size: 14px !important;
 }
+
 #edx-cards-row.list-view .list-col-logo .logo-fallback svg {
     stroke: #8b7355 !important;
     opacity: 0.6 !important;
@@ -104,6 +112,7 @@ body #edx-cards-row.list-view .clean-course-card.card .list-view-content {
     min-height: auto !important;
     padding: 0 !important;
 }
+
 #edx-cards-row.list-view .list-col-course .course-meta-text {
     font-size: 12.5px !important;
     color: var(--text-muted, #6b7280) !important;
@@ -113,18 +122,28 @@ body #edx-cards-row.list-view .clean-course-card.card .list-view-content {
     display: block !important;
     margin: 0 0 3px 0 !important;
 }
+
 #edx-cards-row.list-view .list-col-course .skills-desc {
     font-size: 12px !important;
     color: var(--text-muted, #9ca3af) !important;
-    -webkit-line-clamp: 4 !important; display: -webkit-box !important; -webkit-box-orient: vertical !important; overflow: hidden !important; margin: 4px 0 0 0 !important; padding: 0 !important; line-height: 1.4 !important; white-space: normal !important;
+    -webkit-line-clamp: 4 !important;
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    margin: 4px 0 0 0 !important;
+    padding: 0 !important;
+    line-height: 1.4 !important;
+    white-space: normal !important;
 }
 
 /* Skills / badges column */
 #edx-cards-row.list-view .list-col-skills .badge-row {
     display: flex !important;
-    flex-wrap: wrap !important; align-content: flex-start !important;
+    flex-wrap: wrap !important;
+    align-content: flex-start !important;
     gap: 5px !important;
 }
+
 #edx-cards-row.list-view .list-col-skills .badge {
     font-size: 11px !important;
     padding: 3px 9px !important;
@@ -134,14 +153,17 @@ body #edx-cards-row.list-view .clean-course-card.card .list-view-content {
     white-space: nowrap !important;
     border: none !important;
 }
+
 #edx-cards-row.list-view .list-col-skills .badge.qs {
     background: #d1fae5 !important;
     color: #065f46 !important;
 }
+
 #edx-cards-row.list-view .list-col-skills .badge.nirf {
     background: #dbeafe !important;
     color: #1e40af !important;
 }
+
 #edx-cards-row.list-view .list-col-skills .badge.scholar {
     background: #ffedd5 !important;
     color: #9a3412 !important;
@@ -156,6 +178,7 @@ body #edx-cards-row.list-view .clean-course-card.card .list-view-content {
     justify-content: center !important;
     align-items: center !important;
 }
+
 #edx-cards-row.list-view .list-col-duration .duration-text {
     display: flex !important;
     align-items: center !important;
@@ -173,6 +196,7 @@ body #edx-cards-row.list-view .clean-course-card.card .list-view-content {
     justify-content: center !important;
     align-items: center !important;
 }
+
 #edx-cards-row.list-view .list-col-cost .cost.free {
     color: #059669 !important;
     font-weight: 700 !important;
@@ -185,9 +209,11 @@ body #edx-cards-row.list-view .clean-course-card.card .list-view-content {
     justify-content: center !important;
     align-items: center !important;
 }
+
 #edx-cards-row.list-view .list-col-actions.card-footer-actions {
     margin-top: 0 !important;
 }
+
 #edx-cards-row.list-view .lv-btn {
     display: inline-flex !important;
     align-items: center !important;
@@ -203,6 +229,7 @@ body #edx-cards-row.list-view .clean-course-card.card .list-view-content {
     transition: background 0.2s, transform 0.15s !important;
     border: none !important;
 }
+
 #edx-cards-row.list-view .lv-btn:hover {
     background: #2d2d4a !important;
     transform: translateY(-1px) !important;
@@ -210,12 +237,15 @@ body #edx-cards-row.list-view .clean-course-card.card .list-view-content {
 
 /* List view header row */
 
-.list-view-header .lv-col-course { /* Removed span */ 
+.list-view-header .lv-col-course {
+    /* Removed span */
     grid-column: 1 / 3;
 }
+
 .list-view-header .lv-col-duration {
     text-align: center;
 }
+
 .list-view-header .lv-col-cost {
     text-align: center !important;
 }
@@ -226,10 +256,15 @@ body #edx-cards-row.list-view .clean-course-card.card .list-view-content {
 
 /* Responsive: 1100px */
 @media (max-width: 1100px) {
-    #edx-cards-row.list-view .clean-course-card.card { zoom: 0.85; }
+    #edx-cards-row.list-view .clean-course-card.card {
+        zoom: 0.85;
+    }
 }
+
 @media (max-width: 900px) {
-    #edx-cards-row.list-view .clean-course-card.card { zoom: 0.75; }
+    #edx-cards-row.list-view .clean-course-card.card {
+        zoom: 0.75;
+    }
 }
 
 /* GRID VIEW MOBILE FIXES */
@@ -237,6 +272,7 @@ body #edx-cards-row.list-view .clean-course-card.card .list-view-content {
     #edx-cards-row:not(.list-view) {
         grid-template-columns: repeat(2, 1fr) !important;
     }
+
     #edx-cards-row:not(.list-view) .clean-course-card.card {
         zoom: 0.82;
     }
@@ -247,7 +283,7 @@ body #edx-cards-row.list-view .clean-course-card.card .list-view-content {
     .catalog-results {
         overflow-x: auto !important;
     }
-    
+
 }
 
 /* -------------------------------------------------------
@@ -257,7 +293,7 @@ body #edx-cards-row.list-view .clean-course-card.card .list-view-content {
 /* Sticky Toolbar */
 .courses-toolbar {
     position: sticky !important;
-    
+
     top: 70px !important;
     z-index: 40 !important;
     background: var(--bg-surface, #191c1e) !important;
@@ -265,7 +301,7 @@ body #edx-cards-row.list-view .clean-course-card.card .list-view-content {
     margin-left: -10px !important;
     margin-right: -10px !important;
     border-radius: 8px !important;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2) !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2) !important;
 }
 
 
@@ -276,6 +312,7 @@ body #edx-cards-row.list-view .clean-course-card.card .list-view-content {
         grid-template-columns: repeat(3, 1fr) !important;
         gap: var(--cv-card-gap, 16px) !important;
     }
+
     #edx-cards-row:not(.list-view) .clean-course-card.card {
         width: 100% !important;
         max-width: 100% !important;
@@ -289,12 +326,18 @@ body #edx-cards-row.list-view .clean-course-card.card .list-view-content {
     align-items: center !important;
     justify-content: center !important;
 }
+
 #edx-cards-row.list-view .list-col-course .skills-desc {
     white-space: normal !important;
 }
 
 
-body, html, .edx-container, .catalog-main, .dash-main, .catalog-layout {
+body,
+html,
+.edx-container,
+.catalog-main,
+.dash-main,
+.catalog-layout {
     overflow-x: clip !important;
 }
 
@@ -319,8 +362,53 @@ body, html, .edx-container, .catalog-main, .dash-main, .catalog-layout {
     flex-direction: column !important;
     justify-content: center !important;
 }
+
 #edx-cards-row.list-view .list-col-logo {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
+}
+#edx-cards-row.list-view .lv-btn-visit {
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 6px 14px !important;
+    border-radius: 20px !important;
+    background: #111827 !important;
+    color: #fff !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    transition: all 0.2s !important;
+    border: none !important;
+}
+
+#edx-cards-row.list-view .lv-btn-visit:hover {
+    background: #000 !important;
+    transform: translateY(-1px) !important;
+}
+
+/* List View Header alignment (to perfectly match list-view-content) */
+#edx-cards-row.list-view .list-header-row {
+    display: grid !important;
+    grid-template-columns: 48px minmax(200px, 3fr) minmax(150px, 2fr) 100px 80px 160px !important;
+    align-items: center;
+    gap: 18px;
+    width: 100%;
+    padding: 12px 8px;
+    border-bottom: 1px solid var(--border, #e5e7eb);
+    margin-bottom: 8px;
+}
+
+/* Fix heart button icon color in light mode */
+body #edx-cards-row.list-view .row-action i,
+body #edx-cards-row.list-view .row-action svg {
+    color: #ffffff !important;
+    fill: #ffffff !important;
+}
+
+body #edx-cards-row.list-view .row-action.saved i,
+body #edx-cards-row.list-view .row-action.saved svg {
+    color: #ff3b3b !important;
+    fill: #ff3b3b !important;
 }

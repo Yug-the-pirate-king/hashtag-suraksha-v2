@@ -111,6 +111,7 @@
 
 /* ── Dark mode token override ────────────────────────────── */
 [data-theme="dark"] {
+    --bg-card-rgb: 26, 35, 58;
     --accent: #22D3EE;
     --accent-light: #67E8F9;
     --accent-dark: #0891B2;
