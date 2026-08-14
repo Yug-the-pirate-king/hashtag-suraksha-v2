@@ -1,0 +1,78 @@
+/* Dark mode fix for compact search */
+[data-theme="dark"] .nav.compact .nav-compact-search {
+  background: #ffffff !important;
+  border-color: #e1e5eb !important;
+}
+
+[data-theme="dark"] .nav-action-group {
+  border-color: #e1e5eb !important;
+}
+
+[data-theme="dark"] .nav.compact .nav-search-wrap input[type="search"] {
+  background: #ffffff !important;
+  color: #1e293b !important;
+  border-color: #ffffff !important;
+}
+
+[data-theme="dark"] .nav-compact-search .nav-filter-btn,
+[data-theme="dark"] .nav-compact-search .nav-sort-wrap select,
+[data-theme="dark"] .nav-compact-search .nav-view-toggle,
+[data-theme="dark"] .nav-compact-search .nav-reset-btn {
+  background: transparent !important;
+  border-color: #e1e5eb !important;
+  color: #1e293b !important;
+}
+
+[data-theme="dark"] .nav-compact-search svg {
+  stroke: #1e293b !important;
+}
+
+box-shadow: none !important;
+}
+
+[data-theme="dark"] .nav.compact .nav-search-wrap input[type="search"]:focus,
+.nav.compact .nav-search-wrap input[type="search"]:focus {
+  border-color: transparent !important;
+  /* Perfect D-shape glow on the left */
+  box-shadow: 3px 0 8px rgba(29, 78, 216, 0.1) inset !important;
+  border-radius: 999px 0 0 999px !important;
+}
+
+/* Keep icons dark so they are visible on the white navbar */
+[data-theme="dark"] .nav-compact-search .nav-filter-btn,
+[data-theme="dark"] .nav-compact-search .nav-sort-wrap select,
+[data-theme="dark"] .nav-compact-search .nav-view-toggle,
+[data-theme="dark"] .nav-compact-search .nav-reset-btn {
+  background: transparent !important;
+  border-color: #e1e5eb !important;
+  color: #1e293b !important;
+}
+
+[data-theme="dark"] .nav-compact-search svg {
+  stroke: #1e293b !important;
+}
+
+/* Perfect D-shape glow for Grid/List view toggle */
+[data-theme="dark"] .nav-view-toggle .view-btn.active,
+[data-theme="light"] .nav-view-toggle .view-btn.active,
+.nav-view-toggle .view-btn.active {
+  background: rgba(29, 78, 216, 0.12) !important;
+  color: #1d4ed8 !important;
+  box-shadow: 0 0 0 2px rgba(29, 78, 216, 0.3) inset !important;
+  border-radius: 0 !important;
+  /* Reset border radius to inherit from parent/specific pseudo-classes */
+}
+
+[data-theme="dark"] .nav-view-toggle .view-btn:first-child.active,
+[data-theme="light"] .nav-view-toggle .view-btn:first-child.active,
+.nav-view-toggle .view-btn:first-child.active {
+  border-top-left-radius: 999px !important;
+  border-bottom-left-radius: 999px !important;
+}
+
+[data-theme="dark"] .nav-view-toggle .view-btn:last-child.active,
+[data-theme="light"] .nav-view-toggle .view-btn:last-child.active,
+.nav-view-toggle .view-btn:last-child.active {
+  border-top-right-radius: 999px !important;
+  border-bottom-right-radius: 999px !important;
+}

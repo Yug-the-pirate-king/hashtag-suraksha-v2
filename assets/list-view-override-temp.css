@@ -416,22 +416,13 @@ body #edx-cards-row.list-view .row-action.saved svg {
     fill: #ff3b3b !important;
 }
 
-
-
-
-
-
-
-
-
-
-
-
 /* =====================================================
    FINAL MOBILE OVERRIDES (this file loads last)
+   Ensures 1 card/row, touch-friendly buttons, working filters
    ===================================================== */
 @media (max-width: 768px) {
-    /* ---- GRID VIEW FIXES ---- */
+
+    /* ---- GRID: Force 1 card per row ---- */
     body #edx-cards-row:not(.list-view),
     body #edx-cards-row.grid-view,
     #edx-cards-row:not(.list-view) {
@@ -440,162 +431,154 @@ body #edx-cards-row.list-view .row-action.saved svg {
         gap: 16px !important;
     }
 
+    /* Remove zoom scaling that breaks touch targets */
     body #edx-cards-row:not(.list-view) .clean-course-card,
     body #edx-cards-row:not(.list-view) .clean-course-card.card {
-        zoom: 1 !important; transform: none !important; width: 100% !important; max-width: 100% !important; min-width: 0 !important;
-    }
-    
-    /* ---- LIST VIEW MOBILE EXACT MATCH (CSS GRID) ---- */
-    .list-view-header { display: none !important; }
-    
-    body #edx-cards-row.list-view .clean-course-card.card {
-        background-color: var(--card-bg, #ffffff) !important;
-        border-radius: 16px !important;
-        padding: 16px !important;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.04) !important;
-        border: none !important;
-        margin-bottom: 16px !important;
-    }
-
-    body #edx-cards-row.list-view .clean-course-card.card .list-view-content {
-        display: grid !important;
-        grid-template-columns: 44px 1fr auto !important;
-        grid-template-rows: auto auto auto !important;
-        gap: 8px 10px !important;
-        padding: 0 !important;
-        align-items: start !important;
+        zoom: 1 !important;
+        transform: none !important;
         width: 100% !important;
-    }
-    
-    /* Reset all columns */
-    body #edx-cards-row.list-view .clean-course-card.card .list-col {
-        width: 100% !important; max-width: none !important; min-width: 0 !important; padding: 0 !important; margin: 0 !important;
-        overflow: visible !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
     }
 
-    /* Row 1: Logo | Title | Skills */
-    body #edx-cards-row.list-view .clean-course-card.card .list-col-logo {
-        grid-column: 1; grid-row: 1;
-        width: 44px !important; height: 44px !important;
-        display: flex !important; align-items: center !important; justify-content: center !important;
-    }
-    body #edx-cards-row.list-view .clean-course-card.card .list-col-logo .logo-wrap {
-        width: 44px !important; height: 44px !important; border-radius: 8px !important; border: 1px solid var(--border-light, #e5e7eb) !important;
-        padding: 0 !important; background: transparent !important; display: flex !important; align-items: center !important; justify-content: center !important;
-    }
-
-    body #edx-cards-row.list-view .clean-course-card.card .list-col-course {
-        grid-column: 2; grid-row: 1;
-        display: flex !important; flex-direction: column !important; justify-content: flex-start !important; text-align: left !important;
-    }
-    body #edx-cards-row.list-view .clean-course-card.card .list-col-course a.course-title {
-        font-size: 14px !important; font-weight: 600 !important; line-height: 1.3 !important; color: var(--text-main, #111827) !important;
-        margin-bottom: 4px !important; display: -webkit-box !important; -webkit-line-clamp: 3 !important; -webkit-box-orient: vertical !important;
-        overflow: hidden !important; white-space: normal !important;
-    }
-    body #edx-cards-row.list-view .clean-course-card.card .list-col-course .course-meta-text {
-        font-size: 11px !important; color: var(--text-muted, #6b7280) !important; white-space: nowrap !important; overflow: hidden !important; text-overflow: ellipsis !important; display: block !important;
-    }
-    body #edx-cards-row.list-view .clean-course-card.card .list-col-course .skills-desc { display: none !important; }
-
-    body #edx-cards-row.list-view .clean-course-card.card .list-col-skills {
-        grid-column: 3; grid-row: 1;
-        display: flex !important; flex-direction: column !important; gap: 4px !important;
-        align-items: flex-end !important; justify-content: flex-start !important;
-    }
-    body #edx-cards-row.list-view .clean-course-card.card .list-col-skills .badge {
-        font-size: 10px !important; font-weight: 500 !important; color: var(--text-main, #111827) !important;
-        background: transparent !important; padding: 0 !important; border: none !important; margin: 0 !important;
+    /* ---- BOOKMARK / HEART BUTTON ---- */
+    .btn-save-floating {
+        position: absolute !important;
+        top: 10px !important;
+        right: 10px !important;
+        z-index: 10 !important;
+        width: 44px !important;
+        height: 44px !important;
+        min-width: 44px !important;
+        min-height: 44px !important;
+        border-radius: 50% !important;
+        background: rgba(255,255,255,0.92) !important;
+        border: none !important;
+        cursor: pointer !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 0 !important;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15) !important;
+        -webkit-tap-highlight-color: transparent !important;
+        touch-action: manipulation !important;
     }
 
-    /* Row 2: Metrics (Duration & Cost stacked to the right, under skills) */
-    body #edx-cards-row.list-view .clean-course-card.card .list-col-duration {
-        grid-column: 3; grid-row: 2;
-        display: flex !important; align-items: center !important; justify-content: flex-end !important; gap: 4px !important; font-size: 11px !important; color: var(--text-muted, #6b7280) !important;
-    }
-    body #edx-cards-row.list-view .clean-course-card.card .list-col-cost {
-        grid-column: 3; grid-row: 3;
-        display: flex !important; align-items: center !important; justify-content: flex-end !important;
-        font-size: 14px !important; font-weight: 700 !important; color: var(--accent-green, #16a34a) !important;
+    .btn-save-floating svg {
+        width: 22px !important;
+        height: 22px !important;
+        pointer-events: none !important;
     }
 
-    /* Row 4: Actions */
-    body #edx-cards-row.list-view .clean-course-card.card .list-col-actions {
-        grid-column: 1 / -1; grid-row: 4;
-        display: flex !important; gap: 8px !important; margin-top: 12px !important;
-    }
-    body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .lv-btn-visit,
-    body #edx-cards-row.list-view .clean-course-card.card .list-col-actions a.lv-btn-visit {
-        flex: 1 !important; background-color: #1f2937 !important; color: #ffffff !important;
-        border-radius: 12px !important; padding: 12px !important; font-size: 14px !important; font-weight: 500 !important; text-align: center !important; display: flex !important; justify-content: center !important; align-items: center !important; border: none !important;
-    }
-    body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .row-action,
-    body #edx-cards-row.list-view .clean-course-card.card .list-col-actions button.row-action {
-        width: 44px !important; height: 44px !important; background-color: #1f2937 !important; color: #ffffff !important;
-        border-radius: 12px !important; display: flex !important; align-items: center !important; justify-content: center !important; border: none !important;
-    }
-    body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .row-action svg,
-    body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .row-action i {
-        fill: none !important; stroke: #ffffff !important; color: #ffffff !important;
-    }
-    body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .row-action.saved svg,
-    body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .row-action.saved i {
-        fill: #ef4444 !important; stroke: #ef4444 !important; color: #ef4444 !important;
+    .btn.btn-save {
+        min-width: 48px !important;
+        min-height: 44px !important;
+        font-size: 18px !important;
+        touch-action: manipulation !important;
     }
 
-    /* ---- GRID COURSE CARD BOTTOM BUTTON OVERRIDES ---- */
-    body #edx-cards-row:not(.list-view) .clean-course-card.card .card-footer-actions { 
-        display: flex !important; width: 100% !important; 
-    }
-    body #edx-cards-row:not(.list-view) .clean-course-card.card .card-footer-actions .btn-save { 
-        display: none !important; 
-    }
-    body #edx-cards-row:not(.list-view) .clean-course-card.card .card-footer-actions .btn-visit, 
-    body #edx-cards-row:not(.list-view) .clean-course-card.card .card-footer-actions a.btn { 
-        width: 100% !important; flex: 1 !important; justify-content: center !important; text-align: center !important; background-color: #1f2937 !important; color: #ffffff !important;
+    .card-footer-actions .btn {
+        min-height: 44px !important;
+        touch-action: manipulation !important;
     }
 
     /* ---- FILTER SIDEBAR DRAWER FIX ---- */
     .catalog-sidebar {
-        position: fixed !important; top: 70px !important; bottom: 0 !important; left: 0 !important;
-        width: min(320px, 85vw) !important; max-height: calc(100vh - 70px) !important; z-index: 200 !important;
-        background: var(--bg-surface, #fff) !important; border-right: 1px solid var(--border-color, #e5e7eb) !important;
-        transform: translateX(-110%) !important; transition: transform 0.3s ease !important;
-        -webkit-overflow-scrolling: touch !important; overscroll-behavior: contain !important;
-        display: flex !important; flex-direction: column !important;
+        position: fixed !important;
+        top: 70px !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        width: min(320px, 85vw) !important;
+        max-height: calc(100vh - 70px) !important;
+        z-index: 200 !important;
+        background: var(--bg-surface, #fff) !important;
+        border-right: 1px solid var(--border-color, #e5e7eb) !important;
+        transform: translateX(-110%) !important;
+        transition: transform 0.3s ease !important;
+        -webkit-overflow-scrolling: touch !important;
+        overscroll-behavior: contain !important;
+        display: flex !important;
+        flex-direction: column !important;
     }
-    .catalog-workspace.filters-open .catalog-sidebar, .catalog-workspace.sidebar-collapsed.filters-open .catalog-sidebar { transform: translateX(0) !important; }
-    .catalog-workspace.sidebar-collapsed .catalog-sidebar-body { display: flex !important; }
-    .catalog-workspace.sidebar-collapsed .catalog-sidebar-header { flex-direction: row !important; border-bottom: 1px solid var(--border-color, #e5e7eb) !important; padding-bottom: 12px !important; }
-    .catalog-workspace.sidebar-collapsed .catalog-sidebar-title { writing-mode: horizontal-tb !important; transform: none !important; }
+
+    .catalog-workspace.filters-open .catalog-sidebar,
+    .catalog-workspace.sidebar-collapsed.filters-open .catalog-sidebar {
+        transform: translateX(0) !important;
+    }
+    
+    .catalog-workspace.sidebar-collapsed .catalog-sidebar-body {
+        display: flex !important;
+    }
+    
+    .catalog-workspace.sidebar-collapsed .catalog-sidebar-header {
+        flex-direction: row !important;
+        border-bottom: 1px solid var(--border-color, #e5e7eb) !important;
+        padding-bottom: 12px !important;
+    }
+    
+    .catalog-workspace.sidebar-collapsed .catalog-sidebar-title {
+        writing-mode: horizontal-tb !important;
+        transform: none !important;
+    }
+
     .catalog-mobile-overlay {
-        position: fixed !important; top: 70px !important; left: 0 !important; right: 0 !important; bottom: 0 !important;
-        background: rgba(0, 0, 0, 0.55) !important; z-index: 190 !important; opacity: 0 !important; pointer-events: none !important;
-        transition: opacity 0.3s ease !important; display: block !important;
+        position: fixed !important;
+        top: 70px !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        background: rgba(0, 0, 0, 0.55) !important;
+        z-index: 190 !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        transition: opacity 0.3s ease !important;
+        display: block !important;
     }
-    .catalog-workspace.filters-open .catalog-mobile-overlay { opacity: 1 !important; pointer-events: auto !important; }
 
-    /* ---- TOP NAVIGATION COMPACT FIXES ---- */
-    .nav-search-group .nav-filter-btn { display: none !important; }
-    .nav-search-group { flex: 1 !important; min-width: 0 !important; margin-right: 10px !important; }
-    .nav-search-wrap { flex: 1 !important; min-width: 0 !important; }
-    .nav-action-group .nav-sort-wrap, .nav-action-group .nav-reset-btn { display: none !important; }
-    .nav-action-group { display: flex !important; flex-direction: row !important; align-items: center !important; gap: 8px !important; position: static !important; background: transparent !important; border: none !important; box-shadow: none !important; padding: 0 !important; height: auto !important; z-index: auto !important; justify-content: center !important; }
+    .type-pill,
+    .domain-chip,
+    .level-pill {
+        min-height: 40px !important;
+        touch-action: manipulation !important;
+    }
 
-    /* ---- FLOATING BOTTOM LEFT FILTER BUTTON ---- */
-    .catalog-mobile-filter-bar { position: fixed !important; bottom: 20px !important; left: 20px !important; z-index: 10000 !important; margin: 0 !important; }
-    .mobile-filter-toggle { min-height: 48px !important; border-radius: 24px !important; padding: 0 20px !important; font-size: 15px !important; background: #2563eb !important; color: white !important; border: none !important; box-shadow: 0 4px 12px rgba(37,99,235,0.4) !important; }
-    
-    /* ---- MOBILE HELP QUESTION MARK ---- */
-    .catalog-scroll-rail { display: none !important; visibility: hidden !important; width: 0 !important; height: 0 !important; opacity: 0 !important; pointer-events: none !important; z-index: -1 !important; }
-    
-    .mobile-help-btn { display: flex !important; position: fixed !important; bottom: 20px !important; right: 20px !important; width: 48px !important; height: 48px !important; border-radius: 24px !important; background: #ffffff !important; color: #111827 !important; align-items: center !important; justify-content: center !important; font-size: 22px !important; font-weight: bold !important; box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important; z-index: 10000 !important; border: 1px solid #e5e7eb !important; text-decoration: none !important; font-family: sans-serif !important; cursor: pointer !important; }
-    
-    .catalog-main { padding-bottom: 80px !important; }
+    /* Prevent iOS zoom on search input focus */
+    .catalog-search input[type="search"],
+    .catalog-search input[type="text"],
+    #edx-search,
+    .nav-search-wrap input[type="search"] {
+        font-size: 16px !important;
+        min-height: 44px !important;
+    }
+
+    .pagination-btn {
+        min-height: 40px !important;
+        min-width: 40px !important;
+        touch-action: manipulation !important;
+    }
 }
 
-@media (min-width: 769px) { .mobile-help-btn { display: none !important; } }
-@media (max-width: 480px) { body #edx-cards-row:not(.list-view), body #edx-cards-row.grid-view, #edx-cards-row:not(.list-view) { grid-template-columns: 1fr !important; padding: 0 !important; } body #edx-cards-row:not(.list-view) .clean-course-card, body #edx-cards-row:not(.list-view) .clean-course-card.card { margin: 0 !important; } }
+@media (max-width: 480px) {
+    body #edx-cards-row:not(.list-view),
+    body #edx-cards-row.grid-view,
+    #edx-cards-row:not(.list-view) {
+        grid-template-columns: 1fr !important;
+        padding: 0 !important;
+    }
+
+    .clean-course-card,
+    .clean-course-card.card {
+        margin: 0 !important;
+    }
+}
 
 /* MAKE SAVED HEART RED */
-body .btn-save-floating.saved svg, body #edx-cards-row:not(.list-view) .btn-save-floating.saved svg, .btn-save-floating.saved svg, .btn-save-floating.saved .heart-icon, body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .row-action.saved i, body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .row-action.saved svg { fill: #ef4444 !important; color: #ef4444 !important; stroke: #ef4444 !important; filter: drop-shadow(0 0 2px rgba(239, 68, 68, 0.5)) !important; }
+body .btn-save-floating.saved svg,
+body #edx-cards-row:not(.list-view) .btn-save-floating.saved svg,
+.btn-save-floating.saved svg,
+.btn-save-floating.saved .heart-icon {
+    fill: #ef4444 !important;
+    color: #ef4444 !important;
+    stroke: #ef4444 !important;
+    filter: drop-shadow(0 0 2px rgba(239, 68, 68, 0.5)) !important;
+}
