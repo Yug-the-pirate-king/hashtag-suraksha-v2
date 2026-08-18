@@ -58,16 +58,16 @@ body #edx-cards-row.list-view .clean-course-card.card .list-view-content {
     gap: 0 !important;
 }
 
-/* Logo column — warm cream circle */
+/* Logo column — rounded rectangle to preserve institution branding */
 #edx-cards-row.list-view .list-col-logo .logo-wrap {
     position: static !important;
     left: auto !important;
     bottom: auto !important;
     width: 48px !important;
     height: 48px !important;
-    border-radius: 50% !important;
+    border-radius: 8px !important;
     border: 1px solid #e8e0d4 !important;
-    background: #faf6f0 !important;
+    background: #ffffff !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -78,7 +78,7 @@ body #edx-cards-row.list-view .clean-course-card.card .list-view-content {
     width: 100% !important;
     height: 100% !important;
     object-fit: contain !important;
-    border-radius: 50% !important;
+    border-radius: 8px !important;
 }
 #edx-cards-row.list-view .list-col-logo .logo-fallback {
     color: #8b7355 !important;
