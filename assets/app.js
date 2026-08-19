@@ -10,6 +10,25 @@
 const COURSES_JSON = 'assets/course_catalog.json';
 const CATALOG_RICH_JSON = 'assets/course_catalog.json';
 
+// Shared promise so the 3 MB course catalog is fetched only once per page load.
+// Both the dashboard and the All Courses grid use the same JSON file, so this
+// prevents duplicate large downloads and avoids race conditions.
+let _coursesJsonPromise = null;
+function fetchCoursesJson() {
+    if (!_coursesJsonPromise) {
+        _coursesJsonPromise = fetch(COURSES_JSON + '?v=' + Date.now())
+            .then(res => {
+                if (!res.ok) throw new Error(`Failed to load courses (${res.status} ${res.statusText})`);
+                return res.json();
+            })
+            .catch(err => {
+                _coursesJsonPromise = null;
+                throw err;
+            });
+    }
+    return _coursesJsonPromise;
+}
+
 // Valid image-file entries extracted once from "Cyber Image Links.xlsx". Drive
 // blocks third-party embedding, so the corresponding supplied files are stored
 // once in assets/course-banners rather than requested from Drive on every card.
@@ -192,74 +211,81 @@ const ALL_DOMAIN_LABELS = [
 const CYBER_DOMAINS_DATA = [
     {
         id: 'foundational',
-        title: 'Foundational',
-        icon: '<svg style="width:24px;height:24px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2zM4 19.5v-15"/></svg>',
-        color: '#14b8a6',
-        summary: 'Core concepts every cybersecurity learner needs — from threat basics to risk frameworks and governance.',
-        subDomains: ['Cybersecurity Basics', 'Risk Management', 'Threat Landscape', 'Security Frameworks', 'Security Governance'],
-        skills: ['Risk Assessment', 'Policy Writing', 'NIST/ISO 27001', 'Security Awareness', 'Asset Management'],
-        roles: ['Security Analyst', 'GRC Analyst', 'IT Auditor', 'Risk Manager'],
-        courseTypes: ['Certificate', 'Free to Audit', "Bachelor's Degree"],
+        title: 'Cybersecurity Basics',
+        subtitle: '(The Foundation)',
+        icon: '<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>',
+        color: '#059669',
+        summary: 'Think of this as the rules of the road for the internet. We learn how to keep your digital life safe and why it matters.',
+        subDomains: ['Safety Rules', 'Risk Spotting', 'Web Ethics'],
+        skills: ['Staying Safe Online', 'Being a Good Digital Citizen'],
+        roles: ['Security Helper'],
+        btnText: 'Start Here',
         filterDomain: 'Foundational'
     },
     {
         id: 'network',
-        title: 'Network Infrastructure',
-        icon: '<svg style="width:24px;height:24px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>',
-        color: '#6366f1',
-        summary: 'Protect the arteries of digital infrastructure — firewalls, IDS/IPS, cloud networks, and zero-trust architecture.',
-        subDomains: ['Network Security', 'Firewalls & VPN', 'IDS/IPS', 'Cloud Security', 'Zero Trust Architecture'],
-        skills: ['Packet Analysis', 'Firewall Rules', 'SDN Security', 'VPC Design', 'Network Segmentation'],
-        roles: ['Network Security Engineer', 'Cloud Security Architect', 'SOC Analyst', 'Infrastructure Engineer'],
-        courseTypes: ['Certificate', 'Diploma', "Master's Degree"],
+        title: 'Digital Highways',
+        subtitle: '(Network)',
+        subTag: 'Network Infrastructure',
+        icon: '<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="3" r="2"/><circle cx="12" cy="21" r="2"/><circle cx="3" cy="12" r="2"/><circle cx="21" cy="12" r="2"/><path d="M12 5v4m0 6v4M5 12h4m6 0h4"/></svg>',
+        color: '#1d4ed8',
+        summary: 'Learn how information travels and how to build strong gates so only invited guests can get into your network.',
+        subDomains: ['Internet Gates', 'Private Tunnels', 'WiFi Safety'],
+        skills: ['Building Safe Paths', 'Guarding the Gate'],
+        roles: ['Network Guardian'],
+        btnText: 'Explore Highways →',
         filterDomain: 'Network Infrastructure'
     },
     {
         id: 'endpoint',
-        title: 'System & Endpoint',
-        icon: '<svg style="width:24px;height:24px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>',
-        color: '#06b6d4',
-        summary: 'Harden endpoints, operating systems, and mobile devices against malware, misconfiguration, and lateral movement.',
-        subDomains: ['Endpoint Security', 'OS Hardening', 'Mobile Security', 'Patch Management', 'Malware Defense'],
-        skills: ['EDR/XDR', 'OS Internals', 'Threat Hunting', 'Vulnerability Management', 'Incident Triage'],
-        roles: ['Endpoint Security Engineer', 'SOC Analyst', 'Threat Hunter', 'System Administrator'],
-        courseTypes: ['Certificate', 'Diploma', "Post Graduate Diploma"],
+        title: 'Device Protection',
+        subtitle: '(Endpoints)',
+        icon: '<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><path d="M12 7a3 3 0 0 1 3 3v2a3 3 0 0 1-6 0v-2a3 3 0 0 1 3-3z"/></svg>',
+        color: '#0e7490',
+        summary: 'Your phone and laptop are like your digital lockers. We learn how to put the strongest locks on them to keep hackers out.',
+        subDomains: ['Phone Safety', 'Laptop Locks', 'App Health'],
+        skills: ['Hardening Devices', 'Stopping Malware'],
+        roles: ['Device Protector'],
+        btnText: 'Protect My Tech',
         filterDomain: 'System & Endpoint'
     },
     {
         id: 'forensics',
-        title: 'Cyber Forensics',
-        icon: '',
-        color: '#8b5cf6',
-        summary: 'Investigate breaches, recover digital evidence, and reconstruct attacks using forensic tools and incident-response playbooks.',
-        subDomains: ['Digital Forensics', 'Incident Response', 'Reverse Engineering', 'eDiscovery', 'Threat Intelligence'],
-        skills: ['Disk Imaging', 'Memory Forensics', 'Kill Chain Analysis', 'Chain of Custody', 'IOC Triage'],
-        roles: ['Digital Forensics Specialist', 'Incident Responder', 'Malware Analyst', 'Threat Intel Analyst'],
-        courseTypes: ['Certificate', "Post Graduate Certificate", "Master's Degree"],
+        title: 'Digital Detective',
+        subtitle: '(Forensics)',
+        icon: '<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6l3 2"/></svg>',
+        color: '#7c3aed',
+        summary: 'When something goes wrong, detectives look for clues. Learn how to track down digital footprints to solve mysteries.',
+        subDomains: ['Clue Hunting', 'Hidden Files', 'Evidence Collection'],
+        skills: ['Solving Digital Mysteries', 'Finding Clues'],
+        roles: ['Cyber Investigator'],
+        btnText: 'Solve Mysteries',
         filterDomain: 'Cyber Forensics'
     },
     {
         id: 'data',
-        title: 'Data & Application',
-        icon: '️',
-        color: '#f43f5e',
-        summary: 'Secure code, databases, cryptography, and data privacy to protect the applications and information that power organizations.',
-        subDomains: ['Application Security', 'Data Privacy', 'Cryptography', 'Database Security', 'DevSecOps'],
-        skills: ['Secure Coding', 'OWASP Top 10', 'Encryption', 'Privacy by Design', 'CI/CD Security'],
-        roles: ['Application Security Engineer', 'Data Privacy Officer', 'DevSecOps Engineer', 'Cryptographer'],
-        courseTypes: ['Certificate', "Post Graduate Diploma", "Master's Degree"],
+        title: 'Data & App Safety',
+        icon: '<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><ellipse cx="12" cy="5" rx="9" ry="3"/><rect x="9" y="10" width="6" height="5" rx="1"/><path d="M10 10V8a2 2 0 1 1 4 0v2"/></svg>',
+        color: '#dc2626',
+        summary: 'Apps and data are like secret recipes. Learn how to cook up safe apps and keep the ingredients (data) hidden from spies.',
+        subDomains: ['Safe Coding', 'Secret Data', 'App Security'],
+        skills: ['Locking Secrets', 'Secure App Building'],
+        roles: ['Secure Developer'],
+        btnText: 'Secure the Data',
         filterDomain: 'Data & Application'
     },
     {
         id: 'legal',
-        title: 'Legal & Ethical',
-        icon: '⚖️',
-        color: '#f59e0b',
-        summary: 'Navigate cyber law, ethics, compliance, and reporting obligations across jurisdictions and industries.',
-        subDomains: ['Cyber Law', 'Ethics & Professionalism', 'Regulatory Compliance', 'Incident Reporting', 'Digital Rights'],
-        skills: ['Legal Research', 'Compliance Mapping', 'Incident Disclosure', 'Ethical Hacking Ethics', 'GDPR/CCPA'],
-        roles: ['Cybersecurity Lawyer', 'Compliance Manager', 'Ethics Officer', 'Policy Advisor'],
-        courseTypes: ['Certificate', 'Diploma', 'Free to Audit'],
+        title: 'Cyber Law & Ethics',
+        subtitle: '(Rules & Rights)',
+        subTag: 'Legal & Governance',
+        icon: '<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v8"/><path d="M9 12h6"/></svg>',
+        color: '#d97706',
+        summary: 'Rules, ethics, and digital rights that protect privacy and maintain justice across the cyber realm.',
+        subDomains: ['Cyber Law', 'Digital Rights', 'Web Ethics'],
+        skills: ['Understanding Cyber Laws', 'Ethical Compliance'],
+        roles: ['Cyber Policy Advisor'],
+        btnText: 'Explore Cyber Law →',
         filterDomain: 'Legal & Ethical'
     }
 ];
@@ -410,12 +436,12 @@ const SLUG_LABEL_MAP = Object.fromEntries(
 );
 
 const DOMAIN_COLOR_MAP = {
-    'foundational': '#14b8a6',
-    'network-infra': '#6366f1',
-    'system-endpoint': '#06b6d4',
-    'forensics-ir': '#8b5cf6',
-    'data-app-security': '#f43f5e',
-    'legal-compliance': '#f59e0b'
+    'foundational': '#059669',
+    'network-infra': '#1d4ed8',
+    'system-endpoint': '#0e7490',
+    'forensics-ir': '#7c3aed',
+    'data-app-security': '#dc2626',
+    'legal-compliance': '#d97706'
 };
 
 const DOMAIN_CLASS_MAP = {
@@ -2287,7 +2313,7 @@ function renderSkeletonCards(count = 12) {
         <article class="clean-course-card skeleton-card" aria-hidden="true">
 
         <div class="grid-view-content">
-            
+
             <div class="skeleton-header">
                 <div class="skeleton-badge"></div>
                 <div style="flex:1;">
@@ -2298,39 +2324,30 @@ function renderSkeletonCards(count = 12) {
             <div class="skeleton-row med"></div>
             <div class="skeleton-row"></div>
             <div class="skeleton-row short"></div>
-        
+
         </div>
-                                        <div class="list-view-content" style="display: none; align-items: center;">
+                                        <div class="list-view-content card-view-panel" style="display: none; align-items: center;">
             <div class="list-col list-col-logo" style="display: flex; align-items: center; justify-content: center; width: 48px; flex-shrink: 0;">
-                ${hasLogo ? `<div class="logo-wrap" style="width:48px;height:48px;border-radius:50%;border:1px solid #e5e7eb;background:#ffffff;display:flex;align-items:center;justify-content:center;padding:4px;overflow:hidden;flex-shrink:0;">
-                    <img src="${c.logo_url}" style="width:100%;height:100%;object-fit:contain;" alt="" onerror="this.remove()" />
-                </div>` : `<div class="logo-wrap" style="width:48px;height:48px;border-radius:50%;border:1px solid #e5e7eb;background:#ffffff;display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;"></div>`}
+                <div class="logo-wrap" style="width:48px;height:48px;border-radius:50%;border:1px solid #e5e7eb;background:#f1f5f9;display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;"></div>
             </div>
             <div class="list-col list-col-course">
-                <a href="${escHtml(getCourseUrl(c))}" target="_blank" style="font-size:14px; font-weight:700; color:var(--text-1); text-decoration:none;">${escHtml(c.name)}</a>
-                <div style="font-size:12px; color:var(--text-3); margin-top:4px; display:flex; align-items:center;">
-                    ${escHtml(c.university)} &middot; ${escHtml(c.country || 'India')}
-                </div>
+                <div class="course-title" style="width:85%;height:18px;background:#f1f5f9;border-radius:4px;margin-bottom:8px;"></div>
+                <div class="course-meta-text" style="width:55%;height:14px;background:#f1f5f9;border-radius:4px;"></div>
             </div>
             <div class="list-col list-col-skills" style="display:flex; flex-wrap:wrap; gap:6px;">
-                ${badges.join('')}
-                ${(mode && mode !== 'Other' && mode.toLowerCase() !== 'free' && mode.toLowerCase() !== 'free to audit') ? `<span class="badge mode">${escHtml(mode)}</span>` : ''}
+                <div class="badge-row"><span class="badge" style="background:#f1f5f9;color:transparent;"> </span></div>
             </div>
             <div class="list-col list-col-duration" style="font-size:13px; color:var(--text-2); display:flex; align-items:center; gap:6px;">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                ${escHtml(duration)}
+                <span class="duration-text" style="width:60px;height:16px;background:#f1f5f9;border-radius:4px;display:inline-block;"></span>
             </div>
             <div class="list-col list-col-cost">
-                <span class="cost ${costClass}" style="font-size:13px; font-weight:600;">${escHtml(c.cost || '—')}</span>
+                <span class="cost" style="width:48px;height:16px;background:#f1f5f9;border-radius:4px;display:inline-block;"></span>
             </div>
             <div class="list-col list-col-actions" style="display:flex; gap:8px; align-items:center; justify-content:center;">
-                <a class="lv-btn-visit" href="${escHtml(getCourseUrl(c))}" target="_blank" onclick="event.stopPropagation();">Visit site &rarr;</a>
-                <button class="row-action ${saved ? 'saved' : ''}" style="width:36px; height:36px; border-radius:6px; background:#111827; color:#fff; border:none; cursor:pointer; font-size:16px; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0;" title="${saved ? 'Remove from saved' : 'Save course'}" aria-label="${saved ? 'Remove from saved' : 'Save course'}" aria-pressed="${saved}" onclick="event.stopPropagation(); toggleFavorite('${c.id}', this)">
-                    <i class="${saved ? 'fa-solid' : 'fa-regular'} fa-heart"></i>
-                </button>
+                <span style="width:80px;height:32px;background:#f1f5f9;border-radius:6px;display:inline-block;"></span>
             </div>
         </div>
-    
+
 </article>
     `).join('');
 }
@@ -2440,7 +2457,7 @@ function renderEdxCards() {
         return `
         <article class="clean-course-card card ${saved ? 'saved' : ''} ${domainClass}" style="animation: fadeStagger 0.4s ease ${i * 0.04}s both;" data-course-id="${c.id}" tabindex="0" role="button" aria-label="Open ${escHtml(c.name)}">
 
-        <div class="grid-view-content">
+        <div class="grid-view-content card-view-panel">
             
             <div class="card-banner no-image">
                 ${bannerImage ? `<img class="course-banner-image" src="${escHtml(bannerImage)}" alt="" onerror="this.remove()" />` : ''}
@@ -2477,27 +2494,25 @@ function renderEdxCards() {
                     <button class="btn btn-save ${saved ? 'saved' : ''}" style="width:44px;" onclick="event.stopPropagation(); toggleFavorite('${c.id}', this)" title="${saved ? 'Remove from saved' : 'Save course'}" aria-label="${saved ? 'Remove from saved' : 'Save course'}" aria-pressed="${saved}">${saved ? '♥' : '♡'}</button>
                 </div>
             </div>
-        
+
         </div>
-                                        <div class="list-view-content" style="display: none; align-items: center;">
+                                        <div class="list-view-content card-view-panel" style="display: none; align-items: center;">
             <div class="list-col list-col-logo" style="display: flex; align-items: center; justify-content: center; width: 48px; flex-shrink: 0;">
                 ${hasLogo ? `<div class="logo-wrap" style="width:48px;height:48px;border-radius:50%;border:1px solid #e5e7eb;background:#ffffff;display:flex;align-items:center;justify-content:center;padding:4px;overflow:hidden;flex-shrink:0;">
                     <img src="${c.logo_url}" style="width:100%;height:100%;object-fit:contain;" alt="" onerror="this.remove()" />
                 </div>` : `<div class="logo-wrap" style="width:48px;height:48px;border-radius:50%;border:1px solid #e5e7eb;background:#ffffff;display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;"></div>`}
             </div>
             <div class="list-col list-col-course">
-                <a href="${escHtml(getCourseUrl(c))}" target="_blank" style="font-size:14px; font-weight:700; color:var(--text-1); text-decoration:none;">${escHtml(c.name)}</a>
-                <div style="font-size:12px; color:var(--text-3); margin-top:4px; display:flex; align-items:center;">
+                <a class="course-title" href="${escHtml(getCourseUrl(c))}" target="_blank" style="font-size:14px; font-weight:700; color:var(--text-1); text-decoration:none;">${escHtml(c.name)}</a>
+                <div class="course-meta-text" style="font-size:12px; color:var(--text-3); margin-top:4px; display:flex; align-items:center;">
                     ${escHtml(c.university)} &middot; ${escHtml(c.country || 'India')}
                 </div>
             </div>
             <div class="list-col list-col-skills" style="display:flex; flex-wrap:wrap; gap:6px;">
-                ${badges.join('')}
-                ${(mode && mode !== 'Other' && mode.toLowerCase() !== 'free' && mode.toLowerCase() !== 'free to audit') ? `<span class="badge mode">${escHtml(mode)}</span>` : ''}
+                <div class="badge-row">${badges.join('')}${(mode && mode !== 'Other' && mode.toLowerCase() !== 'free' && mode.toLowerCase() !== 'free to audit') ? `<span class="badge mode">${escHtml(mode)}</span>` : ''}</div>
             </div>
             <div class="list-col list-col-duration" style="font-size:13px; color:var(--text-2); display:flex; align-items:center; gap:6px;">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                ${escHtml(duration)}
+                <span class="duration-text"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>${escHtml(duration)}</span>
             </div>
             <div class="list-col list-col-cost">
                 <span class="cost ${costClass}" style="font-size:13px; font-weight:600;">${escHtml(c.cost || '—')}</span>
@@ -2644,6 +2659,12 @@ function updateCourseViewClass() {
     if (!row) return;
     const isList = edxFilterState.view === 'list';
     row.classList.toggle('list-view', isList);
+
+    // Toggle which inner panel is visible for each card.
+    row.querySelectorAll('.card-view-panel').forEach(panel => {
+        const isListPanel = panel.classList.contains('list-view-content');
+        panel.style.display = isList ? (isListPanel ? '' : 'none') : (isListPanel ? 'none' : '');
+    });
 
     if (!isList) {
         const workspace = document.getElementById('catalog-workspace');
@@ -3310,8 +3331,7 @@ function scrollDomains(dx) {
 async function loadRichCatalog() {
     if (richCatalogMap) return richCatalogMap;
     try {
-        const res = await fetch(CATALOG_RICH_JSON);
-        const data = await res.json();
+        const data = await fetchCoursesJson();
         const list = Array.isArray(data) ? data : [];
         richCatalogMap = new Map();
         for (const c of list) {
@@ -3353,19 +3373,19 @@ function mergeRichFields(course) {
 }
 
 async function loadAllCourses(force = false) {
-    console.log('APP.JS VERSION: PATCHED WITH DOMAIN SLICING - IF THIS IS NOT IN THE CONSOLE, YOUR CACHE IS STALE');
+    console.log('APP.JS VERSION: CACHED JSON FETCH - IF THIS IS NOT IN THE CONSOLE, YOUR CACHE IS STALE');
     const row = document.getElementById('edx-cards-row');
     if (allCoursesData.length > 0 && !force) { renderEdxCards(); return; }
     if (row) row.innerHTML = renderSkeletonCards(12) + '<div class="courses-loading-text" aria-live="polite">Loading courses…</div>';
     showLoadingCurtain('Loading courses…');
     try {
-        const [res] = await Promise.all([fetch(COURSES_JSON + '?v=' + Date.now()), loadRichCatalog()]);
-        const data = await res.json();
+        // Fetch once and share the parsed JSON across dashboard + all-courses.
+        const [data] = await Promise.all([fetchCoursesJson(), loadRichCatalog()]);
         const raw = Array.isArray(data) ? data : data.courses || [];
 
         rawDomainCounts = { 'foundational': 0, 'network-infra': 0, 'system-endpoint': 0, 'forensics-ir': 0, 'data-app-security': 0, 'legal-compliance': 0 };
         const mappingKeys = { 'Foundational': 'foundational', 'Network Infrastructure': 'network-infra', 'System and Endpoint Security': 'system-endpoint', 'Cyber Forensics': 'forensics-ir', 'Application & Data Security': 'data-app-security', 'Legal & Ethical': 'legal-compliance' };
-        (typeof rawData !== 'undefined' ? rawData : (typeof raw !== 'undefined' ? raw : [])).forEach(c => {
+        raw.forEach(c => {
             if (Array.isArray(c.domains)) {
                 c.domains.forEach(d => {
                     if (mappingKeys[d]) rawDomainCounts[mappingKeys[d]]++;
@@ -3373,10 +3393,10 @@ async function loadAllCourses(force = false) {
             }
         });
         let expanded = [];
-        raw.forEach(c => {
+        raw.forEach((c, rawIndex) => {
             if (Array.isArray(c.id)) {
                 c.id.forEach((idVal, idx) => {
-                    let newC = { ...c, id: idVal };
+                    let newC = { ...c, id: idVal, raw_index: rawIndex };
                     if (Array.isArray(c.domains) && c.domains.length > idx) {
                         newC.domains = [c.domains[idx]];
                     } else {
@@ -3408,7 +3428,17 @@ async function loadAllCourses(force = false) {
         setEdxDomainChip(edxFilterState.domainChip);
         renderEdxCards();
     } catch (e) {
-        if (row) row.innerHTML = `<div class="edx-empty" style="color:var(--red);">Error loading courses.</div>`;
+        if (row) {
+            row.innerHTML = `
+                <div class="edx-empty" style="color:var(--red);">
+                    <h3>Unable to load courses</h3>
+                    <p class="edx-empty-sub">${escHtml(e.message || 'The course catalog could not be loaded. Please check your connection and try again.')}</p>
+                    <div class="edx-empty-actions">
+                        <button class="btn-view-details" onclick="loadAllCourses(true)">Retry</button>
+                    </div>
+                </div>`;
+        }
+        showToast('Course catalog failed to load', 'error');
         console.error('loadAllCourses error:', e);
     } finally {
         hideLoadingCurtain();
@@ -3784,13 +3814,12 @@ function buildCourseDetails(c) {
 async function showCourseModal(courseId, fallbackName, fallbackUni) {
     if (allCoursesData.length === 0) {
         try {
-            const [res] = await Promise.all([fetch(COURSES_JSON + '?v=' + Date.now()), loadRichCatalog()]);
-            const data = await res.json();
+            const [data] = await Promise.all([fetchCoursesJson(), loadRichCatalog()]);
             const raw = Array.isArray(data) ? data : data.courses || [];
 
             rawDomainCounts = { 'foundational': 0, 'network-infra': 0, 'system-endpoint': 0, 'forensics-ir': 0, 'data-app-security': 0, 'legal-compliance': 0 };
             const mappingKeys = { 'Foundational': 'foundational', 'Network Infrastructure': 'network-infra', 'System and Endpoint Security': 'system-endpoint', 'Cyber Forensics': 'forensics-ir', 'Application & Data Security': 'data-app-security', 'Legal & Ethical': 'legal-compliance' };
-            (typeof rawData !== 'undefined' ? rawData : (typeof raw !== 'undefined' ? raw : [])).forEach(c => {
+            raw.forEach(c => {
                 if (Array.isArray(c.domains)) {
                     c.domains.forEach(d => {
                         if (mappingKeys[d]) rawDomainCounts[mappingKeys[d]]++;
@@ -3798,10 +3827,10 @@ async function showCourseModal(courseId, fallbackName, fallbackUni) {
                 }
             });
             let expanded = [];
-            raw.forEach(c => {
+            raw.forEach((c, rawIndex) => {
                 if (Array.isArray(c.id)) {
                     c.id.forEach((idVal, idx) => {
-                        let newC = { ...c, id: idVal };
+                        let newC = { ...c, id: idVal, raw_index: rawIndex };
                         if (Array.isArray(c.domains) && c.domains.length > idx) {
                             newC.domains = [c.domains[idx]];
                         } else {
@@ -3970,14 +3999,13 @@ async function fetchData() {
     if (!globalData) document.body.dataset.loading = 'true';
     showLoadingCurtain('Loading course data…');
     try {
-        const [res] = await Promise.all([fetch(COURSES_JSON + '?v=' + Date.now()), loadRichCatalog()]);
-        const data = await res.json();
+        // Use the shared fetch so the 3 MB catalog is downloaded only once.
+        const [data] = await Promise.all([fetchCoursesJson(), loadRichCatalog()]);
         const rawData = Array.isArray(data) ? data : data.courses || [];
-
 
         rawDomainCounts = { 'foundational': 0, 'network-infra': 0, 'system-endpoint': 0, 'forensics-ir': 0, 'data-app-security': 0, 'legal-compliance': 0 };
         const mappingKeys = { 'Foundational': 'foundational', 'Network Infrastructure': 'network-infra', 'System and Endpoint Security': 'system-endpoint', 'Cyber Forensics': 'forensics-ir', 'Application & Data Security': 'data-app-security', 'Legal & Ethical': 'legal-compliance' };
-        (typeof rawData !== 'undefined' ? rawData : (typeof raw !== 'undefined' ? raw : [])).forEach(c => {
+        rawData.forEach(c => {
             if (Array.isArray(c.domains)) {
                 c.domains.forEach(d => {
                     if (mappingKeys[d]) rawDomainCounts[mappingKeys[d]]++;
@@ -4022,6 +4050,7 @@ async function fetchData() {
         }
     } catch (e) {
         console.error('Data fetch error:', e);
+        showToast('Course catalog failed to load', 'error');
     } finally {
         document.body.dataset.loading = 'false';
         hideLoadingCurtain();
@@ -4257,31 +4286,26 @@ function renderDomainCards(gridId, sectionId) {
 
     grid.innerHTML = CYBER_DOMAINS_DATA.map((d, i) => {
         const slug = DOMAIN_SLUG_MAP[d.filterDomain] || 'other';
-        const pills = (d.courseTypes || []).map(t =>
-            `<button class="domain-type-pill" onclick="event.stopPropagation(); jumpToCourses({courseType:'${escJs(t)}', domain:'${escJs(d.filterDomain)}'})" title="Show ${escHtml(t)} courses in ${escHtml(d.title)}">${escHtml(t)}</button>`
+        const pills = (d.subDomains || []).map(t =>
+            `<span class="domain-card__pill">${escHtml(t)}</span>`
         ).join('');
-        const skills = (d.skills || []).slice(0, 5).map(s =>
-            `<span class="domain-skill">${escHtml(s)}</span>`
-        ).join('');
-        const roles = (d.roles || []).slice(0, 3).join(' • ');
+        const skillsText = (d.skills || []).join(', ');
+        const rolesText = (d.roles || []).join(', ');
+        const btnText = d.btnText || `Explore ${d.title}`;
         return `
-        <article class="domain-card" data-domain="${escHtml(slug)}" style="--domain-color:${escHtml(d.color)}; animation: fadeStagger 0.5s ease ${i * 0.08}s both;" onclick="jumpToCourses({domain:'${escJs(d.filterDomain)}'})" tabindex="0" role="button" aria-label="Explore ${escHtml(d.title)} courses">
-            <div class="domain-card-hdr">
-                <div class="domain-icon" style="color:${escHtml(d.color)}; border-color:${escHtml(d.color)}40; background:${escHtml(d.color)}14;">${d.icon}</div>
-                <div class="domain-card-title-wrap">
-                    <div class="domain-card-title">${escHtml(d.title)}</div>
-                    <div class="domain-card-roles">${escHtml(roles)}</div>
+        <article class="domain-card" data-domain="${escHtml(slug)}" style="--card-bg-color:${escHtml(d.color)}; --card-theme-text:${escHtml(d.color)}; animation: fadeStagger 0.5s ease ${i * 0.08}s both;" data-chip="${escHtml(slug)}">
+            <div class="domain-card__top">
+                <div class="domain-card__icon-wrap">${d.icon}</div>
+                <h3 class="domain-card__title">${escHtml(d.title)} ${d.subtitle ? `<br><span style="font-size:0.85em; font-weight:600; opacity:0.95;">${escHtml(d.subtitle)}</span>` : ''}</h3>
+                ${d.subTag ? `<div class="domain-card__subtitle">${escHtml(d.subTag)}</div>` : ''}
+                <p class="domain-card__desc">${escHtml(d.summary)}</p>
+                <div class="domain-card__pills">${pills}</div>
+                <div class="domain-card__meta">
+                    <div class="domain-card__meta-line"><span class="domain-card__meta-label">Skills:</span> ${escHtml(skillsText)}</div>
+                    <div class="domain-card__meta-line"><span class="domain-card__meta-label">Role${rolesText.includes(',') ? 's' : ''}:</span> ${escHtml(rolesText)}</div>
                 </div>
             </div>
-            <div class="domain-summary">${escHtml(d.summary)}</div>
-            ${skills ? `<div class="domain-section">
-                <div class="domain-section-label">Top Skills</div>
-                <div class="domain-skills">${skills}</div>
-            </div>` : ''}
-            <div class="domain-actions">
-                <button class="domain-primary-btn" onclick="event.stopPropagation(); jumpToCourses({domain:'${escJs(d.filterDomain)}'})">Explore ${escHtml(d.title)} Courses</button>
-                <div class="domain-types">${pills}</div>
-            </div>
+            <a href="#all-courses-section" class="domain-card__btn domain-card__cta" data-chip="${escHtml(slug)}">${escHtml(btnText)}</a>
         </article>`;
     }).join('');
 

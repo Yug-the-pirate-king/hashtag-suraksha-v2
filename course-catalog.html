@@ -1,21 +1,21 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CourseKosh � Hashtag Suraksha</title>
+  <title>Free Cybersecurity Courses — CourseKosh | Hashtag Suraksha</title>
   <meta name="description"
-    content="Browse 3,700+ verified cybersecurity courses across 45 countries. Filter by country, domain, level, and pricing. Part of the Hashtag Suraksha ecosystem." />
-  <link rel="canonical" href="https://hashtagsuraksha.com/course-catalog.html" />
+    content="1,800+ free and verified cybersecurity courses for students, teachers, and schools. Filter by country, level, and domain. Backed by CERT-In." />
+  <link rel="canonical" href="course-catalog.html" />
 
   <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="CourseKosh � Hashtag Suraksha" />
+  <meta property="og:title" content="Free Cybersecurity Courses — CourseKosh" />
   <meta property="og:description"
-    content="Browse 3,700+ verified cybersecurity courses across 45 countries. Filter by country, domain, level, and pricing." />
+    content="1,800+ free and verified cybersecurity courses. Start learning cyber safety today." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://hashtagsuraksha.com/course-catalog.html" />
-  <meta property="og:image" content="https://hashtagsuraksha.com/assets/logo-suraksha.png" />
+  <meta property="og:url" content="course-catalog.html" />
+  <meta property="og:image" content="assets/logo-suraksha.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#0F172A" />
 
@@ -25,9 +25,9 @@
     href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Yatra+One&display=swap"
     rel="stylesheet" />
   <!-- hashtag-v2 site styles -->
-  <link rel="stylesheet" href="course-catalog.css?v=9" />
-  <link rel="stylesheet" href="assets/list-view-override.css?v=9" />
-  <link rel="stylesheet" href="assets/mobile-patch.css?v=9" />
+  <link rel="stylesheet" href="course-catalog.css?v=16" />
+  <link rel="stylesheet" href="assets/list-view-override.css?v=11" />
+  <link rel="stylesheet" href="assets/mobile-patch.css?v=11" />
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
@@ -45,8 +45,8 @@
     "@context": "https://schema.org",
     "@type": "ItemList",
     "name": "CourseKosh by Hashtag Suraksha",
-    "description": "A verified catalog of 3,700+ cybersecurity courses across 45 countries.",
-    "url": "https://hashtagsuraksha.com/course-catalog.html",
+    "description": "A verified catalog of 1,800+ free and paid cybersecurity courses across 45 countries.",
+    "url": "course-catalog.html",
     "itemListElement": []
   }
   </script>
@@ -72,7 +72,7 @@
         margin-left: auto !important; /* push the whole group to the right */
       }
 
-      /* When compact (scrolled), hide the mobile controls — search bar takes over */
+      /* When compact (scrolled), hide the mobile controls â€” search bar takes over */
       body #navbar.compact .nav-mobile-controls {
         display: none !important;
       }
@@ -108,30 +108,38 @@
       }
 
       body #edx-cards-row.list-view .clean-course-card.card {
-        background-color: #ffffff !important;
+        background-color: var(--card-bg, #ffffff) !important;
         border-radius: 16px !important;
-        padding: 12px !important;
+        padding: 14px !important;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
-        border: 1px solid #e5e7eb !important;
-        margin-bottom: 16px !important;
+        border: 1px solid var(--border, #e5e7eb) !important;
+        margin-bottom: 12px !important;
         box-sizing: border-box !important;
         width: 100% !important;
         height: auto !important;
-        min-height: 160px !important;
+        min-height: auto !important;
         overflow: visible !important;
         position: relative !important;
       }
 
       body #edx-cards-row.list-view .clean-course-card.card .list-view-content {
         display: grid !important;
-        /* 4 columns: Logo | Title | Labels | Metrics */
-        grid-template-columns: 40px minmax(0, 1.8fr) minmax(0, 1.2fr) minmax(0, 0.8fr) !important;
-        grid-template-rows: auto auto auto !important;
-        gap: 6px 8px !important;
+        /* 3 columns: Logo | Course | Badges/Metrics */
+        grid-template-columns: 52px minmax(0, 1fr) minmax(80px, auto) !important;
+        grid-template-rows: auto auto auto auto !important;
+        gap: 8px 12px !important;
         padding: 0 !important;
         align-items: start !important;
         width: 100% !important;
         box-sizing: border-box !important;
+      }
+
+      /* Dark theme mobile list text fix */
+      html[data-theme="dark"] body #edx-cards-row.list-view .clean-course-card.card .list-col-course a.course-title {
+        color: var(--text-1, #fafafa) !important;
+      }
+      html[data-theme="dark"] body #edx-cards-row.list-view .clean-course-card.card .list-col-course .course-meta-text {
+        color: var(--text-3, #a1a1aa) !important;
       }
 
       body #edx-cards-row.list-view .clean-course-card.card .list-col {
@@ -147,30 +155,38 @@
       /* COL 1: Logo */
       body #edx-cards-row.list-view .clean-course-card.card .list-col-logo {
         grid-column: 1;
-        grid-row: 1 / 3;
-        width: 44px !important;
-        height: 44px !important;
+        grid-row: 1;
+        width: 52px !important;
+        height: 52px !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
+        padding: 0 !important;
       }
 
       body #edx-cards-row.list-view .clean-course-card.card .list-col-logo .logo-wrap {
-        width: 44px !important;
-        height: 44px !important;
-        border-radius: 8px !important;
-        border: 1px solid #e5e7eb !important;
-        padding: 0 !important;
-        background: transparent !important;
+        width: 48px !important;
+        height: 48px !important;
+        border-radius: 10px !important;
+        border: 1px solid var(--border, #e5e7eb) !important;
+        padding: 4px !important;
+        background: var(--bg-surface, #ffffff) !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
+        overflow: hidden !important;
       }
 
-      /* COL 2: Title and University */
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-logo .logo-wrap img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: contain !important;
+      }
+
+      /* COL 2: Course title + university */
       body #edx-cards-row.list-view .clean-course-card.card .list-col-course {
         grid-column: 2;
-        grid-row: 1 / 3;
+        grid-row: 1;
         display: flex !important;
         flex-direction: column !important;
         justify-content: flex-start !important;
@@ -179,106 +195,100 @@
       }
 
       body #edx-cards-row.list-view .clean-course-card.card .list-col-course a.course-title {
-        font-size: 14px !important;
+        font-size: 15px !important;
         font-weight: 700 !important;
-        line-height: 1.3 !important;
-        color: #111827 !important;
+        line-height: 1.35 !important;
+        color: var(--text-1, #111827) !important;
         margin-bottom: 4px !important;
         display: -webkit-box !important;
-        -webkit-line-clamp: 4 !important;
+        -webkit-line-clamp: 2 !important;
         -webkit-box-orient: vertical !important;
         overflow: hidden !important;
         white-space: normal !important;
         word-break: break-word !important;
-        overflow-wrap: anywhere !important;
       }
 
-      body #edx-cards-row.list-view .clean-course-card.card .list-col-course .course-meta-text,
-      body #edx-cards-row.list-view .clean-course-card.card .list-col-course div {
-        font-size: 11px !important;
-        color: #6b7280 !important;
-        white-space: normal !important;
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-course .course-meta-text {
+        font-size: 12px !important;
+        color: var(--text-3, #6b7280) !important;
+        white-space: nowrap !important;
         overflow: hidden !important;
+        text-overflow: ellipsis !important;
         display: block !important;
-        word-break: break-word !important;
       }
 
       body #edx-cards-row.list-view .clean-course-card.card .list-col-course .skills-desc {
         display: none !important;
       }
 
-      /* COL 3: Labels */
+      /* COL 3: Badges, duration, cost stacked right */
       body #edx-cards-row.list-view .clean-course-card.card .list-col-skills {
         grid-column: 3;
-        grid-row: 1 / 3;
+        grid-row: 1;
         display: flex !important;
         flex-direction: column !important;
         gap: 4px !important;
-        align-items: flex-start !important;
+        align-items: flex-end !important;
         justify-content: flex-start !important;
+      }
+
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-skills .badge-row {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-end !important;
+        gap: 4px !important;
       }
 
       body #edx-cards-row.list-view .clean-course-card.card .list-col-skills .badge,
       body #edx-cards-row.list-view .clean-course-card.card .list-col-skills span {
         font-size: 10px !important;
         font-weight: 500 !important;
-        color: #111827 !important;
-        margin-bottom: 4px !important;
+        padding: 3px 7px !important;
+        border-radius: 4px !important;
         display: inline-block !important;
         white-space: nowrap !important;
+        color: var(--text-1, #111827) !important;
       }
 
-      body #edx-cards-row.list-view .clean-course-card.card .list-col-skills .badge:nth-child(1) {
-        background: #eef2ff !important; color: #4f46e5 !important;
-      }
-      body #edx-cards-row.list-view .clean-course-card.card .list-col-skills .badge:nth-child(2) {
-        background: #f0fdf4 !important; color: #16a34a !important;
-      }
-      body #edx-cards-row.list-view .clean-course-card.card .list-col-skills .badge:nth-child(3) {
-        background: #fff7ed !important; color: #ea580c !important;
-      }
-
-      /* COL 4: Metrics (Duration Top, Cost Bottom) */
       body #edx-cards-row.list-view .clean-course-card.card .list-col-duration {
-        grid-column: 4;
-        grid-row: 1;
+        grid-column: 3;
+        grid-row: 2;
         display: flex !important;
         align-items: center !important;
-        justify-content: flex-start !important;
+        justify-content: flex-end !important;
         gap: 4px !important;
         font-size: 11px !important;
-        color: #6b7280 !important;
-        margin-top: 2px !important;
+        color: var(--text-3, #6b7280) !important;
         white-space: nowrap !important;
       }
 
       body #edx-cards-row.list-view .clean-course-card.card .list-col-cost {
-        grid-column: 4;
-        grid-row: 2;
+        grid-column: 3;
+        grid-row: 3;
         display: flex !important;
         align-items: center !important;
-        justify-content: flex-start !important;
+        justify-content: flex-end !important;
         font-size: 14px !important;
         font-weight: 700 !important;
-        color: #16a34a !important;
-        margin-top: 2px !important;
+        color: var(--accent-green, #16a34a) !important;
         white-space: nowrap !important;
       }
 
-      /* ROW 3: Actions */
+      /* ROW 4: Actions */
       body #edx-cards-row.list-view .clean-course-card.card .list-col-actions {
-        display: contents !important;
+        grid-column: 1 / -1 !important;
+        grid-row: 4 !important;
+        display: flex !important;
+        gap: 10px !important;
+        align-items: center !important;
+        margin-top: 10px !important;
       }
 
       body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .lv-btn-visit,
       body #edx-cards-row.list-view .clean-course-card.card .list-col-actions a.lv-btn-visit {
-        grid-column: 1 / 4 !important;
-        grid-row: 3 !important;
-        align-self: center !important;
-        margin-top: 12px !important;
-        width: 100% !important;
-        background-color: #000000 !important;
-        color: #ffffff !important;
+        flex: 1 1 auto !important;
+        background-color: var(--text-1, #000000) !important;
+        color: var(--bg-surface, #ffffff) !important;
         border-radius: 12px !important;
         padding: 12px !important;
         font-size: 14px !important;
@@ -296,14 +306,11 @@
 
       body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .row-action,
       body #edx-cards-row.list-view .clean-course-card.card .list-col-actions button.row-action {
-        grid-column: 4 / 5 !important;
-        grid-row: 3 !important;
-        align-self: center !important;
-        margin-top: 12px !important;
-        width: 100% !important;
+        width: 44px !important;
         height: 44px !important;
-        background: #ffffff !important;
-        border: 1px solid #e5e7eb !important;
+        flex-shrink: 0 !important;
+        background: var(--bg-surface, #ffffff) !important;
+        border: 1px solid var(--border, #e5e7eb) !important;
         border-radius: 12px !important;
         display: flex !important;
         align-items: center !important;
@@ -316,8 +323,8 @@
       body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .row-action svg,
       body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .row-action i {
         fill: none !important;
-        stroke: #6b7280 !important;
-        color: #6b7280 !important;
+        stroke: var(--text-3, #6b7280) !important;
+        color: var(--text-3, #6b7280) !important;
         width: 20px !important;
         height: 20px !important;
         font-size: 18px !important;
@@ -328,6 +335,18 @@
         fill: #ef4444 !important;
         stroke: #ef4444 !important;
         color: #ef4444 !important;
+      }
+
+      /* Dark theme action tweaks */
+      html[data-theme="dark"] body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .row-action,
+      html[data-theme="dark"] body #edx-cards-row.list-view .clean-course-card.card .list-col-actions button.row-action {
+        background: var(--bg-surface, #191c1e) !important;
+        border-color: var(--border, #2d3748) !important;
+      }
+      html[data-theme="dark"] body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .row-action svg,
+      html[data-theme="dark"] body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .row-action i {
+        stroke: var(--text-2, #a1a1aa) !important;
+        color: var(--text-2, #a1a1aa) !important;
       }
 
       /* HIDE THE EXTRA SAVE BUTTON IN LIST VIEW BANNER */
@@ -409,7 +428,7 @@
     }
 
     @media (max-width: 1024px) {
-      /* Hide the bottom save/heart button in grid view — top-right corner heart takes over */
+      /* Hide the bottom save/heart button in grid view â€” top-right corner heart takes over */
       body #edx-cards-row:not(.list-view) .clean-course-card.card .card-footer-actions .btn-save,
       body #edx-cards-row:not(.list-view) .clean-course-card.card .card-footer-actions button.btn-save {
         display: none !important;
@@ -433,8 +452,8 @@
    ===================================================== */
     @media (min-width: 1025px) {
       body #edx-cards-row.list-view .clean-course-card.card .list-view-content {
-        grid-template-columns: 48px minmax(120px, 2fr) minmax(100px, 1fr) 70px 70px 140px !important;
-        gap: 12px !important;
+        grid-template-columns: 56px minmax(260px, 2.8fr) minmax(160px, 1.4fr) 90px 90px 150px !important;
+        gap: 16px !important;
         width: 100% !important;
         box-sizing: border-box !important;
       }
@@ -444,9 +463,24 @@
       }
 
       body #edx-cards-row.list-view .clean-course-card.card .list-col-course a.course-title {
+        font-size: 15px !important;
+        line-height: 1.35 !important;
+        -webkit-line-clamp: 1 !important;
+        display: -webkit-box !important;
+        -webkit-box-orient: vertical !important;
+        overflow: hidden !important;
         word-break: break-word !important;
         overflow-wrap: anywhere !important;
         white-space: normal !important;
+      }
+
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-course .course-meta-text {
+        font-size: 12px !important;
+        color: #6b7280 !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        display: block !important;
       }
     }
 
@@ -483,8 +517,155 @@
         z-index: 9999990 !important;
       }
     }
-  </style>
-</head>
+    /* Faster rotating hero background ring */
+    .hero-focus-ring {
+      animation: hero-focus-rotate 6s linear infinite !important;
+    }
+  
+    /* === CATALOG REDESIGN v2 — inline overrides === */
+
+    /* Nav dropdown */
+    .nav-links .nav-dropdown { position: relative; }
+    .nav-links .nav-drop-toggle {
+      display: flex; align-items: center; gap: 4px;
+      font-size: 14px; font-weight: 600; color: #475569;
+      padding: 8px 14px; border-radius: 8px; text-decoration: none;
+    }
+    .nav-links .nav-drop-chevron { font-size: 10px; transition: transform .2s; }
+    .nav-links .nav-dropdown:hover .nav-drop-chevron,
+    .nav-links .nav-dropdown.open .nav-drop-chevron { transform: rotate(180deg); }
+    .nav-links .nav-drop-menu {
+      position: absolute; top: calc(100% + 8px); left: 0;
+      min-width: 220px; background: #fff;
+      border: 1px solid rgba(0,0,0,0.08); border-radius: 12px;
+      padding: 8px; box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+      opacity: 0; visibility: hidden; transform: translateY(-8px);
+      transition: all .2s ease; list-style: none; z-index: 1001;
+    }
+    .nav-links .nav-dropdown:hover .nav-drop-menu,
+    .nav-links .nav-dropdown.open .nav-drop-menu {
+      opacity: 1; visibility: visible; transform: translateY(0);
+    }
+    .nav-links .nav-drop-menu a {
+      display: block; padding: 10px 14px; border-radius: 8px;
+      font-size: 13px; font-weight: 500; color: #475569; text-decoration: none;
+    }
+    .nav-links .nav-drop-menu a:hover { background: rgba(29,78,216,0.06); color: #1D4ED8; }
+    .nav-links .nav-drop-menu strong { display: block; color: #0f172a; font-weight: 700; }
+    .nav-links .nav-drop-menu small { display: block; color: #64748b; font-size: 11px; }
+
+    /* Free Courses CTA */
+    .nav-cta--free, .mobile-cta--free {
+      background: #FF9933 !important; color: #fff !important;
+      border-radius: 50px !important;
+      box-shadow: 0 4px 16px rgba(255,153,51,0.35) !important;
+      font-weight: 700 !important;
+    }
+    .nav-cta--free:hover, .mobile-cta--free:hover {
+      background: #e8832a !important;
+      box-shadow: 0 8px 24px rgba(255,153,51,0.45) !important;
+    }
+
+    /* Mobile nav drop */
+    .mobile-nav-drop { display: flex; flex-direction: column; }
+    .mobile-nav-drop-toggle {
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 15px; font-weight: 500; color: #475569;
+      padding: 12px; border-radius: 8px; background: none; border: none;
+      text-align: left; cursor: pointer;
+    }
+    .mobile-nav-drop-toggle:hover { color: #1D4ED8; background: rgba(29,78,216,0.06); }
+    .mobile-nav-drop-menu { display: none; flex-direction: column; padding-left: 12px; }
+    .mobile-nav-drop.open .mobile-nav-drop-menu { display: flex; }
+
+    /* Hero v2 */
+    .landing-hero--v2 {
+      min-height: 80vh;
+      padding: 8rem 1.5rem 5rem;
+      background:
+        radial-gradient(ellipse 80% 60% at 20% 40%, rgba(79,100,255,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 80% 30%, rgba(255,153,51,0.10) 0%, transparent 55%),
+        var(--landing-bg, #0B0F19) !important;
+    }
+    .landing-hero--v2 .hero-content {
+      position: relative; z-index: 2;
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; max-width: 860px; margin: 0 auto;
+    }
+    .landing-hero--v2 .hero-trust-bar {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 50px; padding: 6px 14px 6px 8px;
+      margin-bottom: 1.5rem;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: rgba(255,255,255,0.75);
+    }
+    .landing-hero--v2 .hero-trust-bar img { height: 22px; width: auto; }
+    .landing-hero--v2 .hero-tag {
+      background: rgba(255,153,51,0.14) !important;
+      border-color: rgba(255,153,51,0.35) !important;
+      color: #FFCC80 !important;
+      margin-bottom: 1rem !important;
+    }
+    .landing-hero--v2 h1 {
+      font-size: clamp(2.5rem, 7vw, 4.5rem) !important;
+      line-height: 1.05 !important;
+      letter-spacing: -0.03em !important;
+      margin-bottom: 1.25rem !important;
+    }
+    .landing-hero--v2 .hero-accent {
+      background: linear-gradient(90deg, #FF9933 0%, #FFCC80 40%, #fff 60%, #138808 80%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .landing-hero--v2 .hero-lead {
+      font-size: clamp(1.05rem, 1.6vw, 1.3rem) !important;
+      color: var(--landing-text-muted, #93A0A4) !important;
+      max-width: 640px !important;
+      margin-bottom: 2rem !important;
+      line-height: 1.65 !important;
+    }
+    .landing-hero--v2 .cta-primary {
+      background: #FF9933 !important; color: #082419 !important;
+      border: none !important; border-radius: 999px !important;
+      box-shadow: 0 8px 28px rgba(255,153,51,0.38) !important;
+      font-weight: 700 !important;
+      display: inline-flex !important; align-items: center; gap: 8px !important;
+    }
+    .landing-hero--v2 .cta-primary:hover {
+      background: #e8832a !important; transform: translateY(-2px);
+      box-shadow: 0 14px 40px rgba(255,153,51,0.5) !important;
+    }
+    .landing-hero--v2 .cta-secondary {
+      background: rgba(255,255,255,0.06) !important;
+      color: rgba(255,255,255,0.9) !important;
+      border: 1.5px solid rgba(255,255,255,0.18) !important;
+      border-radius: 999px !important;
+    }
+    .landing-hero--v2 .cta-secondary:hover {
+      background: rgba(255,255,255,0.12) !important; border-color: rgba(255,255,255,0.3) !important;
+      color: #fff !important;
+    }
+    .landing-hero--v2 .hero-stats {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;
+      margin-top: 2.5rem;
+    }
+    .landing-hero--v2 .hero-stat {
+      display: flex; flex-direction: column; align-items: center; gap: 4px;
+    }
+    .landing-hero--v2 .hero-stat strong {
+      font-size: 1.6rem; font-weight: 800; color: #fff;
+    }
+    .landing-hero--v2 .hero-stat span {
+      font-size: 0.85rem; color: var(--landing-text-muted, #93A0A4);
+    }
+    @media (max-width: 640px) {
+      .landing-hero--v2 { padding: 7rem 1rem 4rem; min-height: auto; }
+      .landing-hero--v2 .hero-stats { gap: 1.25rem; }
+      .landing-hero--v2 .hero-cta-row { flex-direction: column; width: 100%; }
+      .landing-hero--v2 .hero-cta-row a { width: 100%; justify-content: center; }
+    }
+
+  </style></head>
 
 <body>
 
@@ -496,7 +677,7 @@
   <!-- CURSOR GLOW (hashtag-v2) -->
   <div id="cursorGlow" class="cursor-glow"></div>
 
-  <!-- NAV � identical to hashtag-v2 index.html -->
+  <!-- NAV ï¿½ identical to hashtag-v2 index.html -->
   <nav class="nav" id="navbar">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo nav-logo-full">
@@ -507,12 +688,17 @@
       </a>
       <ul class="nav-links" id="nav-tabs">
         <li><a href="index.html">Home</a></li>
-        <li><a href="platform.html">CASK</a></li>
-        <li><a href="surakshak.html">Surakshak</a></li>
-        <li><a href="olympiad.html">Olympiad</a></li>
-        <li><a href="phishnchip.html">The Phish &amp; Chip Show</a></li>
-        <li><a href="slanglish.html">Slanglish</a></li>
-        <li><a href="course-catalog.html" class="active" aria-current="page">CourseKosh</a></li>
+        <li class="nav-dropdown">
+          <a href="#" class="nav-drop-toggle" aria-haspopup="true" aria-expanded="false">Programs <span class="nav-drop-chevron">▾</span></a>
+          <ul class="nav-drop-menu" role="menu">
+            <li><a href="platform.html" role="menuitem"><strong>CASK</strong> <small>AI learning platform</small></a></li>
+            <li><a href="surakshak.html" role="menuitem"><strong>Surakshak</strong> <small>Student ambassador network</small></a></li>
+            <li><a href="olympiad.html" role="menuitem"><strong>Olympiad</strong> <small>National cyber competition</small></a></li>
+            <li><a href="phishnchip.html" role="menuitem"><strong>The Phish &amp; Chip Show</strong> <small>Cyber myth-busting podcast</small></a></li>
+            <li><a href="slanglish.html" role="menuitem"><strong>Slanglish</strong> <small>Cyber slang dictionary</small></a></li>
+          </ul>
+        </li>
+        <li><a href="course-catalog.html" class="active" aria-current="page">Course Catalog</a></li>
         <li><a href="resources.html">Resources</a></li>
         <li><a href="partner.html">Partner With Us</a></li>
       </ul>
@@ -530,7 +716,7 @@
             <input type="search" id="course-search" placeholder="Search courses, universities, countries"
               aria-label="Search courses" autocomplete="off">
             <button type="button" class="nav-search-clear" id="search-clear-btn" aria-label="Clear search"
-              title="Clear search"><span aria-hidden="true">�</span></button>
+              title="Clear search"><span aria-hidden="true">ï¿½</span></button>
           </div>
 
           <button type="button" class="nav-filter-btn" id="nav-filter-btn" aria-label="Open course filters"
@@ -624,7 +810,7 @@
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
           </svg>
         </button>
-        <a href="surakshak.html" class="nav-cta">Join the Movement</a>
+        <a href="#all-courses-section" class="nav-cta nav-cta--free">🎓 Free Courses</a>
       </div>
       <!-- Mobile-only controls: theme toggle + hamburger, stacked right-to-left -->
       <div class="nav-mobile-controls">
@@ -649,15 +835,20 @@
     </div>
     <div class="mobile-menu" id="mobile-nav-drawer" aria-hidden="true">
       <a href="index.html">Home</a>
-      <a href="platform.html">CASK</a>
-      <a href="surakshak.html">Surakshak</a>
-      <a href="olympiad.html">Olympiad</a>
-      <a href="phishnchip.html">The Phish &amp; Chip Show</a>
-      <a href="slanglish.html">Slanglish</a>
-      <a href="course-catalog.html" class="active">CourseKosh</a>
+      <div class="mobile-nav-drop">
+        <button class="mobile-nav-drop-toggle" aria-expanded="false">Programs <span>▾</span></button>
+        <div class="mobile-nav-drop-menu">
+          <a href="platform.html">CASK — AI Learning</a>
+          <a href="surakshak.html">Surakshak — Ambassadors</a>
+          <a href="olympiad.html">Olympiad</a>
+          <a href="phishnchip.html">The Phish &amp; Chip Show</a>
+          <a href="slanglish.html">Slanglish</a>
+        </div>
+      </div>
+      <a href="course-catalog.html" class="active">Course Catalog</a>
       <a href="resources.html">Resources</a>
       <a href="partner.html">Partner With Us</a>
-      <a href="surakshak.html" class="mobile-cta">Join the Movement</a>
+      <a href="#all-courses-section" class="mobile-cta mobile-cta--free">🎓 Free Courses</a>
       <button id="mobileThemeToggle" class="mobile-theme-toggle" aria-label="Toggle theme">
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <circle cx="12" cy="12" r="5" />
@@ -683,40 +874,55 @@
         -->
   <main class="catalog-page" id="main-content">
 
-    <!-- NEW LANDING HERO -->
-    <section class="landing-hero">
+    <!-- NEW LANDING HERO v2 -->
+    <section class="landing-hero landing-hero--v2">
       <div class="floating-elements">
+        <div class="hero-focus-ring"></div>
         <div class="glowing-orb"></div>
         <div class="globe-placeholder"></div>
       </div>
-      <span class="hero-tag">CourseKosh</span>
-      <h1>Your Cybersecurity Career Starts Here</h1>
-      <p>Not sure where to begin? Start your cybersecurity journey with curated programs from premier global universities and academic institutions.</p>
-      <div class="hero-cta-row">
-        <button type="button" class="cta-button" onclick="openOnboarding(true)">Find my fit ?</button>
-        <a href="#all-courses-section" class="cta-button cta-secondary">Browse 3,700+ courses</a>
+
+      <div class="hero-content">
+        <span class="hero-tag">🎓 1,800+ Free Courses</span>
+        <h1>Master Cyber Safety.<br /><span class="hero-accent">Start Free.</span></h1>
+        <p class="hero-lead">India's largest curated catalog of cybersecurity courses. Search, filter, and start learning in minutes — built for students, teachers, and schools.</p>
+
+        <div class="hero-cta-row">
+          <a href="#all-courses-section" class="cta-button cta-primary" data-filter-free="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+            Explore Free Courses
+          </a>
+          <a href="#all-courses-section" class="cta-button cta-secondary">Browse All Courses</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat"><strong>1,800+</strong><span>Verified courses</span></div>
+          <div class="hero-stat"><strong>45</strong><span>Countries</span></div>
+          <div class="hero-stat"><strong>Free</strong><span>To start learning</span></div>
+        </div>
       </div>
     </section>
 
     <!-- WHO THIS IS FOR -->
     <section class="persona-band" aria-label="Who this is for">
       <div class="persona-card">
-        <div class="persona-icon">??</div>
+        <div class="persona-icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+        </div>
         <h3>Student / Fresher</h3>
-<<<<<<< HEAD
         <p>Build your foundation, explore domains, and pick the right degree or certificate to launch your cybersecurity career.</p>
-=======
-        <p>Build your foundation, explore domains, and pick the right degree or certificate to launch your cybersecurity
-          journey.</p>
->>>>>>> 1b53d8e060a506c1f675f614a83d2a7c02a0be85
       </div>
       <div class="persona-card">
-        <div class="persona-icon">??</div>
+        <div class="persona-icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="m16 11 2 2 4-4"></path></svg>
+        </div>
         <h3>Career Switcher</h3>
         <p>Map your existing skills to a cybersecurity role and fast-track with targeted, job-ready courses.</p>
       </div>
       <div class="persona-card">
-        <div class="persona-icon">??</div>
+        <div class="persona-icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+        </div>
         <h3>Working Professional</h3>
         <p>Upskill in a specialization, earn a certification, and advance your current role with verified programs.</p>
       </div>
@@ -725,10 +931,9 @@
     <!-- NEW STATS GRID -->
     <section class="landing-stats-grid">
       <div class="landing-glass-card">
-        <div class="landing-stat-number" data-count="3700">3,700+</div>
+        <div class="landing-stat-number" data-count="1800">1,800+</div>
         <div class="landing-stat-label">Courses Matched to Real Job Skills</div>
-        <div class="landing-stat-desc">Every program is verified and mapped to the skills employers actually ask for �
-          not just random listings.</div>
+        <div class="landing-stat-desc">Every program is verified and mapped to the skills employers actually ask for <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-2px; margin:0 2px;"><path d="M20 6 9 17l-5-5"/></svg> not just random listings.</div>
       </div>
       <div class="landing-glass-card">
         <div class="landing-stat-number" data-count="45">45</div>
@@ -744,605 +949,6 @@
       </div>
     </section>
 
-<<<<<<< HEAD
-    <!-- DOMAIN EXPLORER — clean grid of specialization cards -->
-    <section class="domain-explorer-section" id="domain-explorer-placeholder" aria-label="Domain Explorer">
-      <div class="domain-explorer-intro">
-        <span class="eyebrow">🌐 Domain Explorer</span>
-        <h2>Which cybersecurity focus is right for you?</h2>
-        <p>Cybersecurity has many career doors. Explore six core domains below, expand each card to see the skills and job roles behind it, and jump straight into matching courses.</p>
-        <button type="button" class="cta-button" onclick="openOnboarding(true)">Find my fit →</button>
-=======
-    <!-- HOW IT WORKS — Storytelling journey -->
-    <section class="how-it-works-section">
-      <div class="how-it-works-header">
-        <span class="section-tag">Your pathway</span>
-        <h2>From curiosity to cybersecurity career in four steps</h2>
-        <p>This isnt just a course list. Its a guided journey to help you understand where you fit, what to learn, and
-          how to get hired or promoted in cybersecurity.</p>
-      </div>
-      <div class="journey-steps">
-        <div class="journey-step">
-          <div class="step-number">01</div>
-          <div class="step-icon">🌍</div>
-          <h3>Discover the landscape</h3>
-          <p>Explore 3,700+ verified courses across 45 countries and see the full range of where a cybersecurity career
-            can take you.</p>
-        </div>
-        <div class="journey-step">
-          <div class="step-number">02</div>
-          <div class="step-icon">🎯</div>
-          <h3>Pick your direction</h3>
-          <p>Use the domain explorer and career matcher to choose a specialization that fits your background and
-            ambition.</p>
-        </div>
-        <div class="journey-step">
-          <div class="step-number">03</div>
-          <div class="step-icon">🎓</div>
-          <h3>Get matched to courses</h3>
-          <p>Answer three quick questions and we’ll filter the catalog to show only the programs that move you toward
-            your goal.</p>
-        </div>
-        <div class="journey-step">
-          <div class="step-number">04</div>
-          <div class="step-icon">🚀</div>
-          <h3>Launch your career</h3>
-          <p>Compare favorites, save courses, and visit official university pages to enroll — with confidence in your
-            choice.</p>
-        </div>
-      </div>
-      <div class="journey-cta">
-        <button type="button" class="cta-button" onclick="openOnboarding(true)">Take the 30-sec career matcher
-          →</button>
-        <p class="journey-hint">Or scroll down to explore domains, the globe, and all courses right away.</p>
-      </div>
-    </section>
-
-    <!-- DOMAIN EXPLORER — two-column teaser with interactive domain folder -->
-    <section class="domain-explorer-section" id="domain-explorer-placeholder" aria-label="Domain Explorer">
-      <div class="domain-explorer-grid">
-        <div class="domain-explorer-text">
-          <span class="eyebrow">🌐 Domain Explorer</span>
-          <h2>Which cybersecurity path is right for you?</h2>
-          <p>Cybersecurity has many career doors. Open the folder to explore six core domains, see the skills and job
-            roles behind each one, and jump straight into matching courses.</p>
-          <button type="button" class="cta-button" onclick="openOnboarding(true)">Find my path →</button>
-        </div>
-
-        <div class="domain-explorer-visual" id="domain-explorer-visual">
-          <label class="folder-card" aria-label="Open cybersecurity domain folder">
-            <input type="checkbox" class="folder-toggle" />
-
-            <div class="hint-wrapper">
-              <span class="hint-text">Click to open</span>
-              <svg class="hint-arrow" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M 35 5 C 35 5, 15 5, 10 25 M 10 25 L 3 18 M 10 25 L 18 22" stroke="#60a5fa" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>
-            </div>
-
-            <div class="folder-container">
-              <svg class="folder-back" viewBox="0 0 50 40" fill="none">
-                <path
-                  d="M0 4C0 1.79086 1.79086 0 4 0H16.524C17.721 0 18.8415 0.54051 19.574 1.4673L22.426 5.0654C23.1585 5.99219 24.279 6.5327 25.476 6.5327H46C48.2091 6.5327 50 8.32356 50 10.5327V36C50 38.2091 48.2091 40 46 40H4C1.79086 40 0 38.2091 0 36V4Z"
-                  fill="#0056b3"></path>
-              </svg>
-
-              <div class="folder-search">
-                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-                <input type="text" placeholder="Search domains..." class="search-input" />
-              </div>
-
-              <!-- The 3 domain files (Preview) -->
-              <div class="file file-3" data-domain="System & Endpoint">
-                <div class="shine"></div>
-                <div class="file-icon-text">💻</div>
-                <div class="file-text">Endpoint</div>
-                <div class="file-tag">Explore Domain</div>
-              </div>
-
-              <div class="file file-2" data-domain="Network Infrastructure">
-                <div class="shine"></div>
-                <div class="file-icon-text">🌐</div>
-                <div class="file-text">Network</div>
-                <div class="file-tag">Explore Domain</div>
-              </div>
-
-              <div class="file file-1" data-domain="Foundational">
-                <div class="shine"></div>
-                <div class="file-icon-text">🧱</div>
-                <div class="file-text">Foundational</div>
-                <div class="file-tag">Explore Domain</div>
-              </div>
-
-              <div class="folder-front-wrapper">
-                <svg class="folder-front" viewBox="0 0 50 34" fill="none">
-                  <path
-                    d="M0 4C0 1.79086 1.79086 0 4 0H46C48.2091 0 50 1.79086 50 4V30C50 32.2091 48.2091 34 46 34H4C1.79086 34 0 32.2091 0 30V4Z"
-                    fill="rgba(0, 123, 255, 0.65)"></path>
-                </svg>
-                <div class="folder-label"></div>
-                <div class="counter">
-                  <div class="status-dot"></div>
-                  <span class="counter-label">DOMAINS</span>
-                  <span class="counter-number">06</span>
-                </div>
-              </div>
-            </div>
-          </label>
-        </div>
->>>>>>> 1b53d8e060a506c1f675f614a83d2a7c02a0be85
-      </div>
-
-      <div class="domain-cards-grid">
-        <article class="domain-card" style="--domain-color: #14b8a6;">
-          <div class="domain-card__header">
-            <img class="domain-card__logo" src="assets/Domain%20logos/Foundational.png" alt="Foundational" />
-            <div>
-              <h3>Foundational</h3>
-              <p>Core concepts every cybersecurity learner needs — from threat basics to risk frameworks and governance.</p>
-            </div>
-          </div>
-          <div class="domain-card__tags">
-            <span class="domain-card__tag">Cybersecurity Basics</span>
-            <span class="domain-card__tag">Risk Management</span>
-            <span class="domain-card__tag">Threat Landscape</span>
-            <span class="domain-card__tag">Security Frameworks</span>
-            <span class="domain-card__tag">Security Governance</span>
-          </div>
-          <details class="domain-accordion">
-            <summary>Skills</summary>
-            <div class="domain-accordion__panel">
-              <ul>
-                <li>Risk Assessment</li>
-                <li>Policy Writing</li>
-                <li>NIST / ISO 27001</li>
-                <li>Security Awareness</li>
-                <li>Asset Management</li>
-              </ul>
-            </div>
-          </details>
-          <details class="domain-accordion">
-            <summary>Roles</summary>
-            <div class="domain-accordion__panel">
-              <ul>
-                <li>Security Analyst</li>
-                <li>GRC Analyst</li>
-                <li>IT Auditor</li>
-                <li>Risk Manager</li>
-              </ul>
-            </div>
-          </details>
-          <details class="domain-accordion">
-            <summary>Course Types</summary>
-            <div class="domain-accordion__panel">
-              <ul>
-                <li>Certificate</li>
-                <li>Free to Audit</li>
-                <li>Bachelor's Degree</li>
-              </ul>
-            </div>
-          </details>
-          <a href="#all-courses-section" class="domain-card__cta" data-chip="foundational">Explore Foundational Courses →</a>
-        </article>
-
-        <article class="domain-card" style="--domain-color: #6366f1;">
-          <div class="domain-card__header">
-            <img class="domain-card__logo" src="assets/Domain%20logos/Network%20%26%20Infrastructure.jpg.jpeg" alt="Network Infrastructure" />
-            <div>
-              <h3>Network Infrastructure</h3>
-              <p>Protect the arteries of digital infrastructure — firewalls, IDS/IPS, cloud networks, and zero-trust architecture.</p>
-            </div>
-          </div>
-          <div class="domain-card__tags">
-            <span class="domain-card__tag">Network Security</span>
-            <span class="domain-card__tag">Firewalls &amp; VPN</span>
-            <span class="domain-card__tag">IDS/IPS</span>
-            <span class="domain-card__tag">Cloud Security</span>
-            <span class="domain-card__tag">Zero Trust</span>
-          </div>
-          <details class="domain-accordion">
-            <summary>Skills</summary>
-            <div class="domain-accordion__panel">
-              <ul>
-                <li>Packet Analysis</li>
-                <li>Firewall Rules</li>
-                <li>SDN Security</li>
-                <li>VPC Design</li>
-                <li>Network Segmentation</li>
-              </ul>
-            </div>
-          </details>
-          <details class="domain-accordion">
-            <summary>Roles</summary>
-            <div class="domain-accordion__panel">
-              <ul>
-                <li>Network Security Engineer</li>
-                <li>Cloud Security Architect</li>
-                <li>SOC Analyst</li>
-                <li>Infrastructure Engineer</li>
-              </ul>
-            </div>
-          </details>
-          <details class="domain-accordion">
-            <summary>Course Types</summary>
-            <div class="domain-accordion__panel">
-              <ul>
-                <li>Certificate</li>
-                <li>Diploma</li>
-                <li>Master's Degree</li>
-              </ul>
-            </div>
-          </details>
-          <a href="#all-courses-section" class="domain-card__cta" data-chip="network-infra">Explore Network Courses →</a>
-        </article>
-
-<<<<<<< HEAD
-        <article class="domain-card" style="--domain-color: #06b6d4;">
-          <div class="domain-card__header">
-            <img class="domain-card__logo" src="assets/Domain%20logos/System%20and%20Endpoint.png" alt="System &amp; Endpoint" />
-            <div>
-              <h3>System &amp; Endpoint</h3>
-              <p>Harden endpoints, operating systems, and mobile devices against malware, misconfiguration, and lateral movement.</p>
-            </div>
-=======
-        <div class="domain-detail-template" data-domain="Network Infrastructure" data-color="#6366f1"
-          style="background: #6366f1; color: white;">
-          <h3
-            style="font-family: var(--font-display); font-size: 28px; margin-bottom: 12px; display: flex; align-items: center; gap: 12px; color: white;">
-            <img class="domain-logo" src="assets/Domain%20logos/Network%20%26%20Infrastructure.jpg.jpeg"
-              alt="Network Infrastructure" /> Network Infrastructure
-          </h3>
-          <p style="font-size: 16px; color: rgba(255, 255, 255, 0.9); margin-bottom: 24px; max-width: 800px;">Protect
-            the arteries of digital infrastructure — firewalls, IDS/IPS, cloud networks, and zero-trust architecture.
-          </p>
-          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;">
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Network
-              Security</span>
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Firewalls
-              & VPN</span>
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">IDS/IPS</span>
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Cloud
-              Security</span>
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Zero
-              Trust</span>
->>>>>>> 1b53d8e060a506c1f675f614a83d2a7c02a0be85
-          </div>
-          <div class="domain-card__tags">
-            <span class="domain-card__tag">Endpoint Security</span>
-            <span class="domain-card__tag">OS Hardening</span>
-            <span class="domain-card__tag">Mobile Security</span>
-            <span class="domain-card__tag">Patch Management</span>
-            <span class="domain-card__tag">Malware Defense</span>
-          </div>
-          <details class="domain-accordion">
-            <summary>Skills</summary>
-            <div class="domain-accordion__panel">
-              <ul>
-                <li>EDR / XDR</li>
-                <li>OS Internals</li>
-                <li>Threat Hunting</li>
-                <li>Vulnerability Management</li>
-                <li>Incident Triage</li>
-              </ul>
-            </div>
-          </details>
-          <details class="domain-accordion">
-            <summary>Roles</summary>
-            <div class="domain-accordion__panel">
-              <ul>
-                <li>Endpoint Security Engineer</li>
-                <li>SOC Analyst</li>
-                <li>Threat Hunter</li>
-                <li>System Administrator</li>
-              </ul>
-            </div>
-          </details>
-          <details class="domain-accordion">
-            <summary>Course Types</summary>
-            <div class="domain-accordion__panel">
-              <ul>
-                <li>Certificate</li>
-                <li>Diploma</li>
-                <li>Post Graduate Diploma</li>
-              </ul>
-            </div>
-          </details>
-          <a href="#all-courses-section" class="domain-card__cta" data-chip="system-endpoint">Explore Endpoint Courses →</a>
-        </article>
-
-<<<<<<< HEAD
-        <article class="domain-card" style="--domain-color: #8b5cf6;">
-          <div class="domain-card__header">
-            <img class="domain-card__logo" src="assets/Domain%20logos/Cyber%20Forensics%20%26%20Investigation.jpg.jpeg" alt="Cyber Forensics" />
-            <div>
-              <h3>Cyber Forensics</h3>
-              <p>Investigate breaches, recover digital evidence, and reconstruct attacks using forensic tools and incident-response playbooks.</p>
-            </div>
-=======
-        <div class="domain-detail-template" data-domain="System & Endpoint" data-color="#06b6d4"
-          style="background: #06b6d4; color: white;">
-          <h3
-            style="font-family: var(--font-display); font-size: 28px; margin-bottom: 12px; display: flex; align-items: center; gap: 12px; color: white;">
-            <img class="domain-logo" src="assets/Domain%20logos/System%20and%20Endpoint.png" alt="System & Endpoint" />
-            System & Endpoint
-          </h3>
-          <p style="font-size: 16px; color: rgba(255, 255, 255, 0.9); margin-bottom: 24px; max-width: 800px;">Harden
-            endpoints, operating systems, and mobile devices against malware, misconfiguration, and lateral movement.
-          </p>
-          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;">
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Endpoint
-              Security</span>
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">OS
-              Hardening</span>
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Mobile
-              Security</span>
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Patch
-              Management</span>
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Malware
-              Defense</span>
->>>>>>> 1b53d8e060a506c1f675f614a83d2a7c02a0be85
-          </div>
-          <div class="domain-card__tags">
-            <span class="domain-card__tag">Digital Forensics</span>
-            <span class="domain-card__tag">Incident Response</span>
-            <span class="domain-card__tag">Reverse Engineering</span>
-            <span class="domain-card__tag">eDiscovery</span>
-            <span class="domain-card__tag">Threat Intelligence</span>
-          </div>
-          <details class="domain-accordion">
-            <summary>Skills</summary>
-            <div class="domain-accordion__panel">
-              <ul>
-                <li>Disk Imaging</li>
-                <li>Memory Forensics</li>
-                <li>Kill Chain Analysis</li>
-                <li>Chain of Custody</li>
-                <li>IOC Triage</li>
-              </ul>
-            </div>
-          </details>
-          <details class="domain-accordion">
-            <summary>Roles</summary>
-            <div class="domain-accordion__panel">
-              <ul>
-                <li>Digital Forensics Specialist</li>
-                <li>Incident Responder</li>
-                <li>Malware Analyst</li>
-                <li>Threat Intel Analyst</li>
-              </ul>
-            </div>
-          </details>
-          <details class="domain-accordion">
-            <summary>Course Types</summary>
-            <div class="domain-accordion__panel">
-              <ul>
-                <li>Certificate</li>
-                <li>Post Graduate Certificate</li>
-                <li>Master's Degree</li>
-              </ul>
-            </div>
-          </details>
-          <a href="#all-courses-section" class="domain-card__cta" data-chip="forensics-ir">Explore Forensics Courses →</a>
-        </article>
-
-<<<<<<< HEAD
-        <article class="domain-card" style="--domain-color: #f43f5e;">
-          <div class="domain-card__header">
-            <img class="domain-card__logo" src="assets/Domain%20logos/Appilcation%20%26%20Data.png" alt="Data &amp; Application" />
-            <div>
-              <h3>Data &amp; Application</h3>
-              <p>Secure code, databases, cryptography, and data privacy to protect the applications and information that power organizations.</p>
-            </div>
-=======
-        <div class="domain-detail-template" data-domain="Cyber Forensics" data-color="#8b5cf6"
-          style="background: #8b5cf6; color: white;">
-          <h3
-            style="font-family: var(--font-display); font-size: 28px; margin-bottom: 12px; display: flex; align-items: center; gap: 12px; color: white;">
-            <img class="domain-logo" src="assets/Domain%20logos/Cyber%20Forensics%20%26%20Investigation.jpg.jpeg"
-              alt="Cyber Forensics" /> Cyber Forensics
-          </h3>
-          <p style="font-size: 16px; color: rgba(255, 255, 255, 0.9); margin-bottom: 24px; max-width: 800px;">
-            Investigate breaches, recover digital evidence, and reconstruct attacks using forensic tools and
-            incident-response playbooks.</p>
-          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;">
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Digital
-              Forensics</span>
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Incident
-              Response</span>
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Reverse
-              Engineering</span>
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">eDiscovery</span>
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Threat
-              Intelligence</span>
->>>>>>> 1b53d8e060a506c1f675f614a83d2a7c02a0be85
-          </div>
-          <div class="domain-card__tags">
-            <span class="domain-card__tag">Application Security</span>
-            <span class="domain-card__tag">Data Privacy</span>
-            <span class="domain-card__tag">Cryptography</span>
-            <span class="domain-card__tag">Database Security</span>
-            <span class="domain-card__tag">DevSecOps</span>
-          </div>
-          <details class="domain-accordion">
-            <summary>Skills</summary>
-            <div class="domain-accordion__panel">
-              <ul>
-                <li>Secure Coding</li>
-                <li>OWASP Top 10</li>
-                <li>Encryption</li>
-                <li>Privacy by Design</li>
-                <li>CI/CD Security</li>
-              </ul>
-            </div>
-          </details>
-          <details class="domain-accordion">
-            <summary>Roles</summary>
-            <div class="domain-accordion__panel">
-              <ul>
-                <li>Application Security Engineer</li>
-                <li>Data Privacy Officer</li>
-                <li>DevSecOps Engineer</li>
-                <li>Cryptographer</li>
-              </ul>
-            </div>
-          </details>
-          <details class="domain-accordion">
-            <summary>Course Types</summary>
-            <div class="domain-accordion__panel">
-              <ul>
-                <li>Certificate</li>
-                <li>Post Graduate Diploma</li>
-                <li>Master's Degree</li>
-              </ul>
-            </div>
-          </details>
-          <a href="#all-courses-section" class="domain-card__cta" data-chip="data-app-security">Explore Data &amp; App Courses →</a>
-        </article>
-
-<<<<<<< HEAD
-        <article class="domain-card" style="--domain-color: #f59e0b;">
-          <div class="domain-card__header">
-            <img class="domain-card__logo" src="assets/Domain%20logos/Legal,%20Ethical%20and%20Strategic.jpg.jpeg" alt="Legal &amp; Ethical" />
-            <div>
-              <h3>Legal &amp; Ethical</h3>
-              <p>Navigate cyber law, ethics, compliance, and reporting obligations across jurisdictions and industries.</p>
-            </div>
-=======
-        <div class="domain-detail-template" data-domain="Data & Application" data-color="#f43f5e"
-          style="background: #f43f5e; color: white;">
-          <h3
-            style="font-family: var(--font-display); font-size: 28px; margin-bottom: 12px; display: flex; align-items: center; gap: 12px; color: white;">
-            <img class="domain-logo" src="assets/Domain%20logos/Appilcation%20%26%20Data.png"
-              alt="Data & Application" /> Data & Application
-          </h3>
-          <p style="font-size: 16px; color: rgba(255, 255, 255, 0.9); margin-bottom: 24px; max-width: 800px;">Secure
-            code, databases, cryptography, and data privacy to protect the applications and information that power
-            organizations.</p>
-          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;">
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Application
-              Security</span>
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Data
-              Privacy</span>
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Cryptography</span>
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Database
-              Security</span>
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">DevSecOps</span>
->>>>>>> 1b53d8e060a506c1f675f614a83d2a7c02a0be85
-          </div>
-          <div class="domain-card__tags">
-            <span class="domain-card__tag">Cyber Law</span>
-            <span class="domain-card__tag">Ethics &amp; Professionalism</span>
-            <span class="domain-card__tag">Regulatory Compliance</span>
-            <span class="domain-card__tag">Incident Reporting</span>
-            <span class="domain-card__tag">Digital Rights</span>
-          </div>
-<<<<<<< HEAD
-          <details class="domain-accordion">
-            <summary>Skills</summary>
-            <div class="domain-accordion__panel">
-              <ul>
-                <li>Legal Research</li>
-                <li>Compliance Mapping</li>
-                <li>Incident Disclosure</li>
-                <li>Ethical Hacking Ethics</li>
-                <li>GDPR / CCPA</li>
-              </ul>
-            </div>
-          </details>
-          <details class="domain-accordion">
-            <summary>Roles</summary>
-            <div class="domain-accordion__panel">
-              <ul>
-                <li>Cybersecurity Lawyer</li>
-                <li>Compliance Manager</li>
-                <li>Ethics Officer</li>
-                <li>Policy Advisor</li>
-              </ul>
-            </div>
-          </details>
-          <details class="domain-accordion">
-            <summary>Course Types</summary>
-            <div class="domain-accordion__panel">
-              <ul>
-                <li>Certificate</li>
-                <li>Diploma</li>
-                <li>Free to Audit</li>
-              </ul>
-            </div>
-          </details>
-          <a href="#all-courses-section" class="domain-card__cta" data-chip="legal-compliance">Explore Legal &amp; Ethical Courses →</a>
-        </article>
-=======
-          <a href="#all-courses-section" class="btn domain-explore-btn" data-domain="Data & Application"
-            style="background: white; color: #f43f5e; padding: 12px 24px; border-radius: 999px; text-decoration: none; font-weight: 800; border: none; font-size: 14px; align-self: flex-start; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">Explore
-            Data & App courses →</a>
-        </div>
-
-        <div class="domain-detail-template" data-domain="Legal & Ethical" data-color="#f59e0b"
-          style="background: #f59e0b; color: white;">
-          <h3
-            style="font-family: var(--font-display); font-size: 28px; margin-bottom: 12px; display: flex; align-items: center; gap: 12px; color: white;">
-            <img class="domain-logo" src="assets/Domain%20logos/Legal,%20Ethical%20and%20Strategic.jpg.jpeg"
-              alt="Legal & Ethical" /> Legal & Ethical
-          </h3>
-          <p style="font-size: 16px; color: rgba(255, 255, 255, 0.9); margin-bottom: 24px; max-width: 800px;">Navigate
-            cyber law, ethics, compliance, and reporting obligations across jurisdictions and industries.</p>
-          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;">
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Cyber
-              Law</span>
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Ethics
-              & Professionalism</span>
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Regulatory
-              Compliance</span>
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Incident
-              Reporting</span>
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Digital
-              Rights</span>
-          </div>
-          <div style="font-size: 14px; color: rgba(255, 255, 255, 0.85); line-height: 1.8; margin-bottom: 32px;">
-            <div><strong style="color: white; font-weight: 700;">Skills:</strong> Legal Research, Compliance Mapping,
-              Incident Disclosure, Ethical Hacking Ethics, GDPR/CCPA</div>
-            <div><strong style="color: white; font-weight: 700;">Roles:</strong> Cybersecurity Lawyer, Compliance
-              Manager, Ethics Officer, Policy Advisor</div>
-            <div><strong style="color: white; font-weight: 700;">Course types:</strong> Certificate, Diploma, Free to
-              Audit</div>
-          </div>
-          <a href="#all-courses-section" class="btn domain-explore-btn" data-domain="Legal & Ethical"
-            style="background: white; color: #f59e0b; padding: 12px 24px; border-radius: 999px; text-decoration: none; font-weight: 800; border: none; font-size: 14px; align-self: flex-start; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">Explore
-            Legal & Ethical courses →</a>
-        </div>
->>>>>>> 1b53d8e060a506c1f675f614a83d2a7c02a0be85
-      </div>
-    </section>
     <section class="catalog-section alt">
       <div class="catalog-app">
 
@@ -1358,14 +964,8 @@
           <div class="dash-welcome-banner" id="dash-welcome-banner" role="status" aria-live="polite">
             <div class="dash-welcome-content">
               <div class="dash-welcome-text">
-<<<<<<< HEAD
-                <strong>?? Welcome to CourseKosh</strong>
-                Explore 3,700+ verified cybersecurity courses from 45 countries. Spin the globe to pick a country, click any metric card, or head to <strong>All Courses</strong> to search, sort, and save favorites.
-=======
-                <strong>👋 Welcome to CourseKosh</strong>
-                Explore 3,700+ verified cybersecurity courses from 45 countries. Spin the globe to pick a country, click
-                any metric card, or head to <strong>All Courses</strong> to search, sort, and save favorites.
->>>>>>> 1b53d8e060a506c1f675f614a83d2a7c02a0be85
+                <strong><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-3px; margin-right:4px;"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg> Welcome to CourseKosh</strong>
+                Explore 1,800+ verified cybersecurity courses from 45 countries. Spin the globe to pick a country, click any metric card, or head to <strong>All Courses</strong> to search, sort, and save favorites.
               </div>
               <div class="dash-welcome-actions">
                 <button class="dash-welcome-tour" id="dash-welcome-tour" aria-describedby="welcome-hint"> Start quick
@@ -1388,7 +988,7 @@
                 role="button" tabindex="0" title="Browse all courses" aria-pressed="true">
                 <div class="metric-card-title">CourseKosh Total</div>
                 <div class="metric-value" id="total-count">0</div>
-                <div class="dash-total-delta" id="total-delta">All countries � full collection</div>
+                <div class="dash-total-delta" id="total-delta">All countries ï¿½ full collection</div>
               </div>
 
               <div class="dash-helper-hint"> Click any card below to filter the catalog.</div>
@@ -1530,7 +1130,7 @@
                     <div class="country-detail-stat-label">QS Ranked</div>
                   </div>
                   <div class="country-detail-stat">
-                    <div class="country-detail-stat-val blue" id="cds-domain">�</div>
+                    <div class="country-detail-stat-val blue" id="cds-domain">ï¿½</div>
                     <div class="country-detail-stat-label">Top Domain</div>
                   </div>
                 </div>
@@ -1745,36 +1345,15 @@
                   <div class="filter-accordion">
                     <button type="button" class="accordion-trigger" aria-expanded="true">Duration</button>
                     <div class="accordion-panel">
-<<<<<<< HEAD
                       <div class="pill-group duration-pills" id="duration-pills" role="group" aria-label="Filter by duration">
                         <button type="button" class="type-pill active" data-duration="all" aria-pressed="true">All <span class="filter-count">0</span></button>
                         <button type="button" class="type-pill" data-duration="short" aria-pressed="false">Under 1 month <span class="filter-count">0</span></button>
-                        <button type="button" class="type-pill" data-duration="1-3" aria-pressed="false">1�3 months <span class="filter-count">0</span></button>
-                        <button type="button" class="type-pill" data-duration="3-6" aria-pressed="false">3�6 months <span class="filter-count">0</span></button>
-                        <button type="button" class="type-pill" data-duration="6-12" aria-pressed="false">6�12 months <span class="filter-count">0</span></button>
-                        <button type="button" class="type-pill" data-duration="1-2" aria-pressed="false">1�2 years <span class="filter-count">0</span></button>
-                        <button type="button" class="type-pill" data-duration="2-4" aria-pressed="false">2�4 years <span class="filter-count">0</span></button>
+                        <button type="button" class="type-pill" data-duration="1-3" aria-pressed="false">1ï¿½3 months <span class="filter-count">0</span></button>
+                        <button type="button" class="type-pill" data-duration="3-6" aria-pressed="false">3ï¿½6 months <span class="filter-count">0</span></button>
+                        <button type="button" class="type-pill" data-duration="6-12" aria-pressed="false">6ï¿½12 months <span class="filter-count">0</span></button>
+                        <button type="button" class="type-pill" data-duration="1-2" aria-pressed="false">1ï¿½2 years <span class="filter-count">0</span></button>
+                        <button type="button" class="type-pill" data-duration="2-4" aria-pressed="false">2ï¿½4 years <span class="filter-count">0</span></button>
                         <button type="button" class="type-pill" data-duration="4+" aria-pressed="false">4+ years <span class="filter-count">0</span></button>
-=======
-                      <div class="pill-group duration-pills" id="duration-pills" role="group"
-                        aria-label="Filter by duration">
-                        <button type="button" class="type-pill active" data-duration="all" aria-pressed="true">All <span
-                            class="filter-count">0</span></button>
-                        <button type="button" class="type-pill" data-duration="short" aria-pressed="false">Under 1 month
-                          <span class="filter-count">0</span></button>
-                        <button type="button" class="type-pill" data-duration="1-3" aria-pressed="false">1–3 months
-                          <span class="filter-count">0</span></button>
-                        <button type="button" class="type-pill" data-duration="3-6" aria-pressed="false">3–6 months
-                          <span class="filter-count">0</span></button>
-                        <button type="button" class="type-pill" data-duration="6-12" aria-pressed="false">6–12 months
-                          <span class="filter-count">0</span></button>
-                        <button type="button" class="type-pill" data-duration="1-2" aria-pressed="false">1–2 years <span
-                            class="filter-count">0</span></button>
-                        <button type="button" class="type-pill" data-duration="2-4" aria-pressed="false">2–4 years <span
-                            class="filter-count">0</span></button>
-                        <button type="button" class="type-pill" data-duration="4+" aria-pressed="false">4+ years <span
-                            class="filter-count">0</span></button>
->>>>>>> 1b53d8e060a506c1f675f614a83d2a7c02a0be85
                       </div>
                     </div>
                   </div>
@@ -1926,11 +1505,7 @@
               <img src="assets/logo-suraksha.png" alt="Hashtag Suraksha" class="footer-logo-img" />
             </div>
           </a>
-<<<<<<< HEAD
-          <p>CourseKosh � a global cybersecurity course catalog curated by Khushboo Singh. Part of the Hashtag Suraksha ecosystem.</p>
-=======
-          <p>India's national cybersecurity movement. A joint initiative of CERT-In and Cyber Buddha.</p>
->>>>>>> 1b53d8e060a506c1f675f614a83d2a7c02a0be85
+          <p>CourseKosh ï¿½ a global cybersecurity course catalog curated by Khushboo Singh. Part of the Hashtag Suraksha ecosystem.</p>
           <div class="footer-socials">
             <a href="#" target="_blank" rel="noopener">LinkedIn</a>
             <a href="#" target="_blank" rel="noopener">Twitter</a>
@@ -1960,7 +1535,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>2026 CourseVerify � Hashtag Suraksha. All rights reserved.</p>
+        <p>2026 CourseVerify ï¿½ Hashtag Suraksha. All rights reserved.</p>
       </div>
     </div>
   </footer>
@@ -1975,14 +1550,8 @@
     <div class="modal-box onboarding-box">
       <div class="modal-hdr onboarding-hdr">
         <div>
-<<<<<<< HEAD
-          <h3 id="onboarding-title">🧭 Find your cybersecurity focus</h3>
-          <p class="onboarding-sub">Three quick questions. One clear direction. We�ll match courses to your background, interest, and career goal.</p>
-=======
-          <h3 id="onboarding-title">🎯 Find your cybersecurity pathway</h3>
-          <p class="onboarding-sub">Three quick questions. One clear direction. We’ll match courses to your background,
-            interest, and career goal.</p>
->>>>>>> 1b53d8e060a506c1f675f614a83d2a7c02a0be85
+          <h3 id="onboarding-title">ðŸ§­ Find your cybersecurity focus</h3>
+          <p class="onboarding-sub">Three quick questions. One clear direction. Weï¿½ll match courses to your background, interest, and career goal.</p>
         </div>
         <button id="onboarding-close" class="modal-close onboarding-close" aria-label="Close onboarding" title="Close">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
@@ -2001,18 +1570,9 @@
           </div>
           <div class="onboarding-question">Where are you in your cybersecurity learning?</div>
           <div class="onboarding-options">
-<<<<<<< HEAD
-            <button class="onboarding-option" data-level="Beginner" data-answer="beginner">?? Just starting � I need fundamentals</button>
+            <button class="onboarding-option" data-level="Beginner" data-answer="beginner">?? Just starting ï¿½ I need fundamentals</button>
             <button class="onboarding-option" data-level="Intermediate" data-answer="intermediate">?? I know the basics and want to specialize</button>
             <button class="onboarding-option" data-level="Advanced" data-answer="advanced">?? I'm experienced and want advanced certs/degrees</button>
-=======
-            <button class="onboarding-option" data-level="Beginner" data-answer="beginner">🌱 Just starting — I need
-              fundamentals</button>
-            <button class="onboarding-option" data-level="Intermediate" data-answer="intermediate">🚀 I know the basics
-              and want to specialize</button>
-            <button class="onboarding-option" data-level="Advanced" data-answer="advanced">🔥 I'm experienced and want
-              advanced certs/degrees</button>
->>>>>>> 1b53d8e060a506c1f675f614a83d2a7c02a0be85
           </div>
         </div>
 
@@ -2148,7 +1708,7 @@
   </div>
 
   <!-- course verifier app logic -->
-  <script src="assets/app.js?v=1786644595356" charset="UTF-8" defer></script>
+  <script src="assets/app.js?v=1787000000002" charset="UTF-8" defer></script>
 
   <!-- hashtag-v2 shared behavior (nav scroll, hamburger, cursor glow) -->
   <script src="main.js?v=1786623835678"></script>
@@ -2208,145 +1768,7 @@
       }
     })();
   </script>
-
-  <!-- DOMAIN CARD CTA HANDLER -->
-  <script defer>
-    (function () {
-<<<<<<< HEAD
-      document.querySelectorAll('.domain-card__cta').forEach(function (link) {
-        link.addEventListener('click', function (e) {
-=======
-      const folderCard = document.querySelector('.folder-card');
-      const folderToggle = document.querySelector('.folder-toggle');
-      const explorerGrid = document.querySelector('.domain-explorer-grid');
-      const expandedView = document.getElementById('expanded-domain-view');
-      const expandedContent = document.getElementById('expanded-content-area');
-      const closeExpandedBtn = document.getElementById('close-expanded-view');
-      const scrollLeftBtn = document.getElementById('domain-scroll-left');
-      const scrollRightBtn = document.getElementById('domain-scroll-right');
-      const templates = Array.from(document.querySelectorAll('#domain-templates .domain-detail-template'));
-
-      if (folderCard) {
-        folderCard.addEventListener('click', function (e) {
-          if (e.target.closest('.file') || e.target.closest('.folder-search')) return;
->>>>>>> 1b53d8e060a506c1f675f614a83d2a7c02a0be85
-          e.preventDefault();
-          const chip = this.getAttribute('data-chip') || 'all';
-          const section = document.getElementById('all-courses-section');
-          if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          if (typeof setEdxDomainChip === 'function') {
-            setEdxDomainChip(chip);
-          }
-        });
-<<<<<<< HEAD
-=======
-      }
-
-
-      const fileCards = document.querySelectorAll('.folder-container .file');
-
-      fileCards.forEach(card => {
-        card.addEventListener('click', function (e) {
-          e.preventDefault();
-          const domainName = this.getAttribute('data-domain');
-
-          // Ensure folder is checked
-          if (folderToggle && !folderToggle.checked) {
-            folderToggle.checked = true;
-          }
-
-          if (folderCard) {
-            folderCard.classList.add('is-open', 'is-popped');
-          }
-
-          // Inject all 6 templates into the slider container
-          expandedContent.innerHTML = '';
-          templates.forEach(t => {
-            const clone = t.cloneNode(true);
-            clone.style.display = 'flex';
-            expandedContent.appendChild(clone);
-          });
-
-          // Re-attach event listeners for explore buttons inside the expanded view
-          const exploreBtns = expandedContent.querySelectorAll('.domain-explore-btn');
-          exploreBtns.forEach(btn => {
-            btn.addEventListener('click', function (e) {
-              e.preventDefault();
-              e.stopPropagation();
-
-              const chip = this.getAttribute('data-domain') || 'all';
-              // Close the expanded view
-              if (closeExpandedBtn) closeExpandedBtn.click();
-
-              // Scroll down
-              const section = document.getElementById('all-courses-section');
-              if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-              // Try to set the chip filter if the function exists
-              if (typeof setEdxDomainChip === 'function') {
-                let chipId = 'all';
-                if (chip === 'Foundational') chipId = 'foundational';
-                if (chip === 'Network Infrastructure') chipId = 'network-infra';
-                if (chip === 'System & Endpoint') chipId = 'system-endpoint';
-                if (chip === 'Cyber Forensics') chipId = 'forensics-ir';
-                if (chip === 'Data & Application') chipId = 'data-app-security';
-                if (chip === 'Legal & Ethical') chipId = 'legal-compliance';
-                setEdxDomainChip(chipId);
-              }
-            });
-          });
-
-          // Hide the grid, show the expanded view
-          if (explorerGrid) explorerGrid.style.display = 'none';
-          if (expandedView) {
-            expandedView.style.display = 'flex';
-            // Trigger reflow for fade in
-            void expandedView.offsetWidth;
-            expandedView.style.opacity = '1';
-
-            // Scroll to the clicked domain
-            setTimeout(() => {
-              const targetPanel = expandedContent.querySelector('.domain-detail-template[data-domain="' + domainName + '"]');
-              if (targetPanel) {
-                targetPanel.scrollIntoView({ behavior: 'instant', inline: 'center' });
-                // We use 'instant' so the user doesn't see a long frantic scroll from the beginning, they just appear there.
-              }
-            }, 50); // slight delay to allow display:flex to render dimensions
-          }
-        });
-      });
-
-      function scrollDomainSlider(direction) {
-        if (!expandedContent) return;
-        const card = expandedContent.querySelector('.domain-detail-template');
-        const gap = parseInt(getComputedStyle(expandedContent).gap) || 24;
-        const step = card ? (card.offsetWidth + gap) : 324;
-        expandedContent.scrollBy({ left: direction * step, behavior: 'smooth' });
-      }
-
-      if (scrollLeftBtn) scrollLeftBtn.addEventListener('click', () => scrollDomainSlider(-1));
-      if (scrollRightBtn) scrollRightBtn.addEventListener('click', () => scrollDomainSlider(1));
-
-      if (closeExpandedBtn) {
-        closeExpandedBtn.addEventListener('click', function () {
-          expandedView.style.opacity = '0';
-          setTimeout(() => {
-            expandedView.style.display = 'none';
-            if (explorerGrid) explorerGrid.style.display = 'grid'; // .domain-explorer-grid is a CSS grid
-          }, 400); // Wait for transition
-        });
-      }
-
-      // Close expanded view on ESC key
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && expandedView && expandedView.style.display === 'flex') {
-          closeExpandedBtn.click();
-        }
->>>>>>> 1b53d8e060a506c1f675f614a83d2a7c02a0be85
-      });
-    })();
-  </script>
-
+  <!-- CATALOG SCROLL RAIL + BACK-TO-TOP -->
   <!-- CATALOG SCROLL RAIL + BACK-TO-TOP -->
   <script defer>
     (function () {
@@ -2606,6 +2028,33 @@
 
       // Initial state (handles mid-page reloads)
       requestScroll();
+    })();
+  </script>
+
+  <script defer>
+    /* Mobile nav dropdown toggle (catalog v2) */
+    (function () {
+      document.querySelectorAll('.mobile-nav-drop-toggle').forEach(function (toggle) {
+        var drop = toggle.closest('.mobile-nav-drop');
+        if (!drop) return;
+        toggle.addEventListener('click', function () {
+          var open = drop.classList.toggle('open');
+          toggle.setAttribute('aria-expanded', String(open));
+        });
+      });
+
+      /* Free Courses CTA auto-filters to Free when landing from hero */
+      document.querySelectorAll('[data-filter-free="true"]').forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          var section = document.getElementById('all-courses-section');
+          if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          setTimeout(function () {
+            var freeRow = document.querySelector('[data-filter-type="Free"]');
+            if (freeRow) freeRow.click();
+          }, 400);
+        });
+      });
     })();
   </script>
 </body>

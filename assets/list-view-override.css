@@ -11,9 +11,9 @@ body #edx-cards-row.list-view .clean-course-card.card .grid-view-content {
 body #edx-cards-row.list-view .clean-course-card.card .list-view-content {
 
     display: grid !important;
-    grid-template-columns: 48px minmax(200px, 3fr) minmax(150px, 2fr) 100px 80px 160px;
+    grid-template-columns: 56px minmax(260px, 2.8fr) minmax(160px, 1.4fr) 90px 90px 150px;
     align-items: center;
-    gap: 18px;
+    gap: 16px;
     width: 100%;
 }
 
@@ -63,11 +63,7 @@ body #edx-cards-row.list-view .clean-course-card.card .list-view-content {
     gap: 0 !important;
 }
 
-<<<<<<< HEAD
 /* Logo column — rounded rectangle to preserve institution branding */
-=======
-/* Logo column â€” warm cream circle */
->>>>>>> 1b53d8e060a506c1f675f614a83d2a7c02a0be85
 #edx-cards-row.list-view .list-col-logo .logo-wrap {
     position: static !important;
     left: auto !important;
@@ -261,17 +257,17 @@ body #edx-cards-row.list-view .clean-course-card.card .list-view-content {
 /* Responsive: 1100px */
 @media (max-width: 1100px) {
     #edx-cards-row.list-view .clean-course-card.card {
-        zoom: 0.85;
+        zoom: 1;
     }
 }
 
 @media (max-width: 900px) {
     #edx-cards-row.list-view .clean-course-card.card {
-        zoom: 0.75;
+        zoom: 1;
     }
 }
 
-/* GRID VIEW MOBILE FIXES â€” 1 card per row on phones */
+/* GRID VIEW MOBILE FIXES — 1 card per row on phones */
 @media (max-width: 768px) {
     #edx-cards-row:not(.list-view) {
         grid-template-columns: 1fr !important;
@@ -350,10 +346,10 @@ html,
 
 .list-view-header {
     display: grid !important;
-    grid-template-columns: 54px minmax(140px, 2.5fr) minmax(100px, 1.5fr) 70px 80px 130px !important;
+    grid-template-columns: 56px minmax(260px, 2.8fr) minmax(160px, 1.4fr) 90px 90px 150px !important;
     align-items: center;
-    gap: 18px;
-    padding: 0 24px 16px 24px;
+    gap: 16px;
+    padding: 0 16px 16px 16px;
     border-bottom: 2px solid var(--border-color);
     margin-bottom: 24px;
     font-family: var(--font-ui);
