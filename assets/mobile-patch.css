@@ -1,11 +1,4 @@
-/* =====================================================
-   FINAL MOBILE OVERRIDES (this file loads last)
-   Ensures 1 card/row, touch-friendly buttons, working filters
-   ===================================================== */
-
-/* ---- HAMBURGER MENU DRAWER ---- */
 @media (max-width: 1024px) {
-  /* Hamburger always visible and clickable */
   body #navbar .hamburger,
   body .hamburger {
     display: block !important;
@@ -15,10 +8,10 @@
     pointer-events: auto !important;
   }
 
-  /* Drawer: main.js toggles .open class */
   body #mobile-nav-drawer {
     z-index: 9999990 !important;
   }
+
   body #mobile-nav-drawer.open {
     display: flex !important;
     flex-direction: column !important;
@@ -34,8 +27,7 @@
     overflow-y: auto !important;
     max-height: calc(100vh - 60px) !important;
   }
-  
-  /* Make drawer links readable */
+
   body #mobile-nav-drawer a {
     padding: 12px 8px !important;
     font-size: 15px !important;
@@ -43,11 +35,11 @@
     border-bottom: 1px solid rgba(0,0,0,0.06) !important;
     color: inherit !important;
   }
+
   body #mobile-nav-drawer a:last-child {
     border-bottom: none !important;
   }
 
-  /* Compact nav bar: reset nav-action-group so it stays inside the bar */
   body #navbar .nav-action-group {
     position: relative !important;
     bottom: auto !important;
@@ -60,45 +52,37 @@
     height: auto !important;
     display: flex !important;
   }
-  
-  /* Hide sort dropdown on mobile (compact nav) */
-  body #navbar .nav-sort-wrap {
-    display: none !important;
-  }
 
-  /* Hide reset/clear button on mobile */
+  body #navbar .nav-sort-wrap,
   body #navbar .nav-reset-btn {
     display: none !important;
   }
 }
 
 @media (max-width: 768px) {
-  /* ---- GRID: Force 1 card per row ---- */
-  body #edx-cards-row:not(.list-view),
-  body #edx-cards-row.grid-view,
-  #edx-cards-row:not(.list-view) {
+  body #edx-cards-row:not(.list-view) {
     display: grid !important;
     grid-template-columns: 1fr !important;
     gap: 16px !important;
   }
 
-  body #edx-cards-row:not(.list-view) .clean-course-card,
-  body #edx-cards-row:not(.list-view) .clean-course-card.card {
+  body #edx-cards-row:not(.list-view) .clean-course-card {
     zoom: 1 !important;
     transform: none !important;
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
   }
-  
-  /* ---- COURSE CARD MOBILE FIXES ---- */
+
   .card-footer-actions {
     display: flex !important;
     width: 100% !important;
   }
+
   .card-footer-actions .btn-save {
     display: none !important;
   }
+
   .card-footer-actions .btn-visit,
   .card-footer-actions a.btn {
     width: 100% !important;
@@ -109,7 +93,6 @@
     box-sizing: border-box !important;
   }
 
-  /* ---- FILTER SIDEBAR DRAWER FIX ---- */
   .catalog-sidebar {
     position: fixed !important;
     top: 70px !important;
@@ -127,20 +110,26 @@
     display: flex !important;
     flex-direction: column !important;
   }
-  .catalog-workspace.filters-open .catalog-sidebar,
-  .catalog-workspace.sidebar-collapsed.filters-open .catalog-sidebar {
+
+  .catalog-workspace.filters-open .catalog-sidebar {
     transform: translateX(0) !important;
   }
-  .catalog-workspace.sidebar-collapsed .catalog-sidebar-body { display: flex !important; }
+
+  .catalog-workspace.sidebar-collapsed .catalog-sidebar-body {
+    display: flex !important;
+  }
+
   .catalog-workspace.sidebar-collapsed .catalog-sidebar-header {
     flex-direction: row !important;
     border-bottom: 1px solid var(--border-color, #e5e7eb) !important;
     padding-bottom: 12px !important;
   }
+
   .catalog-workspace.sidebar-collapsed .catalog-sidebar-title {
     writing-mode: horizontal-tb !important;
     transform: none !important;
   }
+
   .catalog-mobile-overlay {
     position: fixed !important;
     top: 70px !important;
@@ -154,12 +143,12 @@
     transition: opacity 0.3s ease !important;
     display: block !important;
   }
+
   .catalog-workspace.filters-open .catalog-mobile-overlay {
     opacity: 1 !important;
     pointer-events: auto !important;
   }
 
-  /* ---- BOTTOM FILTER TOGGLE BUTTON ---- */
   .catalog-mobile-filter-bar {
     position: fixed !important;
     bottom: 10px !important;
@@ -167,6 +156,7 @@
     z-index: 181 !important;
     margin: 0 !important;
   }
+
   .mobile-filter-toggle {
     min-height: 44px !important;
     border-radius: 22px !important;
@@ -177,12 +167,19 @@
     box-shadow: 0 4px 10px rgba(37,99,235,0.3) !important;
   }
 
-  /* ---- TOUCH-FRIENDLY TARGETS ---- */
-  .catalog-main { padding-bottom: 80px !important; }
-  .filter-chip, .accordion-trigger, .type-pill, .domain-chip, .level-pill {
+  .catalog-main {
+    padding-bottom: 80px !important;
+  }
+
+  .filter-chip,
+  .accordion-trigger,
+  .type-pill,
+  .domain-chip,
+  .level-pill {
     min-height: 40px !important;
     touch-action: manipulation !important;
   }
+
   .catalog-search input[type="search"],
   .catalog-search input[type="text"],
   #edx-search,
@@ -190,6 +187,7 @@
     font-size: 16px !important;
     min-height: 44px !important;
   }
+
   .pagination-btn {
     min-height: 40px !important;
     min-width: 40px !important;
@@ -198,20 +196,19 @@
 }
 
 @media (max-width: 480px) {
-  body #edx-cards-row:not(.list-view),
-  body #edx-cards-row.grid-view,
-  #edx-cards-row:not(.list-view) {
+  body #edx-cards-row:not(.list-view) {
     grid-template-columns: 1fr !important;
     padding: 0 !important;
   }
-  .clean-course-card, .clean-course-card.card { margin: 0 !important; }
+
+  .clean-course-card,
+  .clean-course-card.card {
+    margin: 0 !important;
+  }
 }
 
-/* MAKE SAVED HEART RED */
 body .btn-save-floating.saved svg,
-body #edx-cards-row:not(.list-view) .btn-save-floating.saved svg,
-.btn-save-floating.saved svg,
-.btn-save-floating.saved .heart-icon {
+body .btn-save-floating.saved .heart-icon {
   fill: #ef4444 !important;
   color: #ef4444 !important;
   stroke: #ef4444 !important;
