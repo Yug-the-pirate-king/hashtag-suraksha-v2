@@ -690,90 +690,171 @@
 </div><!-- hud-wrapper -->
 
 <script>
-  // ── Tick marks ────────────────────────────────
-  (function() {
-    var container = document.getElementById('hudTicks');
-    for (var i = 0; i < 72; i++) {
-      var tick = document.createElement('div');
-      tick.className = 'hud-tick' + (i % 6 === 0 ... ' major' : '');
-      tick.style.transform = 'rotate(' + (i * 5) + 'deg)';
-      container.appendChild(tick);
+  /**
+   * Safely retrieves a DOM element by ID and logs a warning when missing.
+   * @param {string} elementId - The ID of the element to retrieve.
+   * @returns {HTMLElement|null} The requested element, or null if not found.
+   */
+  function getHudElement(elementId) {
+    var element = document.getElementById(elementId);
+    if (!element) {
+      console.warn('HUD element not found: #' + elementId);
     }
-    // Cardinal labels
-    var labels = [['N', -14], ['E', 286], ['S', 166], ['W', -104]];
-    labels.forEach(function(l) {
-      var el = document.createElement('div');
-      el.className = 'hud-tick-label';
-      el.textContent = l[0];
-      el.style.top = '4px';
-      el.style.left = '50%';
-      el.style.transformOrigin = '0 296px';
-      el.style.transform = 'rotate(' + l[1] + 'deg) translateY(0)';
-      container.appendChild(el);
+    return element;
+  }
+
+  /**
+   * Renders the cardinal tick marks and labels around the HUD perimeter.
+   */
+  (function initializeHudTicks() {
+    var tickContainer = getHudElement('hudTicks');
+    if (!tickContainer) {
+      return;
+    }
+
+    var totalTicks = 72;
+    for (var tickIndex = 0; tickIndex < totalTicks; tickIndex++) {
+      var tick = document.createElement('div');
+      tick.className = 'hud-tick' + (tickIndex % 6 === 0 ? ' major' : '');
+      tick.style.transform = 'rotate(' + (tickIndex * 5) + 'deg)';
+      tickContainer.appendChild(tick);
+    }
+
+    var cardinalLabels = [
+      { label: 'N', rotation: -14 },
+      { label: 'E', rotation: 286 },
+      { label: 'S', rotation: 166 },
+      { label: 'W', rotation: -104 }
+    ];
+
+    cardinalLabels.forEach(function(cardinal) {
+      var labelEl = document.createElement('div');
+      labelEl.className = 'hud-tick-label';
+      labelEl.textContent = cardinal.label;
+      labelEl.style.top = '4px';
+      labelEl.style.left = '50%';
+      labelEl.style.transformOrigin = '0 296px';
+      labelEl.style.transform = 'rotate(' + cardinal.rotation + 'deg) translateY(0)';
+      tickContainer.appendChild(labelEl);
     });
   })();
 
-  // ── Live Clock ───────────────────────────────
-  function updateClock() {
+  /**
+   * Updates the HUD clock with the current local time in HH:MM:SS format.
+   */
+  function updateHudClock() {
+    var clockEl = getHudElement('hudClock');
+    if (!clockEl) {
+      return;
+    }
+
     var now = new Date();
-    var t = [now.getHours(), now.getMinutes(), now.getSeconds()]
-      .map(function(n) { return String(n).padStart(2,'0'); }).join(':');
-    document.getElementById('hudClock').textContent = t;
+    var timeString = [now.getHours(), now.getMinutes(), now.getSeconds()]
+      .map(function(value) { return String(value).padStart(2, '0'); })
+      .join(':');
+    clockEl.textContent = timeString;
   }
-  updateClock();
-  setInterval(updateClock, 1000);
 
-  // ── Badge message rotation ───────────────────
-  var msgs = [
-    'NATIONAL CYBER AWARENESS DRIVE ACTIVE',
-    'TRAINING SESSION &middot; MUMBAI HUB',
-    'LIVE WORKSHOP &middot; NEW DELHI',
-    'CASK SESSION &middot; BANGALORE SCHOOLS',
-    'ALERT MONITOR &middot; KOLKATA NODE',
-    'AWARENESS CAMPAIGN &middot; HYDERABAD',
-  ];
-  var msgIdx = 0;
-  var msgEl = document.getElementById('hudMsg');
-  setInterval(function() {
-    msgIdx = (msgIdx + 1) % msgs.length;
-    msgEl.style.opacity = '0';
-    msgEl.style.transition = 'opacity 0.3s';
-    setTimeout(function() {
-      msgEl.textContent = msgs[msgIdx];
-      msgEl.style.opacity = '1';
-    }, 320);
-  }, 4000);
+  updateHudClock();
+  setInterval(updateHudClock, 1000);
 
-  // ── State region hover tooltips ──────────────
-  var tooltip = document.getElementById('stateTooltip');
-  var regions = document.querySelectorAll('.state-region');
-  regions.forEach(function(r) {
-    r.addEventListener('mouseenter', function() {
-      tooltip.textContent = r.getAttribute('data-region').toUpperCase();
-      tooltip.classList.add('visible');
-    });
-    r.addEventListener('mouseleave', function() {
-      tooltip.classList.remove('visible');
-    });
-  });
+  /**
+   * Rotates the status message in the HUD footer every 4 seconds.
+   */
+  (function rotateHudMessages() {
+    var statusMessages = [
+      'NATIONAL CYBER AWARENESS DRIVE ACTIVE',
+      'TRAINING SESSION · MUMBAI HUB',
+      'LIVE WORKSHOP · NEW DELHI',
+      'CASK SESSION · BANGALORE SCHOOLS',
+      'ALERT MONITOR · KOLKATA NODE',
+      'AWARENESS CAMPAIGN · HYDERABAD'
+    ];
 
-  // ── Continuous state glow cycling ────────────
-  // Randomly pulse each region to create the "all states glowing" feel
-  regions.forEach(function(r, i) {
-    (function pulse() {
-      var delay = Math.random() * 3000 + 1000;
+    var messageEl = getHudElement('hudMsg');
+    if (!messageEl) {
+      return;
+    }
+
+    var messageIndex = 0;
+    setInterval(function() {
+      messageIndex = (messageIndex + 1) % statusMessages.length;
+      messageEl.style.opacity = '0';
+      messageEl.style.transition = 'opacity 0.3s';
       setTimeout(function() {
-        r.style.transition = 'fill 0.6s ease';
-        r.style.fill = 'rgba(0,122,255,0.18)';
-        r.style.stroke = 'rgba(0,122,255,0.6)';
+        messageEl.textContent = statusMessages[messageIndex];
+        messageEl.style.opacity = '1';
+      }, 320);
+    }, 4000);
+  })();
+
+  /**
+   * Binds hover tooltips to each mapped state region.
+   */
+  (function bindStateTooltips() {
+    var tooltipEl = getHudElement('stateTooltip');
+    var stateRegions = document.querySelectorAll('.state-region');
+
+    if (!tooltipEl || stateRegions.length === 0) {
+      return;
+    }
+
+    stateRegions.forEach(function(region) {
+      var regionName = region.getAttribute('data-region');
+      if (!regionName) {
+        return;
+      }
+
+      region.addEventListener('mouseenter', function() {
+        tooltipEl.textContent = regionName.toUpperCase();
+        tooltipEl.classList.add('visible');
+      });
+
+      region.addEventListener('mouseleave', function() {
+        tooltipEl.classList.remove('visible');
+      });
+    });
+  })();
+
+  /**
+   * Continuously pulses each state region to simulate live monitoring activity.
+   */
+  (function cycleStateGlows() {
+    var stateRegions = document.querySelectorAll('.state-region');
+    if (stateRegions.length === 0) {
+      return;
+    }
+
+    var activeFill = 'rgba(0,122,255,0.18)';
+    var defaultFill = 'rgba(0,122,255,0.07)';
+    var activeStroke = 'rgba(0,122,255,0.6)';
+
+    /**
+     * Schedules and executes a single pulse for a state region.
+     * @param {SVGPathElement} region - The state region path element.
+     * @param {number} regionIndex - The zero-based index of the region.
+     */
+    function pulseRegion(region, regionIndex) {
+      var delayMs = Math.random() * 3000 + 1000 + regionIndex * 300;
+      setTimeout(function() {
+        region.style.transition = 'fill 0.6s ease';
+        region.style.fill = activeFill;
+        region.style.stroke = activeStroke;
+
         setTimeout(function() {
-          r.style.fill = 'rgba(0,122,255,0.07)';
-          r.style.stroke = 'rgba(0,122,255,' + (0.25 + i * 0.02) + ')';
-          setTimeout(pulse, Math.random() * 4000 + 2000);
+          region.style.fill = defaultFill;
+          region.style.stroke = 'rgba(0,122,255,' + (0.25 + regionIndex * 0.02) + ')';
+          setTimeout(function() {
+            pulseRegion(region, regionIndex);
+          }, Math.random() * 4000 + 2000);
         }, 600 + Math.random() * 400);
-      }, delay + i * 300);
-    })();
-  });
+      }, delayMs);
+    }
+
+    stateRegions.forEach(function(region, index) {
+      pulseRegion(region, index);
+    });
+  })();
 </script>
 </body>
 </html>
