@@ -1,3 +1,6 @@
+const ALL_ACCESS_TYPES = ['Free', 'Free to Audit', 'High Value Low Cost'];
+const ALL_TYPE_PILLS = ['Certificate', 'Diploma', "Bachelor's Degree", "Master's Degree", "Post Graduate Diploma", "Post Graduate Certificate"];
+
 /* ================================================================
    COURSEVERIFY CATALOG  ·  APP.JS  v9  (static JSON edition)
    Loads courses directly from courses.json in the same folder.
@@ -759,8 +762,8 @@ const GLOBE_THEMES = {
 };
 
 function getGlobeTheme() {
-    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    return isDark ? GLOBE_THEMES.dark : GLOBE_THEMES.light;
+    // User requested: keep main 3D globe in light mode for both themes
+    return GLOBE_THEMES.light;
 }
 
 function applyGlobeTheme() {
@@ -2302,9 +2305,9 @@ function renderSkeletonCards(count = 12) {
         </div>
                                         <div class="list-view-content" style="display: none; align-items: center;">
             <div class="list-col list-col-logo" style="display: flex; align-items: center; justify-content: center; width: 48px; flex-shrink: 0;">
-                ${hasLogo ? `<div class="logo-wrap" style="width:48px;height:48px;border-radius:50%;border:1px solid #e5e7eb;background:#ffffff;display:flex;align-items:center;justify-content:center;padding:4px;overflow:hidden;flex-shrink:0;">
+                ${hasLogo ? `<div class="logo-wrap" style="position:relative;width:48px;height:48px;border-radius:8px;border:1px solid #e5e7eb;background:#ffffff;padding:0px;display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;">
                     <img src="${c.logo_url}" style="width:100%;height:100%;object-fit:contain;" alt="" onerror="this.remove()" />
-                </div>` : `<div class="logo-wrap" style="width:48px;height:48px;border-radius:50%;border:1px solid #e5e7eb;background:#ffffff;display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;"></div>`}
+                </div>` : `<div class="logo-wrap" style="width:48px;height:48px;border-radius:8px;border:1px solid #e5e7eb;background:#ffffff;display:flex;align-items:center;justify-content:center;padding:0px;overflow:hidden;flex-shrink:0;"></div>`}
             </div>
             <div class="list-col list-col-course">
                 <a href="${escHtml(getCourseUrl(c))}" target="_blank" style="font-size:14px; font-weight:700; color:var(--text-1); text-decoration:none;">${escHtml(c.name)}</a>
@@ -2465,7 +2468,11 @@ function renderEdxCards() {
                 <p class="skills-desc">${escHtml(skillsDesc)}</p>
                 <div class="badge-row">${badges.join('')}</div>
                 <div class="meta-row">
-                    <span>${escHtml(duration)} · ${escHtml(mode)} · ${escHtml(c.course_type || courseType || 'Course')}</span>
+                    <span style="display:inline-flex; align-items:center; gap:10px; flex-wrap:wrap; font-size:12px;">
+                        <span style="display:inline-flex; align-items:center; gap:4px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>${escHtml(duration)}</span>
+                        <span style="display:inline-flex; align-items:center; gap:4px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>${escHtml(mode)}</span>
+                        <span style="display:inline-flex; align-items:center; gap:4px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>${escHtml(c.course_type || courseType || 'Course')}</span>
+                    </span>
                     <span class="cost ${costClass}">${escHtml(c.cost || '—')}</span>
                 </div>
                 <div class="card-footer-actions" style="display:flex; gap:8px; margin-top:auto;">
@@ -2477,9 +2484,9 @@ function renderEdxCards() {
         </div>
                                         <div class="list-view-content" style="display: none; align-items: center;">
             <div class="list-col list-col-logo" style="display: flex; align-items: center; justify-content: center; width: 48px; flex-shrink: 0;">
-                ${hasLogo ? `<div class="logo-wrap" style="width:48px;height:48px;border-radius:50%;border:1px solid #e5e7eb;background:#ffffff;display:flex;align-items:center;justify-content:center;padding:4px;overflow:hidden;flex-shrink:0;">
+                ${hasLogo ? `<div class="logo-wrap" style="position:relative;width:48px;height:48px;border-radius:8px;border:1px solid #e5e7eb;background:#ffffff;padding:0px;display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;">
                     <img src="${c.logo_url}" style="width:100%;height:100%;object-fit:contain;" alt="" onerror="this.remove()" />
-                </div>` : `<div class="logo-wrap" style="width:48px;height:48px;border-radius:50%;border:1px solid #e5e7eb;background:#ffffff;display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;"></div>`}
+                </div>` : `<div class="logo-wrap" style="width:48px;height:48px;border-radius:8px;border:1px solid #e5e7eb;background:#ffffff;display:flex;align-items:center;justify-content:center;padding:0px;overflow:hidden;flex-shrink:0;"></div>`}
             </div>
             <div class="list-col list-col-course">
                 <a href="${escHtml(getCourseUrl(c))}" target="_blank" style="font-size:14px; font-weight:700; color:var(--text-1); text-decoration:none;">${escHtml(c.name)}</a>
@@ -2644,10 +2651,12 @@ function updateCourseViewClass() {
     if (!isList) {
         const workspace = document.getElementById('catalog-workspace');
         const collapsed = workspace && workspace.classList.contains('sidebar-collapsed');
-        const cols = collapsed ? 'repeat(4, 1fr)' : 'repeat(3, 1fr)';
+        const isMobilePortrait = window.innerWidth <= 499;
+        const isTablet = window.innerWidth > 499 && window.innerWidth <= 1024;
+        const cols = isMobilePortrait ? '1fr' : (isTablet ? 'repeat(2, 1fr)' : (collapsed ? 'repeat(4, 1fr)' : 'repeat(3, 1fr)'));
         row.style.setProperty('display', 'grid', 'important');
         row.style.setProperty('grid-template-columns', cols, 'important');
-        row.style.setProperty('gap', '20px', 'important');
+        row.style.setProperty('gap', isMobilePortrait ? '16px' : '20px', 'important');
     } else {
         row.style.removeProperty('display');
         row.style.removeProperty('grid-template-columns');
@@ -3184,7 +3193,8 @@ function initSidebarFilters() {
 
     sidebar.addEventListener('click', e => {
         const target = e.target;
-        const isFilterClick = target.closest('.type-pill, .domain-chip, .country-filter-select, .accordion-trigger');
+        // Do NOT auto-close on country select — user needs to interact with it
+        const isFilterClick = target.closest('.type-pill, .domain-chip, .accordion-trigger');
         if (!isFilterClick) return;
         const isAccordion = target.closest('.accordion-trigger');
         if (isAccordion) return;
@@ -3204,6 +3214,11 @@ function initSidebarFilters() {
         if (window.innerWidth > 900 && workspace.classList.contains('filters-open')) {
             setFiltersOpen(false);
         }
+        updateCourseViewClass();
+    });
+
+    window.addEventListener('orientationchange', () => {
+        setTimeout(() => updateCourseViewClass(), 100);
     });
 }
 
@@ -3363,17 +3378,10 @@ async function loadAllCourses(force = false) {
         let expanded = [];
         raw.forEach(c => {
             if (Array.isArray(c.id)) {
-                c.id.forEach((idVal, idx) => {
-                    let newC = { ...c, id: idVal };
-                    if (Array.isArray(c.domains) && c.domains.length > idx) {
-                        newC.domains = [c.domains[idx]];
-                    } else {
-                        newC.domains = [];
-                    }
-                    expanded.push(newC);
-                });
+                let newC = { ...c, id: c.id[0], _all_ids: c.id, raw_index: typeof rawIndex !== 'undefined' ? rawIndex : undefined };
+                expanded.push(newC);
             } else {
-                let newC = { ...c, raw_index: rawIndex };
+                let newC = { ...c, raw_index: typeof rawIndex !== 'undefined' ? rawIndex : undefined };
                 expanded.push(newC);
             }
         });
@@ -3576,7 +3584,7 @@ function initOnboarding() {
     });
     ctaBtn?.addEventListener('click', () => {
         closeOnboarding();
-        const params = { level: onboardingState.level, domain: onboardingState.domain };
+        const params = {}; if (onboardingState.level) params.level = onboardingState.level; if (onboardingState.domain) params.domain = onboardingState.domain;
         const courseType = getOnboardingCourseType(onboardingState.goal);
         if (courseType) params.courseType = courseType;
         jumpToCourses(params);
@@ -3594,8 +3602,6 @@ function initOnboarding() {
             if (step === '1') {
                 onboardingState.level = target.dataset.level || null;
             } else if (step === '2') {
-                onboardingState.domain = target.dataset.domain || null;
-            } else if (step === '3') {
                 onboardingState.goal = target.dataset.goal || null;
             }
             onboardingNext();
@@ -3657,9 +3663,8 @@ function onboardingEscapeHandler(e) {
 
 function onboardingNext() {
     if (onboardingState.step === 1 && !onboardingState.level) return;
-    if (onboardingState.step === 2 && !onboardingState.domain) return;
-    if (onboardingState.step === 3 && !onboardingState.goal) return;
-    if (onboardingState.step < 4) {
+    if (onboardingState.step === 2 && !onboardingState.goal) return;
+    if (onboardingState.step < 3) {
         onboardingState.step++;
         renderOnboardingStep(onboardingState.step);
     } else {
@@ -3682,19 +3687,19 @@ function renderOnboardingStep(step) {
     const backBtn = document.getElementById('onboarding-back');
     const nextBtn = document.getElementById('onboarding-next');
     if (backBtn) backBtn.disabled = step === 1;
-    if (nextBtn) nextBtn.textContent = step === 4 ? 'Done' : 'Next';
+    if (nextBtn) nextBtn.textContent = step === 3 ? 'Done' : 'Next';
 
-    if (step === 4) {
+    if (step === 3) {
         const title = document.getElementById('onboarding-result-title');
         const text = document.getElementById('onboarding-result-text');
         const tags = document.getElementById('onboarding-result-tags');
         const level = onboardingState.level || 'Any level';
         const domain = onboardingState.domain || 'All domains';
         const goalLabel = {
-            career: 'Career growth',
-            upskill: 'Quick upskill',
-            degree: 'Degree path',
-            cert: 'Certification prep'
+            'Certificate': 'Certification prep',
+            'Diploma': 'Diploma',
+            "Bachelor's Degree": 'Bachelors Degree',
+            "Master's Degree": 'Masters Degree'
         }[onboardingState.goal] || 'General browse';
 
         const effectiveCourseType = getOnboardingCourseType(onboardingState.goal);
@@ -3725,8 +3730,8 @@ function renderOnboardingStep(step) {
 
 function getOnboardingCourseType(goal) {
     if (!goal) return null;
+    if (['Certificate', 'Diploma', "Bachelor's Degree", "Master's Degree"].includes(goal)) return goal;
     if (goal === 'upskill' || goal === 'cert') return 'Certificate';
-    // career and degree use the broader level+domain view; degree users can then pick Bachelor's / Master's / Diploma
     return null;
 }
 
@@ -3788,15 +3793,8 @@ async function showCourseModal(courseId, fallbackName, fallbackUni) {
             let expanded = [];
             raw.forEach(c => {
                 if (Array.isArray(c.id)) {
-                    c.id.forEach((idVal, idx) => {
-                        let newC = { ...c, id: idVal };
-                        if (Array.isArray(c.domains) && c.domains.length > idx) {
-                            newC.domains = [c.domains[idx]];
-                        } else {
-                            newC.domains = [];
-                        }
-                        expanded.push(newC);
-                    });
+                    let newC = { ...c, id: c.id[0], _all_ids: c.id };
+                    expanded.push(newC);
                 } else {
                     expanded.push(c);
                 }
@@ -3975,15 +3973,8 @@ async function fetchData() {
         let expanded = [];
         rawData.forEach((c, rawIndex) => {
             if (Array.isArray(c.id)) {
-                c.id.forEach((idVal, idx) => {
-                    let newC = { ...c, id: idVal, raw_index: rawIndex };
-                    if (Array.isArray(c.domains) && c.domains.length > idx) {
-                        newC.domains = [c.domains[idx]];
-                    } else {
-                        newC.domains = [];
-                    }
-                    expanded.push(newC);
-                });
+                let newC = { ...c, id: c.id[0], _all_ids: c.id, raw_index: rawIndex };
+                expanded.push(newC);
             } else {
                 let newC = { ...c, raw_index: rawIndex };
                 expanded.push(newC);
@@ -4109,6 +4100,11 @@ function initMobileMenu() {
     const btn = document.getElementById('mobile-menu-btn') || document.getElementById('hamburger');
     const drawer = document.getElementById('mobile-nav-drawer');
     if (!btn || !drawer) return;
+
+    // Prevent double-binding: main.js also adds a click listener to #hamburger.
+    // If main.js has already bound it (check via a flag), skip to avoid double-toggle.
+    if (btn._menuBound) return;
+    btn._menuBound = true;
 
     function toggle() {
         const open = drawer.classList.toggle('open');

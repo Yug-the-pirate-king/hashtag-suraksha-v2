@@ -4,15 +4,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CourseKosh — Hashtag Suraksha</title>
+  <title>CASY</title>
   <meta name="description"
-    content="Browse 3,700+ verified cybersecurity courses across 45 countries. Filter by country, domain, level, and pricing. Part of the Hashtag Suraksha ecosystem." />
+    content="Browse 1,600+ cybersecurity courses across 45 countries. Filter by country, domain, level, and pricing. Part of the Hashtag Suraksha ecosystem." />
   <link rel="canonical" href="https://hashtagsuraksha.com/course-catalog.html" />
 
   <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="CourseKosh — Hashtag Suraksha" />
+  <meta property="og:title" content="CASY" />
   <meta property="og:description"
-    content="Browse 3,700+ verified cybersecurity courses across 45 countries. Filter by country, domain, level, and pricing." />
+    content="Browse 1,600+ cybersecurity courses across 45 countries. Filter by country, domain, level, and pricing." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://hashtagsuraksha.com/course-catalog.html" />
   <meta property="og:image" content="https://hashtagsuraksha.com/assets/logo-suraksha.png" />
@@ -25,8 +25,9 @@
     href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Yatra+One&display=swap"
     rel="stylesheet" />
   <!-- hashtag-v2 site styles -->
-  <link rel="stylesheet" href="course-catalog.css?v=1786638870817" />
-  <link rel="stylesheet" href="assets/list-view-override.css?v=1786635564633" />
+  <link rel="stylesheet" href="course-catalog.css?v=111111111" />
+  <link rel="stylesheet" href="assets/list-view-override.css?v=11" />
+  <link rel="stylesheet" href="assets/mobile-patch.css?v=11" />
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
@@ -43,12 +44,455 @@
   {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "name": "CourseKosh by Hashtag Suraksha",
-    "description": "A verified catalog of 3,700+ cybersecurity courses across 45 countries.",
+    "name": "CASY",
+    "description": "A catalog of 1,600+ cybersecurity courses across 45 countries.",
     "url": "https://hashtagsuraksha.com/course-catalog.html",
     "itemListElement": []
   }
   </script>
+  <style>
+    /* =====================================================
+   BULLETPROOF MOBILE LIST VIEW STYLES (4-COLUMN TABLE)
+   ===================================================== */
+    /* ---- MOBILE PHONE & TABLET: Nav bar overrides ---- */
+    @media (max-width: 1024px) {
+
+      /* Hide nav-right (desktop CTA + desktop theme toggle) on mobile */
+      body #navbar .nav-right {
+        display: none !important;
+      }
+
+      /* Show the mobile controls group (theme + hamburger) */
+      body #navbar .nav-mobile-controls {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 4px !important;
+        flex-shrink: 0 !important;
+        margin-left: auto !important; /* push the whole group to the right */
+      }
+
+      /* When compact (scrolled), hide the mobile controls — search bar takes over */
+      body #navbar.compact .nav-mobile-controls {
+        display: none !important;
+      }
+
+      /* Compact search: take full available width in a single row */
+      body #navbar.compact .nav-compact-search {
+        margin: 0 8px !important;
+        max-width: none !important;
+        flex: 1 1 auto !important;
+      }
+
+      /* Hide clear/reset buttons on mobile */
+      body #navbar .nav-reset-btn {
+        display: none !important;
+      }
+    }
+
+    /* Desktop: hide the mobile-only controls container */
+    @media (min-width: 1025px) {
+      body #navbar .nav-mobile-controls {
+        display: none !important;
+      }
+    }
+
+    /* ---- LIST VIEW + GENERAL MOBILE STYLES ---- */
+    @media (max-width: 1024px) {
+      /* Override rigid horizontal scroll layout from main CSS */
+      body #edx-cards-row.list-view,
+      body .list-view-header,
+      body .catalog-results .list-view-header {
+        min-width: 0 !important;
+        width: 100% !important;
+      }
+
+      body #edx-cards-row.list-view .clean-course-card.card {
+        background-color: #ffffff !important;
+        border-radius: 16px !important;
+        padding: 12px !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+        border: 1px solid #e5e7eb !important;
+        margin-bottom: 16px !important;
+        box-sizing: border-box !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 160px !important;
+        overflow: visible !important;
+        position: relative !important;
+      }
+
+      body #edx-cards-row.list-view .clean-course-card.card .list-view-content {
+        display: grid !important;
+        /* 4 columns: Logo | Title | Labels | Metrics */
+        grid-template-columns: 40px minmax(0, 1.8fr) minmax(0, 1.2fr) minmax(0, 0.8fr) !important;
+        grid-template-rows: auto auto auto !important;
+        gap: 6px 8px !important;
+        padding: 0 !important;
+        align-items: start !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      body #edx-cards-row.list-view .clean-course-card.card .list-col {
+        width: auto !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow: visible !important;
+        box-sizing: border-box !important;
+      }
+
+      /* COL 1: Logo */
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-logo {
+        grid-column: 1;
+        grid-row: 1 / 3;
+        width: 44px !important;
+        height: 44px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
+
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-logo .logo-wrap {
+        width: 44px !important;
+        height: 44px !important;
+        border-radius: 8px !important;
+        border: 1px solid #e5e7eb !important;
+        padding: 4px !important;
+        box-sizing: border-box !important;
+        background: #ffffff !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
+
+      /* COL 2: Title and University */
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-course {
+        grid-column: 2;
+        grid-row: 1 / 3;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        text-align: left !important;
+        min-width: 0 !important;
+      }
+
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-course a.course-title {
+        font-size: 14px !important;
+        font-weight: 700 !important;
+        line-height: 1.3 !important;
+        color: #111827 !important;
+        margin-bottom: 4px !important;
+        display: -webkit-box !important;
+        -webkit-line-clamp: 4 !important;
+        -webkit-box-orient: vertical !important;
+        overflow: hidden !important;
+        white-space: normal !important;
+        word-break: break-word !important;
+        overflow-wrap: anywhere !important;
+      }
+
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-course .course-meta-text,
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-course div {
+        font-size: 11px !important;
+        color: #6b7280 !important;
+        white-space: normal !important;
+        overflow: hidden !important;
+        display: block !important;
+        word-break: break-word !important;
+      }
+
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-course .skills-desc {
+        display: none !important;
+      }
+
+      /* COL 3: Labels */
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-skills {
+        grid-column: 3;
+        grid-row: 1 / 3;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 4px !important;
+        align-items: flex-start !important;
+        justify-content: flex-start !important;
+      }
+
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-skills .badge,
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-skills span {
+        font-size: 10px !important;
+        font-weight: 500 !important;
+        color: #111827 !important;
+        margin-bottom: 4px !important;
+        display: inline-block !important;
+        white-space: nowrap !important;
+      }
+
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-skills .badge:nth-child(1) {
+        background: #eef2ff !important; color: #4f46e5 !important;
+      }
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-skills .badge:nth-child(2) {
+        background: #f0fdf4 !important; color: #16a34a !important;
+      }
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-skills .badge:nth-child(3) {
+        background: #fff7ed !important; color: #ea580c !important;
+      }
+
+      /* COL 4: Metrics (Duration Top, Cost Bottom) */
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-duration {
+        grid-column: 4;
+        grid-row: 1;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        gap: 4px !important;
+        font-size: 11px !important;
+        color: #6b7280 !important;
+        margin-top: 2px !important;
+        white-space: nowrap !important;
+      }
+
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-cost {
+        grid-column: 4;
+        grid-row: 2;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        font-size: 14px !important;
+        font-weight: 700 !important;
+        color: #16a34a !important;
+        margin-top: 2px !important;
+        white-space: nowrap !important;
+      }
+
+      /* ROW 3: Actions */
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-actions {
+        display: contents !important;
+      }
+
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .lv-btn-visit,
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-actions a.lv-btn-visit {
+        grid-column: 1 / 4 !important;
+        grid-row: 3 !important;
+        align-self: center !important;
+        margin-top: 12px !important;
+        width: 100% !important;
+        background-color: #000000 !important;
+        color: #ffffff !important;
+        border-radius: 12px !important;
+        padding: 12px !important;
+        font-size: 14px !important;
+        font-weight: 600 !important;
+        text-align: center !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        border: none !important;
+        text-decoration: none !important;
+        height: 44px !important;
+        white-space: nowrap !important;
+        box-sizing: border-box !important;
+      }
+
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .row-action,
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-actions button.row-action {
+        grid-column: 4 / 5 !important;
+        grid-row: 3 !important;
+        align-self: center !important;
+        margin-top: 12px !important;
+        width: 100% !important;
+        height: 44px !important;
+        background: #ffffff !important;
+        border: 1px solid #e5e7eb !important;
+        border-radius: 12px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+      }
+
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .row-action svg,
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .row-action i {
+        fill: none !important;
+        stroke: #6b7280 !important;
+        color: #6b7280 !important;
+        width: 20px !important;
+        height: 20px !important;
+        font-size: 18px !important;
+      }
+
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .row-action.saved svg,
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .row-action.saved i {
+        fill: #ef4444 !important;
+        stroke: #ef4444 !important;
+        color: #ef4444 !important;
+      }
+
+      /* HIDE THE EXTRA SAVE BUTTON IN LIST VIEW BANNER */
+      body #edx-cards-row.list-view .clean-course-card.card .card-banner .save-btn {
+        display: none !important;
+      }
+    }
+
+    /* ---- LANDSCAPE MOBILE GRID VIEW FIX ---- */
+    @media (min-width: 500px) and (max-width: 1024px) {
+      body #edx-cards-row:not(.list-view) {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 16px !important;
+      }
+    }
+
+    /* Always show Help label text, hide the ? icon */
+    #catalog-help-btn .help-label {
+      display: inline !important;
+    }
+
+    #catalog-help-btn span[aria-hidden="true"] {
+      display: none !important;
+    }
+
+    /* Mobile: hide the right-side scroll rail, keep on PC */
+    @media (max-width: 1024px) {
+      .catalog-scroll-rail {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        height: 0 !important;
+        width: 0 !important;
+        z-index: -100 !important;
+        position: absolute !important;
+      }
+    }
+
+    /* ---- GRID VIEW FIXES ---- */
+    body #edx-cards-row:not(.list-view) .clean-course-card.card .card-footer-actions {
+      display: grid !important;
+      grid-template-columns: 3fr 1fr !important;
+      gap: 12px !important;
+      width: 100% !important;
+    }
+
+    body #edx-cards-row:not(.list-view) .clean-course-card.card .card-footer-actions .btn-visit,
+    body #edx-cards-row:not(.list-view) .clean-course-card.card .card-footer-actions a.btn {
+      grid-column: 1 !important;
+      background-color: #000000 !important;
+      color: #ffffff !important;
+      border-radius: 12px !important;
+      border: none !important;
+      width: 100% !important;
+      text-align: center !important;
+      justify-content: center !important;
+      align-items: center !important;
+      display: flex !important;
+      font-weight: 600 !important;
+      padding: 12px !important;
+      margin: 0 !important;
+      box-sizing: border-box !important;
+    }
+
+    body #edx-cards-row:not(.list-view) .clean-course-card.card .card-footer-actions .btn-save,
+    body #edx-cards-row:not(.list-view) .clean-course-card.card .card-footer-actions button.btn-save {
+      grid-column: 2 !important;
+      width: 100% !important;
+      height: 100% !important;
+      min-height: 44px !important;
+      border-radius: 12px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      margin: 0 !important;
+      box-sizing: border-box !important;
+    }
+
+    @media (max-width: 1024px) {
+      /* Hide the bottom save/heart button in grid view — top-right corner heart takes over */
+      body #edx-cards-row:not(.list-view) .clean-course-card.card .card-footer-actions .btn-save,
+      body #edx-cards-row:not(.list-view) .clean-course-card.card .card-footer-actions button.btn-save {
+        display: none !important;
+      }
+      
+      /* Make Visit Website button take full width now that heart is hidden */
+      body #edx-cards-row:not(.list-view) .clean-course-card.card .card-footer-actions {
+        display: flex !important;
+      }
+      body #edx-cards-row:not(.list-view) .clean-course-card.card .card-footer-actions .btn-visit,
+      body #edx-cards-row:not(.list-view) .clean-course-card.card .card-footer-actions a.btn {
+        flex: 1 1 auto !important;
+        width: 100% !important;
+      }
+    }
+
+    /* ---- HELP BUTTON & SCROLL RAIL FIXES ---- */
+
+    /* =====================================================
+   FIX DESKTOP/TABLET LIST VIEW HORIZONTAL SCROLL
+   ===================================================== */
+    @media (min-width: 1025px) {
+      body #edx-cards-row.list-view .clean-course-card.card .list-view-content {
+        grid-template-columns: 48px minmax(120px, 2fr) minmax(100px, 1fr) 70px 70px 140px !important;
+        gap: 12px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      body #edx-cards-row.list-view .clean-course-card.card {
+        box-sizing: border-box !important;
+      }
+
+      body #edx-cards-row.list-view .clean-course-card.card .list-col-course a.course-title {
+        word-break: break-word !important;
+        overflow-wrap: anywhere !important;
+        white-space: normal !important;
+      }
+    }
+
+    /* ---- HAMBURGER + MOBILE DRAWER FIX ---- */
+    @media (max-width: 1024px) {
+      /* Hamburger must always be on top and clickable */
+      body #navbar .hamburger,
+      body .nav-inner .hamburger,
+      body .hamburger {
+        display: block !important;
+        position: relative !important;
+        z-index: 9999999 !important;
+        cursor: pointer !important;
+        pointer-events: auto !important;
+      }
+      /* Drawer: uses .open class toggled by main.js */
+      body #mobile-nav-drawer {
+        z-index: 9999990 !important;
+      }
+      body #mobile-nav-drawer.open {
+        display: flex !important;
+        flex-direction: column !important;
+        position: fixed !important;
+        top: var(--navbar-h, 60px) !important;
+        left: 0 !important;
+        right: 0 !important;
+        background: var(--bg-surface, #ffffff) !important;
+        padding: 12px !important;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.25) !important;
+        border-bottom: 1px solid #e5e7eb !important;
+        height: auto !important;
+        overflow-y: auto !important;
+        max-height: calc(100vh - 60px) !important;
+        z-index: 9999990 !important;
+      }
+    }
+  
+    /* FORCE HEART ICON TO BE GRAY IN DARK MODE IF NOT SAVED */
+    [data-theme="dark"] .btn-save-floating:not(.saved),
+    [data-theme="dark"] .btn-save-floating:not(.saved) svg,
+    html[data-theme="dark"] body .btn-save-floating:not(.saved) svg {
+      color: #4b5563 !important;
+      stroke: #4b5563 !important;
+    }
+  </style>
 </head>
 
 <body>
@@ -77,7 +521,7 @@
         <li><a href="olympiad.html">Olympiad</a></li>
         <li><a href="phishnchip.html">The Phish &amp; Chip Show</a></li>
         <li><a href="slanglish.html">Slanglish</a></li>
-        <li><a href="course-catalog.html" class="active" aria-current="page">CourseKosh</a></li>
+        <li><a href="course-catalog.html" class="active" aria-current="page">CASY</a></li>
         <li><a href="resources.html">Resources</a></li>
         <li><a href="partner.html">Partner With Us</a></li>
       </ul>
@@ -129,10 +573,10 @@
             </select>
           </div>
 
-          <div class="nav-view-toggle" role="group" aria-label="View layout">
+          <div class="nav-view-toggle" role="group" aria-label="View layout" style="position: relative; z-index: 1000; pointer-events: auto;">
             <button type="button" id="view-grid" class="view-btn active" aria-label="Grid view" title="Grid view"
               aria-pressed="true"><svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2">
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="3" y="3" width="7" height="7" />
                 <rect x="14" y="3" width="7" height="7" />
                 <rect x="14" y="14" width="7" height="7" />
@@ -140,7 +584,7 @@
               </svg></button>
             <button type="button" id="view-list" class="view-btn" aria-label="List view" title="List view"
               aria-pressed="false"><svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2">
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="8" y1="6" x2="21" y2="6" />
                 <line x1="8" y1="12" x2="21" y2="12" />
                 <line x1="8" y1="18" x2="21" y2="18" />
@@ -150,9 +594,13 @@
               </svg></button>
           </div>
 
-          <button type="button" class="nav-bookmark-btn" id="navBookmarkBtn" aria-label="View saved courses" title="View saved courses" style="background:transparent; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; color:var(--text-3); padding:8px; border-radius:6px; transition:all 0.3s;">
+          <button type="button" class="nav-bookmark-btn" id="navBookmarkBtn" aria-label="View saved courses"
+            title="View saved courses"
+            style="background:transparent; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; color:var(--text-3); padding:8px; border-radius:6px; transition:all 0.3s;">
             <svg style="width:20px;height:20px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              <path
+                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+              </path>
             </svg>
           </button>
 
@@ -187,7 +635,26 @@
         </button>
         <a href="surakshak.html" class="nav-cta">Join the Movement</a>
       </div>
-      <button class="hamburger" id="hamburger">&#9776;</button>
+      <!-- Mobile-only controls: theme toggle + hamburger, stacked right-to-left -->
+      <div class="nav-mobile-controls">
+        <button id="themeToggleMobile" class="theme-toggle-btn" aria-label="Toggle theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5" />
+            <line x1="12" y1="1" x2="12" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="23" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="1" y1="12" x2="3" y2="12" />
+            <line x1="21" y1="12" x2="23" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+        </button>
+        <button class="hamburger" id="hamburger">&#9776;</button>
+      </div>
     </div>
     <div class="mobile-menu" id="mobile-nav-drawer" aria-hidden="true">
       <a href="index.html">Home</a>
@@ -196,7 +663,7 @@
       <a href="olympiad.html">Olympiad</a>
       <a href="phishnchip.html">The Phish &amp; Chip Show</a>
       <a href="slanglish.html">Slanglish</a>
-      <a href="course-catalog.html" class="active">CourseKosh</a>
+      <a href="course-catalog.html" class="active">CASY</a>
       <a href="resources.html">Resources</a>
       <a href="partner.html">Partner With Us</a>
       <a href="surakshak.html" class="mobile-cta">Join the Movement</a>
@@ -227,440 +694,74 @@
 
     <!-- NEW LANDING HERO -->
     <section class="landing-hero">
-      <div class="floating-elements">
-        <div class="glowing-orb"></div>
-        <div class="globe-placeholder"></div>
-      </div>
-      <span class="hero-tag">CourseKosh</span>
-      <h1>Your Cybersecurity Career Starts Here</h1>
-      <p>Not sure where to begin? We turn 3,700+ verified courses into a clear, personal pathway — whether youre a
-        student, switching careers, or leveling up in cybersecurity.</p>
-      <div class="hero-cta-row">
-        <button type="button" class="cta-button" onclick="openOnboarding(true)">Find my path →</button>
-        <a href="#all-courses-section" class="cta-button cta-secondary">Browse 3,700+ courses</a>
+      <span class="hero-tag">CASY</span>
+      <h1>Your Cybersecurity<br><span class="hero-h1-green">Career Starts Here</span></h1>
+      <p>Explore the world of cybersecurity education in one place.<br class="hero-br"> 
+Dive into thousands of courses, institutions, and career paths from  <br class="hero-br"> 
+across the globe. Your next big opportunity is just one discovery away!</p>
+      <div class="hero-cta-row" style="position:relative; z-index:100; margin-top:20px; display:flex; justify-content: center; gap:16px;">
+        <button class="cta-button" onclick="openOnboarding();" style="background:#0f172a; color:#fff; border:2px solid #0f172a; padding:12px 24px; border-radius:8px; cursor:pointer; font-weight:600; font-size:16px;">Find my path</button>
+        <button class="cta-button cta-secondary" onclick="jumpToCourses({ courseType: 'Free' });" style="background:transparent; color:#fff; border:2px solid #fff; padding:12px 24px; border-radius:8px; cursor:pointer; font-weight:600; font-size:16px;">Explore free courses</button>
       </div>
     </section>
 
-    <!-- WHO THIS IS FOR -->
-    <section class="persona-band" aria-label="Who this is for">
-      <div class="persona-card">
-        <div class="persona-icon">🎓</div>
-        <h3>Student / Fresher</h3>
-        <p>Build your foundation, explore domains, and pick the right degree or certificate to launch your cybersecurity
-          journey.</p>
+    <!-- INSTITUTE LOGO MARQUEE — after hero -->
+    <div class="institute-marquee-section" aria-label="Partner institutes">
+      <div class="marquee-track-wrapper">
+        
+        
+        <div class="marquee-track">
+          <div class="marquee-inner" id="marquee-inner">
+            <img src="assets/logos/Logos/IIT_Madras_Logo.svg" alt="IIT Madras" class="marquee-logo">
+            <img src="assets/logos/Logos/Indian_Institute_of_Technology_Bombay_Logo.svg" alt="IIT Bombay" class="marquee-logo">
+            <img src="assets/logos/Logos/Indian_Institute_of_Technology_Delhi_Logo.svg" alt="IIT Delhi" class="marquee-logo">
+            <img src="assets/logos/Logos/IIT_Kharagpur_Logo.svg" alt="IIT Kharagpur" class="marquee-logo">
+            <img src="assets/logos/Logos/IIT_Kanpur_Logo.svg" alt="IIT Kanpur" class="marquee-logo">
+            <img src="assets/logos/Logos/Harvard_University_logo.svg" alt="Harvard" class="marquee-logo">
+            <img src="assets/logos/Logos/MIT_2023_red_logo.svg" alt="MIT" class="marquee-logo">
+            <img src="assets/logos/Logos/Stanford_wordmark_(2012).svg" alt="Stanford" class="marquee-logo">
+            <img src="assets/logos/Logos/University_of_Cambridge_logo.svg" alt="Cambridge" class="marquee-logo">
+            <img src="assets/logos/Logos/University_of_Oxford.svg" alt="Oxford" class="marquee-logo">
+            <img src="assets/logos/Logos/Cornell_University_logo.svg" alt="Cornell" class="marquee-logo">
+            <img src="assets/logos/Logos/Columbia_University_1754.svg" alt="Columbia" class="marquee-logo">
+            <img src="assets/logos/Logos/Princeton_logo.svg" alt="Princeton" class="marquee-logo">
+            <img src="assets/logos/Logos/Yale_University_logo.svg" alt="Yale" class="marquee-logo">
+            <img src="assets/logos/Logos/NationalUniversityofSingapore.svg" alt="NUS" class="marquee-logo">
+            <img src="assets/logos/Logos/BITS_Pilani-Logo.svg" alt="BITS Pilani" class="marquee-logo">
+            <img src="assets/logos/Logos/IIT_Guwahati_Logo.svg" alt="IIT Guwahati" class="marquee-logo">
+            <img src="assets/logos/Logos/IIT_Hyderabad_Insignia.svg" alt="IIT Hyderabad" class="marquee-logo">
+            <!-- duplicate for seamless loop -->
+            <img src="assets/logos/Logos/IIT_Madras_Logo.svg" alt="IIT Madras" class="marquee-logo">
+            <img src="assets/logos/Logos/Indian_Institute_of_Technology_Bombay_Logo.svg" alt="IIT Bombay" class="marquee-logo">
+            <img src="assets/logos/Logos/Indian_Institute_of_Technology_Delhi_Logo.svg" alt="IIT Delhi" class="marquee-logo">
+            <img src="assets/logos/Logos/IIT_Kharagpur_Logo.svg" alt="IIT Kharagpur" class="marquee-logo">
+            <img src="assets/logos/Logos/IIT_Kanpur_Logo.svg" alt="IIT Kanpur" class="marquee-logo">
+            <img src="assets/logos/Logos/Harvard_University_logo.svg" alt="Harvard" class="marquee-logo">
+            <img src="assets/logos/Logos/MIT_2023_red_logo.svg" alt="MIT" class="marquee-logo">
+            <img src="assets/logos/Logos/Stanford_wordmark_(2012).svg" alt="Stanford" class="marquee-logo">
+            <img src="assets/logos/Logos/University_of_Cambridge_logo.svg" alt="Cambridge" class="marquee-logo">
+            <img src="assets/logos/Logos/University_of_Oxford.svg" alt="Oxford" class="marquee-logo">
+            <img src="assets/logos/Logos/Cornell_University_logo.svg" alt="Cornell" class="marquee-logo">
+            <img src="assets/logos/Logos/Columbia_University_1754.svg" alt="Columbia" class="marquee-logo">
+            <img src="assets/logos/Logos/Princeton_logo.svg" alt="Princeton" class="marquee-logo">
+            <img src="assets/logos/Logos/Yale_University_logo.svg" alt="Yale" class="marquee-logo">
+            <img src="assets/logos/Logos/NationalUniversityofSingapore.svg" alt="NUS" class="marquee-logo">
+            <img src="assets/logos/Logos/BITS_Pilani-Logo.svg" alt="BITS Pilani" class="marquee-logo">
+            <img src="assets/logos/Logos/IIT_Guwahati_Logo.svg" alt="IIT Guwahati" class="marquee-logo">
+            <img src="assets/logos/Logos/IIT_Hyderabad_Insignia.svg" alt="IIT Hyderabad" class="marquee-logo">
+          </div>
+        </div>
       </div>
-      <div class="persona-card">
-        <div class="persona-icon">🔄</div>
-        <h3>Career Switcher</h3>
-        <p>Map your existing skills to a cybersecurity role and fast-track with targeted, job-ready courses.</p>
-      </div>
-      <div class="persona-card">
-        <div class="persona-icon">🚀</div>
-        <h3>Working Professional</h3>
-        <p>Upskill in a specialization, earn a certification, and advance your current role with verified programs.</p>
-      </div>
-    </section>
+    </div>
 
-    <!-- NEW STATS GRID -->
-    <section class="landing-stats-grid">
-      <div class="landing-glass-card">
-        <div class="landing-stat-number" data-count="3700">3,700+</div>
-        <div class="landing-stat-label">Courses Matched to Real Job Skills</div>
-        <div class="landing-stat-desc">Every program is verified and mapped to the skills employers actually ask for —
-          not just random listings.</div>
-      </div>
-      <div class="landing-glass-card">
-        <div class="landing-stat-number" data-count="45">45</div>
-        <div class="landing-stat-label">Global Opportunities, Localized for You</div>
-        <div class="landing-stat-desc">Explore education from 45 countries and find programs that fit your location,
-          budget, and career goals.</div>
-      </div>
-      <div class="landing-glass-card">
-        <div class="landing-stat-number">IITs</div>
-        <div class="landing-stat-label">Elite, Affordable Credentials</div>
-        <div class="landing-stat-desc">Access high-value degrees and certifications from IITs, IIITs, NITs, and top
-          global universities.</div>
-      </div>
-    </section>
+
+
+    
 
     <!-- HOW IT WORKS — Storytelling journey -->
-    <section class="how-it-works-section">
-      <div class="how-it-works-header">
-        <span class="section-tag">Your pathway</span>
-        <h2>From curiosity to cybersecurity career in four steps</h2>
-        <p>This isnt just a course list. Its a guided journey to help you understand where you fit, what to learn, and
-          how to get hired or promoted in cybersecurity.</p>
-      </div>
-      <div class="journey-steps">
-        <div class="journey-step">
-          <div class="step-number">01</div>
-          <div class="step-icon">🌍</div>
-          <h3>Discover the landscape</h3>
-          <p>Explore 3,700+ verified courses across 45 countries and see the full range of where a cybersecurity career
-            can take you.</p>
-        </div>
-        <div class="journey-step">
-          <div class="step-number">02</div>
-          <div class="step-icon">🎯</div>
-          <h3>Pick your direction</h3>
-          <p>Use the domain explorer and career matcher to choose a specialization that fits your background and
-            ambition.</p>
-        </div>
-        <div class="journey-step">
-          <div class="step-number">03</div>
-          <div class="step-icon">🎓</div>
-          <h3>Get matched to courses</h3>
-          <p>Answer three quick questions and we’ll filter the catalog to show only the programs that move you toward
-            your goal.</p>
-        </div>
-        <div class="journey-step">
-          <div class="step-number">04</div>
-          <div class="step-icon">🚀</div>
-          <h3>Launch your career</h3>
-          <p>Compare favorites, save courses, and visit official university pages to enroll — with confidence in your
-            choice.</p>
-        </div>
-      </div>
-      <div class="journey-cta">
-        <button type="button" class="cta-button" onclick="openOnboarding(true)">Take the 30-sec career matcher
-          →</button>
-        <p class="journey-hint">Or scroll down to explore domains, the globe, and all courses right away.</p>
-      </div>
-    </section>
+    
 
-    <!-- DOMAIN EXPLORER — two-column teaser with interactive domain folder -->
-    <section class="domain-explorer-section" id="domain-explorer-placeholder" aria-label="Domain Explorer">
-      <div class="domain-explorer-grid">
-        <div class="domain-explorer-text">
-          <span class="eyebrow">🌐 Domain Explorer</span>
-          <h2>Which cybersecurity path is right for you?</h2>
-          <p>Cybersecurity has many career doors. Open the folder to explore six core domains, see the skills and job
-            roles behind each one, and jump straight into matching courses.</p>
-          <button type="button" class="cta-button" onclick="openOnboarding(true)">Find my path →</button>
-        </div>
-
-        <div class="domain-explorer-visual" id="domain-explorer-visual">
-          <label class="folder-card" aria-label="Open cybersecurity domain folder">
-            <input type="checkbox" class="folder-toggle" />
-
-            <div class="hint-wrapper">
-              <span class="hint-text">Click to open</span>
-              <svg class="hint-arrow" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M 35 5 C 35 5, 15 5, 10 25 M 10 25 L 3 18 M 10 25 L 18 22" stroke="#60a5fa" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>
-            </div>
-
-            <div class="folder-container">
-              <svg class="folder-back" viewBox="0 0 50 40" fill="none">
-                <path
-                  d="M0 4C0 1.79086 1.79086 0 4 0H16.524C17.721 0 18.8415 0.54051 19.574 1.4673L22.426 5.0654C23.1585 5.99219 24.279 6.5327 25.476 6.5327H46C48.2091 6.5327 50 8.32356 50 10.5327V36C50 38.2091 48.2091 40 46 40H4C1.79086 40 0 38.2091 0 36V4Z"
-                  fill="#0056b3"></path>
-              </svg>
-
-              <div class="folder-search">
-                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-                <input type="text" placeholder="Search domains..." class="search-input" />
-              </div>
-
-              <!-- The 3 domain files (Preview) -->
-              <div class="file file-3" data-domain="System & Endpoint">
-                <div class="shine"></div>
-                <div class="file-icon-text">💻</div>
-                <div class="file-text">Endpoint</div>
-                <div class="file-tag">Explore Domain</div>
-              </div>
-
-              <div class="file file-2" data-domain="Network Infrastructure">
-                <div class="shine"></div>
-                <div class="file-icon-text">🌐</div>
-                <div class="file-text">Network</div>
-                <div class="file-tag">Explore Domain</div>
-              </div>
-
-              <div class="file file-1" data-domain="Foundational">
-                <div class="shine"></div>
-                <div class="file-icon-text">🧱</div>
-                <div class="file-text">Foundational</div>
-                <div class="file-tag">Explore Domain</div>
-              </div>
-
-              <div class="folder-front-wrapper">
-                <svg class="folder-front" viewBox="0 0 50 34" fill="none">
-                  <path
-                    d="M0 4C0 1.79086 1.79086 0 4 0H46C48.2091 0 50 1.79086 50 4V30C50 32.2091 48.2091 34 46 34H4C1.79086 34 0 32.2091 0 30V4Z"
-                    fill="rgba(0, 123, 255, 0.65)"></path>
-                </svg>
-                <div class="folder-label"></div>
-                <div class="counter">
-                  <div class="status-dot"></div>
-                  <span class="counter-label">DOMAINS</span>
-                  <span class="counter-number">06</span>
-                </div>
-              </div>
-            </div>
-          </label>
-        </div>
-      </div>
-
-      <!-- EXPANDED DOMAIN VIEW (Hidden by default) -->
-      <div id="expanded-domain-view"
-        style="display: none; width: 100%; opacity: 0; transition: opacity 0.4s ease; flex-direction: column;">
-        <button id="close-expanded-view"
-          style="align-self: flex-start; padding: 10px 20px; border-radius: 999px; background: var(--bg-card); border: 1px solid var(--border-2); color: var(--text-primary); cursor: pointer; margin-bottom: 20px; font-weight: 600; display: flex; align-items: center; gap: 8px;">
-          <i class="fa-solid fa-arrow-left"></i> Back to Folder
-        </button>
-        <div class="domain-scroll-hint" aria-label="Domain slider controls">
-          <button type="button" class="domain-scroll-arrow" id="domain-scroll-left"
-            aria-label="Previous domain"></button>
-          <span class="domain-scroll-text">Scroll to explore all domains</span>
-          <button type="button" class="domain-scroll-arrow" id="domain-scroll-right" aria-label="Next domain"></button>
-        </div>
-        <div id="expanded-content-area"
-          style="display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 24px; scroll-behavior: smooth; padding: 4px 4px 16px; width: 100%; max-width: 100%; -webkit-overflow-scrolling: touch; scrollbar-width: none;">
-          <!-- Content injected here by JS -->
-        </div>
-      </div>
-
-      <!-- DOMAIN TEMPLATES -->
-      <div id="domain-templates" style="display: none;">
-        <div class="domain-detail-template" data-domain="Foundational" data-color="#14b8a6"
-          style="background: #14b8a6; color: white;">
-          <h3
-            style="font-family: var(--font-display); font-size: 28px; margin-bottom: 12px; display: flex; align-items: center; gap: 12px; color: white;">
-            <img class="domain-logo" src="assets/Domain%20logos/Foundational.png" alt="Foundational" /> Foundational
-          </h3>
-          <p style="font-size: 16px; color: rgba(255, 255, 255, 0.9); margin-bottom: 24px; max-width: 800px;">Core
-            concepts every cybersecurity learner needs — from threat basics to risk frameworks and governance.</p>
-          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;">
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Cybersecurity
-              Basics</span>
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Risk
-              Management</span>
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Threat
-              Landscape</span>
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Security
-              Frameworks</span>
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Security
-              Governance</span>
-          </div>
-          <div style="font-size: 14px; color: rgba(255, 255, 255, 0.85); line-height: 1.8; margin-bottom: 32px;">
-            <div><strong style="color: white; font-weight: 700;">Skills:</strong> Risk Assessment, Policy Writing,
-              NIST/ISO 27001, Security Awareness, Asset Management</div>
-            <div><strong style="color: white; font-weight: 700;">Roles:</strong> Security Analyst, GRC Analyst, IT
-              Auditor, Risk Manager</div>
-            <div><strong style="color: white; font-weight: 700;">Course types:</strong> Certificate, Free to Audit,
-              Bachelor's Degree</div>
-          </div>
-          <a href="#all-courses-section" class="btn domain-explore-btn" data-domain="Foundational"
-            style="background: white; color: #14b8a6; padding: 12px 24px; border-radius: 999px; text-decoration: none; font-weight: 800; border: none; font-size: 14px; align-self: flex-start; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">Explore
-            Foundational courses →</a>
-        </div>
-
-        <div class="domain-detail-template" data-domain="Network Infrastructure" data-color="#6366f1"
-          style="background: #6366f1; color: white;">
-          <h3
-            style="font-family: var(--font-display); font-size: 28px; margin-bottom: 12px; display: flex; align-items: center; gap: 12px; color: white;">
-            <img class="domain-logo" src="assets/Domain%20logos/Network%20%26%20Infrastructure.jpg.jpeg"
-              alt="Network Infrastructure" /> Network Infrastructure
-          </h3>
-          <p style="font-size: 16px; color: rgba(255, 255, 255, 0.9); margin-bottom: 24px; max-width: 800px;">Protect
-            the arteries of digital infrastructure — firewalls, IDS/IPS, cloud networks, and zero-trust architecture.
-          </p>
-          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;">
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Network
-              Security</span>
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Firewalls
-              & VPN</span>
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">IDS/IPS</span>
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Cloud
-              Security</span>
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Zero
-              Trust</span>
-          </div>
-          <div style="font-size: 14px; color: rgba(255, 255, 255, 0.85); line-height: 1.8; margin-bottom: 32px;">
-            <div><strong style="color: white; font-weight: 700;">Skills:</strong> Packet Analysis, Firewall Rules, SDN
-              Security, VPC Design, Network Segmentation</div>
-            <div><strong style="color: white; font-weight: 700;">Roles:</strong> Network Security Engineer, Cloud
-              Security Architect, SOC Analyst, Infrastructure Engineer</div>
-            <div><strong style="color: white; font-weight: 700;">Course types:</strong> Certificate, Diploma, Master's
-              Degree</div>
-          </div>
-          <a href="#all-courses-section" class="btn domain-explore-btn" data-domain="Network Infrastructure"
-            style="background: white; color: #6366f1; padding: 12px 24px; border-radius: 999px; text-decoration: none; font-weight: 800; border: none; font-size: 14px; align-self: flex-start; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">Explore
-            Network courses →</a>
-        </div>
-
-        <div class="domain-detail-template" data-domain="System & Endpoint" data-color="#06b6d4"
-          style="background: #06b6d4; color: white;">
-          <h3
-            style="font-family: var(--font-display); font-size: 28px; margin-bottom: 12px; display: flex; align-items: center; gap: 12px; color: white;">
-            <img class="domain-logo" src="assets/Domain%20logos/System%20and%20Endpoint.png" alt="System & Endpoint" />
-            System & Endpoint
-          </h3>
-          <p style="font-size: 16px; color: rgba(255, 255, 255, 0.9); margin-bottom: 24px; max-width: 800px;">Harden
-            endpoints, operating systems, and mobile devices against malware, misconfiguration, and lateral movement.
-          </p>
-          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;">
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Endpoint
-              Security</span>
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">OS
-              Hardening</span>
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Mobile
-              Security</span>
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Patch
-              Management</span>
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Malware
-              Defense</span>
-          </div>
-          <div style="font-size: 14px; color: rgba(255, 255, 255, 0.85); line-height: 1.8; margin-bottom: 32px;">
-            <div><strong style="color: white; font-weight: 700;">Skills:</strong> EDR/XDR, OS Internals, Threat Hunting,
-              Vulnerability Management, Incident Triage</div>
-            <div><strong style="color: white; font-weight: 700;">Roles:</strong> Endpoint Security Engineer, SOC
-              Analyst, Threat Hunter, System Administrator</div>
-            <div><strong style="color: white; font-weight: 700;">Course types:</strong> Certificate, Diploma, Post
-              Graduate Diploma</div>
-          </div>
-          <a href="#all-courses-section" class="btn domain-explore-btn" data-domain="System & Endpoint"
-            style="background: white; color: #06b6d4; padding: 12px 24px; border-radius: 999px; text-decoration: none; font-weight: 800; border: none; font-size: 14px; align-self: flex-start; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">Explore
-            Endpoint courses →</a>
-        </div>
-
-        <div class="domain-detail-template" data-domain="Cyber Forensics" data-color="#8b5cf6"
-          style="background: #8b5cf6; color: white;">
-          <h3
-            style="font-family: var(--font-display); font-size: 28px; margin-bottom: 12px; display: flex; align-items: center; gap: 12px; color: white;">
-            <img class="domain-logo" src="assets/Domain%20logos/Cyber%20Forensics%20%26%20Investigation.jpg.jpeg"
-              alt="Cyber Forensics" /> Cyber Forensics
-          </h3>
-          <p style="font-size: 16px; color: rgba(255, 255, 255, 0.9); margin-bottom: 24px; max-width: 800px;">
-            Investigate breaches, recover digital evidence, and reconstruct attacks using forensic tools and
-            incident-response playbooks.</p>
-          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;">
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Digital
-              Forensics</span>
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Incident
-              Response</span>
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Reverse
-              Engineering</span>
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">eDiscovery</span>
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Threat
-              Intelligence</span>
-          </div>
-          <div style="font-size: 14px; color: rgba(255, 255, 255, 0.85); line-height: 1.8; margin-bottom: 32px;">
-            <div><strong style="color: white; font-weight: 700;">Skills:</strong> Disk Imaging, Memory Forensics, Kill
-              Chain Analysis, Chain of Custody, IOC Triage</div>
-            <div><strong style="color: white; font-weight: 700;">Roles:</strong> Digital Forensics Specialist, Incident
-              Responder, Malware Analyst, Threat Intel Analyst</div>
-            <div><strong style="color: white; font-weight: 700;">Course types:</strong> Certificate, Post Graduate
-              Certificate, Master's Degree</div>
-          </div>
-          <a href="#all-courses-section" class="btn domain-explore-btn" data-domain="Cyber Forensics"
-            style="background: white; color: #8b5cf6; padding: 12px 24px; border-radius: 999px; text-decoration: none; font-weight: 800; border: none; font-size: 14px; align-self: flex-start; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">Explore
-            Forensics courses →</a>
-        </div>
-
-        <div class="domain-detail-template" data-domain="Data & Application" data-color="#f43f5e"
-          style="background: #f43f5e; color: white;">
-          <h3
-            style="font-family: var(--font-display); font-size: 28px; margin-bottom: 12px; display: flex; align-items: center; gap: 12px; color: white;">
-            <img class="domain-logo" src="assets/Domain%20logos/Appilcation%20%26%20Data.png"
-              alt="Data & Application" /> Data & Application
-          </h3>
-          <p style="font-size: 16px; color: rgba(255, 255, 255, 0.9); margin-bottom: 24px; max-width: 800px;">Secure
-            code, databases, cryptography, and data privacy to protect the applications and information that power
-            organizations.</p>
-          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;">
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Application
-              Security</span>
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Data
-              Privacy</span>
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Cryptography</span>
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Database
-              Security</span>
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">DevSecOps</span>
-          </div>
-          <div style="font-size: 14px; color: rgba(255, 255, 255, 0.85); line-height: 1.8; margin-bottom: 32px;">
-            <div><strong style="color: white; font-weight: 700;">Skills:</strong> Secure Coding, OWASP Top 10,
-              Encryption, Privacy by Design, CI/CD Security</div>
-            <div><strong style="color: white; font-weight: 700;">Roles:</strong> Application Security Engineer, Data
-              Privacy Officer, DevSecOps Engineer, Cryptographer</div>
-            <div><strong style="color: white; font-weight: 700;">Course types:</strong> Certificate, Post Graduate
-              Diploma, Master's Degree</div>
-          </div>
-          <a href="#all-courses-section" class="btn domain-explore-btn" data-domain="Data & Application"
-            style="background: white; color: #f43f5e; padding: 12px 24px; border-radius: 999px; text-decoration: none; font-weight: 800; border: none; font-size: 14px; align-self: flex-start; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">Explore
-            Data & App courses →</a>
-        </div>
-
-        <div class="domain-detail-template" data-domain="Legal & Ethical" data-color="#f59e0b"
-          style="background: #f59e0b; color: white;">
-          <h3
-            style="font-family: var(--font-display); font-size: 28px; margin-bottom: 12px; display: flex; align-items: center; gap: 12px; color: white;">
-            <img class="domain-logo" src="assets/Domain%20logos/Legal,%20Ethical%20and%20Strategic.jpg.jpeg"
-              alt="Legal & Ethical" /> Legal & Ethical
-          </h3>
-          <p style="font-size: 16px; color: rgba(255, 255, 255, 0.9); margin-bottom: 24px; max-width: 800px;">Navigate
-            cyber law, ethics, compliance, and reporting obligations across jurisdictions and industries.</p>
-          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;">
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Cyber
-              Law</span>
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Ethics
-              & Professionalism</span>
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Regulatory
-              Compliance</span>
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Incident
-              Reporting</span>
-            <span class="expanded-tag"
-              style="background: rgba(255,255,255,0.2); color: white; border: none; font-size: 11px; padding: 4px 10px;">Digital
-              Rights</span>
-          </div>
-          <div style="font-size: 14px; color: rgba(255, 255, 255, 0.85); line-height: 1.8; margin-bottom: 32px;">
-            <div><strong style="color: white; font-weight: 700;">Skills:</strong> Legal Research, Compliance Mapping,
-              Incident Disclosure, Ethical Hacking Ethics, GDPR/CCPA</div>
-            <div><strong style="color: white; font-weight: 700;">Roles:</strong> Cybersecurity Lawyer, Compliance
-              Manager, Ethics Officer, Policy Advisor</div>
-            <div><strong style="color: white; font-weight: 700;">Course types:</strong> Certificate, Diploma, Free to
-              Audit</div>
-          </div>
-          <a href="#all-courses-section" class="btn domain-explore-btn" data-domain="Legal & Ethical"
-            style="background: white; color: #f59e0b; padding: 12px 24px; border-radius: 999px; text-decoration: none; font-weight: 800; border: none; font-size: 14px; align-self: flex-start; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">Explore
-            Legal & Ethical courses →</a>
-        </div>
-      </div>
-    </section>
+    
 
     <section class="catalog-section alt">
       <div class="catalog-app">
@@ -673,25 +774,6 @@
           <!--  DASHBOARD TAB  -->
 
 
-          <!-- Dashboard welcome banner -->
-          <div class="dash-welcome-banner" id="dash-welcome-banner" role="status" aria-live="polite">
-            <div class="dash-welcome-content">
-              <div class="dash-welcome-text">
-                <strong>👋 Welcome to CourseKosh</strong>
-                Explore 3,700+ verified cybersecurity courses from 45 countries. Spin the globe to pick a country, click
-                any metric card, or head to <strong>All Courses</strong> to search, sort, and save favorites.
-              </div>
-              <div class="dash-welcome-actions">
-                <button class="dash-welcome-tour" id="dash-welcome-tour" aria-describedby="welcome-hint"> Start quick
-                  tour</button>
-                <span id="welcome-hint" class="vh">Answer three quick questions and we'll filter the catalog for
-                  you.</span>
-                <button class="dash-welcome-close" id="dash-welcome-close"
-                  aria-label="Dismiss welcome message"></button>
-              </div>
-            </div>
-          </div>
-
           <div class="dash-layout" id="dashboard-section">
 
             <!--  LEFT SIDEBAR  -->
@@ -700,7 +782,7 @@
               <!-- Total Courses Card -->
               <div class="glass-card metric-card dash-total-card clickable is-default-selected" data-filter-all="true"
                 role="button" tabindex="0" title="Browse all courses" aria-pressed="true">
-                <div class="metric-card-title">CourseKosh Total</div>
+                <div class="metric-card-title">Total Courses</div>
                 <div class="metric-value" id="total-count">0</div>
                 <div class="dash-total-delta" id="total-delta">All countries — full collection</div>
               </div>
@@ -920,7 +1002,7 @@
                   <h2 class="edx-title" id="edx-section-title">All Courses</h2>
                 </div>
                 <p class="edx-subtitle" id="edx-section-subtitle">Explore <strong id="hero-course-count">0</strong>
-                  verified cybersecurity courses from top universities and institutions.</p>
+                  cybersecurity courses from top universities and institutions.</p>
               </div>
             </div>
 
@@ -1029,29 +1111,6 @@
                             <polygon
                               points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                           </svg> High Value Low Cost <span class="filter-count">0</span></button>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="filter-accordion">
-                    <button type="button" class="accordion-trigger" aria-expanded="true">Topic</button>
-                    <div class="accordion-panel">
-                      <div class="pill-group domain-chips-scroll" id="domain-chips-scroll" role="group"
-                        aria-label="Filter by topic domain">
-                        <button type="button" class="domain-chip active" data-domain="all" aria-pressed="true">Featured
-                          <span class="filter-count">0</span></button>
-                        <button type="button" class="domain-chip" data-domain="foundational"
-                          aria-pressed="false">Foundational <span class="filter-count">0</span></button>
-                        <button type="button" class="domain-chip" data-domain="network-infra"
-                          aria-pressed="false">Networks <span class="filter-count">0</span></button>
-                        <button type="button" class="domain-chip" data-domain="system-endpoint"
-                          aria-pressed="false">Systems <span class="filter-count">0</span></button>
-                        <button type="button" class="domain-chip" data-domain="forensics-ir"
-                          aria-pressed="false">Forensics <span class="filter-count">0</span></button>
-                        <button type="button" class="domain-chip" data-domain="data-app-security"
-                          aria-pressed="false">Data & App <span class="filter-count">0</span></button>
-                        <button type="button" class="domain-chip" data-domain="legal-compliance"
-                          aria-pressed="false">Legal <span class="filter-count">0</span></button>
                       </div>
                     </div>
                   </div>
@@ -1196,7 +1255,7 @@
       <!-- Persistent help / restart tour -->
       <button class="catalog-help-btn" id="catalog-help-btn" aria-label="Restart catalog tour"
         title="Restart catalog tour">
-        <span aria-hidden="true"></span>
+        <span aria-hidden="true" style="font-family: sans-serif; font-weight: bold; font-size: 22px;">?</span>
         <span class="help-label">Help</span>
       </button>
 
@@ -1244,7 +1303,7 @@
             <a href="slanglish.html">Slanglish</a>
           </div>
           <div class="footer-col">
-            <h5>CourseKosh</h5>
+            <h5>CASY</h5>
             <a href="#dashboard-section">Dashboard</a>
             <a href="#all-courses-section">All Courses</a>
             <a href="resources.html">Resources</a>
@@ -1289,7 +1348,7 @@
         <!-- Step 1: Experience -->
         <div class="onboarding-step active" data-step="1">
           <div class="onboarding-step-header">
-            <span class="onboarding-step-label">Step 1 of 3</span>
+            <span class="onboarding-step-label">Step 1 of 2</span>
             <span class="onboarding-step-hint">We use this to recommend the right difficulty.</span>
           </div>
           <div class="onboarding-question">Where are you in your cybersecurity journey?</div>
@@ -1306,45 +1365,20 @@
         <!-- Step 2: Domain -->
         <div class="onboarding-step" data-step="2">
           <div class="onboarding-step-header">
-            <span class="onboarding-step-label">Step 2 of 3</span>
-            <span class="onboarding-step-hint">Pick the career direction that excites you most.</span>
-          </div>
-          <div class="onboarding-question">Which cybersecurity career direction interests you most?</div>
-          <div class="onboarding-options onboarding-grid">
-            <button class="onboarding-option" data-domain="Foundational" data-answer="foundational"> Foundations &
-              Risk</button>
-            <button class="onboarding-option" data-domain="Network Infrastructure" data-answer="network"> Networks &
-              Cloud</button>
-            <button class="onboarding-option" data-domain="System & Endpoint" data-answer="endpoint"> Endpoints &
-              OS</button>
-            <button class="onboarding-option" data-domain="Cyber Forensics" data-answer="forensics"> Forensics &
-              IR</button>
-            <button class="onboarding-option" data-domain="Data & Application" data-answer="data"> AppSec & Data
-              Privacy</button>
-            <button class="onboarding-option" data-domain="Legal & Ethical" data-answer="legal"> Cyber Law &
-              Compliance</button>
-          </div>
-        </div>
-
-        <!-- Step 3: Goal -->
-        <div class="onboarding-step" data-step="3">
-          <div class="onboarding-step-header">
-            <span class="onboarding-step-label">Step 3 of 3</span>
+            <span class="onboarding-step-label">Step 2 of 2</span>
             <span class="onboarding-step-hint">This helps us surface the right course format.</span>
           </div>
           <div class="onboarding-question">What do you want to achieve next?</div>
           <div class="onboarding-options onboarding-grid">
-            <button class="onboarding-option" data-goal="career" data-answer="career"> Switch or grow my cybersecurity
-              career</button>
-            <button class="onboarding-option" data-goal="upskill" data-answer="upskill"> Upskill in a specific topic
-              quickly</button>
-            <button class="onboarding-option" data-goal="degree" data-answer="degree"> Earn a degree or diploma</button>
-            <button class="onboarding-option" data-goal="cert" data-answer="cert"> Prepare for a certification</button>
+            <button class="onboarding-option" data-goal="Certificate" data-answer="cert"> 1. Prepare for a Certification</button>
+            <button class="onboarding-option" data-goal="Diploma" data-answer="diploma"> 2. Earn a diploma degree</button>
+            <button class="onboarding-option" data-goal="Bachelor's Degree" data-answer="bachelors"> 3. Want to Earn a Bachelors Degree</button>
+            <button class="onboarding-option" data-goal="Master's Degree" data-answer="masters"> 4. Fine tune your skills by pursuing a masters degree</button>
           </div>
         </div>
 
         <!-- Result -->
-        <div class="onboarding-step" data-step="4">
+        <div class="onboarding-step" data-step="3">
           <div class="onboarding-step-header">
             <span class="onboarding-step-label">Ready</span>
           </div>
@@ -1364,8 +1398,8 @@
         <div class="onboarding-dots" aria-label="Onboarding progress">
           <span class="dot active" data-step="1"></span>
           <span class="dot" data-step="2"></span>
+          <span class="dot" data-step="2"></span>
           <span class="dot" data-step="3"></span>
-          <span class="dot" data-step="4"></span>
         </div>
         <div class="onboarding-actions">
           <button class="modal-btn secondary" id="onboarding-back" disabled>Back</button>
@@ -1435,10 +1469,66 @@
   </div>
 
   <!-- course verifier app logic -->
-  <script src="assets/app.js?v=1786639954660" charset="UTF-8" defer></script>
+  <script src="assets/app.js?v=555555555" charset="UTF-8" defer></script>
 
   <!-- hashtag-v2 shared behavior (nav scroll, hamburger, cursor glow) -->
   <script src="main.js?v=1786623835678"></script>
+
+  <!-- GUARANTEED hamburger + mobile theme toggle wiring -->
+  <script>
+    (function() {
+      function initNav() {
+        var hamburger = document.getElementById('hamburger');
+        var drawer = document.getElementById('mobile-nav-drawer');
+
+        // Hamburger: bind only if not already bound
+        if (hamburger && drawer && !hamburger._navBound) {
+          hamburger._navBound = true;
+          hamburger.addEventListener('click', function(e) {
+            e.stopPropagation();
+            var isOpen = drawer.classList.toggle('open');
+            hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            drawer.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+          });
+          // Close on link click
+          drawer.querySelectorAll('a').forEach(function(a) {
+            a.addEventListener('click', function() {
+              drawer.classList.remove('open');
+              hamburger.setAttribute('aria-expanded', 'false');
+              drawer.setAttribute('aria-hidden', 'true');
+            });
+          });
+          // Close on Escape
+          document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && drawer.classList.contains('open')) {
+              drawer.classList.remove('open');
+              hamburger.setAttribute('aria-expanded', 'false');
+              drawer.setAttribute('aria-hidden', 'true');
+              hamburger.focus();
+            }
+          });
+        }
+
+        // Mobile theme toggle button wiring
+        var mobileTheme = document.getElementById('themeToggleMobile');
+        var desktopTheme = document.getElementById('themeToggle');
+        if (mobileTheme && !mobileTheme._themeBound) {
+          mobileTheme._themeBound = true;
+          mobileTheme.addEventListener('click', function() {
+            // Trigger the same logic as the desktop toggle
+            if (desktopTheme) desktopTheme.click();
+          });
+        }
+      }
+
+      // Run immediately and also on DOMContentLoaded
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initNav);
+      } else {
+        initNav();
+      }
+    })();
+  </script>
 
   <!-- INTERACTIVE DOMAIN FOLDER -->
   <script defer>
@@ -1830,6 +1920,43 @@
 
       // Initial state (handles mid-page reloads)
       requestScroll();
+    })();
+  </script>
+
+  <script>
+    /* ── Explore Free Courses ──────────────────────────────── */
+    function exploreFree() {
+      // Scroll to the catalog section
+      const target = document.getElementById('all-courses-section') || document.querySelector('.catalog-section');
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // After scroll settles, click the Free filter row
+      setTimeout(function () {
+        const freeRow = document.querySelector('[data-filter-type="Free"]');
+        if (freeRow) {
+          freeRow.click();
+          freeRow.focus();
+        }
+      }, 700);
+    }
+
+    /* ── Institute Logo Marquee ────────────────────────────── */
+    (function () {
+      const inner = document.getElementById('marquee-inner');
+      if (!inner) return;
+      let pos = 0;
+      let raf;
+      const speed = 0.5; // px per frame
+      function step() {
+        pos -= speed;
+        const half = inner.scrollWidth / 2;
+        if (Math.abs(pos) >= half) pos = 0;
+        inner.style.transform = 'translateX(' + pos + 'px)';
+        raf = requestAnimationFrame(step);
+      }
+      // Pause on hover
+      inner.parentElement.addEventListener('mouseenter', () => cancelAnimationFrame(raf));
+      inner.parentElement.addEventListener('mouseleave', () => { raf = requestAnimationFrame(step); });
+      raf = requestAnimationFrame(step);
     })();
   </script>
 </body>
