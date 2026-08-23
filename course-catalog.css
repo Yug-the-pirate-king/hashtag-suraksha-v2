@@ -1857,6 +1857,7 @@ img {
 
 [data-theme="light"] .nav {
   background: rgba(255, 255, 255, 0.92) !important;
+    color: #4b5563 !important;
   border-bottom: 1px solid #E2E8F0 !important;
 }
 
@@ -20801,6 +20802,19 @@ textarea,
     gap: 14px;
   }
 
+  /* Stats grid */
+.landing-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 100%;
+  margin: 0;
+  padding: 40px 14px 40px;
+  position: relative;
+  z-index: 10;
+  background: var(--landing-bg);
+}
+
   .country-detail-panel {
     padding: 16px;
     max-height: 85vh;
@@ -21160,7 +21174,7 @@ body {
 
 /* â”€â”€ 6. tab-content always visible on catalog page â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .tab-content {
-  display: block !important;
+  /* display: block !important; */
 }
 
 /* â”€â”€ 7. All Courses section scroll anchor â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
@@ -21518,6 +21532,18 @@ a:focus-visible,
   box-shadow: var(--shadow-lg);
 }
 
+.landing-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 100%;
+  margin: 0;
+  padding: 80px max(32px, calc((100% - 1100px) / 2)) 90px;
+  position: relative;
+  z-index: 10;
+  background: var(--landing-bg);
+}
+
 /* Sort dropdown icon refresh */
 .courses-sort {
   position: relative;
@@ -21743,6 +21769,11 @@ a:focus-visible,
   transform: translateY(-4px);
   border-color: var(--border-2);
   box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45), 0 0 24px var(--teal-glow);
+}
+
+[data-theme="light"] .landing-hero .cta-button.cta-secondary {
+  color: #121212 !important;
+  border-color: rgba(0, 0, 0, 0.2) !important;
 }
 
 .clean-course-card:focus-visible {
@@ -22298,7 +22329,21 @@ a:focus-visible,
 }
 
 [data-theme="light"] .courses-page-size select {
-  background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%2300891B2' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%2300891B' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  border-color: #e5e7eb;
+}
+
+/* Stats grid */
+.landing-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 100%;
+  margin: 0;
+  padding: 80px max(32px, calc((100% - 1100px) / 2)) 90px;
+  position: relative;
+  z-index: 10;
+  background: var(--landing-bg);
 }
 
 /* Reduced motion */
@@ -22526,12 +22571,23 @@ a:focus-visible,
   background: linear-gradient(180deg, var(--bg-card), rgba(245, 158, 11, 0.08));
 }
 
-/* Access type pills reuse .type-pill styling */
-.access-type-pills .type-pill.active {
-  background: var(--teal-bg);
-  color: var(--teal-400);
+#edx-cards-row .clean-course-card .card-banner.no-image,
+#edx-cards-row .clean-course-card.card .card-banner.no-image {
+  background-image:
+    radial-gradient(circle at 22px 22px, color-mix(in srgb, var(--cv-indigo) 18%, transparent) 0, transparent 55%),
+    repeating-linear-gradient(135deg, color-mix(in srgb, var(--cv-ink) 4%, transparent) 0 2px, transparent 2px 14px) !important;
+}
+
+/* Access type pills reuse [data-theme="light"] .landing-hero .cta-button.cta-secondary {
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
+[data-theme="light"] .landing-hero .cta-button.cta-secondary:hover {
+  color: var(--landing-accent-green) !important;
+  border-color: var(--landing-accent-green) !important;
+}ar(--teal-400);
+  background: rgba(34, 211, 238, 0.12);
   border-color: var(--teal-500);
-  box-shadow: 0 4px 14px var(--teal-glow);
 }
 
 /* Active filter chip for access type */
@@ -22769,7 +22825,7 @@ a:focus-visible,
 }
 
 [data-theme="light"] .country-filter-select {
-  background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%2300891B2' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%2300891B' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
 }
 
 .country-filter-select:focus {
@@ -23034,10 +23090,20 @@ a:focus-visible,
   }
 }
 
-/* ======================================================
-   SOURCE: assets/catalog-theme-override.css
-   ====================================================== */
-/* ════════════════════════════════════════════════════════════════
+/* Stats grid */
+.landing-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 100%;
+  margin: 80px 0 0 0;
+  padding: 0 max(32px, calc((100% - 1100px) / 2)) 90px;
+  position: relative;
+  z-index: 10;
+  background: var(--landing-bg);
+}
+
+/* ================================================== */
    COURSE CATALOG THEME OVERRIDE
    Keeps the landing hero/stats/journey in the saffron/moss/indigo
    palette while letting the dashboard, globe, and metrics fall back
@@ -23230,8 +23296,8 @@ a:focus-visible,
   width: 100% !important;
   height: 100% !important;
   object-fit: contain !important;
-  padding: 6px !important;
-  background: #FFFFFF !important;
+  padding: 0 !important;
+  background: transparent !important;
   border-radius: 0 !important;
   display: block !important;
   flex-shrink: 0 !important;
@@ -23339,8 +23405,6 @@ a:focus-visible,
   margin-top: 2px !important;
 }
 
-
-
 #edx-cards-row .clean-course-card .course-title,
 #edx-cards-row .clean-course-card.card .course-title {
   font-family: var(--font-display) !important;
@@ -23441,6 +23505,13 @@ a:focus-visible,
 #edx-cards-row .clean-course-card .meta-row .cost.free,
 #edx-cards-row .clean-course-card.card .meta-row .cost.free {
   color: var(--cv-moss) !important;
+}
+
+#edx-cards-row .clean-course-card .m.marquee-logo {
+  height: 40px;
+  width: auto;
+  opacity: 1;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 /* ---------- Footer actions ---------- */
@@ -23547,6 +23618,16 @@ a:focus-visible,
        NEW LANDING HERO + CARD DESIGN INTEGRATION
        ========================================================== */
 
+.landing-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 100%;
+  margin: 50px 0 0 0;
+  padding: 0 max(32px, calc((100% - 1100px) / 2)) 90px;
+  position: relative;
+}
+
 /* Aesthetic tokens from redesign handoff (light + dark) */
 :root {
   --cv-paper: #FDFDFB;
@@ -23602,27 +23683,15 @@ a:focus-visible,
 
 /* Landing hero â€” theme-aware */
 .landing-hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 6rem 2rem 4rem;
-  position: relative;
-  background: var(--landing-bg);
-  color: var(--landing-text-main);
-  overflow: hidden;
-}
+  background: linear-gradient(rgba(2,8,22,0.85), rgba(2,8,22,0.85)), #020816 url('assets/hero-earth-bg.jpg') center bottom / contain no-repeat !important;
+  color: #f0ede3 !important;
+  min-height: 88vh;
+  justify-content: flex-start;
+  padding-top: 7rem;
+  padding-bottom: 3rem;
 
-.landing-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(color-mix(in srgb, var(--landing-text-muted) 40%, transparent) 1px, transparent 1.5px);
-  background-size: 22px 22px;
-  mask-image: radial-gradient(circle at 50% 20%, black 0%, transparent 70%);
-  opacity: 0.5;
-  pointer-events: none;
-  z-index: 0;
+  text-align: center !important;
+  align-items: center !important;
 }
 
 [data-theme="dark"] .landing-hero::before {
@@ -23711,6 +23780,8 @@ a:focus-visible,
   max-width: 640px;
   margin: 0 0 2rem 0;
   line-height: 1.65;
+  color: #ffffff !important;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.8), 0 4px 20px rgba(0,0,0,0.6) !important;
 }
 
 .cta-button {
@@ -23754,15 +23825,32 @@ a:focus-visible,
 }
 
 .cta-button.cta-secondary {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   background: transparent;
   color: var(--landing-text-main);
+  padding: 15px 28px;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
   border: 2px solid var(--landing-card-border);
+  cursor: pointer;
   box-shadow: none;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s, color 0.2s;
 }
 
-[data-theme="light"] .cta-button.cta-secondary {
-  color: var(--landing-text-main);
-  border-color: var(--cv-line);
+[data-theme="light"] .landing-hero .cta-button.cta-secondary {
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
+[data-theme="light"] .landing-hero .cta-button.cta-secondary:hover {
+  color: var(--landing-accent-green) !important;
+  border-color: var(--landing-accent-green) !important;
 }
 
 .cta-button.cta-secondary:hover {
@@ -23805,6 +23893,130 @@ a:focus-visible,
   transform: translateY(-5px);
   border-color: color-mix(in srgb, var(--landing-accent-green) 40%, var(--landing-card-border));
   box-shadow: 0 12px 30px -10px color-mix(in srgb, var(--landing-accent-green) 15%, transparent);
+}
+
+/* ── Hero always-dark overrides ────────────────────────────────── */
+/* Force the hero to always use the earth background image */
+.landing-hero {
+  background: linear-gradient(rgba(2,8,22,0.85), rgba(2,8,22,0.85)), #020816 url('assets/hero-earth-bg.jpg') center bottom / contain no-repeat !important;
+  color: #f0ede3 !important;
+  min-height: 88vh;
+  justify-content: flex-start;
+  padding-top: 7rem;
+  padding-bottom: 3rem;
+}
+
+/* Dark gradient overlay – upper area stays dark for legibility, bottom shows the globe photo */
+.landing-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(2, 8, 22, 0.72) 0%,
+    rgba(2, 8, 22, 0.55) 50%,
+    rgba(2, 8, 22, 0.10) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.landing-hero::before {
+  background-image: none !important;
+  opacity: 0 !important;
+}
+
+/* ── Hero h1 green second line ─────────────────────────────────── */
+.landing-hero .hero-h1-green {
+  color: #3fbe85;
+  display: block;
+}
+
+.landing-hero h1 {
+  color: #f0ede3 !important;
+  line-height: 1.05 !important;
+}
+
+.landing-hero p {
+  color: rgba(240, 237, 227, 0.80) !important;
+  text-shadow: 0 4px 16px rgba(0,0,0,1), 0 2px 4px rgba(0,0,0,1) !important;
+}
+
+/* Hide orphaned floating-element divs (removed from HTML) */
+.landing-hero .floating-elements,
+.landing-hero .globe-placeholder,
+.landing-hero .glowing-orb,
+.hero-circuit-icon {
+  display: none !important;
+}
+
+/* ── Persona icon wrap ─────────────────────────────────────────── */
+.persona-icon-wrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(63, 190, 133, 0.12);
+  border: 1px solid rgba(63, 190, 133, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  flex-shrink: 0;
+}
+
+/* Force persona band to also use dark bg to match hero bottom */
+.persona-band {
+  background: #0a0f1e !important;
+}
+
+.persona-card {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  color: #f0ede3 !important;
+  backdrop-filter: blur(10px);
+}
+
+[data-theme="light"] .persona-card {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.18) !important;
+  color: var(--cv-ink) !important;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+[data-theme="light"] .persona-band {
+  background: #f5f7fa !important;
+  border-top: 1px solid rgba(0,0,0,0.10);
+  border-bottom: 1px solid rgba(0,0,0,0.10);
+}
+
+.persona-card h3 {
+  color: #f0ede3 !important;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+[data-theme="light"] .persona-card h3 {
+  color: var(--cv-ink) !important;
+}
+
+.persona-card p {
+  color: rgba(240, 237, 227, 0.70) !important;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+[data-theme="light"] .persona-card p {
+  color: var(--cv-ink-soft) !important;
+}
+
+/* ── CASY badge always visible ─────────────────────────────────── */
+.landing-hero .hero-tag {
+  color: #3fbe85 !important;
+  background: rgba(63, 190, 133, 0.12) !important;
+  border-color: rgba(63, 190, 133, 0.45) !important;
+  z-index: 2;
 }
 
 .journey-cta .cta-button:hover {
@@ -24147,6 +24359,7 @@ a:focus-visible,
 
 .landing-hero p {
   animation-delay: 0.25s;
+  text-shadow: 0 4px 16px rgba(0,0,0,1), 0 2px 4px rgba(0,0,0,1) !important;
 }
 
 .hero-cta-row {
@@ -24223,16 +24436,28 @@ a:focus-visible,
 }
 
 .landing-glass-card {
-  background: transparent;
-  border: 1px solid transparent;
+  background: var(--landing-card-bg, rgba(255,255,255,0.04));
+  border: 1px solid rgba(0,0,0,0.12);
+  border-top: 3px solid var(--accent, var(--cv-amber));
   border-radius: var(--cv-radius);
   padding: 26px 24px;
-  text-align: left;
+  text-align: center;
   transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
   position: relative;
   overflow: hidden;
+}
+
+[data-theme="dark"] .landing-glass-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.15);
   border-top: 3px solid var(--accent, var(--cv-amber));
-  box-shadow: none;
+}
+
+[data-theme="light"] .landing-glass-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 3px solid var(--accent, var(--cv-amber));
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
 }
 
 .landing-glass-card:nth-child(1) {
@@ -24358,8 +24583,8 @@ a:focus-visible,
   width: 100%;
   height: 100%;
   object-fit: contain;
-  padding: 6px;
-  background: #FFFFFF;
+  padding: 0;
+  background: transparent;
 }
 
 .logo-fallback {
@@ -25531,8 +25756,17 @@ body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .btn-sav
   will-change: transform, opacity, max-width, flex;
 }
 
-/* The compact nav strip is ALWAYS light, regardless of data-theme —
-   so these controls use fixed colors, not theme variables. */
+.marquee-logo {
+  height: 40px;
+  width: auto;
+  opacity: 0.9;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.marquee-logo:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
 
 .nav-search-group,
 .nav-action-group {
@@ -25953,6 +26187,16 @@ body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .btn-sav
   }
 }
 
+.marquee-fade-left, .marquee-fade-right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  z-index: 2;
+  pointer-events: none;
+  display: none;
+}
+
 @media (max-width: 720px) {
   .nav.compact .nav-action-group {
     display: none;
@@ -26012,6 +26256,16 @@ body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .btn-sav
   }
 }
 
+.marquee-logo {
+  height: 40px;
+  width: auto;
+  opacity: 1;
+  transition: transform 0.3s ease;
+}
+
+.marquee-logo:hover {
+  transform: scale(1.05);
+}
 
 /* Hide compact logo by default, show it on compact nav */
 .nav-logo-compact {
@@ -26372,6 +26626,7 @@ button.row-action.saved {
 /* Force Navbar to remain white in dark mode as requested by user */
 [data-theme="dark"] .nav {
   background: rgba(255, 255, 255, 0.92) !important;
+    color: #4b5563 !important;
   border-bottom: 1px solid #E2E8F0 !important;
 }
 [data-theme="dark"] .nav.scrolled {
@@ -26439,6 +26694,7 @@ button.row-action.saved {
     min-height: 44px !important;
     border-radius: 50% !important;
     background: rgba(255, 255, 255, 0.92) !important;
+    color: #4b5563 !important;
     border: none !important;
     cursor: pointer !important;
     display: flex !important;
@@ -26454,6 +26710,7 @@ button.row-action.saved {
     width: 22px !important;
     height: 22px !important;
     pointer-events: none !important;
+    stroke: #4b5563 !important;
   }
 
   /* Bottom save/bookmark button - bigger touch target */
@@ -26577,4 +26834,1385 @@ button.row-action.saved {
   .nav.compact .nav-search-wrap input[type="search"] {
     font-size: 16px !important;
   }
+}
+
+/* ── Institute Logo Marquee ── */
+.institute-marquee-section {
+  position: relative;
+  width: 100%;
+  padding: 10px 0;
+  overflow: hidden;
+  z-index: 10;
+  background: #ffffff;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.marquee-track-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  display: flex;
+}
+
+.marquee-fade-left, .marquee-fade-right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  z-index: 2;
+  pointer-events: none;
+}
+.marquee-fade-left {
+  left: 0;
+}
+.marquee-fade-right {
+  right: 0;
+}
+[data-theme="light"] .marquee-fade-left {
+  background: linear-gradient(to right, #ffffff, transparent);
+}
+[data-theme="light"] .marquee-fade-right {
+  background: linear-gradient(to left, #ffffff, transparent);
+}
+[data-theme="dark"] .marquee-fade-left {
+  background: linear-gradient(to right, #ffffff, transparent);
+}
+[data-theme="dark"] .marquee-fade-right {
+  background: linear-gradient(to left, #ffffff, transparent);
+}
+
+.marquee-track {
+  width: 100%;
+  overflow: hidden;
+}
+
+.marquee-inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 40px;
+  padding-left: 20px;
+}
+
+.marquee-logo {
+  height: 40px;
+  width: auto;
+  opacity: 0.8;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+[data-theme="dark"] .marquee-logo {
+  /* Remove filter for white strip */
+}
+
+.marquee-logo:hover {
+  opacity: 1;
+  transform: scale(1.08);
+}
+
+/* ══════════════════════════════════════════════════════
+   PATCH: Hero image fix + Marquee dark style + No cursor glow
+   ══════════════════════════════════════════════════════ */
+
+/* 1. Kill cursor glow everywhere */
+.cursor-glow {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* 2. Fix hero image — cover so it doesn't cut on sides */
+.landing-hero {
+  background: #020816 url('assets/hero-earth-bg.jpg') center center / cover no-repeat !important;
+  min-height: 90vh !important;
+  overflow: hidden !important;
+}
+
+/* 3. Hero text — bright so it stands out on the globe image */
+.landing-hero h1 {
+  color: #ffffff !important;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.7) !important;
+}
+.landing-hero .hero-h1-green {
+  color: #ff8c00 !important; /* Orange — vibrant, stands out on dark space image */
+  text-shadow: 0 2px 20px rgba(255, 140, 0, 0.4) !important;
+}
+.landing-hero p {
+  color: rgba(255, 255, 255, 0.88) !important;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.6) !important;
+}
+.landing-hero .hero-tag {
+  color: #ff8c00 !important;
+  background: rgba(255, 140, 0, 0.15) !important;
+  border-color: rgba(255, 140, 0, 0.5) !important;
+}
+
+/* 4. Marquee — transparent, natural logo colors, no band needed */
+.institute-marquee-section {
+  background: transparent !important;
+  border-top: 1px solid rgba(128, 128, 128, 0.15) !important;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.15) !important;
+  padding: 20px 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Logos: natural colors, drop-shadow keeps them crisp on any bg */
+.marquee-logo {
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.18)) !important;
+  opacity: 0.9 !important;
+  height: 38px !important;
+  transition: opacity 0.3s ease, transform 0.3s ease, filter 0.3s ease !important;
+}
+.marquee-logo:hover {
+  opacity: 1 !important;
+  transform: scale(1.1) !important;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.28)) !important;
+}
+
+/* In dark mode — boost contrast slightly with a lighter shadow */
+[data-theme="dark"] .marquee-logo {
+  filter: drop-shadow(0 1px 4px rgba(0,0,0,0.55)) brightness(1.1) !important;
+  opacity: 0.92 !important;
+}
+[data-theme="dark"] .marquee-logo:hover {
+  filter: drop-shadow(0 2px 10px rgba(0,0,0,0.6)) brightness(1.15) !important;
+  opacity: 1 !important;
+}
+
+/* Fade edges match page bg per theme */
+[data-theme="dark"] .marquee-fade-left {
+  background: linear-gradient(to right, var(--bg-primary, #0f1117), transparent) !important;
+}
+[data-theme="dark"] .marquee-fade-right {
+  background: linear-gradient(to left, var(--bg-primary, #0f1117), transparent) !important;
+}
+[data-theme="light"] .marquee-fade-left {
+  background: linear-gradient(to right, #ffffff, transparent) !important;
+}
+[data-theme="light"] .marquee-fade-right {
+  background: linear-gradient(to left, #ffffff, transparent) !important;
+}
+
+/* FINAL PATCH: Dark marquee band with white logos */
+.institute-marquee-section {
+  background: #0b1120 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  padding: 18px 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Use a white pill background to preserve original logo colors and details on the dark marquee */
+.marquee-logo {
+  filter: none !important; /* Ensure no overrides from dark mode or old rules */
+  background: #ffffff !important;
+  padding: 6px 12px !important;
+  border-radius: 6px !important;
+  box-sizing: border-box !important;
+  height: 48px !important; /* Slightly taller to accommodate padding */
+  opacity: 0.9 !important;
+  transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease !important;
+  object-fit: contain !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2) !important;
+}
+.marquee-logo:hover {
+  opacity: 1 !important;
+  transform: scale(1.08) !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4) !important;
+}
+
+.marquee-fade-left,
+[data-theme] .marquee-fade-left {
+  background: linear-gradient(to right, #0b1120, transparent) !important;
+}
+.marquee-fade-right,
+[data-theme] .marquee-fade-right {
+  background: linear-gradient(to left, #0b1120, transparent) !important;
+}
+
+/* ══════════════════════════════════════════════════════
+   PATCH: Hero image fix + Marquee dark style + No cursor glow
+   ══════════════════════════════════════════════════════ */
+
+/* 1. Kill cursor glow everywhere */
+.cursor-glow {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* 2. Fix hero image — scale to width so it doesn't cut on sides */
+.landing-hero {
+  background: #020816 url('assets/hero-earth-bg.jpg') top center / 100% auto no-repeat !important;
+  min-height: 90vh !important;
+  overflow: hidden !important;
+}
+
+/* 3. Hero text — bright so it stands out on the globe image */
+.landing-hero h1 {
+  color: #FF9933 !important; /* Orange */
+  text-shadow: 0 2px 20px rgba(0,0,0,0.9), 0 2px 10px rgba(0,0,0,0.9) !important;
+}
+.landing-hero .hero-h1-green {
+  color: #138808 !important; /* Green */
+  text-shadow: 0 2px 20px rgba(255, 255, 255, 0.4), 0 2px 10px rgba(0,0,0,0.9) !important;
+}
+.landing-hero p {
+  color: rgba(255, 255, 255, 0.88) !important;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.6) !important;
+}
+.landing-hero .hero-tag {
+  color: #ff8c00 !important;
+  background: rgba(255, 140, 0, 0.15) !important;
+  border-color: rgba(255, 140, 0, 0.5) !important;
+}
+
+/* 4. Marquee — white background, original colored logos */
+.institute-marquee-section {
+  background: #ffffff !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  padding: 18px 0 !important;
+  margin-top: 0 !important;
+}
+
+.marquee-logo {
+  filter: none !important;
+  opacity: 0.9 !important;
+  height: 38px !important;
+  transition: opacity 0.3s ease, transform 0.3s ease !important;
+}
+.marquee-logo:hover {
+  opacity: 1 !important;
+  transform: scale(1.08) !important;
+}
+
+[data-theme="dark"] .marquee-fade-left, [data-theme="light"] .marquee-fade-left {
+  background: linear-gradient(to right, #ffffff, transparent) !important;
+}
+[data-theme="dark"] .marquee-fade-right, [data-theme="light"] .marquee-fade-right {
+  background: linear-gradient(to left, #ffffff, transparent) !important;
+}
+
+/* ══════════════════════════════════════════════════════
+   PATCH: Hero image fix + Marquee dark style + No cursor glow
+   ══════════════════════════════════════════════════════ */
+
+/* 1. Kill cursor glow everywhere */
+.cursor-glow {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* 2. Fix hero image — cover so it doesn't cut on sides */
+.landing-hero {
+  background: #020816 url('assets/hero-earth-bg.jpg') center center / cover no-repeat !important;
+  min-height: 90vh !important;
+  overflow: hidden !important;
+}
+
+/* 3. Hero text — bright so it stands out on the globe image */
+.landing-hero h1 {
+  color: #ffffff !important;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.7) !important;
+}
+.landing-hero .hero-h1-green {
+  color: #ff8c00 !important; /* Orange — vibrant, stands out on dark space image */
+  text-shadow: 0 2px 20px rgba(255, 140, 0, 0.4) !important;
+}
+.landing-hero p {
+  color: rgba(255, 255, 255, 0.88) !important;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.6) !important;
+}
+.landing-hero .hero-tag {
+  color: #ff8c00 !important;
+  background: rgba(255, 140, 0, 0.15) !important;
+  border-color: rgba(255, 140, 0, 0.5) !important;
+}
+
+/* 4. Marquee — white background, original colored logos */
+.institute-marquee-section {
+  background: #ffffff !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  padding: 18px 0 !important;
+  margin-top: 0 !important;
+}
+
+.marquee-logo {
+  filter: none !important;
+  opacity: 0.9 !important;
+  height: 38px !important;
+  transition: opacity 0.3s ease, transform 0.3s ease !important;
+}
+.marquee-logo:hover {
+  opacity: 1 !important;
+  transform: scale(1.08) !important;
+}
+
+[data-theme="dark"] .marquee-fade-left, [data-theme="light"] .marquee-fade-left {
+  background: linear-gradient(to right, #ffffff, transparent) !important;
+}
+[data-theme="dark"] .marquee-fade-right, [data-theme="light"] .marquee-fade-right {
+  background: linear-gradient(to left, #ffffff, transparent) !important;
+}
+
+/* ══════════════════════════════════════════════════════
+   PATCH: Hero image fix + Marquee dark style + No cursor glow
+   ══════════════════════════════════════════════════════ */
+
+/* 1. Kill cursor glow everywhere */
+.cursor-glow {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* 2. Fix hero image — cover so it doesn't cut on sides */
+.landing-hero {
+  background: #020816 url('assets/hero-earth-bg.jpg') center center / cover no-repeat !important;
+  min-height: 90vh !important;
+  overflow: hidden !important;
+}
+
+/* 3. Hero text — bright so it stands out on the globe image */
+.landing-hero h1 {
+  color: #ffffff !important;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.7) !important;
+}
+.landing-hero .hero-h1-green {
+  color: #ff8c00 !important; /* Orange — vibrant, stands out on dark space image */
+  text-shadow: 0 2px 20px rgba(255, 140, 0, 0.4) !important;
+}
+.landing-hero p {
+  color: rgba(255, 255, 255, 0.88) !important;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.6) !important;
+}
+.landing-hero .hero-tag {
+  color: #ff8c00 !important;
+  background: rgba(255, 140, 0, 0.15) !important;
+  border-color: rgba(255, 140, 0, 0.5) !important;
+}
+
+/* 4. Marquee — white background, original colored logos */
+.institute-marquee-section {
+  background: #ffffff !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  padding: 18px 0 !important;
+  margin-top: 0 !important;
+}
+
+.marquee-logo {
+  filter: none !important;
+  opacity: 0.9 !important;
+  height: 38px !important;
+  transition: opacity 0.3s ease, transform 0.3s ease !important;
+}
+.marquee-logo:hover {
+  opacity: 1 !important;
+  transform: scale(1.08) !important;
+}
+
+[data-theme="dark"] .marquee-fade-left, [data-theme="light"] .marquee-fade-left {
+  background: linear-gradient(to right, #ffffff, transparent) !important;
+}
+[data-theme="dark"] .marquee-fade-right, [data-theme="light"] .marquee-fade-right {
+  background: linear-gradient(to left, #ffffff, transparent) !important;
+}
+
+/* FOLLOWUP PATCHES */
+.country-detail-panel {
+    text-align: center !important;
+}
+.country-detail-panel .country-detail-hdr {
+    justify-content: center !important;
+}
+.country-detail-panel .country-detail-sub {
+    text-align: center !important;
+}
+.marquee-fade-left, .marquee-fade-right {
+    display: none !important;
+}
+.landing-hero h1 {
+    text-shadow: 0 2px 10px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.5) !important;
+    color: #ffffff !important;
+    position: relative;
+    z-index: 100;
+}
+.landing-hero .hero-h1-green {
+    color: #4ade80 !important; /* Green */
+    text-shadow: 0 2px 10px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.5) !important;
+}
+.landing-hero p {
+    text-shadow: 0 1px 5px rgba(0,0,0,0.8) !important;
+    color: #e2e8f0 !important;
+    position: relative;
+    z-index: 100;
+}
+
+/* FINAL OVERRIDES based on user feedback */
+
+/* 1. Remove mouse transition */
+.cursor-glow {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+/* 2. Fix image getting cut from sides */
+.landing-hero {
+    background-size: 100% 100% !important; /* Stretch to fit container to avoid cutting */
+    /* Alternatively, 100% auto might leave gap at bottom, but let's try 100% 100% or cover with a different position */
+}
+@media (min-aspect-ratio: 16/9) {
+    .landing-hero {
+        background-size: 100% auto !important;
+        background-position: top center !important;
+    }
+}
+@media (max-aspect-ratio: 16/9) {
+    .landing-hero {
+        background-size: cover !important;
+        background-position: center !important;
+    }
+}
+
+/* 3. Change colour of logos and its background */
+.institute-marquee-section {
+    background: #050b14 !important; /* Dark background matching hero */
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+.marquee-logo {
+    filter: brightness(0) invert(1) !important; /* Make logos white */
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+}
+
+/* 4. Text colour orange or green so it does not get hidden in the image */
+.landing-hero h1, .landing-hero .hero-h1-green {
+    color: #ff8c00 !important;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.9), 0 4px 12px rgba(0,0,0,0.8), 0 0 20px rgba(255, 140, 0, 0.5) !important;
+}
+.landing-hero p {
+    color: #3fbe85 !important;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.9), 0 4px 12px rgba(0,0,0,0.8), 0 0 15px rgba(63, 190, 133, 0.4) !important;
+    font-weight: 600 !important;
+}
+.landing-hero .hero-tag {
+    color: #ff8c00 !important;
+    background: rgba(255, 140, 0, 0.2) !important;
+    border-color: rgba(255, 140, 0, 0.6) !important;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.8) !important;
+}
+
+/* ══════════════════════════════════════════════════════
+   PATCH: Hero image fix + Marquee dark style + No cursor glow
+   ══════════════════════════════════════════════════════ */
+
+/* 1. Kill cursor glow everywhere */
+.cursor-glow {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* 2. Fix hero image — cover so it doesn't cut on sides */
+.landing-hero {
+  background: #020816 url('assets/hero-earth-bg.jpg') center center / cover no-repeat !important;
+  min-height: 90vh !important;
+  overflow: hidden !important;
+}
+
+/* 3. Hero text — bright so it stands out on the globe image */
+.landing-hero h1 {
+  color: #ffffff !important;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.7) !important;
+}
+.landing-hero .hero-h1-green {
+  color: #ff8c00 !important; /* Orange — vibrant, stands out on dark space image */
+  text-shadow: 0 2px 20px rgba(255, 140, 0, 0.4) !important;
+}
+.landing-hero p {
+  color: rgba(255, 255, 255, 0.88) !important;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.6) !important;
+}
+.landing-hero .hero-tag {
+  color: #ff8c00 !important;
+  background: rgba(255, 140, 0, 0.15) !important;
+  border-color: rgba(255, 140, 0, 0.5) !important;
+}
+
+/* 4. Marquee — white background, original colored logos */
+.institute-marquee-section {
+  background: #ffffff !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  padding: 18px 0 !important;
+  margin-top: 0 !important;
+}
+
+.marquee-logo {
+  filter: none !important;
+  opacity: 0.9 !important;
+  height: 38px !important;
+  transition: opacity 0.3s ease, transform 0.3s ease !important;
+}
+.marquee-logo:hover {
+  opacity: 1 !important;
+  transform: scale(1.08) !important;
+}
+
+[data-theme="dark"] .marquee-fade-left, [data-theme="light"] .marquee-fade-left {
+  background: linear-gradient(to right, #ffffff, transparent) !important;
+}
+[data-theme="dark"] .marquee-fade-right, [data-theme="light"] .marquee-fade-right {
+  background: linear-gradient(to left, #ffffff, transparent) !important;
+}
+
+/* ══════════════════════════════════════════════════════
+   PATCH: Hero image fix + Marquee dark style + No cursor glow
+   ══════════════════════════════════════════════════════ */
+
+/* 1. Kill cursor glow everywhere */
+.cursor-glow {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* 2. Fix hero image — cover so it doesn't cut on sides */
+.landing-hero {
+  background: #020816 url('assets/hero-earth-bg.jpg') center center / cover no-repeat !important;
+  min-height: 90vh !important;
+  overflow: hidden !important;
+}
+
+/* 3. Hero text — bright so it stands out on the globe image */
+.landing-hero h1 {
+  color: #ffffff !important;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.7) !important;
+}
+.landing-hero .hero-h1-green {
+  color: #ff8c00 !important; /* Orange — vibrant, stands out on dark space image */
+  text-shadow: 0 2px 20px rgba(255, 140, 0, 0.4) !important;
+}
+.landing-hero p {
+  color: rgba(255, 255, 255, 0.88) !important;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.6) !important;
+}
+.landing-hero .hero-tag {
+  color: #ff8c00 !important;
+  background: rgba(255, 140, 0, 0.15) !important;
+  border-color: rgba(255, 140, 0, 0.5) !important;
+}
+
+/* 4. Marquee — white background, original colored logos */
+.institute-marquee-section {
+  background: #ffffff !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  padding: 18px 0 !important;
+  margin-top: 0 !important;
+}
+
+.marquee-logo {
+  filter: none !important;
+  opacity: 0.9 !important;
+  height: 38px !important;
+  transition: opacity 0.3s ease, transform 0.3s ease !important;
+}
+.marquee-logo:hover {
+  opacity: 1 !important;
+  transform: scale(1.08) !important;
+}
+
+[data-theme="dark"] .marquee-fade-left, [data-theme="light"] .marquee-fade-left {
+  background: linear-gradient(to right, #ffffff, transparent) !important;
+}
+[data-theme="dark"] .marquee-fade-right, [data-theme="light"] .marquee-fade-right {
+  background: linear-gradient(to left, #ffffff, transparent) !important;
+}
+
+/* ══════════════════════════════════════════════════════
+   PATCH: Hero image fix + Marquee dark style + No cursor glow
+   ══════════════════════════════════════════════════════ */
+
+/* 1. Kill cursor glow everywhere */
+.cursor-glow {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* 2. Fix hero image — cover so it doesn't cut on sides */
+.landing-hero {
+  background: #020816 url('assets/hero-earth-bg.jpg') center center / cover no-repeat !important;
+  min-height: 90vh !important;
+  overflow: hidden !important;
+}
+
+/* 3. Hero text — bright so it stands out on the globe image */
+.landing-hero h1 {
+  color: #ffffff !important;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.7) !important;
+}
+.landing-hero .hero-h1-green {
+  color: #ff8c00 !important; /* Orange — vibrant, stands out on dark space image */
+  text-shadow: 0 2px 20px rgba(255, 140, 0, 0.4) !important;
+}
+.landing-hero p {
+  color: rgba(255, 255, 255, 0.88) !important;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.6) !important;
+}
+.landing-hero .hero-tag {
+  color: #ff8c00 !important;
+  background: rgba(255, 140, 0, 0.15) !important;
+  border-color: rgba(255, 140, 0, 0.5) !important;
+}
+
+/* 4. Marquee — white background, original colored logos */
+.institute-marquee-section {
+  background: #ffffff !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  padding: 18px 0 !important;
+  margin-top: 0 !important;
+}
+
+.marquee-logo {
+  filter: none !important;
+  opacity: 0.9 !important;
+  height: 38px !important;
+  transition: opacity 0.3s ease, transform 0.3s ease !important;
+}
+.marquee-logo:hover {
+  opacity: 1 !important;
+  transform: scale(1.08) !important;
+}
+
+[data-theme="dark"] .marquee-fade-left, [data-theme="light"] .marquee-fade-left {
+  background: linear-gradient(to right, #ffffff, transparent) !important;
+}
+[data-theme="dark"] .marquee-fade-right, [data-theme="light"] .marquee-fade-right {
+  background: linear-gradient(to left, #ffffff, transparent) !important;
+}
+
+/* ══════════════════════════════════════════════════════
+   PATCH: Hero image fix + Marquee dark style + No cursor glow
+   ══════════════════════════════════════════════════════ */
+
+/* 1. Kill cursor glow everywhere */
+.cursor-glow {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* 2. Fix hero image — cover so it doesn't cut on sides */
+.landing-hero {
+  background: #020816 url('assets/hero-earth-bg.jpg') center center / cover no-repeat !important;
+  min-height: 90vh !important;
+  overflow: hidden !important;
+}
+
+/* 3. Hero text — bright so it stands out on the globe image */
+.landing-hero h1 {
+  color: #ffffff !important;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.7) !important;
+}
+.landing-hero .hero-h1-green {
+  color: #ff8c00 !important; /* Orange — vibrant, stands out on dark space image */
+  text-shadow: 0 2px 20px rgba(255, 140, 0, 0.4) !important;
+}
+.landing-hero p {
+  color: rgba(255, 255, 255, 0.88) !important;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.6) !important;
+}
+.landing-hero .hero-tag {
+  color: #ff8c00 !important;
+  background: rgba(255, 140, 0, 0.15) !important;
+  border-color: rgba(255, 140, 0, 0.5) !important;
+}
+
+/* 4. Marquee — white background, original colored logos */
+.institute-marquee-section {
+  background: #ffffff !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  padding: 18px 0 !important;
+  margin-top: 0 !important;
+}
+
+.marquee-logo {
+  filter: none !important;
+  opacity: 0.9 !important;
+  height: 38px !important;
+  transition: opacity 0.3s ease, transform 0.3s ease !important;
+}
+.marquee-logo:hover {
+  opacity: 1 !important;
+  transform: scale(1.08) !important;
+}
+
+[data-theme="dark"] .marquee-fade-left, [data-theme="light"] .marquee-fade-left {
+  background: linear-gradient(to right, #ffffff, transparent) !important;
+}
+[data-theme="dark"] .marquee-fade-right, [data-theme="light"] .marquee-fade-right {
+  background: linear-gradient(to left, #ffffff, transparent) !important;
+}
+
+/* ══════════════════════════════════════════════════════
+   PATCH: Hero image fix + Marquee dark style + No cursor glow
+   ══════════════════════════════════════════════════════ */
+
+/* 1. Kill cursor glow everywhere */
+.cursor-glow {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* 2. Fix hero image — cover so it doesn't cut on sides */
+.landing-hero {
+  background: #020816 url('assets/hero-earth-bg.jpg') center center / cover no-repeat !important;
+  min-height: 90vh !important;
+  overflow: hidden !important;
+}
+
+/* 3. Hero text — bright so it stands out on the globe image */
+.landing-hero h1 {
+  color: #ffffff !important;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.7) !important;
+}
+.landing-hero .hero-h1-green {
+  color: #ff8c00 !important; /* Orange — vibrant, stands out on dark space image */
+  text-shadow: 0 2px 20px rgba(255, 140, 0, 0.4) !important;
+}
+.landing-hero p {
+  color: rgba(255, 255, 255, 0.88) !important;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.6) !important;
+}
+.landing-hero .hero-tag {
+  color: #ff8c00 !important;
+  background: rgba(255, 140, 0, 0.15) !important;
+  border-color: rgba(255, 140, 0, 0.5) !important;
+}
+
+/* 4. Marquee — white background, original colored logos */
+.institute-marquee-section {
+  background: #ffffff !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  padding: 18px 0 !important;
+  margin-top: 0 !important;
+}
+
+.marquee-logo {
+  filter: none !important;
+  opacity: 0.9 !important;
+  height: 38px !important;
+  transition: opacity 0.3s ease, transform 0.3s ease !important;
+}
+.marquee-logo:hover {
+  opacity: 1 !important;
+  transform: scale(1.08) !important;
+}
+
+[data-theme="dark"] .marquee-fade-left, [data-theme="light"] .marquee-fade-left {
+  background: linear-gradient(to right, #ffffff, transparent) !important;
+}
+[data-theme="dark"] .marquee-fade-right, [data-theme="light"] .marquee-fade-right {
+  background: linear-gradient(to left, #ffffff, transparent) !important;
+}
+
+/* ══════════════════════════════════════════════════════
+   PATCH: Hero image fix + Marquee dark style + No cursor glow
+   ══════════════════════════════════════════════════════ */
+
+/* 1. Kill cursor glow everywhere */
+.cursor-glow {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* 2. Fix hero image — cover so it doesn't cut on sides */
+.landing-hero {
+  background: #020816 url('assets/hero-earth-bg.jpg') center center / cover no-repeat !important;
+  min-height: 90vh !important;
+  overflow: hidden !important;
+}
+
+/* 3. Hero text — bright so it stands out on the globe image */
+.landing-hero h1 {
+  color: #ffffff !important;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.7) !important;
+}
+.landing-hero .hero-h1-green {
+  color: #ff8c00 !important; /* Orange — vibrant, stands out on dark space image */
+  text-shadow: 0 2px 20px rgba(255, 140, 0, 0.4) !important;
+}
+.landing-hero p {
+  color: rgba(255, 255, 255, 0.88) !important;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.6) !important;
+}
+.landing-hero .hero-tag {
+  color: #ff8c00 !important;
+  background: rgba(255, 140, 0, 0.15) !important;
+  border-color: rgba(255, 140, 0, 0.5) !important;
+}
+
+/* 4. Marquee — white background, original colored logos */
+.institute-marquee-section {
+  background: #ffffff !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  padding: 18px 0 !important;
+  margin-top: 0 !important;
+}
+
+.marquee-logo {
+  filter: none !important;
+  opacity: 0.9 !important;
+  height: 38px !important;
+  transition: opacity 0.3s ease, transform 0.3s ease !important;
+}
+.marquee-logo:hover {
+  opacity: 1 !important;
+  transform: scale(1.08) !important;
+}
+
+[data-theme="dark"] .marquee-fade-left, [data-theme="light"] .marquee-fade-left {
+  background: linear-gradient(to right, #ffffff, transparent) !important;
+}
+[data-theme="dark"] .marquee-fade-right, [data-theme="light"] .marquee-fade-right {
+  background: linear-gradient(to left, #ffffff, transparent) !important;
+}
+
+/* ══════════════════════════════════════════════════════
+   PATCH: Hero image fix + Marquee dark style + No cursor glow
+   ══════════════════════════════════════════════════════ */
+
+/* 1. Kill cursor glow everywhere */
+.cursor-glow {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* 2. Fix hero image — cover so it doesn't cut on sides */
+.landing-hero {
+  background: #020816 url('assets/hero-earth-bg.jpg') center center / cover no-repeat !important;
+  min-height: 90vh !important;
+  overflow: hidden !important;
+}
+
+/* 3. Hero text — bright so it stands out on the globe image */
+.landing-hero h1 {
+  color: #ffffff !important;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.7) !important;
+}
+.landing-hero .hero-h1-green {
+  color: #ff8c00 !important; /* Orange — vibrant, stands out on dark space image */
+  text-shadow: 0 2px 20px rgba(255, 140, 0, 0.4) !important;
+}
+.landing-hero p {
+  color: rgba(255, 255, 255, 0.88) !important;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.6) !important;
+}
+.landing-hero .hero-tag {
+  color: #ff8c00 !important;
+  background: rgba(255, 140, 0, 0.15) !important;
+  border-color: rgba(255, 140, 0, 0.5) !important;
+}
+
+/* 4. Marquee — white background, original colored logos */
+.institute-marquee-section {
+  background: #ffffff !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  padding: 18px 0 !important;
+  margin-top: 0 !important;
+}
+
+.marquee-logo {
+  filter: none !important;
+  opacity: 0.9 !important;
+  height: 38px !important;
+  transition: opacity 0.3s ease, transform 0.3s ease !important;
+}
+.marquee-logo:hover {
+  opacity: 1 !important;
+  transform: scale(1.08) !important;
+}
+
+[data-theme="dark"] .marquee-fade-left, [data-theme="light"] .marquee-fade-left {
+  background: linear-gradient(to right, #ffffff, transparent) !important;
+}
+[data-theme="dark"] .marquee-fade-right, [data-theme="light"] .marquee-fade-right {
+  background: linear-gradient(to left, #ffffff, transparent) !important;
+}
+
+/* ══════════════════════════════════════════════════════
+   PATCH: Hero image fix + Marquee dark style + No cursor glow
+   ══════════════════════════════════════════════════════ */
+
+/* 1. Kill cursor glow everywhere */
+.cursor-glow {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* 2. Fix hero image — cover so it doesn't cut on sides */
+.landing-hero {
+  background: #020816 url('assets/hero-earth-bg.jpg') center center / cover no-repeat !important;
+  min-height: 90vh !important;
+  overflow: hidden !important;
+}
+
+/* 3. Hero text — bright so it stands out on the globe image */
+.landing-hero h1 {
+  color: #ffffff !important;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.7) !important;
+}
+.landing-hero .hero-h1-green {
+  color: #ff8c00 !important; /* Orange — vibrant, stands out on dark space image */
+  text-shadow: 0 2px 20px rgba(255, 140, 0, 0.4) !important;
+}
+.landing-hero p {
+  color: rgba(255, 255, 255, 0.88) !important;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.6) !important;
+}
+.landing-hero .hero-tag {
+  color: #ff8c00 !important;
+  background: rgba(255, 140, 0, 0.15) !important;
+  border-color: rgba(255, 140, 0, 0.5) !important;
+}
+
+/* 4. Marquee — white background, original colored logos */
+.institute-marquee-section {
+  background: #ffffff !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  padding: 18px 0 !important;
+  margin-top: 0 !important;
+}
+
+.marquee-logo {
+  filter: none !important;
+  opacity: 0.9 !important;
+  height: 38px !important;
+  transition: opacity 0.3s ease, transform 0.3s ease !important;
+}
+.marquee-logo:hover {
+  opacity: 1 !important;
+  transform: scale(1.08) !important;
+}
+
+[data-theme="dark"] .marquee-fade-left, [data-theme="light"] .marquee-fade-left {
+  background: linear-gradient(to right, #ffffff, transparent) !important;
+}
+[data-theme="dark"] .marquee-fade-right, [data-theme="light"] .marquee-fade-right {
+  background: linear-gradient(to left, #ffffff, transparent) !important;
+}
+
+/* ══════════════════════════════════════════════════════
+   PATCH: Hero image fix + Marquee dark style + No cursor glow
+   ══════════════════════════════════════════════════════ */
+
+/* 1. Kill cursor glow everywhere */
+.cursor-glow {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* 2. Fix hero image — cover so it doesn't cut on sides */
+.landing-hero {
+  background: #020816 url('assets/hero-earth-bg.jpg') center center / cover no-repeat !important;
+  min-height: 90vh !important;
+  overflow: hidden !important;
+}
+
+/* 3. Hero text — bright so it stands out on the globe image */
+.landing-hero h1 {
+  color: #ffffff !important;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.7) !important;
+}
+.landing-hero .hero-h1-green {
+  color: #ff8c00 !important; /* Orange — vibrant, stands out on dark space image */
+  text-shadow: 0 2px 20px rgba(255, 140, 0, 0.4) !important;
+}
+.landing-hero p {
+  color: rgba(255, 255, 255, 0.88) !important;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.6) !important;
+}
+.landing-hero .hero-tag {
+  color: #ff8c00 !important;
+  background: rgba(255, 140, 0, 0.15) !important;
+  border-color: rgba(255, 140, 0, 0.5) !important;
+}
+
+/* 4. Marquee — white background, original colored logos */
+.institute-marquee-section {
+  background: #ffffff !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  padding: 18px 0 !important;
+  margin-top: 0 !important;
+}
+
+.marquee-logo {
+  filter: none !important;
+  opacity: 0.9 !important;
+  height: 38px !important;
+  transition: opacity 0.3s ease, transform 0.3s ease !important;
+}
+.marquee-logo:hover {
+  opacity: 1 !important;
+  transform: scale(1.08) !important;
+}
+
+[data-theme="dark"] .marquee-fade-left, [data-theme="light"] .marquee-fade-left {
+  background: linear-gradient(to right, #ffffff, transparent) !important;
+}
+[data-theme="dark"] .marquee-fade-right, [data-theme="light"] .marquee-fade-right {
+  background: linear-gradient(to left, #ffffff, transparent) !important;
+}
+
+/* ══════════════════════════════════════════════════════
+   PATCH: Hero image fix + Marquee dark style + No cursor glow
+   ══════════════════════════════════════════════════════ */
+
+/* 1. Kill cursor glow everywhere */
+.cursor-glow {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* 2. Fix hero image — cover so it doesn't cut on sides */
+.landing-hero {
+  background: #020816 url('assets/hero-earth-bg.jpg') center center / cover no-repeat !important;
+  min-height: 90vh !important;
+  overflow: hidden !important;
+}
+
+/* 3. Hero text — bright so it stands out on the globe image */
+.landing-hero h1 {
+  color: #ffffff !important;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.7) !important;
+}
+.landing-hero .hero-h1-green {
+  color: #ff8c00 !important; /* Orange — vibrant, stands out on dark space image */
+  text-shadow: 0 2px 20px rgba(255, 140, 0, 0.4) !important;
+}
+.landing-hero p {
+  color: rgba(255, 255, 255, 0.88) !important;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.6) !important;
+}
+.landing-hero .hero-tag {
+  color: #ff8c00 !important;
+  background: rgba(255, 140, 0, 0.15) !important;
+  border-color: rgba(255, 140, 0, 0.5) !important;
+}
+
+/* 4. Marquee — white background, original colored logos */
+.institute-marquee-section {
+  background: #ffffff !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  padding: 18px 0 !important;
+  margin-top: 0 !important;
+}
+
+.marquee-logo {
+  filter: none !important;
+  opacity: 0.9 !important;
+  height: 38px !important;
+  transition: opacity 0.3s ease, transform 0.3s ease !important;
+}
+.marquee-logo:hover {
+  opacity: 1 !important;
+  transform: scale(1.08) !important;
+}
+
+[data-theme="dark"] .marquee-fade-left, [data-theme="light"] .marquee-fade-left {
+  background: linear-gradient(to right, #ffffff, transparent) !important;
+}
+[data-theme="dark"] .marquee-fade-right, [data-theme="light"] .marquee-fade-right {
+  background: linear-gradient(to left, #ffffff, transparent) !important;
+}
+
+/* ══════════════════════════════════════════════════════
+   PATCH: Hero image fix + Marquee dark style + No cursor glow
+   ══════════════════════════════════════════════════════ */
+
+/* 1. Kill cursor glow everywhere */
+.cursor-glow {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* 2. Fix hero image — cover so it doesn't cut on sides */
+.landing-hero {
+  background: #020816 url('assets/hero-earth-bg.jpg') center center / cover no-repeat !important;
+  min-height: 90vh !important;
+  overflow: hidden !important;
+}
+
+/* 3. Hero text — bright so it stands out on the globe image */
+.landing-hero h1 {
+  color: #ffffff !important;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.7) !important;
+}
+.landing-hero .hero-h1-green {
+  color: #ff8c00 !important; /* Orange — vibrant, stands out on dark space image */
+  text-shadow: 0 2px 20px rgba(255, 140, 0, 0.4) !important;
+}
+.landing-hero p {
+  color: rgba(255, 255, 255, 0.88) !important;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.6) !important;
+}
+.landing-hero .hero-tag {
+  color: #ff8c00 !important;
+  background: rgba(255, 140, 0, 0.15) !important;
+  border-color: rgba(255, 140, 0, 0.5) !important;
+}
+
+/* 4. Marquee — white background, original colored logos */
+.institute-marquee-section {
+  background: #ffffff !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  padding: 18px 0 !important;
+  margin-top: 0 !important;
+}
+
+.marquee-logo {
+  filter: none !important;
+  opacity: 0.9 !important;
+  height: 38px !important;
+  transition: opacity 0.3s ease, transform 0.3s ease !important;
+}
+.marquee-logo:hover {
+  opacity: 1 !important;
+  transform: scale(1.08) !important;
+}
+
+[data-theme="dark"] .marquee-fade-left, [data-theme="light"] .marquee-fade-left {
+  background: linear-gradient(to right, #ffffff, transparent) !important;
+}
+[data-theme="dark"] .marquee-fade-right, [data-theme="light"] .marquee-fade-right {
+  background: linear-gradient(to left, #ffffff, transparent) !important;
+}
+
+/* FORCE PERFECT CENTERING OF HERO SECTION */
+.landing-hero {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+.landing-hero h1,
+.landing-hero p,
+.landing-hero .hero-tag {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* ENHANCE LEGIBILITY OVER BACKGROUND IMAGE */
+.landing-hero h1,
+.landing-hero p,
+.landing-hero .hero-tag {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9), 0 4px 16px rgba(0, 0, 0, 1) !important;
+}
+
+/* THE FILLOWING ARE ADDED FIXES */
+.landing-hero .hero-tag {
+  font-size: 11pt !important;
+  padding: 4px 10px !important;
+}
+
+.marquee-logo:hover {
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+
+/* MOBILE HERO CTA FIXES */
+@media (max-width: 768px) {
+  .hero-cta-row {
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 320px !important;
+    margin: 20px auto 0 !important;
+    gap: 12px !important;
+  }
+  .hero-cta-row .cta-button {
+    width: 100% !important;
+    display: block !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+  }
+}
+
+
+/* =====================================================
+   MOBILE HERO DESIGN OVERHAUL + HAMBURGER FIX
+   ===================================================== */
+
+/* FIX hamburger button - keep consistent color in both modes */
+.hamburger {
+    color: #1a1a2e !important;
+    background: rgba(255,255,255,0.92) !important;
+    border: 1px solid rgba(0,0,0,0.12) !important;
+    border-radius: 10px !important;
+    width: 40px !important;
+    height: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 18px !important;
+    cursor: pointer !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12) !important;
+    flex-shrink: 0 !important;
+}
+
+[data-theme="dark"] .hamburger {
+    color: #1a1a2e !important;
+    background: rgba(255,255,255,0.92) !important;
+    border: 1px solid rgba(0,0,0,0.12) !important;
+}
+
+@media (max-width: 768px) {
+
+  /* ---- Hero section overhaul ---- */
+  .landing-hero {
+    min-height: 100svh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 80px 24px 40px !important;
+    text-align: center !important;
+  }
+
+  /* CASY badge */
+  .landing-hero .hero-tag {
+    display: inline-block !important;
+    margin: 0 auto 16px !important;
+    font-size: 11px !important;
+    letter-spacing: 2px !important;
+    text-transform: uppercase !important;
+    font-weight: 700 !important;
+    padding: 4px 14px !important;
+    border-radius: 50px !important;
+  }
+
+  /* Main headline */
+  .landing-hero h1 {
+    font-size: clamp(28px, 8vw, 40px) !important;
+    line-height: 1.15 !important;
+    font-weight: 800 !important;
+    margin: 0 auto 16px !important;
+    max-width: 340px !important;
+    letter-spacing: -0.5px !important;
+  }
+
+  /* Subtitle paragraph */
+  .landing-hero p {
+    font-size: 14px !important;
+    line-height: 1.7 !important;
+    max-width: 300px !important;
+    margin: 0 auto 32px !important;
+    opacity: 0.92 !important;
+  }
+
+  /* Hero buttons row - pill style, centred, matching width */
+  .hero-cta-row {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    width: 100% !important;
+    max-width: 280px !important;
+    margin: 0 auto !important;
+  }
+
+  .hero-cta-row .cta-button {
+    width: 100% !important;
+    padding: 14px 24px !important;
+    border-radius: 50px !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+    display: block !important;
+    letter-spacing: 0.2px !important;
+    transition: transform 0.15s, box-shadow 0.15s !important;
+  }
+
+  /* Primary "Find my path" button */
+  .hero-cta-row .cta-button:first-child {
+    background: #fff !important;
+    color: #0f172a !important;
+    border: none !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.35) !important;
+  }
+
+  /* Secondary "Explore free courses" button */
+  .hero-cta-row .cta-button:last-child {
+    background: transparent !important;
+    color: #fff !important;
+    border: 2px solid rgba(255,255,255,0.7) !important;
+    box-shadow: none !important;
+  }
+
+  /* Tap active states */
+  .hero-cta-row .cta-button:active {
+    transform: scale(0.97) !important;
+  }
+
+  /* Hide line breaks on very narrow screens */
+  .hero-br {
+    display: none !important;
+  }
+
+}
+
+
+/* ---- MOBILE TEXT SIZE + POSITION TWEAK ---- */
+@media (max-width: 768px) {
+
+  .landing-hero {
+    justify-content: flex-start !important;
+    padding-top: 100px !important;
+    padding-bottom: 60px !important;
+  }
+
+  .landing-hero h1 {
+    font-size: clamp(34px, 10vw, 48px) !important;
+    max-width: 360px !important;
+  }
+
+  .landing-hero p {
+    font-size: 16px !important;
+    max-width: 320px !important;
+  }
+
+  .landing-hero .hero-tag {
+    font-size: 12px !important;
+  }
+
 }
