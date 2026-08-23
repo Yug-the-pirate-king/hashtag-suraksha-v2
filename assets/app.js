@@ -1,3 +1,6 @@
+const ALL_ACCESS_TYPES = ['Free', 'Free to Audit', 'High Value Low Cost'];
+const ALL_TYPE_PILLS = ['Certificate', 'Diploma', "Bachelor's Degree", "Master's Degree", "Post Graduate Diploma", "Post Graduate Certificate"];
+
 /* ================================================================
    COURSEVERIFY CATALOG  ·  APP.JS  v9  (static JSON edition)
    Loads courses directly from courses.json in the same folder.
@@ -785,8 +788,8 @@ const GLOBE_THEMES = {
 };
 
 function getGlobeTheme() {
-    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    return isDark ? GLOBE_THEMES.dark : GLOBE_THEMES.light;
+    // User requested: keep main 3D globe in light mode for both themes
+    return GLOBE_THEMES.light;
 }
 
 function applyGlobeTheme() {
@@ -2328,7 +2331,9 @@ function renderSkeletonCards(count = 12) {
         </div>
                                         <div class="list-view-content card-view-panel" style="display: none; align-items: center;">
             <div class="list-col list-col-logo" style="display: flex; align-items: center; justify-content: center; width: 48px; flex-shrink: 0;">
-                <div class="logo-wrap" style="width:48px;height:48px;border-radius:50%;border:1px solid #e5e7eb;background:#f1f5f9;display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;"></div>
+                ${hasLogo ? `<div class="logo-wrap" style="position:relative;width:48px;height:48px;border-radius:8px;border:1px solid #e5e7eb;background:#ffffff;padding:0px;display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;">
+                    <img src="${c.logo_url}" style="width:100%;height:100%;object-fit:contain;" alt="" onerror="this.remove()" />
+                </div>` : `<div class="logo-wrap" style="width:48px;height:48px;border-radius:8px;border:1px solid #e5e7eb;background:#ffffff;display:flex;align-items:center;justify-content:center;padding:0px;overflow:hidden;flex-shrink:0;"></div>`}
             </div>
             <div class="list-col list-col-course">
                 <div class="course-title" style="width:85%;height:18px;background:#f1f5f9;border-radius:4px;margin-bottom:8px;"></div>
@@ -2498,9 +2503,9 @@ function renderEdxCards() {
         </div>
                                         <div class="list-view-content card-view-panel" style="display: none; align-items: center;">
             <div class="list-col list-col-logo" style="display: flex; align-items: center; justify-content: center; width: 48px; flex-shrink: 0;">
-                ${hasLogo ? `<div class="logo-wrap" style="width:48px;height:48px;border-radius:50%;border:1px solid #e5e7eb;background:#ffffff;display:flex;align-items:center;justify-content:center;padding:4px;overflow:hidden;flex-shrink:0;">
+                ${hasLogo ? `<div class="logo-wrap" style="position:relative;width:48px;height:48px;border-radius:8px;border:1px solid #e5e7eb;background:#ffffff;padding:0px;display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;">
                     <img src="${c.logo_url}" style="width:100%;height:100%;object-fit:contain;" alt="" onerror="this.remove()" />
-                </div>` : `<div class="logo-wrap" style="width:48px;height:48px;border-radius:50%;border:1px solid #e5e7eb;background:#ffffff;display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;"></div>`}
+                </div>` : `<div class="logo-wrap" style="width:48px;height:48px;border-radius:8px;border:1px solid #e5e7eb;background:#ffffff;display:flex;align-items:center;justify-content:center;padding:0px;overflow:hidden;flex-shrink:0;"></div>`}
             </div>
             <div class="list-col list-col-course">
                 <a class="course-title" href="${escHtml(getCourseUrl(c))}" target="_blank" style="font-size:14px; font-weight:700; color:var(--text-1); text-decoration:none;">${escHtml(c.name)}</a>
@@ -3395,17 +3400,10 @@ async function loadAllCourses(force = false) {
         let expanded = [];
         raw.forEach((c, rawIndex) => {
             if (Array.isArray(c.id)) {
-                c.id.forEach((idVal, idx) => {
-                    let newC = { ...c, id: idVal, raw_index: rawIndex };
-                    if (Array.isArray(c.domains) && c.domains.length > idx) {
-                        newC.domains = [c.domains[idx]];
-                    } else {
-                        newC.domains = [];
-                    }
-                    expanded.push(newC);
-                });
+                let newC = { ...c, id: c.id[0], _all_ids: c.id, raw_index: typeof rawIndex !== 'undefined' ? rawIndex : undefined };
+                expanded.push(newC);
             } else {
-                let newC = { ...c, raw_index: rawIndex };
+                let newC = { ...c, raw_index: typeof rawIndex !== 'undefined' ? rawIndex : undefined };
                 expanded.push(newC);
             }
         });
@@ -3618,7 +3616,7 @@ function initOnboarding() {
     });
     ctaBtn?.addEventListener('click', () => {
         closeOnboarding();
-        const params = { level: onboardingState.level, domain: onboardingState.domain };
+        const params = {}; if (onboardingState.level) params.level = onboardingState.level; if (onboardingState.domain) params.domain = onboardingState.domain;
         const courseType = getOnboardingCourseType(onboardingState.goal);
         if (courseType) params.courseType = courseType;
         jumpToCourses(params);
@@ -3636,8 +3634,6 @@ function initOnboarding() {
             if (step === '1') {
                 onboardingState.level = target.dataset.level || null;
             } else if (step === '2') {
-                onboardingState.domain = target.dataset.domain || null;
-            } else if (step === '3') {
                 onboardingState.goal = target.dataset.goal || null;
             }
             onboardingNext();
@@ -3699,9 +3695,8 @@ function onboardingEscapeHandler(e) {
 
 function onboardingNext() {
     if (onboardingState.step === 1 && !onboardingState.level) return;
-    if (onboardingState.step === 2 && !onboardingState.domain) return;
-    if (onboardingState.step === 3 && !onboardingState.goal) return;
-    if (onboardingState.step < 4) {
+    if (onboardingState.step === 2 && !onboardingState.goal) return;
+    if (onboardingState.step < 3) {
         onboardingState.step++;
         renderOnboardingStep(onboardingState.step);
     } else {
@@ -3724,19 +3719,19 @@ function renderOnboardingStep(step) {
     const backBtn = document.getElementById('onboarding-back');
     const nextBtn = document.getElementById('onboarding-next');
     if (backBtn) backBtn.disabled = step === 1;
-    if (nextBtn) nextBtn.textContent = step === 4 ? 'Done' : 'Next';
+    if (nextBtn) nextBtn.textContent = step === 3 ? 'Done' : 'Next';
 
-    if (step === 4) {
+    if (step === 3) {
         const title = document.getElementById('onboarding-result-title');
         const text = document.getElementById('onboarding-result-text');
         const tags = document.getElementById('onboarding-result-tags');
         const level = onboardingState.level || 'Any level';
         const domain = onboardingState.domain || 'All domains';
         const goalLabel = {
-            career: 'Career growth',
-            upskill: 'Quick upskill',
-            degree: 'Degree path',
-            cert: 'Certification prep'
+            'Certificate': 'Certification prep',
+            'Diploma': 'Diploma',
+            "Bachelor's Degree": 'Bachelors Degree',
+            "Master's Degree": 'Masters Degree'
         }[onboardingState.goal] || 'General browse';
 
         const effectiveCourseType = getOnboardingCourseType(onboardingState.goal);
@@ -3767,8 +3762,8 @@ function renderOnboardingStep(step) {
 
 function getOnboardingCourseType(goal) {
     if (!goal) return null;
+    if (['Certificate', 'Diploma', "Bachelor's Degree", "Master's Degree"].includes(goal)) return goal;
     if (goal === 'upskill' || goal === 'cert') return 'Certificate';
-    // career and degree use the broader level+domain view; degree users can then pick Bachelor's / Master's / Diploma
     return null;
 }
 
@@ -3829,15 +3824,8 @@ async function showCourseModal(courseId, fallbackName, fallbackUni) {
             let expanded = [];
             raw.forEach((c, rawIndex) => {
                 if (Array.isArray(c.id)) {
-                    c.id.forEach((idVal, idx) => {
-                        let newC = { ...c, id: idVal, raw_index: rawIndex };
-                        if (Array.isArray(c.domains) && c.domains.length > idx) {
-                            newC.domains = [c.domains[idx]];
-                        } else {
-                            newC.domains = [];
-                        }
-                        expanded.push(newC);
-                    });
+                    let newC = { ...c, id: c.id[0], _all_ids: c.id };
+                    expanded.push(newC);
                 } else {
                     expanded.push(c);
                 }
@@ -4015,15 +4003,8 @@ async function fetchData() {
         let expanded = [];
         rawData.forEach((c, rawIndex) => {
             if (Array.isArray(c.id)) {
-                c.id.forEach((idVal, idx) => {
-                    let newC = { ...c, id: idVal, raw_index: rawIndex };
-                    if (Array.isArray(c.domains) && c.domains.length > idx) {
-                        newC.domains = [c.domains[idx]];
-                    } else {
-                        newC.domains = [];
-                    }
-                    expanded.push(newC);
-                });
+                let newC = { ...c, id: c.id[0], _all_ids: c.id, raw_index: rawIndex };
+                expanded.push(newC);
             } else {
                 let newC = { ...c, raw_index: rawIndex };
                 expanded.push(newC);

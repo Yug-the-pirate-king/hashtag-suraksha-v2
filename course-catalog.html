@@ -4,15 +4,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Free Cybersecurity Courses — CourseKosh | Hashtag Suraksha</title>
+  <title>CASY</title>
   <meta name="description"
-    content="1,800+ free and verified cybersecurity courses for students, teachers, and schools. Filter by country, level, and domain. Backed by CERT-In." />
-  <link rel="canonical" href="course-catalog.html" />
+    content="Browse 1,600+ cybersecurity courses across 45 countries. Filter by country, domain, level, and pricing. Part of the Hashtag Suraksha ecosystem." />
+  <link rel="canonical" href="https://hashtagsuraksha.com/course-catalog.html" />
 
   <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Free Cybersecurity Courses — CourseKosh" />
+  <meta property="og:title" content="CASY" />
   <meta property="og:description"
-    content="1,800+ free and verified cybersecurity courses. Start learning cyber safety today." />
+    content="Browse 1,600+ cybersecurity courses across 45 countries. Filter by country, domain, level, and pricing." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="course-catalog.html" />
   <meta property="og:image" content="assets/logo-suraksha.png" />
@@ -25,7 +25,7 @@
     href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Yatra+One&display=swap"
     rel="stylesheet" />
   <!-- hashtag-v2 site styles -->
-  <link rel="stylesheet" href="course-catalog.css?v=16" />
+  <link rel="stylesheet" href="course-catalog.css?v=111111111" />
   <link rel="stylesheet" href="assets/list-view-override.css?v=11" />
   <link rel="stylesheet" href="assets/mobile-patch.css?v=11" />
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
@@ -44,9 +44,9 @@
   {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "name": "CourseKosh by Hashtag Suraksha",
-    "description": "A verified catalog of 1,800+ free and paid cybersecurity courses across 45 countries.",
-    "url": "course-catalog.html",
+    "name": "CASY",
+    "description": "A catalog of 1,600+ cybersecurity courses across 45 countries.",
+    "url": "https://hashtagsuraksha.com/course-catalog.html",
     "itemListElement": []
   }
   </script>
@@ -165,12 +165,13 @@
       }
 
       body #edx-cards-row.list-view .clean-course-card.card .list-col-logo .logo-wrap {
-        width: 48px !important;
-        height: 48px !important;
-        border-radius: 10px !important;
-        border: 1px solid var(--border, #e5e7eb) !important;
+        width: 44px !important;
+        height: 44px !important;
+        border-radius: 8px !important;
+        border: 1px solid #e5e7eb !important;
         padding: 4px !important;
-        background: var(--bg-surface, #ffffff) !important;
+        box-sizing: border-box !important;
+        background: #ffffff !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
@@ -517,155 +518,16 @@
         z-index: 9999990 !important;
       }
     }
-    /* Faster rotating hero background ring */
-    .hero-focus-ring {
-      animation: hero-focus-rotate 6s linear infinite !important;
-    }
   
-    /* === CATALOG REDESIGN v2 — inline overrides === */
-
-    /* Nav dropdown */
-    .nav-links .nav-dropdown { position: relative; }
-    .nav-links .nav-drop-toggle {
-      display: flex; align-items: center; gap: 4px;
-      font-size: 14px; font-weight: 600; color: #475569;
-      padding: 8px 14px; border-radius: 8px; text-decoration: none;
+    /* FORCE HEART ICON TO BE GRAY IN DARK MODE IF NOT SAVED */
+    [data-theme="dark"] .btn-save-floating:not(.saved),
+    [data-theme="dark"] .btn-save-floating:not(.saved) svg,
+    html[data-theme="dark"] body .btn-save-floating:not(.saved) svg {
+      color: #4b5563 !important;
+      stroke: #4b5563 !important;
     }
-    .nav-links .nav-drop-chevron { font-size: 10px; transition: transform .2s; }
-    .nav-links .nav-dropdown:hover .nav-drop-chevron,
-    .nav-links .nav-dropdown.open .nav-drop-chevron { transform: rotate(180deg); }
-    .nav-links .nav-drop-menu {
-      position: absolute; top: calc(100% + 8px); left: 0;
-      min-width: 220px; background: #fff;
-      border: 1px solid rgba(0,0,0,0.08); border-radius: 12px;
-      padding: 8px; box-shadow: 0 16px 40px rgba(0,0,0,0.12);
-      opacity: 0; visibility: hidden; transform: translateY(-8px);
-      transition: all .2s ease; list-style: none; z-index: 1001;
-    }
-    .nav-links .nav-dropdown:hover .nav-drop-menu,
-    .nav-links .nav-dropdown.open .nav-drop-menu {
-      opacity: 1; visibility: visible; transform: translateY(0);
-    }
-    .nav-links .nav-drop-menu a {
-      display: block; padding: 10px 14px; border-radius: 8px;
-      font-size: 13px; font-weight: 500; color: #475569; text-decoration: none;
-    }
-    .nav-links .nav-drop-menu a:hover { background: rgba(29,78,216,0.06); color: #1D4ED8; }
-    .nav-links .nav-drop-menu strong { display: block; color: #0f172a; font-weight: 700; }
-    .nav-links .nav-drop-menu small { display: block; color: #64748b; font-size: 11px; }
-
-    /* Free Courses CTA */
-    .nav-cta--free, .mobile-cta--free {
-      background: #FF9933 !important; color: #fff !important;
-      border-radius: 50px !important;
-      box-shadow: 0 4px 16px rgba(255,153,51,0.35) !important;
-      font-weight: 700 !important;
-    }
-    .nav-cta--free:hover, .mobile-cta--free:hover {
-      background: #e8832a !important;
-      box-shadow: 0 8px 24px rgba(255,153,51,0.45) !important;
-    }
-
-    /* Mobile nav drop */
-    .mobile-nav-drop { display: flex; flex-direction: column; }
-    .mobile-nav-drop-toggle {
-      display: flex; align-items: center; justify-content: space-between;
-      font-size: 15px; font-weight: 500; color: #475569;
-      padding: 12px; border-radius: 8px; background: none; border: none;
-      text-align: left; cursor: pointer;
-    }
-    .mobile-nav-drop-toggle:hover { color: #1D4ED8; background: rgba(29,78,216,0.06); }
-    .mobile-nav-drop-menu { display: none; flex-direction: column; padding-left: 12px; }
-    .mobile-nav-drop.open .mobile-nav-drop-menu { display: flex; }
-
-    /* Hero v2 */
-    .landing-hero--v2 {
-      min-height: 80vh;
-      padding: 8rem 1.5rem 5rem;
-      background:
-        radial-gradient(ellipse 80% 60% at 20% 40%, rgba(79,100,255,0.12) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 50% at 80% 30%, rgba(255,153,51,0.10) 0%, transparent 55%),
-        var(--landing-bg, #0B0F19) !important;
-    }
-    .landing-hero--v2 .hero-content {
-      position: relative; z-index: 2;
-      display: flex; flex-direction: column; align-items: center;
-      text-align: center; max-width: 860px; margin: 0 auto;
-    }
-    .landing-hero--v2 .hero-trust-bar {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 50px; padding: 6px 14px 6px 8px;
-      margin-bottom: 1.5rem;
-      font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
-      text-transform: uppercase; color: rgba(255,255,255,0.75);
-    }
-    .landing-hero--v2 .hero-trust-bar img { height: 22px; width: auto; }
-    .landing-hero--v2 .hero-tag {
-      background: rgba(255,153,51,0.14) !important;
-      border-color: rgba(255,153,51,0.35) !important;
-      color: #FFCC80 !important;
-      margin-bottom: 1rem !important;
-    }
-    .landing-hero--v2 h1 {
-      font-size: clamp(2.5rem, 7vw, 4.5rem) !important;
-      line-height: 1.05 !important;
-      letter-spacing: -0.03em !important;
-      margin-bottom: 1.25rem !important;
-    }
-    .landing-hero--v2 .hero-accent {
-      background: linear-gradient(90deg, #FF9933 0%, #FFCC80 40%, #fff 60%, #138808 80%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    }
-    .landing-hero--v2 .hero-lead {
-      font-size: clamp(1.05rem, 1.6vw, 1.3rem) !important;
-      color: var(--landing-text-muted, #93A0A4) !important;
-      max-width: 640px !important;
-      margin-bottom: 2rem !important;
-      line-height: 1.65 !important;
-    }
-    .landing-hero--v2 .cta-primary {
-      background: #FF9933 !important; color: #082419 !important;
-      border: none !important; border-radius: 999px !important;
-      box-shadow: 0 8px 28px rgba(255,153,51,0.38) !important;
-      font-weight: 700 !important;
-      display: inline-flex !important; align-items: center; gap: 8px !important;
-    }
-    .landing-hero--v2 .cta-primary:hover {
-      background: #e8832a !important; transform: translateY(-2px);
-      box-shadow: 0 14px 40px rgba(255,153,51,0.5) !important;
-    }
-    .landing-hero--v2 .cta-secondary {
-      background: rgba(255,255,255,0.06) !important;
-      color: rgba(255,255,255,0.9) !important;
-      border: 1.5px solid rgba(255,255,255,0.18) !important;
-      border-radius: 999px !important;
-    }
-    .landing-hero--v2 .cta-secondary:hover {
-      background: rgba(255,255,255,0.12) !important; border-color: rgba(255,255,255,0.3) !important;
-      color: #fff !important;
-    }
-    .landing-hero--v2 .hero-stats {
-      display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;
-      margin-top: 2.5rem;
-    }
-    .landing-hero--v2 .hero-stat {
-      display: flex; flex-direction: column; align-items: center; gap: 4px;
-    }
-    .landing-hero--v2 .hero-stat strong {
-      font-size: 1.6rem; font-weight: 800; color: #fff;
-    }
-    .landing-hero--v2 .hero-stat span {
-      font-size: 0.85rem; color: var(--landing-text-muted, #93A0A4);
-    }
-    @media (max-width: 640px) {
-      .landing-hero--v2 { padding: 7rem 1rem 4rem; min-height: auto; }
-      .landing-hero--v2 .hero-stats { gap: 1.25rem; }
-      .landing-hero--v2 .hero-cta-row { flex-direction: column; width: 100%; }
-      .landing-hero--v2 .hero-cta-row a { width: 100%; justify-content: center; }
-    }
-
-  </style></head>
+  </style>
+</head>
 
 <body>
 
@@ -688,17 +550,12 @@
       </a>
       <ul class="nav-links" id="nav-tabs">
         <li><a href="index.html">Home</a></li>
-        <li class="nav-dropdown">
-          <a href="#" class="nav-drop-toggle" aria-haspopup="true" aria-expanded="false">Programs <span class="nav-drop-chevron">▾</span></a>
-          <ul class="nav-drop-menu" role="menu">
-            <li><a href="platform.html" role="menuitem"><strong>CASK</strong> <small>AI learning platform</small></a></li>
-            <li><a href="surakshak.html" role="menuitem"><strong>Surakshak</strong> <small>Student ambassador network</small></a></li>
-            <li><a href="olympiad.html" role="menuitem"><strong>Olympiad</strong> <small>National cyber competition</small></a></li>
-            <li><a href="phishnchip.html" role="menuitem"><strong>The Phish &amp; Chip Show</strong> <small>Cyber myth-busting podcast</small></a></li>
-            <li><a href="slanglish.html" role="menuitem"><strong>Slanglish</strong> <small>Cyber slang dictionary</small></a></li>
-          </ul>
-        </li>
-        <li><a href="course-catalog.html" class="active" aria-current="page">Course Catalog</a></li>
+        <li><a href="platform.html">CASK</a></li>
+        <li><a href="surakshak.html">Surakshak</a></li>
+        <li><a href="olympiad.html">Olympiad</a></li>
+        <li><a href="phishnchip.html">The Phish &amp; Chip Show</a></li>
+        <li><a href="slanglish.html">Slanglish</a></li>
+        <li><a href="course-catalog.html" class="active" aria-current="page">CASY</a></li>
         <li><a href="resources.html">Resources</a></li>
         <li><a href="partner.html">Partner With Us</a></li>
       </ul>
@@ -835,17 +692,12 @@
     </div>
     <div class="mobile-menu" id="mobile-nav-drawer" aria-hidden="true">
       <a href="index.html">Home</a>
-      <div class="mobile-nav-drop">
-        <button class="mobile-nav-drop-toggle" aria-expanded="false">Programs <span>▾</span></button>
-        <div class="mobile-nav-drop-menu">
-          <a href="platform.html">CASK — AI Learning</a>
-          <a href="surakshak.html">Surakshak — Ambassadors</a>
-          <a href="olympiad.html">Olympiad</a>
-          <a href="phishnchip.html">The Phish &amp; Chip Show</a>
-          <a href="slanglish.html">Slanglish</a>
-        </div>
-      </div>
-      <a href="course-catalog.html" class="active">Course Catalog</a>
+      <a href="platform.html">CASK</a>
+      <a href="surakshak.html">Surakshak</a>
+      <a href="olympiad.html">Olympiad</a>
+      <a href="phishnchip.html">The Phish &amp; Chip Show</a>
+      <a href="slanglish.html">Slanglish</a>
+      <a href="course-catalog.html" class="active">CASY</a>
       <a href="resources.html">Resources</a>
       <a href="partner.html">Partner With Us</a>
       <a href="#all-courses-section" class="mobile-cta mobile-cta--free">🎓 Free Courses</a>
@@ -874,80 +726,76 @@
         -->
   <main class="catalog-page" id="main-content">
 
-    <!-- NEW LANDING HERO v2 -->
-    <section class="landing-hero landing-hero--v2">
-      <div class="floating-elements">
-        <div class="hero-focus-ring"></div>
-        <div class="glowing-orb"></div>
-        <div class="globe-placeholder"></div>
-      </div>
-
-      <div class="hero-content">
-        <span class="hero-tag">🎓 1,800+ Free Courses</span>
-        <h1>Master Cyber Safety.<br /><span class="hero-accent">Start Free.</span></h1>
-        <p class="hero-lead">India's largest curated catalog of cybersecurity courses. Search, filter, and start learning in minutes — built for students, teachers, and schools.</p>
-
-        <div class="hero-cta-row">
-          <a href="#all-courses-section" class="cta-button cta-primary" data-filter-free="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-            Explore Free Courses
-          </a>
-          <a href="#all-courses-section" class="cta-button cta-secondary">Browse All Courses</a>
-        </div>
-
-        <div class="hero-stats">
-          <div class="hero-stat"><strong>1,800+</strong><span>Verified courses</span></div>
-          <div class="hero-stat"><strong>45</strong><span>Countries</span></div>
-          <div class="hero-stat"><strong>Free</strong><span>To start learning</span></div>
-        </div>
+    <!-- NEW LANDING HERO -->
+    <section class="landing-hero">
+      <span class="hero-tag">CASY</span>
+      <h1>Your Cybersecurity<br><span class="hero-h1-green">Career Starts Here</span></h1>
+      <p>Explore the world of cybersecurity education in one place.<br class="hero-br"> 
+Dive into thousands of courses, institutions, and career paths from  <br class="hero-br"> 
+across the globe. Your next big opportunity is just one discovery away!</p>
+      <div class="hero-cta-row" style="position:relative; z-index:100; margin-top:20px; display:flex; justify-content: center; gap:16px;">
+        <button class="cta-button" onclick="openOnboarding();" style="background:#0f172a; color:#fff; border:2px solid #0f172a; padding:12px 24px; border-radius:8px; cursor:pointer; font-weight:600; font-size:16px;">Find my path</button>
+        <button class="cta-button cta-secondary" onclick="jumpToCourses({ courseType: 'Free' });" style="background:transparent; color:#fff; border:2px solid #fff; padding:12px 24px; border-radius:8px; cursor:pointer; font-weight:600; font-size:16px;">Explore free courses</button>
       </div>
     </section>
 
-    <!-- WHO THIS IS FOR -->
-    <section class="persona-band" aria-label="Who this is for">
-      <div class="persona-card">
-        <div class="persona-icon" aria-hidden="true">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+    <!-- INSTITUTE LOGO MARQUEE — after hero -->
+    <div class="institute-marquee-section" aria-label="Partner institutes">
+      <div class="marquee-track-wrapper">
+        
+        
+        <div class="marquee-track">
+          <div class="marquee-inner" id="marquee-inner">
+            <img src="assets/logos/Logos/IIT_Madras_Logo.svg" alt="IIT Madras" class="marquee-logo">
+            <img src="assets/logos/Logos/Indian_Institute_of_Technology_Bombay_Logo.svg" alt="IIT Bombay" class="marquee-logo">
+            <img src="assets/logos/Logos/Indian_Institute_of_Technology_Delhi_Logo.svg" alt="IIT Delhi" class="marquee-logo">
+            <img src="assets/logos/Logos/IIT_Kharagpur_Logo.svg" alt="IIT Kharagpur" class="marquee-logo">
+            <img src="assets/logos/Logos/IIT_Kanpur_Logo.svg" alt="IIT Kanpur" class="marquee-logo">
+            <img src="assets/logos/Logos/Harvard_University_logo.svg" alt="Harvard" class="marquee-logo">
+            <img src="assets/logos/Logos/MIT_2023_red_logo.svg" alt="MIT" class="marquee-logo">
+            <img src="assets/logos/Logos/Stanford_wordmark_(2012).svg" alt="Stanford" class="marquee-logo">
+            <img src="assets/logos/Logos/University_of_Cambridge_logo.svg" alt="Cambridge" class="marquee-logo">
+            <img src="assets/logos/Logos/University_of_Oxford.svg" alt="Oxford" class="marquee-logo">
+            <img src="assets/logos/Logos/Cornell_University_logo.svg" alt="Cornell" class="marquee-logo">
+            <img src="assets/logos/Logos/Columbia_University_1754.svg" alt="Columbia" class="marquee-logo">
+            <img src="assets/logos/Logos/Princeton_logo.svg" alt="Princeton" class="marquee-logo">
+            <img src="assets/logos/Logos/Yale_University_logo.svg" alt="Yale" class="marquee-logo">
+            <img src="assets/logos/Logos/NationalUniversityofSingapore.svg" alt="NUS" class="marquee-logo">
+            <img src="assets/logos/Logos/BITS_Pilani-Logo.svg" alt="BITS Pilani" class="marquee-logo">
+            <img src="assets/logos/Logos/IIT_Guwahati_Logo.svg" alt="IIT Guwahati" class="marquee-logo">
+            <img src="assets/logos/Logos/IIT_Hyderabad_Insignia.svg" alt="IIT Hyderabad" class="marquee-logo">
+            <!-- duplicate for seamless loop -->
+            <img src="assets/logos/Logos/IIT_Madras_Logo.svg" alt="IIT Madras" class="marquee-logo">
+            <img src="assets/logos/Logos/Indian_Institute_of_Technology_Bombay_Logo.svg" alt="IIT Bombay" class="marquee-logo">
+            <img src="assets/logos/Logos/Indian_Institute_of_Technology_Delhi_Logo.svg" alt="IIT Delhi" class="marquee-logo">
+            <img src="assets/logos/Logos/IIT_Kharagpur_Logo.svg" alt="IIT Kharagpur" class="marquee-logo">
+            <img src="assets/logos/Logos/IIT_Kanpur_Logo.svg" alt="IIT Kanpur" class="marquee-logo">
+            <img src="assets/logos/Logos/Harvard_University_logo.svg" alt="Harvard" class="marquee-logo">
+            <img src="assets/logos/Logos/MIT_2023_red_logo.svg" alt="MIT" class="marquee-logo">
+            <img src="assets/logos/Logos/Stanford_wordmark_(2012).svg" alt="Stanford" class="marquee-logo">
+            <img src="assets/logos/Logos/University_of_Cambridge_logo.svg" alt="Cambridge" class="marquee-logo">
+            <img src="assets/logos/Logos/University_of_Oxford.svg" alt="Oxford" class="marquee-logo">
+            <img src="assets/logos/Logos/Cornell_University_logo.svg" alt="Cornell" class="marquee-logo">
+            <img src="assets/logos/Logos/Columbia_University_1754.svg" alt="Columbia" class="marquee-logo">
+            <img src="assets/logos/Logos/Princeton_logo.svg" alt="Princeton" class="marquee-logo">
+            <img src="assets/logos/Logos/Yale_University_logo.svg" alt="Yale" class="marquee-logo">
+            <img src="assets/logos/Logos/NationalUniversityofSingapore.svg" alt="NUS" class="marquee-logo">
+            <img src="assets/logos/Logos/BITS_Pilani-Logo.svg" alt="BITS Pilani" class="marquee-logo">
+            <img src="assets/logos/Logos/IIT_Guwahati_Logo.svg" alt="IIT Guwahati" class="marquee-logo">
+            <img src="assets/logos/Logos/IIT_Hyderabad_Insignia.svg" alt="IIT Hyderabad" class="marquee-logo">
+          </div>
         </div>
-        <h3>Student / Fresher</h3>
-        <p>Build your foundation, explore domains, and pick the right degree or certificate to launch your cybersecurity career.</p>
       </div>
-      <div class="persona-card">
-        <div class="persona-icon" aria-hidden="true">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="m16 11 2 2 4-4"></path></svg>
-        </div>
-        <h3>Career Switcher</h3>
-        <p>Map your existing skills to a cybersecurity role and fast-track with targeted, job-ready courses.</p>
-      </div>
-      <div class="persona-card">
-        <div class="persona-icon" aria-hidden="true">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
-        </div>
-        <h3>Working Professional</h3>
-        <p>Upskill in a specialization, earn a certification, and advance your current role with verified programs.</p>
-      </div>
-    </section>
+    </div>
 
-    <!-- NEW STATS GRID -->
-    <section class="landing-stats-grid">
-      <div class="landing-glass-card">
-        <div class="landing-stat-number" data-count="1800">1,800+</div>
-        <div class="landing-stat-label">Courses Matched to Real Job Skills</div>
-        <div class="landing-stat-desc">Every program is verified and mapped to the skills employers actually ask for <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-2px; margin:0 2px;"><path d="M20 6 9 17l-5-5"/></svg> not just random listings.</div>
-      </div>
-      <div class="landing-glass-card">
-        <div class="landing-stat-number" data-count="45">45</div>
-        <div class="landing-stat-label">Global Opportunities, Localized for You</div>
-        <div class="landing-stat-desc">Explore education from 45 countries and find programs that fit your location,
-          budget, and career goals.</div>
-      </div>
-      <div class="landing-glass-card">
-        <div class="landing-stat-number">IITs</div>
-        <div class="landing-stat-label">Elite, Affordable Credentials</div>
-        <div class="landing-stat-desc">Access high-value degrees and certifications from IITs, IIITs, NITs, and top
-          global universities.</div>
-      </div>
-    </section>
+
+
+    
+
+    <!-- HOW IT WORKS — Storytelling journey -->
+    
+
+    
 
     <section class="catalog-section alt">
       <div class="catalog-app">
@@ -960,24 +808,6 @@
           <!--  DASHBOARD TAB  -->
 
 
-          <!-- Dashboard welcome banner -->
-          <div class="dash-welcome-banner" id="dash-welcome-banner" role="status" aria-live="polite">
-            <div class="dash-welcome-content">
-              <div class="dash-welcome-text">
-                <strong><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-3px; margin-right:4px;"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg> Welcome to CourseKosh</strong>
-                Explore 1,800+ verified cybersecurity courses from 45 countries. Spin the globe to pick a country, click any metric card, or head to <strong>All Courses</strong> to search, sort, and save favorites.
-              </div>
-              <div class="dash-welcome-actions">
-                <button class="dash-welcome-tour" id="dash-welcome-tour" aria-describedby="welcome-hint"> Start quick
-                  tour</button>
-                <span id="welcome-hint" class="vh">Answer three quick questions and we'll filter the catalog for
-                  you.</span>
-                <button class="dash-welcome-close" id="dash-welcome-close"
-                  aria-label="Dismiss welcome message"></button>
-              </div>
-            </div>
-          </div>
-
           <div class="dash-layout" id="dashboard-section">
 
             <!--  LEFT SIDEBAR  -->
@@ -986,7 +816,7 @@
               <!-- Total Courses Card -->
               <div class="glass-card metric-card dash-total-card clickable is-default-selected" data-filter-all="true"
                 role="button" tabindex="0" title="Browse all courses" aria-pressed="true">
-                <div class="metric-card-title">CourseKosh Total</div>
+                <div class="metric-card-title">Total Courses</div>
                 <div class="metric-value" id="total-count">0</div>
                 <div class="dash-total-delta" id="total-delta">All countries ï¿½ full collection</div>
               </div>
@@ -1206,7 +1036,7 @@
                   <h2 class="edx-title" id="edx-section-title">All Courses</h2>
                 </div>
                 <p class="edx-subtitle" id="edx-section-subtitle">Explore <strong id="hero-course-count">0</strong>
-                  verified cybersecurity courses from top universities and institutions.</p>
+                  cybersecurity courses from top universities and institutions.</p>
               </div>
             </div>
 
@@ -1315,29 +1145,6 @@
                             <polygon
                               points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                           </svg> High Value Low Cost <span class="filter-count">0</span></button>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="filter-accordion">
-                    <button type="button" class="accordion-trigger" aria-expanded="true">Topic</button>
-                    <div class="accordion-panel">
-                      <div class="pill-group domain-chips-scroll" id="domain-chips-scroll" role="group"
-                        aria-label="Filter by topic domain">
-                        <button type="button" class="domain-chip active" data-domain="all" aria-pressed="true">Featured
-                          <span class="filter-count">0</span></button>
-                        <button type="button" class="domain-chip" data-domain="foundational"
-                          aria-pressed="false">Foundational <span class="filter-count">0</span></button>
-                        <button type="button" class="domain-chip" data-domain="network-infra"
-                          aria-pressed="false">Networks <span class="filter-count">0</span></button>
-                        <button type="button" class="domain-chip" data-domain="system-endpoint"
-                          aria-pressed="false">Systems <span class="filter-count">0</span></button>
-                        <button type="button" class="domain-chip" data-domain="forensics-ir"
-                          aria-pressed="false">Forensics <span class="filter-count">0</span></button>
-                        <button type="button" class="domain-chip" data-domain="data-app-security"
-                          aria-pressed="false">Data & App <span class="filter-count">0</span></button>
-                        <button type="button" class="domain-chip" data-domain="legal-compliance"
-                          aria-pressed="false">Legal <span class="filter-count">0</span></button>
                       </div>
                     </div>
                   </div>
@@ -1521,7 +1328,7 @@
             <a href="slanglish.html">Slanglish</a>
           </div>
           <div class="footer-col">
-            <h5>CourseKosh</h5>
+            <h5>CASY</h5>
             <a href="#dashboard-section">Dashboard</a>
             <a href="#all-courses-section">All Courses</a>
             <a href="resources.html">Resources</a>
@@ -1565,7 +1372,7 @@
         <!-- Step 1: Experience -->
         <div class="onboarding-step active" data-step="1">
           <div class="onboarding-step-header">
-            <span class="onboarding-step-label">Step 1 of 3</span>
+            <span class="onboarding-step-label">Step 1 of 2</span>
             <span class="onboarding-step-hint">We use this to recommend the right difficulty.</span>
           </div>
           <div class="onboarding-question">Where are you in your cybersecurity learning?</div>
@@ -1579,45 +1386,20 @@
         <!-- Step 2: Domain -->
         <div class="onboarding-step" data-step="2">
           <div class="onboarding-step-header">
-            <span class="onboarding-step-label">Step 2 of 3</span>
-            <span class="onboarding-step-hint">Pick the career direction that excites you most.</span>
-          </div>
-          <div class="onboarding-question">Which cybersecurity career direction interests you most?</div>
-          <div class="onboarding-options onboarding-grid">
-            <button class="onboarding-option" data-domain="Foundational" data-answer="foundational"> Foundations &
-              Risk</button>
-            <button class="onboarding-option" data-domain="Network Infrastructure" data-answer="network"> Networks &
-              Cloud</button>
-            <button class="onboarding-option" data-domain="System & Endpoint" data-answer="endpoint"> Endpoints &
-              OS</button>
-            <button class="onboarding-option" data-domain="Cyber Forensics" data-answer="forensics"> Forensics &
-              IR</button>
-            <button class="onboarding-option" data-domain="Data & Application" data-answer="data"> AppSec & Data
-              Privacy</button>
-            <button class="onboarding-option" data-domain="Legal & Ethical" data-answer="legal"> Cyber Law &
-              Compliance</button>
-          </div>
-        </div>
-
-        <!-- Step 3: Goal -->
-        <div class="onboarding-step" data-step="3">
-          <div class="onboarding-step-header">
-            <span class="onboarding-step-label">Step 3 of 3</span>
+            <span class="onboarding-step-label">Step 2 of 2</span>
             <span class="onboarding-step-hint">This helps us surface the right course format.</span>
           </div>
           <div class="onboarding-question">What do you want to achieve next?</div>
           <div class="onboarding-options onboarding-grid">
-            <button class="onboarding-option" data-goal="career" data-answer="career"> Switch or grow my cybersecurity
-              career</button>
-            <button class="onboarding-option" data-goal="upskill" data-answer="upskill"> Upskill in a specific topic
-              quickly</button>
-            <button class="onboarding-option" data-goal="degree" data-answer="degree"> Earn a degree or diploma</button>
-            <button class="onboarding-option" data-goal="cert" data-answer="cert"> Prepare for a certification</button>
+            <button class="onboarding-option" data-goal="Certificate" data-answer="cert"> 1. Prepare for a Certification</button>
+            <button class="onboarding-option" data-goal="Diploma" data-answer="diploma"> 2. Earn a diploma degree</button>
+            <button class="onboarding-option" data-goal="Bachelor's Degree" data-answer="bachelors"> 3. Want to Earn a Bachelors Degree</button>
+            <button class="onboarding-option" data-goal="Master's Degree" data-answer="masters"> 4. Fine tune your skills by pursuing a masters degree</button>
           </div>
         </div>
 
         <!-- Result -->
-        <div class="onboarding-step" data-step="4">
+        <div class="onboarding-step" data-step="3">
           <div class="onboarding-step-header">
             <span class="onboarding-step-label">Ready</span>
           </div>
@@ -1637,8 +1419,8 @@
         <div class="onboarding-dots" aria-label="Onboarding progress">
           <span class="dot active" data-step="1"></span>
           <span class="dot" data-step="2"></span>
+          <span class="dot" data-step="2"></span>
           <span class="dot" data-step="3"></span>
-          <span class="dot" data-step="4"></span>
         </div>
         <div class="onboarding-actions">
           <button class="modal-btn secondary" id="onboarding-back" disabled>Back</button>
@@ -1708,7 +1490,7 @@
   </div>
 
   <!-- course verifier app logic -->
-  <script src="assets/app.js?v=1787000000002" charset="UTF-8" defer></script>
+  <script src="assets/app.js?v=555555555" charset="UTF-8" defer></script>
 
   <!-- hashtag-v2 shared behavior (nav scroll, hamburger, cursor glow) -->
   <script src="main.js?v=1786623835678"></script>
@@ -2031,30 +1813,40 @@
     })();
   </script>
 
-  <script defer>
-    /* Mobile nav dropdown toggle (catalog v2) */
-    (function () {
-      document.querySelectorAll('.mobile-nav-drop-toggle').forEach(function (toggle) {
-        var drop = toggle.closest('.mobile-nav-drop');
-        if (!drop) return;
-        toggle.addEventListener('click', function () {
-          var open = drop.classList.toggle('open');
-          toggle.setAttribute('aria-expanded', String(open));
-        });
-      });
+  <script>
+    /* ── Explore Free Courses ──────────────────────────────── */
+    function exploreFree() {
+      // Scroll to the catalog section
+      const target = document.getElementById('all-courses-section') || document.querySelector('.catalog-section');
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // After scroll settles, click the Free filter row
+      setTimeout(function () {
+        const freeRow = document.querySelector('[data-filter-type="Free"]');
+        if (freeRow) {
+          freeRow.click();
+          freeRow.focus();
+        }
+      }, 700);
+    }
 
-      /* Free Courses CTA auto-filters to Free when landing from hero */
-      document.querySelectorAll('[data-filter-free="true"]').forEach(function (btn) {
-        btn.addEventListener('click', function (e) {
-          e.preventDefault();
-          var section = document.getElementById('all-courses-section');
-          if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          setTimeout(function () {
-            var freeRow = document.querySelector('[data-filter-type="Free"]');
-            if (freeRow) freeRow.click();
-          }, 400);
-        });
-      });
+    /* ── Institute Logo Marquee ────────────────────────────── */
+    (function () {
+      const inner = document.getElementById('marquee-inner');
+      if (!inner) return;
+      let pos = 0;
+      let raf;
+      const speed = 0.5; // px per frame
+      function step() {
+        pos -= speed;
+        const half = inner.scrollWidth / 2;
+        if (Math.abs(pos) >= half) pos = 0;
+        inner.style.transform = 'translateX(' + pos + 'px)';
+        raf = requestAnimationFrame(step);
+      }
+      // Pause on hover
+      inner.parentElement.addEventListener('mouseenter', () => cancelAnimationFrame(raf));
+      inner.parentElement.addEventListener('mouseleave', () => { raf = requestAnimationFrame(step); });
+      raf = requestAnimationFrame(step);
     })();
   </script>
 </body>

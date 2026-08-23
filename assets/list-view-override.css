@@ -80,12 +80,7 @@ body #edx-cards-row.list-view .clean-course-card.card .list-view-content {
     flex-shrink: 0 !important;
 }
 
-#edx-cards-row.list-view .list-col-logo .logo-wrap img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: contain !important;
-    border-radius: 8px !important;
-}
+#edx-cards-row.list-view 
 
 #edx-cards-row.list-view .list-col-logo .logo-fallback {
     color: #8b7355 !important;
