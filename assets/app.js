@@ -19,7 +19,9 @@ const CATALOG_RICH_JSON = 'assets/course_catalog.json';
 let _coursesJsonPromise = null;
 function fetchCoursesJson() {
     if (!_coursesJsonPromise) {
-        _coursesJsonPromise = fetch(COURSES_JSON + '?v=' + Date.now())
+        // Use a static cache-busting version so the browser can cache the 3MB file.
+        // Change the number only when course_catalog.json is actually updated.
+        _coursesJsonPromise = fetch(COURSES_JSON + '?v=2')
             .then(res => {
                 if (!res.ok) throw new Error(`Failed to load courses (${res.status} ${res.statusText})`);
                 return res.json();
@@ -1818,10 +1820,7 @@ function getEdxFilteredBase(exclude = {}) {
             (c.accessType || '').toLowerCase().includes(q)
         );
     }
-    const al = String(a).trim().toLowerCase();
-    const bl = String(b).trim().toLowerCase();
-    if (!al || !bl) return false;
-    return al === bl || al.includes(bl) || bl.includes(al);
+    return result;
 }
 
 function updateLineChart() { /* removed with analytics */ }
@@ -4412,6 +4411,7 @@ window.toggleSavedFilter = function () {
 
 
 // NAV BOOKMARK BTN LOGIC
+// HERO SEARCH: sync hero search to main catalog search
 document.addEventListener('DOMContentLoaded', () => {
     const navBookmarkBtn = document.getElementById('navBookmarkBtn');
     if(navBookmarkBtn) {
@@ -4424,10 +4424,33 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             applyCourseFilter();
         });
-        
-        // Initial state
-
     }
+
+    const heroSearchInput = document.getElementById('hero-search-input');
+    const heroSearchForm = document.getElementById('hero-search');
+    const mainSearch = document.getElementById('course-search');
+
+    function routeHeroSearch() {
+        const q = (heroSearchInput?.value || '').trim();
+        if (!mainSearch || !heroSearchInput) return;
+        mainSearch.value = q;
+        mainSearch.dispatchEvent(new Event('input', { bubbles: true }));
+        const allSection = document.getElementById('all-courses-section');
+        if (allSection) allSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setTimeout(() => mainSearch.focus(), 500);
+    }
+
+    heroSearchForm?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        routeHeroSearch();
+    });
+
+    heroSearchInput?.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            routeHeroSearch();
+        }
+    });
 });
 
 // Update toggleFavorite to handle the top nav heart
