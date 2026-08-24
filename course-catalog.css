@@ -31,6 +31,10 @@
   --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.14);
   --radius: 12px;
   --radius-lg: 20px;
+  --radius-md: 16px;
+  --casy-surface: #0B0F19;
+  --casy-surface-2: #111827;
+  --casy-amber: #f59e0b;
 }
 
 *,
@@ -5991,6 +5995,7 @@ li {
   line-height: 1.4;
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -10905,9 +10910,7 @@ li {
     gap: 28px;
   }
 
-  .movement-text-top {
-    /* stacks naturally */
-  }
+  /* .movement-text-top stacks naturally */
 
   .cask-grid {
     grid-template-columns: 1fr;
@@ -12166,6 +12169,7 @@ li {
 .cd3-grad {
   background: linear-gradient(90deg, #00D4B4, #8B5CF6);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -13256,9 +13260,7 @@ body {
   border-radius: 20px;
 }
 
-[data-theme="light"] .web-result-title {
-  /* colours set per .win/.lose already */
-}
+/* [data-theme="light"] .web-result-title colours set per .win/.lose already */
 
 [data-theme="light"] .web-result-msg {
   color: rgba(26, 10, 40, 0.68) !important;
@@ -16082,12 +16084,8 @@ body[data-loading="true"] .kpi-strip-val {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.25) 100%);
+  background: radial-gradient(ellipse at center, transparent 45%, rgba(0, 0, 0, 0.35) 100%);
   z-index: 1;
-}
-
-.dash-layout::before {
-  background: radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.06) 100%);
 }
 
 /* ================================================================
@@ -16100,7 +16098,7 @@ body[data-loading="true"] .kpi-strip-val {
   justify-content: space-between;
   min-height: calc(100vh - var(--navbar-h));
   height: auto;
-  padding: 22px 28px;
+  padding: 0;
   overflow: visible;
   gap: 0;
 }
@@ -16118,24 +16116,28 @@ body[data-loading="true"] .kpi-strip-val {
 
 .dash-left,
 .dash-right {
-  flex: 0 0 25%;
-  min-width: 240px;
-  max-width: 320px;
+  flex: 0 0 auto;
+  min-width: 260px;
+  max-width: 300px;
   z-index: 10;
   position: relative;
+  margin: 16px;
 }
 
 /* â”€â”€ Left Sidebar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .dash-left {
   width: 260px;
-  background: transparent;
-  border-right: none;
+  background: rgba(7, 11, 20, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg, 20px);
   display: flex;
   flex-direction: column;
   gap: 18px;
   z-index: 10;
-  padding: 4px 2px;
-  overflow-y: visible;
+  padding: 18px 16px;
+  overflow-y: auto;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
 .dash-left::-webkit-scrollbar {
@@ -16152,24 +16154,27 @@ body[data-loading="true"] .kpi-strip-val {
 }
 
 .dash-total-card {
-  padding: 20px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
   gap: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md, 16px);
 }
 
 .dash-total-label {
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 11px;
+  font-weight: 700;
   color: var(--text-3);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
 }
 
 .dash-total-value {
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--text-1);
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--casy-amber, #f59e0b);
   line-height: 1.1;
   letter-spacing: -0.02em;
 }
@@ -16177,25 +16182,28 @@ body[data-loading="true"] .kpi-strip-val {
 .dash-total-delta {
   font-size: 12px;
   font-weight: 500;
-  color: var(--text-3);
+  color: var(--text-2);
   margin-top: 2px;
 }
 
 /* ── Metric card base (used by institutions + access types) ─ */
 .metric-card {
-  padding: 20px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
   flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md, 16px);
 }
 
 .metric-card-title {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--text-3);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-2);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -16222,7 +16230,7 @@ body[data-loading="true"] .kpi-strip-val {
 .metric-label {
   font-size: 0.85rem;
   font-weight: 500;
-  color: var(--text-2);
+  color: var(--text-1);
   display: flex;
   align-items: center;
   gap: 8px;
@@ -16230,8 +16238,8 @@ body[data-loading="true"] .kpi-strip-val {
 
 .metric-value {
   font-size: 18px;
-  font-weight: 600;
-  color: var(--text-1);
+  font-weight: 700;
+  color: var(--casy-amber, #f59e0b);
   font-variant-numeric: tabular-nums;
 }
 
@@ -16268,14 +16276,14 @@ body[data-loading="true"] #india-stat-count {
 .metric-bar-fill {
   height: 100%;
   border-radius: 20px;
-  background: linear-gradient(90deg, var(--teal-500), var(--teal-400));
-  box-shadow: 0 0 8px rgba(45, 212, 191, 0.25);
+  background: linear-gradient(90deg, var(--casy-amber, #f59e0b), rgba(245, 158, 11, 0.65));
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.25);
   transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .metric-bar-fill.blue {
-  background: linear-gradient(90deg, var(--blue-500), var(--blue-400));
-  box-shadow: 0 0 8px rgba(96, 165, 250, 0.25);
+  background: linear-gradient(90deg, var(--casy-amber, #f59e0b), rgba(245, 158, 11, 0.65));
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.25);
 }
 
 .access-icon {
@@ -16288,12 +16296,29 @@ body[data-loading="true"] #india-stat-count {
 }
 
 .india-card {
-  border-color: rgba(45, 212, 191, 0.18);
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md, 16px);
+}
+
+.india-card .metric-card-title {
+  color: var(--text-1) !important;
+}
+
+.india-card .metric-value,
+.india-card #india-stat-count {
+  color: var(--casy-amber, #f59e0b) !important;
+  font-weight: 700 !important;
+}
+
+.india-card #india-stat-pct {
+  color: var(--text-2) !important;
 }
 
 .india-card:hover {
-  border-color: rgba(45, 212, 191, 0.35);
-  box-shadow: 0 10px 32px rgba(45, 212, 191, 0.12);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.25);
 }
 
 .india-flag-badge {
@@ -16876,15 +16901,18 @@ body[data-loading="true"] #india-stat-count {
 /* ── Right Sidebar ─────────────────────────────────────────── */
 .dash-right {
   width: 260px;
-  background: transparent;
-  border-left: none;
+  background: rgba(7, 11, 20, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg, 20px);
   display: flex;
   flex-direction: column;
   gap: 18px;
   z-index: 10;
-  padding: 4px 2px;
+  padding: 18px 16px;
   overflow-y: auto;
   scrollbar-width: thin;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
 .dash-right::-webkit-scrollbar {
@@ -16906,7 +16934,10 @@ body[data-loading="true"] #india-stat-count {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  padding: 20px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md, 16px);
 }
 
 .dash-quantity-header {
@@ -16918,14 +16949,14 @@ body[data-loading="true"] #india-stat-count {
 }
 
 .dash-quantity-title {
-  font-size: 0.88rem;
+  font-size: 0.82rem;
   font-weight: 700;
   color: var(--text-1);
 }
 
 .dash-quantity-sub {
-  font-size: 0.7rem;
-  color: var(--text-3);
+  font-size: 0.72rem;
+  color: var(--text-2);
   margin-top: 2px;
 }
 
@@ -16955,19 +16986,19 @@ body[data-loading="true"] #india-stat-count {
 .dash-qbar-name {
   font-size: 0.75rem;
   font-weight: 600;
-  color: var(--text-2);
+  color: var(--text-1);
 }
 
 .dash-qbar-pct {
   font-size: 0.72rem;
   font-weight: 700;
-  color: var(--text-1);
+  color: var(--casy-amber, #f59e0b);
 }
 
 .dash-qbar-track {
   width: 100%;
   height: 8px;
-  background: var(--bg-2);
+  background: rgba(148, 163, 184, 0.16);
   border-radius: 20px;
   overflow: hidden;
 }
@@ -16975,6 +17006,8 @@ body[data-loading="true"] #india-stat-count {
 .dash-qbar-fill {
   height: 100%;
   border-radius: 20px;
+  background: linear-gradient(90deg, var(--casy-amber, #f59e0b), rgba(245, 158, 11, 0.65));
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.25);
   transition: width 1s ease;
 }
 
@@ -17209,6 +17242,7 @@ body[data-loading="true"] #india-stat-count {
 .courses-hero .edx-title {
   background: linear-gradient(90deg, var(--text-1), var(--teal-400));
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 8px;
 }
@@ -17814,6 +17848,7 @@ body[data-loading="true"] #india-stat-count {
   color: var(--text-1);
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   min-height: 2.5em;
@@ -18240,6 +18275,7 @@ body[data-loading="true"] #india-stat-count {
 .edx-cards-row.list-view .course-title {
   min-height: auto;
   -webkit-line-clamp: 1;
+  line-clamp: 1;
 }
 
 .edx-cards-row.list-view .card-footer {
@@ -19344,29 +19380,31 @@ body {
    BATCH 4 — Dashboard Cards & Metrics Polish
    ================================================================ */
 
-/* Accent top bars for all metric cards */
-.metric-card {
+/* Subtle top accent bars for metric cards */
+.metric-card,
+.dash-quantity-card {
   position: relative;
   overflow: hidden;
 }
 
-.metric-card::before {
+.metric-card::before,
+.dash-quantity-card::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--teal-500), var(--teal-400));
+  height: 2px;
+  background: linear-gradient(90deg, rgba(245, 158, 11, 0.7), rgba(245, 158, 11, 0.2));
   opacity: 0.8;
 }
 
 .metric-card:nth-of-type(2)::before {
-  background: linear-gradient(90deg, var(--blue-500), var(--blue-400));
+  background: linear-gradient(90deg, rgba(245, 158, 11, 0.7), rgba(245, 158, 11, 0.2));
 }
 
 .metric-card:nth-of-type(3)::before {
-  background: linear-gradient(90deg, var(--purple), #c084fc);
+  background: linear-gradient(90deg, rgba(245, 158, 11, 0.7), rgba(245, 158, 11, 0.2));
 }
 
 /* Metric row dot indicators */
@@ -19375,16 +19413,13 @@ body {
   width: 6px;
   height: 6px;
   border-radius: var(--radius-round);
-  background: var(--teal-500);
+  background: var(--casy-amber, #f59e0b);
   flex-shrink: 0;
 }
 
-.metric-row:nth-child(2) .metric-label::before {
-  background: var(--blue-500);
-}
-
+.metric-row:nth-child(2) .metric-label::before,
 .metric-row:nth-child(3) .metric-label::before {
-  background: var(--purple);
+  background: var(--casy-amber, #f59e0b);
 }
 
 /* Access type icon circles */
@@ -19400,10 +19435,10 @@ body {
   cursor: help;
 }
 
-/* India card tricolor stripe */
+/* India card subtle saffron top accent (tricolor removed for cleaner unified look) */
 .india-card::before {
-  background: linear-gradient(90deg, #ff9933 33%, #ffffff 33% 66%, #138808 66%) !important;
-  height: 4px !important;
+  background: linear-gradient(90deg, rgba(245, 158, 11, 0.7), rgba(245, 158, 11, 0.2)) !important;
+  height: 2px !important;
 }
 
 /* Dashboard cards stagger entrance */
@@ -20477,14 +20512,14 @@ textarea,
 /* Clickable metric rows */
 .metric-row.clickable {
   cursor: pointer;
-  padding: 6px;
-  margin: -6px;
-  border-radius: 8px;
+  padding: 8px;
+  margin: -8px;
+  border-radius: 10px;
   transition: background 0.15s ease, transform 0.15s ease;
 }
 
 .metric-row.clickable:hover {
-  background: var(--bg-hover);
+  background: rgba(255, 255, 255, 0.06);
   transform: translateX(3px);
 }
 
@@ -20676,10 +20711,13 @@ textarea,
 }
 
 .dash-helper-hint {
-  font-size: 0.72rem;
-  color: var(--text-3);
+  font-size: 0.75rem;
+  color: var(--text-2);
   margin-bottom: 8px;
-  padding-left: 4px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-sm, 10px);
 }
 
 /* Visit website button */
@@ -20765,7 +20803,8 @@ textarea,
     flex: 1 1 auto;
     max-width: none;
     min-width: 0;
-    width: 100%;
+    width: calc(100% - 32px);
+    margin: 16px;
     order: 0;
   }
 
@@ -20816,8 +20855,15 @@ textarea,
 
 @media (max-width: 600px) {
   .dash-layout {
-    padding: 12px;
+    padding: 0;
     gap: 14px;
+  }
+
+  .dash-left,
+  .dash-right {
+    width: calc(100% - 24px);
+    margin: 12px;
+    padding: 14px 12px;
   }
 
   .dash-center {
@@ -21208,7 +21254,7 @@ body {
 
 /* â”€â”€ 6. tab-content always visible on catalog page â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .tab-content {
-  /* display: block !important; */
+  --noop: 1;
 }
 
 /* â”€â”€ 7. All Courses section scroll anchor â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
@@ -21297,13 +21343,13 @@ body {
 }
 
 .dash-total-card.is-default-selected {
-  border-color: var(--teal-500);
-  box-shadow: 0 0 0 1px var(--teal-500), var(--shadow);
+  border-color: var(--casy-amber, #f59e0b);
+  box-shadow: 0 0 0 1px var(--casy-amber, #f59e0b), 0 10px 28px rgba(245, 158, 11, 0.15);
 }
 
 [data-theme="dark"] .dash-total-card.is-default-selected {
-  border-color: var(--teal-400);
-  box-shadow: 0 0 0 1px var(--teal-400), var(--shadow);
+  border-color: var(--casy-amber, #f59e0b);
+  box-shadow: 0 0 0 1px var(--casy-amber, #f59e0b), 0 10px 28px rgba(245, 158, 11, 0.15);
 }
 
 /* ── 11. Persistent catalog help button ────────────────────────── */
@@ -21986,6 +22032,7 @@ a:focus-visible,
   letter-spacing: -0.01em;
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   min-height: 2.7em;
@@ -22112,6 +22159,7 @@ a:focus-visible,
 
 .edx-cards-row.list-view .course-title {
   -webkit-line-clamp: 1;
+  line-clamp: 1;
   min-height: auto;
   flex: 1;
 }
@@ -23142,7 +23190,7 @@ a:focus-visible,
    Keeps the landing hero/stats/journey in the saffron/moss/indigo
    palette while letting the dashboard, globe, and metrics fall back
    to the original blue/cyan cv-style.css tokens.
-   ════════════════════════════════════════════════════════════════ */
+   ================================================== */
 
 /* ── Keep the new landing section warm ──────────────────────── */
 :root {
@@ -23461,6 +23509,7 @@ a:focus-visible,
   margin: 0 !important;
   display: -webkit-box !important;
   -webkit-line-clamp: 3 !important;
+  line-clamp: 3 !important;
   -webkit-box-orient: vertical !important;
   overflow: hidden !important;
 }
@@ -23810,7 +23859,7 @@ a:focus-visible,
   z-index: 2;
   font-family: var(--font-body);
   font-size: clamp(1rem, 1.25vw, 1.25rem);
-  color: var(--landing-text-muted);
+  color: rgb(255,255,255);
   max-width: 640px;
   margin: 0 0 2rem 0;
   line-height: 1.65;
@@ -24703,6 +24752,7 @@ a:focus-visible,
   margin: 0;
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -25581,6 +25631,7 @@ body #edx-cards-row.list-view .clean-course-card.card .list-col-course .course-t
   font-size: 15px !important;
   line-height: 1.35 !important;
   -webkit-line-clamp: 1 !important;
+  line-clamp: 1 !important;
   min-height: auto !important;
   margin-bottom: 4px !important;
 }
@@ -26963,9 +27014,7 @@ button.row-action.saved {
   opacity: 0.8;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
-[data-theme="dark"] .marquee-logo {
-  /* Remove filter for white strip */
-}
+/* [data-theme="dark"] .marquee-logo: filter removed for white strip */
 
 .marquee-logo:hover {
   opacity: 1;
@@ -27361,9 +27410,9 @@ button.row-action.saved {
     text-shadow: 0 2px 4px rgba(0,0,0,0.9), 0 4px 12px rgba(0,0,0,0.8), 0 0 20px rgba(255, 140, 0, 0.5) !important;
 }
 .landing-hero p {
-    color: #3fbe85 !important;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.9), 0 4px 12px rgba(0,0,0,0.8), 0 0 15px rgba(63, 190, 133, 0.4) !important;
-    font-weight: 600 !important;
+    color: #ffffff !important;
+    text-shadow: 0 1px 5px rgba(0,0,0,0.8) !important;
+    font-weight: 500 !important;
 }
 .landing-hero .hero-tag {
     color: #ff8c00 !important;
