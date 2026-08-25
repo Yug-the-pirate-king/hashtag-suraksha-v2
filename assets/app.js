@@ -2444,20 +2444,25 @@ function renderEdxCards() {
         const hasLogo = c.logo_url && c.logo_url.trim() !== '';
         const stampClass = c.stamp === 'hot' ? 'hot' : (c.stamp === 'jobskills' ? 'jobskills' : '');
         const stampLabel = c.stamp === 'hot' ? 'Hot Pick' : (c.stamp === 'jobskills' ? 'Job Skills' : '');
+        // Consistent badge set: ranking → type → level → language
         const badges = [];
         if (c.has_qs_badge) badges.push('<span class="badge qs">QS Ranked</span>');
         if (c.has_nirf_badge) badges.push('<span class="badge nirf">NIRF</span>');
         if (c.scholarship_match || c.has_scholarship) badges.push('<span class="badge scholar">Scholarship</span>');
         let academicType = c.course_type || c.courseType || courseType;
         if (academicType && academicType !== 'Other' && academicType.toLowerCase() !== 'free' && academicType.toLowerCase() !== 'free to audit') {
-            badges.push(`<span class="badge">${escHtml(academicType)}</span>`);
+            badges.push(`<span class="badge type">${escHtml(academicType)}</span>`);
         }
-        badges.push(`<span class="badge">${escHtml(level)}</span>`);
-        badges.push(`<span class="badge lang" style="background: #D97706; color: #fff; border-color: #D97706;">${escHtml(language)}</span>`);
+        badges.push(`<span class="badge level">${escHtml(level)}</span>`);
+        badges.push(`<span class="badge lang">${escHtml(language)}</span>`);
 
-        // Domain badge removed by user request
         const costClass = ((c.cost && c.cost.toLowerCase() === 'free') || c.free_match || c.has_free) ? 'free' : '';
-        const skillsDesc = c.skills_description || c.skills || '';
+        const costDisplay = c.cost && String(c.cost).trim() !== '' && String(c.cost).trim() !== '—'
+            ? escHtml(c.cost)
+            : 'Fee not disclosed';
+        const skillsDesc = c.skills_description || c.skills || 'Explore this cybersecurity program to build in-demand security skills.';
+        const affiliation = c.affiliated_uni ? escHtml(c.affiliated_uni) : '';
+        const stateDisplay = c.uni_state && c.mode && c.mode.toLowerCase().includes('offline') ? escHtml(c.uni_state) : '';
         return `
         <article class="clean-course-card card ${saved ? 'saved' : ''} ${domainClass}" style="animation: fadeStagger 0.4s ease ${i * 0.04}s both;" data-course-id="${c.id}" tabindex="0" role="button" aria-label="Open ${escHtml(c.name)}">
 
@@ -2475,27 +2480,35 @@ function renderEdxCards() {
                 ${stampClass ? `<span class="stamp ${stampClass}">${stampLabel}</span>` : ''}
             </div>
             <div class="card-body">
-                <p class="edx-card-uni">${escHtml(c.university)}</p>
-                ${c.affiliated_uni ? `<p class="edx-card-loc" style="font-size:11px; opacity:0.8; margin-bottom:4px;">Affiliated to: ${escHtml(c.affiliated_uni)}</p>` : ''}
-                <p class="edx-card-loc">${escHtml(c.country || 'India')}${c.uni_state && c.mode && c.mode.toLowerCase().includes('offline') ? ` &middot; ${escHtml(c.uni_state)}` : ''}</p>
-                <h3 class="edx-card-title" title="${escHtml(c.name)}">${escHtml(c.name)}</h3>
-                <span style="display:flex; gap: 8px;">
-                    ${Array.isArray(c.domains) && c.domains.includes('Free to Audit') ? '<span style="color:#2563eb; font-weight:700; font-size:12px; margin-right:8px;">Free to Learn</span>' : ''}
-                    ${c.has_scholarship ? '<span class="status-badge low-cost" style="background:#fef3c7; color:#d97706; border:1px solid #fde68a;">Scholarship</span>' : ''}
-                </span>
-                <p class="skills-desc">${escHtml(skillsDesc)}</p>
-                <div class="badge-row">${badges.join('')}</div>
-                <div class="meta-row">
-                    <span style="display:inline-flex; align-items:center; gap:10px; flex-wrap:wrap; font-size:12px;">
-                        <span style="display:inline-flex; align-items:center; gap:4px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>${escHtml(duration)}</span>
-                        <span style="display:inline-flex; align-items:center; gap:4px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>${escHtml(mode)}</span>
-                        <span style="display:inline-flex; align-items:center; gap:4px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>${escHtml(c.course_type || courseType || 'Course')}</span>
-                    </span>
-                    <span class="cost ${costClass}">${escHtml(c.cost || '—')}</span>
+                <div class="card-body-header">
+                    <p class="edx-card-uni">${escHtml(c.university)}</p>
+                    <p class="edx-card-loc">
+                        ${escHtml(c.country || 'India')}${stateDisplay ? ` &middot; ${stateDisplay}` : ''}${affiliation ? ` &middot; ${affiliation}` : ''}
+                    </p>
                 </div>
-                <div class="card-footer-actions" style="display:flex; gap:8px; margin-top:auto;">
-                    <a class="btn" style="flex:1; text-align:center;" href="${escHtml(getCourseUrl(c))}" target="_blank" rel="noopener" onclick="event.stopPropagation();" title="Visit ${escHtml(c.university || 'course')} website">Visit website →</a>
-                    <button class="btn btn-save ${saved ? 'saved' : ''}" style="width:44px;" onclick="event.stopPropagation(); toggleFavorite('${c.id}', this)" title="${saved ? 'Remove from saved' : 'Save course'}" aria-label="${saved ? 'Remove from saved' : 'Save course'}" aria-pressed="${saved}">${saved ? '♥' : '♡'}</button>
+
+                <h3 class="edx-card-title" title="${escHtml(c.name)}">${escHtml(c.name)}</h3>
+
+                <p class="skills-desc">${escHtml(skillsDesc)}</p>
+
+                <div class="badge-row">${badges.join('')}</div>
+
+                <div class="meta-row">
+                    <div class="meta-left">
+                        <span class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>${escHtml(duration)}</span>
+                        <span class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>${escHtml(mode)}</span>
+                    </div>
+                    <span class="cost ${costClass}">${costDisplay}</span>
+                </div>
+
+                <div class="card-footer-actions">
+                    <a class="btn btn-visit" href="${escHtml(getCourseUrl(c))}" target="_blank" rel="noopener" onclick="event.stopPropagation();" title="Visit ${escHtml(c.university || 'course')} website">
+                        <span>Visit website</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg>
+                    </a>
+                    <button class="btn btn-save ${saved ? 'saved' : ''}" onclick="event.stopPropagation(); toggleFavorite('${c.id}', this)" title="${saved ? 'Remove from saved' : 'Save course'}" aria-label="${saved ? 'Remove from saved' : 'Save course'}" aria-pressed="${saved}">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="${saved ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    </button>
                 </div>
             </div>
 

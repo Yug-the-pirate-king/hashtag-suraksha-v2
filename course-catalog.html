@@ -840,17 +840,30 @@
       </div>
     </div>
 
-
-
-    
-
     <!-- HOW IT WORKS — Storytelling journey -->
-    
 
-    
+
+
 
     <section class="catalog-section alt">
       <div class="catalog-app">
+
+        <!-- GLOBAL SECTION HEADER -->
+        <div class="courses-hero global-courses-hero">
+          <div class="courses-hero-content">
+            <div class="edx-title-wrap">
+              <span class="edx-title-icon" aria-hidden="true" style="color: var(--teal-400)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M2 12h20"></path>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+              </span>
+              <h2 class="edx-title" id="global-section-title">Global Courses</h2>
+            </div>
+            <p class="edx-subtitle">Explore cybersecurity courses around the world. Click or drag the globe to filter by country.</p>
+          </div>
+        </div>
 
         <!-- Tab wrapper that app.js switchTab() targets -->
         <div id="tab-dashboard" class="tab-content active">
@@ -858,6 +871,10 @@
 
 
           <!--  DASHBOARD TAB  -->
+
+
+
+
 
 
           <div class="dash-layout" id="dashboard-section">
@@ -981,6 +998,7 @@
             <!--  CENTER  -->
             <div class="dash-center">
               <div class="globe-glow"></div>
+              <div class="globe-invite-ring"></div>
               <div class="dash-globe-wrap" id="globe-container">
                 <!-- COBE 3D globe renders here -->
                 <button class="globe-fullscreen-btn" id="globe-fullscreen-btn"
@@ -1105,9 +1123,8 @@
               <aside class="catalog-sidebar" id="catalog-sidebar" aria-label="Course filters">
                 <div class="catalog-sidebar-header">
                   <h3 class="catalog-sidebar-title">
-                    <span class="sidebar-title-icon" aria-hidden="true" style="display:flex;align-items:center;"><svg
-                        style="width:18px;height:18px;margin-right:6px" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2">
+                    <span class="sidebar-title-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <line x1="4" y1="21" x2="4" y2="14" />
                         <line x1="4" y1="10" x2="4" y2="3" />
                         <line x1="12" y1="21" x2="12" y2="12" />
@@ -1117,12 +1134,18 @@
                         <line x1="1" y1="14" x2="7" y2="14" />
                         <line x1="9" y1="8" x2="15" y2="8" />
                         <line x1="17" y1="16" x2="23" y2="16" />
-                      </svg></span>
+                      </svg>
+                    </span>
                     <span class="sidebar-title-text">Filters</span>
                   </h3>
                   <div class="catalog-sidebar-actions">
                     <button type="button" class="sidebar-clear-btn" id="sidebar-clear-filters"
-                      title="Clear all filters">Clear all</button>
+                      title="Clear all filters">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M18 6L6 18M6 6l12 12" />
+                      </svg>
+                      Clear
+                    </button>
                     <button type="button" class="sidebar-toggle-btn" id="catalog-sidebar-toggle" aria-expanded="true"
                       aria-controls="catalog-sidebar-body" title="Collapse sidebar">
                       <span class="sidebar-toggle-icon" aria-hidden="true"></span>
