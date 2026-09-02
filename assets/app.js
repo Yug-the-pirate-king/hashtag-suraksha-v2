@@ -3194,7 +3194,7 @@ function initSidebarFilters() {
     function updateCollapseState() {
         const collapsed = workspace.classList.contains('sidebar-collapsed');
         const icon = btn.querySelector('.sidebar-toggle-icon');
-        if (icon) icon.textContent = collapsed ? '›' : '‹';
+        if (icon) icon.textContent = collapsed ? '»' : '«';
         btn.setAttribute('aria-expanded', String(!collapsed));
     }
 

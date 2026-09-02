@@ -18162,13 +18162,11 @@ body[data-loading="true"] #india-stat-count {
   right: 16px;
   top: 50%;
   transform: translateY(-50%);
-  width: 28px;
-  height: min(55vh, 420px);
+  width: 40px;
   z-index: 90;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -18177,43 +18175,6 @@ body[data-loading="true"] #india-stat-count {
 .catalog-scroll-rail.visible {
   opacity: 1;
   pointer-events: auto;
-}
-
-.scroll-rail-track {
-  position: relative;
-  width: 6px;
-  flex: 1;
-  min-height: 60px;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--border) 60%, transparent);
-  cursor: pointer;
-  overflow: hidden;
-  pointer-events: auto;
-  transition: background 0.2s ease, width 0.2s ease;
-}
-
-.scroll-rail-track:hover,
-.scroll-rail-track.dragging {
-  width: 8px;
-  background: color-mix(in srgb, var(--border) 85%, transparent);
-}
-
-.scroll-rail-thumb {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  border-radius: 999px;
-  background: var(--teal-500);
-  box-shadow: 0 0 10px color-mix(in srgb, var(--teal-500) 40%, transparent);
-  cursor: grab;
-  transition: background 0.2s ease, height 0.1s linear, top 0.1s linear;
-  min-height: 24px;
-}
-
-.scroll-rail-track.dragging .scroll-rail-thumb {
-  cursor: grabbing;
-  background: var(--teal-400);
 }
 
 .catalog-scroll-rail .back-to-top {
@@ -18246,18 +18207,11 @@ body[data-loading="true"] #india-stat-count {
 @media (max-width: 900px) {
   .catalog-scroll-rail {
     right: 10px;
-    height: min(45vh, 320px);
   }
 
   .catalog-scroll-rail .back-to-top {
     width: 36px;
     height: 36px;
-  }
-}
-
-@media (max-width: 600px) {
-  .catalog-scroll-rail {
-    display: none;
   }
 }
 
@@ -23009,7 +22963,7 @@ a:focus-visible,
 }
 
 .catalog-workspace.sidebar-collapsed .sidebar-toggle-icon {
-  transform: rotate(180deg);
+  /* icon is swapped via JS, no transform needed */
 }
 
 /* Dark/light compatibility */
@@ -28614,12 +28568,15 @@ main.catalog-page section.landing-hero > p {
 }
 
 .sidebar-toggle-icon {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  border-right: 2px solid currentColor;
-  border-bottom: 2px solid currentColor;
-  transform: rotate(45deg);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+  color: currentColor;
   transition: transform 0.25s ease;
 }
 
@@ -28655,23 +28612,31 @@ main.catalog-page section.landing-hero > p {
 }
 
 .accordion-trigger::after {
-  content: "";
-  width: 9px;
-  height: 9px;
-  border-right: 2px solid var(--teal-400);
-  border-bottom: 2px solid var(--teal-400);
-  transform: rotate(45deg);
-  transition: transform 0.25s ease, opacity 0.2s ease;
-  opacity: 0.7;
+  content: "−";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  line-height: 1;
+  font-weight: 700;
+  color: var(--teal-400);
+  background: color-mix(in srgb, var(--teal-400) 12%, transparent);
+  transition: transform 0.25s ease, opacity 0.2s ease, background 0.2s ease;
+  opacity: 0.85;
 }
 
 .accordion-trigger[aria-expanded="false"]::after {
-  transform: rotate(-135deg);
+  content: "+";
+  transform: rotate(0deg);
 }
 
 .accordion-trigger:hover::after,
 .accordion-trigger:focus-visible::after {
   opacity: 1;
+  background: color-mix(in srgb, var(--teal-400) 20%, transparent);
 }
 
 /* 7. Polished filter pills */

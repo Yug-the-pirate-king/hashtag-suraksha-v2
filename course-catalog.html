@@ -34,6 +34,26 @@
     .landing-hero {
       background: #070B14 !important;
     }
+
+    /* CASY hero logo image — transparent PNG */
+    .hero-tag-logo {
+      position: relative;
+      z-index: 2;
+      display: block;
+      margin: 0 auto 2vh;
+      width: clamp(220px, 32vw, 440px);
+      height: auto;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.55));
+    }
+    @media (max-width: 768px) {
+      .hero-tag-logo {
+        width: clamp(160px, 52vw, 320px);
+      }
+    }
+
     .landing-hero::before {
       content: "" !important;
       position: absolute !important;
@@ -397,18 +417,24 @@
       display: none !important;
     }
 
-    /* Mobile: hide the right-side scroll rail, keep on PC */
-    @media (max-width: 1024px) {
-      .catalog-scroll-rail {
-        display: none !important;
-        visibility: hidden !important;
-        opacity: 0 !important;
-        pointer-events: none !important;
-        height: 0 !important;
-        width: 0 !important;
-        z-index: -100 !important;
-        position: absolute !important;
-      }
+    /* Restore the new teal dark-outline Guide / Help button */
+    .catalog-help-btn,
+    #catalog-help-btn {
+      background: rgba(7, 11, 20, 0.85) !important;
+      color: #22D3EE !important;
+      border: 1px solid #22D3EE !important;
+      box-shadow: 0 4px 16px rgba(34, 211, 238, 0.18) !important;
+      backdrop-filter: blur(8px) !important;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease !important;
+    }
+    .catalog-help-btn:hover,
+    #catalog-help-btn:hover,
+    .catalog-help-btn:focus-visible,
+    #catalog-help-btn:focus-visible {
+      background: #22D3EE !important;
+      color: #070B14 !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 8px 24px rgba(34, 211, 238, 0.30) !important;
     }
 
     /* ---- GRID VIEW FIXES ---- */
@@ -751,7 +777,7 @@
 
     <!-- NEW LANDING HERO -->
     <section class="landing-hero">
-      <span class="hero-tag">CASY</span>
+      <img src="assets/Domain%20logos/2-clean.png" alt="CASY - Cyber Security Courses Database" class="hero-tag-logo">
       <h1>Your Cybersecurity<br><span class="hero-h1-green">Career Starts Here</span></h1>
       <p>Explore thousands of global cybersecurity courses, institutions, and career paths all in one place.</p>
 
@@ -1359,11 +1385,8 @@
         <span class="help-label">Help</span>
       </button>
 
-      <!-- Scroll rail + back-to-top for the course catalog -->
-      <div class="catalog-scroll-rail" id="catalog-scroll-rail" aria-label="Scroll rail">
-        <div class="scroll-rail-track" id="scroll-rail-track" title="Drag to scroll">
-          <div class="scroll-rail-thumb" id="scroll-rail-thumb"></div>
-        </div>
+      <!-- Back-to-top for the course catalog -->
+      <div class="catalog-scroll-rail" id="catalog-scroll-rail" aria-label="Back to top">
         <button class="back-to-top" id="back-to-top" aria-label="Back to top" title="Back to top">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
             stroke-linejoin="round" aria-hidden="true">
@@ -1630,111 +1653,19 @@
   <script defer>
     (function () {
       const rail = document.getElementById('catalog-scroll-rail');
-      const track = document.getElementById('scroll-rail-track');
-      const thumb = document.getElementById('scroll-rail-thumb');
       const topBtn = document.getElementById('back-to-top');
       const coursesSection = document.getElementById('all-courses-section');
-      if (!rail || !track || !thumb) return;
+      if (!rail || !topBtn) return;
 
-      let isDragging = false;
-
-      function updateThumb() {
-        const doc = document.documentElement;
-        const scrollTop = doc.scrollTop || document.body.scrollTop;
-        const scrollHeight = doc.scrollHeight - doc.clientHeight;
-        const pct = scrollHeight > 0 ? scrollTop / scrollHeight : 0;
-        const viewportRatio = doc.clientHeight / doc.scrollHeight;
-        const thumbHeight = Math.max(24, Math.min(track.clientHeight, track.clientHeight * viewportRatio));
-        const maxTop = track.clientHeight - thumbHeight;
-        thumb.style.height = thumbHeight + 'px';
-        thumb.style.top = Math.min(maxTop, Math.max(0, pct * maxTop)) + 'px';
-
-        // Show rail once user has scrolled past the courses section top
+      function updateVisibility() {
+        // Show back-to-top once user has scrolled past the courses section top
         const show = coursesSection ? (window.scrollY + window.innerHeight * 0.6) > coursesSection.offsetTop : window.scrollY > 400;
         rail.classList.toggle('visible', show);
       }
 
-      function scrollToRatio(ratio) {
-        const doc = document.documentElement;
-        const scrollHeight = doc.scrollHeight - doc.clientHeight;
-        window.scrollTo({ top: Math.max(0, ratio * scrollHeight), behavior: 'smooth' });
-      }
-
-      track.addEventListener('click', function (e) {
-        if (isDragging) return;
-        const rect = track.getBoundingClientRect();
-        const clickY = e.clientY - rect.top;
-        const ratio = Math.max(0, Math.min(1, clickY / rect.height));
-        scrollToRatio(ratio);
-      });
-
-      function startDrag(clientY) {
-        track.classList.add('dragging');
-        const startTop = parseFloat(thumb.style.top) || 0;
-        const trackHeight = track.clientHeight;
-        const thumbHeight = thumb.clientHeight;
-        let moved = false;
-
-        function onMove(y) {
-          const delta = y - clientY;
-          if (!moved && Math.abs(delta) > 4) {
-            moved = true;
-            isDragging = true;
-          }
-          const newTop = Math.max(0, Math.min(trackHeight - thumbHeight, startTop + delta));
-          const ratio = newTop / (trackHeight - thumbHeight);
-          const doc = document.documentElement;
-          const scrollHeight = doc.scrollHeight - doc.clientHeight;
-          window.scrollTo(0, Math.max(0, ratio * scrollHeight));
-        }
-
-        return onMove;
-      }
-
-      thumb.addEventListener('mousedown', function (e) {
-        isDragging = false;
-        e.preventDefault();
-        const moveFn = startDrag(e.clientY);
-
-        function onMouseMove(ev) { moveFn(ev.clientY); }
-        function onUp() {
-          track.classList.remove('dragging');
-          document.removeEventListener('mousemove', onMouseMove);
-          document.removeEventListener('mouseup', onUp);
-          setTimeout(() => { isDragging = false; }, 50);
-        }
-        document.addEventListener('mousemove', onMouseMove);
-        document.addEventListener('mouseup', onUp);
-      });
-
-      thumb.addEventListener('touchstart', function (e) {
-        isDragging = false;
-        const touch = e.touches[0];
-        const moveFn = startDrag(touch.clientY);
-
-        function onTouchMove(ev) {
-          if (ev.touches.length !== 1) return;
-          ev.preventDefault();
-          moveFn(ev.touches[0].clientY);
-        }
-        function onEnd() {
-          track.classList.remove('dragging');
-          document.removeEventListener('touchmove', onTouchMove);
-          document.removeEventListener('touchend', onEnd);
-          document.removeEventListener('touchcancel', onEnd);
-          setTimeout(() => { isDragging = false; }, 50);
-        }
-        document.addEventListener('touchmove', onTouchMove, { passive: false });
-        document.addEventListener('touchend', onEnd);
-        document.addEventListener('touchcancel', onEnd);
-      }, { passive: true });
-
-      // The back-to-top button (#back-to-top) is already wired by assets/app.js,
-      // so we only manage the scroll-rail thumb and container visibility here.
-
-      window.addEventListener('scroll', updateThumb, { passive: true });
-      window.addEventListener('resize', updateThumb, { passive: true });
-      updateThumb();
+      window.addEventListener('scroll', updateVisibility, { passive: true });
+      window.addEventListener('resize', updateVisibility, { passive: true });
+      updateVisibility();
     })();
   </script>
 

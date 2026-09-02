@@ -1,0 +1,1 @@
+- [Design preferences](design-preferences.md) — styling decisions and recurring UI polish requests
