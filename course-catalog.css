@@ -30675,3 +30675,1572 @@ body #edx-cards-row.list-view .clean-course-card.card .list-col-logo .logo-wrap 
 }
 
 /* End mobile overhaul */
+﻿/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   LIST VIEW â€” clean table-like rows (reference match)
+   Loaded AFTER course-catalog.css to override old styles
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+
+/* Toggle: hide grid content in list mode, show list content */
+body #edx-cards-row.list-view .clean-course-card.card .grid-view-content {
+    display: none !important;
+}
+
+body #edx-cards-row.list-view .clean-course-card.card .list-view-content {
+
+    display: grid !important;
+    grid-template-columns: 56px minmax(260px, 2.8fr) minmax(160px, 1.4fr) 90px 90px 150px;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+}
+
+/* â”€â”€ Override the aggressive #edx-cards-row rules â”€â”€ */
+#edx-cards-row.list-view {
+    display: flex !important;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    gap: 0 !important;
+}
+
+#edx-cards-row.list-view .clean-course-card,
+#edx-cards-row.list-view .clean-course-card.card,
+#edx-cards-row.edx-cards-row.list-view .clean-course-card.card {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: none !important;
+    display: block !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-bottom: 1px solid var(--border, #e5e7eb) !important;
+    background: transparent !important;
+    padding: 18px 8px !important;
+    margin: 0 !important;
+    animation: none !important;
+    transform: none !important;
+    transition: background 0.15s !important;
+}
+
+#edx-cards-row.list-view .clean-course-card:hover,
+#edx-cards-row.list-view .clean-course-card:focus-visible {
+    transform: none !important;
+    box-shadow: none !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+}
+
+#edx-cards-row.list-view .clean-course-card.card .card-banner {
+    display: none !important;
+}
+
+#edx-cards-row.list-view .clean-course-card.card .card-body {
+    display: block !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    flex: none !important;
+    gap: 0 !important;
+}
+
+/* Logo column — rounded rectangle to preserve institution branding */
+#edx-cards-row.list-view .list-col-logo .logo-wrap {
+    position: static !important;
+    left: auto !important;
+    bottom: auto !important;
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 8px !important;
+    border: 1px solid #e8e0d4 !important;
+    background: #ffffff !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+    flex-shrink: 0 !important;
+}
+
+#edx-cards-row.list-view 
+
+#edx-cards-row.list-view .list-col-logo .logo-fallback {
+    color: #8b7355 !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+}
+
+#edx-cards-row.list-view .list-col-logo .logo-fallback svg {
+    stroke: #8b7355 !important;
+    opacity: 0.6 !important;
+}
+
+/* Course info column */
+#edx-cards-row.list-view .list-col-course .course-title {
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    line-height: 1.35 !important;
+    color: var(--cv-ink, #1a1a2e) !important;
+    margin: 0 0 2px 0 !important;
+    -webkit-line-clamp: 1 !important;
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    min-height: auto !important;
+    padding: 0 !important;
+}
+
+#edx-cards-row.list-view .list-col-course .course-meta-text {
+    font-size: 12.5px !important;
+    color: var(--text-muted, #6b7280) !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: block !important;
+    margin: 0 0 3px 0 !important;
+}
+
+#edx-cards-row.list-view .list-col-course .skills-desc {
+    font-size: 12px !important;
+    color: var(--text-muted, #9ca3af) !important;
+    -webkit-line-clamp: 4 !important;
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    margin: 4px 0 0 0 !important;
+    padding: 0 !important;
+    line-height: 1.4 !important;
+    white-space: normal !important;
+}
+
+/* Skills / badges column */
+#edx-cards-row.list-view .list-col-skills .badge-row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-content: flex-start !important;
+    gap: 5px !important;
+}
+
+#edx-cards-row.list-view .list-col-skills .badge {
+    font-size: 11px !important;
+    padding: 3px 9px !important;
+    border-radius: 4px !important;
+    font-weight: 500 !important;
+    line-height: 1.3 !important;
+    white-space: nowrap !important;
+    border: none !important;
+}
+
+#edx-cards-row.list-view .list-col-skills .badge.qs {
+    background: #d1fae5 !important;
+    color: #065f46 !important;
+}
+
+#edx-cards-row.list-view .list-col-skills .badge.nirf {
+    background: #dbeafe !important;
+    color: #1e40af !important;
+}
+
+#edx-cards-row.list-view .list-col-skills .badge.scholar {
+    background: #ffedd5 !important;
+    color: #9a3412 !important;
+}
+
+/* Duration column */
+#edx-cards-row.list-view .list-col-duration {
+    font-size: 13px !important;
+    color: var(--text-muted, #6b7280) !important;
+    text-align: center !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+#edx-cards-row.list-view .list-col-duration .duration-text {
+    display: flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    justify-content: center !important;
+}
+
+/* Cost column */
+#edx-cards-row.list-view .list-col-cost {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: var(--cv-ink, #1a1a2e) !important;
+    text-align: center !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+#edx-cards-row.list-view .list-col-cost .cost.free {
+    color: #059669 !important;
+    font-weight: 700 !important;
+}
+
+/* Action column â€” dark visit-site button */
+#edx-cards-row.list-view .list-col-actions {
+    text-align: center !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+#edx-cards-row.list-view .list-col-actions.card-footer-actions {
+    margin-top: 0 !important;
+}
+
+#edx-cards-row.list-view .lv-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    padding: 8px 18px !important;
+    border-radius: 8px !important;
+    background: #1a1a2e !important;
+    color: #fff !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    transition: background 0.2s, transform 0.15s !important;
+    border: none !important;
+}
+
+#edx-cards-row.list-view .lv-btn:hover {
+    background: #2d2d4a !important;
+    transform: translateY(-1px) !important;
+}
+
+/* List view header row */
+
+.list-view-header .lv-col-course {
+    /* Removed span */
+    grid-column: 1 / 3;
+}
+
+.list-view-header .lv-col-duration {
+    text-align: center;
+}
+
+.list-view-header .lv-col-cost {
+    text-align: center !important;
+}
+
+.catalog-main {
+    min-width: 0 !important;
+}
+
+/* Responsive: 1100px */
+@media (max-width: 1100px) {
+    #edx-cards-row.list-view .clean-course-card.card {
+        zoom: 1;
+    }
+}
+
+@media (max-width: 900px) {
+    #edx-cards-row.list-view .clean-course-card.card {
+        zoom: 1;
+    }
+}
+
+/* GRID VIEW MOBILE FIXES — 1 card per row on phones */
+@media (max-width: 768px) {
+    #edx-cards-row:not(.list-view) {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+    }
+
+    #edx-cards-row:not(.list-view) .clean-course-card.card {
+        zoom: 1 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+/* LIST VIEW MOBILE â€” horizontal scroll */
+@media (max-width: 768px) {
+    .catalog-results {
+        overflow-x: auto !important;
+    }
+
+}
+
+/* -------------------------------------------------------
+   USER REQUESTED FIXES (Sticky Toolbar & Grid Fixes)
+   ------------------------------------------------------- */
+
+/* Sticky Toolbar */
+.courses-toolbar {
+    position: sticky !important;
+
+    top: 70px !important;
+    z-index: 40 !important;
+    background: var(--bg-surface, #191c1e) !important;
+    padding: 12px 10px !important;
+    margin-left: -10px !important;
+    margin-right: -10px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2) !important;
+}
+
+
+/* 3 Cards strictly on Laptop */
+@media (min-width: 901px) {
+    #edx-cards-row:not(.list-view) {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: var(--cv-card-gap, 16px) !important;
+    }
+
+    #edx-cards-row:not(.list-view) .clean-course-card.card {
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: none !important;
+        zoom: 1 !important;
+    }
+}
+
+#edx-cards-row.list-view .list-col-logo {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+#edx-cards-row.list-view .list-col-course .skills-desc {
+    white-space: normal !important;
+}
+
+
+body,
+html,
+.edx-container,
+.catalog-main,
+.dash-main,
+.catalog-layout {
+    overflow-x: clip !important;
+}
+
+.list-view-header {
+    display: grid !important;
+    grid-template-columns: 56px minmax(260px, 2.8fr) minmax(160px, 1.4fr) 90px 90px 150px !important;
+    align-items: center;
+    gap: 16px;
+    padding: 0 16px 16px 16px;
+    border-bottom: 2px solid var(--border-color);
+    margin-bottom: 24px;
+    font-family: var(--font-ui);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--text-muted, #9ca3af);
+}
+
+
+#edx-cards-row.list-view .list-col-course {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+}
+
+#edx-cards-row.list-view .list-col-logo {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+#edx-cards-row.list-view .lv-btn-visit {
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 6px 14px !important;
+    border-radius: 20px !important;
+    background: #111827 !important;
+    color: #fff !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    transition: all 0.2s !important;
+    border: none !important;
+}
+
+#edx-cards-row.list-view .lv-btn-visit:hover {
+    background: #000 !important;
+    transform: translateY(-1px) !important;
+}
+
+/* List View Header alignment (to perfectly match list-view-content) */
+#edx-cards-row.list-view .list-header-row {
+    display: grid !important;
+    grid-template-columns: 48px minmax(200px, 3fr) minmax(150px, 2fr) 100px 80px 160px !important;
+    align-items: center;
+    gap: 18px;
+    width: 100%;
+    padding: 12px 8px;
+    border-bottom: 1px solid var(--border, #e5e7eb);
+    margin-bottom: 8px;
+}
+
+/* Heart button icon color */
+body #edx-cards-row.list-view .row-action i,
+body #edx-cards-row.list-view .row-action svg {
+    color: #ffffff !important;
+    fill: #ffffff !important;
+}
+
+body #edx-cards-row.list-view .row-action.saved i,
+body #edx-cards-row.list-view .row-action.saved svg {
+    color: #ff3b3b !important;
+    fill: #ff3b3b !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   FINAL MOBILE OVERRIDES (this file loads last)
+   ===================================================== */
+@media (max-width: 768px) {
+    /* ---- GRID VIEW FIXES ---- */
+    body #edx-cards-row:not(.list-view),
+    body #edx-cards-row.grid-view,
+    #edx-cards-row:not(.list-view) {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+    }
+
+    body #edx-cards-row:not(.list-view) .clean-course-card,
+    body #edx-cards-row:not(.list-view) .clean-course-card.card {
+        zoom: 1 !important; transform: none !important; width: 100% !important; max-width: 100% !important; min-width: 0 !important;
+    }
+    
+    /* ---- LIST VIEW MOBILE EXACT MATCH (CSS GRID) ---- */
+    .list-view-header { display: none !important; }
+    
+    body #edx-cards-row.list-view .clean-course-card.card {
+        background-color: var(--card-bg, #ffffff) !important;
+        border-radius: 16px !important;
+        padding: 16px !important;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04) !important;
+        border: none !important;
+        margin-bottom: 16px !important;
+    }
+
+    body #edx-cards-row.list-view .clean-course-card.card .list-view-content {
+        display: grid !important;
+        grid-template-columns: 44px 1fr auto !important;
+        grid-template-rows: auto auto auto !important;
+        gap: 8px 10px !important;
+        padding: 0 !important;
+        align-items: start !important;
+        width: 100% !important;
+    }
+    
+    /* Reset all columns */
+    body #edx-cards-row.list-view .clean-course-card.card .list-col {
+        width: 100% !important; max-width: none !important; min-width: 0 !important; padding: 0 !important; margin: 0 !important;
+        overflow: visible !important;
+    }
+
+    /* Row 1: Logo | Title | Skills */
+    body #edx-cards-row.list-view .clean-course-card.card .list-col-logo {
+        grid-column: 1; grid-row: 1;
+        width: 44px !important; height: 44px !important;
+        display: flex !important; align-items: center !important; justify-content: center !important;
+    }
+    body #edx-cards-row.list-view .clean-course-card.card .list-col-logo .logo-wrap {
+        width: 44px !important; height: 44px !important; border-radius: 8px !important; border: 1px solid var(--border-light, #e5e7eb) !important;
+        padding: 0 !important; background: transparent !important; display: flex !important; align-items: center !important; justify-content: center !important;
+    }
+
+    body #edx-cards-row.list-view .clean-course-card.card .list-col-course {
+        grid-column: 2; grid-row: 1;
+        display: flex !important; flex-direction: column !important; justify-content: flex-start !important; text-align: left !important;
+    }
+    body #edx-cards-row.list-view .clean-course-card.card .list-col-course a.course-title {
+        font-size: 14px !important; font-weight: 600 !important; line-height: 1.3 !important; color: var(--text-main, #111827) !important;
+        margin-bottom: 4px !important; display: -webkit-box !important; -webkit-line-clamp: 3 !important; -webkit-box-orient: vertical !important;
+        overflow: hidden !important; white-space: normal !important;
+    }
+    body #edx-cards-row.list-view .clean-course-card.card .list-col-course .course-meta-text {
+        font-size: 11px !important; color: var(--text-muted, #6b7280) !important; white-space: nowrap !important; overflow: hidden !important; text-overflow: ellipsis !important; display: block !important;
+    }
+    body #edx-cards-row.list-view .clean-course-card.card .list-col-course .skills-desc { display: none !important; }
+
+    body #edx-cards-row.list-view .clean-course-card.card .list-col-skills {
+        grid-column: 3; grid-row: 1;
+        display: flex !important; flex-direction: column !important; gap: 4px !important;
+        align-items: flex-end !important; justify-content: flex-start !important;
+    }
+    body #edx-cards-row.list-view .clean-course-card.card .list-col-skills .badge {
+        font-size: 10px !important; font-weight: 500 !important; color: var(--text-main, #111827) !important;
+        background: transparent !important; padding: 0 !important; border: none !important; margin: 0 !important;
+    }
+
+    /* Row 2: Metrics (Duration & Cost stacked to the right, under skills) */
+    body #edx-cards-row.list-view .clean-course-card.card .list-col-duration {
+        grid-column: 3; grid-row: 2;
+        display: flex !important; align-items: center !important; justify-content: flex-end !important; gap: 4px !important; font-size: 11px !important; color: var(--text-muted, #6b7280) !important;
+    }
+    body #edx-cards-row.list-view .clean-course-card.card .list-col-cost {
+        grid-column: 3; grid-row: 3;
+        display: flex !important; align-items: center !important; justify-content: flex-end !important;
+        font-size: 14px !important; font-weight: 700 !important; color: var(--accent-green, #16a34a) !important;
+    }
+
+    /* Row 4: Actions */
+    body #edx-cards-row.list-view .clean-course-card.card .list-col-actions {
+        grid-column: 1 / -1; grid-row: 4;
+        display: flex !important; gap: 8px !important; margin-top: 12px !important;
+    }
+    body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .lv-btn-visit,
+    body #edx-cards-row.list-view .clean-course-card.card .list-col-actions a.lv-btn-visit {
+        flex: 1 !important; background-color: #1f2937 !important; color: #ffffff !important;
+        border-radius: 12px !important; padding: 12px !important; font-size: 14px !important; font-weight: 500 !important; text-align: center !important; display: flex !important; justify-content: center !important; align-items: center !important; border: none !important;
+    }
+    body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .row-action,
+    body #edx-cards-row.list-view .clean-course-card.card .list-col-actions button.row-action {
+        width: 44px !important; height: 44px !important; background-color: #1f2937 !important; color: #ffffff !important;
+        border-radius: 12px !important; display: flex !important; align-items: center !important; justify-content: center !important; border: none !important;
+    }
+    body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .row-action svg,
+    body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .row-action i {
+        fill: none !important; stroke: #ffffff !important; color: #ffffff !important;
+    }
+    body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .row-action.saved svg,
+    body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .row-action.saved i {
+        fill: #ef4444 !important; stroke: #ef4444 !important; color: #ef4444 !important;
+    }
+
+    /* ---- GRID COURSE CARD BOTTOM BUTTON OVERRIDES ---- */
+    body #edx-cards-row:not(.list-view) .clean-course-card.card .card-footer-actions { 
+        display: flex !important; width: 100% !important; 
+    }
+    body #edx-cards-row:not(.list-view) .clean-course-card.card .card-footer-actions .btn-save { 
+        display: none !important; 
+    }
+    body #edx-cards-row:not(.list-view) .clean-course-card.card .card-footer-actions .btn-visit, 
+    body #edx-cards-row:not(.list-view) .clean-course-card.card .card-footer-actions a.btn { 
+        width: 100% !important; flex: 1 !important; justify-content: center !important; text-align: center !important; background-color: #1f2937 !important; color: #ffffff !important;
+    }
+
+    /* ---- FILTER SIDEBAR DRAWER FIX ---- */
+    .catalog-sidebar {
+        position: fixed !important; top: 70px !important; bottom: 0 !important; left: 0 !important;
+        width: min(320px, 85vw) !important; max-height: calc(100vh - 70px) !important; z-index: 200 !important;
+        background: var(--bg-surface, #fff) !important; border-right: 1px solid var(--border-color, #e5e7eb) !important;
+        transform: translateX(-110%) !important; transition: transform 0.3s ease !important;
+        -webkit-overflow-scrolling: touch !important; overscroll-behavior: contain !important;
+        display: flex !important; flex-direction: column !important;
+    }
+    .catalog-workspace.filters-open .catalog-sidebar, .catalog-workspace.sidebar-collapsed.filters-open .catalog-sidebar { transform: translateX(0) !important; }
+    .catalog-workspace.sidebar-collapsed .catalog-sidebar-body { display: flex !important; }
+    .catalog-workspace.sidebar-collapsed .catalog-sidebar-header { flex-direction: row !important; border-bottom: 1px solid var(--border-color, #e5e7eb) !important; padding-bottom: 12px !important; }
+    .catalog-workspace.sidebar-collapsed .catalog-sidebar-title { writing-mode: horizontal-tb !important; transform: none !important; }
+    .catalog-mobile-overlay {
+        position: fixed !important; top: 70px !important; left: 0 !important; right: 0 !important; bottom: 0 !important;
+        background: rgba(0, 0, 0, 0.55) !important; z-index: 190 !important; opacity: 0 !important; pointer-events: none !important;
+        transition: opacity 0.3s ease !important; display: block !important;
+    }
+    .catalog-workspace.filters-open .catalog-mobile-overlay { opacity: 1 !important; pointer-events: auto !important; }
+
+    /* ---- TOP NAVIGATION COMPACT FIXES ---- */
+    .nav-search-group .nav-filter-btn { display: none !important; }
+    .nav-search-group { flex: 1 !important; min-width: 0 !important; margin-right: 10px !important; }
+    .nav-search-wrap { flex: 1 !important; min-width: 0 !important; }
+    .nav-action-group .nav-sort-wrap, .nav-action-group .nav-reset-btn { display: none !important; }
+    .nav-action-group { display: flex !important; flex-direction: row !important; align-items: center !important; gap: 8px !important; position: static !important; background: transparent !important; border: none !important; box-shadow: none !important; padding: 0 !important; height: auto !important; z-index: auto !important; justify-content: center !important; }
+
+    /* ---- FLOATING BOTTOM LEFT FILTER BUTTON ---- */
+    .catalog-mobile-filter-bar { position: fixed !important; bottom: 20px !important; left: 20px !important; z-index: 10000 !important; margin: 0 !important; }
+    .mobile-filter-toggle { min-height: 48px !important; border-radius: 24px !important; padding: 0 20px !important; font-size: 15px !important; background: #2563eb !important; color: white !important; border: none !important; box-shadow: 0 4px 12px rgba(37,99,235,0.4) !important; }
+    
+    /* ---- MOBILE HELP QUESTION MARK ---- */
+    .catalog-scroll-rail { display: none !important; visibility: hidden !important; width: 0 !important; height: 0 !important; opacity: 0 !important; pointer-events: none !important; z-index: -1 !important; }
+    
+    .mobile-help-btn { display: flex !important; position: fixed !important; bottom: 20px !important; right: 20px !important; width: 48px !important; height: 48px !important; border-radius: 24px !important; background: #ffffff !important; color: #111827 !important; align-items: center !important; justify-content: center !important; font-size: 22px !important; font-weight: bold !important; box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important; z-index: 10000 !important; border: 1px solid #e5e7eb !important; text-decoration: none !important; font-family: sans-serif !important; cursor: pointer !important; }
+    
+    .catalog-main { padding-bottom: 80px !important; }
+}
+
+@media (min-width: 769px) { .mobile-help-btn { display: none !important; } }
+@media (max-width: 480px) { body #edx-cards-row:not(.list-view), body #edx-cards-row.grid-view, #edx-cards-row:not(.list-view) { grid-template-columns: 1fr !important; padding: 0 !important; } body #edx-cards-row:not(.list-view) .clean-course-card, body #edx-cards-row:not(.list-view) .clean-course-card.card { margin: 0 !important; } }
+
+/* MAKE SAVED HEART RED */
+body .btn-save-floating.saved svg, body #edx-cards-row:not(.list-view) .btn-save-floating.saved svg, .btn-save-floating.saved svg, .btn-save-floating.saved .heart-icon, body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .row-action.saved i, body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .row-action.saved svg { fill: #ef4444 !important; color: #ef4444 !important; stroke: #ef4444 !important; filter: drop-shadow(0 0 2px rgba(239, 68, 68, 0.5)) !important; }
+/* =====================================================
+   FINAL MOBILE OVERRIDES (this file loads last)
+   Ensures 1 card/row, touch-friendly buttons, working filters
+   ===================================================== */
+
+/* ---- HAMBURGER MENU DRAWER ---- */
+@media (max-width: 1024px) {
+  /* Hamburger always visible and clickable */
+  body #navbar .hamburger,
+  body .hamburger {
+    display: block !important;
+    position: relative !important;
+    z-index: 9999999 !important;
+    cursor: pointer !important;
+    pointer-events: auto !important;
+  }
+
+  /* Drawer: main.js toggles .open class */
+  body #mobile-nav-drawer {
+    z-index: 9999990 !important;
+  }
+  body #mobile-nav-drawer.open {
+    display: flex !important;
+    flex-direction: column !important;
+    position: fixed !important;
+    top: var(--navbar-h, 60px) !important;
+    left: 0 !important;
+    right: 0 !important;
+    padding: 12px !important;
+    background: var(--bg-surface, #fff) !important;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25) !important;
+    border-bottom: 1px solid #e5e7eb !important;
+    height: auto !important;
+    overflow-y: auto !important;
+    max-height: calc(100vh - 60px) !important;
+  }
+  
+  /* Make drawer links readable */
+  body #mobile-nav-drawer a {
+    padding: 12px 8px !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    border-bottom: 1px solid rgba(0,0,0,0.06) !important;
+    color: inherit !important;
+  }
+  body #mobile-nav-drawer a:last-child {
+    border-bottom: none !important;
+  }
+
+  /* Compact nav bar: reset nav-action-group so it stays inside the bar */
+  body #navbar .nav-action-group {
+    position: relative !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+    background: transparent !important;
+    border-top: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    height: auto !important;
+    display: flex !important;
+  }
+  
+  /* Hide sort dropdown on mobile (compact nav) */
+  body #navbar .nav-sort-wrap {
+    display: none !important;
+  }
+
+  /* Hide reset/clear button on mobile */
+  body #navbar .nav-reset-btn {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* ---- GRID: Force 1 card per row ---- */
+  body #edx-cards-row:not(.list-view),
+  body #edx-cards-row.grid-view,
+  #edx-cards-row:not(.list-view) {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  body #edx-cards-row:not(.list-view) .clean-course-card,
+  body #edx-cards-row:not(.list-view) .clean-course-card.card {
+    zoom: 1 !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+  
+  /* ---- COURSE CARD MOBILE FIXES ---- */
+  .card-footer-actions {
+    display: flex !important;
+    width: 100% !important;
+  }
+  .card-footer-actions .btn-save {
+    display: none !important;
+  }
+  .card-footer-actions .btn-visit,
+  .card-footer-actions a.btn {
+    width: 100% !important;
+    flex: 1 !important;
+    justify-content: center !important;
+    align-items: center !important;
+    display: flex !important;
+    box-sizing: border-box !important;
+  }
+
+  /* ---- FILTER SIDEBAR DRAWER FIX ---- */
+  .catalog-sidebar {
+    position: fixed !important;
+    top: 70px !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: min(320px, 85vw) !important;
+    max-height: calc(100vh - 70px) !important;
+    z-index: 200 !important;
+    background: var(--bg-surface, #fff) !important;
+    border-right: 1px solid var(--border-color, #e5e7eb) !important;
+    transform: translateX(-110%) !important;
+    transition: transform 0.3s ease !important;
+    -webkit-overflow-scrolling: touch !important;
+    overscroll-behavior: contain !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .catalog-workspace.filters-open .catalog-sidebar,
+  .catalog-workspace.sidebar-collapsed.filters-open .catalog-sidebar {
+    transform: translateX(0) !important;
+  }
+  .catalog-workspace.sidebar-collapsed .catalog-sidebar-body { display: flex !important; }
+  .catalog-workspace.sidebar-collapsed .catalog-sidebar-header {
+    flex-direction: row !important;
+    border-bottom: 1px solid var(--border-color, #e5e7eb) !important;
+    padding-bottom: 12px !important;
+  }
+  .catalog-workspace.sidebar-collapsed .catalog-sidebar-title {
+    writing-mode: horizontal-tb !important;
+    transform: none !important;
+  }
+  .catalog-mobile-overlay {
+    position: fixed !important;
+    top: 70px !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background: rgba(0, 0, 0, 0.55) !important;
+    z-index: 190 !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: opacity 0.3s ease !important;
+    display: block !important;
+  }
+  .catalog-workspace.filters-open .catalog-mobile-overlay {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+
+  /* ---- BOTTOM FILTER TOGGLE BUTTON ---- */
+  .catalog-mobile-filter-bar {
+    position: fixed !important;
+    bottom: 10px !important;
+    left: 20px !important;
+    z-index: 181 !important;
+    margin: 0 !important;
+  }
+  .mobile-filter-toggle {
+    min-height: 44px !important;
+    border-radius: 22px !important;
+    padding: 0 20px !important;
+    background: var(--primary, #2563eb) !important;
+    color: white !important;
+    border: none !important;
+    box-shadow: 0 4px 10px rgba(37,99,235,0.3) !important;
+  }
+
+  /* ---- TOUCH-FRIENDLY TARGETS ---- */
+  .catalog-main { padding-bottom: 80px !important; }
+  .filter-chip, .accordion-trigger, .type-pill, .domain-chip, .level-pill {
+    min-height: 40px !important;
+    touch-action: manipulation !important;
+  }
+  .catalog-search input[type="search"],
+  .catalog-search input[type="text"],
+  #edx-search,
+  .nav-search-wrap input[type="search"] {
+    font-size: 16px !important;
+    min-height: 44px !important;
+  }
+  .pagination-btn {
+    min-height: 40px !important;
+    min-width: 40px !important;
+    touch-action: manipulation !important;
+  }
+}
+
+@media (max-width: 480px) {
+  body #edx-cards-row:not(.list-view),
+  body #edx-cards-row.grid-view,
+  #edx-cards-row:not(.list-view) {
+    grid-template-columns: 1fr !important;
+    padding: 0 !important;
+  }
+  .clean-course-card, .clean-course-card.card { margin: 0 !important; }
+}
+
+/* MAKE SAVED HEART RED */
+body .btn-save-floating.saved svg,
+body #edx-cards-row:not(.list-view) .btn-save-floating.saved svg,
+.btn-save-floating.saved svg,
+.btn-save-floating.saved .heart-icon {
+  fill: #ef4444 !important;
+  color: #ef4444 !important;
+  stroke: #ef4444 !important;
+  filter: drop-shadow(0 0 2px rgba(239, 68, 68, 0.5)) !important;
+}
+:root {
+  --casy-deep: #070B14;
+  --casy-surface: #0B0F19;
+  --casy-surface-2: #111827;
+  --casy-surface-3: #1a2234;
+  --casy-text: #F8FAFC;
+  --casy-text-2: #E2E8F0;
+  --casy-muted: #94A3B8;
+  --casy-amber: #F59E0B;
+  --casy-amber-soft: rgba(245, 158, 11, 0.15);
+  --casy-amber-glow: rgba(245, 158, 11, 0.40);
+  --casy-border: rgba(148, 163, 184, 0.14);
+  --casy-border-strong: rgba(245, 158, 11, 0.35);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CASY — Single-surface unification
+   Loaded last. Forces hero, dashboard, globe, courses into one
+   deep navy command-deck with a single amber accent.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── GLOBAL SURFACE RESET ────────────────────────────────────── */
+body,
+.catalog-page,
+.catalog-section.alt,
+#tab-dashboard,
+#dashboard-section,
+#all-courses-section,
+.all-courses-section,
+.edx-container,
+.courses-hero,
+.courses-hero-summary,
+.catalog-workspace,
+.catalog-results,
+.persona-band,
+.domain-explorer-placeholder,
+.domain-explorer-inner,
+.footer {
+  background: var(--casy-surface) !important;
+}
+
+body {
+  color: var(--casy-text-2) !important;
+}
+
+/* ── HERO ────────────────────────────────────────────────────── */
+.landing-hero {
+  position: relative !important;
+  min-height: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  padding: calc(var(--navbar-h, 70px) + 16px) 24px 40px !important;
+  overflow: hidden !important;
+  background: var(--casy-deep) !important;
+  color: var(--casy-text) !important;
+  isolation: isolate;
+}
+
+.landing-hero::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: -2 !important;
+  background: url('assets/hero-earth-bg.jpg') center 75% / cover no-repeat !important;
+  opacity: 0.85 !important;
+}
+
+.landing-hero::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: -1 !important;
+  background:
+    radial-gradient(ellipse 75% 50% at 50% 120%, rgba(245, 158, 11, 0.18) 0%, transparent 60%),
+    linear-gradient(to bottom,
+      rgba(7, 11, 20, 0.78) 0%,
+      rgba(7, 11, 20, 0.35) 35%,
+      rgba(7, 11, 20, 0.20) 60%,
+      rgba(11, 15, 25, 0.92) 100%) !important;
+  pointer-events: none !important;
+}
+
+/* CASY title — THE page title, huge and centered */
+.landing-hero .hero-tag {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  font-family: 'Big Shoulders Display', 'Plus Jakarta Sans', sans-serif !important;
+  font-size: clamp(3.2rem, 12vw, 7.5rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.06em !important;
+  line-height: 0.95 !important;
+  text-transform: uppercase !important;
+  color: var(--casy-text) !important;
+  text-shadow: 0 0 50px rgba(245, 158, 11, 0.35), 0 4px 24px rgba(0,0,0,0.5) !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 auto 0.75rem !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Small descriptor text under the giant CASY */
+.landing-hero h1 {
+  font-family: 'IBM Plex Sans', 'Plus Jakarta Sans', sans-serif !important;
+  font-size: clamp(1.35rem, 3.2vw, 2.1rem) !important;
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+  letter-spacing: -0.01em !important;
+  color: var(--casy-text-2) !important;
+  text-shadow: none !important;
+  margin: 0 auto 0.75rem !important;
+  max-width: 780px !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.landing-hero .hero-h1-green {
+  color: var(--casy-amber) !important;
+  display: block !important;
+}
+
+/* Subtitle */
+.landing-hero p {
+  font-family: 'IBM Plex Sans', 'Plus Jakarta Sans', sans-serif !important;
+  font-size: clamp(0.95rem, 1.4vw, 1.15rem) !important;
+  font-weight: 400 !important;
+  color: var(--casy-muted) !important;
+  text-shadow: none !important;
+  max-width: 620px !important;
+  margin: 0 auto 1rem !important;
+  line-height: 1.55 !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Instant hero search */
+.hero-search {
+  position: relative !important;
+  z-index: 1 !important;
+  width: 100% !important;
+  max-width: 560px !important;
+  margin: 0 auto 1rem !important;
+}
+
+.hero-search-wrap {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0 !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  border-radius: 999px !important;
+  padding: 6px 6px 6px 18px !important;
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease !important;
+  backdrop-filter: blur(8px) !important;
+}
+
+.hero-search-wrap:focus-within {
+  border-color: rgba(255, 255, 255, 0.16) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: none !important;
+}
+
+.hero-search-icon {
+  flex-shrink: 0 !important;
+  color: var(--casy-muted) !important;
+  margin-right: 12px !important;
+}
+
+.hero-search input {
+  flex: 1 1 auto !important;
+  background: transparent !important;
+  border: none !important;
+  color: var(--casy-text) !important;
+  font-size: 1rem !important;
+  padding: 10px 0 !important;
+  min-width: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.hero-search input::placeholder {
+  color: var(--casy-muted) !important;
+}
+
+.hero-search input:focus,
+.hero-search input:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.hero-search-btn {
+  flex-shrink: 0 !important;
+  background: var(--casy-amber) !important;
+  color: #0f172a !important;
+  border: none !important;
+  border-radius: 999px !important;
+  padding: 12px 24px !important;
+  font-weight: 700 !important;
+  font-size: 0.95rem !important;
+  cursor: pointer !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.hero-search-btn:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 18px var(--casy-amber-glow) !important;
+}
+
+/* Hero proof strip */
+.hero-proof {
+  position: relative !important;
+  z-index: 1 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 18px !important;
+  margin-top: 1rem !important;
+  padding: 10px 22px !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.10) !important;
+  border-radius: 999px !important;
+  backdrop-filter: blur(8px) !important;
+}
+
+.hero-proof-item {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 2px !important;
+}
+
+.hero-proof-number {
+  font-family: 'IBM Plex Mono', monospace !important;
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  color: var(--casy-amber) !important;
+  line-height: 1 !important;
+}
+
+.hero-proof-label {
+  font-size: 0.7rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  color: var(--casy-muted) !important;
+}
+
+.hero-proof-divider {
+  width: 1px !important;
+  height: 24px !important;
+  background: rgba(255, 255, 255, 0.14) !important;
+}
+
+/* CTA row */
+.hero-cta-row {
+  position: relative !important;
+  z-index: 1 !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 14px !important;
+  margin-top: 0.75rem !important;
+}
+
+.cta-button,
+.hero-cta-row .cta-button {
+  font-family: 'IBM Plex Sans', 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 0.95rem !important;
+  font-weight: 700 !important;
+  padding: 13px 26px !important;
+  border-radius: 999px !important;
+  cursor: pointer !important;
+  border: 2px solid transparent !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease !important;
+  position: relative !important;
+  z-index: 1 !important;
+  min-height: 46px !important;
+}
+
+.cta-button,
+.hero-cta-row .cta-button:first-child {
+  background: var(--casy-amber) !important;
+  color: #0f172a !important;
+  border-color: var(--casy-amber) !important;
+  box-shadow: 0 8px 28px var(--casy-amber-glow) !important;
+}
+
+.cta-button:hover,
+.hero-cta-row .cta-button:first-child:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 16px 40px var(--casy-amber-glow) !important;
+}
+
+.cta-button.cta-secondary,
+.hero-cta-row .cta-button.cta-secondary {
+  background: transparent !important;
+  color: var(--casy-text) !important;
+  border-color: var(--casy-border-strong) !important;
+  box-shadow: none !important;
+}
+
+.cta-button.cta-secondary:hover,
+.hero-cta-row .cta-button.cta-secondary:hover {
+  border-color: var(--casy-amber) !important;
+  color: var(--casy-amber) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* ── MARQUEE ───────────────────────────────────────────────────── */
+.institute-marquee-section {
+  position: relative !important;
+  z-index: 1 !important;
+  background: #ffffff !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  padding: 26px 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Full-width track so logos reach the edges */
+.marquee-track-wrapper {
+  max-width: none !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.marquee-track {
+  width: 100% !important;
+  overflow: hidden !important;
+}
+
+.marquee-inner {
+  padding-left: 0 !important;
+  gap: 48px !important;
+}
+
+.marquee-logo {
+  height: 46px !important;
+  width: auto !important;
+  max-width: 160px !important;
+  opacity: 0.9 !important;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.15)) !important;
+  transition: opacity 0.25s ease, transform 0.25s ease !important;
+  background: transparent !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.marquee-logo:hover {
+  opacity: 1 !important;
+  transform: scale(1.06) !important;
+}
+
+/* Narrow, subtle edge fades only — no big white blocks */
+.marquee-fade-left,
+.marquee-fade-right,
+[data-theme] .marquee-fade-left,
+[data-theme] .marquee-fade-right {
+  position: absolute !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  display: block !important;
+  width: 60px !important;
+  z-index: 2 !important;
+  pointer-events: none !important;
+}
+
+.marquee-fade-left,
+[data-theme] .marquee-fade-left {
+  left: 0 !important;
+  background: linear-gradient(to right, #ffffff 0%, transparent 100%) !important;
+}
+
+.marquee-fade-right,
+[data-theme] .marquee-fade-right {
+  right: 0 !important;
+  background: linear-gradient(to left, #ffffff 0%, transparent 100%) !important;
+}
+
+/* ── DASHBOARD / GLOBE ───────────────────────────────────────── */
+.dash-layout {
+  background: var(--casy-surface) !important;
+  gap: 24px !important;
+  padding: 32px 0 !important;
+}
+
+.dash-left,
+.dash-right,
+.dash-center,
+.dash-globe-wrap,
+#globe-container,
+.globe-glow,
+.glass-card.metric-card,
+.glass-panel,
+.country-detail-panel,
+.dash-quantity-card {
+  background: var(--casy-surface-2) !important;
+  border: 1px solid var(--casy-border) !important;
+  border-radius: 16px !important;
+}
+
+.dash-center,
+.dash-globe-wrap,
+#globe-container {
+  background: radial-gradient(ellipse at 50% 100%, rgba(245, 158, 11, 0.08), var(--casy-surface-2) 55%) !important;
+  border-color: var(--casy-border) !important;
+}
+
+.metric-card-title,
+.dash-quantity-title,
+.country-detail-title,
+.country-detail-topics-title,
+.country-detail-stat-label {
+  color: var(--casy-text-2) !important;
+}
+
+.metric-value,
+.country-detail-stat-val,
+.dash-quantity-sub,
+#total-count,
+#dash-iit-count,
+#dash-iiit-count,
+#dash-nit-count,
+#dash-free-count,
+#dash-fta-count,
+#dash-hvlc-count,
+#india-stat-count,
+#country-detail-count,
+#cds-total,
+#cds-qs,
+#cds-domain {
+  color: var(--casy-amber) !important;
+  font-family: 'IBM Plex Mono', monospace !important;
+  font-variant-numeric: tabular-nums !important;
+}
+
+.metric-label,
+.metric-card-title,
+.dash-helper-hint,
+.country-detail-sub,
+.c-name,
+.c-count {
+  color: var(--casy-muted) !important;
+}
+
+.metric-bar-track,
+.c-bar-wrap,
+.country-detail-stats {
+  background: rgba(148, 163, 184, 0.12) !important;
+  border-radius: 999px !important;
+}
+
+.metric-bar-fill,
+.c-bar {
+  background: var(--casy-amber) !important;
+  border-radius: 999px !important;
+}
+
+.clickable.metric-card:hover,
+.metric-row.clickable:hover,
+.country-row:hover,
+.country-detail-btn:hover {
+  border-color: var(--casy-border-strong) !important;
+  background: var(--casy-surface-3) !important;
+}
+
+.country-detail-btn {
+  background: var(--casy-amber) !important;
+  color: #0f172a !important;
+  font-weight: 700 !important;
+  border-radius: 999px !important;
+}
+
+.india-flag-badge {
+  color: var(--casy-amber) !important;
+}
+
+/* Globe buttons */
+.globe-fullscreen-btn,
+.globe-reset-btn {
+  background: var(--casy-surface-3) !important;
+  border: 1px solid var(--casy-border) !important;
+  color: var(--casy-text-2) !important;
+}
+
+.globe-fullscreen-btn:hover,
+.globe-reset-btn:hover {
+  border-color: var(--casy-amber) !important;
+  color: var(--casy-amber) !important;
+}
+
+/* ── COURSES SECTION ─────────────────────────────────────────── */
+.courses-hero,
+.courses-hero-content,
+#courses-hero-summary,
+.catalog-workspace,
+.catalog-sidebar,
+.catalog-sidebar-body,
+#catalog-sidebar-body,
+.filter-accordion,
+.accordion-panel,
+.pill-group,
+.catalog-results,
+#edx-cards-row,
+#active-filters,
+#edx-result-count,
+#courses-pagination-wrap {
+  background: var(--casy-surface) !important;
+}
+
+.courses-hero h2,
+.edx-title,
+.section-title,
+.courses-hero-summary,
+#hero-course-count,
+#edx-section-title {
+  color: var(--casy-text) !important;
+}
+
+.edx-subtitle,
+#edx-section-subtitle {
+  color: var(--casy-muted) !important;
+}
+
+.catalog-sidebar {
+  border: 1px solid var(--casy-border) !important;
+  border-radius: 16px !important;
+  background: var(--casy-surface-2) !important;
+}
+
+.catalog-sidebar-header,
+.catalog-sidebar-title,
+.accordion-trigger,
+.filter-label {
+  color: var(--casy-text-2) !important;
+}
+
+.type-pill,
+.domain-chip,
+.skill-pill,
+.access-pill,
+.duration-pill,
+.mode-pill,
+.language-pill,
+.ranking-pill {
+  background: var(--casy-surface-3) !important;
+  border: 1px solid var(--casy-border) !important;
+  color: var(--casy-text-2) !important;
+  border-radius: 999px !important;
+}
+
+.type-pill.active,
+.domain-chip.active,
+.skill-pill.active,
+.access-pill.active,
+.duration-pill.active,
+.mode-pill.active,
+.language-pill.active,
+.ranking-pill.active {
+  background: var(--casy-amber-soft) !important;
+  border-color: var(--casy-amber) !important;
+  color: var(--casy-amber) !important;
+  font-weight: 700 !important;
+}
+
+.filter-count {
+  color: var(--casy-muted) !important;
+}
+
+.type-pill.active .filter-count {
+  color: var(--casy-amber) !important;
+}
+
+.active-filter-chip {
+  background: var(--casy-surface-3) !important;
+  border: 1px solid var(--casy-border) !important;
+  color: var(--casy-text-2) !important;
+}
+
+#edx-result-count {
+  color: var(--casy-amber) !important;
+}
+
+.clean-course-card,
+.clean-course-card.card {
+  background: var(--casy-surface-2) !important;
+  border: 1px solid var(--casy-border) !important;
+  border-radius: 16px !important;
+}
+
+.course-title,
+.clean-course-card .course-title {
+  color: var(--casy-text) !important;
+}
+
+.uni-name,
+.skills-desc,
+.course-meta-text,
+.badge {
+  color: var(--casy-muted) !important;
+}
+
+.btn-visit {
+  background: var(--casy-amber) !important;
+  color: #0f172a !important;
+  font-weight: 700 !important;
+  border-radius: 999px !important;
+}
+
+.btn-save,
+.btn-save-floating,
+.row-action {
+  background: var(--casy-surface-3) !important;
+  border: 1px solid var(--casy-border) !important;
+  color: var(--casy-text-2) !important;
+}
+
+.btn-save.saved svg,
+.btn-save-floating.saved svg,
+.row-action.saved svg {
+  color: var(--casy-amber) !important;
+  fill: var(--casy-amber) !important;
+}
+
+.pagination-btn {
+  background: var(--casy-surface-3) !important;
+  border: 1px solid var(--casy-border) !important;
+  color: var(--casy-text-2) !important;
+}
+
+.pagination-btn.current,
+.pagination-btn[aria-current="page"] {
+  background: var(--casy-amber) !important;
+  color: #0f172a !important;
+  border-color: var(--casy-amber) !important;
+  font-weight: 700 !important;
+}
+
+/* ── CURSOR GLOW ─────────────────────────────────────────────── */
+.cursor-glow {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: none !important;
+  width: 320px !important;
+  height: 320px !important;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.10) 0%, rgba(245, 158, 11, 0.04) 40%, transparent 70%) !important;
+  mix-blend-mode: screen !important;
+}
+
+/* ── MOBILE ──────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .landing-hero {
+    min-height: 0 !important;
+    justify-content: center !important;
+    padding: calc(var(--navbar-h, 64px) + 12px) 20px 36px !important;
+  }
+
+  .landing-hero .hero-tag {
+    font-size: clamp(3rem, 18vw, 6rem) !important;
+    margin-bottom: 0.6rem !important;
+    line-height: 0.9 !important;
+  }
+
+  .landing-hero h1 {
+    font-size: clamp(1.15rem, 5vw, 1.5rem) !important;
+    max-width: 90vw !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .landing-hero p {
+    font-size: 0.9rem !important;
+    max-width: 90vw !important;
+    margin-bottom: 0.85rem !important;
+    line-height: 1.5 !important;
+  }
+
+  .hero-search {
+    max-width: 92vw !important;
+    margin-bottom: 0.85rem !important;
+  }
+
+  .hero-search-wrap {
+    padding: 3px 3px 3px 12px !important;
+  }
+
+  .hero-search input {
+    font-size: 0.95rem !important;
+    padding: 8px 0 !important;
+  }
+
+  .hero-search-btn {
+    padding: 9px 16px !important;
+    font-size: 0.85rem !important;
+  }
+
+  .hero-proof {
+    margin-top: 0.75rem !important;
+    padding: 8px 16px !important;
+    gap: 10px !important;
+  }
+
+  .hero-proof-number {
+    font-size: 1rem !important;
+  }
+
+  .hero-proof-label {
+    font-size: 0.55rem !important;
+  }
+
+  .hero-proof-divider {
+    height: 18px !important;
+  }
+
+  .hero-cta-row {
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 320px !important;
+    margin-top: 0.6rem !important;
+    gap: 10px !important;
+  }
+
+  .hero-cta-row .cta-button {
+    padding: 12px 22px !important;
+    font-size: 0.9rem !important;
+    min-height: 42px !important;
+  }
+
+  .hero-cta-row .cta-button,
+  .hero-cta-row .cta-button:first-child,
+  .hero-cta-row .cta-button.cta-secondary {
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  .dash-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  .dash-left,
+  .dash-right,
+  .dash-center {
+    width: 100% !important;
+  }
+}

@@ -24,15 +24,18 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Yatra+One&display=swap"
     rel="stylesheet" />
-  <!-- hashtag-v2 site styles -->
-  <link rel="stylesheet" href="course-catalog.css?v=111111112" />
-  <link rel="stylesheet" href="assets/list-view-override.css?v=11" />
-  <link rel="stylesheet" href="assets/mobile-patch.css?v=11" />
-  <link rel="stylesheet" href="assets/casy-hero-unify.css?v=11" />
+  <!-- hashtag-v2 site styles (merged into one file) -->
+  <link rel="stylesheet" href="course-catalog.css?v=222222222" />
   <style>
     /* Force the earth image to show through the hero layer stack */
     .landing-hero {
       background: #070B14 !important;
+      /* Remove almost all top gap below the navbar */
+      padding-top: 8px !important;
+      min-height: 0 !important;
+      padding-bottom: 32px !important;
+      /* Keep the blend effect contained to the hero */
+      isolation: isolate;
     }
 
     /* CASY hero logo image — transparent PNG */
@@ -40,17 +43,21 @@
       position: relative;
       z-index: 2;
       display: block;
-      margin: 0 auto 2vh;
-      width: clamp(220px, 32vw, 440px);
+      margin: 0 auto 0.75rem;
+      width: clamp(300px, 44vw, 620px);
       height: auto;
-      background: transparent !important;
-      border: none !important;
-      box-shadow: none !important;
       filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.55));
+      /* Force any non-transparent matte to blend away on the dark hero */
+      mix-blend-mode: screen;
+      image-rendering: -webkit-optimize-contrast;
+      /* Slight right nudge */
+      transform: translateX(20px);
     }
     @media (max-width: 768px) {
       .hero-tag-logo {
-        width: clamp(160px, 52vw, 320px);
+        width: clamp(220px, 66vw, 420px);
+        margin-bottom: 1vh;
+        transform: translateX(5px);
       }
     }
 
@@ -100,12 +107,12 @@
     /* ---- MOBILE PHONE & TABLET: Nav bar overrides ---- */
     @media (max-width: 1024px) {
 
-      /* Hide nav-right (desktop CTA + desktop theme toggle) on mobile */
+      /* Hide nav-right (desktop CTA) on mobile */
       body #navbar .nav-right {
         display: none !important;
       }
 
-      /* Show the mobile controls group (theme + hamburger) */
+      /* Show the mobile controls group (hamburger) */
       body #navbar .nav-mobile-controls {
         display: flex !important;
         flex-direction: row !important;
@@ -151,11 +158,11 @@
       }
 
       body #edx-cards-row.list-view .clean-course-card.card {
-        background-color: var(--card-bg, #ffffff) !important;
+        background-color: var(--card-bg, rgba(35, 39, 40, 0.95)) !important;
         border-radius: 16px !important;
         padding: 14px !important;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
-        border: 1px solid var(--border, #e5e7eb) !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16) !important;
+        border: 1px solid var(--border, #2c3338) !important;
         margin-bottom: 12px !important;
         box-sizing: border-box !important;
         width: 100% !important;
@@ -177,7 +184,7 @@
         box-sizing: border-box !important;
       }
 
-      /* Dark theme mobile list text fix */
+      /* Mobile list view text colors */
       html[data-theme="dark"] body #edx-cards-row.list-view .clean-course-card.card .list-col-course a.course-title {
         color: var(--text-1, #fafafa) !important;
       }
@@ -242,7 +249,7 @@
         font-size: 15px !important;
         font-weight: 700 !important;
         line-height: 1.35 !important;
-        color: var(--text-1, #111827) !important;
+        color: var(--text-1, #fafafa) !important;
         margin-bottom: 4px !important;
         display: -webkit-box !important;
         -webkit-line-clamp: 2 !important;
@@ -254,7 +261,7 @@
 
       body #edx-cards-row.list-view .clean-course-card.card .list-col-course .course-meta-text {
         font-size: 12px !important;
-        color: var(--text-3, #6b7280) !important;
+        color: var(--text-3, #a1a1aa) !important;
         white-space: nowrap !important;
         overflow: hidden !important;
         text-overflow: ellipsis !important;
@@ -291,7 +298,7 @@
         border-radius: 4px !important;
         display: inline-block !important;
         white-space: nowrap !important;
-        color: var(--text-1, #111827) !important;
+        color: var(--text-1, #fafafa) !important;
       }
 
       body #edx-cards-row.list-view .clean-course-card.card .list-col-duration {
@@ -302,7 +309,7 @@
         justify-content: flex-end !important;
         gap: 4px !important;
         font-size: 11px !important;
-        color: var(--text-3, #6b7280) !important;
+        color: var(--text-3, #a1a1aa) !important;
         white-space: nowrap !important;
       }
 
@@ -331,8 +338,8 @@
       body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .lv-btn-visit,
       body #edx-cards-row.list-view .clean-course-card.card .list-col-actions a.lv-btn-visit {
         flex: 1 1 auto !important;
-        background-color: var(--text-1, #000000) !important;
-        color: var(--bg-surface, #ffffff) !important;
+        background-color: var(--text-1, #fafafa) !important;
+        color: var(--bg-surface, #191c1e) !important;
         border-radius: 12px !important;
         padding: 12px !important;
         font-size: 14px !important;
@@ -353,8 +360,8 @@
         width: 44px !important;
         height: 44px !important;
         flex-shrink: 0 !important;
-        background: var(--bg-surface, #ffffff) !important;
-        border: 1px solid var(--border, #e5e7eb) !important;
+        background: var(--bg-surface, #191c1e) !important;
+        border: 1px solid var(--border, #2c3338) !important;
         border-radius: 12px !important;
         display: flex !important;
         align-items: center !important;
@@ -367,8 +374,8 @@
       body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .row-action svg,
       body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .row-action i {
         fill: none !important;
-        stroke: var(--text-3, #6b7280) !important;
-        color: var(--text-3, #6b7280) !important;
+        stroke: var(--text-2, #a1a1aa) !important;
+        color: var(--text-2, #a1a1aa) !important;
         width: 20px !important;
         height: 20px !important;
         font-size: 18px !important;
@@ -381,11 +388,11 @@
         color: #ef4444 !important;
       }
 
-      /* Dark theme action tweaks */
+      /* Action button colors */
       html[data-theme="dark"] body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .row-action,
       html[data-theme="dark"] body #edx-cards-row.list-view .clean-course-card.card .list-col-actions button.row-action {
         background: var(--bg-surface, #191c1e) !important;
-        border-color: var(--border, #2d3748) !important;
+        border-color: var(--border, #2c3338) !important;
       }
       html[data-theme="dark"] body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .row-action svg,
       html[data-theme="dark"] body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .row-action i {
@@ -526,7 +533,7 @@
 
       body #edx-cards-row.list-view .clean-course-card.card .list-col-course .course-meta-text {
         font-size: 12px !important;
-        color: #6b7280 !important;
+        color: #a1a1aa !important;
         white-space: nowrap !important;
         overflow: hidden !important;
         text-overflow: ellipsis !important;
@@ -557,10 +564,10 @@
         top: var(--navbar-h, 60px) !important;
         left: 0 !important;
         right: 0 !important;
-        background: var(--bg-surface, #ffffff) !important;
+        background: var(--bg-surface, #191c1e) !important;
         padding: 12px !important;
         box-shadow: 0 10px 25px rgba(0,0,0,0.25) !important;
-        border-bottom: 1px solid #e5e7eb !important;
+        border-bottom: 1px solid #2c3338 !important;
         height: auto !important;
         overflow-y: auto !important;
         max-height: calc(100vh - 60px) !important;
@@ -568,10 +575,9 @@
       }
     }
   
-    /* FORCE HEART ICON TO BE GRAY IN DARK MODE IF NOT SAVED */
-    [data-theme="dark"] .btn-save-floating:not(.saved),
-    [data-theme="dark"] .btn-save-floating:not(.saved) svg,
-    html[data-theme="dark"] body .btn-save-floating:not(.saved) svg {
+    /* Force unsaved heart icon to gray */
+    body .btn-save-floating:not(.saved),
+    body .btn-save-floating:not(.saved) svg {
       color: #4b5563 !important;
       stroke: #4b5563 !important;
     }
@@ -700,42 +706,10 @@
       </div>
 
       <div class="nav-right">
-        <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle theme">
-          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="5" />
-            <line x1="12" y1="1" x2="12" y2="3" />
-            <line x1="12" y1="21" x2="12" y2="23" />
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-            <line x1="1" y1="12" x2="3" y2="12" />
-            <line x1="21" y1="12" x2="23" y2="12" />
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-          </svg>
-          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-          </svg>
-        </button>
         <a href="#all-courses-section" class="nav-cta nav-cta--free">🎓 Free Courses</a>
       </div>
-      <!-- Mobile-only controls: theme toggle + hamburger, stacked right-to-left -->
+      <!-- Mobile-only controls: hamburger -->
       <div class="nav-mobile-controls">
-        <button id="themeToggleMobile" class="theme-toggle-btn" aria-label="Toggle theme">
-          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="5" />
-            <line x1="12" y1="1" x2="12" y2="3" />
-            <line x1="12" y1="21" x2="12" y2="23" />
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-            <line x1="1" y1="12" x2="3" y2="12" />
-            <line x1="21" y1="12" x2="23" y2="12" />
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-          </svg>
-          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-          </svg>
-        </button>
         <button class="hamburger" id="hamburger">&#9776;</button>
       </div>
     </div>
@@ -750,23 +724,6 @@
       <a href="resources.html">Resources</a>
       <a href="partner.html">Partner With Us</a>
       <a href="#all-courses-section" class="mobile-cta mobile-cta--free">🎓 Free Courses</a>
-      <button id="mobileThemeToggle" class="mobile-theme-toggle" aria-label="Toggle theme">
-        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="12" cy="12" r="5" />
-          <line x1="12" y1="1" x2="12" y2="3" />
-          <line x1="12" y1="21" x2="12" y2="23" />
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-          <line x1="1" y1="12" x2="3" y2="12" />
-          <line x1="21" y1="12" x2="23" y2="12" />
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-        </svg>
-        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-        </svg>
-        <span class="mobile-theme-label">Toggle theme</span>
-      </button>
     </div>
   </nav>
 
@@ -1593,7 +1550,7 @@
   <!-- hashtag-v2 shared behavior (nav scroll, hamburger, cursor glow) -->
   <script src="main.js?v=1786623835678"></script>
 
-  <!-- GUARANTEED hamburger + mobile theme toggle wiring -->
+  <!-- GUARANTEED hamburger wiring -->
   <script>
     (function() {
       function initNav() {
@@ -1628,16 +1585,6 @@
           });
         }
 
-        // Mobile theme toggle button wiring
-        var mobileTheme = document.getElementById('themeToggleMobile');
-        var desktopTheme = document.getElementById('themeToggle');
-        if (mobileTheme && !mobileTheme._themeBound) {
-          mobileTheme._themeBound = true;
-          mobileTheme.addEventListener('click', function() {
-            // Trigger the same logic as the desktop toggle
-            if (desktopTheme) desktopTheme.click();
-          });
-        }
       }
 
       // Run immediately and also on DOMContentLoaded
@@ -1669,11 +1616,17 @@
     })();
   </script>
 
-  <!-- THEME SYNC (landing hero defaults to dark) -->
+  <!-- FORCE DARK THEME: light mode is disabled on this page -->
   <script>
     (function () {
-      const savedTheme = localStorage.getItem('hs-theme');
-      document.documentElement.setAttribute('data-theme', savedTheme || 'dark');
+      function forceDark() {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+      // Apply immediately while parsing, then again after shared scripts run
+      forceDark();
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', forceDark);
+      }
     })();
   </script>
 
@@ -1854,6 +1807,7 @@
       inner.parentElement.addEventListener('mouseleave', () => { raf = requestAnimationFrame(step); });
       raf = requestAnimationFrame(step);
     })();
+
   </script>
 </body>
 
