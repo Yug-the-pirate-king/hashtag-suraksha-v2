@@ -793,7 +793,6 @@
             <img src="assets/logos/Logos/University_of_Oxford.svg" alt="Oxford" class="marquee-logo">
             <img src="assets/logos/Logos/Cornell_University_logo.svg" alt="Cornell" class="marquee-logo">
             <img src="assets/logos/Logos/Columbia_University_1754.svg" alt="Columbia" class="marquee-logo">
-            <img src="assets/logos/Logos/Princeton_logo.svg" alt="Princeton" class="marquee-logo">
             <img src="assets/logos/Logos/Yale_University_logo.svg" alt="Yale" class="marquee-logo">
             <img src="assets/logos/Logos/NationalUniversityofSingapore.svg" alt="NUS" class="marquee-logo">
             <img src="assets/logos/Logos/BITS_Pilani-Logo.svg" alt="BITS Pilani" class="marquee-logo">
@@ -812,7 +811,6 @@
             <img src="assets/logos/Logos/University_of_Oxford.svg" alt="Oxford" class="marquee-logo">
             <img src="assets/logos/Logos/Cornell_University_logo.svg" alt="Cornell" class="marquee-logo">
             <img src="assets/logos/Logos/Columbia_University_1754.svg" alt="Columbia" class="marquee-logo">
-            <img src="assets/logos/Logos/Princeton_logo.svg" alt="Princeton" class="marquee-logo">
             <img src="assets/logos/Logos/Yale_University_logo.svg" alt="Yale" class="marquee-logo">
             <img src="assets/logos/Logos/NationalUniversityofSingapore.svg" alt="NUS" class="marquee-logo">
             <img src="assets/logos/Logos/BITS_Pilani-Logo.svg" alt="BITS Pilani" class="marquee-logo">
@@ -1789,24 +1787,8 @@
     }
 
     /* ── Institute Logo Marquee ────────────────────────────── */
-    (function () {
-      const inner = document.getElementById('marquee-inner');
-      if (!inner) return;
-      let pos = 0;
-      let raf;
-      const speed = 0.5; // px per frame
-      function step() {
-        pos -= speed;
-        const half = inner.scrollWidth / 2;
-        if (Math.abs(pos) >= half) pos = 0;
-        inner.style.transform = 'translateX(' + pos + 'px)';
-        raf = requestAnimationFrame(step);
-      }
-      // Pause on hover
-      inner.parentElement.addEventListener('mouseenter', () => cancelAnimationFrame(raf));
-      inner.parentElement.addEventListener('mouseleave', () => { raf = requestAnimationFrame(step); });
-      raf = requestAnimationFrame(step);
-    })();
+    /* Marquee is now driven by a CSS keyframes animation for smoother,
+       GPU-composited scrolling. See course-catalog.css .marquee-inner. */
 
   </script>
 </body>

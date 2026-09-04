@@ -18159,7 +18159,7 @@ body[data-loading="true"] #india-stat-count {
    clicking the rail track. */
 .catalog-scroll-rail {
   position: fixed;
-  right: 16px;
+  right: 13px;
   top: 50%;
   transform: translateY(-50%);
   width: 40px;
@@ -18206,7 +18206,7 @@ body[data-loading="true"] #india-stat-count {
 
 @media (max-width: 900px) {
   .catalog-scroll-rail {
-    right: 10px;
+    right: 7px;
   }
 
   .catalog-scroll-rail .back-to-top {
@@ -32242,5 +32242,34 @@ body {
   .dash-right,
   .dash-center {
     width: 100% !important;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════
+   LOGO STRIP PERFORMANCE FIX
+   Replace the JS requestAnimationFrame loop with a compositor-only
+   CSS keyframes animation so the marquee scrolls smoothly and stays
+   off the main thread.
+   ════════════════════════════════════════════════════════════════ */
+@keyframes marquee-slide {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-inner {
+  display: inline-flex !important;
+  width: max-content !important;
+  will-change: transform !important;
+  animation: marquee-slide 35s linear infinite !important;
+}
+
+.marquee-track:hover .marquee-inner,
+.marquee-track-wrapper:hover .marquee-inner {
+  animation-play-state: paused !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-inner {
+    animation: none !important;
   }
 }
