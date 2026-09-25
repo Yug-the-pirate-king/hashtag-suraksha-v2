@@ -17221,7 +17221,7 @@ body[data-loading="true"] #india-stat-count {
   font-size: 0.9rem;
   color: var(--text-2);
   margin-bottom: 18px;
-  max-width: 600px;
+  max-width: 100%;
   line-height: 1.45;
 }
 
@@ -17250,7 +17250,7 @@ body[data-loading="true"] #india-stat-count {
 .courses-hero-content {
   position: relative;
   z-index: 1;
-  max-width: 680px;
+  max-width: 100%;
   animation: slideInUp 0.5s ease both;
 }
 
@@ -23623,7 +23623,7 @@ a:focus-visible,
 [data-theme="dark"] #edx-cards-row .clean-course-card.card .btn {
   background: var(--cv-indigo) !important;
   border-color: var(--cv-indigo) !important;
-  color: #fff !important;
+  color: #000 !important;
 }
 
 [data-theme="dark"] #edx-cards-row .clean-course-card .btn-save.saved,
@@ -23721,7 +23721,7 @@ a:focus-visible,
   --cv-ink: #EEEAE0;
   --cv-ink-soft: #8B958F;
   --cv-line: #232B2E;
-  --cv-indigo: #6FA8D6;
+  --cv-indigo: #FFFFFF;
   --cv-indigo-soft: #132531;
   --cv-amber: #F0954A;
   --cv-amber-soft: #2E2013;
@@ -23738,7 +23738,7 @@ a:focus-visible,
 
 /* Landing hero â€” theme-aware */
 .landing-hero {
-  background: linear-gradient(rgba(2,8,22,0.85), rgba(2,8,22,0.85)), #020816 url('assets/hero-earth-bg.jpg') center bottom / contain no-repeat !important;
+  background: linear-gradient(rgba(2,8,22,0.85), rgba(2,8,22,0.85)), #020816 url('assets/hero-earth-bg.png') center bottom / contain no-repeat !important;
   color: #f0ede3 !important;
   min-height: 88vh;
   justify-content: flex-start;
@@ -23953,7 +23953,7 @@ a:focus-visible,
 /* ── Hero always-dark overrides ────────────────────────────────── */
 /* Force the hero to always use the earth background image */
 .landing-hero {
-  background: linear-gradient(rgba(2,8,22,0.85), rgba(2,8,22,0.85)), #020816 url('assets/hero-earth-bg.jpg') center bottom / contain no-repeat !important;
+  background: linear-gradient(rgba(2,8,22,0.85), rgba(2,8,22,0.85)), #020816 url('assets/hero-earth-bg.png') center bottom / contain no-repeat !important;
   color: #f0ede3 !important;
   min-height: 88vh;
   justify-content: flex-start;
@@ -27006,7 +27006,7 @@ button.row-action.saved {
 
 /* 2. Fix hero image — cover so it doesn't cut on sides */
 .landing-hero {
-  background: #020816 url('assets/hero-earth-bg.jpg') center center / cover no-repeat !important;
+  background: #020816 url('assets/hero-earth-bg.png') center center / cover no-repeat !important;
   min-height: 90vh !important;
   overflow: hidden !important;
 }
@@ -27126,7 +27126,7 @@ button.row-action.saved {
 
 /* 2. Fix hero image — scale to width so it doesn't cut on sides */
 .landing-hero {
-  background: #020816 url('assets/hero-earth-bg.jpg') top center / 100% auto no-repeat !important;
+  background: #020816 url('assets/hero-earth-bg.png') top center / 100% auto no-repeat !important;
   min-height: 90vh !important;
   overflow: hidden !important;
 }
@@ -27190,7 +27190,7 @@ button.row-action.saved {
 
 /* 2. Fix hero image — cover so it doesn't cut on sides */
 .landing-hero {
-  background: #020816 url('assets/hero-earth-bg.jpg') center center / cover no-repeat !important;
+  background: #020816 url('assets/hero-earth-bg.png') center center / cover no-repeat !important;
   min-height: 90vh !important;
   overflow: hidden !important;
 }
@@ -27254,7 +27254,7 @@ button.row-action.saved {
 
 /* 2. Fix hero image — cover so it doesn't cut on sides */
 .landing-hero {
-  background: #020816 url('assets/hero-earth-bg.jpg') center center / cover no-repeat !important;
+  background: #020816 url('assets/hero-earth-bg.png') center center / cover no-repeat !important;
   min-height: 90vh !important;
   overflow: hidden !important;
 }
@@ -27406,7 +27406,7 @@ button.row-action.saved {
 
 /* 2. Fix hero image — cover so it doesn't cut on sides */
 .landing-hero {
-  background: #020816 url('assets/hero-earth-bg.jpg') center center / cover no-repeat !important;
+  background: #020816 url('assets/hero-earth-bg.png') center center / cover no-repeat !important;
   min-height: 90vh !important;
   overflow: hidden !important;
 }
@@ -27470,7 +27470,7 @@ button.row-action.saved {
 
 /* 2. Fix hero image — cover so it doesn't cut on sides */
 .landing-hero {
-  background: #020816 url('assets/hero-earth-bg.jpg') center center / cover no-repeat !important;
+  background: #020816 url('assets/hero-earth-bg.png') center center / cover no-repeat !important;
   min-height: 90vh !important;
   overflow: hidden !important;
 }
@@ -27534,7 +27534,7 @@ button.row-action.saved {
 
 /* 2. Fix hero image — cover so it doesn't cut on sides */
 .landing-hero {
-  background: #020816 url('assets/hero-earth-bg.jpg') center center / cover no-repeat !important;
+  background: #020816 url('assets/hero-earth-bg.png') center center / cover no-repeat !important;
   min-height: 90vh !important;
   overflow: hidden !important;
 }
@@ -27598,7 +27598,7 @@ button.row-action.saved {
 
 /* 2. Fix hero image — cover so it doesn't cut on sides */
 .landing-hero {
-  background: #020816 url('assets/hero-earth-bg.jpg') center center / cover no-repeat !important;
+  background: #020816 url('assets/hero-earth-bg.png') center center / cover no-repeat !important;
   min-height: 90vh !important;
   overflow: hidden !important;
 }
@@ -27662,7 +27662,7 @@ button.row-action.saved {
 
 /* 2. Fix hero image — cover so it doesn't cut on sides */
 .landing-hero {
-  background: #020816 url('assets/hero-earth-bg.jpg') center center / cover no-repeat !important;
+  background: #020816 url('assets/hero-earth-bg.png') center center / cover no-repeat !important;
   min-height: 90vh !important;
   overflow: hidden !important;
 }
@@ -27726,7 +27726,7 @@ button.row-action.saved {
 
 /* 2. Fix hero image — cover so it doesn't cut on sides */
 .landing-hero {
-  background: #020816 url('assets/hero-earth-bg.jpg') center center / cover no-repeat !important;
+  background: #020816 url('assets/hero-earth-bg.png') center center / cover no-repeat !important;
   min-height: 90vh !important;
   overflow: hidden !important;
 }
@@ -27790,7 +27790,7 @@ button.row-action.saved {
 
 /* 2. Fix hero image — cover so it doesn't cut on sides */
 .landing-hero {
-  background: #020816 url('assets/hero-earth-bg.jpg') center center / cover no-repeat !important;
+  background: #020816 url('assets/hero-earth-bg.png') center center / cover no-repeat !important;
   min-height: 90vh !important;
   overflow: hidden !important;
 }
@@ -27854,7 +27854,7 @@ button.row-action.saved {
 
 /* 2. Fix hero image — cover so it doesn't cut on sides */
 .landing-hero {
-  background: #020816 url('assets/hero-earth-bg.jpg') center center / cover no-repeat !important;
+  background: #020816 url('assets/hero-earth-bg.png') center center / cover no-repeat !important;
   min-height: 90vh !important;
   overflow: hidden !important;
 }
@@ -27918,7 +27918,7 @@ button.row-action.saved {
 
 /* 2. Fix hero image — cover so it doesn't cut on sides */
 .landing-hero {
-  background: #020816 url('assets/hero-earth-bg.jpg') center center / cover no-repeat !important;
+  background: #020816 url('assets/hero-earth-bg.png') center center / cover no-repeat !important;
   min-height: 90vh !important;
   overflow: hidden !important;
 }
@@ -27982,7 +27982,7 @@ button.row-action.saved {
 
 /* 2. Fix hero image — cover so it doesn't cut on sides */
 .landing-hero {
-  background: #020816 url('assets/hero-earth-bg.jpg') center center / cover no-repeat !important;
+  background: #020816 url('assets/hero-earth-bg.png') center center / cover no-repeat !important;
   min-height: 90vh !important;
   overflow: hidden !important;
 }
@@ -28046,7 +28046,7 @@ button.row-action.saved {
 
 /* 2. Fix hero image — cover so it doesn't cut on sides */
 .landing-hero {
-  background: #020816 url('assets/hero-earth-bg.jpg') center center / cover no-repeat !important;
+  background: #020816 url('assets/hero-earth-bg.png') center center / cover no-repeat !important;
   min-height: 90vh !important;
   overflow: hidden !important;
 }
@@ -31556,7 +31556,7 @@ body {
   position: absolute !important;
   inset: 0 !important;
   z-index: -2 !important;
-  background: url('assets/hero-earth-bg.jpg') center 75% / cover no-repeat !important;
+  background: url('assets/hero-earth-bg.png') center 75% / cover no-repeat !important;
   opacity: 0.85 !important;
 }
 

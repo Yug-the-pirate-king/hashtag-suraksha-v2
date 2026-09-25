@@ -34,67 +34,84 @@ function fetchCoursesJson() {
     return _coursesJsonPromise;
 }
 
-// Valid image-file entries extracted once from "Cyber Image Links.xlsx". Drive
-// blocks third-party embedding, so the corresponding supplied files are stored
-// once in assets/course-banners rather than requested from Drive on every card.
-const COURSE_BANNER_IMAGE_IDS = Object.freeze([
-    '143OShCgZ-mzJv0Ennhl2xcR1IDDBkSbQ', '1YuKO5MzMiijFyEY6PckA7dBiYeY9dkHs', '1y33O6oZUnnpCHAb1v07uc6Xhgb4wgjP0',
-    '142lYp-pHO6UIfUMquSGeBTASX6_73zqZ', '1ZNDO1ibl2JtyhR1DwNutxX5y033eab0J', '1qESbxMPyCe0LDqtyrbe1zm7DmBizY6Mq',
-    '1NiFM-1D_ZOwOSQMo4HgdLoQbmscUYBPC', '1oWlRjtzVqrXw6KuC8FULLZPV3MOJ7G8i', '18mthO3jK9mpA8p-oxZkpgQbKkia-erpO',
-    '1LHceTtFkQlEewg1_X_UB-xXHtGeIU_jd', '1He1qC6Iw-jgkJoDJXqiGhL-BmU6Z2JbX', '1tdPDP2y83i1BW7v775ZETFKYBJBEiWd9',
-    '18ZHpGVHBmu03wWQ7xZeAvTIiTkqS-ABX', '1eYeMKhit_KfN4YN1JiqRAqZFagVBtl0e', '1hdERfoZoedGBzBUeNQxGvaMvzH8nPfOa',
-    '1G9Rrw5x_rl6RGbACsww4_TXkh-Kl95Na', '15kPRbL8CoT9z-qdowiBcaTr-hgtN_sfT', '10-sVK9sbWufY3VHcQIG27_tz-PjOPSL4',
-    '1P0IDbkJOwuMKlv1t35d0cqXtKcC--hud', '1rRLaqbH3IrO7lpG1OG7_eiSLZvj_i-63', '1jEunZZos-Zen1sWLZnQjBvu6edp4DwHA',
-    '1UzIczvMOY5ytqQERpir3rS-AehWAMqUX', '1gvNWiqVUVD6zvB9HSW0g1rMajCKNHhVd', '1Dz17EQZPoztrgvJJ7sbU1epNfTMRqjQZ',
-    '1KmuJk7PkbpSLekz-DHxYsxmZZJzhTdvL', '1jBkWT-TZl8vcBgUpUSX-gMo9VbNE_JWg', '1iSp8d8JHOahV_nmSWMwT7RD9euyxXs-N',
-    '18tmnHpAGt0Dsq_h1JIF_r4YY1ZEuI4ic', '1DF6tO9uyFKfvp4AkB-0AaRGBfjcJqzA-', '1YlmqoF96fZC-On_zyd9AMayTxgBXF034',
-    '1WOWG89w1L956UZY5r87JEC3kQ0xQcr2w', '1Klf-nVOIN0_EWU_MGXlSjGKEnBJm8vAV', '1-daAgL4vPZZj0MTOi7k_jnVsy-L6DywU',
-    '1lk9yJV1PJ27gjr-Brx_0zBci9edmM_9a', '1hrjgoYZmKNSYFjINmEwx9gxlgm5hLZh8', '1WWG2NqOsgoON1lMPGLrXTqiqml1-PNr7',
-    '1XiB-ZYbqpy5jrI4gkU0AVewsXk1FYivb', '15X1-fr7pC7RbIu07si6-9zYuNg9X7ghp', '1od1XCdhB-HfNFRSj6AUzIXanvpm-W2x6',
-    '1WlbElmXmnUCwjFEa6bS22jEcqM3WhkYC', '1BKWGh6DYjIHD5yuTPShMxp3PFjckbUQs', '11j-DKfYW4K5xtca02NqydTWQdhElHJ0U',
-    '1F6thesThIpRb8n1vXhoHBDOeVqjXtZyd', '1Y23tpjHlj_NvVb8Exbsm2T_nudx_NLc7', '1dbYfcIVpNmvkvBc5717nOvjxUcncxs2n',
-    '1fTgfMuEWXpU4al-uNStZ-ZWMsM_l0rqH', '1klOIMS-Oj8nrT1jC-MfYhObymRWabpMk', '1gJ6LMQAPTyalwLwHJrPEmPvUnoHOTePZ',
-    '1-5NN8NItWolQ8RalKK7VlKd0PQUxbaVH', '1Y7oRMqVukBIWK-k3ELjw1094dw-jhIbx', '1H2KZObtvK5uU8SsUDZPVU8CRBLz_kACD',
-    '1zP0ML81JHKR2rJ_SamCjOcp7_TIWLem8', '1FIIS8kkzW7RvXDxuKQVEp8f3azwuHVIN', '1i8A-Gu7wgjQ38QLij2Si4hhG4nMWNST5',
-    '1y6Wuk4veBwvpJbEhrYBLtdhvIF7vjGuv', '18HB859s_KNz0QnTFPfEudIra5eXh8wV9', '1ENGw8CUzrz08c5E78asugHFRi5yLGNZ3',
-    '1FAaStzLvGGHyYYJcjdQuRNhozMFbvRi5', '1Jw4jYIZKfmO_I5ROi9M4lrsiHcWQIkgA', '1HbEsDK_I0TDy67nSju9wBY2FA-oiTB7C',
-    '1dsNKNl38V35q9mtU-srtUUUD5yda-Zkc', '1ekl4S6tGY1skXEbWg3gRTly_T2dA2HJH', '1w2Eu5wEDJ05e6N-qMSe8q8uFw0cFBysx',
-    '16P5IEGA6W5Z8uqwmWOcorr8h5cqb6anj', '159kwQcOCgm-nNAkJtIQPKxmz6B1ynM_d', '1XPPBtFb2ly_70rZyqjaMwrXo01Uw5yEo',
-    '1o0YiONKFG_M_ZavRiM96Qw0TkVC7_dSd', '1-bBlO1lIGA1XFMdmGcZPnGF92nyFNl-y', '10Ps2tJtAdaMGEG-ML7L9QhMz08U0Pv45',
-    '1IrqTayrFyI0KIeuHtYxo7PPQiyJGmID7', '1R483erzD1_6MQHe1TwVqJRlsoSRa9sMV', '1MdlbjyxDRLXPqcwIdD6zPtMlUC2vGRAq',
-    '1uWAvk--5AKfbhJyVHoYf5EWPX5mRXDcQ', '1bnC5ie5YuDQhaolaUwnBQhsPSWDsCFpF', '1hM2rinkFdNjqV-0FUoFvaRbmogHQ659H',
-    '1VuIE-3q37C0DsCeb8mVHtDwWUhLaD2XD', '16aYDCb51oBsGPkbGXWQfZ6WMbc7hcK-N', '14UC_haDYJUxpVZrGc_IntfHseKAJqQCc',
-    '107xhRVPtHxqw9zNb4Ds3HhkkvoJEujb_', '1INNcDwB4ABe0_TKDg72ZwUyWjfsCnfeG', '1GrMHGmo_bh3rSRP3xIXFKk8cvg6dgXck',
-    '1Swab_5P3ufAtuRMzj4ckSXGoyPYQtUpr', '1a5n5XIr5xSAXftr2B8dP21oRKJEGncSw', '15x8ASxAL18f_aaE5x6D5KTZTuQXPLZjz',
-    '1LRIxmoDfumNVW1UHx5ceWtqswnUf4noj', '1wCvQl23Nh6iYH3MCJbgoAC0v7MI5t0R1', '1Ss9oWkai1WFcR85ra1KBHMM07Njo5xLt',
-    '10KYRNSUM_M2kix58yNHYK104sN6RYDd8', '1-ogn6A_wPGCFJvf8bZW4DEq9BaMtKgcs', '1sk5ygrL8hjfL6_F99xNsjXPxK4L82fB7',
-    '1CKh1TEAeh-z37DovT_w3dS6b2owdXAiF', '1xhrfTrnfYt1uQYXUvS8sy_pjzSLkPfzh', '1MRvwkN14RKq610AKn2t2pXBfxwLk5Enr',
-    '1cj_CjRfut4l4dHeZHE3QcjLQoEascSrt', '1dWr2dgJoAS_3cj5c5bpNEhz476c6-wMQ', '1Af5JLmB1aZcMVzvKS6vgv9U3I1rHft5v',
-    '1cJLoMa5yS8hfTc9yLuobyNoii4_o0Bkh', '10cD6KYcqYGsPsdNGfg-epanYCGEhP2k4', '117GsrtIXX968iOu6ypgfLMxwdOYMRg7-',
-    '1IDnxvdyTFjvCExXWEL-x5aJMOFU2ENnS', '1513hR-mMaiZ1IkvrgzmFolmbD5jilk-s', '1vePSJ9crRWm8oo2Ibl626iIw9q4jPBQk',
-    '1OMSBcmN1I_k9adzqLQvkh9Fdrf1AwIop', '1pjE18h-XQ1AHd-krtfFlVGpOjJOR575t', '1TeHpc5CV9QiiIDkxK0bjsBbW5s9Epidi',
-    '1JoW8A8IWy_s0juqZ_mPhKTTAsC1He0cu', '1IyHOAaCN9pACLujKzx515Yzb37a9nZDt', '1lBJYPysjfnTPoMSwhojrgLs7EcNKr8cu',
-    '1zJr7RSKcTH6u2z_5fUjNVQclFNxPjyZo', '1j32uBM-zCeCv4XmV7GbB19N6gFB2jcjY', '1GhVvdm6cJuYjO1NMrjLGgrG61UAWWb9h',
-    '1Ri71QG7HoEfCDmVACYddLyU0ECH91dTI', '1TmAOMhTzs4N6Xvefew6Jx4LEnJvv1PnZ', '14VL_f9XrYWx_-QIkCEMYLV4krZZ-rozJ',
-    '1wQlrbs5Vcqjkj079z3olTw64EEDzNA4L', '1Q1sfl8CunmeEBMT3l3IS5YpXq_9lFIWb', '1dbOvEIBCiJcrMuq8FcN-G73JGlRUN_2a',
-    '1cgC_Qlr5zrU_aNLiTPfHiiW-R-3GGgSm', '1fszxbruve7G5G9X7725F1vn5gVzJn_4m', '1P6xAlCDhyh5D4yMNM3ZtUz3sr7oaW3BH',
-    '1ipu2CYWNB-GLR0VIE1zAJKMaXJjcBowp'
-]);
-
-function getCourseImage(courseId) {
-    if (!COURSE_BANNER_IMAGE_IDS.length) return '';
-    // A stable string hash gives a random-looking distribution without Math.random(),
-    // so a course keeps the same banner through rerenders, filtering, and refreshes.
-    let hash = 2166136261;
-    for (const char of String(courseId ?? '')) {
-        hash ^= char.charCodeAt(0);
-        hash = Math.imul(hash, 16777619);
-    }
-    const imageIndex = (hash >>> 0) % COURSE_BANNER_IMAGE_IDS.length;
-    const imageNumber = String(imageIndex + 1).padStart(3, '0');
-    const extension = imageIndex === 111 ? 'png' : (imageIndex === 112 ? 'avif' : 'webp');
-    return `assets/course-banners/cyber-${imageNumber}.${extension}`;
+// Course banner images removed — cards use no-image styling or banner_url only.
+function getCourseImage(_courseId) {
+    return '';
 }
+
+// Override banner styles to completely remove transparent layer and reduce height
+document.head.insertAdjacentHTML("beforeend", `<style>
+    body #edx-cards-row .clean-course-card .card-banner,
+    body #edx-cards-row .clean-course-card.card .card-banner,
+    body #edx-cards-row .clean-course-card .card-banner.no-image,
+    body #edx-cards-row .clean-course-card.card .card-banner.no-image {
+        height: 64px !important;
+        background: transparent !important;
+        background-image: none !important;
+    }
+    body #edx-cards-row .clean-course-card .card-banner::after,
+    body #edx-cards-row .clean-course-card.card .card-banner::after {
+        display: none !important;
+    }
+    
+    /* --------------------------------------
+       Custom Floating Tags (Badge) Styling 
+       -------------------------------------- */
+    body #edx-cards-row .clean-course-card .badge-row {
+        gap: 8px; /* Adds space between tags */
+    }
+    
+    /* Common Button Style for All Tags (Overrides course-catalog.css specifically) */
+    body #edx-cards-row .clean-course-card.card .badge-row .badge,
+    body #edx-cards-row .clean-course-card.card .badge-row .badge.qs,
+    body #edx-cards-row .clean-course-card.card .badge-row .badge.nirf,
+    body #edx-cards-row .clean-course-card.card .badge-row .badge.scholar {
+        padding: 0.6em 1em !important;
+        font-size: 10px !important;
+        text-transform: uppercase !important;
+        letter-spacing: 2px !important;
+        font-weight: 700 !important;
+        color: #000 !important;
+        background-color: #66e3f6ff !important;
+        border: none !important;
+        border-radius: 45px !important;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1) !important;
+        transition: all 0.3s ease 0s !important;
+        cursor: pointer !important;
+        display: inline-block !important;
+        margin: 4px 4px 8px 0 !important;
+    }
+
+    /* Global Active State */
+    body #edx-cards-row .clean-course-card.card .badge-row .badge:active {
+        transform: translateY(-1px) !important;
+    }
+
+    /* --------------------------------------
+       List View Specific Badge Colors (Light pastels)
+       -------------------------------------- */
+    body #edx-cards-row.list-view .clean-course-card.card .badge-row .badge.qs {
+        background-color: #bae6fd !important; /* Light Sky Blue */
+    }
+    body #edx-cards-row.list-view .clean-course-card.card .badge-row .badge.nirf {
+        background-color: #c7d2fe !important; /* Light Indigo */
+    }
+    body #edx-cards-row.list-view .clean-course-card.card .badge-row .badge.scholar {
+        background-color: #99f6e4 !important; /* Light Mint */
+    }
+    body #edx-cards-row.list-view .clean-course-card.card .badge-row .badge.type {
+        background-color: #fbcfe8 !important; /* Light Pink */
+    }
+    body #edx-cards-row.list-view .clean-course-card.card .badge-row .badge.level {
+        background-color: #bbf7d0 !important; /* Light Green */
+    }
+    body #edx-cards-row.list-view .clean-course-card.card .badge-row .badge.lang {
+        background-color: #fed7aa !important; /* Light Peach/Orange */
+    }
+    body #edx-cards-row.list-view .clean-course-card.card .badge-row .badge.mode {
+        background-color: #e2e8f0 !important; /* Light Slate/Gray */
+    }
+</style>`);
 
 // ── State ────────────────────────────────────────────────────────
 let globalData = null;
@@ -114,8 +131,8 @@ let firstDataFetch = true;
 let courseFilter = { search: '', country: 'all', domain: 'all', qs: 'any', nirf: 'any', courseType: 'all' };
 
 // ── edX All Courses filter state ────────────────────────────────────
-let coursesPageSize = window.innerWidth <= 768 ? 100 : 250;
-function getCoursesPageSize() { return window.innerWidth <= 768 ? 100 : 250; }
+let coursesPageSize = 60;
+function getCoursesPageSize() { return 60; }
 const favoriteCourses = new Set(JSON.parse(localStorage.getItem('cv_favorites') || '[]'));
 let edxFilterState = {
     showSavedOnly: false,
@@ -2390,7 +2407,7 @@ function updateHeroState(total) {
     if (summaryEl) summaryEl.textContent = summary;
 }
 
-function renderEdxCards() {
+function renderEdxCards(append = false) {
     const row = document.getElementById('edx-cards-row');
     const countEl = document.getElementById('edx-result-count');
     const paginationEl = document.getElementById('courses-pagination');
@@ -2420,13 +2437,17 @@ function renderEdxCards() {
         return;
     }
 
-    const pageSize = getCoursesPageSize();
+    const baseLoad = 60;
+    const scrollLoad = 12;
     const page = edxFilterState.page || 1;
-    const start = 0;
-    const end = page * pageSize;
+    let start = 0;
+    const end = page === 1 ? baseLoad : baseLoad + (page - 1) * scrollLoad;
+    if (append && page > 1) {
+        start = baseLoad + (page - 2) * scrollLoad;
+    }
     const pageCourses = all.slice(start, end);
 
-    row.innerHTML = pageCourses.map((c, i) => {
+    const html = pageCourses.map((c, i) => {
         const initials = getUniversityInitials(c.university);
         const duration = formatDurationShort(c);
         const mode = formatMode(c);
@@ -2440,7 +2461,7 @@ function renderEdxCards() {
         const courseType = normalizeDomain(c.domain) || 'Course';
         const domainClass = DOMAIN_CLASS_MAP[c.domainSlug] || '';
         const verifiedBadge = (c.has_qs_badge || c.has_nirf_badge) ? `<span class="verified-badge" title="Verified by ranking">✓ Verified</span>` : '';
-        const bannerImage = (c.banner_url && c.banner_url.trim()) || getCourseImage(c.id);
+        const bannerImage = ''; // Banners completely disabled
         const hasLogo = c.logo_url && c.logo_url.trim() !== '';
         const stampClass = c.stamp === 'hot' ? 'hot' : (c.stamp === 'jobskills' ? 'jobskills' : '');
         const stampLabel = c.stamp === 'hot' ? 'Hot Pick' : (c.stamp === 'jobskills' ? 'Job Skills' : '');
@@ -2470,9 +2491,7 @@ function renderEdxCards() {
             
             <div class="card-banner no-image">
                 ${bannerImage ? `<img class="course-banner-image" src="${escHtml(bannerImage)}" alt="" onerror="this.remove()" />` : ''}
-                <button class="btn-save-floating ${saved ? 'saved' : ''}" onclick="event.stopPropagation(); toggleFavorite('${c.id}', this)" title="${saved ? 'Remove from saved' : 'Save course'}" aria-label="${saved ? 'Remove from saved' : 'Save course'}">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="heart-icon"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                </button>
+
                 <div class="logo-wrap ${hasLogo ? 'has-logo' : ''}">
                     ${hasLogo ? `<img src="${c.logo_url}" alt="${escHtml(c.university)} logo" loading="lazy" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(c.university)}&background=random&color=fff&size=128&font-size=0.33';" />` : ''}
                     <span class="logo-fallback"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.4"><path d="M3 21h18"></path><path d="M3 10h18"></path><path d="M5 6l7-3 7 3"></path><path d="M4 10v11"></path><path d="M20 10v11"></path><path d="M8 14v3"></path><path d="M12 14v3"></path><path d="M16 14v3"></path></svg></span>
@@ -2545,6 +2564,12 @@ function renderEdxCards() {
 </article>`;
     }).join('');
 
+    if (append && page > 1) {
+        row.insertAdjacentHTML('beforeend', html);
+    } else {
+        row.innerHTML = html;
+    }
+
     row.querySelectorAll('.clean-course-card[data-course-id]').forEach(card => {
         card.setAttribute('tabindex', '0');
         card.setAttribute('role', 'article');
@@ -2569,10 +2594,10 @@ function renderPagination(currentPage, total) {
     const wrapEl = document.getElementById('courses-pagination-wrap');
     if (!el) return;
 
-    const pageSize = getCoursesPageSize();
-    const isAll = pageSize === Infinity;
+    const baseLoad = 60;
+    const scrollLoad = 12;
     const start = total === 0 ? 0 : 1;
-    const end = isAll ? total : Math.min(currentPage * pageSize, total);
+    const end = Math.min(currentPage === 1 ? baseLoad : baseLoad + (currentPage - 1) * scrollLoad, total);
 
     if (metaEl) metaEl.textContent = `Showing ${start.toLocaleString()}–${end.toLocaleString()} of ${total.toLocaleString()} courses`;
 
@@ -2614,24 +2639,8 @@ function setupInfiniteScroll(totalItems, currentlyShown) {
 
     if (currentlyShown >= totalItems) return;
 
-    const isMobile = window.innerWidth <= 900;
-    const maxScrollLimit = isMobile ? 100 : 250;
-
     const row = document.getElementById('edx-cards-row');
     if (!row) return;
-
-    if (currentlyShown >= maxScrollLimit) {
-        const btnWrap = document.createElement('div');
-        btnWrap.className = 'load-more-wrap';
-        btnWrap.style = 'text-align:center; padding: 30px 20px; width: 100%;';
-        btnWrap.innerHTML = `<button type="button" class="btn-quick-view" style="font-size: 14px; padding: 12px 24px;" onclick="window._loadMoreManual()">Load More Courses</button>`;
-        window._loadMoreManual = function () {
-            edxFilterState.page = (edxFilterState.page || 1) + 1;
-            renderEdxCards();
-        };
-        row.parentNode.insertBefore(btnWrap, row.nextSibling);
-        return;
-    }
 
     _infiniteScrollSentinel = document.createElement('div');
     _infiniteScrollSentinel.className = 'infinite-scroll-sentinel';
@@ -2646,13 +2655,11 @@ function setupInfiniteScroll(totalItems, currentlyShown) {
             _isLoadingMore = true;
             edxFilterState.page = (edxFilterState.page || 1) + 1;
 
-            renderEdxCards();
+            renderEdxCards(true);
 
-            setTimeout(() => {
-                _isLoadingMore = false;
-            }, 50);
+            _isLoadingMore = false;
         }
-    }, { rootMargin: '100px' });
+    }, { rootMargin: '800px' });
 
     _infiniteScrollObserver.observe(_infiniteScrollSentinel);
 }
