@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 
 <head>
@@ -30,12 +30,14 @@
     /* Force the earth image to show through the hero layer stack */
     .landing-hero {
       background: #070B14 !important;
-      /* Remove almost all top gap below the navbar */
-      padding-top: 8px !important;
-      min-height: 0 !important;
+      padding-top: 10vh !important;
+      min-height: 85vh !important;
       padding-bottom: 32px !important;
       /* Keep the blend effect contained to the hero */
       isolation: isolate;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
     }
 
     /* CASY hero logo image — transparent PNG */
@@ -66,7 +68,7 @@
       position: absolute !important;
       inset: 0 !important;
       z-index: -2 !important;
-      background: url('assets/hero-earth-bg.jpg') center 70% / cover no-repeat !important;
+      background: url('assets/hero-earth-bg.png') center 70% / cover no-repeat !important;
       opacity: 0.9 !important;
     }
     .landing-hero::after {
@@ -736,16 +738,16 @@
     <section class="landing-hero">
       <img src="assets/Domain%20logos/2-clean.png" alt="CASY - Cyber Security Courses Database" class="hero-tag-logo">
       <h1>Your Cybersecurity<br><span class="hero-h1-green">Career Starts Here</span></h1>
-      <p>Explore thousands of global cybersecurity courses, institutions, and career paths all in one place.</p>
+      <p style="font-size: 24px; color: white; ">Explore thousands of global cybersecurity courses, institutions, and career paths all in one place.</p>
 
-      <!-- Instant search hook -->
-      <form class="hero-search" id="hero-search" onsubmit="return false;" role="search" aria-label="Search courses">
+      <!-- Hero Search -->
+      <form id="hero-search" class="hero-search" onsubmit="event.preventDefault();">
         <div class="hero-search-wrap">
-          <svg class="hero-search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <svg class="hero-search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="margin-right: 12px; color: var(--casy-muted);">
             <circle cx="11" cy="11" r="8"></circle>
             <path d="m21 21-4.35-4.35"></path>
           </svg>
-          <input type="search" id="hero-search-input" placeholder="Search courses, universities, countries" autocomplete="off" aria-label="Search courses">
+          <input type="text" id="hero-search-input" placeholder="Search courses, universities, countries" autocomplete="off" />
           <button type="submit" class="hero-search-btn">Search</button>
         </div>
       </form>
@@ -756,7 +758,7 @@
       </div>
 
       <!-- Instant proof strip -->
-      <div class="hero-proof" aria-label="Catalog stats">
+      <div class="hero-proof" aria-label="Catalog stats" style="margin-top: auto;">
         <div class="hero-proof-item">
           <span class="hero-proof-number" id="hero-proof-total">1,600+</span>
           <span class="hero-proof-label">Courses</span>
@@ -774,52 +776,7 @@
       </div>
     </section>
 
-    <!-- INSTITUTE LOGO MARQUEE — after hero -->
-    <div class="institute-marquee-section" aria-label="Partner institutes">
-      <div class="marquee-track-wrapper">
-        
-        
-        <div class="marquee-track">
-          <div class="marquee-inner" id="marquee-inner">
-            <img src="assets/logos/Logos/IIT_Madras_Logo.svg" alt="IIT Madras" class="marquee-logo">
-            <img src="assets/logos/Logos/Indian_Institute_of_Technology_Bombay_Logo.svg" alt="IIT Bombay" class="marquee-logo">
-            <img src="assets/logos/Logos/Indian_Institute_of_Technology_Delhi_Logo.svg" alt="IIT Delhi" class="marquee-logo">
-            <img src="assets/logos/Logos/IIT_Kharagpur_Logo.svg" alt="IIT Kharagpur" class="marquee-logo">
-            <img src="assets/logos/Logos/IIT_Kanpur_Logo.svg" alt="IIT Kanpur" class="marquee-logo">
-            <img src="assets/logos/Logos/Harvard_University_logo.svg" alt="Harvard" class="marquee-logo">
-            <img src="assets/logos/Logos/MIT_2023_red_logo.svg" alt="MIT" class="marquee-logo">
-            <img src="assets/logos/Logos/Stanford_wordmark_(2012).svg" alt="Stanford" class="marquee-logo">
-            <img src="assets/logos/Logos/University_of_Cambridge_logo.svg" alt="Cambridge" class="marquee-logo">
-            <img src="assets/logos/Logos/University_of_Oxford.svg" alt="Oxford" class="marquee-logo">
-            <img src="assets/logos/Logos/Cornell_University_logo.svg" alt="Cornell" class="marquee-logo">
-            <img src="assets/logos/Logos/Columbia_University_1754.svg" alt="Columbia" class="marquee-logo">
-            <img src="assets/logos/Logos/Yale_University_logo.svg" alt="Yale" class="marquee-logo">
-            <img src="assets/logos/Logos/NationalUniversityofSingapore.svg" alt="NUS" class="marquee-logo">
-            <img src="assets/logos/Logos/BITS_Pilani-Logo.svg" alt="BITS Pilani" class="marquee-logo">
-            <img src="assets/logos/Logos/IIT_Guwahati_Logo.svg" alt="IIT Guwahati" class="marquee-logo">
-            <img src="assets/logos/Logos/IIT_Hyderabad_Insignia.svg" alt="IIT Hyderabad" class="marquee-logo">
-            <!-- duplicate for seamless loop -->
-            <img src="assets/logos/Logos/IIT_Madras_Logo.svg" alt="IIT Madras" class="marquee-logo">
-            <img src="assets/logos/Logos/Indian_Institute_of_Technology_Bombay_Logo.svg" alt="IIT Bombay" class="marquee-logo">
-            <img src="assets/logos/Logos/Indian_Institute_of_Technology_Delhi_Logo.svg" alt="IIT Delhi" class="marquee-logo">
-            <img src="assets/logos/Logos/IIT_Kharagpur_Logo.svg" alt="IIT Kharagpur" class="marquee-logo">
-            <img src="assets/logos/Logos/IIT_Kanpur_Logo.svg" alt="IIT Kanpur" class="marquee-logo">
-            <img src="assets/logos/Logos/Harvard_University_logo.svg" alt="Harvard" class="marquee-logo">
-            <img src="assets/logos/Logos/MIT_2023_red_logo.svg" alt="MIT" class="marquee-logo">
-            <img src="assets/logos/Logos/Stanford_wordmark_(2012).svg" alt="Stanford" class="marquee-logo">
-            <img src="assets/logos/Logos/University_of_Cambridge_logo.svg" alt="Cambridge" class="marquee-logo">
-            <img src="assets/logos/Logos/University_of_Oxford.svg" alt="Oxford" class="marquee-logo">
-            <img src="assets/logos/Logos/Cornell_University_logo.svg" alt="Cornell" class="marquee-logo">
-            <img src="assets/logos/Logos/Columbia_University_1754.svg" alt="Columbia" class="marquee-logo">
-            <img src="assets/logos/Logos/Yale_University_logo.svg" alt="Yale" class="marquee-logo">
-            <img src="assets/logos/Logos/NationalUniversityofSingapore.svg" alt="NUS" class="marquee-logo">
-            <img src="assets/logos/Logos/BITS_Pilani-Logo.svg" alt="BITS Pilani" class="marquee-logo">
-            <img src="assets/logos/Logos/IIT_Guwahati_Logo.svg" alt="IIT Guwahati" class="marquee-logo">
-            <img src="assets/logos/Logos/IIT_Hyderabad_Insignia.svg" alt="IIT Hyderabad" class="marquee-logo">
-          </div>
-        </div>
-      </div>
-    </div>
+
 
     <!-- HOW IT WORKS — Storytelling journey -->
 
@@ -842,7 +799,7 @@
               </span>
               <h2 class="edx-title" id="global-section-title">Global Courses</h2>
             </div>
-            <p class="edx-subtitle">Explore cybersecurity courses around the world. Click or drag the globe to filter by country.</p>
+            <p class="edx-subtitle" style="font-size: 22px;">Use your mouse or finger to grab and spin the 3D globe below to look around the world! Whenever you see a bright glowing dot, that means we have cybersecurity courses available in that country. Just click directly on any dot, and the page will instantly update to show you only the courses from that specific place!</p>
           </div>
         </div>
 
@@ -987,63 +944,7 @@
                 <button class="globe-reset-btn" id="globe-reset-btn" aria-label="Reset globe view"></button>
               </div>
 
-              <!-- Floating Country Course Panel -->
-              <div class="country-detail-panel glass-panel" id="course-details-panel" style="display:none;">
-                <div class="country-detail-hdr">
-                  <div class="country-detail-title">
-                    <span id="country-detail-flag"></span>
-                    <span id="country-detail-name">Country</span>
-                    <span class="country-detail-count" id="country-detail-count">0</span>
-                  </div>
-                  <button id="clear-filter" class="country-detail-close" title="Clear selection"
-                    aria-label="Clear country selection"></button>
-                </div>
-                <div class="country-detail-sub">Click any country on the globe to filter courses</div>
 
-                <!-- Quick stats -->
-                <div class="country-detail-stats" id="country-detail-stats">
-                  <div class="country-detail-stat">
-                    <div class="country-detail-stat-val accent" id="cds-total">0</div>
-                    <div class="country-detail-stat-label">Total Courses</div>
-                  </div>
-                  <div class="country-detail-stat">
-                    <div class="country-detail-stat-val green" id="cds-qs">0</div>
-                    <div class="country-detail-stat-label">QS Ranked</div>
-                  </div>
-                  <div class="country-detail-stat">
-                    <div class="country-detail-stat-val blue" id="cds-domain">—</div>
-                    <div class="country-detail-stat-label">Top Domain</div>
-                  </div>
-                </div>
-
-                <!-- Top domains -->
-                <div class="country-detail-topics" id="country-detail-topics">
-                  <div class="country-detail-topics-title">Top Domains</div>
-                  <div class="country-detail-topic-list" id="country-detail-topic-list"></div>
-                </div>
-
-                <!-- Actions -->
-                <div class="country-detail-actions">
-                  <button id="country-view-table" class="country-detail-btn"> View All <span
-                      id="country-btn-name">Country</span> Courses</button>
-                </div>
-
-                <div class="tbl-wrap" style="max-height:220px;">
-                  <table class="data-table country-courses-table" id="country-courses-table">
-                    <caption class="vh">Courses offered in the selected country</caption>
-                    <thead>
-                      <tr>
-                        <th class="freeze-col" scope="col"># / Course Name</th>
-                        <th scope="col">University</th>
-                        <th scope="col" class="col-center">QS Rank</th>
-                        <th scope="col" class="col-center">NIRF Rank</th>
-                        <th scope="col" class="col-actions"><span class="vh">Actions</span></th>
-                      </tr>
-                    </thead>
-                    <tbody id="course-details-body"></tbody>
-                  </table>
-                </div>
-              </div>
             </div>
 
             <!--  RIGHT SIDEBAR  -->
