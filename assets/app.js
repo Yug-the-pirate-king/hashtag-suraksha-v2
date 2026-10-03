@@ -55,61 +55,88 @@ document.head.insertAdjacentHTML("beforeend", `<style>
     }
     
     /* --------------------------------------
-       Custom Floating Tags (Badge) Styling 
+       Reference UI Tags (Badge) Styling & Card Container Reset
        -------------------------------------- */
+    body #edx-cards-row .clean-course-card.card {
+        padding: 0 !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+    /* ===== CARD GRADIENT: edit this ONE line to change every card =====
+       linear-gradient(ANGLE, COLOR1, COLOR2, ...) 
+       45deg = bottom-left to top-right. Use lighter colours for less dark. */
+    :root { --card-gradient: linear-gradient(45deg, #0c1831 15%, #0b1a3b 90%); }
+    body #edx-cards-row:not(.list-view) .clean-course-card.card .card-view-panel:not(.list-view-content) {
+        background: var(--card-gradient) !important;
+        background-size: 100% 100% !important;
+        background-attachment: scroll !important;
+        background-repeat: no-repeat !important;
+        backdrop-filter: none !important;
+        filter: none !important;
+    }
     body #edx-cards-row .clean-course-card .badge-row {
-        gap: 8px; /* Adds space between tags */
+        gap: 8px !important;
+        display: flex !important;
+        flex-wrap: wrap !important;
     }
     
-    /* Common Button Style for All Tags (Overrides course-catalog.css specifically) */
-    body #edx-cards-row .clean-course-card.card .badge-row .badge,
-    body #edx-cards-row .clean-course-card.card .badge-row .badge.qs,
-    body #edx-cards-row .clean-course-card.card .badge-row .badge.nirf,
-    body #edx-cards-row .clean-course-card.card .badge-row .badge.scholar {
-        padding: 0.6em 1em !important;
-        font-size: 10px !important;
-        text-transform: uppercase !important;
-        letter-spacing: 2px !important;
-        font-weight: 700 !important;
-        color: #000 !important;
-        background-color: #66e3f6ff !important;
+    body #edx-cards-row .clean-course-card .badge-row .badge {
+        padding: 4px 10px !important;
+        font-size: 12px !important;
+        text-transform: none !important;
+        letter-spacing: normal !important;
+        font-weight: 600 !important;
         border: none !important;
-        border-radius: 45px !important;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1) !important;
-        transition: all 0.3s ease 0s !important;
-        cursor: pointer !important;
+        border-radius: 6px !important;
+        box-shadow: none !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 6px !important;
+        margin: 0 !important;
+        font-family: var(--font-ui, system-ui, sans-serif) !important;
+    }
+    /* All tags share the QS amber background */
+    body #edx-cards-row .clean-course-card .badge-row .badge,
+    body #edx-cards-row .clean-course-card .badge-row .badge.type,
+    body #edx-cards-row .clean-course-card .badge-row .badge.level,
+    body #edx-cards-row .clean-course-card .badge-row .badge.lang,
+    body #edx-cards-row .clean-course-card .badge-row .badge.scholar,
+    body #edx-cards-row .clean-course-card .badge-row .badge.nirf,
+    body #edx-cards-row .clean-course-card .badge-row .badge.qs {
+        background: #1b2a35 !important;
+        border: none !important;
+        color: #ffffff !important;
+    }
+    
+    body #edx-cards-row .clean-course-card .badge-row .badge svg {
+        width: 14px !important;
+        height: 14px !important;
+        stroke-width: 2px !important;
+        flex-shrink: 0 !important;
+        fill: none;
+        stroke: #94a3b8 !important;
         display: inline-block !important;
-        margin: 4px 4px 8px 0 !important;
+    }
+    
+    body #edx-cards-row .clean-course-card .badge-row .badge.nirf,
+    body #edx-cards-row .clean-course-card .badge-row .badge.qs {
+        padding-left: 4px !important;
     }
 
-    /* Global Active State */
-    body #edx-cards-row .clean-course-card.card .badge-row .badge:active {
-        transform: translateY(-1px) !important;
-    }
-
-    /* --------------------------------------
-       List View Specific Badge Colors (Light pastels)
-       -------------------------------------- */
-    body #edx-cards-row.list-view .clean-course-card.card .badge-row .badge.qs {
-        background-color: #bae6fd !important; /* Light Sky Blue */
-    }
-    body #edx-cards-row.list-view .clean-course-card.card .badge-row .badge.nirf {
-        background-color: #c7d2fe !important; /* Light Indigo */
-    }
-    body #edx-cards-row.list-view .clean-course-card.card .badge-row .badge.scholar {
-        background-color: #99f6e4 !important; /* Light Mint */
-    }
-    body #edx-cards-row.list-view .clean-course-card.card .badge-row .badge.type {
-        background-color: #fbcfe8 !important; /* Light Pink */
-    }
-    body #edx-cards-row.list-view .clean-course-card.card .badge-row .badge.level {
-        background-color: #bbf7d0 !important; /* Light Green */
-    }
-    body #edx-cards-row.list-view .clean-course-card.card .badge-row .badge.lang {
-        background-color: #fed7aa !important; /* Light Peach/Orange */
-    }
-    body #edx-cards-row.list-view .clean-course-card.card .badge-row .badge.mode {
-        background-color: #e2e8f0 !important; /* Light Slate/Gray */
+    /* Auto-fit tags on mobile for perfect alignment */
+    @media (max-width: 768px) {
+        body #edx-cards-row .clean-course-card .badge-row .badge {
+            padding: 3px 6px !important;
+            font-size: 10px !important;
+            gap: 4px !important;
+            border-radius: 4px !important;
+        }
+        body #edx-cards-row .clean-course-card .badge-row .badge svg {
+            width: 12px !important;
+            height: 12px !important;
+            stroke-width: 2.2 !important;
+        }
     }
 </style>`);
 
@@ -197,8 +224,8 @@ function matchTypePill(course, pill) {
     if (pill === 'all' || pill === 'All') return true;
     const rawType = String(course.course_type || '').toLowerCase().trim();
     const cName = String(course.name || '').toLowerCase().trim();
-    if (pill === 'Post Graduate Diploma' && (rawType.includes('pg diploma') || cName.includes('pg diploma'))) return true;
-    if (pill === 'Post Graduate Certificate' && (rawType.includes('pg cert') || cName.includes('pg cert'))) return true;
+    if (pill === 'Post Graduate Diploma' && (rawType.includes('pg diploma') || rawType.includes('post graduate diploma') || cName.includes('pg diploma') || cName.includes('post graduate diploma'))) return true;
+    if (pill === 'Post Graduate Certificate' && (rawType.includes('pg cert') || rawType.includes('post graduate cert') || rawType.includes('advanced cert') || cName.includes('pg cert') || cName.includes('post graduate cert') || cName.includes('advanced cert'))) return true;
     if (pill === "Bachelor's Degree" && rawType.includes('bachelor')) return true;
     if (pill === "Master's Degree" && rawType.includes('master')) return true;
 
@@ -317,9 +344,14 @@ const _CANON_DOMAIN_FRAGMENTS = [
     ['post graduate diploma', "Post Graduate Diploma"],
     ['post grad diploma', "Post Graduate Diploma"],
     ['graduate diploma', "Post Graduate Diploma"],
+    ['pg diploma', "Post Graduate Diploma"],
     ['post graduate certificate', "Post Graduate Certificate"],
     ['post grad certificate', "Post Graduate Certificate"],
     ['post grad cert', "Post Graduate Certificate"],
+    ['pg certificate', "Post Graduate Certificate"],
+    ['pg cert', "Post Graduate Certificate"],
+    ['advanced certificate', "Post Graduate Certificate"],
+    ['advanced cert', "Post Graduate Certificate"],
     ['bachelor', "Bachelor's Degree"],
     ['master', "Master's Degree"],
     ['pg', "Master's Degree"],
@@ -707,13 +739,11 @@ function generateDenseArcData() {
     }
 
     if (entries.length <= 20) {
-        for (let i = 0; i < entries.length; i++) {
-            for (let j = i + 1; j < entries.length; j++) {
-                addArc(
-                    { lat: entries[i][1][0], lng: entries[i][1][1] },
-                    { lat: entries[j][1][0], lng: entries[j][1][1] }
-                );
-            }
+        for (let i = 1; i < entries.length; i++) {
+            addArc(
+                { lat: entries[0][1][0], lng: entries[0][1][1] },
+                { lat: entries[i][1][0], lng: entries[i][1][1] }
+            );
         }
         return arcs;
     }
@@ -794,15 +824,15 @@ const GLOBE_THEMES = {
     },
     light: {
         // Ocean: subtle premium light blue/grey
-        base: '#e2e8f0',
-        bg: '#f8fafc',
+        base: '#FFFFFF',
+        bg: '#ffffff',
         halo: '#1D4ED8',
         marker: '#0891B2',
         arc: '#0891B2',
         dark: 0,
         diffuse: 1.2,
         mapBrightness: 6,
-        mapBaseBrightness: 0.1
+        mapBaseBrightness: 0
     }
 };
 
@@ -2211,7 +2241,8 @@ function toggleFavorite(id, btn) {
         btn.classList.toggle('saved', saved);
         btn.setAttribute('aria-pressed', saved);
         btn.title = saved ? 'Remove from saved' : 'Save course';
-        if (btn.classList.contains('row-action')) { btn.innerHTML = `<i class=\"${saved ? 'fa-solid' : 'fa-regular'} fa-heart\"></i>`; } else if (!btn.classList.contains('btn-save-floating')) { btn.textContent = saved ? '♥' : '♡'; }
+        const innerSvg = btn.querySelector('svg');
+        if (btn.classList.contains('btn-save') && innerSvg) { innerSvg.setAttribute('fill', saved ? 'currentColor' : 'none'); } else if (btn.classList.contains('row-action')) { btn.innerHTML = `<i class=\"${saved ? 'fa-solid' : 'fa-regular'} fa-heart\"></i>`; } else if (!btn.classList.contains('btn-save-floating')) { btn.textContent = saved ? '♥' : '♡'; }
     }
     const card = document.querySelector(`.clean-course-card[data-course-id="${CSS.escape(key)}"]`);
     if (card) {
@@ -2467,15 +2498,20 @@ function renderEdxCards(append = false) {
         const stampLabel = c.stamp === 'hot' ? 'Hot Pick' : (c.stamp === 'jobskills' ? 'Job Skills' : '');
         // Consistent badge set: ranking → type → level → language
         const badges = [];
-        if (c.has_qs_badge) badges.push('<span class="badge qs">QS Ranked</span>');
-        if (c.has_nirf_badge) badges.push('<span class="badge nirf">NIRF</span>');
-        if (c.scholarship_match || c.has_scholarship) badges.push('<span class="badge scholar">Scholarship</span>');
+        const svgScholar = `<svg viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>`;
+        const svgType = `<svg viewBox="0 0 24 24" stroke="currentColor"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>`;
+        const svgLevel = `<svg viewBox="0 0 24 24" stroke="currentColor"><line x1="12" y1="20" x2="12" y2="10"></line><line x1="18" y1="20" x2="18" y2="4"></line><line x1="6" y1="20" x2="6" y2="16"></line></svg>`;
+        const svgLang = `<svg viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>`;
+
+        if (c.has_qs_badge) badges.push(`<span class="badge qs"><img src="assets/qs-logo-white.png" alt="QS" style="height: 20px; width: auto; margin-right: 0px; display: block;"> Ranked</span>`);
+        if (c.has_nirf_badge) badges.push(`<span class="badge nirf"><img src="assets/nirf-logo-white.png" alt="NIRF" style="height: 10px; width: auto; margin-right: 4px; display: inline-block; vertical-align: middle;"> Ranked</span>`);
+        if (c.scholarship_match || c.has_scholarship) badges.push(`<span class="badge scholar">${svgScholar} Scholarship</span>`);
         let academicType = c.course_type || c.courseType || courseType;
         if (academicType && academicType !== 'Other' && academicType.toLowerCase() !== 'free' && academicType.toLowerCase() !== 'free to audit') {
-            badges.push(`<span class="badge type">${escHtml(academicType)}</span>`);
+            badges.push(`<span class="badge type">${svgType} ${escHtml(academicType)}</span>`);
         }
-        badges.push(`<span class="badge level">${escHtml(level)}</span>`);
-        badges.push(`<span class="badge lang">${escHtml(language)}</span>`);
+        badges.push(`<span class="badge level">${svgLevel} ${escHtml(level)}</span>`);
+        badges.push(`<span class="badge lang">${svgLang} ${escHtml(language)}</span>`);
 
         const costClass = ((c.cost && c.cost.toLowerCase() === 'free') || c.free_match || c.has_free) ? 'free' : '';
         const costDisplay = c.cost && String(c.cost).trim() !== '' && String(c.cost).trim() !== '—'
@@ -2484,53 +2520,58 @@ function renderEdxCards(append = false) {
         const skillsDesc = c.skills_description || c.skills || 'Explore this cybersecurity program to build in-demand security skills.';
         const affiliation = c.affiliated_uni ? escHtml(c.affiliated_uni) : '';
         const stateDisplay = c.uni_state && c.mode && c.mode.toLowerCase().includes('offline') ? escHtml(c.uni_state) : '';
+        const universityFull = c.university;
+
         return `
         <article class="clean-course-card card ${saved ? 'saved' : ''} ${domainClass}" style="animation: fadeStagger 0.4s ease ${i * 0.04}s both;" data-course-id="${c.id}" tabindex="0" role="button" aria-label="Open ${escHtml(c.name)}">
 
-        <div class="grid-view-content card-view-panel">
+        <div class="grid-view-content card-view-panel" style="border: 1px solid #1f2937; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 16px; height: 100%; box-sizing: border-box;">
             
-            <div class="card-banner no-image">
-                ${bannerImage ? `<img class="course-banner-image" src="${escHtml(bannerImage)}" alt="" onerror="this.remove()" />` : ''}
-
-                <div class="logo-wrap ${hasLogo ? 'has-logo' : ''}">
-                    ${hasLogo ? `<img src="${c.logo_url}" alt="${escHtml(c.university)} logo" loading="lazy" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(c.university)}&background=random&color=fff&size=128&font-size=0.33';" />` : ''}
-                    <span class="logo-fallback"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.4"><path d="M3 21h18"></path><path d="M3 10h18"></path><path d="M5 6l7-3 7 3"></path><path d="M4 10v11"></path><path d="M20 10v11"></path><path d="M8 14v3"></path><path d="M12 14v3"></path><path d="M16 14v3"></path></svg></span>
+            <!-- Top Row: Logo & Uni -->
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <div class="custom-logo-container ${hasLogo ? 'has-logo' : ''}" style="width: 52px; height: 52px; background: #ffffff; border-radius: 12px; padding: 6px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; overflow: hidden; box-sizing: border-box; position: relative !important; transform: none !important;">
+                    ${hasLogo ? `<img src="${c.logo_url}" alt="${escHtml(universityFull)} logo" loading="lazy" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(universityFull)}&background=random&color=fff&size=128&font-size=0.33';" />` : `<span class="logo-fallback"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.4"><path d="M3 21h18"></path><path d="M3 10h18"></path><path d="M5 6l7-3 7 3"></path><path d="M4 10v11"></path><path d="M20 10v11"></path><path d="M8 14v3"></path><path d="M12 14v3"></path><path d="M16 14v3"></path></svg></span>`}
                 </div>
-                ${stampClass ? `<span class="stamp ${stampClass}">${stampLabel}</span>` : ''}
-            </div>
-            <div class="card-body">
-                <div class="card-body-header">
-                    <p class="edx-card-uni">${escHtml(c.university)}</p>
-                    <p class="edx-card-loc">
-                        ${escHtml(c.country || 'India')}${stateDisplay ? ` &middot; ${stateDisplay}` : ''}${affiliation ? ` &middot; ${affiliation}` : ''}
-                    </p>
-                </div>
-
-                <h3 class="edx-card-title" title="${escHtml(c.name)}">${escHtml(c.name)}</h3>
-
-                <p class="skills-desc">${escHtml(skillsDesc)}</p>
-
-                <div class="badge-row">${badges.join('')}</div>
-
-                <div class="meta-row">
-                    <div class="meta-left">
-                        <span class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>${escHtml(duration)}</span>
-                        <span class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>${escHtml(mode)}</span>
-                    </div>
-                    <span class="cost ${costClass}">${costDisplay}</span>
-                </div>
-
-                <div class="card-footer-actions">
-                    <a class="btn btn-visit" href="${escHtml(getCourseUrl(c))}" target="_blank" rel="noopener" onclick="event.stopPropagation();" title="Visit ${escHtml(c.university || 'course')} website">
-                        <span>Visit website</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg>
-                    </a>
-                    <button class="btn btn-save ${saved ? 'saved' : ''}" onclick="event.stopPropagation(); toggleFavorite('${c.id}', this)" title="${saved ? 'Remove from saved' : 'Save course'}" aria-label="${saved ? 'Remove from saved' : 'Save course'}" aria-pressed="${saved}">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="${saved ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                    </button>
+                <div style="display: flex; flex-direction: column;">
+                    <p style="margin: 0; color: #F8FAFC; font-weight: 600; font-size: 14px; line-height: 1.2;">${escHtml(universityFull)}</p>
+                    <p style="margin: 0; color: #94A3B8; font-size: 13px; margin-top: 2px;">${escHtml(c.country || 'India')}${stateDisplay ? ` &middot; ${stateDisplay}` : ''}${affiliation ? ` &middot; ${affiliation}` : ''}</p>
                 </div>
             </div>
-
+            
+            <!-- Title -->
+            <h3 style="margin: 0; color: #FFFFFF; font-size: 18px; font-weight: 700; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">${escHtml(c.name)}</h3>
+            
+            <!-- Description -->
+            <p style="margin: 0; color: #E2E8F0; font-size: 14px; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; opacity: 0.9;">
+                ${escHtml(skillsDesc)}
+            </p>
+            
+            <!-- Badges Row -->
+            <div class="badge-row" style="margin-top: auto;">
+                ${badges.join('')}
+            </div>
+            
+            <!-- Divider -->
+            <hr style="border: none; border-top: 1px dashed #334155; margin: 4px 0;" />
+            
+            <!-- Meta Data Row -->
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+                <div style="display: flex; gap: 12px; color: #94A3B8; font-size: 13px; flex-wrap: wrap;">
+                    <span style="display: flex; align-items: center; gap: 5px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>${escHtml(duration)}</span>
+                    <span style="display: flex; align-items: center; gap: 5px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>${escHtml(mode)}</span>
+                </div>
+                <span class="cost ${costClass}" style="color: #10B981; font-weight: 700; font-size: 12.5px; white-space: nowrap; text-align: right; flex-shrink: 0;">${costDisplay}</span>
+            </div>
+            
+            <!-- Bottom Actions -->
+            <div style="display: flex; align-items: center; gap: 12px; margin-top: 4px;">
+                <a href="${escHtml(getCourseUrl(c))}" target="_blank" rel="noopener" onclick="event.stopPropagation();" style="flex-grow: 1; display: flex; align-items: center; justify-content: center; gap: 8px; background: #000000; color: #FFFFFF; text-decoration: none; padding: 12px; border-radius: 12px; font-weight: 600; font-size: 15px; transition: opacity 0.2s;">
+                    Visit website <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg>
+                </a>
+                <button class="btn btn-save ${saved ? 'saved' : ''}" onclick="event.stopPropagation(); toggleFavorite('${c.id}', this)" title="${saved ? 'Remove from saved' : 'Save course'}" aria-label="${saved ? 'Remove from saved' : 'Save course'}" aria-pressed="${saved}" style="width: 46px; height: 46px; background: #FFFFFF; border: none; border-radius: 12px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #000000; flex-shrink: 0; padding: 0;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="${saved ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                </button>
+            </div>
         </div>
                                         <div class="list-view-content card-view-panel" style="display: none; align-items: center;">
             <div class="list-col list-col-logo" style="display: flex; align-items: center; justify-content: center; width: 48px; flex-shrink: 0;">

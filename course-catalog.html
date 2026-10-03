@@ -25,7 +25,7 @@
     href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Yatra+One&display=swap"
     rel="stylesheet" />
   <!-- hashtag-v2 site styles (merged into one file) -->
-  <link rel="stylesheet" href="course-catalog.css?v=222222222" />
+  <link rel="stylesheet" href="course-catalog.css?v=666666666" />
   <style>
     /* Force the earth image to show through the hero layer stack */
     .landing-hero {
@@ -69,7 +69,8 @@
       inset: 0 !important;
       z-index: -2 !important;
       background: url('assets/hero-earth-bg.png') center 70% / cover no-repeat !important;
-      opacity: 0.9 !important;
+      opacity: 1 !important;
+      filter: brightness(0.6) contrast(1.25) saturate(1.2) !important;
     }
     .landing-hero::after {
       content: "" !important;
@@ -77,10 +78,10 @@
       inset: 0 !important;
       z-index: -1 !important;
       background: linear-gradient(to bottom,
-        rgba(7, 11, 20, 0.72) 0%,
-        rgba(7, 11, 20, 0.38) 35%,
-        rgba(7, 11, 20, 0.18) 60%,
-        rgba(11, 15, 25, 0.88) 100%) !important;
+        rgba(7, 11, 20, 0.75) 0%,
+        rgba(7, 11, 20, 0.45) 35%,
+        rgba(7, 11, 20, 0.25) 60%,
+        rgba(11, 15, 25, 0.7) 100%) !important;
       pointer-events: none !important;
     }
   </style>
@@ -708,7 +709,7 @@
       </div>
 
       <div class="nav-right">
-        <a href="#all-courses-section" class="nav-cta nav-cta--free">🎓 Free Courses</a>
+
       </div>
       <!-- Mobile-only controls: hamburger -->
       <div class="nav-mobile-controls">
@@ -725,7 +726,7 @@
       <a href="course-catalog.html" class="active">CASY</a>
       <a href="resources.html">Resources</a>
       <a href="partner.html">Partner With Us</a>
-      <a href="#all-courses-section" class="mobile-cta mobile-cta--free">🎓 Free Courses</a>
+
     </div>
   </nav>
 
@@ -738,42 +739,9 @@
     <section class="landing-hero">
       <img src="assets/Domain%20logos/2-clean.png" alt="CASY - Cyber Security Courses Database" class="hero-tag-logo">
       <h1>Your Cybersecurity<br><span class="hero-h1-green">Career Starts Here</span></h1>
-      <p style="font-size: 24px; color: white; ">Explore thousands of global cybersecurity courses, institutions, and career paths all in one place.</p>
+      <p>Explore thousands of global<br>cybersecurity courses, institutions,<br>and career paths all in one place.</p>
 
-      <!-- Hero Search -->
-      <form id="hero-search" class="hero-search" onsubmit="event.preventDefault();">
-        <div class="hero-search-wrap">
-          <svg class="hero-search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="margin-right: 12px; color: var(--casy-muted);">
-            <circle cx="11" cy="11" r="8"></circle>
-            <path d="m21 21-4.35-4.35"></path>
-          </svg>
-          <input type="text" id="hero-search-input" placeholder="Search courses, universities, countries" autocomplete="off" />
-          <button type="submit" class="hero-search-btn">Search</button>
-        </div>
-      </form>
 
-      <div class="hero-cta-row">
-        <button class="cta-button" onclick="openOnboarding();">Build my learning path</button>
-        <button class="cta-button cta-secondary" onclick="jumpToCourses({ courseType: 'Free' });">Explore free courses</button>
-      </div>
-
-      <!-- Instant proof strip -->
-      <div class="hero-proof" aria-label="Catalog stats" style="margin-top: auto;">
-        <div class="hero-proof-item">
-          <span class="hero-proof-number" id="hero-proof-total">1,600+</span>
-          <span class="hero-proof-label">Courses</span>
-        </div>
-        <div class="hero-proof-divider" aria-hidden="true"></div>
-        <div class="hero-proof-item">
-          <span class="hero-proof-number" id="hero-proof-countries">45+</span>
-          <span class="hero-proof-label">Countries</span>
-        </div>
-        <div class="hero-proof-divider" aria-hidden="true"></div>
-        <div class="hero-proof-item">
-          <span class="hero-proof-number" id="hero-proof-institutions">200+</span>
-          <span class="hero-proof-label">Institutions</span>
-        </div>
-      </div>
     </section>
 
 
@@ -799,10 +767,9 @@
               </span>
               <h2 class="edx-title" id="global-section-title">Global Courses</h2>
             </div>
-            <p class="edx-subtitle" style="font-size: 22px;">Use your mouse or finger to grab and spin the 3D globe below to look around the world! Whenever you see a bright glowing dot, that means we have cybersecurity courses available in that country. Just click directly on any dot, and the page will instantly update to show you only the courses from that specific place!</p>
+            <p class="edx-subtitle" style="font-size: 22px;">Use your <span class="pointer-mouse">mouse</span><span class="pointer-finger">finger</span> to grab and spin the 3D globe below to look around the world! Whenever you see a bright glowing dot, that means we have cybersecurity courses available in that country. Just click directly on any dot, and the page will instantly update to show you only the courses from that specific place!</p>
           </div>
         </div>
-
         <!-- Tab wrapper that app.js switchTab() targets -->
         <div id="tab-dashboard" class="tab-content active">
 
@@ -893,44 +860,6 @@
                 </div>
               </div>
 
-              <!-- Access Types -->
-              <div class="glass-card metric-card">
-                <div class="metric-card-title">Access Types</div>
-                <div class="metric-list">
-                  <div class="metric-row access-row clickable" data-filter-type="Free" role="button" tabindex="0"
-                    title="Show free courses">
-                    <div class="metric-label"><svg
-                        style="width:16px;height:16px;margin-right:8px;vertical-align:middle;color:var(--teal-400);"
-                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
-                        <line x1="7" y1="7" x2="7.01" y2="7"></line>
-                      </svg> Free</div>
-                    <div class="metric-value" id="dash-free-count">0</div>
-                  </div>
-                  <div class="metric-row access-row clickable" data-filter-type="Free to Audit" role="button"
-                    tabindex="0" title="Show free-to-audit courses">
-                    <div class="metric-label"><svg
-                        style="width:16px;height:16px;margin-right:8px;vertical-align:middle;color:var(--teal-400);"
-                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4" />
-                        <path d="M4 6v12c0 1.1.9 2 2 2h14v-4" />
-                      </svg> Free to Audit</div>
-                    <div class="metric-value" id="dash-fta-count">0</div>
-                  </div>
-                  <div class="metric-row access-row clickable" data-filter-type="High Value Low Cost" role="button"
-                    tabindex="0" title="Show high value low cost courses">
-                    <div class="metric-label"><svg
-                        style="width:16px;height:16px;margin-right:8px;vertical-align:middle;color:var(--teal-400);"
-                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polygon
-                          points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                      </svg> High Value Low Cost</div>
-                    <div class="metric-value" id="dash-hvlc-count">0</div>
-                  </div>
-                </div>
-              </div>
-
             </div>
 
             <!--  CENTER  -->
@@ -945,28 +874,6 @@
               </div>
 
 
-            </div>
-
-            <!--  RIGHT SIDEBAR  -->
-            <div class="dash-right">
-              <div class="glass-card metric-card dash-quantity-card india-card clickable" data-filter-country="India"
-                role="button" tabindex="0" title="Show courses from India">
-                <div class="metric-card-title"><span class="india-flag-badge">🇮🇳</span> India</div>
-                <div class="metric-value" id="india-stat-count">0</div>
-                <div class="dash-total-delta" id="india-stat-pct">0% of catalog</div>
-              </div>
-
-              <div class="glass-card dash-quantity-card">
-                <div class="dash-quantity-header">
-                  <div>
-                    <div class="dash-quantity-title">International distribution</div>
-                    <div class="dash-quantity-sub">Top countries outside India</div>
-                  </div>
-                </div>
-                <div class="dash-quantity-bars" id="quantity-bars">
-                  <!-- Populated by JS -->
-                </div>
-              </div>
             </div>
 
           </div>
@@ -1444,7 +1351,7 @@
   </div>
 
   <!-- course verifier app logic -->
-  <script src="assets/app.js?v=555555555" charset="UTF-8" defer></script>
+  <script src="assets/app.js?v=999999999" charset="UTF-8" defer></script>
 
   <!-- hashtag-v2 shared behavior (nav scroll, hamburger, cursor glow) -->
   <script src="main.js?v=1786623835678"></script>
@@ -1691,6 +1598,59 @@
     /* Marquee is now driven by a CSS keyframes animation for smoother,
        GPU-composited scrolling. See course-catalog.css .marquee-inner. */
 
+    /* ── Sequential Hero Backgrounds (Zero Blink Crossfade) ───────────────────────────── */
+    (function() {
+      const bgs = [
+        "herobg2.png",
+        "herobg3.png",
+        "herobg4.png",
+        "assets/hero-earth-bg.png"
+      ];
+      
+      const hero = document.querySelector('.landing-hero');
+      if (hero) {
+        // Create a dedicated container for the background layers
+        const bgContainer = document.createElement('div');
+        bgContainer.style.position = 'absolute';
+        bgContainer.style.inset = '0';
+        bgContainer.style.zIndex = '-2';
+        bgContainer.style.overflow = 'hidden';
+        
+        // Create an image layer for each background
+        const layers = bgs.map((src, index) => {
+          const layer = document.createElement('div');
+          layer.style.position = 'absolute';
+          layer.style.inset = '0';
+          layer.style.backgroundImage = `url('${src}')`;
+          layer.style.backgroundPosition = 'center';
+          layer.style.backgroundSize = 'cover';
+          layer.style.backgroundRepeat = 'no-repeat';
+          layer.style.opacity = index === 0 ? '0.8' : '0'; // First image visible
+          layer.style.transition = 'opacity 1.5s ease-in-out';
+          bgContainer.appendChild(layer);
+          return layer;
+        });
+
+        // Insert the container at the very beginning of the hero section
+        hero.insertBefore(bgContainer, hero.firstChild);
+
+        // Hide the original CSS ::before pseudo-element so it doesn't conflict
+        const style = document.createElement('style');
+        style.innerHTML = `.landing-hero::before { display: none !important; }`;
+        document.head.appendChild(style);
+
+        let currentIndex = 0;
+        // Crossfade every 3 seconds
+        setInterval(() => {
+          // Fade out current
+          layers[currentIndex].style.opacity = '0';
+          // Move to next
+          currentIndex = (currentIndex + 1) % bgs.length;
+          // Fade in next
+          layers[currentIndex].style.opacity = '0.8';
+        }, 3000);
+      }
+    })();
   </script>
 </body>
 

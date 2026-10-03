@@ -16080,12 +16080,7 @@ body[data-loading="true"] .kpi-strip-val {
 
 /* Dashboard vignette behind the globe center */
 .dash-layout::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(ellipse at center, transparent 45%, rgba(0, 0, 0, 0.35) 100%);
-  z-index: 1;
+  display: none;
 }
 
 /* ================================================================
@@ -16124,20 +16119,13 @@ body[data-loading="true"] .kpi-strip-val {
   margin: 16px;
 }
 
-/* â”€â”€ Left Sidebar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+
 .dash-left {
   width: 260px;
-  background: rgba(7, 11, 20, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: var(--radius-lg, 20px);
   display: flex;
   flex-direction: column;
   gap: 18px;
   z-index: 10;
-  padding: 18px 16px;
-  overflow-y: auto;
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
 }
 
 .dash-left::-webkit-scrollbar {
@@ -19789,8 +19777,6 @@ body {
 }
 
 /* Active press on all buttons */
-button:active,
-.btn:active,
 .type-pill:active,
 .domain-chip:active,
 .view-btn:active,
@@ -26613,7 +26599,7 @@ button.row-action.saved {
 /* 3. Grid View Heart Size Reset (Animation fix) */
 
 .btn-save:active, .row-action:active, #navBookmarkBtn:active {
-  transform: scale(0.95) !important;
+  transform: scale(1) !important;
 }
 /* Ensure the svg explicitly regains size */
 .btn-save svg, button.row-action svg, #navBookmarkBtn svg {
@@ -26621,7 +26607,7 @@ button.row-action.saved {
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 .btn-save:active svg, button.row-action:active svg, #navBookmarkBtn:active svg {
-  transform: scale(0.85) !important;
+  transform: scale(1) !important;
 }
 .btn-save.saved svg, button.row-action.saved svg, #navBookmarkBtn.active-glow svg {
   animation: heart-pop-fixed 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
@@ -26667,7 +26653,7 @@ button.row-action.saved {
 /* 3. Grid View Heart Size Reset (Animation fix) */
 
 .btn-save:active, button.row-action:active, #navBookmarkBtn:active {
-  transform: scale(0.95) !important;
+  transform: scale(1) !important;
 }
 /* Ensure the svg explicitly regains size */
 .btn-save svg, button.row-action svg, #navBookmarkBtn svg {
@@ -26675,7 +26661,7 @@ button.row-action.saved {
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 .btn-save:active svg, button.row-action:active svg, #navBookmarkBtn:active svg {
-  transform: scale(0.85) !important;
+  transform: scale(1) !important;
 }
 .btn-save.saved svg, button.row-action.saved svg, #navBookmarkBtn.active-glow svg {
   animation: heart-pop-fixed 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
@@ -30199,7 +30185,6 @@ body #edx-cards-row.list-view .clean-course-card.card .list-col-logo .logo-wrap 
   .type-pill,
   .domain-chip,
   .filter-chip,
-  .badge,
   .btn,
   .cta-button,
   .pagination-btn,
@@ -31131,8 +31116,8 @@ body #edx-cards-row.list-view .row-action.saved svg {
 
     body #edx-cards-row.list-view .clean-course-card.card .list-view-content {
         display: grid !important;
-        grid-template-columns: 44px 1fr auto !important;
-        grid-template-rows: auto auto auto !important;
+        grid-template-columns: 44px 1fr !important;
+        grid-template-rows: auto auto auto auto !important;
         gap: 8px 10px !important;
         padding: 0 !important;
         align-items: start !important;
@@ -31145,7 +31130,7 @@ body #edx-cards-row.list-view .row-action.saved svg {
         overflow: visible !important;
     }
 
-    /* Row 1: Logo | Title | Skills */
+    /* Row 1: Logo | Title */
     body #edx-cards-row.list-view .clean-course-card.card .list-col-logo {
         grid-column: 1; grid-row: 1;
         width: 44px !important; height: 44px !important;
@@ -31170,23 +31155,20 @@ body #edx-cards-row.list-view .row-action.saved svg {
     }
     body #edx-cards-row.list-view .clean-course-card.card .list-col-course .skills-desc { display: none !important; }
 
+    /* Row 2: Skills spanning horizontally */
     body #edx-cards-row.list-view .clean-course-card.card .list-col-skills {
-        grid-column: 3; grid-row: 1;
-        display: flex !important; flex-direction: column !important; gap: 4px !important;
-        align-items: flex-end !important; justify-content: flex-start !important;
-    }
-    body #edx-cards-row.list-view .clean-course-card.card .list-col-skills .badge {
-        font-size: 10px !important; font-weight: 500 !important; color: var(--text-main, #111827) !important;
-        background: transparent !important; padding: 0 !important; border: none !important; margin: 0 !important;
+        grid-column: 1 / -1; grid-row: 2;
+        display: flex !important; flex-direction: row !important; gap: 4px !important; flex-wrap: wrap !important;
+        align-items: center !important; justify-content: flex-start !important;
     }
 
-    /* Row 2: Metrics (Duration & Cost stacked to the right, under skills) */
+    /* Row 3: Metrics (Duration left, Cost right) */
     body #edx-cards-row.list-view .clean-course-card.card .list-col-duration {
-        grid-column: 3; grid-row: 2;
-        display: flex !important; align-items: center !important; justify-content: flex-end !important; gap: 4px !important; font-size: 11px !important; color: var(--text-muted, #6b7280) !important;
+        grid-column: 1; grid-row: 3;
+        display: flex !important; align-items: center !important; justify-content: flex-start !important; gap: 4px !important; font-size: 11px !important; color: var(--text-muted, #6b7280) !important;
     }
     body #edx-cards-row.list-view .clean-course-card.card .list-col-cost {
-        grid-column: 3; grid-row: 3;
+        grid-column: 2; grid-row: 3;
         display: flex !important; align-items: center !important; justify-content: flex-end !important;
         font-size: 14px !important; font-weight: 700 !important; color: var(--accent-green, #16a34a) !important;
     }
@@ -31538,13 +31520,13 @@ body {
 /* ── HERO ────────────────────────────────────────────────────── */
 .landing-hero {
   position: relative !important;
-  min-height: 0 !important;
+  min-height: 80vh !important; /* Force tall section so content can center */
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
-  justify-content: center !important;
+  justify-content: center !important; /* Centers content vertically */
   text-align: center !important;
-  padding: calc(var(--navbar-h, 70px) + 16px) 24px 40px !important;
+  padding: 0 24px !important;
   overflow: hidden !important;
   background: var(--casy-deep) !important;
   color: var(--casy-text) !important;
@@ -31556,8 +31538,18 @@ body {
   position: absolute !important;
   inset: 0 !important;
   z-index: -2 !important;
-  background: url('assets/hero-earth-bg.png') center 75% / cover no-repeat !important;
-  opacity: 0.85 !important;
+  background-image: var(--hero-bg, url('herobg2.png')) !important;
+  background-position: center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  opacity: 0.8 !important; /* Decreased opacity so lights shine through more clearly */
+  transition: background-image 1.5s ease-in-out !important;
+}
+
+@keyframes cityLightsHue {
+  0% { filter: hue-rotate(0deg); }
+  50% { filter: hue-rotate(180deg); }
+  100% { filter: hue-rotate(360deg); }
 }
 
 .landing-hero::after {
@@ -31566,12 +31558,12 @@ body {
   inset: 0 !important;
   z-index: -1 !important;
   background:
-    radial-gradient(ellipse 75% 50% at 50% 120%, rgba(245, 158, 11, 0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 90% 50% at 50% 105%, rgba(14, 165, 233, 0.6) 0%, transparent 65%),
     linear-gradient(to bottom,
       rgba(7, 11, 20, 0.78) 0%,
       rgba(7, 11, 20, 0.35) 35%,
       rgba(7, 11, 20, 0.20) 60%,
-      rgba(11, 15, 25, 0.92) 100%) !important;
+      rgba(11, 15, 25, 0.85) 100%) !important;
   pointer-events: none !important;
 }
 
@@ -31880,18 +31872,13 @@ body {
 
 /* ── DASHBOARD / GLOBE ───────────────────────────────────────── */
 .dash-layout {
-  background: var(--casy-surface) !important;
+  background: transparent !important;
   gap: 24px !important;
   padding: 32px 0 !important;
 }
 
-.dash-left,
-.dash-right,
-.dash-center,
-.dash-globe-wrap,
-#globe-container,
+
 .globe-glow,
-.glass-card.metric-card,
 .glass-panel,
 .country-detail-panel,
 .dash-quantity-card {
@@ -31900,12 +31887,7 @@ body {
   border-radius: 16px !important;
 }
 
-.dash-center,
-.dash-globe-wrap,
-#globe-container {
-  background: radial-gradient(ellipse at 50% 100%, rgba(245, 158, 11, 0.08), var(--casy-surface-2) 55%) !important;
-  border-color: var(--casy-border) !important;
-}
+/* Reverted blue style */
 
 .metric-card-title,
 .dash-quantity-title,
@@ -32273,3 +32255,184 @@ body {
     animation: none !important;
   }
 }
+
+/* Hide mouse/finger based on touch capability */
+@media (hover: hover) and (pointer: fine) {
+  .pointer-finger { display: none; }
+}
+@media (hover: none) and (pointer: coarse) {
+  .pointer-mouse { display: none; }
+}
+
+/* ════════════════════════════════════════════════════════════════
+   MOBILE CARD FIX — Clean card layout without banner distortion
+   Matches laptop card style on all mobile screen sizes
+   ════════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* 1. Hide the card banner image area entirely — prevents height distortion */
+  body #edx-cards-row .clean-course-card .card-banner,
+  body #edx-cards-row .clean-course-card.card .card-banner {
+    display: none !important;
+    height: 0 !important;
+    overflow: hidden !important;
+  }
+
+  /* 2. Logo-wrap: ensure it stays inline as a small square */
+  body #edx-cards-row .clean-course-card .logo-wrap,
+  body #edx-cards-row .clean-course-card.card .logo-wrap {
+    position: static !important;
+    bottom: auto !important;
+    left: auto !important;
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 10px !important;
+    border: 2px solid var(--casy-border) !important;
+    flex-shrink: 0 !important;
+    margin: 0 0 12px 0 !important;
+  }
+
+  /* 3. Custom logo container — keep it small, never expand to card width */
+  body #edx-cards-row .clean-course-card .custom-logo-container {
+    width: 52px !important;
+    height: 52px !important;
+    min-width: 52px !important;
+    max-width: 52px !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* 4. University logo image — constrained to the container */
+  body #edx-cards-row .clean-course-card .custom-logo-container img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    max-width: 100% !important;
+  }
+
+  /* 5. Card body — reset padding since there's no banner */
+  body #edx-cards-row .clean-course-card .card-body,
+  body #edx-cards-row .clean-course-card.card .card-body {
+    padding: 16px !important;
+  }
+
+  /* 6. Force 1 column grid — prevents 2-up misaligned cards */
+  body #edx-cards-row:not(.list-view),
+  body #edx-cards-row.grid-view,
+  #edx-cards-row:not(.list-view) {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    padding: 0 !important;
+  }
+
+  /* 7. Cards fill full width, no extra margins */
+  body #edx-cards-row:not(.list-view) .clean-course-card,
+  body #edx-cards-row:not(.list-view) .clean-course-card.card {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  /* 8. Save button visible as circle */
+  #edx-cards-row:not(.list-view) .card-footer-actions .btn-save {
+    display: flex !important;
+    flex: 0 0 44px !important;
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 50% !important;
+  }
+
+  /* 9. Rank pill — keep inline, don't expand */
+  body #edx-cards-row .clean-course-card .rank-pill {
+    display: inline-flex !important;
+    width: auto !important;
+    max-width: fit-content !important;
+  }
+
+  /* 10. Fix badge images blowing up due to global img { height: auto !important } */
+  body #edx-cards-row .clean-course-card .badge img {
+    height: 12px !important;
+    width: auto !important;
+    max-width: none !important;
+    object-fit: contain !important;
+    display: inline-block !important;
+  }
+  
+  body #edx-cards-row .clean-course-card .badge.qs img {
+    height: 20px !important;
+  }
+
+  /* 11. Fix badge tags becoming huge boxes */
+  body #edx-cards-row .clean-course-card .badge {
+    padding: 3px 8px !important;
+    font-size: 0.65rem !important;
+    line-height: 1 !important;
+    border-radius: 6px !important;
+    min-height: 0 !important;
+    height: auto !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+  }
+  
+  body #edx-cards-row .clean-course-card .badge svg {
+    width: 12px !important;
+    height: 12px !important;
+    flex-shrink: 0 !important;
+  }
+}
+
+/* =====================================================
+   HERO SCREENSHOT MATCHING OVERRIDES
+   ===================================================== */
+.landing-hero .hero-tag-logo {
+  max-width: clamp(280px, 50vw, 400px) !important; /* Increased size significantly */
+  margin-bottom: 24px !important;
+  object-fit: contain !important;
+  transform: translateX(8px) !important; /* Nudged right as requested */
+}
+
+.landing-hero h1, 
+.landing-hero h1 .hero-h1-green {
+  background: linear-gradient(90deg, #E0F2FE 0%, #7DD3FC 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+  font-size: clamp(32px, 5vw, 52px) !important; /* Slightly larger again since globe is bigger */
+  font-weight: 800 !important;
+  line-height: 1.15 !important;
+  text-shadow: none !important;
+  max-width: 650px !important; /* Wider to fit nicely in 1200px globe */
+  margin: 0 auto 0.75rem !important;
+}
+
+.landing-hero p {
+  font-size: clamp(22px, 3vw, 28px) !important; /* Keep text large */
+  color: #E2E8F0 !important;
+  max-width: max-content !important; 
+  margin: 16px auto 32px auto !important; 
+  font-weight: 400 !important;
+  text-align: center !important;
+  line-height: 1.4 !important;
+}
+
+.hero-cta-row {
+  margin-top: 16px !important;
+}
+
+/* Change 'Build my learning path' button to match 'JOIN THE MISSION' */
+.hero-cta-row .cta-button:first-child {
+  background: #3B82F6 !important; /* Bright royal blue */
+  color: white !important;
+  border: 1px solid #3B82F6 !important;
+  box-shadow: none !important;
+  text-transform: uppercase !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.05em !important;
+}
+
+.hero-cta-row .cta-button:first-child:hover,
+.hero-cta-row .cta-button:first-child:active,
+.hero-cta-row .cta-button:first-child:focus {
+  box-shadow: none !important;
+}
+
