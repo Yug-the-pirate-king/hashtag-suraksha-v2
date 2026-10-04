@@ -1999,13 +1999,16 @@ body .rotating-glow-wrapper .rotating-glow-inner.metric-card,body .rotating-glow
   #tab-dashboard .dash-center {
     position: relative !important;
     width: 100% !important;
-    height: 400px !important;
+    height: auto !important;
     margin: 0 auto !important;
     pointer-events: auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
   }
   #tab-dashboard .dash-globe-wrap {
-    width: 100% !important;
-    height: 100% !important;
+    width: min(90vw, 320px) !important;
+    height: min(90vw, 320px) !important;
     position: relative !important;
   }
 }
@@ -2216,20 +2219,15 @@ body .rotating-glow-wrapper .rotating-glow-inner.metric-card,body .rotating-glow
       });
     }
     
-    // Scroll logic for Bot UI (Global courses dashboard)
+    // Scroll logic for Bot UI
     window.addEventListener('scroll', () => {
       if (casyBotClosed) return;
-      const dashboard = document.querySelector('.dash-layout');
-      if (!dashboard) return;
       
-      const rect = dashboard.getBoundingClientRect();
       const scrollPos = window.scrollY || window.pageYOffset;
-      const dashboardMiddle = rect.top + scrollPos + (rect.height / 2);
-      
       const botUi = document.getElementById('casyBotUi');
       
-      // If we scrolled past the middle of the dashboard (global courses part)
-      if (scrollPos + window.innerHeight > dashboardMiddle) {
+      // Open immediately on any scroll
+      if (scrollPos > 10) {
         if(botUi) botUi.classList.add('show-casy-bot');
       } else {
         if(botUi) botUi.classList.remove('show-casy-bot');

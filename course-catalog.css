@@ -32489,3 +32489,7 @@ body {
   text-shadow: none !important;
 }
 
+.globe-invite-ring {
+  display: none !important;
+}
+
