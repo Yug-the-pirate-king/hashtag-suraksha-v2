@@ -13,7 +13,7 @@
   --teal-500:    #22D3EE;
   --blue-500:    #60A5FA;
   --purple:      #A78BFA;
-  --amber:       #FBBF24;
+  --amber:       #7dd3fc;
 }
 
 /* Dark-mode equivalents so charts/cards don't break if user toggles */
@@ -22,7 +22,7 @@
   --teal-500:    #22D3EE;
   --blue-500:    #60A5FA;
   --purple:      #A78BFA;
-  --amber:       #FBBF24;
+  --amber:       #7dd3fc;
 }
 
 /* ── 2. Body top-padding for fixed hashtag-v2 nav ────────────── */
@@ -1243,7 +1243,7 @@ a:focus-visible,
 .domain-tint-system-endpoint { border-left-color: #06b6d4; }
 .domain-tint-forensics-ir { border-left-color: #8b5cf6; }
 .domain-tint-data-app-security { border-left-color: #f43f5e; }
-.domain-tint-legal-compliance { border-left-color: #f59e0b; }
+.domain-tint-legal-compliance { border-left-color: #7dd3fc; }
 
 /* Subtle domain background tint on hover */
 .domain-tint-foundational:hover,
@@ -1268,7 +1268,7 @@ a:focus-visible,
 }
 .domain-tint-legal-compliance:hover,
 .domain-tint-legal-compliance:focus-visible {
-  background: linear-gradient(180deg, var(--bg-card), rgba(245, 158, 11, 0.08));
+  background: linear-gradient(180deg, var(--bg-card), rgba(125, 211, 252, 0.08));
 }
 
 /* Access type pills reuse .type-pill styling */

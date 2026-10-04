@@ -61,8 +61,8 @@
     --green-bg: rgba(16, 185, 129, 0.10);
     --red: #ef4444;
     --red-bg: rgba(239, 68, 68, 0.10);
-    --amber: #F59E0B;
-    --amber-bg: rgba(245, 158, 11, 0.10);
+    --amber: #7dd3fc;
+    --amber-bg: rgba(125, 211, 252, 0.10);
     --purple: #8b5cf6;
     --purple-bg: rgba(139, 92, 246, 0.10);
 
@@ -1120,7 +1120,7 @@ body[data-loading="true"] .dash-total-value {
 .table-rank-badge.qs {
     color: #92400e;
     background: rgba(251, 191, 36, 0.14);
-    border: 1px solid #f59e0b;
+    border: 1px solid #7dd3fc;
 }
 
 .table-rank-badge.nirf {
@@ -1575,7 +1575,7 @@ body[data-loading="true"] .dash-total-value {
 }
 
 .modal-hdr.accent-amber::after {
-    background: #f59e0b;
+    background: #7dd3fc;
     width: 80px;
 }
 
@@ -4313,9 +4313,9 @@ body[data-loading="true"] #india-stat-count {
 }
 
 .access-pill.value {
-    color: #fbbf24;
+    color: #7dd3fc;
     background: rgba(251, 191, 36, 0.12);
-    border: 1px solid #f59e0b;
+    border: 1px solid #7dd3fc;
 }
 
 .access-pill.paid {
@@ -4390,7 +4390,7 @@ body[data-loading="true"] #india-stat-count {
 .rank-pill.qs {
     color: #92400e;
     background: rgba(251, 191, 36, 0.14);
-    border: 1px solid #f59e0b;
+    border: 1px solid #7dd3fc;
 }
 
 .rank-pill.nirf {
@@ -4856,7 +4856,7 @@ body[data-loading="true"] #india-stat-count {
 
 .gauge-badge.amber {
     background: rgba(245, 166, 35, 0.12);
-    color: #f59e0b;
+    color: #7dd3fc;
     border-color: rgba(245, 166, 35, 0.25);
 }
 
@@ -5839,7 +5839,7 @@ body {
 
 /* India card tricolor stripe */
 .india-card::before {
-    background: linear-gradient(90deg, #ff9933 33%, #ffffff 33% 66%, #138808 66%) !important;
+    background: linear-gradient(90deg, #7dd3fc 33%, #ffffff 33% 66%, #138808 66%) !important;
     height: 4px !important;
 }
 

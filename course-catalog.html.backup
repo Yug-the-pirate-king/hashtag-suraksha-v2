@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 
 <head>
@@ -41,7 +41,7 @@
       align-items: center !important;
     }
 
-    /* CASY hero logo image €” transparent PNG */
+    /* CASY hero logo image â€” transparent PNG */
     .hero-tag-logo {
       position: relative;
       z-index: 2;
@@ -126,7 +126,7 @@
         margin-left: auto !important; /* push the whole group to the right */
       }
 
-      /* When compact (scrolled), hide the mobile controls Ã¢‚¬€ search bar takes over */
+      /* When compact (scrolled), hide the mobile controls Ã¢â‚¬â€ search bar takes over */
       body #navbar.compact .nav-mobile-controls {
         display: none !important;
       }
@@ -489,7 +489,7 @@
     }
 
     @media (max-width: 1024px) {
-      /* Hide the bottom save/heart button in grid view Ã¢‚¬€ top-right corner heart takes over */
+      /* Hide the bottom save/heart button in grid view Ã¢â‚¬â€ top-right corner heart takes over */
       body #edx-cards-row:not(.list-view) .clean-course-card.card .card-footer-actions .btn-save,
       body #edx-cards-row:not(.list-view) .clean-course-card.card .card-footer-actions button.btn-save {
         display: none !important;
@@ -598,7 +598,7 @@
   <!-- CURSOR GLOW (hashtag-v2) -->
   <div id="cursorGlow" class="cursor-glow"></div>
 
-  <!-- NAV €” identical to hashtag-v2 index.html -->
+  <!-- NAV â€” identical to hashtag-v2 index.html -->
   <nav class="nav" id="navbar">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo nav-logo-full">
@@ -747,7 +747,7 @@
 
 
 
-    <!-- HOW IT WORKS €” Storytelling journey -->
+    <!-- HOW IT WORKS â€” Storytelling journey -->
 
 
 
@@ -1018,11 +1018,11 @@
                       <div class="pill-group duration-pills" id="duration-pills" role="group" aria-label="Filter by duration">
                         <button type="button" class="type-pill active" data-duration="all" aria-pressed="true">All <span class="filter-count">0</span></button>
                         <button type="button" class="type-pill" data-duration="short" aria-pressed="false">Under 1 month <span class="filter-count">0</span></button>
-                        <button type="button" class="type-pill" data-duration="1-3" aria-pressed="false">1€“3 months <span class="filter-count">0</span></button>
-                        <button type="button" class="type-pill" data-duration="3-6" aria-pressed="false">3€“6 months <span class="filter-count">0</span></button>
-                        <button type="button" class="type-pill" data-duration="6-12" aria-pressed="false">6€“12 months <span class="filter-count">0</span></button>
-                        <button type="button" class="type-pill" data-duration="1-2" aria-pressed="false">1€“2 years <span class="filter-count">0</span></button>
-                        <button type="button" class="type-pill" data-duration="2-4" aria-pressed="false">2€“4 years <span class="filter-count">0</span></button>
+                        <button type="button" class="type-pill" data-duration="1-3" aria-pressed="false">1â€“3 months <span class="filter-count">0</span></button>
+                        <button type="button" class="type-pill" data-duration="3-6" aria-pressed="false">3â€“6 months <span class="filter-count">0</span></button>
+                        <button type="button" class="type-pill" data-duration="6-12" aria-pressed="false">6â€“12 months <span class="filter-count">0</span></button>
+                        <button type="button" class="type-pill" data-duration="1-2" aria-pressed="false">1â€“2 years <span class="filter-count">0</span></button>
+                        <button type="button" class="type-pill" data-duration="2-4" aria-pressed="false">2â€“4 years <span class="filter-count">0</span></button>
                         <button type="button" class="type-pill" data-duration="4+" aria-pressed="false">4+ years <span class="filter-count">0</span></button>
                       </div>
                     </div>
@@ -1172,7 +1172,7 @@
               <img src="assets/logo-suraksha.png" alt="Hashtag Suraksha" class="footer-logo-img" />
             </div>
           </a>
-          <p>CourseKosh €” a global cybersecurity course catalog curated by Khushboo Singh. Part of the Hashtag Suraksha ecosystem.</p>
+          <p>CourseKosh â€” a global cybersecurity course catalog curated by Khushboo Singh. Part of the Hashtag Suraksha ecosystem.</p>
           <div class="footer-socials">
             <a href="#" target="_blank" rel="noopener">LinkedIn</a>
             <a href="#" target="_blank" rel="noopener">Twitter</a>
@@ -1202,7 +1202,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>2026 CourseVerify €” Hashtag Suraksha. All rights reserved.</p>
+        <p>2026 CourseVerify â€” Hashtag Suraksha. All rights reserved.</p>
       </div>
     </div>
   </footer>
@@ -1237,7 +1237,7 @@
           </div>
           <div class="onboarding-question">Where are you in your cybersecurity learning?</div>
           <div class="onboarding-options">
-            <button class="onboarding-option" data-level="Beginner" data-answer="beginner">ðŸŒ± Just starting €” I need fundamentals</button>
+            <button class="onboarding-option" data-level="Beginner" data-answer="beginner">ðŸŒ± Just starting â€” I need fundamentals</button>
             <button class="onboarding-option" data-level="Intermediate" data-answer="intermediate">ðŸŒ¿ I know the basics and want to specialize</button>
             <button class="onboarding-option" data-level="Advanced" data-answer="advanced">ðŸŽ¯ I'm experienced and want advanced certs/degrees</button>
           </div>
@@ -1578,7 +1578,7 @@
   </script>
 
   <script>
-    /* ”€”€ Explore Free Courses ”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€ */
+    /* â”€â”€ Explore Free Courses â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     function exploreFree() {
       // Scroll to the catalog section
       const target = document.getElementById('all-courses-section') || document.querySelector('.catalog-section');
@@ -1593,11 +1593,11 @@
       }, 700);
     }
 
-    /* ”€”€ Institute Logo Marquee ”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€ */
+    /* â”€â”€ Institute Logo Marquee â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     /* Marquee is now driven by a CSS keyframes animation for smoother,
        GPU-composited scrolling. See course-catalog.css .marquee-inner. */
 
-    /* ”€”€ Sequential Hero Backgrounds (Zero Blink Crossfade) ”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€ */
+    /* â”€â”€ Sequential Hero Backgrounds (Zero Blink Crossfade) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     (function() {
       const bgs = [
         "herobg2.png",
@@ -1732,7 +1732,14 @@ body .rotating-glow-wrapper .rotating-glow-inner.metric-card,body .rotating-glow
   .cask-stat-lbl{font-size:8px}
   .cask-hero h1{font-size:26px}
   .desktop-only { display: none !important; }
-
+  .cask-hero-circle img[alt="CASY"] { height: 36px !important; margin-bottom: 8px !important; }
+  .cask-hero-circle h2 { font-size: 15px !important; margin-bottom: 8px !important; }
+  .cask-hero-circle h1 { font-size: 13.5px !important; margin-bottom: 8px !important; white-space: nowrap !important; }
+  .cask-hero-circle .cask-hero-sub { font-size: 10.5px !important; line-height: 1.3 !important; }
+  .cask-hero-circle { padding: 15px !important; margin-top: 20px !important; width: 90vw !important; max-width: 90vw !important; }
+  .cask-logo-strip { padding: 6px 12px !important; gap: 8px !important; position: relative !important; transform: none !important; left: auto !important; bottom: auto !important; margin-top: 10px !important; }
+  .cask-logo-img { height: 18px !important; flex-shrink: 0 !important; min-width: auto !important; }
+  .cask-logo-strip-lbl { font-size: 7px !important; }
   #tab-dashboard .dash-center { 
     min-height: 0 !important; 
     height: auto !important; 
@@ -1786,7 +1793,7 @@ body .rotating-glow-wrapper .rotating-glow-inner.metric-card,body .rotating-glow
 }
 #tab-dashboard .dash-left .rotating-glow-wrapper::before,
 #tab-dashboard .dash-right .rotating-glow-wrapper::before {
-  /* Changed from orange (#38bdf8, #3b82f6) to shades of blue */
+  /* Changed from orange (#f6d365, #fda085) to shades of blue */
   background: linear-gradient(to bottom right, #38bdf8 0%, #3b82f6 100%) !important;
   transform: rotate(2deg) !important;
 }
@@ -1808,7 +1815,7 @@ body .rotating-glow-wrapper .rotating-glow-inner.metric-card,body .rotating-glow
   position: relative !important;
   z-index: 2 !important;
 }
-/* ”€”€ Logo strip in-flow: never overlaps paragraph ”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€ */
+/* â”€â”€ Logo strip in-flow: never overlaps paragraph â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .cask-hero-circle .cask-logo-strip {
   position: relative !important;
   left: auto !important;
@@ -1818,42 +1825,8 @@ body .rotating-glow-wrapper .rotating-glow-inner.metric-card,body .rotating-glow
 }
 .cask-hero-circle { height: auto !important; min-height: 0; }
 
-.mobile-break { display: none; }
-.desktop-break { display: block; }
-
-/* ”€”€ Mobile fixes ”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€”€ */
+/* â”€â”€ Mobile fixes â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @media (max-width: 768px) {
-  .mobile-break { display: block; }
-  .desktop-break { display: none; }
-  
-  /* Make mobile hero a clean white rectangle as requested */
-  .cask-hero {
-    height: auto !important;
-    padding: 0 !important;
-  }
-  .cask-hero-circle {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    background: #ffffff !important;
-    border-radius: 0 !important;
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 32px 20px !important;
-    position: relative !important;
-    z-index: 2 !important;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.1) !important;
-  }
-  #hexWave {
-    display: none !important;
-  }
-  /* Ensure logos wrap nicely on mobile rectangle */
-  .cask-hero-circle .cask-logo-strip {
-    flex-wrap: wrap !important;
-    white-space: normal !important;
-  }
-  
   /* Globe: appear FIRST above the stat cards */
   #tab-dashboard .dash-layout {
     display: flex !important;
@@ -1974,8 +1947,8 @@ body .rotating-glow-wrapper .rotating-glow-inner.metric-card,body .rotating-glow
 
 @media (max-width: 768px) {
   .cask-hero-circle {
-    padding: 32px 20px !important;
-    margin-top: 0 !important;
+    padding: 15px !important;
+    margin-top: 20px !important;
   }
   
   .cask-hero-circle .cask-logo-img {
@@ -2168,14 +2141,13 @@ body .rotating-glow-wrapper .rotating-glow-inner.metric-card,body .rotating-glow
       sec.id = 'casyLanding';
       sec.className = 'cask-hero';
       sec.innerHTML = '<div class="cask-hero-circle">' +
-        '<div style="display:flex;justify-content:center;margin-top:0;margin-bottom:16px;"><img src="assets/Domain%20logos/2-clean.png" alt="CASY" style="height:56px; width:auto; filter: brightness(0);" /></div>' +
-        '<h1 style="font-size: clamp(24px, 6vw, 36px); margin: 0 0 8px 0; text-align: center; color: #111827 !important; font-weight: 800; line-height: 1.1;">Find the Right Cyber<br class="mobile-break"> Security Course.</h1>' +
-        '<h2 style="font-size: clamp(16px, 4vw, 20px); font-weight: 600; color: #111827 !important; margin: 0 0 16px 0; text-align: center;">Cyber Abhayasa Samsodhana Yantram</h2>' +
-        '<p class="cask-hero-sub" style="color: #374151 !important; font-weight: 500; font-size: 15px; margin-bottom: 24px;">A platform that offers vivid collection of Cybersecurity Training Programs that addresses the need for structured and learner-focused guidance in cybersecurity education.<span class="desktop-only"> It serves as a comprehensive academic guide for students and self-learners seeking to explore and select courses based on their domain of interest.</span></p>' +
-        '<div style="display:flex;justify-content:center;margin-bottom:32px;">' +
-        '<button onclick="document.querySelector(\'.dash-layout\').scrollIntoView({behavior:\'smooth\'})" style="background: #0d6878; color: white; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 700; font-size: 16px; cursor: pointer; box-shadow: 0 4px 12px rgba(13, 104, 120, 0.3);">Search Courses</button>' +
+        '<div style="display:flex;justify-content:center;margin-top:0;margin-bottom:12px;"><img src="assets/Domain%20logos/2-clean.png" alt="CASY" style="height:56px; width:auto; filter: brightness(0);" /></div>' +
+        '<div style="display:flex;justify-content:center;margin-bottom:12px;">' +
+        '<h2 style="font-family: \'IBM Plex Serif\', \'Times New Roman\', serif; font-size: clamp(20px, 3vw, 28px); font-weight: 700; color: #2d3748 !important; margin:0; text-align: center; line-height: 1.2;">Cyber Abhayasa Samsodhana Yantram</h2>' +
         '</div>' +
-        '<div class="cask-logo-strip"><span class="cask-logo-strip-lbl" style="color:#4b5563 !important; font-weight:600; text-transform: uppercase;">Built with</span><div class="cask-logo-divider" style="background:rgba(0,0,0,0.15);"></div>' +
+        '<h1 style="font-size: clamp(14px, 3.2vw, 28px); margin: 0 0 16px 0; text-align: center; white-space: nowrap;"><span style="display:block; color: #1a202c !important;">Find the Right Cyber Security Course.</span></h1>' +
+        '<p class="cask-hero-sub" style="color: #2d3748 !important; font-weight: 500;">A platform that offers vivid collection of Cybersecurity Training Programs that addresses the need for structured and learner-focused guidance in cybersecurity education.<span class="desktop-only"> It serves as a comprehensive academic guide for students and self-learners seeking to explore and select courses based on their domain of interest.</span></p>' +
+        '<div class="cask-logo-strip"><span class="cask-logo-strip-lbl" style="color:#2d3748 !important; font-weight:600;">Built with</span><div class="cask-logo-divider" style="background:rgba(0,0,0,0.15);"></div>' +
         '<div class="cask-logo-item"><img src="assets/logo-certin.png" alt="CERT-In" class="cask-logo-img" /></div><div class="cask-logo-divider" style="background:rgba(0,0,0,0.15);"></div>' +
         '<div class="cask-logo-item"><img src="assets/logo-cyberbuddha.png" alt="Cyber Buddha" class="cask-logo-img" style="height:48px;" /></div></div>' +
         '</div>' +
@@ -2240,7 +2212,6 @@ body .rotating-glow-wrapper .rotating-glow-inner.metric-card,body .rotating-glow
 </body>
 
 </html>
-
 
 
 

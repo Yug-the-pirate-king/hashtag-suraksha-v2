@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Yatra+One&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Yatra+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
 
 /* ======================================================
@@ -6,11 +6,11 @@
 
    SOURCE: style.css
    ====================================================== */
-/* ═══════════════════════════════════════════════════
-   HASHTAG SURAKSHA — GLOBAL STYLESHEET
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   HASHTAG SURAKSHA â€” GLOBAL STYLESHEET
    Fonts: Sora (headings) + Inter (body)
    Palette: White / Saffron #7dd3fc / Navy #1A3A6B / Green #138808
-═══════════════════════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
 :root {
   --navy: #1A3A6B;
@@ -111,7 +111,7 @@ body #edx-cards-row:not(.list-view) .clean-course-card.card .card-view-panel.lis
   color: var(--green);
 }
 
-/* ═══ BUTTONS ═════════════════════════════════════ */
+/* â•â•â• BUTTONS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .btn-primary {
   display: inline-block;
   background: var(--saffron);
@@ -167,7 +167,7 @@ body #edx-cards-row:not(.list-view) .clean-course-card.card .card-view-panel.lis
   transform: translateY(-2px);
 }
 
-/* ═══ SECTION TAGS ════════════════════════════════ */
+/* â•â•â• SECTION TAGS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .section-tag {
   display: inline-block;
   font-family: 'Sora', sans-serif;
@@ -207,7 +207,7 @@ body #edx-cards-row:not(.list-view) .clean-course-card.card .card-view-panel.lis
   line-height: 1.7;
 }
 
-/* ═══ NAVBAR ══════════════════════════════════════ */
+/* â•â•â• NAVBAR â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .nav {
   position: fixed;
   top: 0;
@@ -365,7 +365,7 @@ body #edx-cards-row:not(.list-view) .clean-course-card.card .card-view-panel.lis
   display: flex;
 }
 
-/* ═══ HERO ════════════════════════════════════════ */
+/* â•â•â• HERO â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -536,7 +536,7 @@ body #edx-cards-row:not(.list-view) .clean-course-card.card .card-view-panel.lis
   }
 }
 
-/* ═══ STATS ═══════════════════════════════════════ */
+/* â•â•â• STATS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .stats-section {
   background: var(--navy);
   padding: 0;
@@ -626,7 +626,7 @@ body #edx-cards-row:not(.list-view) .clean-course-card.card .card-view-panel.lis
   }
 }
 
-/* ═══ MOVEMENT ════════════════════════════════════ */
+/* â•â•â• MOVEMENT â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .movement-section {
   padding: 100px 0;
   background: var(--white);
@@ -698,7 +698,7 @@ body #edx-cards-row:not(.list-view) .clean-course-card.card .card-view-panel.lis
   line-height: 1.5;
 }
 
-/* ─── INSTITUTIONAL TRUST STRIP ─────────────────────── */
+/* â”€â”€â”€ INSTITUTIONAL TRUST STRIP â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .trust-strip {
   background: var(--white);
   border-top: 1px solid var(--gray-200);
@@ -799,7 +799,7 @@ body #edx-cards-row:not(.list-view) .clean-course-card.card .card-view-panel.lis
   line-height: 1.7;
 }
 
-/* ═══ ECOSYSTEM ═══════════════════════════════════ */
+/* â•â•â• ECOSYSTEM â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .ecosystem-section {
   padding: 100px 0;
   background: var(--off-white);
@@ -929,7 +929,7 @@ body #edx-cards-row:not(.list-view) .clean-course-card.card .card-view-panel.lis
   font-size: 18px;
 }
 
-/* ═══ PLATFORM TEASER ════════════════════════════ */
+/* â•â•â• PLATFORM TEASER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .platform-teaser {
   padding: 100px 0;
   background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
@@ -1117,7 +1117,7 @@ body #edx-cards-row:not(.list-view) .clean-course-card.card .card-view-panel.lis
   }
 }
 
-/* ═══ SCHOOLS TEASER ══════════════════════════════ */
+/* â•â•â• SCHOOLS TEASER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .schools-teaser {
   padding: 100px 0;
   background: var(--white);
@@ -1221,7 +1221,7 @@ body #edx-cards-row:not(.list-view) .clean-course-card.card .card-view-panel.lis
   letter-spacing: 0.5px;
 }
 
-/* ═══ SURAKSHAK TEASER ════════════════════════════ */
+/* â•â•â• SURAKSHAK TEASER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .surakshak-teaser {
   padding: 100px 0;
   background: linear-gradient(135deg, #0a1628 0%, var(--navy-dark) 100%);
@@ -1314,7 +1314,7 @@ body #edx-cards-row:not(.list-view) .clean-course-card.card .card-view-panel.lis
   }
 }
 
-/* ═══ PARENTS SECTION ════════════════════════════ */
+/* â•â•â• PARENTS SECTION â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .parents-section {
   padding: 100px 0;
   background: var(--off-white);
@@ -1427,7 +1427,7 @@ body #edx-cards-row:not(.list-view) .clean-course-card.card .card-view-panel.lis
   }
 }
 
-/* ═══ PARTNERS ════════════════════════════════════ */
+/* â•â•â• PARTNERS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .partners-section {
   padding: 80px 0;
   background: white;
@@ -1486,7 +1486,7 @@ body #edx-cards-row:not(.list-view) .clean-course-card.card .card-view-panel.lis
   font-size: 16px;
 }
 
-/* ═══ FOOTER ══════════════════════════════════════ */
+/* â•â•â• FOOTER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .footer {
   background: var(--navy-dark);
   color: white;
@@ -1582,7 +1582,7 @@ body #edx-cards-row:not(.list-view) .clean-course-card.card .card-view-panel.lis
   font-size: 13px;
 }
 
-/* ═══ RESPONSIVE ══════════════════════════════════ */
+/* â•â•â• RESPONSIVE â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 @media (max-width: 900px) {
 
   .nav-links,
@@ -1682,14 +1682,14 @@ body #edx-cards-row:not(.list-view) .clean-course-card.card .card-view-panel.lis
 /* ======================================================
    SOURCE: global.css
    ====================================================== */
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-   HASHTAG SURAKSHA â€” GLOBAL DESIGN SYSTEM
+/* Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
+   HASHTAG SURAKSHA Ã¢â‚¬â€ GLOBAL DESIGN SYSTEM
    Applies to all pages. Load after style.css.
    Font: Plus Jakarta Sans
-   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+   Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â */
 
 
-/* â”€â”€ DESIGN TOKENS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ DESIGN TOKENS Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
 :root {
   /* Dark mode (default) */
   --bg: #F8FAFC;
@@ -1742,7 +1742,7 @@ body #edx-cards-row:not(.list-view) .clean-course-card.card .card-view-panel.lis
   --border-hover: rgba(29, 78, 216, 0.4);
 }
 
-/* ── BASE ────────────────────────────────────────────────────── */
+/* â”€â”€ BASE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 *,
 *::before,
 *::after {
@@ -1805,7 +1805,7 @@ img {
   text-align: center;
 }
 
-/* ── CURSOR GLOW (global) ────────────────────────────────────── */
+/* â”€â”€ CURSOR GLOW (global) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .cursor-glow {
   position: fixed;
   width: 380px;
@@ -1824,7 +1824,7 @@ img {
   mix-blend-mode: multiply;
 }
 
-/* ── THEME TOGGLE BUTTON ─────────────────────────────────────── */
+/* â”€â”€ THEME TOGGLE BUTTON â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .theme-toggle-btn,
 [data-theme="dark"] .theme-toggle-btn {
   background: rgba(0, 0, 0, 0.06) !important;
@@ -1869,7 +1869,7 @@ img {
   display: block;
 }
 
-/* ── NAV ─────────────────────────────────────────────────────── */
+/* â”€â”€ NAV â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .nav {
   position: fixed !important;
   top: 0 !important;
@@ -2086,7 +2086,7 @@ img {
   display: block;
 }
 
-/* ── FOOTER ──────────────────────────────────────────────────── */
+/* â”€â”€ FOOTER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .footer {
   background: var(--bg) !important;
   padding: 72px 0 0 !important;
@@ -2189,7 +2189,7 @@ img {
   color: var(--text-secondary) !important;
 }
 
-/* ── BUTTONS ─────────────────────────────────────────────────── */
+/* â”€â”€ BUTTONS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .btn-primary {
   display: inline-flex !important;
   align-items: center;
@@ -2253,7 +2253,7 @@ img {
   transform: translateY(-2px) !important;
 }
 
-/* ── SECTION UTILITIES ───────────────────────────────────────── */
+/* â”€â”€ SECTION UTILITIES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .section-tag {
   display: inline-block;
   font-family: var(--font-ui) !important;
@@ -2289,7 +2289,7 @@ img {
   line-height: 1.7;
 }
 
-/* ── GLASS CARD UTILITY ──────────────────────────────────────── */
+/* â”€â”€ GLASS CARD UTILITY â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .glass-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -2304,7 +2304,7 @@ img {
   background: var(--bg-card-hover);
 }
 
-/* ── PAGE HERO (inner pages) ─────────────────────────────────── */
+/* â”€â”€ PAGE HERO (inner pages) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .page-hero {
   position: relative;
   padding: 140px 0 80px;
@@ -2400,7 +2400,7 @@ img {
   background-clip: text;
 }
 
-/* ── SCROLL REVEAL (global) ──────────────────────────────────── */
+/* â”€â”€ SCROLL REVEAL (global) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .reveal {
   opacity: 0;
   transform: translateY(22px);
@@ -2412,12 +2412,12 @@ img {
   transform: translateY(0);
 }
 
-/* ── MAGNETIC BUTTON (global utility) ───────────────────────── */
+/* â”€â”€ MAGNETIC BUTTON (global utility) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .magnetic-btn {
   position: relative;
 }
 
-/* ── SECTION SHARED STYLES ───────────────────────────────────── */
+/* â”€â”€ SECTION SHARED STYLES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .section-dark {
   background: var(--bg);
 }
@@ -2442,7 +2442,7 @@ img {
   margin: 0;
 }
 
-/* ── TRUST STRIP (reusable) ──────────────────────────────────── */
+/* â”€â”€ TRUST STRIP (reusable) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .trust-strip {
   background: var(--bg) !important;
   padding: 24px 0 !important;
@@ -2513,7 +2513,7 @@ img {
   background: var(--border);
 }
 
-/* ── LIVE BADGE ──────────────────────────────────────────────── */
+/* â”€â”€ LIVE BADGE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .live-badge {
   display: flex;
   align-items: center;
@@ -2549,7 +2549,7 @@ img {
   }
 }
 
-/* ── STATS BAR (reusable) ────────────────────────────────────── */
+/* â”€â”€ STATS BAR (reusable) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .stats-section {
   background: var(--bg-surface) !important;
   border-top: 1px solid var(--border) !important;
@@ -2604,7 +2604,7 @@ img {
   background: var(--border);
 }
 
-/* ── HERO SCROLL HINT ────────────────────────────────────────── */
+/* â”€â”€ HERO SCROLL HINT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .hero-scroll-hint {
   position: absolute;
   bottom: 32px;
@@ -2649,7 +2649,7 @@ img {
   }
 }
 
-/* ── GLASSMORPHISM CARD ──────────────────────────────────────── */
+/* â”€â”€ GLASSMORPHISM CARD â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .gcard {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -2666,7 +2666,7 @@ img {
   transform: translateY(-4px);
 }
 
-/* ── FEATURE BADGE ───────────────────────────────────────────── */
+/* â”€â”€ FEATURE BADGE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .feature-badge {
   display: inline-flex;
   align-items: center;
@@ -2682,7 +2682,7 @@ img {
   backdrop-filter: var(--glass-blur);
 }
 
-/* ── GLOW LINE SEPARATOR ─────────────────────────────────────── */
+/* â”€â”€ GLOW LINE SEPARATOR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .glow-line {
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--accent-saffron), transparent);
@@ -2690,7 +2690,7 @@ img {
   margin: 0;
 }
 
-/* ── LIGHT MODE: BROAD SECTION OVERRIDE ─────────────────────── */
+/* â”€â”€ LIGHT MODE: BROAD SECTION OVERRIDE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 /* Catches old inline-style sections that use var(--navy-dark) / var(--off-white) */
 [data-theme="light"] .section-title {
   color: #0D1422 !important;
@@ -2720,7 +2720,7 @@ img {
   background: white !important;
 }
 
-/* â”€â”€ RESPONSIVE NAV â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ RESPONSIVE NAV Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 768px) {
 
   .nav-links,
@@ -2783,12 +2783,12 @@ img {
 /* ======================================================
    SOURCE: home.css
    ====================================================== */
-/* ═══════════════════════════════════════════════════════════════
-   HASHTAG SURAKSHA — HOME PAGE STYLES
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   HASHTAG SURAKSHA â€” HOME PAGE STYLES
    Design system: Plus Jakarta Sans | Blue/Cyan/Amber palette
-   ═══════════════════════════════════════════════════════════════ */
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
-/* ── SHARED UTILITIES ─────────────────────────────────────────── */
+/* â”€â”€ SHARED UTILITIES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .center {
   text-align: center;
 }
@@ -2834,7 +2834,7 @@ img {
   line-height: 1.2;
 }
 
-/* â”€â”€ BUTTONS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ BUTTONS Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
 .btn-primary {
   display: inline-block;
   background: var(--primary) !important;
@@ -2888,7 +2888,7 @@ img {
   color: var(--text-primary) !important;
 }
 
-/* ── NAV — ALWAYS WHITE ───────────────────────────────────────── */
+/* â”€â”€ NAV â€” ALWAYS WHITE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .nav,
 [data-theme="dark"] .nav,
 [data-theme="light"] .nav {
@@ -3063,7 +3063,7 @@ img {
   display: flex;
 }
 
-/* ── MOBILE HEADER TOGGLE — DARK MODE CONTRAST ──────────────────── */
+/* â”€â”€ MOBILE HEADER TOGGLE â€” DARK MODE CONTRAST â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 [data-theme="dark"] .hamburger {
   background: #1e293b;
   border-color: rgba(255, 255, 255, 0.25);
@@ -3075,7 +3075,7 @@ img {
   color: var(--accent-saffron);
 }
 
-/* ── SHOW MORE / COLLAPSE ─────────────────────────────────────── */
+/* â”€â”€ SHOW MORE / COLLAPSE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .show-more-block {
   max-height: 0;
   overflow: hidden;
@@ -3110,7 +3110,7 @@ img {
   opacity: 0.75;
 }
 
-/* ── REVEAL ANIMATION ─────────────────────────────────────────── */
+/* â”€â”€ REVEAL ANIMATION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .reveal-card {
   opacity: 0;
   transform: translateY(24px);
@@ -3122,7 +3122,7 @@ img {
   transform: none;
 }
 
-/* ── THEME CHOOSER ────────────────────────────────────────────── */
+/* â”€â”€ THEME CHOOSER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .theme-chooser {
   position: fixed;
   inset: 0;
@@ -3211,7 +3211,7 @@ img {
   border: 1px solid #E2E8F0;
 }
 
-/* ── FONT OVERRIDE ────────────────────────────────────────────── */
+/* â”€â”€ FONT OVERRIDE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 body,
 h1,
 h2,
@@ -3227,7 +3227,7 @@ li {
   font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
 }
 
-/* ── HERO ─────────────────────────────────────────────────────── */
+/* â”€â”€ HERO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -3434,7 +3434,7 @@ li {
   background: rgba(107, 143, 255, 0.1);
 }
 
-/* RIGHT column — map circle */
+/* RIGHT column â€” map circle */
 .hero-map-col {
   display: flex;
   align-items: center;
@@ -3523,7 +3523,7 @@ li {
   }
 }
 
-/* ── CARD TOP ROW (icon badge left, logo right) ───────────────── */
+/* â”€â”€ CARD TOP ROW (icon badge left, logo right) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .card-top-row {
   display: flex;
   align-items: center;
@@ -3535,7 +3535,7 @@ li {
   margin-bottom: 0;
 }
 
-/* ── CARD ICON BADGES ─────────────────────────────────────────── */
+/* â”€â”€ CARD ICON BADGES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .card-icon-badge {
   width: 40px;
   height: 40px;
@@ -3600,12 +3600,12 @@ li {
   color: #059669;
 }
 
-/* ── VERTICAL CARD HOVER LIFT ─────────────────────────────────── */
+/* â”€â”€ VERTICAL CARD HOVER LIFT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .vertical-card:hover {
   transform: translateY(-6px);
 }
 
-/* ── AUDIENCE CARDS HOVER ────────────────────────────────────── */
+/* â”€â”€ AUDIENCE CARDS HOVER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .audience-card:hover {
   box-shadow: 0 6px 28px rgba(0, 122, 255, 0.28);
   border-color: rgba(0, 122, 255, 0.35);
@@ -3616,9 +3616,9 @@ li {
   box-shadow: 0 6px 24px rgba(0, 122, 255, 0.18);
 }
 
-/* ── SURAKSHAK LIVE FEED ─────────────────────────────────────── */
+/* â”€â”€ SURAKSHAK LIVE FEED â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .live-feed-card {
-  /* No height override — inherits 112px from .card-interactive */
+  /* No height override â€” inherits 112px from .card-interactive */
   padding: 10px 12px !important;
   justify-content: flex-start !important;
 }
@@ -3691,7 +3691,7 @@ li {
   color: #0891B2;
 }
 
-/* ── PODCAST MYTH + YT LAYOUT ────────────────────────────────── */
+/* â”€â”€ PODCAST MYTH + YT LAYOUT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .podcast-preview-wrap {
   display: flex;
   gap: 10px;
@@ -3790,7 +3790,7 @@ li {
   color: var(--text-secondary);
 }
 
-/* ── WHATS INSIDE CASK — ANIMATED TICKER ─────────────────────── */
+/* â”€â”€ WHATS INSIDE CASK â€” ANIMATED TICKER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .wic-showcase {
   margin-top: 20px;
 }
@@ -3874,7 +3874,7 @@ li {
   color: #f472b6;
 }
 
-/* ── CASK MIND MAP ────────────────────────────────────────────── */
+/* â”€â”€ CASK MIND MAP â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .cask-mindmap {
   margin-top: 60px;
   padding-top: 40px;
@@ -4185,7 +4185,7 @@ li {
   color: #be185d;
 }
 
-/* ── CASK INLINE CHATBOT ─────────────────────────────────────── */
+/* â”€â”€ CASK INLINE CHATBOT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .cask-chatbot {
   background: var(--bg-surface);
   border: 1px solid rgba(0, 122, 255, 0.25);
@@ -4400,7 +4400,7 @@ li {
   }
 }
 
-/* ── GENERAL CARD BOX SHADOWS — always visible, not just on hover ── */
+/* â”€â”€ GENERAL CARD BOX SHADOWS â€” always visible, not just on hover â”€â”€ */
 
 /* Vertical cards: solid colored border + hard offset depth (no glow) */
 .vertical-card.cask-card {
@@ -4428,7 +4428,7 @@ li {
   box-shadow: 4px 4px 0 rgba(52, 211, 153, 0.22);
 }
 
-/* Stronger on hover — deeper offset */
+/* Stronger on hover â€” deeper offset */
 .vertical-card.cask-card:hover {
   border-color: rgba(0, 122, 255, 0.80);
   box-shadow: 6px 6px 0 rgba(0, 122, 255, 0.30);
@@ -4459,7 +4459,7 @@ li {
   transform: translate(-2px, -2px);
 }
 
-/* Light mode — same approach, darker saturated hues for contrast on white */
+/* Light mode â€” same approach, darker saturated hues for contrast on white */
 [data-theme="light"] .vertical-card.cask-card {
   border: 2px solid rgba(29, 78, 216, 0.55);
   box-shadow: 4px 4px 0 rgba(29, 78, 216, 0.20);
@@ -4485,7 +4485,7 @@ li {
   box-shadow: 4px 4px 0 rgba(4, 120, 87, 0.20);
 }
 
-/* Audience cards — solid blue border + hard offset */
+/* Audience cards â€” solid blue border + hard offset */
 .audience-card {
   border: 1.5px solid rgba(0, 122, 255, 0.40);
   box-shadow: 3px 3px 0 rgba(0, 122, 255, 0.16);
@@ -4531,7 +4531,7 @@ li {
   box-shadow: 0 2px 12px rgba(0, 122, 255, 0.09);
 }
 
-/* ── LIVE FEED SCROLL ANIMATION ──────────────────────────────── */
+/* â”€â”€ LIVE FEED SCROLL ANIMATION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @keyframes feedScrollUp {
   0% {
     transform: translateY(0);
@@ -4549,7 +4549,7 @@ li {
   z-index: 1;
 }
 
-/* ── PREMIUM HERO MAP CARD ─────────────────────────────────────── */
+/* â”€â”€ PREMIUM HERO MAP CARD â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @keyframes radarPing {
   0% {
     r: 6;
@@ -4789,7 +4789,7 @@ li {
   animation-delay: 0.75s;
 }
 
-/* ── VERTICALS SECTION ────────────────────────────────────────── */
+/* â”€â”€ VERTICALS SECTION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .verticals-section {
   padding: 100px 0;
   background: var(--bg-surface) !important;
@@ -4922,16 +4922,16 @@ li {
   transform: translateX(4px);
 }
 
-/* ── MOVEMENT / ABOUT ─────────────────────────────────────────── */
+/* â”€â”€ MOVEMENT / ABOUT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .movement-section {
   padding: 56px 0;
   background: var(--bg) !important;
 }
 
-/* ── 2×2 grid: each row pair naturally shares the same height ───────────
-   Row 1: [text-top | CERT-In card]   → tops align, heights match
-   Row 2: [bahl-quote | Cyber Buddha] → tops align, bottoms align
-   ─────────────────────────────────────────────────────────────────────── */
+/* â”€â”€ 2Ã—2 grid: each row pair naturally shares the same height â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   Row 1: [text-top | CERT-In card]   â†’ tops align, heights match
+   Row 2: [bahl-quote | Cyber Buddha] â†’ tops align, bottoms align
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .movement-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -4948,7 +4948,7 @@ li {
   justify-content: flex-start;
 }
 
-/* Legacy selectors — kept for safety but no longer used in the grid */
+/* Legacy selectors â€” kept for safety but no longer used in the grid */
 .movement-text {
   display: flex;
   flex-direction: column;
@@ -5160,7 +5160,7 @@ li {
   margin-bottom: 8px;
 }
 
-/* ── CASK SECTION ─────────────────────────────────────────────── */
+/* â”€â”€ CASK SECTION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .cask-section {
   padding: 100px 0 60px;
   background: var(--bg-surface) !important;
@@ -5374,7 +5374,7 @@ li {
   margin: 0;
 }
 
-/* ── SURAKSHAK SECTION ────────────────────────────────────────── */
+/* â”€â”€ SURAKSHAK SECTION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .surakshak-section {
   padding: 100px 0;
   background: var(--bg) !important;
@@ -5453,7 +5453,7 @@ li {
   flex-shrink: 0;
 }
 
-/* ── PHISH AND CHIP SECTION ───────────────────────────────────── */
+/* â”€â”€ PHISH AND CHIP SECTION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .podcast-section {
   padding: 100px 0;
   background: var(--bg-surface) !important;
@@ -5652,7 +5652,7 @@ li {
   font-style: italic;
 }
 
-/* ── SLANGLISH SECTION ────────────────────────────────────────── */
+/* â”€â”€ SLANGLISH SECTION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .slanglish-section {
   padding: 100px 0;
   background: var(--bg) !important;
@@ -5767,7 +5767,7 @@ li {
   margin: 0;
 }
 
-/* ── PARTNER CTA ──────────────────────────────────────────────── */
+/* â”€â”€ PARTNER CTA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .partner-section {
   padding: 100px 0;
   background: var(--bg-surface) !important;
@@ -5819,7 +5819,7 @@ li {
   border-color: var(--primary);
 }
 
-/* ── FOOTER ───────────────────────────────────────────────────── */
+/* â”€â”€ FOOTER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .footer {
   background: var(--bg) !important;
   border-top: 1px solid var(--border);
@@ -5833,7 +5833,7 @@ li {
   padding-bottom: 48px;
 }
 
-/* footer logo — now lives inside white circle, controlled by .footer-logo-img at line 3146+ */
+/* footer logo â€” now lives inside white circle, controlled by .footer-logo-img at line 3146+ */
 
 .footer-brand>p {
   font-size: 14px;
@@ -5923,7 +5923,7 @@ li {
   margin: 0;
 }
 
-/* ── CURSOR GLOW ──────────────────────────────────────────────── */
+/* â”€â”€ CURSOR GLOW â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .cursor-glow {
   position: fixed;
   width: 400px;
@@ -5942,7 +5942,7 @@ li {
   mix-blend-mode: multiply;
 }
 
-/* ── INTERACTIVE CARD ELEMENTS ───────────────────────────────── */
+/* â”€â”€ INTERACTIVE CARD ELEMENTS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .card-interactive {
   background: var(--bg-surface);
   border: 1px solid var(--border);
@@ -5950,14 +5950,14 @@ li {
   padding: 12px 14px;
   margin: 8px 0;
   overflow: hidden;
-  /* Shared fixed height — CASK, Surakshak, Olympiad all equal */
+  /* Shared fixed height â€” CASK, Surakshak, Olympiad all equal */
   height: 112px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-/* Podcast and Slanglish — same fixed height so boxes always match */
+/* Podcast and Slanglish â€” same fixed height so boxes always match */
 .podcast-card-interactive,
 .slanglish-card-interactive {
   height: 165px;
@@ -5966,7 +5966,7 @@ li {
   overflow: hidden;
 }
 
-/* CASK — mini chat */
+/* CASK â€” mini chat */
 .mini-chat-wrap {
   display: flex;
   flex-direction: column;
@@ -6000,7 +6000,7 @@ li {
   overflow: hidden;
 }
 
-/* Surakshak — rank progress */
+/* Surakshak â€” rank progress */
 .rank-row {
   display: flex;
   align-items: center;
@@ -6043,7 +6043,7 @@ li {
   transition: width 1s ease;
 }
 
-/* Olympiad — live stats */
+/* Olympiad â€” live stats */
 .live-stats-row {
   display: flex;
   align-items: center;
@@ -6075,7 +6075,7 @@ li {
   background: var(--border);
 }
 
-/* Phish & Chip — mini player */
+/* Phish & Chip â€” mini player */
 .mini-player-row {
   display: flex;
   align-items: center;
@@ -6179,7 +6179,7 @@ li {
   flex-shrink: 0;
 }
 
-/* Slanglish — word cycling */
+/* Slanglish â€” word cycling */
 .word-cycle {
   position: relative;
 }
@@ -6222,15 +6222,15 @@ li {
   font-style: italic;
 }
 
-/* ── CASK UNIFIED TIER ────────────────────────────────────────── */
+/* â”€â”€ CASK UNIFIED TIER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 /* padding-top aligns the chatbot with the h2 heading in the left column */
-/* section-tag ~28px + margin ~16px + h2 line ~14px ≈ 58px */
+/* section-tag ~28px + margin ~16px + h2 line ~14px â‰ˆ 58px */
 .cask-resources {
   width: 100%;
   padding-top: 58px;
 }
 
-/* ── LOGO DARK/LIGHT TOGGLE ───────────────────────────────────── */
+/* â”€â”€ LOGO DARK/LIGHT TOGGLE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 /* Default = dark theme */
 .logo-dark {
   display: block;
@@ -6248,7 +6248,7 @@ li {
   display: block;
 }
 
-/* ── CASK VERTICAL CARD — split layout with logo ─────────────── */
+/* â”€â”€ CASK VERTICAL CARD â€” split layout with logo â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .cask-card-split {
   display: flex;
   align-items: center;
@@ -6282,7 +6282,7 @@ li {
   display: block;
 }
 
-/* ── SLANGLISH VERTICAL CARD — logo in top row ───────────────── */
+/* â”€â”€ SLANGLISH VERTICAL CARD â€” logo in top row â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .slang-vcard-logo {
   width: 44px;
   height: 44px;
@@ -6292,7 +6292,7 @@ li {
   display: block;
 }
 
-/* ── Logo dark/light toggle — combined class specificity beats display:block ── */
+/* â”€â”€ Logo dark/light toggle â€” combined class specificity beats display:block â”€â”€ */
 /* Dark mode (default): hide all light-version logos in card-top-row */
 .cask-vcard-logo.logo-light,
 .slang-vcard-logo.logo-light {
@@ -6310,7 +6310,7 @@ li {
   display: block !important;
 }
 
-/* ── CASK SECTION — logo+label horizontal row ─────────────────── */
+/* â”€â”€ CASK SECTION â€” logo+label horizontal row â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .cask-section-logo-wrap {
   margin-bottom: 16px;
 }
@@ -6340,7 +6340,7 @@ li {
   color: var(--text-primary);
 }
 
-/* ── SLANGLISH SECTION — logo + title horizontal row ─────────── */
+/* â”€â”€ SLANGLISH SECTION â€” logo + title horizontal row â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .slang-section-logo-wrap {
   margin-bottom: 12px;
 }
@@ -6410,7 +6410,7 @@ li {
   flex-shrink: 0;
 }
 
-/* ── SURAKSHAK UNLOCK JOURNEY ─────────────────────────────────── */
+/* â”€â”€ SURAKSHAK UNLOCK JOURNEY â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .journey-path {
   display: flex;
   align-items: flex-start;
@@ -6517,7 +6517,7 @@ li {
   flex-shrink: 0;
 }
 
-/* ── SURAKSHAK LIVE PANEL (journey section) ────────────────────── */
+/* â”€â”€ SURAKSHAK LIVE PANEL (journey section) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .surakshak-live-panel {
   max-width: 640px;
   margin: 36px auto 28px;
@@ -6612,7 +6612,7 @@ li {
   text-align: center;
 }
 
-/* ── OLYMPIAD QUIZ ─────────────────────────────────────────────── */
+/* â”€â”€ OLYMPIAD QUIZ â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .olympiad-quiz-section {
   padding: 100px 0;
   background: var(--bg) !important;
@@ -6623,9 +6623,9 @@ li {
   margin: 0 auto;
 }
 
-/* ═══════════════════════════════════════════════════
-   NCO — National Cyber Olympiad Section
-═══════════════════════════════════════════════════ */
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   NCO â€” National Cyber Olympiad Section
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .nco-section {
   background: #060810;
   padding: 48px 0 60px;
@@ -6667,7 +6667,7 @@ li {
   margin: 0 auto;
 }
 
-/* ── Path (left) ─────────────────────────────────── */
+/* â”€â”€ Path (left) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .nco-path-wrap {
   position: relative;
   padding-left: 0;
@@ -6799,7 +6799,7 @@ li {
   transform: rotate(90deg);
 }
 
-/* Expandable body — opens on hover */
+/* Expandable body â€” opens on hover */
 .nco-card-body {
   max-height: 0;
   overflow: hidden;
@@ -6866,7 +6866,7 @@ li {
   padding-left: 66px;
 }
 
-/* ── Shield + Quiz (right) ───────────────────────── */
+/* â”€â”€ Shield + Quiz (right) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .nco-right-col {
   display: flex;
   flex-direction: column;
@@ -7208,7 +7208,7 @@ li {
   line-height: 1.6;
 }
 
-/* ── ABOUT MOVEMENT — PARTNER CARD NEW STRUCTURES ──────────────── */
+/* â”€â”€ ABOUT MOVEMENT â€” PARTNER CARD NEW STRUCTURES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 /* Card v2: white header band + dark body; fills grid row height */
 .pc-v2 {
   padding: 0;
@@ -7261,7 +7261,7 @@ li {
   margin-bottom: 8px;
 }
 
-/* Bahl quote — white header band matching pc-header-band style */
+/* Bahl quote â€” white header band matching pc-header-band style */
 .bahl-quote {
   margin-top: 0 !important;
   padding: 0 !important;
@@ -7386,7 +7386,7 @@ li {
   margin-bottom: 10px;
 }
 
-/* ── FOOTER BRAND LOGO CIRCLE ───────────────────────────────────── */
+/* â”€â”€ FOOTER BRAND LOGO CIRCLE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .footer-logo-circle-link {
   display: inline-block;
   margin-bottom: 16px;
@@ -7422,9 +7422,9 @@ li {
   padding: 4px 8px;
 }
 
-/* ── PHISH & CHIP SHOW — PHISH BOWL GAME (CYBER BLUE) ───────────── */
+/* â”€â”€ PHISH & CHIP SHOW â€” PHISH BOWL GAME (CYBER BLUE) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
-/* ── CSS vars for theming ── */
+/* â”€â”€ CSS vars for theming â”€â”€ */
 .pnc-section {
   --pb-bg: #060d18;
   --pb-surface: #0b1929;
@@ -7458,7 +7458,7 @@ li {
   box-sizing: border-box;
 }
 
-/* ── Shader canvas — animated data-stream background ── */
+/* â”€â”€ Shader canvas â€” animated data-stream background â”€â”€ */
 #pbShaderCanvas {
   position: absolute;
   inset: 0;
@@ -7549,9 +7549,9 @@ li {
   align-items: start;
 }
 
-/* ══════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    FEATURED EPISODE CARD (left)
-══════════════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .pb-feature-col {
   display: flex;
   flex-direction: column;
@@ -7574,7 +7574,7 @@ li {
   align-self: flex-start;
 }
 
-/* Badge as overlay inside the thumbnail — doesn't affect column height */
+/* Badge as overlay inside the thumbnail â€” doesn't affect column height */
 .pb-feat-badge-overlay {
   position: absolute;
   top: 12px;
@@ -7679,7 +7679,7 @@ li {
   border-radius: 5px;
 }
 
-/* ── Now-bar below the video card (matches phishnchip.html style) ── */
+/* â”€â”€ Now-bar below the video card (matches phishnchip.html style) â”€â”€ */
 .pb-now-bar {
   display: flex;
   align-items: center;
@@ -7746,9 +7746,9 @@ li {
   color: rgba(0, 0, 0, 0.35);
 }
 
-/* ══════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    CARNIVAL ROLLING STRIP (right)
-══════════════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .pb-carnival {
   display: flex;
   flex-direction: column;
@@ -7955,9 +7955,9 @@ li {
   }
 }
 
-/* ══════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    GAME PANEL (left)
-══════════════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .pb-game-panel {
   background: var(--pb-surface);
   border: 1px solid rgba(0, 200, 255, 0.32);
@@ -8176,7 +8176,7 @@ li {
   text-shadow: 0 0 8px rgba(255, 51, 102, 0.6);
 }
 
-/* ── Radar wrap ── */
+/* â”€â”€ Radar wrap â”€â”€ */
 .pb-radar-wrap {
   position: relative;
   padding: 22px 22px 14px;
@@ -8235,7 +8235,7 @@ li {
   }
 }
 
-/* ── The radar itself ── */
+/* â”€â”€ The radar itself â”€â”€ */
 .pb-radar {
   position: relative;
   width: 280px;
@@ -8298,7 +8298,7 @@ li {
   height: 100%;
 }
 
-/* ── SCAN BEAM — rotating radar sweep ── */
+/* â”€â”€ SCAN BEAM â€” rotating radar sweep â”€â”€ */
 .pb-scan-beam {
   position: absolute;
   width: 50%;
@@ -8690,9 +8690,9 @@ li {
   box-shadow: 0 0 6px rgba(0, 200, 255, 0.4);
 }
 
-/* ══════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    DASHBOARD (right)
-══════════════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .pb-dashboard {
   display: flex;
   flex-direction: column;
@@ -8931,7 +8931,7 @@ li {
   }
 }
 
-/* ── SLANGLISH — WORD DECODER ──────────────────────────────────── */
+/* â”€â”€ SLANGLISH â€” WORD DECODER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .slanglish-flip-section {
   padding: 100px 0;
   background: #0d0519 !important;
@@ -9174,8 +9174,8 @@ li {
   border-color: rgba(124, 58, 237, 0.14);
 }
 
-/* ── CASK CHATBOT FULL COLUMN ──────────────────────────────────── */
-/* ── CASK SHOWCASE (replaces chatbot) ─────────────────────────── */
+/* â”€â”€ CASK CHATBOT FULL COLUMN â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* â”€â”€ CASK SHOWCASE (replaces chatbot) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .cask-showcase {
   background: var(--card-bg, #fff);
   border: 1px solid var(--border, rgba(0, 0, 0, 0.08));
@@ -9386,7 +9386,7 @@ li {
   max-height: 380px;
 }
 
-/* ── CASK CHATBOT SUGGESTION CHIPS ────────────────────────────── */
+/* â”€â”€ CASK CHATBOT SUGGESTION CHIPS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .cask-suggest-chips {
   display: flex;
   flex-wrap: wrap;
@@ -9415,7 +9415,7 @@ li {
   transform: translateY(-1px);
 }
 
-/* ── CASK ROLE CARDS (replaces spoke map) ─────────────────────── */
+/* â”€â”€ CASK ROLE CARDS (replaces spoke map) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .cask-role-section {
   margin-top: 56px;
   padding-top: 48px;
@@ -9683,7 +9683,7 @@ li {
   }
 }
 
-/* ── CASK SPOKE MIND MAP ───────────────────────────────────────── */
+/* â”€â”€ CASK SPOKE MIND MAP â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .cask-spoke-map {
   margin-top: 60px;
   padding-top: 40px;
@@ -9982,7 +9982,7 @@ li {
   padding-top: 1px;
 }
 
-/* ── SLANGLISH — WORD SPOTLIGHT ─────────────────────────────────── */
+/* â”€â”€ SLANGLISH â€” WORD SPOTLIGHT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .slanglish-spotlight-section {
   background: #080808;
   overflow: hidden;
@@ -10132,7 +10132,7 @@ li {
   margin: 0 auto;
 }
 
-/* ── LEFT COLUMN ───────────── */
+/* â”€â”€ LEFT COLUMN â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .slang-left-col {
   display: flex;
   flex-direction: column;
@@ -10151,7 +10151,7 @@ li {
   width: 100%;
 }
 
-/* ── CHARACTER PANEL (right) ── */
+/* â”€â”€ CHARACTER PANEL (right) â”€â”€ */
 .slang-char-panel {
   --char-color: #7c3aed;
   --char-glow: rgba(124, 58, 237, 0.35);
@@ -10165,7 +10165,7 @@ li {
   top: 72px;
 }
 
-/* ── CHARACTER SELECTOR CAROUSEL ────── */
+/* â”€â”€ CHARACTER SELECTOR CAROUSEL â”€â”€â”€â”€â”€â”€ */
 .slang-char-selector {
   display: flex;
   flex-direction: column;
@@ -10185,7 +10185,7 @@ li {
   width: 100%;
 }
 
-/* Row layout: [arrow] [stage] [arrow] — arrows hug the portrait */
+/* Row layout: [arrow] [stage] [arrow] â€” arrows hug the portrait */
 .slang-carousel {
   display: flex;
   flex-direction: row;
@@ -10230,7 +10230,7 @@ li {
   width: 260px;
 }
 
-/* Portrait image — no box, character floats freely */
+/* Portrait image â€” no box, character floats freely */
 .slang-car-portrait {
   width: 260px;
   height: 340px;
@@ -10248,7 +10248,7 @@ li {
   transform: scale(1.04) translateY(-5px);
 }
 
-/* Two stacked imgs — A is shown, B preloads behind, then they swap */
+/* Two stacked imgs â€” A is shown, B preloads behind, then they swap */
 .slang-car-img {
   width: 100%;
   height: 100%;
@@ -10354,7 +10354,7 @@ li {
   transform: translateY(-1px);
 }
 
-/* ── CHAT PANEL ────────────── */
+/* â”€â”€ CHAT PANEL â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .slang-chat {
   display: flex;
   flex-direction: column;
@@ -10741,7 +10741,7 @@ li {
   color: rgba(167, 139, 250, 0.70);
 }
 
-/* ── SLANGLISH WORD CHIPS ─────────────────── */
+/* â”€â”€ SLANGLISH WORD CHIPS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .slang-chips {
   display: flex;
   flex-wrap: wrap;
@@ -10809,7 +10809,7 @@ li {
   transform: translate(-2px, -2px) !important;
 }
 
-/* ── PARTNER ECOSYSTEM WHEEL ───────────────────────────────────── */
+/* â”€â”€ PARTNER ECOSYSTEM WHEEL â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .partner-wheel-section {
   padding: 100px 0;
   background: var(--bg-surface) !important;
@@ -10899,7 +10899,7 @@ li {
   max-height: 100px;
 }
 
-/* â”€â”€ RESPONSIVE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ RESPONSIVE Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 1024px) {
   .vertical-card {
     width: calc(50% - 10px);
@@ -11149,9 +11149,9 @@ li {
 }
 
 
-/* ══════════════════════════════════════════════════════════
-   PHISH BOWL — LIGHT MODE (scanlines hidden, shader visible)
-══════════════════════════════════════════════════════════ */
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   PHISH BOWL â€” LIGHT MODE (scanlines hidden, shader visible)
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 [data-theme="light"] .pnc-section::before {
   opacity: 0;
   pointer-events: none;
@@ -11169,9 +11169,9 @@ li {
     0 4px 24px rgba(0, 0, 0, 0.08);
 }
 
-/* ══════════════════════════════════════════════════════════
-   PHISH BOWL — DASHBOARD STRETCH + CREDITS SOLO CARD
-══════════════════════════════════════════════════════════ */
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   PHISH BOWL â€” DASHBOARD STRETCH + CREDITS SOLO CARD
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .pb-dashboard {
   display: flex;
   flex-direction: column;
@@ -11246,11 +11246,11 @@ li {
   background: linear-gradient(90deg, transparent, rgba(0, 80, 200, 0.5), transparent);
 }
 
-/* ══════════════════════════════════════════════════════════
-   PHISH BOWL — SUPER GAMIFIED GAME INTERIOR
-══════════════════════════════════════════════════════════ */
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   PHISH BOWL â€” SUPER GAMIFIED GAME INTERIOR
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
-/* All game text → monospace family */
+/* All game text â†’ monospace family */
 .pb-sim-label,
 .pb-level-name,
 .pb-diff-lbl,
@@ -11297,7 +11297,7 @@ li {
   letter-spacing: 1px !important;
 }
 
-/* ── Radar center: start state ── */
+/* â”€â”€ Radar center: start state â”€â”€ */
 .pb-cs-badge {
   font-family: 'Courier New', Courier, monospace;
   font-size: 8px;
@@ -11364,7 +11364,7 @@ li {
   }
 }
 
-/* ── Scenario state ── */
+/* â”€â”€ Scenario state â”€â”€ */
 .pb-sc-analyzing {
   font-family: 'Courier New', Courier, monospace;
   font-size: 8px;
@@ -11403,7 +11403,7 @@ li {
   color: var(--pb-muted) !important;
 }
 
-/* ── Feedback state ── */
+/* â”€â”€ Feedback state â”€â”€ */
 .pb-fb-icon {
   font-size: 26px !important;
   text-shadow: 0 0 16px currentColor !important;
@@ -11426,7 +11426,7 @@ li {
   text-shadow: 0 0 10px rgba(0, 200, 255, 0.6) !important;
 }
 
-/* ── Level up state ── */
+/* â”€â”€ Level up state â”€â”€ */
 .pb-lu-alert {
   font-family: 'Courier New', Courier, monospace;
   font-size: 8px;
@@ -11459,7 +11459,7 @@ li {
   margin-top: 3px !important;
 }
 
-/* ── Game over state ── */
+/* â”€â”€ Game over state â”€â”€ */
 .pb-go-breach {
   font-family: 'Courier New', Courier, monospace;
   font-size: 8px;
@@ -11498,7 +11498,7 @@ li {
   font-size: 9px !important;
 }
 
-/* ── Deploy button ── */
+/* â”€â”€ Deploy button â”€â”€ */
 .pb-deploy-btn {
   font-family: 'Courier New', Courier, monospace !important;
   letter-spacing: 2px !important;
@@ -11510,7 +11510,7 @@ li {
   opacity: 0.75;
 }
 
-/* ── Action buttons ── */
+/* â”€â”€ Action buttons â”€â”€ */
 .pb-hook-btn,
 .pb-safe-btn {
   display: flex !important;
@@ -11543,7 +11543,7 @@ li {
   text-transform: uppercase !important;
 }
 
-/* ── About Movement: section-tag sits above grid ── */
+/* â”€â”€ About Movement: section-tag sits above grid â”€â”€ */
 .movement-section-tag {
   display: inline-block;
   margin-bottom: 20px;
@@ -11555,11 +11555,11 @@ li {
   flex-direction: column;
 }
 
-/* ═══════════════════════════════════════════════════════
-   PLATFORM.HTML — NEW SECTION STYLES
-   ═══════════════════════════════════════════════════════ */
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   PLATFORM.HTML â€” NEW SECTION STYLES
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
-/* ─── MOUNTAIN CLIMB (m2) — enhanced ─── */
+/* â”€â”€â”€ MOUNTAIN CLIMB (m2) â€” enhanced â”€â”€â”€ */
 .m2-section {
   position: relative;
   width: 100%;
@@ -11770,7 +11770,7 @@ li {
   }
 }
 
-/* ─── CURRICULUM ATLAS (cx) — horizontal slider ─── */
+/* â”€â”€â”€ CURRICULUM ATLAS (cx) â€” horizontal slider â”€â”€â”€ */
 .cx-atlas-section {
   background: #08111F;
   padding: 80px 0 60px;
@@ -12129,7 +12129,7 @@ li {
   letter-spacing: 0.5px;
 }
 
-/* ─── CYBER COMMAND DECK v3 (cd3) — simplified, one-screen ─── */
+/* â”€â”€â”€ CYBER COMMAND DECK v3 (cd3) â€” simplified, one-screen â”€â”€â”€ */
 .cd3-section {
   background: #08111F;
   padding: 60px 56px 48px;
@@ -12349,7 +12349,7 @@ li {
   font-size: 16px;
 }
 
-/* Constellation Map — text overflow fix */
+/* Constellation Map â€” text overflow fix */
 .cs2-gradient-text {
   overflow: visible !important;
 }
@@ -12423,7 +12423,7 @@ li {
 }
 
 
-/* ─── Atlas slider — overflow fix ─── */
+/* â”€â”€â”€ Atlas slider â€” overflow fix â”€â”€â”€ */
 .cx-track-wrap {
   overflow: hidden;
   /* clip slides outside viewport */
@@ -12495,7 +12495,7 @@ li {
   }
 }
 
-/* Mountain â€” ensure SVG fills and grade panel positioning */
+/* Mountain Ã¢â‚¬â€ ensure SVG fills and grade panel positioning */
 @media (max-width: 768px) {
   .m2-content {
     max-width: 55%;
@@ -12511,13 +12511,13 @@ li {
 /* ======================================================
    SOURCE: improvements.css
    ====================================================== */
-/* ═══════════════════════════════════════════════════════════════
-   HASHTAG SURAKSHA — POLISH IMPROVEMENTS v1
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   HASHTAG SURAKSHA â€” POLISH IMPROVEMENTS v1
    Targeted CSS enhancements across all pages.
    Never modifies HTML structure or existing class names.
-═══════════════════════════════════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
-/* ══ 1. ACCESSIBILITY — Focus states ════════════════════════ */
+/* â•â• 1. ACCESSIBILITY â€” Focus states â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 :focus-visible {
   outline: 2px solid #007aff !important;
   outline-offset: 3px !important;
@@ -12530,7 +12530,7 @@ a:focus-visible,
   border-radius: 6px;
 }
 
-/* ══ 2. ANIMATION — Global timing consistency ══════════════ */
+/* â•â• 2. ANIMATION â€” Global timing consistency â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 button,
 a,
 [class*="-card"],
@@ -12539,7 +12539,7 @@ a,
   -webkit-tap-highlight-color: transparent;
 }
 
-/* ══ 3. LANDING PAGE — Increased logo sizes ════════════════ */
+/* â•â• 3. LANDING PAGE â€” Increased logo sizes â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
 /* Government / certification logo strip */
 .cert-govt-bar {
@@ -12556,7 +12556,7 @@ a,
   height: 44px !important;
 }
 
-/* White logo strip — slightly taller */
+/* White logo strip â€” slightly taller */
 .partner-logo-marquee-wrap {
   max-width: 960px !important;
 }
@@ -12571,7 +12571,7 @@ a,
   max-width: 210px !important;
 }
 
-/* ══ 4. TRANSPARENT LOGOS — Visibility in dark/light ═══════ */
+/* â•â• 4. TRANSPARENT LOGOS â€” Visibility in dark/light â•â•â•â•â•â•â• */
 .logo-dark {
   filter: brightness(1.08) drop-shadow(0 0 10px rgba(255, 255, 255, 0.16));
 }
@@ -12586,7 +12586,7 @@ a,
   max-height: 90px !important;
 }
 
-/* ══ 5. AUDIO BUTTON — Smooth transitions ══════════════════ */
+/* â•â• 5. AUDIO BUTTON â€” Smooth transitions â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .cask-unmute-btn {
   transition:
     background 0.25s cubic-bezier(.22, 1, .36, 1),
@@ -12605,7 +12605,7 @@ a,
   transform: scale(0.95) !important;
 }
 
-/* ══ 6. EVERYTHING INSIDE CASK — Glow on ALL cards ════════ */
+/* â•â• 6. EVERYTHING INSIDE CASK â€” Glow on ALL cards â•â•â•â•â•â•â•â• */
 /* Subtle premium glow on every card (dark mode) */
 .cd4-card {
   border-color: rgba(84, 244, 255, 0.13) !important;
@@ -12642,7 +12642,7 @@ a,
     0 20px 52px rgba(0, 0, 0, 0.46) !important;
 }
 
-/* ══ 6b. EVERYTHING INSIDE CASK — Light mode ══════════════ */
+/* â•â• 6b. EVERYTHING INSIDE CASK â€” Light mode â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 [data-theme="light"] .cd4-section {
   background: #f0f4ff !important;
 }
@@ -12735,7 +12735,7 @@ a,
   overflow: hidden;
 }
 
-/* ══ 7. FOUR YEARS, FOUR TRANSFORMATIONS — Light mode ══════ */
+/* â•â• 7. FOUR YEARS, FOUR TRANSFORMATIONS â€” Light mode â•â•â•â•â•â• */
 [data-theme="light"] .fyt-section {
   background: #f5f8ff !important;
 }
@@ -12869,7 +12869,7 @@ a,
 }
 
 
-/* ══ 8. MULTILINGUAL — One-row scrollable, smooth hover ════ */
+/* â•â• 8. MULTILINGUAL â€” One-row scrollable, smooth hover â•â•â•â• */
 .cask-lang-cloud {
   flex-wrap: nowrap !important;
   overflow-x: auto !important;
@@ -12923,13 +12923,13 @@ a,
   padding: 56px 0 48px !important;
 }
 
-/* ══ 9. FOUR YEARS MILESTONES — Glass consistency ══════════ */
+/* â•â• 9. FOUR YEARS MILESTONES â€” Glass consistency â•â•â•â•â•â•â•â•â•â• */
 /* These apply to milestone/recognition cards in platform.html */
 [data-theme="light"] .cask-recog {
   background: #f0f4ff !important;
 }
 
-/* â•â• 10. PHISH & CHIP â€” Light mode support â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+/* Ã¢â€¢ÂÃ¢â€¢Â 10. PHISH & CHIP Ã¢â‚¬â€ Light mode support Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â */
 /* Body class added via JS when on phishnchip.html in light mode */
 [data-theme="light"] .pnc-hero {
   background: linear-gradient(160deg, #f8f0ff 0%, #e8eeff 100%) !important;
@@ -12945,7 +12945,7 @@ a,
   background: rgba(10, 0, 32, 0.25) !important;
 }
 
-/* ══ 11. HOVER ANIMATIONS — 60fps smooth lift ══════════════ */
+/* â•â• 11. HOVER ANIMATIONS â€” 60fps smooth lift â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .cd4-card,
 .cask-topic-card,
 .fyt-unit-row,
@@ -12956,14 +12956,14 @@ a,
   will-change: transform;
 }
 
-/* â•â• 12. NO HORIZONTAL SCROLL â€” Responsive guard â•â•â•â•â•â•â•â•â•â•â• */
+/* Ã¢â€¢ÂÃ¢â€¢Â 12. NO HORIZONTAL SCROLL Ã¢â‚¬â€ Responsive guard Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â */
 html,
 body {
   overflow-x: hidden;
   max-width: 100vw;
 }
 
-/* â•â• 13. FOOTER â€” Mobile & tablet responsive â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+/* Ã¢â€¢ÂÃ¢â€¢Â 13. FOOTER Ã¢â‚¬â€ Mobile & tablet responsive Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â */
 /* Ensures .footer-grid and .footer-links-group collapse correctly
    on all pages regardless of which container class they use        */
 @media (max-width: 768px) {
@@ -12984,7 +12984,7 @@ body {
   }
 }
 
-/* â•â• 14. NAV â€” Mobile & tablet â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+/* Ã¢â€¢ÂÃ¢â€¢Â 14. NAV Ã¢â‚¬â€ Mobile & tablet Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â */
 /* Force hamburger display on narrow screens on all pages */
 @media (max-width: 768px) {
   .nav-links {
@@ -13000,7 +13000,7 @@ body {
   }
 }
 
-/* ══ 15. CONTAINER — Global max-width guard ════════════════ */
+/* â•â• 15. CONTAINER â€” Global max-width guard â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 /* Prevent any container class from overflowing its parent */
 .container,
 .cask-container,
@@ -13009,18 +13009,18 @@ body {
   width: 100%;
 }
 
-/* ══ 16. FOOTER padding inside container ═══════════════════ */
+/* â•â• 16. FOOTER padding inside container â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 /* Ensure top padding is consistent when .container replaces .pw */
 .footer .container,
 .footer .cask-container {
   padding-top: 56px;
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   ROUND 2 IMPROVEMENTS — addressing remaining brief items
-═══════════════════════════════════════════════════════════════ */
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   ROUND 2 IMPROVEMENTS â€” addressing remaining brief items
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
-/* ── R2-1. CASK CARDS: dark-mode hover subtitle overlap fix ── */
+/* â”€â”€ R2-1. CASK CARDS: dark-mode hover subtitle overlap fix â”€â”€ */
 /* Strengthen the gradient so it completely covers the card bottom
    and the text never bleeds transparent into the icon/title zone */
 .cd4-card-desc {
@@ -13041,7 +13041,7 @@ body {
       transparent 100%) !important;
 }
 
-/* ── R2-2. CASK CARDS: light-mode hover description fix ────── */
+/* â”€â”€ R2-2. CASK CARDS: light-mode hover description fix â”€â”€â”€â”€â”€â”€ */
 /* Replace the dark gradient with a clean white one */
 [data-theme="light"] .cd4-card-desc {
   background: linear-gradient(to top,
@@ -13060,13 +13060,13 @@ body {
       transparent 100%) !important;
 }
 
-/* ── R2-3. WHAT IS CASK — video/text column alignment ──────── */
+/* â”€â”€ R2-3. WHAT IS CASK â€” video/text column alignment â”€â”€â”€â”€â”€â”€â”€â”€ */
 /* Make the right column (video) top-align with the left (text) */
 .cask-video-grid {
   align-items: flex-start !important;
 }
 
-/* ── R2-4. FOUR YEARS MILESTONES — badge contrast (light mode) */
+/* â”€â”€ R2-4. FOUR YEARS MILESTONES â€” badge contrast (light mode) */
 [data-theme="light"] .cask-emblem svg {
   filter:
     drop-shadow(0 0 10px rgba(var(--pl-rgb), 0.72)) drop-shadow(0 2px 10px rgba(0, 0, 0, 0.22)) !important;
@@ -13102,7 +13102,7 @@ body {
   min-height: 100svh;
 }
 
-/* ── R2-5. PHISH & CHIP — comprehensive light mode ─────────── */
+/* â”€â”€ R2-5. PHISH & CHIP â€” comprehensive light mode â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
 /* Hero */
 [data-theme="light"] .halftone {
@@ -13244,7 +13244,7 @@ body {
   color: rgba(26, 10, 40, 0.40) !important;
 }
 
-/* Webtrap — fill any gaps in existing light mode */
+/* Webtrap â€” fill any gaps in existing light mode */
 [data-theme="light"] .web-hud-item b {
   color: #5b21b6 !important;
 }
@@ -13266,7 +13266,7 @@ body {
   color: rgba(26, 10, 40, 0.68) !important;
 }
 
-/* ── R2-6. WEBTRAP — ensure section fits viewport ─────────── */
+/* â”€â”€ R2-6. WEBTRAP â€” ensure section fits viewport â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .pnc-web .web-inner {
   padding: 18px 24px !important;
 }
@@ -13275,7 +13275,7 @@ body {
   margin-top: 4px !important;
 }
 
-/* ── R2-7. CHIPS DETECTIVE LAB — light mode + viewport fit ─── */
+/* â”€â”€ R2-7. CHIPS DETECTIVE LAB â€” light mode + viewport fit â”€â”€â”€ */
 [data-theme="light"] .pnc-lab {
   background: #f0f4ff !important;
 }
@@ -13399,7 +13399,7 @@ body {
   background: rgba(26, 10, 40, 0.12) !important;
 }
 
-/* Lab viewport fit — tighter internal padding */
+/* Lab viewport fit â€” tighter internal padding */
 .pnc-lab .lab-inner {
   padding: 16px 0 !important;
 }
@@ -13416,7 +13416,7 @@ body {
   height: min(72vh, 510px) !important;
 }
 
-/* ── R2-8. VERDICT GAP FIX ─────────────────────────────────── */
+/* â”€â”€ R2-8. VERDICT GAP FIX â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 /* When the verdict is submitted, #labVerdict hides and #labResult
    appears. Collapsing the gap ensures no empty space below the clues. */
 #labVerdict[style*="display: none"]+.lab-result,
@@ -13429,7 +13429,7 @@ body {
   justify-content: flex-start !important;
 }
 
-/* ── R2-9. PHISH & CHIP — footer light mode ─────────────────── */
+/* â”€â”€ R2-9. PHISH & CHIP â€” footer light mode â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 [data-theme="light"] .footer {
   background: #f5f0ff !important;
   border-top-color: rgba(26, 10, 40, 0.10) !important;
@@ -13471,12 +13471,12 @@ body {
    SOURCE: assets/cv-style.css
    ====================================================== */
 /* ================================================================
-   COURSE VERIFIER  ·  PREMIUM REDESIGN v5
+   COURSE VERIFIER  Â·  PREMIUM REDESIGN v5
    Inspired by Fitonist-style dark dashboard
    ================================================================ */
 
 
-/* ── Design Tokens ─────────────────────────────────────────── */
+/* â”€â”€ Design Tokens â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 :root {
   /* Brand (hashtag-v2 primary blue) */
   --accent: #007aff;
@@ -13537,7 +13537,7 @@ body {
   --purple: #8b5cf6;
   --purple-bg: rgba(139, 92, 246, 0.10);
 
-  /* 3D Globe — light palette */
+  /* 3D Globe â€” light palette */
   --globe-base: #e2e8f0;
   --globe-bg: #f8fafc;
   --globe-halo: #1D4ED8;
@@ -13580,7 +13580,7 @@ body {
   color-scheme: light;
 }
 
-/* â”€â”€ Dark mode token override â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Dark mode token override Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
 [data-theme="dark"] {
   --bg-card-rgb: 26, 35, 58;
   --accent: #22D3EE;
@@ -13639,7 +13639,7 @@ body {
   --purple: #a78bfa;
   --purple-bg: rgba(167, 139, 250, 0.12);
 
-  /* 3D Globe — dark palette */
+  /* 3D Globe â€” dark palette */
   --globe-base: #030507;
   --globe-bg: #030507;
   --globe-halo: #0891B2;
@@ -13653,7 +13653,7 @@ body {
   color-scheme: dark;
 }
 
-/* ── Reset ─────────────────────────────────────────────────── */
+/* â”€â”€ Reset â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 *,
 *::before,
 *::after {
@@ -13995,7 +13995,7 @@ body[data-loading="true"] .dash-total-value {
 }
 
 /* ================================================================
-   DASHBOARD  ·  MAIN LAYOUT
+   DASHBOARD  Â·  MAIN LAYOUT
    ================================================================ */
 .dash-wrap {
   padding: 24px 28px;
@@ -14003,7 +14003,7 @@ body[data-loading="true"] .dash-total-value {
   gap: 20px;
 }
 
-/* ── KPI Row ─────────────────────────────────────────────── */
+/* â”€â”€ KPI Row â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .kpi-row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -14099,7 +14099,7 @@ body[data-loading="true"] .dash-total-value {
   color: var(--blue);
 }
 
-/* ── Main Grid ───────────────────────────────────────────── */
+/* â”€â”€ Main Grid â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .main-grid {
   display: grid;
   grid-template-columns: 1.4fr 1fr;
@@ -14121,12 +14121,12 @@ body[data-loading="true"] .dash-total-value {
   align-items: start;
 }
 
-/* ── Author grid fix ────────────────────────────────────── */
+/* â”€â”€ Author grid fix â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .author-grid {
   align-items: start;
 }
 
-/* ── Panels ──────────────────────────────────────────────── */
+/* â”€â”€ Panels â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .panel {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -14165,7 +14165,7 @@ body[data-loading="true"] .dash-total-value {
   margin-top: 1px;
 }
 
-/* ── Charts ──────────────────────────────────────────────── */
+/* â”€â”€ Charts â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .chart-wrap {
   position: relative;
   width: 100%;
@@ -14191,7 +14191,7 @@ body[data-loading="true"] .dash-total-value {
   height: 100% !important;
 }
 
-/* ── Select / Pill Toggles ───────────────────────────────── */
+/* â”€â”€ Select / Pill Toggles â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .pill-toggle {
   display: flex;
   background: var(--bg-2);
@@ -14240,7 +14240,7 @@ body[data-loading="true"] .dash-total-value {
   border-color: var(--teal);
 }
 
-/* ── Icon Badges ─────────────────────────────────────────── */
+/* â”€â”€ Icon Badges â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .icon-btn {
   width: 32px;
   height: 32px;
@@ -14373,7 +14373,7 @@ body[data-loading="true"] .dash-total-value {
 
 .data-table th[onclick]::after,
 .data-table th.sortable::after {
-  content: 'â‡…';
+  content: 'Ã¢â€¡â€¦';
   margin-left: 6px;
   opacity: 0.4;
   font-size: 0.65rem;
@@ -14427,7 +14427,7 @@ body[data-loading="true"] .dash-total-value {
   font-variant-numeric: tabular-nums;
 }
 
-/* Index column — compact, muted, right-aligned */
+/* Index column â€” compact, muted, right-aligned */
 .data-table th.col-idx,
 .data-table td.col-idx {
   width: 52px;
@@ -14442,7 +14442,7 @@ body[data-loading="true"] .dash-total-value {
   white-space: nowrap;
 }
 
-/* Truncated course-name cell — keeps rows on one line, full name on hover */
+/* Truncated course-name cell â€” keeps rows on one line, full name on hover */
 .data-table td.course-name-cell {
   max-width: 180px;
   white-space: normal;
@@ -14462,7 +14462,7 @@ body[data-loading="true"] .dash-total-value {
 }
 
 /* ================================================================
-   BATCH 7 â€” TABLES, CARDS & DATA DISPLAY
+   BATCH 7 Ã¢â‚¬â€ TABLES, CARDS & DATA DISPLAY
    ================================================================ */
 
 /* Freeze first column */
@@ -14500,7 +14500,7 @@ body[data-loading="true"] .dash-total-value {
 }
 
 .data-table th.sortable::after {
-  content: 'â‡…';
+  content: 'Ã¢â€¡â€¦';
   margin-left: 6px;
   opacity: 0.35;
   font-size: 0.7rem;
@@ -14512,13 +14512,13 @@ body[data-loading="true"] .dash-total-value {
 }
 
 .data-table th.sortable.sort-asc::after {
-  content: 'â†‘';
+  content: 'Ã¢â€ â€˜';
   opacity: 1;
   color: var(--teal-700);
 }
 
 .data-table th.sortable.sort-desc::after {
-  content: 'â†“';
+  content: 'Ã¢â€ â€œ';
   opacity: 1;
   color: var(--teal-700);
 }
@@ -15025,7 +15025,7 @@ body[data-loading="true"] .dash-total-value {
   transform: rotate(90deg) scale(0.92);
 }
 
-/* Onboarding quiz close button — larger, always visible, top-right */
+/* Onboarding quiz close button â€” larger, always visible, top-right */
 .modal-close.onboarding-close {
   width: 40px;
   height: 40px;
@@ -15047,7 +15047,7 @@ body[data-loading="true"] .dash-total-value {
 }
 
 /* ================================================================
-   BATCH 8 — MODAL, TOAST & OVERLAYS
+   BATCH 8 â€” MODAL, TOAST & OVERLAYS
    ================================================================ */
 
 /* Modal scale-in animation */
@@ -15636,7 +15636,7 @@ button:disabled,
   color: #030507;
 }
 
-/* ── Solve buttons (green) ─────────────────────────────────────── */
+/* â”€â”€ Solve buttons (green) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .modal-solve {
   padding: 6px 14px;
   border-radius: 8px;
@@ -15773,7 +15773,7 @@ tr.solved-row td {
 }
 
 /* ================================================================
-   UPGRADE v7 — sticky KPI strip, filter bars, empty states
+   UPGRADE v7 â€” sticky KPI strip, filter bars, empty states
    ================================================================ */
 
 /* Visually-hidden but accessible labels for filter controls */
@@ -15790,7 +15790,7 @@ tr.solved-row td {
   border: 0;
 }
 
-/* ── Sticky headline KPI strip ─────────────────────────────── */
+/* â”€â”€ Sticky headline KPI strip â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .kpi-strip {
   position: sticky;
   top: var(--navbar-h);
@@ -15881,7 +15881,7 @@ tr.solved-row td {
   color: var(--text-3);
 }
 
-/* â”€â”€ Filter bar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Filter bar Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
 .filter-bar {
   display: flex;
   flex-wrap: wrap;
@@ -15956,7 +15956,7 @@ tr.solved-row td {
   border-color: var(--green) !important;
 }
 
-/* ── Empty / loading state row ─────────────────────────────── */
+/* â”€â”€ Empty / loading state row â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .empty-state {
   text-align: center;
   color: var(--text-3);
@@ -15966,7 +15966,7 @@ tr.solved-row td {
 }
 
 .empty-state::before {
-  content: 'ðŸ”';
+  content: 'Ã°Å¸â€Â';
   display: block;
   font-size: 2rem;
   margin-bottom: 10px;
@@ -16000,7 +16000,7 @@ body[data-loading="true"] .kpi-strip-val {
   opacity: 0.35;
 }
 
-/* â”€â”€ Responsive filter wrap â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Responsive filter wrap Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 768px) {
   .kpi-strip {
     grid-template-columns: repeat(2, 1fr);
@@ -16084,7 +16084,7 @@ body[data-loading="true"] .kpi-strip-val {
 }
 
 /* ================================================================
-   DASHBOARD v2  ·  THREE-COLUMN GLOBE LAYOUT
+   DASHBOARD v2  Â·  THREE-COLUMN GLOBE LAYOUT
    ================================================================ */
 
 .dash-layout {
@@ -16174,7 +16174,7 @@ body[data-loading="true"] .kpi-strip-val {
   margin-top: 2px;
 }
 
-/* ── Metric card base (used by institutions + access types) ─ */
+/* â”€â”€ Metric card base (used by institutions + access types) â”€ */
 .metric-card {
   padding: 16px;
   display: flex;
@@ -16320,7 +16320,7 @@ body[data-loading="true"] #india-stat-count {
   font-size: 1rem;
 }
 
-/* ── IIT / IIIT / NIT stat items ──────────────────────────── */
+/* â”€â”€ IIT / IIIT / NIT stat items â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .dash-stat-item {
   display: flex;
   align-items: center;
@@ -16375,7 +16375,7 @@ body[data-loading="true"] #india-stat-count {
   color: var(--text-1);
 }
 
-/* ── COURSES (PARCLES) section ────────────────────────────── */
+/* â”€â”€ COURSES (PARCLES) section â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .dash-parcles {
   padding: 18px;
   display: flex;
@@ -16422,7 +16422,7 @@ body[data-loading="true"] #india-stat-count {
   color: var(--teal-400);
 }
 
-/* ── Status summary rows ──────────────────────────────────── */
+/* â”€â”€ Status summary rows â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .dash-status-summary {
   display: flex;
   flex-direction: column;
@@ -16474,7 +16474,7 @@ body[data-loading="true"] #india-stat-count {
   color: var(--text-1);
 }
 
-/* ── Center / Globe background layer ─────────────────────────── */
+/* â”€â”€ Center / Globe background layer â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .dash-globe-wrap {
   position: relative;
   width: 100%;
@@ -16603,7 +16603,7 @@ body[data-loading="true"] #india-stat-count {
   align-self: start;
 }
 
-/* ── Floating Country Detail Panel ─────────────────────────── */
+/* â”€â”€ Floating Country Detail Panel â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .country-detail-panel {
   position: absolute;
   top: 24px;
@@ -16901,7 +16901,7 @@ body[data-loading="true"] #india-stat-count {
   border-color: var(--border);
 }
 
-/* ── Right Sidebar ─────────────────────────────────────────── */
+/* â”€â”€ Right Sidebar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .dash-right {
   width: 260px;
   background: rgba(7, 11, 20, 0.55);
@@ -17101,7 +17101,7 @@ body[data-loading="true"] #india-stat-count {
   font-weight: 500;
 }
 
-/* ── Dashboard responsive ─────────────────────────────────── */
+/* â”€â”€ Dashboard responsive â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @media (max-width: 1200px) {
 
   .dash-left,
@@ -17188,7 +17188,7 @@ body[data-loading="true"] #india-stat-count {
 
 
 /* ================================================================
-   ALL COURSES TAB — COMPLETE REWRITE
+   ALL COURSES TAB â€” COMPLETE REWRITE
    ================================================================ */
 
 .edx-container {
@@ -18142,7 +18142,7 @@ body[data-loading="true"] #india-stat-count {
   border-color: var(--teal-500);
 }
 
-/* Catalog scroll rail — sits beside the bottom courses and lets users
+/* Catalog scroll rail â€” sits beside the bottom courses and lets users
    quickly scrub back to the top of the page by dragging the thumb or
    clicking the rail track. */
 .catalog-scroll-rail {
@@ -18474,7 +18474,7 @@ body[data-loading="true"] #india-stat-count {
 }
 
 /* ================================================================
-   DURATION & PRICING TAB — COST INSIGHT LIST
+   DURATION & PRICING TAB â€” COST INSIGHT LIST
    ================================================================ */
 .cost-insight-list {
   display: flex;
@@ -18776,9 +18776,9 @@ body[data-loading="true"] #india-stat-count {
   }
 }
 
-/* ════════════════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    DASHBOARD INSIGHTS SECTION (merged analytics)
-   ════════════════════════════════════════════════════════════════ */
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .dash-insights-section {
   padding: 48px 28px 64px;
   max-width: 1320px;
@@ -18972,7 +18972,7 @@ body[data-loading="true"] #india-stat-count {
 }
 
 /* ================================================================
-   BATCH 1 — Global Design Tokens & Base Polish
+   BATCH 1 â€” Global Design Tokens & Base Polish
    ================================================================ */
 
 html {
@@ -19107,7 +19107,7 @@ body {
 }
 
 /* ================================================================
-   BATCH 2 — Navbar & Navigation Polish
+   BATCH 2 â€” Navbar & Navigation Polish
    ================================================================ */
 
 /* Active tab bottom glow/underline */
@@ -19232,7 +19232,7 @@ body {
 }
 
 /* ================================================================
-   BATCH 3 — Dashboard Layout & Globe Polish
+   BATCH 3 â€” Dashboard Layout & Globe Polish
    ================================================================ */
 
 /* Rounded globe container */
@@ -19312,15 +19312,15 @@ body {
 }
 
 .country-detail-stat:nth-child(1) .country-detail-stat-val::before {
-  content: '📚';
+  content: 'ðŸ“š';
 }
 
 .country-detail-stat:nth-child(2) .country-detail-stat-val::before {
-  content: '🏆';
+  content: 'ðŸ†';
 }
 
 .country-detail-stat:nth-child(3) .country-detail-stat-val::before {
-  content: '🎯';
+  content: 'ðŸŽ¯';
 }
 
 /* Domain topic chips color-coded */
@@ -19335,7 +19335,7 @@ body {
 }
 
 /* ================================================================
-   BATCH 4 — Dashboard Cards & Metrics Polish
+   BATCH 4 â€” Dashboard Cards & Metrics Polish
    ================================================================ */
 
 /* Subtle top accent bars for metric cards */
@@ -19469,7 +19469,7 @@ body {
 }
 
 .dash-status-dot.verified::after {
-  content: 'âœ“';
+  content: 'Ã¢Å“â€œ';
 }
 
 .dash-status-dot.discrepancy::after {
@@ -19477,7 +19477,7 @@ body {
 }
 
 .dash-status-dot.error::after {
-  content: 'âœ•';
+  content: 'Ã¢Å“â€¢';
 }
 
 /* Metric card inner sheen on hover */
@@ -19576,7 +19576,7 @@ body {
 }
 
 /* ================================================================
-   BATCH 9 — ANIMATIONS & MICRO-INTERACTIONS
+   BATCH 9 â€” ANIMATIONS & MICRO-INTERACTIONS
    ================================================================ */
 
 /* Utility animation classes */
@@ -19835,7 +19835,7 @@ body {
 }
 
 /* ================================================================
-   BATCH 10 — ACCESSIBILITY, THEME & RESPONSIVE
+   BATCH 10 â€” ACCESSIBILITY, THEME & RESPONSIVE
    ================================================================ */
 
 /* Visually hidden live region */
@@ -19955,7 +19955,7 @@ textarea,
 }
 
 /* ================================================================
-   NEW FEATURES — Global Search, Onboarding, Quick View, Skill Filters
+   NEW FEATURES â€” Global Search, Onboarding, Quick View, Skill Filters
    ================================================================ */
 
 /* Navbar search */
@@ -20740,10 +20740,10 @@ textarea,
 }
 
 /* ================================================================
-   MOBILE RESPONSIVENESS — Comprehensive overrides
+   MOBILE RESPONSIVENESS â€” Comprehensive overrides
    ================================================================ */
 
-/* ── Dashboard layout on narrow viewports ─ */
+/* â”€â”€ Dashboard layout on narrow viewports â”€ */
 @media (max-width: 1100px) {
   .dash-layout {
     flex-direction: column;
@@ -20883,7 +20883,7 @@ textarea,
   }
 }
 
-/* â”€â”€ Tables: horizontal scroll wrapper for narrow viewports â”€ */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Tables: horizontal scroll wrapper for narrow viewports Ã¢â€â‚¬ */
 @media (max-width: 768px) {
 
   .data-table-wrap,
@@ -20931,7 +20931,7 @@ textarea,
   }
 }
 
-/* ── Course modal responsive layout ─ */
+/* â”€â”€ Course modal responsive layout â”€ */
 @media (min-width: 601px) and (max-width: 768px) {
   .modal-box {
     width: calc(100% - 24px);
@@ -20968,7 +20968,7 @@ textarea,
   }
 }
 
-/* ── Toast on mobile ─ */
+/* â”€â”€ Toast on mobile â”€ */
 @media (max-width: 600px) {
 
   #toast,
@@ -20988,7 +20988,7 @@ textarea,
   }
 }
 
-/* ── Floating buttons: help + back-to-top overlap ─ */
+/* â”€â”€ Floating buttons: help + back-to-top overlap â”€ */
 @media (max-width: 600px) {
   .back-to-top {
     right: 14px;
@@ -21005,7 +21005,7 @@ textarea,
   }
 }
 
-/* ── Domain explorer overflow safety ─ */
+/* â”€â”€ Domain explorer overflow safety â”€ */
 @media (max-width: 768px) {
   .domain-info-title {
     font-size: 1.3rem;
@@ -21020,7 +21020,7 @@ textarea,
   }
 }
 
-/* ── Pagination overflow on mobile ─ */
+/* â”€â”€ Pagination overflow on mobile â”€ */
 @media (max-width: 600px) {
   .courses-pagination {
     flex-wrap: wrap;
@@ -21033,7 +21033,7 @@ textarea,
   }
 }
 
-/* ── Globe sizing on mobile ─ */
+/* â”€â”€ Globe sizing on mobile â”€ */
 @media (max-width: 1100px) {
 
   .dash-globe-wrap,
@@ -21062,7 +21062,7 @@ textarea,
   }
 }
 
-/* ── Touch device hover cleanup ─ */
+/* â”€â”€ Touch device hover cleanup â”€ */
 @media (hover: none) {
 
   .metric-row:hover,
@@ -21115,13 +21115,13 @@ textarea,
 /* ======================================================
    SOURCE: assets/catalog-overrides.css
    ====================================================== */
-/* ════════════════════════════════════════════════════════════════
-   COURSEVERIFY CATALOG PAGE — hashtag-v2 integration overrides v4
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   COURSEVERIFY CATALOG PAGE â€” hashtag-v2 integration overrides v4
    The catalog now uses the EXACT same nav as index.html.
    This file only patches catalog-specific layout, not the nav.
-   ════════════════════════════════════════════════════════════════ */
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
-/* ── 1. CSS variable bridge: CourseVerify tokens from global.css ─ */
+/* â”€â”€ 1. CSS variable bridge: CourseVerify tokens from global.css â”€ */
 /* These are the extra vars cv-style.css expects that global.css
    doesn't define by name. Light-mode values used here. */
 [data-theme="light"],
@@ -21142,17 +21142,17 @@ textarea,
   --amber: #7dd3fc;
 }
 
-/* ── 2. Body top-padding for fixed hashtag-v2 nav ────────────── */
+/* â”€â”€ 2. Body top-padding for fixed hashtag-v2 nav â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 body {
   padding-top: 70px !important;
 }
 
-/* ── 3. Cursor glow must be non-interactive ──────────────────── */
+/* â”€â”€ 3. Cursor glow must be non-interactive â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .cursor-glow {
   pointer-events: none;
 }
 
-/* ── 4. Catalog page shell ───────────────────────────────────── */
+/* â”€â”€ 4. Catalog page shell â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .catalog-page {
   width: 100%;
   min-height: calc(100vh - 70px);
@@ -21174,7 +21174,7 @@ body {
   padding: 0 24px;
 }
 
-/* ── 5. Intro hero section ───────────────────────────────────── */
+/* â”€â”€ 5. Intro hero section â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .catalog-hero {
   padding: 28px 0 36px;
   text-align: center;
@@ -21208,12 +21208,12 @@ body {
   line-height: 1.7;
 }
 
-/* â”€â”€ 6. tab-content always visible on catalog page â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ 6. tab-content always visible on catalog page Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
 .tab-content {
   --noop: 1;
 }
 
-/* â”€â”€ 7. All Courses section scroll anchor â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ 7. All Courses section scroll anchor Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
 .all-courses-section {
   padding: 0;
 }
@@ -21222,7 +21222,7 @@ body {
   scroll-margin-top: calc(70px + 20px);
 }
 
-/* â”€â”€ 8. z-index stack â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ 8. z-index stack Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
 .modal-overlay {
   z-index: 10000 !important;
 }
@@ -21235,7 +21235,7 @@ body {
   z-index: 10001 !important;
 }
 
-/* ── 9. Scroll progress bar ──────────────────────────────────── */
+/* â”€â”€ 9. Scroll progress bar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .scroll-progress {
   position: fixed;
   top: 0;
@@ -21246,7 +21246,7 @@ body {
   transition: width 0.1s linear;
 }
 
-/* ── 10. Guide strip ─────────────────────────────────────────── */
+/* â”€â”€ 10. Guide strip â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .catalog-guide-strip {
   padding: 0 0 28px;
 }
@@ -21310,7 +21310,7 @@ body {
   box-shadow: 0 0 0 1px var(--casy-amber, #7dd3fc), 0 10px 28px rgba(125, 211, 252, 0.15) !important;
 }
 
-/* ── 11. Persistent catalog help button ────────────────────────── */
+/* â”€â”€ 11. Persistent catalog help button â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .catalog-help-btn {
   position: fixed;
   right: 22px;
@@ -21338,7 +21338,7 @@ body {
   transform: translateY(-2px);
 }
 
-/* ── 12. Onboarding polish ───────────────────────────────────── */
+/* â”€â”€ 12. Onboarding polish â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .onboarding-step-header {
   display: flex;
   align-items: center;
@@ -21400,7 +21400,7 @@ body {
   margin-top: 18px;
 }
 
-/* ── 14. Accessibility focus polish ──────────────────────────── */
+/* â”€â”€ 14. Accessibility focus polish â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 button:focus-visible,
 a:focus-visible,
 [tabindex]:focus-visible {
@@ -21414,7 +21414,7 @@ a:focus-visible,
   box-shadow: inset 0 0 0 1px var(--teal-500);
 }
 
-/* ── 15. Dark mode overrides for catalog additions ───────────── */
+/* â”€â”€ 15. Dark mode overrides for catalog additions â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 [data-theme="dark"] .guide-strip,
 [data-theme="dark"] .dash-welcome-content {
   background: var(--bg-card);
@@ -21459,9 +21459,9 @@ a:focus-visible,
   border-color: var(--border-2);
 }
 
-/* ════════════════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    COURSES SECTION POLISH
-   ════════════════════════════════════════════════════════════════ */
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
 /* Hero title with icon */
 .edx-title-wrap {
@@ -21631,7 +21631,7 @@ a:focus-visible,
   color: var(--text-1);
 }
 
-/* Pill active state — brand teal */
+/* Pill active state â€” brand teal */
 .type-pill.active,
 .domain-chip.active {
   background: var(--teal-bg);
@@ -22422,7 +22422,7 @@ a:focus-visible,
   box-shadow: 0 0 0 4px var(--teal-glow);
 }
 
-/* ── 16. Responsive ──────────────────────────────────────────── */
+/* â”€â”€ 16. Responsive â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @media (max-width: 1200px) {
   .catalog-app {
     padding: 0 18px;
@@ -22547,9 +22547,9 @@ a:focus-visible,
   }
 }
 
-/* ════════════════════════════════════════════════════════════════
-   THREE-DIMENSION FILTER SYSTEM — domain tints & active states
-   ════════════════════════════════════════════════════════════════ */
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   THREE-DIMENSION FILTER SYSTEM â€” domain tints & active states
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
 /* Domain-tinted left border on course cards */
 .clean-course-card {
@@ -22664,9 +22664,9 @@ a:focus-visible,
   box-shadow: 0 0 0 2px var(--domain-color, var(--teal-500)), 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
-/* ════════════════════════════════════════════════════════════════
-   SIDEBAR FILTER LAYOUT — All Courses workspace
-   ════════════════════════════════════════════════════════════════ */
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   SIDEBAR FILTER LAYOUT â€” All Courses workspace
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .catalog-workspace {
   display: grid;
   grid-template-columns: 280px 1fr;
@@ -23150,7 +23150,7 @@ a:focus-visible,
    to the original blue/cyan cv-style.css tokens.
    ================================================== */
 
-/* ── Keep the new landing section warm ──────────────────────── */
+/* â”€â”€ Keep the new landing section warm â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 :root {
   --landing-bg: var(--cv-paper);
   --landing-text-main: var(--cv-ink);
@@ -23175,7 +23175,7 @@ a:focus-visible,
    SOURCE: assets/catalog-new-cards.css
    ====================================================== */
 /* ==========================================================
-   COURSE CATALOG — NEW CARD DESIGN OVERRIDE
+   COURSE CATALOG â€” NEW CARD DESIGN OVERRIDE
    Loaded after catalog-overrides.css to replace old card styles
    ========================================================== */
 
@@ -23722,7 +23722,7 @@ a:focus-visible,
   --landing-card-border: #24363F;
 }
 
-/* Landing hero â€” theme-aware */
+/* Landing hero Ã¢â‚¬â€ theme-aware */
 .landing-hero {
   background: linear-gradient(rgba(2,8,22,0.85), rgba(2,8,22,0.85)), #020816 url('assets/hero-earth-bg.png') center bottom / contain no-repeat !important;
   color: #f0ede3 !important;
@@ -23936,7 +23936,7 @@ a:focus-visible,
   box-shadow: 0 12px 30px -10px color-mix(in srgb, var(--landing-accent-green) 15%, transparent);
 }
 
-/* ── Hero always-dark overrides ────────────────────────────────── */
+/* â”€â”€ Hero always-dark overrides â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 /* Force the hero to always use the earth background image */
 .landing-hero {
   background: linear-gradient(rgba(2,8,22,0.85), rgba(2,8,22,0.85)), #020816 url('assets/hero-earth-bg.png') center bottom / contain no-repeat !important;
@@ -23947,7 +23947,7 @@ a:focus-visible,
   padding-bottom: 3rem;
 }
 
-/* Dark gradient overlay – upper area stays dark for legibility, bottom shows the globe photo */
+/* Dark gradient overlay â€“ upper area stays dark for legibility, bottom shows the globe photo */
 .landing-hero::after {
   content: "";
   position: absolute;
@@ -23967,7 +23967,7 @@ a:focus-visible,
   opacity: 0 !important;
 }
 
-/* ── Hero h1 green second line ─────────────────────────────────── */
+/* â”€â”€ Hero h1 green second line â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .landing-hero .hero-h1-green {
   color: #3fbe85;
   display: block;
@@ -23991,7 +23991,7 @@ a:focus-visible,
   display: none !important;
 }
 
-/* ── Persona icon wrap ─────────────────────────────────────────── */
+/* â”€â”€ Persona icon wrap â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .persona-icon-wrap {
   width: 40px;
   height: 40px;
@@ -24052,7 +24052,7 @@ a:focus-visible,
   color: var(--cv-ink-soft) !important;
 }
 
-/* ── CASY badge always visible ─────────────────────────────────── */
+/* â”€â”€ CASY badge always visible â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .landing-hero .hero-tag {
   color: #3fbe85 !important;
   background: rgba(63, 190, 133, 0.12) !important;
@@ -24218,7 +24218,7 @@ a:focus-visible,
   }
 }
 
-/* Folder card â€” domain explorer interactive UI */
+/* Folder card Ã¢â‚¬â€ domain explorer interactive UI */
 .folder-card {
   width: 320px;
   height: 240px;
@@ -25757,12 +25757,12 @@ body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .btn-sav
 }
 
 /* ======================================================
-   COMPACT STICKY NAV — Course Catalog
+   COMPACT STICKY NAV â€” Course Catalog
    Shrinks the navbar once the user scrolls past the
    original search bar, moving search + filter into the nav.
    ====================================================== */
 
-/* Compact nav is always sticky/fixed — reuse existing .nav */
+/* Compact nav is always sticky/fixed â€” reuse existing .nav */
 .nav-inner {
   transition: height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
     gap 0.35s cubic-bezier(0.4, 0, 0.2, 1);
@@ -26162,7 +26162,7 @@ body #edx-cards-row.list-view .clean-course-card.card .list-col-actions .btn-sav
 }
 
 /* Kill the old per-element backgrounds/borders now that they sit
-   inside a shared shell — they become borderless segments */
+   inside a shared shell â€” they become borderless segments */
 .nav.compact .nav-search-wrap input[type="search"],
 .nav.compact .nav-filter-btn,
 .nav.compact .nav-sort-wrap select,
@@ -26906,7 +26906,7 @@ button.row-action.saved {
   }
 }
 
-/* ── Institute Logo Marquee ── */
+/* â”€â”€ Institute Logo Marquee â”€â”€ */
 .institute-marquee-section {
   position: relative;
   width: 100%;
@@ -26979,9 +26979,9 @@ button.row-action.saved {
   transform: scale(1.08);
 }
 
-/* ══════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    PATCH: Hero image fix + Marquee dark style + No cursor glow
-   ══════════════════════════════════════════════════════ */
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
 /* 1. Kill cursor glow everywhere */
 .cursor-glow {
@@ -26990,20 +26990,20 @@ button.row-action.saved {
   pointer-events: none !important;
 }
 
-/* 2. Fix hero image — cover so it doesn't cut on sides */
+/* 2. Fix hero image â€” cover so it doesn't cut on sides */
 .landing-hero {
   background: #020816 url('assets/hero-earth-bg.png') center center / cover no-repeat !important;
   min-height: 90vh !important;
   overflow: hidden !important;
 }
 
-/* 3. Hero text — bright so it stands out on the globe image */
+/* 3. Hero text â€” bright so it stands out on the globe image */
 .landing-hero h1 {
   color: #ffffff !important;
   text-shadow: 0 2px 20px rgba(0,0,0,0.7) !important;
 }
 .landing-hero .hero-h1-green {
-  color: #7dd3fc !important; /* Orange — vibrant, stands out on dark space image */
+  color: #7dd3fc !important; /* Orange â€” vibrant, stands out on dark space image */
   text-shadow: 0 2px 20px rgba(255, 140, 0, 0.4) !important;
 }
 .landing-hero p {
@@ -27016,7 +27016,7 @@ button.row-action.saved {
   border-color: rgba(255, 140, 0, 0.5) !important;
 }
 
-/* 4. Marquee — transparent, natural logo colors, no band needed */
+/* 4. Marquee â€” transparent, natural logo colors, no band needed */
 .institute-marquee-section {
   background: transparent !important;
   border-top: 1px solid rgba(128, 128, 128, 0.15) !important;
@@ -27038,7 +27038,7 @@ button.row-action.saved {
   filter: drop-shadow(0 2px 8px rgba(0,0,0,0.28)) !important;
 }
 
-/* In dark mode — boost contrast slightly with a lighter shadow */
+/* In dark mode â€” boost contrast slightly with a lighter shadow */
 [data-theme="dark"] .marquee-logo {
   filter: drop-shadow(0 1px 4px rgba(0,0,0,0.55)) brightness(1.1) !important;
   opacity: 0.92 !important;
@@ -27099,9 +27099,9 @@ button.row-action.saved {
   background: linear-gradient(to left, #0b1120, transparent) !important;
 }
 
-/* ══════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    PATCH: Hero image fix + Marquee dark style + No cursor glow
-   ══════════════════════════════════════════════════════ */
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
 /* 1. Kill cursor glow everywhere */
 .cursor-glow {
@@ -27110,14 +27110,14 @@ button.row-action.saved {
   pointer-events: none !important;
 }
 
-/* 2. Fix hero image — scale to width so it doesn't cut on sides */
+/* 2. Fix hero image â€” scale to width so it doesn't cut on sides */
 .landing-hero {
   background: #020816 url('assets/hero-earth-bg.png') top center / 100% auto no-repeat !important;
   min-height: 90vh !important;
   overflow: hidden !important;
 }
 
-/* 3. Hero text — bright so it stands out on the globe image */
+/* 3. Hero text â€” bright so it stands out on the globe image */
 .landing-hero h1 {
   color: #7dd3fc !important; /* Orange */
   text-shadow: 0 2px 20px rgba(0,0,0,0.9), 0 2px 10px rgba(0,0,0,0.9) !important;
@@ -27136,7 +27136,7 @@ button.row-action.saved {
   border-color: rgba(255, 140, 0, 0.5) !important;
 }
 
-/* 4. Marquee — white background, original colored logos */
+/* 4. Marquee â€” white background, original colored logos */
 .institute-marquee-section {
   background: #ffffff !important;
   border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
@@ -27163,9 +27163,9 @@ button.row-action.saved {
   background: linear-gradient(to left, #ffffff, transparent) !important;
 }
 
-/* ══════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    PATCH: Hero image fix + Marquee dark style + No cursor glow
-   ══════════════════════════════════════════════════════ */
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
 /* 1. Kill cursor glow everywhere */
 .cursor-glow {
@@ -27174,20 +27174,20 @@ button.row-action.saved {
   pointer-events: none !important;
 }
 
-/* 2. Fix hero image — cover so it doesn't cut on sides */
+/* 2. Fix hero image â€” cover so it doesn't cut on sides */
 .landing-hero {
   background: #020816 url('assets/hero-earth-bg.png') center center / cover no-repeat !important;
   min-height: 90vh !important;
   overflow: hidden !important;
 }
 
-/* 3. Hero text — bright so it stands out on the globe image */
+/* 3. Hero text â€” bright so it stands out on the globe image */
 .landing-hero h1 {
   color: #ffffff !important;
   text-shadow: 0 2px 20px rgba(0,0,0,0.7) !important;
 }
 .landing-hero .hero-h1-green {
-  color: #7dd3fc !important; /* Orange — vibrant, stands out on dark space image */
+  color: #7dd3fc !important; /* Orange â€” vibrant, stands out on dark space image */
   text-shadow: 0 2px 20px rgba(255, 140, 0, 0.4) !important;
 }
 .landing-hero p {
@@ -27200,7 +27200,7 @@ button.row-action.saved {
   border-color: rgba(255, 140, 0, 0.5) !important;
 }
 
-/* 4. Marquee — white background, original colored logos */
+/* 4. Marquee â€” white background, original colored logos */
 .institute-marquee-section {
   background: #ffffff !important;
   border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
@@ -27227,9 +27227,9 @@ button.row-action.saved {
   background: linear-gradient(to left, #ffffff, transparent) !important;
 }
 
-/* ══════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    PATCH: Hero image fix + Marquee dark style + No cursor glow
-   ══════════════════════════════════════════════════════ */
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
 /* 1. Kill cursor glow everywhere */
 .cursor-glow {
@@ -27238,20 +27238,20 @@ button.row-action.saved {
   pointer-events: none !important;
 }
 
-/* 2. Fix hero image — cover so it doesn't cut on sides */
+/* 2. Fix hero image â€” cover so it doesn't cut on sides */
 .landing-hero {
   background: #020816 url('assets/hero-earth-bg.png') center center / cover no-repeat !important;
   min-height: 90vh !important;
   overflow: hidden !important;
 }
 
-/* 3. Hero text — bright so it stands out on the globe image */
+/* 3. Hero text â€” bright so it stands out on the globe image */
 .landing-hero h1 {
   color: #ffffff !important;
   text-shadow: 0 2px 20px rgba(0,0,0,0.7) !important;
 }
 .landing-hero .hero-h1-green {
-  color: #7dd3fc !important; /* Orange — vibrant, stands out on dark space image */
+  color: #7dd3fc !important; /* Orange â€” vibrant, stands out on dark space image */
   text-shadow: 0 2px 20px rgba(255, 140, 0, 0.4) !important;
 }
 .landing-hero p {
@@ -27264,7 +27264,7 @@ button.row-action.saved {
   border-color: rgba(255, 140, 0, 0.5) !important;
 }
 
-/* 4. Marquee — white background, original colored logos */
+/* 4. Marquee â€” white background, original colored logos */
 .institute-marquee-section {
   background: #ffffff !important;
   border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
@@ -27379,9 +27379,9 @@ button.row-action.saved {
     text-shadow: 0 1px 3px rgba(0,0,0,0.8) !important;
 }
 
-/* ══════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    PATCH: Hero image fix + Marquee dark style + No cursor glow
-   ══════════════════════════════════════════════════════ */
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
 /* 1. Kill cursor glow everywhere */
 .cursor-glow {
@@ -27390,20 +27390,20 @@ button.row-action.saved {
   pointer-events: none !important;
 }
 
-/* 2. Fix hero image — cover so it doesn't cut on sides */
+/* 2. Fix hero image â€” cover so it doesn't cut on sides */
 .landing-hero {
   background: #020816 url('assets/hero-earth-bg.png') center center / cover no-repeat !important;
   min-height: 90vh !important;
   overflow: hidden !important;
 }
 
-/* 3. Hero text — bright so it stands out on the globe image */
+/* 3. Hero text â€” bright so it stands out on the globe image */
 .landing-hero h1 {
   color: #ffffff !important;
   text-shadow: 0 2px 20px rgba(0,0,0,0.7) !important;
 }
 .landing-hero .hero-h1-green {
-  color: #7dd3fc !important; /* Orange — vibrant, stands out on dark space image */
+  color: #7dd3fc !important; /* Orange â€” vibrant, stands out on dark space image */
   text-shadow: 0 2px 20px rgba(255, 140, 0, 0.4) !important;
 }
 .landing-hero p {
@@ -27416,7 +27416,7 @@ button.row-action.saved {
   border-color: rgba(255, 140, 0, 0.5) !important;
 }
 
-/* 4. Marquee — white background, original colored logos */
+/* 4. Marquee â€” white background, original colored logos */
 .institute-marquee-section {
   background: #ffffff !important;
   border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
@@ -27443,9 +27443,9 @@ button.row-action.saved {
   background: linear-gradient(to left, #ffffff, transparent) !important;
 }
 
-/* ══════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    PATCH: Hero image fix + Marquee dark style + No cursor glow
-   ══════════════════════════════════════════════════════ */
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
 /* 1. Kill cursor glow everywhere */
 .cursor-glow {
@@ -27454,20 +27454,20 @@ button.row-action.saved {
   pointer-events: none !important;
 }
 
-/* 2. Fix hero image — cover so it doesn't cut on sides */
+/* 2. Fix hero image â€” cover so it doesn't cut on sides */
 .landing-hero {
   background: #020816 url('assets/hero-earth-bg.png') center center / cover no-repeat !important;
   min-height: 90vh !important;
   overflow: hidden !important;
 }
 
-/* 3. Hero text — bright so it stands out on the globe image */
+/* 3. Hero text â€” bright so it stands out on the globe image */
 .landing-hero h1 {
   color: #ffffff !important;
   text-shadow: 0 2px 20px rgba(0,0,0,0.7) !important;
 }
 .landing-hero .hero-h1-green {
-  color: #7dd3fc !important; /* Orange — vibrant, stands out on dark space image */
+  color: #7dd3fc !important; /* Orange â€” vibrant, stands out on dark space image */
   text-shadow: 0 2px 20px rgba(255, 140, 0, 0.4) !important;
 }
 .landing-hero p {
@@ -27480,7 +27480,7 @@ button.row-action.saved {
   border-color: rgba(255, 140, 0, 0.5) !important;
 }
 
-/* 4. Marquee — white background, original colored logos */
+/* 4. Marquee â€” white background, original colored logos */
 .institute-marquee-section {
   background: #ffffff !important;
   border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
@@ -27507,9 +27507,9 @@ button.row-action.saved {
   background: linear-gradient(to left, #ffffff, transparent) !important;
 }
 
-/* ══════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    PATCH: Hero image fix + Marquee dark style + No cursor glow
-   ══════════════════════════════════════════════════════ */
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
 /* 1. Kill cursor glow everywhere */
 .cursor-glow {
@@ -27518,20 +27518,20 @@ button.row-action.saved {
   pointer-events: none !important;
 }
 
-/* 2. Fix hero image — cover so it doesn't cut on sides */
+/* 2. Fix hero image â€” cover so it doesn't cut on sides */
 .landing-hero {
   background: #020816 url('assets/hero-earth-bg.png') center center / cover no-repeat !important;
   min-height: 90vh !important;
   overflow: hidden !important;
 }
 
-/* 3. Hero text — bright so it stands out on the globe image */
+/* 3. Hero text â€” bright so it stands out on the globe image */
 .landing-hero h1 {
   color: #ffffff !important;
   text-shadow: 0 2px 20px rgba(0,0,0,0.7) !important;
 }
 .landing-hero .hero-h1-green {
-  color: #7dd3fc !important; /* Orange — vibrant, stands out on dark space image */
+  color: #7dd3fc !important; /* Orange â€” vibrant, stands out on dark space image */
   text-shadow: 0 2px 20px rgba(255, 140, 0, 0.4) !important;
 }
 .landing-hero p {
@@ -27544,7 +27544,7 @@ button.row-action.saved {
   border-color: rgba(255, 140, 0, 0.5) !important;
 }
 
-/* 4. Marquee — white background, original colored logos */
+/* 4. Marquee â€” white background, original colored logos */
 .institute-marquee-section {
   background: #ffffff !important;
   border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
@@ -27571,9 +27571,9 @@ button.row-action.saved {
   background: linear-gradient(to left, #ffffff, transparent) !important;
 }
 
-/* ══════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    PATCH: Hero image fix + Marquee dark style + No cursor glow
-   ══════════════════════════════════════════════════════ */
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
 /* 1. Kill cursor glow everywhere */
 .cursor-glow {
@@ -27582,20 +27582,20 @@ button.row-action.saved {
   pointer-events: none !important;
 }
 
-/* 2. Fix hero image — cover so it doesn't cut on sides */
+/* 2. Fix hero image â€” cover so it doesn't cut on sides */
 .landing-hero {
   background: #020816 url('assets/hero-earth-bg.png') center center / cover no-repeat !important;
   min-height: 90vh !important;
   overflow: hidden !important;
 }
 
-/* 3. Hero text — bright so it stands out on the globe image */
+/* 3. Hero text â€” bright so it stands out on the globe image */
 .landing-hero h1 {
   color: #ffffff !important;
   text-shadow: 0 2px 20px rgba(0,0,0,0.7) !important;
 }
 .landing-hero .hero-h1-green {
-  color: #7dd3fc !important; /* Orange — vibrant, stands out on dark space image */
+  color: #7dd3fc !important; /* Orange â€” vibrant, stands out on dark space image */
   text-shadow: 0 2px 20px rgba(255, 140, 0, 0.4) !important;
 }
 .landing-hero p {
@@ -27608,7 +27608,7 @@ button.row-action.saved {
   border-color: rgba(255, 140, 0, 0.5) !important;
 }
 
-/* 4. Marquee — white background, original colored logos */
+/* 4. Marquee â€” white background, original colored logos */
 .institute-marquee-section {
   background: #ffffff !important;
   border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
@@ -27635,9 +27635,9 @@ button.row-action.saved {
   background: linear-gradient(to left, #ffffff, transparent) !important;
 }
 
-/* ══════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    PATCH: Hero image fix + Marquee dark style + No cursor glow
-   ══════════════════════════════════════════════════════ */
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
 /* 1. Kill cursor glow everywhere */
 .cursor-glow {
@@ -27646,20 +27646,20 @@ button.row-action.saved {
   pointer-events: none !important;
 }
 
-/* 2. Fix hero image — cover so it doesn't cut on sides */
+/* 2. Fix hero image â€” cover so it doesn't cut on sides */
 .landing-hero {
   background: #020816 url('assets/hero-earth-bg.png') center center / cover no-repeat !important;
   min-height: 90vh !important;
   overflow: hidden !important;
 }
 
-/* 3. Hero text — bright so it stands out on the globe image */
+/* 3. Hero text â€” bright so it stands out on the globe image */
 .landing-hero h1 {
   color: #ffffff !important;
   text-shadow: 0 2px 20px rgba(0,0,0,0.7) !important;
 }
 .landing-hero .hero-h1-green {
-  color: #7dd3fc !important; /* Orange — vibrant, stands out on dark space image */
+  color: #7dd3fc !important; /* Orange â€” vibrant, stands out on dark space image */
   text-shadow: 0 2px 20px rgba(255, 140, 0, 0.4) !important;
 }
 .landing-hero p {
@@ -27672,7 +27672,7 @@ button.row-action.saved {
   border-color: rgba(255, 140, 0, 0.5) !important;
 }
 
-/* 4. Marquee — white background, original colored logos */
+/* 4. Marquee â€” white background, original colored logos */
 .institute-marquee-section {
   background: #ffffff !important;
   border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
@@ -27699,9 +27699,9 @@ button.row-action.saved {
   background: linear-gradient(to left, #ffffff, transparent) !important;
 }
 
-/* ══════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    PATCH: Hero image fix + Marquee dark style + No cursor glow
-   ══════════════════════════════════════════════════════ */
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
 /* 1. Kill cursor glow everywhere */
 .cursor-glow {
@@ -27710,20 +27710,20 @@ button.row-action.saved {
   pointer-events: none !important;
 }
 
-/* 2. Fix hero image — cover so it doesn't cut on sides */
+/* 2. Fix hero image â€” cover so it doesn't cut on sides */
 .landing-hero {
   background: #020816 url('assets/hero-earth-bg.png') center center / cover no-repeat !important;
   min-height: 90vh !important;
   overflow: hidden !important;
 }
 
-/* 3. Hero text — bright so it stands out on the globe image */
+/* 3. Hero text â€” bright so it stands out on the globe image */
 .landing-hero h1 {
   color: #ffffff !important;
   text-shadow: 0 2px 20px rgba(0,0,0,0.7) !important;
 }
 .landing-hero .hero-h1-green {
-  color: #7dd3fc !important; /* Orange — vibrant, stands out on dark space image */
+  color: #7dd3fc !important; /* Orange â€” vibrant, stands out on dark space image */
   text-shadow: 0 2px 20px rgba(255, 140, 0, 0.4) !important;
 }
 .landing-hero p {
@@ -27736,7 +27736,7 @@ button.row-action.saved {
   border-color: rgba(255, 140, 0, 0.5) !important;
 }
 
-/* 4. Marquee — white background, original colored logos */
+/* 4. Marquee â€” white background, original colored logos */
 .institute-marquee-section {
   background: #ffffff !important;
   border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
@@ -27763,9 +27763,9 @@ button.row-action.saved {
   background: linear-gradient(to left, #ffffff, transparent) !important;
 }
 
-/* ══════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    PATCH: Hero image fix + Marquee dark style + No cursor glow
-   ══════════════════════════════════════════════════════ */
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
 /* 1. Kill cursor glow everywhere */
 .cursor-glow {
@@ -27774,20 +27774,20 @@ button.row-action.saved {
   pointer-events: none !important;
 }
 
-/* 2. Fix hero image — cover so it doesn't cut on sides */
+/* 2. Fix hero image â€” cover so it doesn't cut on sides */
 .landing-hero {
   background: #020816 url('assets/hero-earth-bg.png') center center / cover no-repeat !important;
   min-height: 90vh !important;
   overflow: hidden !important;
 }
 
-/* 3. Hero text — bright so it stands out on the globe image */
+/* 3. Hero text â€” bright so it stands out on the globe image */
 .landing-hero h1 {
   color: #ffffff !important;
   text-shadow: 0 2px 20px rgba(0,0,0,0.7) !important;
 }
 .landing-hero .hero-h1-green {
-  color: #7dd3fc !important; /* Orange — vibrant, stands out on dark space image */
+  color: #7dd3fc !important; /* Orange â€” vibrant, stands out on dark space image */
   text-shadow: 0 2px 20px rgba(255, 140, 0, 0.4) !important;
 }
 .landing-hero p {
@@ -27800,7 +27800,7 @@ button.row-action.saved {
   border-color: rgba(255, 140, 0, 0.5) !important;
 }
 
-/* 4. Marquee — white background, original colored logos */
+/* 4. Marquee â€” white background, original colored logos */
 .institute-marquee-section {
   background: #ffffff !important;
   border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
@@ -27827,9 +27827,9 @@ button.row-action.saved {
   background: linear-gradient(to left, #ffffff, transparent) !important;
 }
 
-/* ══════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    PATCH: Hero image fix + Marquee dark style + No cursor glow
-   ══════════════════════════════════════════════════════ */
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
 /* 1. Kill cursor glow everywhere */
 .cursor-glow {
@@ -27838,20 +27838,20 @@ button.row-action.saved {
   pointer-events: none !important;
 }
 
-/* 2. Fix hero image — cover so it doesn't cut on sides */
+/* 2. Fix hero image â€” cover so it doesn't cut on sides */
 .landing-hero {
   background: #020816 url('assets/hero-earth-bg.png') center center / cover no-repeat !important;
   min-height: 90vh !important;
   overflow: hidden !important;
 }
 
-/* 3. Hero text — bright so it stands out on the globe image */
+/* 3. Hero text â€” bright so it stands out on the globe image */
 .landing-hero h1 {
   color: #ffffff !important;
   text-shadow: 0 2px 20px rgba(0,0,0,0.7) !important;
 }
 .landing-hero .hero-h1-green {
-  color: #7dd3fc !important; /* Orange — vibrant, stands out on dark space image */
+  color: #7dd3fc !important; /* Orange â€” vibrant, stands out on dark space image */
   text-shadow: 0 2px 20px rgba(255, 140, 0, 0.4) !important;
 }
 .landing-hero p {
@@ -27864,7 +27864,7 @@ button.row-action.saved {
   border-color: rgba(255, 140, 0, 0.5) !important;
 }
 
-/* 4. Marquee — white background, original colored logos */
+/* 4. Marquee â€” white background, original colored logos */
 .institute-marquee-section {
   background: #ffffff !important;
   border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
@@ -27891,9 +27891,9 @@ button.row-action.saved {
   background: linear-gradient(to left, #ffffff, transparent) !important;
 }
 
-/* ══════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    PATCH: Hero image fix + Marquee dark style + No cursor glow
-   ══════════════════════════════════════════════════════ */
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
 /* 1. Kill cursor glow everywhere */
 .cursor-glow {
@@ -27902,20 +27902,20 @@ button.row-action.saved {
   pointer-events: none !important;
 }
 
-/* 2. Fix hero image — cover so it doesn't cut on sides */
+/* 2. Fix hero image â€” cover so it doesn't cut on sides */
 .landing-hero {
   background: #020816 url('assets/hero-earth-bg.png') center center / cover no-repeat !important;
   min-height: 90vh !important;
   overflow: hidden !important;
 }
 
-/* 3. Hero text — bright so it stands out on the globe image */
+/* 3. Hero text â€” bright so it stands out on the globe image */
 .landing-hero h1 {
   color: #ffffff !important;
   text-shadow: 0 2px 20px rgba(0,0,0,0.7) !important;
 }
 .landing-hero .hero-h1-green {
-  color: #7dd3fc !important; /* Orange — vibrant, stands out on dark space image */
+  color: #7dd3fc !important; /* Orange â€” vibrant, stands out on dark space image */
   text-shadow: 0 2px 20px rgba(255, 140, 0, 0.4) !important;
 }
 .landing-hero p {
@@ -27928,7 +27928,7 @@ button.row-action.saved {
   border-color: rgba(255, 140, 0, 0.5) !important;
 }
 
-/* 4. Marquee — white background, original colored logos */
+/* 4. Marquee â€” white background, original colored logos */
 .institute-marquee-section {
   background: #ffffff !important;
   border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
@@ -27955,9 +27955,9 @@ button.row-action.saved {
   background: linear-gradient(to left, #ffffff, transparent) !important;
 }
 
-/* ══════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    PATCH: Hero image fix + Marquee dark style + No cursor glow
-   ══════════════════════════════════════════════════════ */
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
 /* 1. Kill cursor glow everywhere */
 .cursor-glow {
@@ -27966,20 +27966,20 @@ button.row-action.saved {
   pointer-events: none !important;
 }
 
-/* 2. Fix hero image — cover so it doesn't cut on sides */
+/* 2. Fix hero image â€” cover so it doesn't cut on sides */
 .landing-hero {
   background: #020816 url('assets/hero-earth-bg.png') center center / cover no-repeat !important;
   min-height: 90vh !important;
   overflow: hidden !important;
 }
 
-/* 3. Hero text — bright so it stands out on the globe image */
+/* 3. Hero text â€” bright so it stands out on the globe image */
 .landing-hero h1 {
   color: #ffffff !important;
   text-shadow: 0 2px 20px rgba(0,0,0,0.7) !important;
 }
 .landing-hero .hero-h1-green {
-  color: #7dd3fc !important; /* Orange — vibrant, stands out on dark space image */
+  color: #7dd3fc !important; /* Orange â€” vibrant, stands out on dark space image */
   text-shadow: 0 2px 20px rgba(255, 140, 0, 0.4) !important;
 }
 .landing-hero p {
@@ -27992,7 +27992,7 @@ button.row-action.saved {
   border-color: rgba(255, 140, 0, 0.5) !important;
 }
 
-/* 4. Marquee — white background, original colored logos */
+/* 4. Marquee â€” white background, original colored logos */
 .institute-marquee-section {
   background: #ffffff !important;
   border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
@@ -28019,9 +28019,9 @@ button.row-action.saved {
   background: linear-gradient(to left, #ffffff, transparent) !important;
 }
 
-/* ══════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    PATCH: Hero image fix + Marquee dark style + No cursor glow
-   ══════════════════════════════════════════════════════ */
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
 /* 1. Kill cursor glow everywhere */
 .cursor-glow {
@@ -28030,20 +28030,20 @@ button.row-action.saved {
   pointer-events: none !important;
 }
 
-/* 2. Fix hero image — cover so it doesn't cut on sides */
+/* 2. Fix hero image â€” cover so it doesn't cut on sides */
 .landing-hero {
   background: #020816 url('assets/hero-earth-bg.png') center center / cover no-repeat !important;
   min-height: 90vh !important;
   overflow: hidden !important;
 }
 
-/* 3. Hero text — bright so it stands out on the globe image */
+/* 3. Hero text â€” bright so it stands out on the globe image */
 .landing-hero h1 {
   color: #ffffff !important;
   text-shadow: 0 2px 20px rgba(0,0,0,0.7) !important;
 }
 .landing-hero .hero-h1-green {
-  color: #7dd3fc !important; /* Orange — vibrant, stands out on dark space image */
+  color: #7dd3fc !important; /* Orange â€” vibrant, stands out on dark space image */
   text-shadow: 0 2px 20px rgba(255, 140, 0, 0.4) !important;
 }
 .landing-hero p {
@@ -28056,7 +28056,7 @@ button.row-action.saved {
   border-color: rgba(255, 140, 0, 0.5) !important;
 }
 
-/* 4. Marquee — white background, original colored logos */
+/* 4. Marquee â€” white background, original colored logos */
 .institute-marquee-section {
   background: #ffffff !important;
   border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
@@ -28293,7 +28293,7 @@ main.catalog-page section.landing-hero > p {
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85) !important;
 }
 
-/* GLOBE HINT STRIP — after logo marquee */
+/* GLOBE HINT STRIP â€” after logo marquee */
 .globe-hint-strip {
   position: relative;
   background:
@@ -28378,7 +28378,7 @@ main.catalog-page section.landing-hero > p {
   }
 }
 
-/* GLOBAL COURSES SECTION HEADER — matches All Courses style */
+/* GLOBAL COURSES SECTION HEADER â€” matches All Courses style */
 .global-courses-hero {
   margin: 0 0 24px !important;
   padding: 28px 32px 26px !important;
@@ -28414,7 +28414,7 @@ main.catalog-page section.landing-hero > p {
   height: 24px;
 }
 
-/* ALL COURSES STRIP — rounded, spaced, like Global Courses */
+/* ALL COURSES STRIP â€” rounded, spaced, like Global Courses */
 .all-courses-section .courses-hero {
   margin: 24px 0 28px !important;
   padding: 28px 32px 26px !important;
@@ -28453,9 +28453,9 @@ main.catalog-page section.landing-hero > p {
   padding-bottom: 32px;
 }
 
-/* ════════════════════════════════════════════════════════
-   FILTER SIDEBAR — polished redesign
-   ════════════════════════════════════════════════════════ */
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   FILTER SIDEBAR â€” polished redesign
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
 /* 1. Sidebar card: more premium glass look */
 .catalog-sidebar {
@@ -28598,7 +28598,7 @@ main.catalog-page section.landing-hero > p {
 }
 
 .accordion-trigger::after {
-  content: "−";
+  content: "âˆ’";
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -28704,11 +28704,6 @@ main.catalog-page section.landing-hero > p {
   box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.15);
 }
 
-.country-filter-select option {
-  background: var(--bg-card, #ffffff);
-  color: var(--text-primary, #111827);
-}
-
 /* 10. Skill-level accent colors */
 .skill-level-pills .type-pill[data-level="Beginner"]:hover,
 .skill-level-pills .type-pill[data-level="Beginner"].active {
@@ -28811,9 +28806,9 @@ main.catalog-page section.landing-hero > p {
   }
 }
 
-/* ════════════════════════════════════════════════════════════════
-   COURSE CARDS — polished redesign to match reference
-   ════════════════════════════════════════════════════════════════ */
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   COURSE CARDS â€” polished redesign to match reference
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
 /* 1. Card base: darker, more premium */
 #edx-cards-row .clean-course-card,
@@ -29212,15 +29207,15 @@ body #edx-cards-row.list-view .clean-course-card.card .list-col-logo .logo-wrap 
   }
 }
 
-/* ════════════════════════════════════════════════════════════════════════
-   MOBILE UI OVERHAUL — 500+ targeted upgrades
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   MOBILE UI OVERHAUL â€” 500+ targeted upgrades
    All rules scoped to max-width: 768px (tablets and phones)
    Nested 480px / 360px breakpoints for smaller devices
-   ════════════════════════════════════════════════════════════════════════ */
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
 @media (max-width: 768px) {
 
-  /* ── 1. BASE MOBILE LAYOUT ───────────────────────────────────────── */
+  /* â”€â”€ 1. BASE MOBILE LAYOUT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   html {
     font-size: 15px !important;
     -webkit-text-size-adjust: 100% !important;
@@ -29244,7 +29239,7 @@ body #edx-cards-row.list-view .clean-course-card.card .list-col-logo .logo-wrap 
     gap: 18px !important;
   }
 
-  /* ── 2. NAVIGATION MOBILE ────────────────────────────────────────── */
+  /* â”€â”€ 2. NAVIGATION MOBILE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   .main-nav {
     height: 60px !important;
     padding: 0 14px !important;
@@ -29316,7 +29311,7 @@ body #edx-cards-row.list-view .clean-course-card.card .list-col-logo .logo-wrap 
     border-radius: 12px !important;
   }
 
-  /* ── 3. HERO SECTION MOBILE ──────────────────────────────────────── */
+  /* â”€â”€ 3. HERO SECTION MOBILE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   .landing-hero {
     min-height: 92svh !important;
     padding: 100px 18px 48px !important;
@@ -29402,7 +29397,7 @@ body #edx-cards-row.list-view .clean-course-card.card .list-col-logo .logo-wrap 
     font-size: 0.7rem !important;
   }
 
-  /* ── 4. MARQUEE MOBILE ───────────────────────────────────────────── */
+  /* â”€â”€ 4. MARQUEE MOBILE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   .institute-marquee-section {
     padding: 14px 0 !important;
   }
@@ -29412,7 +29407,7 @@ body #edx-cards-row.list-view .clean-course-card.card .list-col-logo .logo-wrap 
     margin: 0 18px !important;
   }
 
-  /* ── 5. GLOBE HINT STRIP MOBILE ──────────────────────────────────── */
+  /* â”€â”€ 5. GLOBE HINT STRIP MOBILE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   .globe-hint-strip {
     padding: 14px 16px !important;
   }
@@ -29435,7 +29430,7 @@ body #edx-cards-row.list-view .clean-course-card.card .list-col-logo .logo-wrap 
     margin-top: 6px !important;
   }
 
-  /* ── 6. SECTION HEADERS MOBILE ───────────────────────────────────── */
+  /* â”€â”€ 6. SECTION HEADERS MOBILE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   .global-courses-hero,
   .all-courses-section .courses-hero {
     margin: 16px 0 20px !important;
@@ -29474,7 +29469,7 @@ body #edx-cards-row.list-view .clean-course-card.card .list-col-logo .logo-wrap 
     line-height: 1.5 !important;
   }
 
-  /* ── 7. DASHBOARD / GLOBE MOBILE ─────────────────────────────────── */
+  /* â”€â”€ 7. DASHBOARD / GLOBE MOBILE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   #tab-dashboard {
     padding-bottom: 20px !important;
   }
@@ -29628,7 +29623,7 @@ body #edx-cards-row.list-view .clean-course-card.card .list-col-logo .logo-wrap 
     max-height: 240px !important;
   }
 
-  /* ── 8. FILTER SIDEBAR MOBILE ────────────────────────────────────── */
+  /* â”€â”€ 8. FILTER SIDEBAR MOBILE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   .catalog-workspace {
     grid-template-columns: 1fr !important;
     gap: 0 !important;
@@ -29709,13 +29704,13 @@ body #edx-cards-row.list-view .clean-course-card.card .list-col-logo .logo-wrap 
     min-height: 44px !important;
   }
 
-  /* ── 9. MOBILE FILTER TOGGLE BAR ─────────────────────────────────── */
+  /* â”€â”€ 9. MOBILE FILTER TOGGLE BAR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   .catalog-mobile-filter-bar {
     display: flex !important;
     align-items: center !important;
     gap: 10px !important;
     margin: 4px 0 14px !important;
-    /* keep it in normal document flow — no sticky/floating */
+    /* keep it in normal document flow â€” no sticky/floating */
     position: static !important;
   }
 
@@ -29759,7 +29754,7 @@ body #edx-cards-row.list-view .clean-course-card.card .list-col-logo .logo-wrap 
     border-color: var(--teal-500) !important;
   }
 
-  /* ── 10. ACTIVE FILTERS MOBILE ───────────────────────────────────── */
+  /* â”€â”€ 10. ACTIVE FILTERS MOBILE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   .active-filters {
     gap: 6px !important;
     margin-bottom: 12px !important;
@@ -29777,7 +29772,7 @@ body #edx-cards-row.list-view .clean-course-card.card .list-col-logo .logo-wrap 
     margin: -2px -4px -2px 0 !important;
   }
 
-  /* ── 11. RESULT META BAR MOBILE ──────────────────────────────────── */
+  /* â”€â”€ 11. RESULT META BAR MOBILE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   .edx-meta-bar {
     flex-direction: column !important;
     align-items: flex-start !important;
@@ -29799,7 +29794,7 @@ body #edx-cards-row.list-view .clean-course-card.card .list-col-logo .logo-wrap 
     font-size: 0.62rem !important;
   }
 
-  /* ── 12. COURSE CARDS MOBILE ─────────────────────────────────────── */
+  /* â”€â”€ 12. COURSE CARDS MOBILE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   .edx-cards-row {
     grid-template-columns: 1fr !important;
     gap: 16px !important;
@@ -29907,7 +29902,7 @@ body #edx-cards-row.list-view .clean-course-card.card .list-col-logo .logo-wrap 
     height: 44px !important;
   }
 
-  /* ── 13. LIST VIEW MOBILE ──────────────────────────────────────────── */
+  /* â”€â”€ 13. LIST VIEW MOBILE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   .edx-cards-row.list-view {
     grid-template-columns: 1fr !important;
     gap: 12px !important;
@@ -29933,7 +29928,7 @@ body #edx-cards-row.list-view .clean-course-card.card .list-col-logo .logo-wrap 
     justify-content: flex-start !important;
   }
 
-  /* ── 14. PAGINATION MOBILE ───────────────────────────────────────── */
+  /* â”€â”€ 14. PAGINATION MOBILE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   .courses-pagination-wrap {
     flex-direction: column !important;
     gap: 12px !important;
@@ -29970,7 +29965,7 @@ body #edx-cards-row.list-view .clean-course-card.card .list-col-logo .logo-wrap 
     font-size: 0.82rem !important;
   }
 
-  /* ── 15. SKELETON CARDS MOBILE ───────────────────────────────────── */
+  /* â”€â”€ 15. SKELETON CARDS MOBILE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   .skeleton-card .skeleton-banner {
     height: 150px !important;
   }
@@ -29979,7 +29974,7 @@ body #edx-cards-row.list-view .clean-course-card.card .list-col-logo .logo-wrap 
     padding: 36px 18px 18px !important;
   }
 
-  /* ── 16. MODAL MOBILE ────────────────────────────────────────────── */
+  /* â”€â”€ 16. MODAL MOBILE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   .modal-overlay {
     padding: 16px !important;
     align-items: flex-end !important;
@@ -30019,7 +30014,7 @@ body #edx-cards-row.list-view .clean-course-card.card .list-col-logo .logo-wrap 
     height: 40px !important;
   }
 
-  /* ── 17. TOAST MOBILE ────────────────────────────────────────────── */
+  /* â”€â”€ 17. TOAST MOBILE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   .toast-container {
     left: 16px !important;
     right: 16px !important;
@@ -30038,7 +30033,7 @@ body #edx-cards-row.list-view .clean-course-card.card .list-col-logo .logo-wrap 
     justify-content: center !important;
   }
 
-  /* ── 18. SEARCH INPUT MOBILE ───────────────────────────────────────── */
+  /* â”€â”€ 18. SEARCH INPUT MOBILE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   .catalog-search,
   .edx-search {
     position: relative !important;
@@ -30060,7 +30055,7 @@ body #edx-cards-row.list-view .clean-course-card.card .list-col-logo .logo-wrap 
     height: 18px !important;
   }
 
-  /* ── 19. SORT / VIEW TOGGLE MOBILE ───────────────────────────────── */
+  /* â”€â”€ 19. SORT / VIEW TOGGLE MOBILE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   .view-toggle-bar,
   .sort-bar {
     flex-wrap: wrap !important;
@@ -30077,7 +30072,7 @@ body #edx-cards-row.list-view .clean-course-card.card .list-col-logo .logo-wrap 
     border-radius: 10px !important;
   }
 
-  /* ── 20. TABLES MOBILE ───────────────────────────────────────────── */
+  /* â”€â”€ 20. TABLES MOBILE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   .data-table {
     display: block !important;
     width: 100% !important;
@@ -30121,7 +30116,7 @@ body #edx-cards-row.list-view .clean-course-card.card .list-col-logo .logo-wrap 
     margin-bottom: 2px !important;
   }
 
-  /* ── 21. ONBOARDING MOBILE ─────────────────────────────────────────── */
+  /* â”€â”€ 21. ONBOARDING MOBILE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   .onboarding-overlay {
     padding: 16px !important;
     align-items: flex-end !important;
@@ -30150,7 +30145,7 @@ body #edx-cards-row.list-view .clean-course-card.card .list-col-logo .logo-wrap 
     min-height: 48px !important;
   }
 
-  /* ── 22. FOOTER MOBILE ─────────────────────────────────────────────── */
+  /* â”€â”€ 22. FOOTER MOBILE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   .site-footer {
     padding: 36px 18px 24px !important;
   }
@@ -30186,7 +30181,7 @@ body #edx-cards-row.list-view .clean-course-card.card .list-col-logo .logo-wrap 
     font-size: 0.75rem !important;
   }
 
-  /* ── 23. TOUCH / ACCESSIBILITY MOBILE ────────────────────────────── */
+  /* â”€â”€ 23. TOUCH / ACCESSIBILITY MOBILE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   .type-pill,
   .domain-chip,
   .filter-chip,
@@ -30220,13 +30215,13 @@ body #edx-cards-row.list-view .clean-course-card.card .list-col-logo .logo-wrap 
     -webkit-tap-highlight-color: transparent !important;
   }
 
-  /* ── 24. FOCUS STATES MOBILE ───────────────────────────────────────── */
+  /* â”€â”€ 24. FOCUS STATES MOBILE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   *:focus-visible {
     outline: 2px solid var(--teal-400) !important;
     outline-offset: 2px !important;
   }
 
-  /* ── 25. SCROLLBAR MOBILE ────────────────────────────────────────── */
+  /* â”€â”€ 25. SCROLLBAR MOBILE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   ::-webkit-scrollbar {
     width: 4px !important;
     height: 4px !important;
@@ -30236,14 +30231,14 @@ body #edx-cards-row.list-view .clean-course-card.card .list-col-logo .logo-wrap 
     border-radius: 4px !important;
   }
 
-  /* ── 26. TEXT SIZING MOBILE ──────────────────────────────────────── */
+  /* â”€â”€ 26. TEXT SIZING MOBILE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   h1 { font-size: 1.8rem !important; }
   h2 { font-size: 1.5rem !important; }
   h3 { font-size: 1.25rem !important; }
   h4 { font-size: 1.1rem !important; }
   p  { line-height: 1.55 !important; }
 
-  /* ── 27. HORIZONTAL PADDING MOBILE ─────────────────────────────────── */
+  /* â”€â”€ 27. HORIZONTAL PADDING MOBILE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   .container,
   .catalog-container,
   .edx-container,
@@ -30254,13 +30249,13 @@ body #edx-cards-row.list-view .clean-course-card.card .list-col-logo .logo-wrap 
     padding-right: 0 !important;
   }
 
-  /* ── 28. IMAGE HANDLING MOBILE ────────────────────────────────────── */
+  /* â”€â”€ 28. IMAGE HANDLING MOBILE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   img {
     max-width: 100% !important;
     height: auto !important;
   }
 
-  /* ── 29. SAFE AREA INSETS ──────────────────────────────────────────── */
+  /* â”€â”€ 29. SAFE AREA INSETS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   .site-footer,
   .toast-container,
   .catalog-mobile-filter-bar,
@@ -30273,7 +30268,7 @@ body #edx-cards-row.list-view .clean-course-card.card .list-col-logo .logo-wrap 
     padding-top: max(env(safe-area-inset-top), 0px) !important;
   }
 
-  /* ── 30. DOMAIN CARDS MOBILE ───────────────────────────────────────── */
+  /* â”€â”€ 30. DOMAIN CARDS MOBILE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   .domain-cards-grid {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 12px !important;
@@ -30297,7 +30292,7 @@ body #edx-cards-row.list-view .clean-course-card.card .list-col-logo .logo-wrap 
     font-size: 0.7rem !important;
   }
 
-  /* ── 31. JOURNEY SECTIONS MOBILE ───────────────────────────────────── */
+  /* â”€â”€ 31. JOURNEY SECTIONS MOBILE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   .journey-section {
     padding: 28px 16px !important;
     border-radius: 16px !important;
@@ -30315,7 +30310,7 @@ body #edx-cards-row.list-view .clean-course-card.card .list-col-logo .logo-wrap 
     font-size: 1rem !important;
   }
 
-  /* ── 32. REDUCED MOTION RESPECT ────────────────────────────────────── */
+  /* â”€â”€ 32. REDUCED MOTION RESPECT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   @media (prefers-reduced-motion: reduce) {
     .catalog-sidebar {
       transition: none !important;
@@ -30332,9 +30327,9 @@ body #edx-cards-row.list-view .clean-course-card.card .list-col-logo .logo-wrap 
   }
 }
 
-/* ════════════════════════════════════════════════════════════════════════
-   SMALL PHONES — max-width: 480px
-   ════════════════════════════════════════════════════════════════════════ */
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   SMALL PHONES â€” max-width: 480px
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
 @media (max-width: 480px) {
 
@@ -30535,9 +30530,9 @@ body #edx-cards-row.list-view .clean-course-card.card .list-col-logo .logo-wrap 
   }
 }
 
-/* ════════════════════════════════════════════════════════════════════════
-   TINY PHONES — max-width: 360px
-   ════════════════════════════════════════════════════════════════════════ */
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   TINY PHONES â€” max-width: 360px
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
 @media (max-width: 360px) {
 
@@ -30612,9 +30607,9 @@ body #edx-cards-row.list-view .clean-course-card.card .list-col-logo .logo-wrap 
   }
 }
 
-/* ════════════════════════════════════════════════════════════════════════
-   LANDSCAPE PHONES — short height
-   ════════════════════════════════════════════════════════════════════════ */
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   LANDSCAPE PHONES â€” short height
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
 @media (max-width: 768px) and (max-height: 500px) {
   .landing-hero {
@@ -30637,9 +30632,9 @@ body #edx-cards-row.list-view .clean-course-card.card .list-col-logo .logo-wrap 
   }
 }
 
-/* ════════════════════════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    iOS SAFARI SAFE AREA FIXES
-   ════════════════════════════════════════════════════════════════════════ */
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
 @supports (-webkit-touch-callout: none) {
   @media (max-width: 768px) {
@@ -30665,10 +30660,10 @@ body #edx-cards-row.list-view .clean-course-card.card .list-col-logo .logo-wrap 
 }
 
 /* End mobile overhaul */
-﻿/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-   LIST VIEW â€” clean table-like rows (reference match)
+ï»¿/* Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
+   LIST VIEW Ã¢â‚¬â€ clean table-like rows (reference match)
    Loaded AFTER course-catalog.css to override old styles
-   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+   Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â */
 
 /* Toggle: hide grid content in list mode, show list content */
 body #edx-cards-row.list-view .clean-course-card.card .grid-view-content {
@@ -30684,7 +30679,7 @@ body #edx-cards-row.list-view .clean-course-card.card .list-view-content {
     width: 100%;
 }
 
-/* â”€â”€ Override the aggressive #edx-cards-row rules â”€â”€ */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Override the aggressive #edx-cards-row rules Ã¢â€â‚¬Ã¢â€â‚¬ */
 #edx-cards-row.list-view {
     display: flex !important;
     flex-direction: column !important;
@@ -30730,7 +30725,7 @@ body #edx-cards-row.list-view .clean-course-card.card .list-view-content {
     gap: 0 !important;
 }
 
-/* Logo column — rounded rectangle to preserve institution branding */
+/* Logo column â€” rounded rectangle to preserve institution branding */
 #edx-cards-row.list-view .list-col-logo .logo-wrap {
     position: static !important;
     left: auto !important;
@@ -30864,7 +30859,7 @@ body #edx-cards-row.list-view .clean-course-card.card .list-view-content {
     font-weight: 700 !important;
 }
 
-/* Action column â€” dark visit-site button */
+/* Action column Ã¢â‚¬â€ dark visit-site button */
 #edx-cards-row.list-view .list-col-actions {
     text-align: center !important;
     display: flex !important;
@@ -30929,7 +30924,7 @@ body #edx-cards-row.list-view .clean-course-card.card .list-view-content {
     }
 }
 
-/* GRID VIEW MOBILE FIXES — 1 card per row on phones */
+/* GRID VIEW MOBILE FIXES â€” 1 card per row on phones */
 @media (max-width: 768px) {
     #edx-cards-row:not(.list-view) {
         grid-template-columns: 1fr !important;
@@ -30943,7 +30938,7 @@ body #edx-cards-row.list-view .clean-course-card.card .list-view-content {
     }
 }
 
-/* LIST VIEW MOBILE â€” horizontal scroll */
+/* LIST VIEW MOBILE Ã¢â‚¬â€ horizontal scroll */
 @media (max-width: 768px) {
     .catalog-results {
         overflow-x: auto !important;
@@ -31492,13 +31487,13 @@ body #edx-cards-row:not(.list-view) .btn-save-floating.saved svg,
   --casy-border-strong: rgba(125, 211, 252, 0.35);
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   CASY — Single-surface unification
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   CASY â€” Single-surface unification
    Loaded last. Forces hero, dashboard, globe, courses into one
    deep navy command-deck with a single amber accent.
-   ═══════════════════════════════════════════════════════════════ */
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
-/* ── GLOBAL SURFACE RESET ────────────────────────────────────── */
+/* â”€â”€ GLOBAL SURFACE RESET â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 body,
 .catalog-page,
 .catalog-section.alt,
@@ -31522,7 +31517,7 @@ body {
   color: var(--casy-text-2) !important;
 }
 
-/* ── HERO ────────────────────────────────────────────────────── */
+/* â”€â”€ HERO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .landing-hero {
   position: relative !important;
   min-height: 80vh !important; /* Force tall section so content can center */
@@ -31572,7 +31567,7 @@ body {
   pointer-events: none !important;
 }
 
-/* CASY title — THE page title, huge and centered */
+/* CASY title â€” THE page title, huge and centered */
 .landing-hero .hero-tag {
   display: inline-flex !important;
   align-items: center !important;
@@ -31802,7 +31797,7 @@ body {
   transform: translateY(-2px) !important;
 }
 
-/* ── MARQUEE ───────────────────────────────────────────────────── */
+/* â”€â”€ MARQUEE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .institute-marquee-section {
   position: relative !important;
   z-index: 1 !important;
@@ -31849,7 +31844,7 @@ body {
   transform: scale(1.06) !important;
 }
 
-/* Narrow, subtle edge fades only — no big white blocks */
+/* Narrow, subtle edge fades only â€” no big white blocks */
 .marquee-fade-left,
 .marquee-fade-right,
 [data-theme] .marquee-fade-left,
@@ -31875,7 +31870,7 @@ body {
   background: linear-gradient(to left, #ffffff 0%, transparent 100%) !important;
 }
 
-/* ── DASHBOARD / GLOBE ───────────────────────────────────────── */
+/* â”€â”€ DASHBOARD / GLOBE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .dash-layout {
   background: transparent !important;
   gap: 24px !important;
@@ -31977,7 +31972,7 @@ body {
   color: var(--casy-amber) !important;
 }
 
-/* ── COURSES SECTION ─────────────────────────────────────────── */
+/* â”€â”€ COURSES SECTION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .courses-hero,
 .courses-hero-content,
 #courses-hero-summary,
@@ -32106,12 +32101,8 @@ body {
 .btn-save.saved svg,
 .btn-save-floating.saved svg,
 .row-action.saved svg {
-  color: #ef4444 !important;
-  fill: #ef4444 !important;
-  stroke: #ef4444 !important;
-  filter: none !important;
-  box-shadow: none !important;
-  text-shadow: none !important;
+  color: var(--casy-amber) !important;
+  fill: var(--casy-amber) !important;
 }
 
 .pagination-btn {
@@ -32128,7 +32119,7 @@ body {
   font-weight: 700 !important;
 }
 
-/* ── CURSOR GLOW ─────────────────────────────────────────────── */
+/* â”€â”€ CURSOR GLOW â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .cursor-glow {
   display: block !important;
   opacity: 1 !important;
@@ -32140,7 +32131,7 @@ body {
   mix-blend-mode: screen !important;
 }
 
-/* ── MOBILE ──────────────────────────────────────────────────── */
+/* â”€â”€ MOBILE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @media (max-width: 768px) {
   .landing-hero {
     min-height: 0 !important;
@@ -32236,12 +32227,12 @@ body {
   }
 }
 
-/* ════════════════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    LOGO STRIP PERFORMANCE FIX
    Replace the JS requestAnimationFrame loop with a compositor-only
    CSS keyframes animation so the marquee scrolls smoothly and stays
    off the main thread.
-   ════════════════════════════════════════════════════════════════ */
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 @keyframes marquee-slide {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -32273,13 +32264,13 @@ body {
   .pointer-mouse { display: none; }
 }
 
-/* ════════════════════════════════════════════════════════════════
-   MOBILE CARD FIX — Clean card layout without banner distortion
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   MOBILE CARD FIX â€” Clean card layout without banner distortion
    Matches laptop card style on all mobile screen sizes
-   ════════════════════════════════════════════════════════════════ */
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 @media (max-width: 768px) {
 
-  /* 1. Hide the card banner image area entirely — prevents height distortion */
+  /* 1. Hide the card banner image area entirely â€” prevents height distortion */
   body #edx-cards-row .clean-course-card .card-banner,
   body #edx-cards-row .clean-course-card.card .card-banner {
     display: none !important;
@@ -32301,7 +32292,7 @@ body {
     margin: 0 0 12px 0 !important;
   }
 
-  /* 3. Custom logo container — keep it small, never expand to card width */
+  /* 3. Custom logo container â€” keep it small, never expand to card width */
   body #edx-cards-row .clean-course-card .custom-logo-container {
     width: 52px !important;
     height: 52px !important;
@@ -32310,7 +32301,7 @@ body {
     flex-shrink: 0 !important;
   }
 
-  /* 4. University logo image — constrained to the container */
+  /* 4. University logo image â€” constrained to the container */
   body #edx-cards-row .clean-course-card .custom-logo-container img {
     width: 100% !important;
     height: 100% !important;
@@ -32318,13 +32309,13 @@ body {
     max-width: 100% !important;
   }
 
-  /* 5. Card body — reset padding since there's no banner */
+  /* 5. Card body â€” reset padding since there's no banner */
   body #edx-cards-row .clean-course-card .card-body,
   body #edx-cards-row .clean-course-card.card .card-body {
     padding: 16px !important;
   }
 
-  /* 6. Force 1 column grid — prevents 2-up misaligned cards */
+  /* 6. Force 1 column grid â€” prevents 2-up misaligned cards */
   body #edx-cards-row:not(.list-view),
   body #edx-cards-row.grid-view,
   #edx-cards-row:not(.list-view) {
@@ -32350,7 +32341,7 @@ body {
     border-radius: 50% !important;
   }
 
-  /* 9. Rank pill — keep inline, don't expand */
+  /* 9. Rank pill â€” keep inline, don't expand */
   body #edx-cards-row .clean-course-card .rank-pill {
     display: inline-flex !important;
     width: auto !important;
@@ -32474,18 +32465,4 @@ body {
   z-index: 2 !important;
 }
 
-/* FORCE REMOVE ALL BLUE GLOWS FROM HEART BUTTONS */
-.btn-save, .btn-save-floating, .row-action, #navBookmarkBtn,
-.btn-save:hover, .btn-save-floating:hover, .row-action:hover, #navBookmarkBtn:hover,
-.btn-save:focus, .btn-save-floating:focus, .row-action:focus, #navBookmarkBtn:focus {
-  box-shadow: none !important;
-  outline: none !important;
-}
-.btn-save.saved svg, .btn-save-floating.saved svg, .row-action.saved svg, #navBookmarkBtn.active-glow {
-  fill: #ef4444 !important;
-  color: #ef4444 !important;
-  stroke: #ef4444 !important;
-  filter: none !important;
-  text-shadow: none !important;
-}
 

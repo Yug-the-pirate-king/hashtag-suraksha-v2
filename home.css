@@ -528,7 +528,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 
 /* Indian tricolor gradient */
 .hero-gradient-text {
-  background: linear-gradient(90deg, #FF9933 0%, #FF9933 28%, #FFFFFF 50%, #138808 72%, #138808 100%);
+  background: linear-gradient(90deg, #7dd3fc 0%, #7dd3fc 28%, #FFFFFF 50%, #138808 72%, #138808 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -536,7 +536,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 
 /* light mode fallback (hero stays dark) */
 [data-theme="light"] .hero-gradient-text {
-  background: linear-gradient(90deg, #FF9933 0%, #FF9933 28%, #FFFFFF 50%, #138808 72%, #138808 100%);
+  background: linear-gradient(90deg, #7dd3fc 0%, #7dd3fc 28%, #FFFFFF 50%, #138808 72%, #138808 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -682,7 +682,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 
 .cask-badge      { background: rgba(0, 122, 255, 0.14); color: #007aff; }
 .surakshak-badge { background: rgba(34, 211, 238, 0.14); color: #22D3EE; }
-.olympiad-badge  { background: rgba(251, 191, 36, 0.14); color: #FBBF24; }
+.olympiad-badge  { background: rgba(251, 191, 36, 0.14); color: #7dd3fc; }
 .podcast-badge   { background: rgba(244, 114, 182, 0.14); color: #F472B6; }
 .slanglish-badge { background: rgba(52, 211, 153, 0.14); color: #34D399; }
 
@@ -1044,7 +1044,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 .a-chip  { background: rgba(124,58,237,0.09);  border-color: rgba(124,58,237,0.30);  color: #a78bfa; }
 .m-chip  { background: rgba(236,72,153,0.09);  border-color: rgba(236,72,153,0.28);  color: #f472b6; }
 .p-chip  { background: rgba(5,150,105,0.09);   border-color: rgba(5,150,105,0.28);   color: #34d399; }
-.cr-chip { background: rgba(251,191,36,0.09);  border-color: rgba(251,191,36,0.32);  color: #fbbf24; }
+.cr-chip { background: rgba(251,191,36,0.09);  border-color: rgba(251,191,36,0.32);  color: #7dd3fc; }
 .s-chip  { background: rgba(99,102,241,0.09);  border-color: rgba(99,102,241,0.30);  color: #a5b4fc; }
 
 /* Two-column layouts (Teacher / School) */
@@ -1064,9 +1064,9 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   margin-bottom: 12px;
 }
 .cm-col-access  { color: #22d3ee; background: rgba(8,145,178,0.12); }
-.cm-col-create  { color: #fbbf24; background: rgba(251,191,36,0.12); }
+.cm-col-create  { color: #7dd3fc; background: rgba(251,191,36,0.12); }
 .cm-col-student { color: #22d3ee; background: rgba(8,145,178,0.12); }
-.cm-col-teacher { color: #fbbf24; background: rgba(251,191,36,0.12); }
+.cm-col-teacher { color: #7dd3fc; background: rgba(251,191,36,0.12); }
 
 /* Light theme */
 [data-theme="light"] .cm-node:hover .cm-node-name,
@@ -1557,7 +1557,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 
 .cask-accent       { background: #007aff; }
 .surakshak-accent  { background: #22D3EE; }
-.olympiad-accent   { background: #FBBF24; }
+.olympiad-accent   { background: #7dd3fc; }
 .podcast-accent    { background: #F472B6; }
 .slanglish-accent  { background: #34D399; }
 
@@ -2014,7 +2014,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 
 /* Per-audience icon colors */
 .aud-student { color: #007aff; }
-.aud-teacher { color: #FBBF24; }
+.aud-teacher { color: #7dd3fc; }
 .aud-school  { color: #34D399; }
 
 [data-theme="light"] .aud-teacher { color: #D97706; }
@@ -4562,7 +4562,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   font-size: 52px;
   font-weight: 800;
   line-height: 1;
-  background: linear-gradient(135deg, #c084fc 0%, #f0abfc 50%, #fbbf24 100%);
+  background: linear-gradient(135deg, #c084fc 0%, #f0abfc 50%, #7dd3fc 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -6579,7 +6579,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   font-size: 18px;
   flex-shrink: 0;
 }
-.m2-gold   { background: rgba(245,158,11,0.18); border: 1px solid rgba(245,158,11,0.4); }
+.m2-gold   { background: rgba(125, 211, 252,0.18); border: 1px solid rgba(125, 211, 252,0.4); }
 .m2-teal   { background: rgba(0,212,180,0.12);  border: 1px solid rgba(0,212,180,0.35);}
 .m2-purple { background: rgba(139,92,246,0.15); border: 1px solid rgba(139,92,246,0.35);}
 .m2-blue   { background: rgba(59,170,255,0.15); border: 1px solid rgba(59,170,255,0.35);}
@@ -6749,7 +6749,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 .cx-s7 .cx-tab-num { color: #3BAAFF; }
 .cx-s8 .cx-slide-title { color: #A78BFA; }
 .cx-s9 .cx-slide-title { color: #00D4B4; }
-.cx-s10 .cx-slide-title { color: #F59E0B; }
+.cx-s10 .cx-slide-title { color: #7dd3fc; }
 
 .cx-slide-accent {
   position: absolute;
@@ -6759,7 +6759,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 .cx-s7 .cx-slide-accent  { background: linear-gradient(180deg,#3BAAFF,transparent); }
 .cx-s8 .cx-slide-accent  { background: linear-gradient(180deg,#A78BFA,transparent); }
 .cx-s9 .cx-slide-accent  { background: linear-gradient(180deg,#00D4B4,transparent); }
-.cx-s10 .cx-slide-accent { background: linear-gradient(180deg,#F59E0B,transparent); }
+.cx-s10 .cx-slide-accent { background: linear-gradient(180deg,#7dd3fc,transparent); }
 
 /* Waypoint unit cards */
 .cx-slide-units {
@@ -6790,7 +6790,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 .cx-u-safety    { border-left: 2px solid rgba(59,170,255,0.5); }
 .cx-u-technical { border-left: 2px solid rgba(0,212,180,0.5); }
 .cx-u-ethics    { border-left: 2px solid rgba(139,92,246,0.5); }
-.cx-u-leadership{ border-left: 2px solid rgba(245,158,11,0.5); }
+.cx-u-leadership{ border-left: 2px solid rgba(125, 211, 252,0.5); }
 
 /* Arrows */
 .cx-arrow {
@@ -6944,7 +6944,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 .cd3-teal   { background: rgba(0,212,180,0.10);  border: 1px solid rgba(0,212,180,0.25); }
 .cd3-purple { background: rgba(139,92,246,0.12); border: 1px solid rgba(139,92,246,0.25); }
 .cd3-green  { background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.25); }
-.cd3-orange { background: rgba(245,158,11,0.12); border: 1px solid rgba(245,158,11,0.25); }
+.cd3-orange { background: rgba(125, 211, 252,0.12); border: 1px solid rgba(125, 211, 252,0.25); }
 
 .cd3-card-txt { display: flex; flex-direction: column; gap: 3px; }
 .cd3-card-txt strong { font-size: 11.5px; color: #fff; }
