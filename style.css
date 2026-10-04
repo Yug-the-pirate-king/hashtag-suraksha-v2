@@ -1,13 +1,13 @@
 /* ═══════════════════════════════════════════════════
    HASHTAG SURAKSHA — GLOBAL STYLESHEET
    Fonts: Sora (headings) + Inter (body)
-   Palette: White / Saffron #FF9933 / Navy #1A3A6B / Green #138808
+   Palette: White / Saffron #7dd3fc / Navy #1A3A6B / Green #138808
 ═══════════════════════════════════════════════════ */
 
 :root {
   --navy:      #1A3A6B;
   --navy-dark: #0F2347;
-  --saffron:   #FF9933;
+  --saffron:   #7dd3fc;
   --saffron-light: #FFF3E0;
   --green:     #138808;
   --green-light: #E8F5E9;

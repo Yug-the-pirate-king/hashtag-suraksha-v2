@@ -470,6 +470,51 @@
     </div>
   </section>
 
+  <!-- CASK BOT SECTION -->
+  <section class="cask-bot-section" id="caskBotSection">
+    <div class="cask-bot-sticky">
+      
+      <!-- Intro screen (matches screenshot) -->
+      <div class="cask-bot-intro" id="caskBotIntro">
+        <div class="cask-bot-bg-pattern"></div>
+        <div class="cask-logos-box" style="z-index: 2;">
+          <img src="assets/meity.svg" alt="MeitY" class="cask-logo-img">
+          <img src="assets/certin.svg" alt="CERT-In" class="cask-logo-img">
+        </div>
+        <div class="cask-letters" style="z-index: 2;">
+          <div class="cask-letter">C</div>
+          <div class="cask-letter">A</div>
+          <div class="cask-letter">S</div>
+          <div class="cask-letter">K</div>
+        </div>
+        <div class="cask-bot-subtitle" style="z-index: 2;">
+          An AI platform created by the National Agency<br>
+          to Empower Our Young Netizens<br>
+          to tackle Cyber Threats in this Digital Age.
+        </div>
+      </div>
+
+      <!-- Bot UI Overlay -->
+      <div class="cask-bot-ui-wrapper" id="caskBotUi">
+        <div class="bot-ui-container">
+          <div class="bot-ui-header">
+            <div class="bot-header-title">CASK AI Assistant</div><button class="bot-close-btn" onclick="closeBotUi()" aria-label="Close Bot UI">?</button>
+          </div>
+          <div class="bot-ui-messages" id="botMessages">
+            <div class="bot-message bot-message-system">
+              Hello! I am CASK, your AI guide to cybersecurity. Ask me anything related to our platform, courses, or national initiatives.
+            </div>
+          </div>
+          <div class="bot-ui-input-area">
+            <input type="text" class="bot-ui-input" id="botInput" placeholder="Ask a question about hashtag suraksha...">
+            <button class="bot-ui-send-btn" onclick="sendBotMessage()">Send</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- ECOSYSTEM VERTICALS -->
   <section class="verticals-section" id="ecosystem">
     <div class="container">
@@ -1058,7 +1103,7 @@
   .olymp {
     --oly-card: rgba(255,255,255,0.045); --oly-bd: rgba(255,255,255,0.09);
     --oly-txt: #f4f7ff; --oly-sub: rgba(255,255,255,0.64); --oly-muted: rgba(255,255,255,0.44);
-    --saffron:#FF9933; --green:#1eaf5b; --gold:#E8B923; --silver:#C0C8D4; --bronze:#D9915A; --cyber:#3aa0ff;
+    --saffron:#7dd3fc; --green:#1eaf5b; --gold:#E8B923; --silver:#C0C8D4; --bronze:#D9915A; --cyber:#3aa0ff;
     position: relative; overflow: hidden; min-height: 100vh; box-sizing: border-box;
     padding: 40px 0; display: flex; flex-direction: column; justify-content: center;
     background: linear-gradient(180deg,#060a16,#0a1122 60%,#080d1c);
@@ -1143,9 +1188,9 @@
 
   .olymp-footer { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-top: 20px; flex-wrap: wrap; }
   .olymp-tagline { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-ui); font-size: 13px; color: var(--oly-muted); font-weight: 700; }
-  .olymp-cta { position:relative; overflow:hidden; display: inline-flex; align-items: center; gap: 10px; padding: 13px 28px; border-radius: 12px; background: linear-gradient(135deg,var(--saffron),#ff7a00); color: #fff; font-family: var(--font-ui); font-weight: 800; font-size: 15px; text-decoration: none; box-shadow: 0 12px 30px rgba(255,120,0,0.32); transition: transform .2s, box-shadow .2s; }
+  .olymp-cta { position:relative; overflow:hidden; display: inline-flex; align-items: center; gap: 10px; padding: 13px 28px; border-radius: 12px; background: linear-gradient(135deg,var(--saffron),#7dd3fc); color: #fff; font-family: var(--font-ui); font-weight: 800; font-size: 15px; text-decoration: none; box-shadow: 0 12px 30px rgba(125, 211, 252,0.32); transition: transform .2s, box-shadow .2s; }
   .olymp-cta::before { content:''; position:absolute; top:0; left:-120%; width:60%; height:100%; background: linear-gradient(105deg, transparent, rgba(255,255,255,0.45), transparent); transform: skewX(-18deg); transition: left .6s; }
-  .olymp-cta:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 18px 46px rgba(255,120,0,0.5); }
+  .olymp-cta:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 18px 46px rgba(125, 211, 252,0.5); }
   .olymp-cta:hover::before { left: 130%; }
 
   @media (max-width: 860px) { .olymp { min-height: 0; padding: 64px 0; } .olymp-grid { grid-template-columns: 1fr; } .olymp-facts { grid-template-columns: repeat(2,1fr); } .olymp-footer { flex-direction: column; align-items: stretch; text-align: center; } .olymp-cta { justify-content: center; } .olymp-tagline { justify-content: center; } }
@@ -2207,7 +2252,7 @@
           img: 'assets/char-megan.png',
           initials: 'M',
           color: '#f97316',
-          glow: 'rgba(249,115,22,0.35)',
+          glow: 'rgba(125, 211, 252,0.35)',
           greeting: "HEYYY it’s Megan 👋 I’ll give it to you straight — no cap, no filter 💥 Drop any slang word and I’ll break it down real quick. What are we looking at?",
           respond: function(word, entry) {
             return '“' + word + '”?" Okay so: ' + entry.def + ' 💥\n\nThe thing nobody tells you: ' + entry.tip + ' 🚨';
@@ -2812,5 +2857,72 @@
       }
     })();
   </script>
+  <script>
+    // CASK Bot Scroll Animation
+        // Close Bot UI manually
+    let botClosedManually = false;
+    function closeBotUi() {
+      botClosedManually = true;
+      const section = document.getElementById('caskBotSection');
+      if(section) section.classList.remove('show-bot');
+    }
+
+    // Update scroll logic to respect manual close
+    document.addEventListener('scroll', () => {
+      if(botClosedManually) return;
+      const section = document.getElementById('caskBotSection');
+      if (!section) return;
+      const rect = section.getBoundingClientRect();
+      let progress = (window.innerHeight - rect.top) / rect.height;
+      if (progress > 0.5 && progress < 1.5) {
+        section.classList.add('show-bot');
+      } else {
+        section.classList.remove('show-bot');
+      }
+    });
+
+    // CASK Bot Interaction
+    function sendBotMessage() {
+      const input = document.getElementById('botInput');
+      const messagesContainer = document.getElementById('botMessages');
+      const text = input.value.trim();
+      
+      if (text) {
+        // Add User Message
+        const userMsg = document.createElement('div');
+        userMsg.className = 'bot-message bot-message-user';
+        userMsg.textContent = text;
+        messagesContainer.appendChild(userMsg);
+        
+        input.value = '';
+        
+        // Auto scroll
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+        // Simulate Bot Response
+        setTimeout(() => {
+          const botMsg = document.createElement('div');
+          botMsg.className = 'bot-message bot-message-system';
+          botMsg.textContent = "Thank you for asking! I'm currently a template, but soon I'll be able to answer any questions about Hashtag Suraksha, CASK, and our cybersecurity initiatives.";
+          messagesContainer.appendChild(botMsg);
+          messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }, 1000);
+      }
+    }
+
+    // Enter key to send
+    document.addEventListener('DOMContentLoaded', () => {
+      const botInput = document.getElementById('botInput');
+      if (botInput) {
+        botInput.addEventListener('keypress', (e) => {
+          if (e.key === 'Enter') {
+            sendBotMessage();
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>
+
+
