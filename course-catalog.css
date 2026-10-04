@@ -32436,3 +32436,31 @@ body {
   box-shadow: none !important;
 }
 
+/* Rotating Blue Glow Effect for Dashboard Cards */
+.rotating-glow-wrapper {
+  position: relative !important;
+  padding: 2px !important;
+  border-radius: 1rem !important;
+  overflow: hidden !important;
+  background: transparent !important;
+  margin-bottom: 20px !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.rotating-glow-wrapper::before {
+  content: none !important;
+}
+
+.rotating-glow-inner {
+  position: relative !important;
+  z-index: 2 !important;
+  background-color: var(--bg-card, #1e1e2d) !important; /* using dashboard card bg */
+  border-radius: calc(1rem - 2px) !important;
+  height: 100% !important;
+  width: 100% !important;
+}
+.rotating-glow-inner {
+  background: #060913 !important; /* solid background so glow only shows on border */
+  z-index: 2 !important;
+}

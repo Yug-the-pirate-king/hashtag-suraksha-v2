@@ -470,6 +470,51 @@
     </div>
   </section>
 
+  <!-- CASK BOT SECTION -->
+  <section class="cask-bot-section" id="caskBotSection">
+    <div class="cask-bot-sticky">
+      
+      <!-- Intro screen (matches screenshot) -->
+      <div class="cask-bot-intro" id="caskBotIntro">
+        <div class="cask-bot-bg-pattern"></div>
+        <div class="cask-logos-box" style="z-index: 2;">
+          <img src="assets/meity.svg" alt="MeitY" class="cask-logo-img">
+          <img src="assets/certin.svg" alt="CERT-In" class="cask-logo-img">
+        </div>
+        <div class="cask-letters" style="z-index: 2;">
+          <div class="cask-letter">C</div>
+          <div class="cask-letter">A</div>
+          <div class="cask-letter">S</div>
+          <div class="cask-letter">K</div>
+        </div>
+        <div class="cask-bot-subtitle" style="z-index: 2;">
+          An AI platform created by the National Agency<br>
+          to Empower Our Young Netizens<br>
+          to tackle Cyber Threats in this Digital Age.
+        </div>
+      </div>
+
+      <!-- Bot UI Overlay -->
+      <div class="cask-bot-ui-wrapper" id="caskBotUi">
+        <div class="bot-ui-container">
+          <div class="bot-ui-header">
+            <div class="bot-header-title">CASK AI Assistant</div><button class="bot-close-btn" onclick="closeBotUi()" aria-label="Close Bot UI">?</button>
+          </div>
+          <div class="bot-ui-messages" id="botMessages">
+            <div class="bot-message bot-message-system">
+              Hello! I am CASK, your AI guide to cybersecurity. Ask me anything related to our platform, courses, or national initiatives.
+            </div>
+          </div>
+          <div class="bot-ui-input-area">
+            <input type="text" class="bot-ui-input" id="botInput" placeholder="Ask a question about hashtag suraksha...">
+            <button class="bot-ui-send-btn" onclick="sendBotMessage()">Send</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- ECOSYSTEM VERTICALS -->
   <section class="verticals-section" id="ecosystem">
     <div class="container">
@@ -2812,5 +2857,72 @@
       }
     })();
   </script>
+  <script>
+    // CASK Bot Scroll Animation
+        // Close Bot UI manually
+    let botClosedManually = false;
+    function closeBotUi() {
+      botClosedManually = true;
+      const section = document.getElementById('caskBotSection');
+      if(section) section.classList.remove('show-bot');
+    }
+
+    // Update scroll logic to respect manual close
+    document.addEventListener('scroll', () => {
+      if(botClosedManually) return;
+      const section = document.getElementById('caskBotSection');
+      if (!section) return;
+      const rect = section.getBoundingClientRect();
+      let progress = (window.innerHeight - rect.top) / rect.height;
+      if (progress > 0.5 && progress < 1.5) {
+        section.classList.add('show-bot');
+      } else {
+        section.classList.remove('show-bot');
+      }
+    });
+
+    // CASK Bot Interaction
+    function sendBotMessage() {
+      const input = document.getElementById('botInput');
+      const messagesContainer = document.getElementById('botMessages');
+      const text = input.value.trim();
+      
+      if (text) {
+        // Add User Message
+        const userMsg = document.createElement('div');
+        userMsg.className = 'bot-message bot-message-user';
+        userMsg.textContent = text;
+        messagesContainer.appendChild(userMsg);
+        
+        input.value = '';
+        
+        // Auto scroll
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+        // Simulate Bot Response
+        setTimeout(() => {
+          const botMsg = document.createElement('div');
+          botMsg.className = 'bot-message bot-message-system';
+          botMsg.textContent = "Thank you for asking! I'm currently a template, but soon I'll be able to answer any questions about Hashtag Suraksha, CASK, and our cybersecurity initiatives.";
+          messagesContainer.appendChild(botMsg);
+          messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }, 1000);
+      }
+    }
+
+    // Enter key to send
+    document.addEventListener('DOMContentLoaded', () => {
+      const botInput = document.getElementById('botInput');
+      if (botInput) {
+        botInput.addEventListener('keypress', (e) => {
+          if (e.key === 'Enter') {
+            sendBotMessage();
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>
+
+
